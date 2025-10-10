@@ -226,6 +226,16 @@ export default function TopogramDetail() {
     }
   }, [selectedLayout, nodes.length, edges.length, titleSize])
 
+  // When view visibility changes, ensure Cytoscape fits its container when visible
+  useEffect(() => {
+    const cy = cyRef.current
+    if (!cy) return
+    try {
+      // small timeout to let layout/DOM stabilize
+      setTimeout(() => { if (cy && cy.fit && networkVisible) cy.fit() }, 80)
+    } catch (e) {}
+  }, [networkVisible, geoMapVisible])
+
   // If the document is already present in the client cache (for example because
   // we published all topograms on the list page), render immediately instead
   // of waiting for subscriptions to report ready. This avoids an infinite
@@ -428,6 +438,14 @@ export default function TopogramDetail() {
           const nodesWithGeo = nodes.map(n => ({ n, coords: extractLatLng(n) })).filter(x => x.coords)
           const hasGeo = nodesWithGeo.length > 0
           if (!hasGeo) {
+            // No geo data: show network if enabled, otherwise a placeholder
+            if (!networkVisible) {
+              return (
+                <div style={{ width: '100%', height: '600px', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                  <div>Both views hidden — use the settings panel to show Network or GeoMap.</div>
+                </div>
+              )
+            }
             return (
               <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
                 <CytoscapeComponent
@@ -461,10 +479,44 @@ export default function TopogramDetail() {
             return { ...e, data: { ...e.data, source: s.data.id || s._id, target: t.data.id || t._id } }
           }).filter(Boolean)
 
-          // layout: keep cytoscape component on left (50%) and map on right (50%)
-          return (
-            <div style={{ display: 'flex', gap: 8 }}>
-              <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+          // Decide layout depending on visibility flags
+          const both = networkVisible && geoMapVisible
+          const onlyNetwork = networkVisible && !geoMapVisible
+          const onlyMap = !networkVisible && geoMapVisible
+
+          if (both) {
+            return (
+              <div style={{ display: 'flex', gap: 8 }}>
+                <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+                  <CytoscapeComponent
+                    elements={elements}
+                    style={{ width: '100%', height: '100%' }}
+                    layout={layout}
+                    stylesheet={stylesheet}
+                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                  />
+                </div>
+                <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+                  <TopogramGeoMap
+                    nodes={geoNodes}
+                    edges={geoEdges}
+                    ui={{ selectedElements }}
+                    width={'50vw'}
+                    height={'600px'}
+                    selectElement={(json) => selectElement(json)}
+                    unselectElement={(json) => unselectElement(json)}
+                    onFocusElement={() => {}}
+                    onUnfocusElement={() => {}}
+                  />
+                </div>
+                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
+              </div>
+            )
+          }
+
+          if (onlyNetwork) {
+            return (
+              <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
                 <CytoscapeComponent
                   elements={elements}
                   style={{ width: '100%', height: '100%' }}
@@ -472,20 +524,34 @@ export default function TopogramDetail() {
                   stylesheet={stylesheet}
                   cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
                 />
+                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
               </div>
-              <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
-                      <TopogramGeoMap
-                        nodes={geoNodes}
-                        edges={geoEdges}
-                        ui={{ selectedElements }}
-                        width={'50vw'}
-                        height={'600px'}
-                        selectElement={(json) => selectElement(json)}
-                        unselectElement={(json) => unselectElement(json)}
-                        onFocusElement={() => {}}
-                        onUnfocusElement={() => {}}
-                      />
+            )
+          }
+
+          if (onlyMap) {
+            return (
+              <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+                <TopogramGeoMap
+                  nodes={geoNodes}
+                  edges={geoEdges}
+                  ui={{ selectedElements }}
+                  width={'100%'}
+                  height={'600px'}
+                  selectElement={(json) => selectElement(json)}
+                  unselectElement={(json) => unselectElement(json)}
+                  onFocusElement={() => {}}
+                  onUnfocusElement={() => {}}
+                />
+                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
               </div>
+            )
+          }
+
+          // Neither pane visible: show a placeholder with settings handle
+          return (
+            <div style={{ width: '100%', height: '600px', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+              <div>Both views hidden — use the settings panel (top-right) to show them.</div>
               <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
             </div>
           )
