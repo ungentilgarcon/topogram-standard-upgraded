@@ -54,6 +54,13 @@ export default function TopogramDetail() {
   const cyRef = useRef(null)
   // Selected elements shared between Cytoscape and GeoMap
   const [selectedElements, setSelectedElements] = useState([])
+  // Panel visibility flags (persisted in localStorage and controllable from PanelSettings)
+  const [geoMapVisible, setGeoMapVisible] = useState(() => {
+    try { return window.localStorage && window.localStorage.getItem('topo.geoMapVisible') === 'true' } catch (e) { return false }
+  })
+  const [networkVisible, setNetworkVisible] = useState(() => {
+    try { return window.localStorage && window.localStorage.getItem('topo.networkVisible') !== 'false' } catch (e) { return true }
+  })
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -178,6 +185,20 @@ export default function TopogramDetail() {
       try { cy.removeListener('select', onSelect); cy.removeListener('unselect', onUnselect) } catch (e) {}
     }
   }, [cyRef.current])
+
+  // Listen for panel toggle events dispatched by PanelSettings
+  useEffect(() => {
+    const handler = (evt) => {
+      try {
+        const d = evt && evt.detail
+        if (!d) return
+        if (typeof d.geoMapVisible === 'boolean') setGeoMapVisible(d.geoMapVisible)
+        if (typeof d.networkVisible === 'boolean') setNetworkVisible(d.networkVisible)
+      } catch (e) { console.warn('panelToggle handler error', e) }
+    }
+    window.addEventListener('topo:panelToggle', handler)
+    return () => window.removeEventListener('topo:panelToggle', handler)
+  }, [])
 
   // (stylesheet will be built after we compute numeric weights from nodes)
 
