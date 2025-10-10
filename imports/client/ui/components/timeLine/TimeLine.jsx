@@ -144,13 +144,15 @@
                                   onChangeCommitted={(newRange) => {
                                     // newRange is [min, max] in ms
                                     const [vmin, vmax] = Array.isArray(newRange) ? newRange : [null, null]
-                                    // update both the persisted min/max and the interactive valueRange
+                                    // Only update the interactive selection (valueRange).
+                                    // Do NOT change the primary minTime/maxTime bounds here.
                                     try {
-                                      // Prefer updateUI merge semantics used elsewhere
                                       if (typeof this.props.updateUI === 'function') {
-                                        this.props.updateUI({ valueRange: [vmin, vmax], minTime: vmin, maxTime: vmax })
+                                        this.props.updateUI({ valueRange: [vmin, vmax] })
                                       }
-                                    } catch (e) { console.warn('TimeLine: failed to updateUI from slider', e) }
+                                    } catch (e) {
+                                      console.warn('TimeLine: failed to updateUI from slider', e)
+                                    }
                                   }}
                                 />
                               ) : null}
