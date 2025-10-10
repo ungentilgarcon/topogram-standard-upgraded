@@ -381,16 +381,18 @@ export default function TopogramDetail() {
         const vizId = nodeMap.get(String((node.data && node.data.id) || node.id || node._id)) || String(node._id)
         const label = (node.data && (node.data.name || node.data.label)) || node.name || node.label || node.id
         // pick a color from several commonly-used fields in legacy docs
-        const color = (node.data && (node.data.color || node.data.fillColor || node.data.fill || node.data.backgroundColor || node.data.bg || node.data.colour || node.data.hex)) || null
-  const rawWeight = node.data && (node.data.weight || (node.data.rawData && node.data.rawData.weight))
-  const el = { data: { id: String(vizId), label, color, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight } }
+        const color = (node.data && (node.data.color || node.data.fillColor || node.data.fill || node.data.backgroundColor || node.data.bg || node.data.colour || node.data.hex))
+        const rawWeight = node.data && (node.data.weight || (node.data.rawData && node.data.rawData.weight))
+        const data = { id: String(vizId), label, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight }
+        if (color != null) data.color = color
+        const el = { data }
         // If the node document contains a saved position, pass it through
         // to Cytoscape as `position: { x, y }` so the 'preset' layout works.
         if (node.position && typeof node.position.x === 'number' && typeof node.position.y === 'number') {
           el.position = { x: node.position.x, y: node.position.y }
         }
         return el
-      })
+      }).filter(Boolean)
 
       // map edges and attempt to resolve their endpoints against nodeMap
       const edgeEls = edges.map(edge => {
@@ -405,8 +407,10 @@ export default function TopogramDetail() {
           return null
         }
         // accept an explicit color on edges too (common variants)
-        const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor)) || null
-        return { data: { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt), color: ecolor } }
+        const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
+        const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
+        if (ecolor != null) data.color = ecolor
+        return { data }
       }).filter(Boolean)
 
       const allEls = [...nodeEls, ...edgeEls]
@@ -557,7 +561,8 @@ export default function TopogramDetail() {
 
           // build a lightweight geo-nodes/edges list matching the structures expected by TopogramGeoMap
           // We'll derive coords into node.data.lat/lng and attach data.selected based on elements selection if any
-          const geoNodes = nodesWithGeo.map(({n, coords}) => ({ ...n, data: { ...n.data, lat: coords[0], lng: coords[1] } }))
+          // Filter geo nodes to match the active timeline range as well
+          const geoNodes = nodesWithGeo.map(({n, coords}) => ({ n, coords })).filter(x => nodeInRange(x.n)).map(({n, coords}) => ({ ...n, data: { ...n.data, lat: coords[0], lng: coords[1] } }))
           // For edges, attempt to resolve endpoints via data.source/data.target or top-level source/target
           const geoEdges = edges.map(e => {
             const rawSrc = (e.data && (e.data.source || e.data.from)) || e.source || e.from
