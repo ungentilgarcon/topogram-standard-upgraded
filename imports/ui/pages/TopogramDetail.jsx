@@ -6,6 +6,7 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 import cola from 'cytoscape-cola';
 import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
+import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
 
 cytoscape.use(cola);
 
@@ -395,8 +396,8 @@ export default function TopogramDetail() {
 
       {/* If geo is present, render a split view: network on left, map on right */}
       {/** Decide if any node has geo coords **/}
-      {
-        (() => {
+          {
+            (() => {
           // Helper to detect lat/lng in node.data under common legacy fields
           const extractLatLng = (n) => {
             if (!n || !n.data) return null
@@ -485,6 +486,7 @@ export default function TopogramDetail() {
                         onUnfocusElement={() => {}}
                       />
               </div>
+              <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
             </div>
           )
         })()
