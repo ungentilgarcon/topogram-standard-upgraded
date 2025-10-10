@@ -10,10 +10,10 @@ import GeoNodes from './GeoNodes.jsx'
 import GeoEdges from './GeoEdges.jsx'
 
 const MAP_DIV_ID = 'map'
+// Use relative positioning so the map fills its wrapper instead of being fixed to the viewport
 const divMapStyle = {
-  position: 'fixed',
-  top: '0',
-  zIndex : 0
+  position: 'relative',
+  zIndex: 0
 }
 
 export default class GeoMap extends React.Component {
@@ -101,8 +101,7 @@ export default class GeoMap extends React.Component {
       onUnfocusElement
     } = this.props
 
-    const left = width === '50vw' ? '50vw' : 0
-    const containerStyle = Object.assign({}, divMapStyle, { left, height, width })
+  const containerStyle = Object.assign({}, divMapStyle, { height, width, display: 'block' })
 
     const selected = (this.props.ui && this.props.ui.selectedElements) ? this.props.ui.selectedElements : []
     const selectedNodeIds = new Set(
