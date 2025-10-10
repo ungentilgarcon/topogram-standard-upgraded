@@ -561,7 +561,7 @@ export default function TopogramDetail() {
           // build a lightweight geo-nodes/edges list matching the structures expected by TopogramGeoMap
           // We'll derive coords into node.data.lat/lng and attach data.selected based on elements selection if any
           // Filter geo nodes to match the active timeline range as well
-          const geoNodes = nodesWithGeo.map(({n, coords}) => ({ n, coords })).filter(x => nodeInRange(x.n)).map(({n, coords}) => ({ ...n, data: { ...n.data, lat: coords[0], lng: coords[1] } }))
+          const geoNodes = nodesWithGeo.map(({n, coords}) => ({ n, coords })).filter(x => isNodeInRange(x.n)).map(({n, coords}) => ({ ...n, data: { ...n.data, lat: coords[0], lng: coords[1] } }))
           // For edges, attempt to resolve endpoints via data.source/data.target or top-level source/target
           const geoEdges = edges.map(e => {
             const rawSrc = (e.data && (e.data.source || e.data.from)) || e.source || e.from
