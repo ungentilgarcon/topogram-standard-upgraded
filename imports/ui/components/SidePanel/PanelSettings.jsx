@@ -1,5 +1,4 @@
 import React from 'react'
-import Subheader from 'material-ui/Subheader'
 
 import PanelSelector from '../panelSelector/PanelSelector.jsx'
 
@@ -18,7 +17,7 @@ const PanelSettings = ({
   router
 }) => (
   <span>
-    <Subheader>Settings</Subheader>
+    <div style={{ fontSize: 14, fontWeight: 600, color: '#2e7d32', marginBottom: 8 }}>Settings</div>
 
     {/* Quick toggles (green theme) to show/hide map and network panes */}
     <div style={{ display: 'flex', gap: 8, margin: '8px 0' }}>
