@@ -7,6 +7,7 @@ import cytoscape from 'cytoscape';
 import cola from 'cytoscape-cola';
 import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
 import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
+import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 
 cytoscape.use(cola);
 
@@ -201,6 +202,81 @@ export default function TopogramDetail() {
     return () => window.removeEventListener('topo:panelToggle', handler)
   }, [])
 
+  // Detect if nodes carry time information (common legacy fields: start/end/time/date)
+  const hasTimeInfo = nodes.some(n => {
+    if (!n || !n.data) return false
+    const d = n.data
+    return (!!d.start || !!d.end || !!d.time || !!d.date || !!d.from || !!d.to)
+  })
+
+  // Minimal UI state and updater used by the legacy TimeLine component.
+  const [timelineUI, setTimelineUI] = useState(() => ({
+    minTime: null,
+    maxTime: null,
+    valueRange: [null, null]
+  }))
+
+  const updateUI = (a, b) => {
+    // Accept either (key, value) or (object)
+    if (typeof a === 'string') {
+      const key = a
+      let value = b
+      // normalize Date -> ms
+      if (value instanceof Date) value = value.getTime()
+      setTimelineUI(prev => ({ ...prev, [key]: value }))
+      return
+    }
+    if (typeof a === 'object' && a !== null) {
+      const obj = Object.assign({}, a)
+      // convert date-like fields to ms
+      if (obj.minTime instanceof Date) obj.minTime = obj.minTime.getTime()
+      if (obj.maxTime instanceof Date) obj.maxTime = obj.maxTime.getTime()
+      if (Array.isArray(obj.valueRange)) obj.valueRange = obj.valueRange.map(v => (v instanceof Date ? v.getTime() : v))
+      setTimelineUI(prev => ({ ...prev, ...obj }))
+      return
+    }
+  }
+
+  // Initialize timeline UI min/max when nodes change and time info is present
+  useEffect(() => {
+    if (!hasTimeInfo || !nodes || nodes.length === 0) return
+    const times = []
+    nodes.forEach(n => {
+      if (!n || !n.data) return
+      const d = n.data
+      const pushIf = (v) => {
+        if (v == null) return
+        const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
+        if (Number.isFinite(t)) times.push(t)
+      }
+      pushIf(d.start)
+      pushIf(d.end)
+      pushIf(d.time)
+      pushIf(d.date)
+      pushIf(d.from)
+      pushIf(d.to)
+    })
+    if (!times.length) return
+    const min = Math.min(...times)
+    const max = Math.max(...times)
+    setTimelineUI(prev => ({
+      minTime: prev.minTime || min,
+      maxTime: prev.maxTime || max,
+      valueRange: (Array.isArray(prev.valueRange) && prev.valueRange[0] != null && prev.valueRange[1] != null) ? prev.valueRange : [min, max]
+    }))
+  }, [nodes.length])
+
+  // When timeline panel is visible, bump the leaflet control bottom offset so controls don't overlap
+  useEffect(() => {
+    const visible = hasTimeInfo && timelineUI && timelineUI.minTime != null && timelineUI.maxTime != null
+    const el = typeof document !== 'undefined' ? document.getElementById('timeline-panel') : null
+    const height = el ? el.offsetHeight : (visible ? 120 : 10)
+    try { document.documentElement.style.setProperty('--timeline-offset', `${height + 12}px`) } catch (e) {}
+    return () => {
+      // do not reset here; keep the offset until next change
+    }
+  }, [hasTimeInfo, timelineUI.minTime, timelineUI.maxTime])
+
   // (stylesheet will be built after we compute numeric weights from nodes)
 
   // When selectedLayout, node/edge counts or titleSize change, trigger the Cytoscape layout if we have an instance.
@@ -374,15 +450,7 @@ export default function TopogramDetail() {
       <h1>{top.title || top.name || 'Topogram'}</h1>
       {top.description ? <p>{top.description}</p> : null}
       <p><Link to="/">Back to list</Link></p>
-      {/* Temporary visible debug panel so you can see what arrived in Minimongo */}
-      <div style={{ marginBottom: 12, padding: 8, border: '1px dashed #ddd', background: '#fafafa' }}>
-        <strong>Debug</strong>
-        <div>isReady: {String(isReady())} — tops: {tops.length}, nodes: {nodes.length}, edges: {edges.length}</div>
-        <details style={{ marginTop: 8 }}>
-          <summary>Show sample documents</summary>
-          <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify({ tops: tops.slice(0,3), nodes: nodes.slice(0,6), edges: edges.slice(0,6) }, null, 2)}</pre>
-        </details>
-      </div>
+      {/* controls row */}
 
       <div style={{ marginBottom: 8, display: 'flex', gap: 12, alignItems: 'center' }}>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
@@ -509,7 +577,7 @@ export default function TopogramDetail() {
                     onUnfocusElement={() => {}}
                   />
                 </div>
-                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
+                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
           }
@@ -524,7 +592,7 @@ export default function TopogramDetail() {
                   stylesheet={stylesheet}
                   cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
                 />
-                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
+                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
           }
@@ -543,7 +611,7 @@ export default function TopogramDetail() {
                   onFocusElement={() => {}}
                   onUnfocusElement={() => {}}
                 />
-                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
+                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
           }
@@ -552,11 +620,26 @@ export default function TopogramDetail() {
           return (
             <div style={{ width: '100%', height: '600px', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <div>Both views hidden — use the settings panel (top-right) to show them.</div>
-              <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} />
+              <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
             </div>
           )
         })()
       }
+
+      {/* Debug panel moved below the visualization panes */}
+      <div style={{ marginTop: 12, padding: 8, border: '1px dashed #ddd', background: '#fafafa' }}>
+        <strong>Debug</strong>
+        <div>isReady: {String(isReady())} — tops: {tops.length}, nodes: {nodes.length}, edges: {edges.length}</div>
+        <details style={{ marginTop: 8 }}>
+          <summary>Show sample documents</summary>
+          <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify({ tops: tops.slice(0,3), nodes: nodes.slice(0,6), edges: edges.slice(0,6) }, null, 2)}</pre>
+        </details>
+      </div>
+
+      {/* Timeline: render when this topogram appears to have time info */}
+      { hasTimeInfo ? (
+        <TimeLine hasTimeInfo={true} ui={timelineUI} updateUI={updateUI} />
+      ) : null }
     </div>
   );
 }
