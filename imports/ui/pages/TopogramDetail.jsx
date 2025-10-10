@@ -628,8 +628,13 @@ export default function TopogramDetail() {
         })()
       }
 
-      {/* Debug panel moved below the visualization panes */}
-      <div style={{ marginTop: 12, padding: 8, border: '1px dashed #ddd', background: '#fafafa' }}>
+      {/* Timeline: render when this topogram appears to have time info */}
+      { hasTimeInfo ? (
+        <TimeLine hasTimeInfo={true} ui={timelineUI} updateUI={updateUI} />
+      ) : null }
+
+      {/* Debug panel (render last so it's below visual overlays) */}
+      <div style={{ marginTop: 12, padding: 8, border: '1px dashed #ddd', background: '#fafafa', position: 'relative', zIndex: 0 }}>
         <strong>Debug</strong>
         <div>isReady: {String(isReady())} — tops: {tops.length}, nodes: {nodes.length}, edges: {edges.length}</div>
         <details style={{ marginTop: 8 }}>
@@ -637,11 +642,6 @@ export default function TopogramDetail() {
           <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify({ tops: tops.slice(0,3), nodes: nodes.slice(0,6), edges: edges.slice(0,6) }, null, 2)}</pre>
         </details>
       </div>
-
-      {/* Timeline: render when this topogram appears to have time info */}
-      { hasTimeInfo ? (
-        <TimeLine hasTimeInfo={true} ui={timelineUI} updateUI={updateUI} />
-      ) : null }
     </div>
   );
 }

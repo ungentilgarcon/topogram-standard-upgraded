@@ -21,7 +21,7 @@
       display: 'inline-block',
       boxShadow: '1px 1px 8px  #000',
       border: '1px solid #222',
-      backgroundColor: 'rgba(69,90,100 ,0.7)',
+      backgroundColor: 'rgba(40,55,63,0.85)',
       borderTopRightRadius: '20px',
       borderBottomRightRadius: '5px',
       padding: '6px 12px'
