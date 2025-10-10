@@ -53,8 +53,25 @@
       render() {
         const { ui, hasTimeInfo } = this.props
         if (!ui) return null
-        const minTime = ui.minTime
-        const maxTime = ui.maxTime
+        // Coerce min/max to millisecond timestamps (accept Date object, number, or ISO string)
+        const coerceToMs = (v) => {
+          if (v == null) return null
+          if (typeof v === 'number') return v
+          try {
+            const dt = new Date(v)
+            const t = dt.getTime()
+            return Number.isFinite(t) ? t : null
+          } catch (e) { return null }
+        }
+
+        const minTime = coerceToMs(ui.minTime)
+        const maxTime = coerceToMs(ui.maxTime)
+
+        // Debug: log UI props and panel visibility/size
+        try {
+          const el = (typeof document !== 'undefined') ? document.getElementById('timeline-panel') : null
+          console.info('TOPOGRAM: TimeLine render', { uiPreview: { minTime: ui.minTime, maxTime: ui.maxTime, valueRange: ui.valueRange }, coerced: { minTime, maxTime }, panelExists: !!el, panelHeight: el ? el.offsetHeight : null })
+        } catch (e) {}
 
         return (
           <Card id="timeline-panel" style={styleTimeLine}>
@@ -120,7 +137,7 @@
                             <DatePicker onChange={this.handleChangeMaxTime} ref={(el) => { this._maxDatePicker = el }} autoOk textFieldStyle={{ display: 'none' }} floatingLabelText="Max Date" value={maxTime} />
                             <CardText style={{ paddingTop: 4, paddingBottom: 0 }}>
                               {minTime && maxTime ? (
-                                <TimeSlider minTime={new Date(minTime).getTime()} maxTime={new Date(maxTime).getTime()} />
+                                <TimeSlider minTime={minTime} maxTime={maxTime} />
                               ) : null}
                             </CardText>
                           </span>

@@ -67,7 +67,11 @@ export default function ui(options = {}) {
       }
     }
 
-    const mapState = (state) => ({ ui: state.ui || {} })
+  // Prefer an explicitly passed `ui` prop from the parent (ownProps) over the
+  // Redux `state.ui` value. This keeps components that pass a local `ui`
+  // (like TopogramDetail's timelineUI) working without being overridden by
+  // the connected store value.
+  const mapState = (state, ownProps) => ({ ui: (typeof ownProps.ui !== 'undefined') ? ownProps.ui : (state.ui || {}) })
 
     const mapDispatch = (dispatch) => ({
       updateUI: (arg1, arg2) => {

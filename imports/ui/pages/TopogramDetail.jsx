@@ -264,6 +264,8 @@ export default function TopogramDetail() {
       maxTime: prev.maxTime || max,
       valueRange: (Array.isArray(prev.valueRange) && prev.valueRange[0] != null && prev.valueRange[1] != null) ? prev.valueRange : [min, max]
     }))
+    // Debug: log the numeric defaults we will apply (so console shows numbers, not closures)
+    try { console.info('TOPOGRAM: TopogramDetail will apply timeline defaults', { min, max, valueRange: [min, max], nodesCount: nodes.length }) } catch (e) {}
   }, [nodes.length])
 
   // When timeline panel is visible, bump the leaflet control bottom offset so controls don't overlap
