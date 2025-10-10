@@ -52,6 +52,132 @@ export default function TopogramDetail() {
   const [titleSize, setTitleSize] = useState(12)
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
+  // Selected elements shared between Cytoscape and GeoMap
+  const [selectedElements, setSelectedElements] = useState([])
+
+  // Helper: canonical key for an element JSON (node or edge)
+  const canonicalKey = (json) => {
+    if (!json || !json.data) return null
+    const d = json.data
+    // node vs edge detection: edges typically have source/target
+    if (d.source != null || d.target != null) {
+      const id = d.id != null ? String(d.id) : `${String(d.source)}|${String(d.target)}`
+      return `edge:${id}`
+    }
+    const id = d.id != null ? String(d.id) : (json._id != null ? String(json._id) : null)
+    return id ? `node:${id}` : null
+  }
+
+  const isSelectedKey = (key) => selectedElements.some(e => canonicalKey(e) === key)
+
+  // selectElement/unselectElement are used by GeoMap (and can be used programmatically)
+  const selectElement = (json) => {
+    const key = canonicalKey(json)
+    if (!key) return
+    if (isSelectedKey(key)) return
+    setSelectedElements(prev => [...prev, json])
+    // ensure Cytoscape selection visual state
+    try {
+      const cy = cyRef.current
+      if (cy) {
+        if (key.startsWith('node:')) {
+          const id = key.slice(5).replace(/'/g, "\\'")
+          const el = cy.filter(`node[id='${id}']`)
+          if (el && el.length) el.select()
+        } else if (key.startsWith('edge:')) {
+          const id = key.slice(5).replace(/'/g, "\\'")
+          let el = cy.filter(`edge[id='${id}']`)
+          if (!el || el.length === 0) {
+            // try source/target pair
+            const parts = id.split('|')
+            if (parts.length === 2) {
+              const s = parts[0].replace(/"/g, '\\"').replace(/'/g, "\\'")
+              const t = parts[1].replace(/"/g, '\\"').replace(/'/g, "\\'")
+              el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
+            }
+          }
+          if (el && el.length) el.select()
+        }
+      }
+    } catch (e) {
+      console.warn('selectElement: cy selection failed', e)
+    }
+  }
+
+  const unselectElement = (json) => {
+    const key = canonicalKey(json)
+    if (!key) return
+    setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key))
+    try {
+      const cy = cyRef.current
+      if (cy) {
+        if (key.startsWith('node:')) {
+          const id = key.slice(5).replace(/'/g, "\\'")
+          const el = cy.filter(`node[id='${id}']`)
+          if (el && el.length) el.unselect()
+        } else if (key.startsWith('edge:')) {
+          const id = key.slice(5).replace(/'/g, "\\'")
+          let el = cy.filter(`edge[id='${id}']`)
+          if (!el || el.length === 0) {
+            const parts = id.split('|')
+            if (parts.length === 2) {
+              const s = parts[0].replace(/"/g, '\\"').replace(/'/g, "\\'")
+              const t = parts[1].replace(/"/g, '\\"').replace(/'/g, "\\'")
+              el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
+            }
+          }
+          if (el && el.length) el.unselect()
+        }
+      }
+    } catch (e) {
+      console.warn('unselectElement: cy unselect failed', e)
+    }
+  }
+
+  // Keep Cytoscape event listeners in sync with state: when cy instance appears, attach select/unselect handlers
+  useEffect(() => {
+    const cy = cyRef.current
+    if (!cy) return
+    const onSelect = (evt) => {
+      try {
+        const json = evt.target.json()
+        // normalize json to include group for GeoMap expectations
+        const j = Object.assign({}, json)
+        j.group = evt.target.isNode ? 'nodes' : 'edges'
+        selectElement(j)
+      } catch (e) { console.warn('cy select handler error', e) }
+    }
+    const onUnselect = (evt) => {
+      try {
+        const json = evt.target.json()
+        const j = Object.assign({}, json)
+        j.group = evt.target.isNode ? 'nodes' : 'edges'
+        unselectElement(j)
+      } catch (e) { console.warn('cy unselect handler error', e) }
+    }
+    cy.on('select', 'node, edge', onSelect)
+    cy.on('unselect', 'node, edge', onUnselect)
+    // apply any currently selectedElements onto cy visuals
+    try {
+      selectedElements.forEach(se => {
+        const key = canonicalKey(se)
+        if (!key) return
+        if (key.startsWith('node:')) {
+          const id = key.slice(5).replace(/'/g, "\\'")
+          const el = cy.filter(`node[id='${id}']`)
+          if (el && el.length) el.select()
+        } else if (key.startsWith('edge:')) {
+          const id = key.slice(5).replace(/'/g, "\\'")
+          const el = cy.filter(`edge[id='${id}']`)
+          if (el && el.length) el.select()
+        }
+      })
+    } catch (e) {}
+
+    return () => {
+      try { cy.removeListener('select', onSelect); cy.removeListener('unselect', onUnselect) } catch (e) {}
+    }
+  }, [cyRef.current])
 
   // (stylesheet will be built after we compute numeric weights from nodes)
 
@@ -326,17 +452,17 @@ export default function TopogramDetail() {
                 />
               </div>
               <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
-                <TopogramGeoMap
-                  nodes={geoNodes}
-                  edges={geoEdges}
-                  ui={{ selectedElements: [] }}
-                  width={'50vw'}
-                  height={'600px'}
-                  selectElement={(json) => { /* intentionally no-op: selection sync can be added later */ }}
-                  unselectElement={(json) => {}}
-                  onFocusElement={() => {}}
-                  onUnfocusElement={() => {}}
-                />
+                      <TopogramGeoMap
+                        nodes={geoNodes}
+                        edges={geoEdges}
+                        ui={{ selectedElements }}
+                        width={'50vw'}
+                        height={'600px'}
+                        selectElement={(json) => selectElement(json)}
+                        unselectElement={(json) => unselectElement(json)}
+                        onFocusElement={() => {}}
+                        onUnfocusElement={() => {}}
+                      />
               </div>
             </div>
           )
