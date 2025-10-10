@@ -53,7 +53,7 @@ export default function SidePanelWrapper({ geoMapVisible=false, networkVisible=t
       </div>
       {open ? (
         <div style={{ marginTop: 48 }}>
-          <PanelSettings geoMapVisible={geoMapVisible} hasGeoInfo={hasGeoInfo} />
+          <PanelSettings geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={hasGeoInfo} />
         </div>
       ) : null}
     </div>

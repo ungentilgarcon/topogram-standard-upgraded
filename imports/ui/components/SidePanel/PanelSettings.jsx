@@ -8,6 +8,7 @@ import Settings from './settings/Settings.jsx'
 
 const PanelSettings = ({
   geoMapVisible,
+  networkVisible,
   authorIsLoggedIn,
   topogramId,
   topogramTitle,
@@ -71,10 +72,12 @@ const PanelSettings = ({
       </button>
 
       <button
-        aria-pressed={networkVisible}
+        aria-pressed={typeof networkVisible !== 'undefined' ? networkVisible : (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.networkVisible') === 'true' : false)}
         onClick={() => {
           try {
-            const next = !networkVisible
+            // prefer prop when provided, otherwise read current value from localStorage
+            const cur = typeof networkVisible !== 'undefined' ? networkVisible : (window.localStorage ? window.localStorage.getItem('topo.networkVisible') === 'true' : false)
+            const next = !cur
             window.localStorage && window.localStorage.setItem('topo.networkVisible', String(next))
             window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { networkVisible: next } }))
           } catch (e) { console.warn('toggle networkVisible failed', e) }
