@@ -71,7 +71,13 @@ export default function ui(options = {}) {
   // Redux `state.ui` value. This keeps components that pass a local `ui`
   // (like TopogramDetail's timelineUI) working without being overridden by
   // the connected store value.
-  const mapState = (state, ownProps) => ({ ui: (typeof ownProps.ui !== 'undefined') ? ownProps.ui : (state.ui || {}) })
+    const mapState = (state, ownProps) => {
+      // If the parent explicitly passed a `ui` prop, do not inject `ui` from
+      // Redux state. Returning an empty object here prevents the connected
+      // component from overwriting the parent's `ui` prop.
+      if (typeof ownProps.ui !== 'undefined') return {}
+      return { ui: state.ui || {} }
+    }
 
     const mapDispatch = (dispatch) => ({
       updateUI: (arg1, arg2) => {
