@@ -420,6 +420,14 @@ export default function TopogramDetail() {
       return { elements: allEls, layout }
     })()
 
+    // A compact key derived from the active timeline range so we can force
+    // remounting Cytoscape when the user changes the slider. Some versions
+    // of react-cytoscapejs/Cytoscape don't always diff elements reliably, so
+    // forcing a remount is a simple reliable solution.
+    const timelineKey = (timelineUI && Array.isArray(timelineUI.valueRange) && timelineUI.valueRange[0] != null && timelineUI.valueRange[1] != null)
+      ? `tl:${timelineUI.valueRange[0]}-${timelineUI.valueRange[1]}`
+      : `tl:all`;
+
   // normalize and map weights into node data and build stylesheet using min/max
   // Helper: normalize weight string by detecting repeating units
   const normalizeWeight = (raw) => {
@@ -545,6 +553,7 @@ export default function TopogramDetail() {
             return (
               <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
                 <CytoscapeComponent
+                  key={timelineKey}
                   elements={elements}
                   style={{ width: '100%', height: '100%' }}
                   layout={layout}
@@ -586,6 +595,7 @@ export default function TopogramDetail() {
               <div style={{ display: 'flex', gap: 8 }}>
                 <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
                   <CytoscapeComponent
+                    key={timelineKey}
                     elements={elements}
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
@@ -615,6 +625,7 @@ export default function TopogramDetail() {
             return (
               <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
                 <CytoscapeComponent
+                  key={timelineKey}
                   elements={elements}
                   style={{ width: '100%', height: '100%' }}
                   layout={layout}

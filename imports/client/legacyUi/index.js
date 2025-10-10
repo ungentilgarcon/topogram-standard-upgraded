@@ -79,17 +79,25 @@ export default function ui(options = {}) {
       return { ui: state.ui || {} }
     }
 
-    const mapDispatch = (dispatch) => ({
-      updateUI: (arg1, arg2) => {
-        // Supports updateUI({ a: 1 }) and updateUI('a', 1)
-        if (arg1 && typeof arg1 === 'object') {
-          dispatch({ type: UI_MERGE, payload: arg1 })
-        } else if (typeof arg1 === 'string') {
-          dispatch({ type: UI_SET, key: arg1, value: arg2 })
+    const mapDispatch = (dispatch, ownProps) => {
+      // If the parent already provides an `updateUI` prop, do not inject a
+      // different one from Redux; this preserves parent-local handlers (e.g.
+      // TopogramDetail's updateUI) so they continue to work.
+      const out = {
+        __initUI: (defaultsObj) => dispatch({ type: UI_INIT, payload: defaultsObj || {} })
+      }
+      if (typeof ownProps.updateUI === 'undefined') {
+        out.updateUI = (arg1, arg2) => {
+          // Supports updateUI({ a: 1 }) and updateUI('a', 1)
+          if (arg1 && typeof arg1 === 'object') {
+            dispatch({ type: UI_MERGE, payload: arg1 })
+          } else if (typeof arg1 === 'string') {
+            dispatch({ type: UI_SET, key: arg1, value: arg2 })
+          }
         }
-      },
-      __initUI: (defaultsObj) => dispatch({ type: UI_INIT, payload: defaultsObj || {} }),
-    })
+      }
+      return out
+    }
 
     return connect(mapState, mapDispatch)(UICompat)
   }
