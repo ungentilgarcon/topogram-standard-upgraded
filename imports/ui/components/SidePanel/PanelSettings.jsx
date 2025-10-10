@@ -19,37 +19,69 @@ const PanelSettings = ({
   <span>
     <div style={{ fontSize: 14, fontWeight: 600, color: '#2e7d32', marginBottom: 8 }}>Settings</div>
 
-    {/* Quick toggles (green theme) to show/hide map and network panes */}
+    {/* Option buttons (open the options panels) */}
+    <div style={{ display: 'flex', gap: 8, margin: '8px 0' }}>
+      <button
+        aria-pressed={false}
+        disabled={!hasGeoInfo}
+        onClick={() => {
+          try {
+            const cur = window.localStorage ? window.localStorage.getItem('topo.geoMapOptionsVisible') : null
+            const next = cur === 'true' ? false : true
+            window.localStorage && window.localStorage.setItem('topo.geoMapOptionsVisible', String(next))
+            window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { geoMapOptionsVisible: next } }))
+          } catch (e) { console.warn('toggle geoMapOptionsVisible failed', e) }
+        }}
+        style={{ background: hasGeoInfo ? '#2e7d32' : '#bdbdbd', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: hasGeoInfo ? 'pointer' : 'not-allowed' }}
+      >
+        { hasGeoInfo ? 'Geomap options' : 'No Geo' }
+      </button>
+
+      <button
+        aria-pressed={false}
+        onClick={() => {
+          try {
+            const cur = window.localStorage ? window.localStorage.getItem('topo.networkOptionsVisible') : null
+            const next = cur === 'true' ? false : true
+            window.localStorage && window.localStorage.setItem('topo.networkOptionsVisible', String(next))
+            window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { networkOptionsVisible: next } }))
+          } catch (e) { console.warn('toggle networkOptionsVisible failed', e) }
+        }}
+        style={{ background: '#2e7d32', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
+      >
+        Network options
+      </button>
+    </div>
+
+    {/* View show/hide buttons (show or hide the actual GeoMap / Network panes) */}
     <div style={{ display: 'flex', gap: 8, margin: '8px 0' }}>
       <button
         aria-pressed={geoMapVisible}
         disabled={!hasGeoInfo}
         onClick={() => {
           try {
-            const cur = window.localStorage ? window.localStorage.getItem('topo.geoMapVisible') : null
-            const next = cur === null ? false : !(cur === 'true')
+            const next = !geoMapVisible
             window.localStorage && window.localStorage.setItem('topo.geoMapVisible', String(next))
             window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { geoMapVisible: next } }))
           } catch (e) { console.warn('toggle geoMapVisible failed', e) }
         }}
-        style={{ background: hasGeoInfo ? '#2e7d32' : '#bdbdbd', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: hasGeoInfo ? 'pointer' : 'not-allowed' }}
+        style={{ background: hasGeoInfo ? '#1b5e20' : '#bdbdbd', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: hasGeoInfo ? 'pointer' : 'not-allowed' }}
       >
-        { hasGeoInfo ? 'Toggle GeoMap' : 'No Geo' }
+        { geoMapVisible ? 'Hide GeoMap' : 'Show GeoMap' }
       </button>
 
       <button
-        aria-pressed={true}
+        aria-pressed={networkVisible}
         onClick={() => {
           try {
-            const cur = window.localStorage ? window.localStorage.getItem('topo.networkVisible') : null
-            const next = cur === null ? false : !(cur === 'true')
+            const next = !networkVisible
             window.localStorage && window.localStorage.setItem('topo.networkVisible', String(next))
             window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { networkVisible: next } }))
           } catch (e) { console.warn('toggle networkVisible failed', e) }
         }}
-        style={{ background: '#2e7d32', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
+        style={{ background: '#1b5e20', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
       >
-        Toggle Network
+        { networkVisible ? 'Hide Network' : 'Show Network' }
       </button>
     </div>
 
