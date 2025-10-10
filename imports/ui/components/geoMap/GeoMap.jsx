@@ -1,0 +1,233 @@
+import React from 'react'
+import PropTypes from 'prop-types'
+import { MapContainer, TileLayer, ScaleControl, ZoomControl, Pane } from 'react-leaflet'
+
+import 'leaflet/dist/leaflet.css'
+import './GeoMap.css'
+
+import mapTiles from './mapTiles'
+import GeoNodes from './GeoNodes.jsx'
+import GeoEdges from './GeoEdges.jsx'
+
+const MAP_DIV_ID = 'map'
+const divMapStyle = {
+  position: 'fixed',
+  top: '0',
+  zIndex : 0
+}
+
+export default class GeoMap extends React.Component {
+
+  constructor(props) {
+    super(props)
+    this.state = {
+      zoom : 2.4,
+      position : [20.505, 22]
+    }
+    this._tileErrorCount = 0
+    this._lastTileKey = null
+  }
+
+  static propTypes = {
+    nodes : PropTypes.array,
+    edges : PropTypes.array,
+    width : PropTypes.string.isRequired,
+    height : PropTypes.string.isRequired,
+    selectElement : PropTypes.func.isRequired,
+    unselectElement : PropTypes.func.isRequired,
+    onFocusElement: PropTypes.func.isRequired,
+    onUnfocusElement: PropTypes.func.isRequired,
+    ui: PropTypes.object
+  }
+
+  handleClickGeoElement({ group, el }) {
+    const { cy } = this.props.ui || {}
+    if (!cy || !el || !el.data) return
+
+    const firstJson = (col) => {
+      if (!col || col.length === 0) return undefined
+      try { return col[0] ? col[0].json() : (Array.isArray(col.json()) ? col.json()[0] : col.json()) } catch (_) { return undefined }
+    }
+
+    if (group === 'edge') {
+      const rawId = el.data.id != null ? String(el.data.id) : undefined
+      const sid = el.data.source != null ? String(el.data.source) : undefined
+      const tid = el.data.target != null ? String(el.data.target) : undefined
+      const stableId = rawId || (sid && tid ? `${sid}|${tid}` : undefined)
+      let cyEl = cy.collection()
+      if (stableId) {
+        const safe = stableId.replace(/'/g, "\\'")
+        cyEl = cy.filter(`edge[id='${safe}']`)
+      }
+      if (!cyEl || cyEl.length === 0) {
+        if (sid && tid) {
+          const s = sid.replace(/"/g, '\\"').replace(/'/g, "\\'")
+          const t = tid.replace(/"/g, '\\"').replace(/'/g, "\\'")
+          cyEl = cy.$(`edge[source = "${s}"][target = "${t}"]`)
+        }
+      }
+      const json = firstJson(cyEl)
+      if (!json) return
+      return cyEl.data('selected') ? this.props.unselectElement(json) : this.props.selectElement(json)
+    }
+
+    const id = el.data.id != null ? String(el.data.id) : undefined
+    if (!id) return
+    const safeId = id.replace(/'/g, "\\'")
+    const cyEl = cy.filter(`node[id='${safeId}']`)
+    const json = firstJson(cyEl)
+    if (!json) return
+    return cyEl.data('selected') ? this.props.unselectElement(json) : this.props.selectElement(json)
+  }
+
+  render() {
+    const nodesById = {}
+
+    const {
+      geoMapTile,
+      isolateMode,
+      cy
+    } = this.props.ui || {}
+
+    const {
+      zoom,
+      position
+    } = this.state
+
+    const {
+      width,
+      height,
+      onFocusElement,
+      onUnfocusElement
+    } = this.props
+
+    const left = width === '50vw' ? '50vw' : 0
+    const containerStyle = Object.assign({}, divMapStyle, { left, height, width })
+
+    const selected = (this.props.ui && this.props.ui.selectedElements) ? this.props.ui.selectedElements : []
+    const selectedNodeIds = new Set(
+      selected.filter(e => e && e.group === 'nodes' && e.data && e.data.id != null).map(e => e.data.id)
+    )
+    const selectedEdgeIds = new Set(
+      selected
+        .filter(e => e && e.group === 'edges' && e.data && e.data.id != null)
+        .map(e => String(e.data.id))
+    )
+    const selectedEdgePairs = new Set(
+      selected
+        .filter(e => e && e.group === 'edges' && e.data && e.data.source != null && e.data.target != null)
+        .map(e => `${String(e.data.source)}|${String(e.data.target)}`)
+    )
+
+    const nodes = (this.props.nodes || [])
+      .map( n => {
+        const lat = parseFloat(n.data.lat)
+        const lng = parseFloat(n.data.lng)
+        if (!isFinite(lat) || !isFinite(lng)) return null
+        const coords = [lat, lng]
+        const isSelected = selectedNodeIds.has(n.data.id) || !!n.data.selected
+        const node = { ...n, data: { ...n.data, selected: isSelected }, coords }
+        nodesById[n.data.id] = node
+        return node
+      })
+      .filter(Boolean)
+
+    const edges = (this.props.edges || [])
+      .map( e => {
+        const source = nodesById[e.data.source]
+        const target = nodesById[e.data.target]
+        if (!source || !target) return null
+        const coords = [source.coords, target.coords]
+        const edgeId = e && e.data && e.data.id != null ? String(e.data.id) : undefined
+        const pairKey = `${String(e.data.source)}|${String(e.data.target)}`
+        const isSelected = (edgeId ? selectedEdgeIds.has(edgeId) : false) || selectedEdgePairs.has(pairKey) || !!e.data.selected
+        return { ...e, source, target, coords, selected: isSelected, data: { ...e.data, selected: isSelected, id: edgeId || pairKey } }
+      })
+      .filter(Boolean)
+
+    const {
+      url,
+      attribution,
+      minZoom,
+      maxZoom
+    } = mapTiles[geoMapTile || 'default'] || mapTiles.default
+    const fallbackAttribution = '© OpenStreetMap contributors'
+    const tileAttribution = attribution || fallbackAttribution
+    const tileKey = `${geoMapTile}:${url || 'none'}`
+    if (this._lastTileKey !== tileKey) {
+      this._tileErrorCount = 0
+      this._lastTileKey = tileKey
+    }
+
+    const chevOn = (!this.props.ui || this.props.ui.showChevrons !== false)
+    const panelOpen = !!(this.props.ui && this.props.ui.filterPanelIsOpen)
+    const controlPos = panelOpen ? 'bottomleft' : 'bottomright'
+    return (
+  <div id={MAP_DIV_ID} style={containerStyle}>
+        <MapContainer
+          key={`map-${chevOn ? 'with' : 'no'}-chev`}
+          center={position}
+          zoom={zoom}
+          zoomSnap={0.25}
+          zoomDelta={0.25}
+          zoomControl={false}
+          whenCreated={(map) => { this._map = map }}
+        >
+          {
+            edges.length ? (
+              <Pane name="edgesPane" style={{ zIndex: 600 }}>
+                <GeoEdges
+                  key={`geoedges-${(!this.props.ui || this.props.ui.showChevrons !== false) ? 'with' : 'no'}-chev`}
+                  edges={edges}
+                  isolateMode={false}
+                  handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
+                  onFocusElement={onFocusElement}
+                  onUnfocusElement={onUnfocusElement}
+                />
+              </Pane>
+            ) : null
+          }
+          {
+            nodes.length ? (
+              <Pane name="nodesPane" style={{ zIndex: 650 }}>
+                <GeoNodes
+                  key={`geonodes-${selectedNodeIds.size}`}
+                  nodes={nodes}
+                  isolateMode={false}
+                  handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
+                  onFocusElement={onFocusElement}
+                  onUnfocusElement={onUnfocusElement}
+                />
+              </Pane>
+            ) : null
+          }
+          {url ? (
+            <TileLayer
+              url={url}
+              attribution={tileAttribution}
+              minZoom={minZoom}
+              maxZoom={maxZoom}
+              crossOrigin={'anonymous'}
+              subdomains={mapTiles[geoMapTile] && mapTiles[geoMapTile].subdomains}
+              errorTileUrl={"data:image/gif;base64,R0lGODlhAQABAAAAACw="}
+              detectRetina={false}
+              tms={mapTiles[geoMapTile] && mapTiles[geoMapTile].tms}
+              eventHandlers={{
+                tileerror: () => {
+                  this._tileErrorCount += 1
+                  if (this._tileErrorCount >= 6) {
+                    try { console.warn('Tile errors detected; falling back to default base map') } catch(e) {}
+                    this.props.updateUI && this.props.updateUI('geoMapTile', 'default')
+                    this._tileErrorCount = 0
+                  }
+                }
+              }}
+            />
+          ) : null}
+          <ScaleControl position={controlPos} />
+          <ZoomControl position={controlPos} />
+        </MapContainer>
+      </div>
+    )
+  }
+}

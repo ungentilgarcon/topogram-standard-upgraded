@@ -5,6 +5,7 @@ import { Topograms, Nodes, Edges } from '/imports/api/collections';
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 import cola from 'cytoscape-cola';
+import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
 
 cytoscape.use(cola);
 
@@ -245,25 +246,102 @@ export default function TopogramDetail() {
         </label>
       </div>
 
-      <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
-        <CytoscapeComponent
-          elements={elements}
-          style={{ width: '100%', height: '100%' }}
-          layout={layout}
-          stylesheet={stylesheet}
-          cy={(cy) => {
-            // store cy instance for programmatic layout control
-            try { cyRef.current = cy } catch (e) {}
-            // Ensure the rendered graph is visible and fits the container.
-            // Use a short timeout so this runs after the layout completes.
-            try {
-              setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50)
-            } catch (err) {
-              console.warn('cy.fit() failed', err)
+      {/* If geo is present, render a split view: network on left, map on right */}
+      {/** Decide if any node has geo coords **/}
+      {
+        (() => {
+          // Helper to detect lat/lng in node.data under common legacy fields
+          const extractLatLng = (n) => {
+            if (!n || !n.data) return null
+            const d = n.data
+            const candidates = [ ['lat','lng'], ['latitude','longitude'], ['lat','lon'], ['lat','lng'] ]
+            for (const [la,lo] of candidates) {
+              if (d[la] != null && d[lo] != null) {
+                const lat = Number(d[la])
+                const lng = Number(d[lo])
+                if (isFinite(lat) && isFinite(lng)) return [lat,lng]
+              }
             }
-          }}
-        />
-      </div>
+            // Check nested geo.coordinates arrays like data.location.coordinates [lng,lat] or data.geo.coordinates [lng,lat]
+            const coords = (d.location && d.location.coordinates) || (d.geo && d.geo.coordinates) || d.coordinates
+            if (Array.isArray(coords) && coords.length >= 2) {
+              const maybeLng = Number(coords[0])
+              const maybeLat = Number(coords[1])
+              if (isFinite(maybeLat) && isFinite(maybeLng)) return [maybeLat, maybeLng]
+            }
+            // direct fields
+            if (d.lat != null && d.lng != null) {
+              const lat = Number(d.lat), lng = Number(d.lng)
+              if (isFinite(lat) && isFinite(lng)) return [lat,lng]
+            }
+            return null
+          }
+
+          const nodesWithGeo = nodes.map(n => ({ n, coords: extractLatLng(n) })).filter(x => x.coords)
+          const hasGeo = nodesWithGeo.length > 0
+          if (!hasGeo) {
+            return (
+              <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+                <CytoscapeComponent
+                  elements={elements}
+                  style={{ width: '100%', height: '100%' }}
+                  layout={layout}
+                  stylesheet={stylesheet}
+                  cy={(cy) => {
+                    try { cyRef.current = cy } catch (e) {}
+                    try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) }
+                  }}
+                />
+              </div>
+            )
+          }
+
+          // build a lightweight geo-nodes/edges list matching the structures expected by TopogramGeoMap
+          // We'll derive coords into node.data.lat/lng and attach data.selected based on elements selection if any
+          const geoNodes = nodesWithGeo.map(({n, coords}) => ({ ...n, data: { ...n.data, lat: coords[0], lng: coords[1] } }))
+          // For edges, attempt to resolve endpoints via data.source/data.target or top-level source/target
+          const geoEdges = edges.map(e => {
+            const rawSrc = (e.data && (e.data.source || e.data.from)) || e.source || e.from
+            const rawTgt = (e.data && (e.data.target || e.data.to)) || e.target || e.to
+            const srcKey = rawSrc != null ? String(rawSrc) : null
+            const tgtKey = rawTgt != null ? String(rawTgt) : null
+            // try to find nodes by id fields
+            const findNodeBy = (key) => geoNodes.find(n => n.data && (String(n.data.id) === String(key) || String(n._id) === String(key) || String(n.id) === String(key) || String(n.data && n.data.name) === String(key)))
+            const s = srcKey ? findNodeBy(srcKey) : null
+            const t = tgtKey ? findNodeBy(tgtKey) : null
+            if (!s || !t) return null
+            return { ...e, data: { ...e.data, source: s.data.id || s._id, target: t.data.id || t._id } }
+          }).filter(Boolean)
+
+          // layout: keep cytoscape component on left (50%) and map on right (50%)
+          return (
+            <div style={{ display: 'flex', gap: 8 }}>
+              <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+                <CytoscapeComponent
+                  elements={elements}
+                  style={{ width: '100%', height: '100%' }}
+                  layout={layout}
+                  stylesheet={stylesheet}
+                  cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                />
+              </div>
+              <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+                <TopogramGeoMap
+                  nodes={geoNodes}
+                  edges={geoEdges}
+                  ui={{ selectedElements: [] }}
+                  width={'50vw'}
+                  height={'600px'}
+                  selectElement={(json) => { /* intentionally no-op: selection sync can be added later */ }}
+                  unselectElement={(json) => {}}
+                  onFocusElement={() => {}}
+                  onUnfocusElement={() => {}}
+                />
+              </div>
+            </div>
+          )
+        })()
+      }
     </div>
   );
 }
