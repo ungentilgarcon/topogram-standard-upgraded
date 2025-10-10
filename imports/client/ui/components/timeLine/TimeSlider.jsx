@@ -24,27 +24,36 @@ const PurpleSlider = styled(Slider)(({ theme }) => ({
   }
 }))
 
-export default function TimeSlider({ minTime, maxTime }) {
-  const min = Number.isFinite(minTime) ? minTime : Date.now() - 1000 * 60 * 60 * 24 * 365 * 10
-  const max = Number.isFinite(maxTime) ? maxTime : Date.now()
-  // default value: full range
-  const [value, setValue] = React.useState([min, max])
+export default function TimeSlider({ minTime, maxTime, valueRange, onChangeCommitted }) {
+  const defaultMin = Number.isFinite(minTime) ? minTime : Date.now() - 1000 * 60 * 60 * 24 * 365 * 10
+  const defaultMax = Number.isFinite(maxTime) ? maxTime : Date.now()
+  const initial = Array.isArray(valueRange) && valueRange[0] != null && valueRange[1] != null ? [valueRange[0], valueRange[1]] : [defaultMin, defaultMax]
+
+  const [value, setValue] = React.useState(initial)
 
   React.useEffect(() => {
-    setValue([min, max])
-  }, [min, max])
+    const v = Array.isArray(valueRange) && valueRange[0] != null && valueRange[1] != null ? [valueRange[0], valueRange[1]] : [defaultMin, defaultMax]
+    setValue(v)
+  }, [minTime, maxTime, valueRange])
 
   const handleChange = (e, newValue) => setValue(newValue)
 
+  const handleCommitted = (e, newValue) => {
+    if (typeof onChangeCommitted === 'function') {
+      try { onChangeCommitted(Array.isArray(newValue) ? newValue.map(v => Number(v)) : newValue) } catch (err) { console.warn('TimeSlider onChangeCommitted handler failed', err) }
+    }
+  }
+
   return (
     <div style={{ padding: '6px 8px', color: '#fff' }}>
-      <div style={{ fontSize: '11px', marginBottom: 6 }}>{`Timeline slider (${moment(value[0]).format('YYYY-MM-DD')} → ${moment(value[1]).format('YYYY-MM-DD')})`}</div>
+      <div style={{ fontSize: '11px', marginBottom: 6 }}>{`Timeline slider (${moment(value[0]).format('YYYY-MM-DD')} \u2192 ${moment(value[1]).format('YYYY-MM-DD')})`}</div>
       <PurpleSlider
         value={value}
         onChange={handleChange}
+        onChangeCommitted={handleCommitted}
         valueLabelDisplay="off"
-        min={min}
-        max={max}
+        min={defaultMin}
+        max={defaultMax}
         disableSwap
       />
     </div>
@@ -53,5 +62,7 @@ export default function TimeSlider({ minTime, maxTime }) {
 
 TimeSlider.propTypes = {
   minTime: PropTypes.number,
-  maxTime: PropTypes.number
+  maxTime: PropTypes.number,
+  valueRange: PropTypes.array,
+  onChangeCommitted: PropTypes.func
 }

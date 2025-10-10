@@ -137,7 +137,22 @@
                             <DatePicker onChange={this.handleChangeMaxTime} ref={(el) => { this._maxDatePicker = el }} autoOk textFieldStyle={{ display: 'none' }} floatingLabelText="Max Date" value={maxTime} />
                             <CardText style={{ paddingTop: 4, paddingBottom: 0 }}>
                               {minTime && maxTime ? (
-                                <TimeSlider minTime={minTime} maxTime={maxTime} />
+                                <TimeSlider
+                                  minTime={minTime}
+                                  maxTime={maxTime}
+                                  valueRange={ui.valueRange}
+                                  onChangeCommitted={(newRange) => {
+                                    // newRange is [min, max] in ms
+                                    const [vmin, vmax] = Array.isArray(newRange) ? newRange : [null, null]
+                                    // update both the persisted min/max and the interactive valueRange
+                                    try {
+                                      // Prefer updateUI merge semantics used elsewhere
+                                      if (typeof this.props.updateUI === 'function') {
+                                        this.props.updateUI({ valueRange: [vmin, vmax], minTime: vmin, maxTime: vmax })
+                                      }
+                                    } catch (e) { console.warn('TimeLine: failed to updateUI from slider', e) }
+                                  }}
+                                />
                               ) : null}
                             </CardText>
                           </span>
