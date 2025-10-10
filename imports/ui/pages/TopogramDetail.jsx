@@ -237,6 +237,24 @@ export default function TopogramDetail() {
     }
   }
 
+  // Helper visible within the component so both the elements builder and
+  // geo-node builder can reuse the same timeline filtering logic.
+  const isNodeInRange = (node) => {
+    const activeRange = (timelineUI && Array.isArray(timelineUI.valueRange) && timelineUI.valueRange[0] != null && timelineUI.valueRange[1] != null)
+      ? [Number(timelineUI.valueRange[0]), Number(timelineUI.valueRange[1])] : null
+    if (!activeRange) return true
+    if (!node || !node.data) return false
+    const fields = ['start','end','time','date','from','to']
+    for (const f of fields) {
+      const v = node.data[f]
+      if (v == null) continue
+      const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
+      if (!Number.isFinite(t)) continue
+      if (t >= activeRange[0] && t <= activeRange[1]) return true
+    }
+    return false
+  }
+
   // Initialize timeline UI min/max when nodes change and time info is present
   useEffect(() => {
     if (!hasTimeInfo || !nodes || nodes.length === 0) return
@@ -340,29 +358,10 @@ export default function TopogramDetail() {
     // candidate strings to the vizId so edges referencing different
     // forms can be resolved.
       const nodeMap = new Map()
-      // Determine active timeline range for filtering
-      const activeRange = (timelineUI && Array.isArray(timelineUI.valueRange) && timelineUI.valueRange[0] != null && timelineUI.valueRange[1] != null)
-        ? [Number(timelineUI.valueRange[0]), Number(timelineUI.valueRange[1])] : null
-
-      // Helper to determine if a node's time fields fall within activeRange (if set)
-      const nodeInRange = (node) => {
-        if (!activeRange) return true // no filtering applied
-        if (!node || !node.data) return false
-        const fields = ['start','end','time','date','from','to']
-        for (const f of fields) {
-          const v = node.data[f]
-          if (v == null) continue
-          const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
-          if (!Number.isFinite(t)) continue
-          if (t >= activeRange[0] && t <= activeRange[1]) return true
-        }
-        return false
-      }
-
       nodes.forEach(node => {
         const vizId = node.data && node.data.id ? String(node.data.id) : String(node._id)
         // Only index nodes that are within the active timeline range
-        if (!nodeInRange(node)) return
+        if (!isNodeInRange(node)) return
         const candidates = new Set()
         candidates.add(vizId)
         candidates.add(String(node._id))
@@ -377,7 +376,7 @@ export default function TopogramDetail() {
       // map nodes into cytoscape node elements (id = vizId)
       const nodeEls = nodes.map(node => {
         // skip nodes outside range
-        if (!nodeInRange(node)) return null
+        if (!isNodeInRange(node)) return null
         const vizId = nodeMap.get(String((node.data && node.data.id) || node.id || node._id)) || String(node._id)
         const label = (node.data && (node.data.name || node.data.label)) || node.name || node.label || node.id
         // pick a color from several commonly-used fields in legacy docs
