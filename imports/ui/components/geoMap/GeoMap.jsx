@@ -145,15 +145,18 @@ export default class GeoMap extends React.Component {
       })
       .filter(Boolean)
 
+    const tileSpec = (mapTiles[geoMapTile] || mapTiles.default)
     const {
       url,
       attribution,
       minZoom,
-      maxZoom
-    } = mapTiles[geoMapTile || 'default'] || mapTiles.default
+      maxZoom,
+      subdomains: specSubdomains,
+      tms: specTms
+    } = tileSpec
     const fallbackAttribution = '© OpenStreetMap contributors'
     const tileAttribution = attribution || fallbackAttribution
-    const tileKey = `${geoMapTile}:${url || 'none'}`
+    const tileKey = `${geoMapTile || 'default'}:${url || 'none'}`
     if (this._lastTileKey !== tileKey) {
       this._tileErrorCount = 0
       this._lastTileKey = tileKey
@@ -208,10 +211,10 @@ export default class GeoMap extends React.Component {
               minZoom={minZoom}
               maxZoom={maxZoom}
               crossOrigin={'anonymous'}
-              subdomains={mapTiles[geoMapTile] && mapTiles[geoMapTile].subdomains}
+              subdomains={specSubdomains}
               errorTileUrl={"data:image/gif;base64,R0lGODlhAQABAAAAACw="}
               detectRetina={false}
-              tms={mapTiles[geoMapTile] && mapTiles[geoMapTile].tms}
+              tms={specTms}
               eventHandlers={{
                 tileerror: () => {
                   this._tileErrorCount += 1
