@@ -1,6 +1,6 @@
 import React from 'react'
 
-import PanelSelector from '../panelSelector/PanelSelector.jsx'
+import PanelSelector from './panelSelector/PanelSelector.jsx'
 
 import NetworkOptions from '../networkOptions/NetworkOptions.jsx'
 import GeoMapOptions from '../geoMapOptions/GeoMapOptions.jsx'
