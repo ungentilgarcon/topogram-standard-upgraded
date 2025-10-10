@@ -2,9 +2,9 @@ import React from 'react'
 
 import PanelSelector from './panelSelector/PanelSelector.jsx'
 
-import NetworkOptions from '../networkOptions/NetworkOptions.jsx'
-import GeoMapOptions from '../geoMapOptions/GeoMapOptions.jsx'
-import Settings from '../settings/Settings.jsx'
+import NetworkOptions from './networkOptions/NetworkOptions.jsx'
+import GeoMapOptions from './geoMapOptions/GeoMapOptions.jsx'
+import Settings from './settings/Settings.jsx'
 
 const PanelSettings = ({
   geoMapVisible,
