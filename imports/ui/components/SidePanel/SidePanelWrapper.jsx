@@ -23,7 +23,10 @@ export default function SidePanelWrapper({ geoMapVisible=false, networkVisible=t
     background: 'rgba(255,255,255,0.98)',
     boxShadow: '0 6px 18px rgba(0,0,0,0.15)',
     borderRadius: 6,
-    padding: 12
+    paddingTop: 12,
+    paddingRight: 12,
+    paddingBottom: 12,
+    paddingLeft: 12
   }
 
   const handleStyle = {

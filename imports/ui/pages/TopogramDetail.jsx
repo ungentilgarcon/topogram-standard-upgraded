@@ -381,7 +381,7 @@ export default function TopogramDetail() {
 
   if (!top) {
     return (
-      <div style={{ padding: 12 }}>
+      <div style={{ paddingTop: 12, paddingRight: 12, paddingBottom: 12, paddingLeft: 12 }}>
         <p>Topogram not found.</p>
         <p><Link to="/">Back to list</Link></p>
       </div>
