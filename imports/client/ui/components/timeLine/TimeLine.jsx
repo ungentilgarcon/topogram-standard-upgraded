@@ -22,6 +22,7 @@
       boxShadow: '1px 1px 8px  #000',
       border: '1px solid #222',
       backgroundColor: 'rgba(40,55,63,0.85)',
+      zIndex: 9999,
       borderTopRightRadius: '20px',
       borderBottomRightRadius: '5px',
       padding: '6px 12px'

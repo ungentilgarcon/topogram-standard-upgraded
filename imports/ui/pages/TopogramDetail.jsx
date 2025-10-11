@@ -57,12 +57,12 @@ export default function TopogramDetail() {
   // Selected elements shared between Cytoscape and GeoMap
   const [selectedElements, setSelectedElements] = useState([])
   // Panel visibility flags (persisted in localStorage and controllable from PanelSettings)
-  const [geoMapVisible, setGeoMapVisible] = useState(() => {
-    try { return window.localStorage && window.localStorage.getItem('topo.geoMapVisible') === 'true' } catch (e) { return false }
-  })
-  const [networkVisible, setNetworkVisible] = useState(() => {
-    try { return window.localStorage && window.localStorage.getItem('topo.networkVisible') !== 'false' } catch (e) { return true }
-  })
+  // Initialize to safe defaults and sync from localStorage once on mount to avoid
+  // reading window during hook initialization (helps keep hook order stable under HMR).
+  const [geoMapVisible, setGeoMapVisible] = useState(false)
+  const [networkVisible, setNetworkVisible] = useState(true)
+  const [timeLineVisible, setTimeLineVisible] = useState(true)
+  const [debugVisible, setDebugVisible] = useState(false)
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -196,10 +196,28 @@ export default function TopogramDetail() {
         if (!d) return
         if (typeof d.geoMapVisible === 'boolean') setGeoMapVisible(d.geoMapVisible)
         if (typeof d.networkVisible === 'boolean') setNetworkVisible(d.networkVisible)
+        if (typeof d.timeLineVisible === 'boolean') setTimeLineVisible(d.timeLineVisible)
+        if (typeof d.debugVisible === 'boolean') setDebugVisible(d.debugVisible)
       } catch (e) { console.warn('panelToggle handler error', e) }
     }
     window.addEventListener('topo:panelToggle', handler)
     return () => window.removeEventListener('topo:panelToggle', handler)
+  }, [])
+
+  // Sync visibility flags from localStorage once on mount. This avoids reading
+  // window.localStorage during hook initializers and reduces HMR-related hook-order
+  // mismatches that can occur when modules are hot-reloaded.
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const g = window.localStorage.getItem('topo.geoMapVisible')
+        const n = window.localStorage.getItem('topo.networkVisible')
+        const t = window.localStorage.getItem('topo.timeLineVisible')
+        if (g !== null) setGeoMapVisible(g === 'true')
+        if (n !== null) setNetworkVisible(n !== 'false')
+        if (t !== null) setTimeLineVisible(t === 'true')
+      }
+    } catch (e) { /* ignore */ }
   }, [])
 
   // Detect if nodes carry time information (common legacy fields: start/end/time/date)
@@ -288,14 +306,14 @@ export default function TopogramDetail() {
 
   // When timeline panel is visible, bump the leaflet control bottom offset so controls don't overlap
   useEffect(() => {
-    const visible = hasTimeInfo && timelineUI && timelineUI.minTime != null && timelineUI.maxTime != null
+    const visible = hasTimeInfo && timeLineVisible && timelineUI && timelineUI.minTime != null && timelineUI.maxTime != null
     const el = typeof document !== 'undefined' ? document.getElementById('timeline-panel') : null
     const height = el ? el.offsetHeight : (visible ? 120 : 10)
     try { document.documentElement.style.setProperty('--timeline-offset', `${height + 12}px`) } catch (e) {}
     return () => {
       // do not reset here; keep the offset until next change
     }
-  }, [hasTimeInfo, timelineUI.minTime, timelineUI.maxTime])
+  }, [hasTimeInfo, timelineUI.minTime, timelineUI.maxTime, timeLineVisible])
 
   // (stylesheet will be built after we compute numeric weights from nodes)
 
@@ -482,7 +500,7 @@ export default function TopogramDetail() {
     
 
   return (
-    <div style={{ padding: 12 }}>
+    <div style={{ padding: 12, paddingBottom: 'var(--timeline-offset, 12px)' }}>
       <h1>{top.title || top.name || 'Topogram'}</h1>
       {top.description ? <p>{top.description}</p> : null}
       <p><Link to="/">Back to list</Link></p>
@@ -667,19 +685,21 @@ export default function TopogramDetail() {
       }
 
       {/* Timeline: render when this topogram appears to have time info */}
-      { hasTimeInfo ? (
+      { hasTimeInfo && timeLineVisible ? (
         <TimeLine hasTimeInfo={true} ui={timelineUI} updateUI={updateUI} />
       ) : null }
 
       {/* Debug panel (render last so it's below visual overlays) */}
-      <div style={{ marginTop: 12, padding: 8, border: '1px dashed #ddd', background: '#fafafa', position: 'relative', zIndex: 0 }}>
-        <strong>Debug</strong>
-        <div>isReady: {String(isReady())} — tops: {tops.length}, nodes: {nodes.length}, edges: {edges.length}</div>
-        <details style={{ marginTop: 8 }}>
-          <summary>Show sample documents</summary>
-          <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify({ tops: tops.slice(0,3), nodes: nodes.slice(0,6), edges: edges.slice(0,6) }, null, 2)}</pre>
-        </details>
-      </div>
+      { debugVisible ? (
+        <div style={{ marginTop: 12, padding: 8, border: '1px dashed #ddd', background: '#fafafa', position: 'relative', zIndex: 0 }}>
+          <strong>Debug</strong>
+          <div>isReady: {String(isReady())} — tops: {tops.length}, nodes: {nodes.length}, edges: {edges.length}</div>
+          <details style={{ marginTop: 8 }}>
+            <summary>Show sample documents</summary>
+            <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify({ tops: tops.slice(0,3), nodes: nodes.slice(0,6), edges: edges.slice(0,6) }, null, 2)}</pre>
+          </details>
+        </div>
+      ) : null }
     </div>
   );
 }

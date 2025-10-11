@@ -86,6 +86,37 @@ const PanelSettings = ({
       >
         { networkVisible ? 'Hide Network' : 'Show Network' }
       </button>
+
+      {/* Timeline show/hide button */}
+      <button
+        aria-pressed={typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.timeLineVisible') === 'true' : true}
+        onClick={() => {
+          try {
+            const cur = window.localStorage ? window.localStorage.getItem('topo.timeLineVisible') === 'true' : true
+            const next = !cur
+            window.localStorage && window.localStorage.setItem('topo.timeLineVisible', String(next))
+            window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { timeLineVisible: next } }))
+          } catch (e) { console.warn('toggle timeLineVisible failed', e) }
+        }}
+        style={{ background: '#1b5e20', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
+      >
+        { (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('topo.timeLineVisible') === 'true') ? 'Hide Timeline' : 'Show Timeline' }
+      </button>
+      {/* Debug show/hide button (default hidden) */}
+      <button
+        aria-pressed={typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.debugVisible') === 'true' : false}
+        onClick={() => {
+          try {
+            const cur = window.localStorage ? window.localStorage.getItem('topo.debugVisible') === 'true' : false
+            const next = !cur
+            window.localStorage && window.localStorage.setItem('topo.debugVisible', String(next))
+            window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { debugVisible: next } }))
+          } catch (e) { console.warn('toggle debugVisible failed', e) }
+        }}
+        style={{ background: '#1b5e20', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
+      >
+        { (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('topo.debugVisible') === 'true') ? 'Hide Debug' : 'Show Debug' }
+      </button>
     </div>
 
     <PanelSelector

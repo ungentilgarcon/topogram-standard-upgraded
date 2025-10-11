@@ -5,13 +5,14 @@ import { styled } from '@mui/material/styles'
 import moment from 'moment'
 
 const PurpleSlider = styled(Slider)(({ theme }) => ({
-  color: '#b388ff',
+  // make the slider green to match side panel accent
+  color: '#2e7d32',
   height: 6,
   '& .MuiSlider-thumb': {
     height: 18,
     width: 18,
     backgroundColor: '#fff',
-    border: '2px solid #b388ff',
+    border: '2px solid #2e7d32',
   },
   '& .MuiSlider-track': {
     height: 6,
