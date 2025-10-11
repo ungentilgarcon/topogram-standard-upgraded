@@ -6,6 +6,7 @@ import 'meteor/accounts-password'
 import { Link } from 'react-router-dom';
 import { Topograms } from '/imports/api/collections';
 import ImportCsvModal from '/imports/ui/components/ImportCsvModal'
+import '/imports/ui/styles/greenTheme.css'
 import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogContent from '@mui/material/DialogContent'
@@ -67,17 +68,21 @@ export default function Home() {
   // Always render to show debug info
   // if (!isReady()) return <div>Loading topograms…</div>;
   return (
-    <div style={{ padding: 12 }}>
-      <h1>Topogram Standard (Meteor 3)</h1>
-      <p>Connected to: local Meteor Mongo</p>
-      <div style={{ marginTop: 8, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 12 }}>
-        <strong>Subscription ready:</strong> {String(isReady())} — <strong>count:</strong> {tops.length}
-        <button onClick={() => setImportModalOpen(true)} style={{ padding: '6px 10px', background: '#1976d2', color: 'white', border: 'none', borderRadius: 4 }}>Import CSV</button>
-        { userId ? (
-          <Button onClick={doLogout} variant="outlined" color="inherit" size="small">Logout{user && user.username ? ` (${user.username})` : ''}</Button>
-        ) : (
-          <Button onClick={() => setLoginOpen(true)} variant="outlined" color="inherit" size="small">Login</Button>
-        ) }
+    <div className="home-container">
+      <h1 className="home-title">Topogram Standard (Meteor 3)</h1>
+      <p className="home-sub">Connected to: local Meteor Mongo</p>
+      <div className="controls-row">
+        <div className="controls-left">
+          <div className="ready-count"><strong>Subscription ready:</strong> {String(isReady())}   <strong>count:</strong> {tops.length}</div>
+          <button onClick={() => setImportModalOpen(true)} className="import-button">Import CSV</button>
+        </div>
+        <div className="controls-right">
+          { userId ? (
+            <Button onClick={doLogout} variant="outlined" color="inherit" size="small">Logout{user && user.username ? ` (${user.username})` : ''}</Button>
+          ) : (
+            <Button onClick={() => setLoginOpen(true)} variant="outlined" color="inherit" size="small">Login</Button>
+          ) }
+        </div>
       </div>
       <Dialog open={loginOpen} onClose={() => setLoginOpen(false)}>
         <DialogTitle>Sign in</DialogTitle>
@@ -100,11 +105,11 @@ export default function Home() {
           </details>
         </div>
       ) : (
-        <ul>
+        <ul className="topogram-list">
           {tops.map(t => (
-            <li key={t._id}>
-              <Link to={`/t/${t._id}`}>{t.title || t.name || t._id}</Link>
-              {t.description ? (<div style={{ fontSize: 12, color: '#555' }}>{t.description}</div>) : null}
+            <li key={t._id} className="topogram-item">
+              <Link to={`/t/${t._id}`} className="topogram-link">{t.title || t.name || t._id}</Link>
+              {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
             </li>
           ))}
         </ul>

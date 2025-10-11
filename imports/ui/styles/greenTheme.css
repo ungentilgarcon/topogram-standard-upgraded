@@ -1,0 +1,122 @@
+/* Green classy theme for Topogram main pages */
+:root {
+  --green-900: #0b3d2e;
+  --green-700: #116a4a;
+  --green-500: #2aa876;
+  --green-300: #8fd3b1;
+  --muted: #6b6b6b;
+  --card-bg: #f7fbf8;
+}
+
+.home-container {
+  padding: 28px 32px;
+  background: linear-gradient(180deg, rgba(243,250,247,1) 0%, rgba(255,255,255,1) 30%);
+  color: var(--green-900);
+  font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  max-width: 1300px;
+  margin: 0 auto;
+}
+.home-title {
+  margin: 0 0 4px 0;
+  color: var(--green-900);
+  font-weight: 700;
+  font-size: 34px;
+  line-height: 1.05;
+}
+.home-sub {
+  margin: 6px 0 14px 0;
+  color: var(--muted);
+}
+.controls-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-bottom: 18px;
+  flex-wrap: wrap;
+}
+.controls-left {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  flex: 1 1 auto;
+}
+.controls-right {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+}
+.ready-count {
+  font-size: 14px;
+  color: var(--green-700);
+  background: rgba(42,168,118,0.06);
+  padding: 6px 10px;
+  border-radius: 8px;
+}
+.import-button {
+  padding: 8px 14px;
+  background: linear-gradient(180deg, var(--green-500), var(--green-700));
+  border: none;
+  color: white;
+  border-radius: 8px;
+  box-shadow: 0 3px 10px rgba(16, 88, 56, 0.12);
+  cursor: pointer;
+  font-weight: 700;
+  font-size: 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+}
+.import-button:hover { filter: brightness(0.98); }
+
+.topogram-list {
+  list-style: none;
+  padding: 8px 2px 40px 2px;
+  margin: 0;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 18px 20px;
+}
+.topogram-item {
+  background: var(--card-bg);
+  border-radius: 12px;
+  padding: 14px 16px;
+  box-shadow: 0 6px 18px rgba(16, 88, 56, 0.04);
+  border-left: 6px solid var(--green-300);
+  min-height: 56px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+.topogram-link {
+  color: var(--green-900);
+  font-weight: 600;
+  text-decoration: none;
+}
+.topogram-link:hover { text-decoration: underline; }
+.topogram-desc { color: var(--muted); font-size: 13px; margin-top: 6px; }
+
+/* Responsive tweaks */
+@media (max-width: 1100px) {
+  .topogram-list { grid-template-columns: repeat(3, 1fr); }
+}
+@media (max-width: 800px) {
+  .topogram-list { grid-template-columns: repeat(2, 1fr); }
+  .home-title { font-size: 28px; }
+}
+@media (max-width: 480px) {
+  .topogram-list { grid-template-columns: repeat(1, 1fr); }
+  .home-container { padding: 16px; }
+}
+
+/* Cytoscape pan/zoom control styling */
+.cy-container { position: relative; }
+.cy-controls { position: absolute; top: 10px; left: 10px; display: flex; flex-direction: column; gap: 8px; z-index: 2000; }
+.cy-control-btn { background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.06); padding: 6px 8px; border-radius: 6px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.06); font-weight: 600; color: var(--green-900); }
+.cy-control-btn:hover { filter: brightness(0.98); }
+.cy-control-row { display:flex; gap:8px; }
+
+.topogram-page {
+  padding: 12px;
+  color: var(--green-900);
+}
+.topogram-page h1 { color: var(--green-900); }
