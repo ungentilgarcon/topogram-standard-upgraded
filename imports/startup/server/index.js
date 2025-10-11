@@ -7,3 +7,6 @@ import '/imports/api/commentsMethods'
 import '/imports/api/helpersMethods'
 
 // Additional server startup tasks (indexes, transforms) can be added here later.
+// CSV import job/methods
+import '/imports/api/methods/csvImport'
+import '/imports/server/jobs/csvImportJob'
