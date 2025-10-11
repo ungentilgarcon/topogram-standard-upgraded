@@ -8,6 +8,7 @@ import cola from 'cytoscape-cola';
 import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
 import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
 import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
+import '/imports/ui/styles/greenTheme.css'
 
 cytoscape.use(cola);
 
@@ -521,8 +522,8 @@ export default function TopogramDetail() {
     
 
   return (
-    <div style={{ padding: 12, paddingBottom: 'var(--timeline-offset, 12px)' }}>
-      <h1>{top.title || top.name || 'Topogram'}</h1>
+    <div className="topogram-page" style={{ paddingBottom: 'var(--timeline-offset, 12px)' }}>
+      <h1 className="home-title">{top.title || top.name || 'Topogram'}</h1>
       {top.description ? <p>{top.description}</p> : null}
       <p><Link to="/">Back to list</Link></p>
       {/* controls row */}
