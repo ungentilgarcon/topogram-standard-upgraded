@@ -115,6 +115,23 @@
 .cy-control-btn:hover { filter: brightness(0.98); }
 .cy-control-row { display:flex; gap:8px; }
 
+/* Selection panel and charts */
+.selection-panel { width: 320px; background: white; border-radius: 10px; box-shadow: 0 6px 18px rgba(0,0,0,0.06); padding: 12px; }
+.selection-header { display:flex; justify-content:space-between; align-items:center; margin-bottom:8px }
+.selection-body { max-height: 420px; overflow:auto }
+.selection-list { list-style:none; padding:0; margin:0 }
+.selection-item { display:flex; justify-content:space-between; align-items:center; padding:6px 0; border-bottom:1px solid rgba(0,0,0,0.03) }
+.selection-item-label { color:var(--green-900); font-weight:600 }
+.selection-section-title { font-size:13px; color:var(--muted); margin-bottom:6px }
+
+.node-charts { margin-top:10px }
+.chart-list { display:flex; flex-direction:column; gap:8px; margin-top:8px }
+.chart-bar { display:flex; gap:8px; align-items:center }
+.chart-bar-label { width: 34%; font-size:13px; color:var(--green-900) }
+.chart-bar-track { flex:1; height:10px; background: #eee; border-radius:6px; overflow:hidden }
+.chart-bar-fill { height:100%; background: linear-gradient(90deg,var(--green-500),var(--green-700)); }
+.chart-bar-value { width:40px; text-align:right; font-weight:600 }
+
 .topogram-page {
   padding: 12px;
   color: var(--green-900);
