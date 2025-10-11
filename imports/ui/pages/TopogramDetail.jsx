@@ -54,6 +54,27 @@ export default function TopogramDetail() {
   const [titleSize, setTitleSize] = useState(12)
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
+
+  // Safe fit helper: only call fit when the renderer is initialized to avoid
+  // runtime errors like "this._private.renderer is null" observed when
+  // calling cy.fit() too early. If the renderer isn't ready, schedule a
+  // retry shortly.
+  const safeFit = (cy) => {
+    if (!cy || typeof cy.fit !== 'function') return
+    try {
+      // Prefer checking internal renderer presence to be extra-safe
+      if (cy._private && cy._private.renderer) {
+        cy.fit()
+      } else {
+        // Renderer not ready yet: retry once after a short delay
+        setTimeout(() => {
+          try { if (cy && cy._private && cy._private.renderer && cy.fit) cy.fit() } catch (e) {}
+        }, 120)
+      }
+    } catch (e) {
+      // swallow to avoid bubbling to React error boundary
+    }
+  }
   // Selected elements shared between Cytoscape and GeoMap
   const [selectedElements, setSelectedElements] = useState([])
   // Panel visibility flags (persisted in localStorage and controllable from PanelSettings)
@@ -333,8 +354,8 @@ export default function TopogramDetail() {
       const runLayout = cy.layout(layoutObj)
       runLayout.run()
       // fit after layout completes
-      runLayout.on && runLayout.on('layoutstop', () => { try { cy.fit(); } catch (e) {} })
-      setTimeout(() => { try { cy.fit(); } catch (e) {} }, 150)
+      runLayout.on && runLayout.on('layoutstop', () => { try { safeFit(cy); } catch (e) {} })
+      setTimeout(() => { try { safeFit(cy); } catch (e) {} }, 150)
     } catch (err) {
       console.warn('failed to run cy layout', err)
     }
@@ -346,7 +367,7 @@ export default function TopogramDetail() {
     if (!cy) return
     try {
       // small timeout to let layout/DOM stabilize
-      setTimeout(() => { if (cy && cy.fit && networkVisible) cy.fit() }, 80)
+      setTimeout(() => { if (cy && networkVisible) safeFit(cy) }, 80)
     } catch (e) {}
   }, [networkVisible, geoMapVisible])
 
@@ -580,7 +601,7 @@ export default function TopogramDetail() {
                   stylesheet={stylesheet}
                   cy={(cy) => {
                     try { cyRef.current = cy } catch (e) {}
-                    try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) }
+                    try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) }
                   }}
                 />
               </div>
@@ -620,7 +641,7 @@ export default function TopogramDetail() {
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
                     stylesheet={stylesheet}
-                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
                   />
                 </div>
                 <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
@@ -650,7 +671,7 @@ export default function TopogramDetail() {
                   style={{ width: '100%', height: '100%' }}
                   layout={layout}
                   stylesheet={stylesheet}
-                  cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { if (cy && cy.fit) cy.fit(); }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                  cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
                 />
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
