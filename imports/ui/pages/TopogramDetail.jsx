@@ -519,6 +519,8 @@ export default function TopogramDetail() {
           </select>
         </label>
 
+          {/* Import CSV moved to the main Home page */}
+
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Title size:
           <input type="range" min={8} max={36} value={titleSize} onChange={e => setTitleSize(Number(e.target.value))} />
@@ -699,7 +701,7 @@ export default function TopogramDetail() {
             <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify({ tops: tops.slice(0,3), nodes: nodes.slice(0,6), edges: edges.slice(0,6) }, null, 2)}</pre>
           </details>
         </div>
-      ) : null }
+  ) : null }
     </div>
   );
 }

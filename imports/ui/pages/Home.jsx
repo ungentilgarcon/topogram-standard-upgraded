@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Link } from 'react-router-dom';
 import { Topograms } from '/imports/api/collections';
+import ImportCsvModal from '/imports/ui/components/ImportCsvModal'
 
 export default function Home() {
   console.debug && console.debug('Home component rendered');
@@ -9,6 +10,7 @@ export default function Home() {
   // subscribe to all topograms for local/migration view
   const isReady = useSubscribe('allTopograms');
   const tops = useFind(() => Topograms.find({}, { sort: { createdAt: -1 }, limit: 200 }));
+  const [importModalOpen, setImportModalOpen] = useState(false)
 
   useEffect(() => {
     console.debug && console.debug('Home mounted - subscribe ready?', isReady && isReady());
@@ -26,9 +28,11 @@ export default function Home() {
     <div style={{ padding: 12 }}>
       <h1>Topogram Standard (Meteor 3)</h1>
       <p>Connected to: local Meteor Mongo</p>
-      <div style={{ marginTop: 8, marginBottom: 8 }}>
+      <div style={{ marginTop: 8, marginBottom: 8, display: 'flex', alignItems: 'center', gap: 12 }}>
         <strong>Subscription ready:</strong> {String(isReady())} — <strong>count:</strong> {tops.length}
+        <button onClick={() => setImportModalOpen(true)} style={{ padding: '6px 10px', background: '#1976d2', color: 'white', border: 'none', borderRadius: 4 }}>Import CSV</button>
       </div>
+      <ImportCsvModal open={importModalOpen} onClose={() => setImportModalOpen(false)} onEnqueue={(jobId) => { console.info('CSV import job enqueued', jobId) }} />
       {tops.length === 0 ? (
         <div>
           <p>No topograms found.</p>
