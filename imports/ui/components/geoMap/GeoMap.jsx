@@ -68,7 +68,8 @@ export default class GeoMap extends React.Component {
       }
       const json = firstJson(cyEl)
       if (!json) return
-      return cyEl.data('selected') ? this.props.unselectElement(json) : this.props.selectElement(json)
+      const sel = (cyEl && cyEl.length && cyEl[0] && typeof cyEl[0].selected === 'function') ? cyEl[0].selected() : false
+      return sel ? this.props.unselectElement(json) : this.props.selectElement(json)
     }
 
     const id = el.data.id != null ? String(el.data.id) : undefined
@@ -77,7 +78,8 @@ export default class GeoMap extends React.Component {
     const cyEl = cy.filter(`node[id='${safeId}']`)
     const json = firstJson(cyEl)
     if (!json) return
-    return cyEl.data('selected') ? this.props.unselectElement(json) : this.props.selectElement(json)
+    const sel = (cyEl && cyEl.length && cyEl[0] && typeof cyEl[0].selected === 'function') ? cyEl[0].selected() : false
+    return sel ? this.props.unselectElement(json) : this.props.selectElement(json)
   }
 
   render() {

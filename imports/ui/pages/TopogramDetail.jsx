@@ -10,7 +10,7 @@ import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
 import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 import '/imports/ui/styles/greenTheme.css'
 import SelectionPanel from '/imports/ui/components/SelectionPanel/SelectionPanel'
-import Charts from '/imports/ui/components/Charts/Charts'
+import Charts from '/imports/ui/components/charts/Charts'
 
 cytoscape.use(cola);
 
@@ -57,6 +57,8 @@ export default function TopogramDetail() {
   const [titleSize, setTitleSize] = useState(12)
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
+  // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
+  const [cyInstance, setCyInstance] = useState(null)
 
   // Safe fit helper: only call fit when the renderer is initialized to avoid
   // runtime errors like "this._private.renderer is null" observed when
@@ -87,6 +89,7 @@ export default function TopogramDetail() {
   const [networkVisible, setNetworkVisible] = useState(true)
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
+  const [chartsVisible, setChartsVisible] = useState(true)
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -230,10 +233,16 @@ export default function TopogramDetail() {
         if (typeof d.networkVisible === 'boolean') setNetworkVisible(d.networkVisible)
         if (typeof d.timeLineVisible === 'boolean') setTimeLineVisible(d.timeLineVisible)
         if (typeof d.debugVisible === 'boolean') setDebugVisible(d.debugVisible)
+        if (typeof d.chartsVisible === 'boolean') setChartsVisible(d.chartsVisible)
       } catch (e) { console.warn('panelToggle handler error', e) }
     }
     window.addEventListener('topo:panelToggle', handler)
     return () => window.removeEventListener('topo:panelToggle', handler)
+  }, [])
+
+  // Cleanup any global cy exposure on unmount
+  useEffect(() => {
+    return () => { try { if (window && window._topoCy) delete window._topoCy } catch (e) {} }
   }, [])
 
   // Sync visibility flags from localStorage once on mount. This avoids reading
@@ -245,9 +254,11 @@ export default function TopogramDetail() {
         const g = window.localStorage.getItem('topo.geoMapVisible')
         const n = window.localStorage.getItem('topo.networkVisible')
         const t = window.localStorage.getItem('topo.timeLineVisible')
+        const c = window.localStorage.getItem('topo.chartsVisible')
         if (g !== null) setGeoMapVisible(g === 'true')
         if (n !== null) setNetworkVisible(n !== 'false')
         if (t !== null) setTimeLineVisible(t === 'true')
+        if (c !== null) setChartsVisible(c === 'true')
       }
     } catch (e) { /* ignore */ }
   }, [])
@@ -700,7 +711,7 @@ export default function TopogramDetail() {
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
                     stylesheet={stylesheet}
-                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
+                    cy={(cy) => { try { cyRef.current = cy; setCyInstance(cy); try { window._topoCy = cy } catch (err) {} } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
                 <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
@@ -718,7 +729,7 @@ export default function TopogramDetail() {
                 </div>
                 <div style={{ width: 320 }}>
                   <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} />
-                  <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} />
+                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
@@ -745,7 +756,7 @@ export default function TopogramDetail() {
                 </div>
                 <div style={{ width: 320 }}>
                   <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} />
-                  <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} />
+                  {chartsVisible ? <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
