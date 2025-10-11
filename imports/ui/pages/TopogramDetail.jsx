@@ -178,19 +178,24 @@ export default function TopogramDetail() {
     if (!cy) return
     const onSelect = (evt) => {
       try {
-        const json = evt.target.json()
-        // normalize json to include group for GeoMap expectations
-        const j = Object.assign({}, json)
-        j.group = evt.target.isNode ? 'nodes' : 'edges'
-        selectElement(j)
+        // Snapshot the current Cytoscape selection and mirror it into React state
+        const sel = cy.$(':selected').toArray().map(el => {
+          const j = el.json()
+          j.group = el.isNode && el.isNode() ? 'nodes' : 'edges'
+          return j
+        })
+        setSelectedElements(sel)
       } catch (e) { console.warn('cy select handler error', e) }
     }
     const onUnselect = (evt) => {
       try {
-        const json = evt.target.json()
-        const j = Object.assign({}, json)
-        j.group = evt.target.isNode ? 'nodes' : 'edges'
-        unselectElement(j)
+        // Mirror current selection after an unselect event
+        const sel = cy.$(':selected').toArray().map(el => {
+          const j = el.json()
+          j.group = el.isNode && el.isNode() ? 'nodes' : 'edges'
+          return j
+        })
+        setSelectedElements(sel)
       } catch (e) { console.warn('cy unselect handler error', e) }
     }
     cy.on('select', 'node, edge', onSelect)
