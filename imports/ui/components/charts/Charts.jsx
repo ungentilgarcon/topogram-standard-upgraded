@@ -1,6 +1,6 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import ui from '/imports/client/legacyUi'
+// Charts receives `ui` (with cy) from its parent TopogramDetail
 import { CardCompat as Card, CardTitleCompat as CardTitle, CardActionsCompat as CardActions } from '/imports/startup/client/muiCompat'
 import RechartsDonutChart from './RechartsDonutChart.jsx'
 import { DEFAULT_COLORS } from '/imports/client/helpers/colors.js'
@@ -307,9 +307,14 @@ class Charts extends React.Component {
 
     const palette = Array.isArray(DEFAULT_COLORS) && DEFAULT_COLORS.length ? DEFAULT_COLORS : ['#1976D2','#FB8C00','#43A047','#E53935','#8E24AA','#00897B','#FDD835','#78909C']
     const { showT, showChi2 } = this.state
+  const light = !!this.props.light
+  const textColor = light ? '#222' : '#F2EFE9'
+  const subtitleColor = light ? '#444' : '#F2EFE9'
+  const buttonSx = { color: textColor, borderColor: light ? '#ccc' : '#546E7A', height: 40 }
 
     return (
       <Popup
+        light={true}
         show
         title={'Charts'}
         onClose={() => this.props.updateUI('chartsVisible', false)}
@@ -320,9 +325,9 @@ class Charts extends React.Component {
         <div>
           <CardTitle
             title='Charts'
-            titleStyle={{ fontSize : '12pt', lineHeight : '1em', color: '#F2EFE9' }}
+            titleStyle={{ fontSize : '12pt', lineHeight : '1em', color: textColor }}
             subtitle='Nodes repartition (how often the band has played the same venue)'
-            subtitleStyle={{ fontSize : '9pt', lineHeight : '1.2em', color: '#F2EFE9' }}
+            subtitleStyle={{ fontSize : '9pt', lineHeight : '1.2em', color: subtitleColor }}
           />
           <RechartsDonutChart
             data={nodesDonutData}
@@ -335,7 +340,7 @@ class Charts extends React.Component {
             key={`nodes-${this._nodesBinsKey || 'none'}`}
           />
           {this._stats && this._stats.nodes ? (
-            <div style={{ color:'#F2EFE9', fontSize:'9pt', marginTop: 8 }}>
+            <div style={{ color:textColor, fontSize:'9pt', marginTop: 8 }}>
               <strong>Nodes stats:</strong>
               <span style={{ marginLeft: 8 }}>n={this._stats.nodes.n}</span>
               <span style={{ marginLeft: 8 }}>mean={Number(this._stats.nodes.mean).toFixed(3)}</span>
@@ -368,7 +373,7 @@ class Charts extends React.Component {
         <div>
           <CardTitle
             subtitle='Edges repartition (how often the band has followed the same route)'
-            subtitleStyle={{ fontSize : '9pt', lineHeight : '1.2em', color: '#F2EFE9' }}
+            subtitleStyle={{ fontSize : '9pt', lineHeight : '1.2em', color: subtitleColor }}
           />
           {Array.isArray(edgesDonutData) && edgesDonutData.length > 0 ? (
             <RechartsDonutChart
@@ -382,7 +387,7 @@ class Charts extends React.Component {
               key={`edges-${this._edgesBinsKey || 'none'}`}
             />
           ) : (
-            <div style={{ color:'#F2EFE9', fontSize:'9pt', marginTop: 8 }}>
+            <div style={{ color:textColor, fontSize:'9pt', marginTop: 8 }}>
               No edges data to display
               <div style={{ marginTop: 6, opacity: 0.85 }}>
                 <div>cy nodes: {this._debug && this._debug.cyNodes}</div>
@@ -391,13 +396,13 @@ class Charts extends React.Component {
                 <div>resweigEdges (edges) count: {this._debug && this._debug.resweigEdgesLen}</div>
                 <div>nodes bins: {this._debug && this._debug.nodesDonutDataLen}</div>
                 <div>edges bins: {this._debug && this._debug.edgesDonutDataLen}</div>
-                {this._debug && this._debug.sampleNode ? (<div style={{ marginTop: 6, wordBreak: 'break-all' }}>sample node: {this._debug.sampleNode}</div>) : null}
-                {this._debug && this._debug.sampleEdge ? (<div style={{ marginTop: 6, wordBreak: 'break-all' }}>sample edge: {this._debug.sampleEdge}</div>) : null}
+                {this._debug && this._debug.sampleNode ? (<div style={{ marginTop: 6, wordBreak: 'break-all', color: subtitleColor }}>sample node: {this._debug.sampleNode}</div>) : null}
+                {this._debug && this._debug.sampleEdge ? (<div style={{ marginTop: 6, wordBreak: 'break-all', color: subtitleColor }}>sample edge: {this._debug.sampleEdge}</div>) : null}
               </div>
             </div>
           )}
           {this._stats && this._stats.edges ? (
-            <div style={{ color:'#F2EFE9', fontSize:'9pt', marginTop: 8 }}>
+            <div style={{ color:textColor, fontSize:'9pt', marginTop: 8 }}>
               <strong>Edges stats:</strong>
               <span style={{ marginLeft: 8 }}>n={this._stats.edges.n}</span>
               <span style={{ marginLeft: 8 }}>mean={Number(this._stats.edges.mean).toFixed(3)}</span>
@@ -431,7 +436,7 @@ class Charts extends React.Component {
           <Button
             variant="outlined"
             onClick={this.unselectAllElements}
-            sx={{ color:'#F2EFE9', borderColor:'#546E7A', height: 40 }}
+            sx={buttonSx}
           >
             Reset selection
           </Button>
@@ -465,7 +470,7 @@ class Charts extends React.Component {
                 img.src = url
               } catch (_) {}
             }}
-            sx={{ color:'#F2EFE9', borderColor:'#546E7A', height: 40 }}
+            sx={buttonSx}
           >
             Export PNG
           </Button>
@@ -475,4 +480,4 @@ class Charts extends React.Component {
   }
 }
 
-export default ui()(Charts)
+export default Charts
