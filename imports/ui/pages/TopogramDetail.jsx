@@ -651,7 +651,13 @@ export default function TopogramDetail() {
                   stylesheet={stylesheet}
                   cy={(cy) => {
                     try { cyRef.current = cy } catch (e) {}
-                    try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) }
+                    try {
+                      // enable box selection and additive selection mode when available
+                      if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
+                      if (typeof cy.selectionType === 'function') cy.selectionType('additive')
+                      if (typeof cy.autounselectify === 'function') cy.autounselectify(false)
+                      setTimeout(() => { safeFit(cy) }, 50)
+                    } catch (err) { console.warn('cy.setup failed', err) }
                   }}
                 />
               </div>
@@ -696,7 +702,7 @@ export default function TopogramDetail() {
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
                     stylesheet={stylesheet}
-                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
                 <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
@@ -736,7 +742,7 @@ export default function TopogramDetail() {
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
                     stylesheet={stylesheet}
-                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
                 <div style={{ width: 320 }}>
