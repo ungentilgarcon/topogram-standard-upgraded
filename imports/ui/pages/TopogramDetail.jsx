@@ -593,7 +593,15 @@ export default function TopogramDetail() {
               )
             }
             return (
-              <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+              <div className="cy-container" style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+                <div className="cy-controls">
+                  <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) cyRef.current.zoomBy(1.2) } catch (e) {} }}>Zoom +</button>
+                  <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) cyRef.current.zoomBy(1/1.2) } catch (e) {} }}>Zoom -</button>
+                  <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) safeFit(cyRef.current) } catch (e) {} }}>Fit</button>
+                  <div className="cy-control-row">
+                    <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) { cyRef.current.zoom(1); cyRef.current.center(); } } catch (e) {} }}>Reset</button>
+                  </div>
+                </div>
                 <CytoscapeComponent
                   key={timelineKey}
                   elements={elements}
@@ -635,7 +643,12 @@ export default function TopogramDetail() {
           if (both) {
             return (
               <div style={{ display: 'flex', gap: 8 }}>
-                <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+                <div className="cy-container" style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+                  <div className="cy-controls">
+                    <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) cyRef.current.zoomBy(1.2) } catch (e) {} }}>Zoom +</button>
+                    <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) cyRef.current.zoomBy(1/1.2) } catch (e) {} }}>Zoom -</button>
+                    <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) safeFit(cyRef.current) } catch (e) {} }}>Fit</button>
+                  </div>
                   <CytoscapeComponent
                     key={timelineKey}
                     elements={elements}
@@ -665,7 +678,12 @@ export default function TopogramDetail() {
 
           if (onlyNetwork) {
             return (
-              <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+              <div className="cy-container" style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+                <div className="cy-controls">
+                  <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) cyRef.current.zoomBy(1.2) } catch (e) {} }}>Zoom +</button>
+                  <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) cyRef.current.zoomBy(1/1.2) } catch (e) {} }}>Zoom -</button>
+                  <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) safeFit(cyRef.current) } catch (e) {} }}>Fit</button>
+                </div>
                 <CytoscapeComponent
                   key={timelineKey}
                   elements={elements}
