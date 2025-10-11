@@ -72,13 +72,17 @@ export default function Home() {
       <h1 className="home-title">Topogram Standard (Meteor 3)</h1>
       <p className="home-sub">Connected to: local Meteor Mongo</p>
       <div className="controls-row">
-        <div className="ready-count"><strong>Subscription ready:</strong> {String(isReady())}  <strong>count:</strong> {tops.length}</div>
-        <button onClick={() => setImportModalOpen(true)} className="import-button">Import CSV</button>
-        { userId ? (
-          <Button onClick={doLogout} variant="outlined" color="inherit" size="small">Logout{user && user.username ? ` (${user.username})` : ''}</Button>
-        ) : (
-          <Button onClick={() => setLoginOpen(true)} variant="outlined" color="inherit" size="small">Login</Button>
-        ) }
+        <div className="controls-left">
+          <div className="ready-count"><strong>Subscription ready:</strong> {String(isReady())}   <strong>count:</strong> {tops.length}</div>
+          <button onClick={() => setImportModalOpen(true)} className="import-button">Import CSV</button>
+        </div>
+        <div className="controls-right">
+          { userId ? (
+            <Button onClick={doLogout} variant="outlined" color="inherit" size="small">Logout{user && user.username ? ` (${user.username})` : ''}</Button>
+          ) : (
+            <Button onClick={() => setLoginOpen(true)} variant="outlined" color="inherit" size="small">Login</Button>
+          ) }
+        </div>
       </div>
       <Dialog open={loginOpen} onClose={() => setLoginOpen(false)}>
         <DialogTitle>Sign in</DialogTitle>
