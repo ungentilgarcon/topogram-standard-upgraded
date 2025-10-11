@@ -10,7 +10,7 @@ import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
 import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 import '/imports/ui/styles/greenTheme.css'
 import SelectionPanel from '/imports/ui/components/SelectionPanel/SelectionPanel'
-import NodeCharts from '/imports/ui/components/NodeCharts/NodeCharts'
+import Charts from '/imports/ui/components/Charts/Charts'
 
 cytoscape.use(cola);
 
@@ -107,21 +107,20 @@ export default function TopogramDetail() {
   const selectElement = (json) => {
     const key = canonicalKey(json)
     if (!key) return
-    if (isSelectedKey(key)) return
-    setSelectedElements(prev => [...prev, json])
-    // ensure Cytoscape selection visual state
+    // Prefer to let Cytoscape drive selection: select the element in cy and
+    // the cy select event will mirror the full selected set into React state.
     try {
       const cy = cyRef.current
       if (cy) {
+        // find element in cy and select it
         if (key.startsWith('node:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           const el = cy.filter(`node[id='${id}']`)
-          if (el && el.length) el.select()
+          if (el && el.length) { el.select(); return }
         } else if (key.startsWith('edge:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           let el = cy.filter(`edge[id='${id}']`)
           if (!el || el.length === 0) {
-            // try source/target pair
             const parts = id.split('|')
             if (parts.length === 2) {
               const s = parts[0].replace(/"/g, '\\"').replace(/'/g, "\\'")
@@ -129,25 +128,24 @@ export default function TopogramDetail() {
               el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
             }
           }
-          if (el && el.length) el.select()
+          if (el && el.length) { el.select(); return }
         }
       }
-    } catch (e) {
-      console.warn('selectElement: cy selection failed', e)
-    }
+    } catch (e) { console.warn('selectElement: cy selection failed', e) }
+    // Fallback: if cy not available, keep React state as a best-effort
+    if (!isSelectedKey(key)) setSelectedElements(prev => [...prev, json])
   }
 
   const unselectElement = (json) => {
     const key = canonicalKey(json)
     if (!key) return
-    setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key))
     try {
       const cy = cyRef.current
       if (cy) {
         if (key.startsWith('node:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           const el = cy.filter(`node[id='${id}']`)
-          if (el && el.length) el.unselect()
+          if (el && el.length) { el.unselect(); return }
         } else if (key.startsWith('edge:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           let el = cy.filter(`edge[id='${id}']`)
@@ -159,12 +157,12 @@ export default function TopogramDetail() {
               el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
             }
           }
-          if (el && el.length) el.unselect()
+          if (el && el.length) { el.unselect(); return }
         }
       }
-    } catch (e) {
-      console.warn('unselectElement: cy unselect failed', e)
-    }
+    } catch (e) { console.warn('unselectElement: cy unselect failed', e) }
+    // Fallback: remove from state if cy not available
+    setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key))
   }
 
   const onUnselect = (json) => {
@@ -719,8 +717,8 @@ export default function TopogramDetail() {
                   />
                 </div>
                 <div style={{ width: 320 }}>
-                  <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} />
-                  <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} />
+                  <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} />
+                  <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} />
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
