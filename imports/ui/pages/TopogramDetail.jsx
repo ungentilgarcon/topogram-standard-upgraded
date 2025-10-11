@@ -9,6 +9,8 @@ import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
 import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
 import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 import '/imports/ui/styles/greenTheme.css'
+import SelectionPanel from '/imports/ui/components/SelectionPanel/SelectionPanel'
+import NodeCharts from '/imports/ui/components/NodeCharts/NodeCharts'
 
 cytoscape.use(cola);
 
@@ -164,6 +166,11 @@ export default function TopogramDetail() {
       console.warn('unselectElement: cy unselect failed', e)
     }
   }
+
+  const onUnselect = (json) => {
+    try { const key = canonicalKey(json); if (!key) return; setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key)) } catch (e) {}
+  }
+  const onClearSelection = () => { setSelectedElements([]) }
 
   // Keep Cytoscape event listeners in sync with state: when cy instance appears, attach select/unselect handlers
   useEffect(() => {
@@ -700,6 +707,10 @@ export default function TopogramDetail() {
                     onUnfocusElement={() => {}}
                   />
                 </div>
+                <div style={{ width: 320 }}>
+                  <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} />
+                  <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} />
+                </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
@@ -707,20 +718,26 @@ export default function TopogramDetail() {
 
           if (onlyNetwork) {
             return (
-              <div className="cy-container" style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
-                <div className="cy-controls">
-                  <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
-                  <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
-                  <button className="cy-control-btn" onClick={doFit}>Fit</button>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <div className="cy-container" style={{ width: '70%', height: '600px', border: '1px solid #ccc' }}>
+                  <div className="cy-controls">
+                    <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
+                    <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
+                    <button className="cy-control-btn" onClick={doFit}>Fit</button>
+                  </div>
+                  <CytoscapeComponent
+                    key={timelineKey}
+                    elements={elements}
+                    style={{ width: '100%', height: '100%' }}
+                    layout={layout}
+                    stylesheet={stylesheet}
+                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                  />
                 </div>
-                <CytoscapeComponent
-                  key={timelineKey}
-                  elements={elements}
-                  style={{ width: '100%', height: '100%' }}
-                  layout={layout}
-                  stylesheet={stylesheet}
-                  cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
-                />
+                <div style={{ width: 320 }}>
+                  <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} />
+                  <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} />
+                </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
