@@ -1,0 +1,7 @@
+#!/bin/sh
+branch=$(git rev-parse --abbrev-ref HEAD)
+if [ "$branch" = "main" ] || [ "$branch" = "master" ]; then
+  echo "Direct pushes to '$branch' are disabled. Please open a pull request instead."
+  exit 1
+fi
+exit 0
