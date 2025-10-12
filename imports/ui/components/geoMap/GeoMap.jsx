@@ -72,8 +72,13 @@ export default class GeoMap extends React.Component {
     const nodeId = el.data.id != null ? String(el.data.id) : (el._id != null ? String(el._id) : undefined)
     if (!nodeId) return
     const isSelected = selectedNodeIds.has(nodeId) || !!el.data.selected
+    // Clone node data and remove any accidental edge-like fields so the
+    // canonicalKey in the parent treats this as a node, not an edge.
+    const nodeData = Object.assign({}, el.data, { id: nodeId })
+    try { delete nodeData.source } catch (_) {}
+    try { delete nodeData.target } catch (_) {}
     const geoNodeJson = {
-      data: Object.assign({}, el.data, { id: nodeId }),
+      data: nodeData,
       group: 'nodes',
       _id: el._id
     }
