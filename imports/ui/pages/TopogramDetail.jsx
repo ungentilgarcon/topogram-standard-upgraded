@@ -590,7 +590,19 @@ export default function TopogramDetail() {
     { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
     { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
     { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'target-arrow-shape': 'triangle' } },
-    { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } }
+    { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
+    { selector: 'edge[relationship]', style: {
+        'label': 'data(relationship)',
+        'text-rotation': 'autorotate',
+        'font-size': 10,
+        'text-outline-width': 2,
+        'text-outline-color': '#fff',
+        'text-background-color': '#ffffff',
+        'text-background-opacity': 0.85,
+        'text-background-padding': 3,
+        'text-margin-y': -6
+      }
+    }
   ]
 
   // Add explicit selected styles for better visibility when chart-driven selection occurs
@@ -608,7 +620,7 @@ export default function TopogramDetail() {
 
   const exportTopogramCsv = () => {
     try {
-      const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','extra']
+  const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','extra']
       const idMap = new Map()
       nodes.forEach(n => {
         const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
