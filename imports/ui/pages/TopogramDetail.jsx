@@ -616,6 +616,13 @@ export default function TopogramDetail() {
         candidates.forEach(k => idMap.set(k, vizId))
       })
 
+      const fmtDate = (v) => {
+        if (v == null) return ''
+        if (v instanceof Date) return v.toISOString().split('T')[0]
+        // try to detect ISO-like strings already
+        return String(v)
+      }
+
       const rows = []
       // nodes first
       nodes.forEach(node => {
@@ -634,10 +641,10 @@ export default function TopogramDetail() {
         if (d.lat != null && d.lng != null) { lat = d.lat; lng = d.lng }
         else if (d.latitude != null && d.longitude != null) { lat = d.latitude; lng = d.longitude }
         else if (d.location && Array.isArray(d.location.coordinates) && d.location.coordinates.length >= 2) { lng = d.location.coordinates[0]; lat = d.location.coordinates[1] }
-        const start = d.start || ''
-        const end = d.end || ''
-        const time = d.time || ''
-        const date = d.date || ''
+  const start = fmtDate(d.start)
+  const end = fmtDate(d.end)
+  const time = fmtDate(d.time)
+  const date = fmtDate(d.date)
 
         const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', '']
         rows.push(row)
@@ -657,7 +664,11 @@ export default function TopogramDetail() {
         rows.push(row)
       })
 
-      const titleLine = `# Topogram: ${top.title || top.name || String(top._id)}`
+      // Sanitize title: collapse newlines and excessive whitespace so the
+      // comment line stays on a single CSV line (avoids Papa.parse FieldMismatch)
+      const rawTitle = (top && (top.title || top.name || top._id)) ? String(top.title || top.name || top._id) : String(top && top._id)
+      const safeTitleStr = rawTitle.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim()
+      const titleLine = `# Topogram: ${safeTitleStr}`
       const headerLine = headerArr.map(_quote).join(',')
       const bodyLines = rows.map(r => r.map(_quote).join(','))
       const csvText = [titleLine, headerLine, ...bodyLines].join('\n')
