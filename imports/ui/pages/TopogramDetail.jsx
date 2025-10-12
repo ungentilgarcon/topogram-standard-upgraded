@@ -664,14 +664,20 @@ export default function TopogramDetail() {
         rows.push(row)
       })
 
-      // Sanitize title: collapse newlines and excessive whitespace so the
-      // comment line stays on a single CSV line (avoids Papa.parse FieldMismatch)
-      const rawTitle = (top && (top.title || top.name || top._id)) ? String(top.title || top.name || top._id) : String(top && top._id)
-      const safeTitleStr = rawTitle.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim()
-      const titleLine = `# Topogram: ${safeTitleStr}`
-      const headerLine = headerArr.map(_quote).join(',')
-      const bodyLines = rows.map(r => r.map(_quote).join(','))
-      const csvText = [titleLine, headerLine, ...bodyLines].join('\n')
+  // Sanitize title strictly: collapse newlines and excessive whitespace
+  // and strip leading '#' characters so the comment line stays on a
+  // single CSV line. Use CRLF for robust cross-platform parsing.
+  const EOL = '\r\n'
+  const rawTitle = (top && (top.title || top.name || top._id)) ? String(top.title || top.name || top._id) : String(top && top._id)
+  let safeTitleStr = rawTitle.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim()
+  // remove any leading comment markers to avoid confusing parsers
+  safeTitleStr = safeTitleStr.replace(/^\s*#+\s*/, '')
+  // remove control characters that could break a single-line guarantee
+  safeTitleStr = safeTitleStr.replace(/[\u0000-\u001F\u007F]/g, '')
+  const titleLine = `# Topogram: ${safeTitleStr}`
+  const headerLine = headerArr.map(_quote).join(',')
+  const bodyLines = rows.map(r => r.map(_quote).join(','))
+  const csvText = [titleLine, headerLine, ...bodyLines].join(EOL)
 
       const blob = new Blob([csvText], { type: 'text/csv;charset=utf-8;' })
       const url = URL.createObjectURL(blob)
