@@ -284,6 +284,15 @@ export default function TopogramDetail() {
       let value = b
       // normalize Date -> ms
       if (value instanceof Date) value = value.getTime()
+      // Special-case a few keys that belong to this component's state
+      try {
+        if (key === 'chartsVisible') { setChartsVisible(!!value); return }
+        if (key === 'selectedElements') { setSelectedElements(Array.isArray(value) ? value : []) ; return }
+        if (key === 'geoMapVisible') { setGeoMapVisible(!!value); return }
+        if (key === 'networkVisible') { setNetworkVisible(!!value); return }
+        if (key === 'timeLineVisible') { setTimeLineVisible(!!value); return }
+        if (key === 'debugVisible') { setDebugVisible(!!value); return }
+      } catch (e) {}
       setTimelineUI(prev => ({ ...prev, [key]: value }))
       return
     }
@@ -293,6 +302,15 @@ export default function TopogramDetail() {
       if (obj.minTime instanceof Date) obj.minTime = obj.minTime.getTime()
       if (obj.maxTime instanceof Date) obj.maxTime = obj.maxTime.getTime()
       if (Array.isArray(obj.valueRange)) obj.valueRange = obj.valueRange.map(v => (v instanceof Date ? v.getTime() : v))
+      // Apply object keys to known local state too
+      try {
+        if (typeof obj.chartsVisible === 'boolean') setChartsVisible(obj.chartsVisible)
+        if (obj.selectedElements) setSelectedElements(Array.isArray(obj.selectedElements) ? obj.selectedElements : [])
+        if (typeof obj.geoMapVisible === 'boolean') setGeoMapVisible(obj.geoMapVisible)
+        if (typeof obj.networkVisible === 'boolean') setNetworkVisible(obj.networkVisible)
+        if (typeof obj.timeLineVisible === 'boolean') setTimeLineVisible(obj.timeLineVisible)
+        if (typeof obj.debugVisible === 'boolean') setDebugVisible(obj.debugVisible)
+      } catch (e) {}
       setTimelineUI(prev => ({ ...prev, ...obj }))
       return
     }
