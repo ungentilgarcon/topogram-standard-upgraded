@@ -104,11 +104,10 @@ export default class Popup extends React.Component {
 
   renderHeader() {
     const { title, onClose, onPopOut } = this.props
-    const light = !!this.props.light
-    const headerBg = light ? '#ffffff' : 'rgba(69,90,100 ,1)'
-    const headerColor = light ? '#222' : '#F2EFE9'
-    const buttonStyle = light ? { marginRight: 8, background:'transparent', color:'#222', border:'1px solid #d0d0d0', borderRadius:4, padding:'2px 6px' } : { marginRight: 8, background:'transparent', color:'#F2EFE9', border:'1px solid #78909C', borderRadius:4, padding:'2px 6px' }
-
+  const light = !!this.props.light
+  const headerBg = 'rgba(255,255,255,0.98)'
+  const headerColor = '#222'
+    const buttonStyle = { marginRight: 8, background:'transparent', color:'#222', border:'1px solid #d0d0d0', borderRadius:4, padding:'2px 6px' } 
     return (
       <div
         onMouseDown={this.handleDragStart}
@@ -138,7 +137,13 @@ export default class Popup extends React.Component {
             </Tooltip>
           ) : null}
           <Tooltip title="Close">
-            <span style={{ cursor: 'pointer', fontSize: 18, opacity: 0.85 }} onClick={(e) => { e.stopPropagation(); try { onClose && onClose() } catch (err) {} }}>✕</span>
+            <span
+              style={{ cursor: 'pointer', fontSize: 18, opacity: 0.85 }}
+              onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); try { onClose && onClose() } catch (err) {} }}
+              onClick={(e) => { e.stopPropagation(); try { onClose && onClose() } catch (err) {} }}
+            >
+              ✕
+            </span>
           </Tooltip>
         </span>
       </div>
@@ -162,24 +167,42 @@ export default class Popup extends React.Component {
           dynamicFeatures = `width=${w},height=${h},left=${l},top=${t},menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes`
         }
       } catch (e) { /* ignore, fallback below */ }
+  const light = !!this.props.light
+  const headerBg = 'rgba(255,255,255,0.98)'
+  const headerColor = '#222'
+  const bodyBg = 'rgba(255,255,255,0.98)'
+  const bodyColor = '#222'
       return (
         <WindowPortal
           title={title}
           name={(title || 'popup').toLowerCase().replace(/\s+/g, '_')}
           features={dynamicFeatures || 'width=900,height=680,menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes'}
           onClose={() => this.setState({ poppedOut: false })}
+          light={this.props.light}
         >
-          <div className="__popup_content" style={{ padding: '8px 10px', color: '#F2EFE9', background: 'rgba(69,90,100,1)', fontWeight: 'bold' }}>{title}</div>
-          <div className="__popup_content" style={{ padding: '12px 14px', color: '#F2EFE9' }}>
+          <div style={{ padding: '8px 10px', color: headerColor, background: headerBg, fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+            <span style={{ fontWeight: '700' }}>{title}</span>
+            <span>
+              <Tooltip title="Close">
+                <span
+                  style={{ cursor: 'pointer', fontSize: 18, opacity: 0.85 }}
+                  onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); try { (typeof window !== 'undefined') && window.close && window.close() } catch (err) {} }}
+                  onClick={(e) => { e.stopPropagation(); try { (typeof window !== 'undefined') && window.close && window.close() } catch (err) {} }}
+                >
+                  ✕
+                </span>
+              </Tooltip>
+            </span>
+          </div>
+          <div className="__popup_content" style={{ padding: '12px 14px', color: bodyColor, background: bodyBg }}>
             {children}
           </div>
         </WindowPortal>
       )
     }
     const light = !!this.props.light
-    const bg = light ? 'rgba(255,255,255,0.98)' : 'rgba(69,90,100 ,0.95)'
-    const fg = light ? '#222' : '#F2EFE9'
-
+    const bg = 'rgba(255,255,255,0.98)' 
+    const fg = '#222'
     return (
       <Portal>
         <div
@@ -201,7 +224,7 @@ export default class Popup extends React.Component {
           }}
         >
           {this.renderHeader()}
-          <div style={{ padding: '12px 14px', background: light ? '#fff' : 'transparent' }}>
+          <div style={{ padding: '12px 14px', background: '#fff'  }}>
             {children}
           </div>
           <Tooltip title="Resize">

@@ -28,11 +28,14 @@ export default class WindowPortal extends React.Component {
     const baseHref = (typeof document !== 'undefined' && document.baseURI) ? document.baseURI : (window.location.origin + '/')
     try {
       this.externalWindow.document.open()
-      const injectedStyle = `
+      // If light prop is set, use light background/colors; otherwise keep dark popup theme
+      const useLight = !!this.props.light
+      const injectedStyle = useLight ? `
+        html, body.__popup_theme { background:rgba(255,255,255,0.98); color:#222; font-family:Arial,Helvetica,sans-serif; }
+        body.__popup_theme .__popup_content { max-width: 1100px; margin: 0 auto; }
+      ` : `
         html, body.__popup_theme { background:#37474F; color:#F2EFE9; font-family:Arial,Helvetica,sans-serif; }
         /* Constrain content width for better readability in pop-outs */
-        body.__popup_theme .__popup_content { max-width: 1100px; margin: 0 auto; }
-
         /* Generic chart readability on dark background (SVG text labels, axes, legends) */
         body.__popup_theme svg text { fill: #F2EFE9; }
         /* Outline arc/pie labels for contrast against bright slices */

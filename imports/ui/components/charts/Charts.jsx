@@ -317,7 +317,7 @@ class Charts extends React.Component {
         light={true}
         show
         title={'Charts'}
-        onClose={() => this.props.updateUI(chartsVisible, false)}
+        onClose={() => this.props.updateUI('chartsVisible', false)}
         onPopOut={() => this.setState({ poppedOut: true })}
         width={popupWidth}
         height={popupHeight}
