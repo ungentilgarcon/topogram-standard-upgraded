@@ -119,15 +119,26 @@ class Charts extends React.Component {
       // Unselect all matches
       const next = curr.filter(e => !matchKeys.includes(key(e)))
       elements.forEach(el => {
-        try { cy.filter(`${el.group.slice(0,-1)}[id='${el.data.id}']`).data('selected', false) } catch (_) {}
+        try {
+          // ensure group exists on provided element JSON
+          if (!el.group) el.group = (el.data && (el.data.source != null || el.data.target != null)) ? 'edges' : 'nodes'
+          const sel = `${el.group.slice(0,-1)}[id='${el.data.id}']`
+          try { cy.filter(sel).unselect() } catch (_) { try { cy.filter(sel).data('selected', false) } catch (_) {} }
+        } catch (_) {}
       })
       this.props.updateUI('selectedElements', next)
     } else {
       // Select union without duplicates
       const map = new Map(curr.map(e => [key(e), e]))
       elements.forEach(el => {
-        map.set(key(el), el)
-        try { cy.filter(`${el.group.slice(0,-1)}[id='${el.data.id}']`).data('selected', true) } catch (_) {}
+        try {
+          if (!el.group) el.group = (el.data && (el.data.source != null || el.data.target != null)) ? 'edges' : 'nodes'
+          map.set(key(el), el)
+          const sel = `${el.group.slice(0,-1)}[id='${el.data.id}']`
+          try { cy.filter(sel).select() } catch (_) { try { cy.filter(sel).data('selected', true) } catch (_) {} }
+        } catch (_) {
+          map.set(key(el), el)
+        }
       })
       this.props.updateUI('selectedElements', Array.from(map.values()))
     }
