@@ -22,20 +22,38 @@ export default class GeoNodes extends React.Component {
     } = this.props
 
     const nodes = this.props.nodes.map((n,i) => {
+      const visualRadius = n.data.weight ? (n.data.weight > 100 ? 167 : n.data.weight * 5) : 3
+      const hitRadius = Math.max(visualRadius, 10)
+      const color = n.data.selected ? 'yellow' : (n.data.color ? n.data.color : 'steelblue')
       return (
-        <CircleMarker
-          radius={n.data.weight? n.data.weight > 100? 167 : n.data.weight*5: 3}
-          key={`node-${i}`}
-
-          center={n.coords}
-          opacity={0.8}
-          color={n.data.selected ? 'yellow' : n.data.color ? n.data.color : 'steelblue'}
-          eventHandlers={{
-            click: () => { if (!isolateMode) handleClickGeoElement({ group: 'node', el: n }) },
-            mousedown: () => { if (isolateMode) onFocusElement(n) },
-            mouseup: () => { if (isolateMode) onUnfocusElement() }
-          }}
-        />
+        <React.Fragment key={`node-${i}`}>
+          {/* visual marker */}
+          <CircleMarker
+            radius={visualRadius}
+            center={n.coords}
+            opacity={0.8}
+            color={color}
+            eventHandlers={{
+              click: () => { if (!isolateMode) handleClickGeoElement({ group: 'node', el: n }) },
+              mousedown: () => { if (isolateMode) onFocusElement(n) },
+              mouseup: () => { if (isolateMode) onUnfocusElement() }
+            }}
+          />
+          {/* invisible larger hit area to improve clickability for small markers */}
+          {hitRadius > visualRadius ? (
+            <CircleMarker
+              radius={hitRadius}
+              center={n.coords}
+              opacity={0.001}
+              color={color}
+              eventHandlers={{
+                click: () => { if (!isolateMode) handleClickGeoElement({ group: 'node', el: n }) },
+                mousedown: () => { if (isolateMode) onFocusElement(n) },
+                mouseup: () => { if (isolateMode) onUnfocusElement() }
+              }}
+            />
+          ) : null}
+        </React.Fragment>
       )
     })
 
