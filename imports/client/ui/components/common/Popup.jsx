@@ -44,17 +44,23 @@ export default class Popup extends React.Component {
     try {
       if (typeof localStorage !== 'undefined') localStorage.setItem('topo.chartsVisible', 'false')
     } catch (e) {}
-    try { window.dispatchEvent && window.dispatchEvent(new Event('topo:panelToggle')) } catch (e) {}
+    try {
+      if (typeof console !== 'undefined') console.log('[Popup] _fallbackClose: setting localStorage and dispatching topo:panelToggle')
+      window.dispatchEvent && window.dispatchEvent(new Event('topo:panelToggle'))
+    } catch (e) {}
   }
 
   _safeInvokeOnClose() {
     try {
+      if (typeof console !== 'undefined') console.log('[Popup] _safeInvokeOnClose called; has props.onClose=', !!this.props.onClose)
       if (this.props.onClose) {
-        try { this.props.onClose() } catch (e) { this._fallbackClose() }
+        try { this.props.onClose(); if (typeof console !== 'undefined') console.log('[Popup] props.onClose() invoked successfully') } catch (e) { if (typeof console !== 'undefined') console.error('[Popup] props.onClose() threw', e); this._fallbackClose() }
       } else {
+        if (typeof console !== 'undefined') console.log('[Popup] no props.onClose, using fallback')
         this._fallbackClose()
       }
     } catch (e) {
+      if (typeof console !== 'undefined') console.error('[Popup] _safeInvokeOnClose outer error', e)
       this._fallbackClose()
     }
   }
