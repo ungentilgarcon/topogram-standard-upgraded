@@ -302,12 +302,17 @@ class Charts extends React.Component {
       selectedNodeNames = new Set(
         selected
           .filter(el => el && el.group === 'nodes' && el.data && el.data.weight != null)
-          .map(el => String(Math.round(Math.pow(el.data.weight, 2))))
+          .map(el => String(Math.round(Math.pow(Number(el.data.weight || 0), 2))))
       )
       selectedEdgeNames = new Set(
         selected
-          .filter(el => el && el.group === 'edges' && el.data && el.data.weight != null)
-          .map(el => String(el.data.weight))
+          .filter(el => el && el.group === 'edges' && el.data)
+          .map(el => {
+            const raw = el.data.weight
+            const num = Number(raw)
+            const w = isFinite(num) ? num : 1
+            return String(w)
+          })
       )
       this._nodesBinsKey = Array.from(selectedNodeNames).sort().join(',')
       this._edgesBinsKey = Array.from(selectedEdgeNames).sort().join(',')
