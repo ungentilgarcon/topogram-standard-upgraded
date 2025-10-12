@@ -39,6 +39,26 @@ export default class Popup extends React.Component {
     }
   }
 
+  // Robust close: try the provided onClose, otherwise fallback to localStorage/event.
+  _fallbackClose() {
+    try {
+      if (typeof localStorage !== 'undefined') localStorage.setItem('topo.chartsVisible', 'false')
+    } catch (e) {}
+    try { window.dispatchEvent && window.dispatchEvent(new Event('topo:panelToggle')) } catch (e) {}
+  }
+
+  _safeInvokeOnClose() {
+    try {
+      if (this.props.onClose) {
+        try { this.props.onClose() } catch (e) { this._fallbackClose() }
+      } else {
+        this._fallbackClose()
+      }
+    } catch (e) {
+      this._fallbackClose()
+    }
+  }
+
   componentWillUnmount() {
     this._teardownListeners()
   }
@@ -139,8 +159,8 @@ export default class Popup extends React.Component {
           <Tooltip title="Close">
             <span
               style={{ cursor: 'pointer', fontSize: 18, opacity: 0.85 }}
-              onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); try { onClose && onClose() } catch (err) {} }}
-              onClick={(e) => { e.stopPropagation(); try { onClose && onClose() } catch (err) {} }}
+              onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); this._safeInvokeOnClose() }}
+              onClick={(e) => { e.stopPropagation(); this._safeInvokeOnClose() }}
             >
               ✕
             </span>
@@ -172,12 +192,18 @@ export default class Popup extends React.Component {
   const headerColor = '#222'
   const bodyBg = 'rgba(255,255,255,0.98)'
   const bodyColor = '#222'
+      const combinedOnClose = () => {
+        try { this.setState({ poppedOut: false }) } catch (e) {}
+        // Also call consumer onClose (e.g., Charts -> updateUI)
+        try { if (this.props.onClose) this.props.onClose() } catch (e) { this._fallbackClose() }
+      }
+
       return (
         <WindowPortal
           title={title}
           name={(title || 'popup').toLowerCase().replace(/\s+/g, '_')}
           features={dynamicFeatures || 'width=900,height=680,menubar=no,toolbar=no,location=no,status=no,resizable=yes,scrollbars=yes'}
-          onClose={() => this.setState({ poppedOut: false })}
+          onClose={combinedOnClose}
           light={this.props.light}
         >
           <div style={{ padding: '8px 10px', color: headerColor, background: headerBg, fontWeight: 'bold', display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
@@ -186,8 +212,8 @@ export default class Popup extends React.Component {
               <Tooltip title="Close">
                 <span
                   style={{ cursor: 'pointer', fontSize: 18, opacity: 0.85 }}
-                  onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); try { (typeof window !== 'undefined') && window.close && window.close() } catch (err) {} }}
-                  onClick={(e) => { e.stopPropagation(); try { (typeof window !== 'undefined') && window.close && window.close() } catch (err) {} }}
+                  onMouseDown={(e) => { e.stopPropagation(); e.preventDefault(); try { (typeof window !== 'undefined') && window.close && window.close() } catch (err) { combinedOnClose() } }}
+                  onClick={(e) => { e.stopPropagation(); try { (typeof window !== 'undefined') && window.close && window.close() } catch (err) { combinedOnClose() } }}
                 >
                   ✕
                 </span>
