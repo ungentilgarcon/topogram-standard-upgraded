@@ -44,8 +44,12 @@ export default class GeoNodes extends React.Component {
             <CircleMarker
               radius={hitRadius}
               center={n.coords}
-              opacity={0.001}
-              color={color}
+              // Make this invisible but explicitly interactive so Leaflet
+              // reliably dispatches click events even for very small visual markers
+              stroke={false}
+              fillOpacity={0.01}
+              fillColor={color}
+              interactive={true}
               eventHandlers={{
                 click: () => { if (!isolateMode) handleClickGeoElement({ group: 'node', el: n }) },
                 mousedown: () => { if (isolateMode) onFocusElement(n) },
