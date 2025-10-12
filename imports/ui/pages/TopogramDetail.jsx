@@ -683,8 +683,14 @@ export default function TopogramDetail() {
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
-      const safeTitle = (top.title || top.name || top._id).toString().replace(/[^a-z0-9-_\.]/gi, '_')
-      a.download = `topogram-${safeTitle}.csv`
+  // Build a safe filename: sanitize, truncate to 24 chars, and trim
+  const rawFileTitle = (top && (top.title || top.name || top._id)) ? String(top.title || top.name || top._id) : String(top && top._id)
+  let safeTitle = rawFileTitle.replace(/[^a-z0-9-_\.]/gi, '_')
+  // truncate to 24 characters to avoid filesystem limits when server saves uploads
+  safeTitle = safeTitle.slice(0, 24)
+  // remove accidental leading/trailing underscores or dots
+  safeTitle = safeTitle.replace(/^[_\.]+|[_\.]+$/g, '') || String(Date.now()).slice(-8)
+  a.download = `topogram-${safeTitle}.csv`
       document.body.appendChild(a)
       a.click()
       a.remove()
