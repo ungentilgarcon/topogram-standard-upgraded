@@ -90,6 +90,8 @@ export default function TopogramDetail() {
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
   const [chartsVisible, setChartsVisible] = useState(true)
+  // Selection panel pinned/visible flag (persisted via localStorage)
+  const [selectionPanelPinned, setSelectionPanelPinned] = useState(false)
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -234,6 +236,7 @@ export default function TopogramDetail() {
         if (typeof d.timeLineVisible === 'boolean') setTimeLineVisible(d.timeLineVisible)
         if (typeof d.debugVisible === 'boolean') setDebugVisible(d.debugVisible)
         if (typeof d.chartsVisible === 'boolean') setChartsVisible(d.chartsVisible)
+          if (typeof d.selectionPanelPinned === 'boolean') setSelectionPanelPinned(d.selectionPanelPinned)
       } catch (e) { console.warn('panelToggle handler error', e) }
     }
     window.addEventListener('topo:panelToggle', handler)
@@ -259,6 +262,8 @@ export default function TopogramDetail() {
         if (n !== null) setNetworkVisible(n !== 'false')
         if (t !== null) setTimeLineVisible(t === 'true')
         if (c !== null) setChartsVisible(c === 'true')
+        const s = window.localStorage.getItem('topo.selectionPanelPinned')
+        if (s !== null) setSelectionPanelPinned(s === 'true')
       }
     } catch (e) { /* ignore */ }
   }, [])
@@ -292,6 +297,7 @@ export default function TopogramDetail() {
         if (key === 'networkVisible') { setNetworkVisible(!!value); return }
         if (key === 'timeLineVisible') { setTimeLineVisible(!!value); return }
         if (key === 'debugVisible') { setDebugVisible(!!value); return }
+          if (key === 'selectionPanelPinned') { setSelectionPanelPinned(!!value); return }
       } catch (e) {}
       setTimelineUI(prev => ({ ...prev, [key]: value }))
       return
@@ -859,7 +865,7 @@ export default function TopogramDetail() {
                   />
                 </div>
                 <div style={{ width: 320 }}>
-                  <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} />
+                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
                   {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
@@ -886,7 +892,7 @@ export default function TopogramDetail() {
                   />
                 </div>
                 <div style={{ width: 320 }}>
-                  <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} />
+                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
                   {chartsVisible ? <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
