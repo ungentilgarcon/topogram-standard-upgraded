@@ -1,0 +1,52 @@
+/* TitleBox scoped tweaks */
+/* Card itself has the class `titlebox-root`; target it directly (no descendant) */
+
+.titlebox-root {
+	background-color: rgba(69,90,100,0.9) !important; /* match right side panel opacity */
+	color: #F2EFE9;
+	text-shadow: 0 1px 1px rgba(0,0,0,0.4);
+	position: relative; /* create stacking context */
+	z-index: 7000; /* above cytoscape (panzoom at 6000) */
+	pointer-events: auto;
+}
+
+.titlebox-root .titlebox-datas-btn {
+	background-color: #aa8dc6 !important;
+	color: #222 !important;
+}
+
+/* Purple-themed action buttons inside TitleBox */
+.titlebox-root .titlebox-action-btn.MuiButton-contained {
+	background-color: #aa8dc6 !important;
+	color: #222 !important;
+	text-transform: none;
+	font-weight: 700;
+	padding: 4px 10px;
+	border-radius: 12px;
+}
+.titlebox-root .titlebox-action-btn.MuiButton-contained:hover {
+	background-color: #9a7cb6 !important;
+}
+.titlebox-root .titlebox-action-btn.MuiButton-outlined {
+	border-color: #aa8dc6 !important;
+	color: #aa8dc6 !important;
+	text-transform: none;
+	font-weight: 700;
+	padding: 3px 10px;
+	border-radius: 12px;
+}
+.titlebox-root .titlebox-action-btn.MuiButton-outlined:hover {
+	background-color: rgba(170,141,198,0.15) !important;
+}
+
+/* Readability: outlined text for stats (Title2..Title5) */
+.titlebox-stats {
+	color: #F2EFE9;
+	/* multi-direction shadow to mimic outline */
+	text-shadow:
+	 -1px -1px 0 rgba(0,0,0,0.6),
+	 1px -1px 0 rgba(0,0,0,0.6),
+	 -1px  1px 0 rgba(0,0,0,0.6),
+	 1px  1px 0 rgba(0,0,0,0.6),
+	 0 0 2px rgba(0,0,0,0.7);
+}

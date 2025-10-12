@@ -9,6 +9,8 @@ import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
 import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
 import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 import '/imports/ui/styles/greenTheme.css'
+import SelectionPanel from '/imports/ui/components/SelectionPanel/SelectionPanel'
+import Charts from '/imports/ui/components/charts/Charts'
 
 cytoscape.use(cola);
 
@@ -55,6 +57,8 @@ export default function TopogramDetail() {
   const [titleSize, setTitleSize] = useState(12)
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
+  // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
+  const [cyInstance, setCyInstance] = useState(null)
 
   // Safe fit helper: only call fit when the renderer is initialized to avoid
   // runtime errors like "this._private.renderer is null" observed when
@@ -85,6 +89,7 @@ export default function TopogramDetail() {
   const [networkVisible, setNetworkVisible] = useState(true)
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
+  const [chartsVisible, setChartsVisible] = useState(true)
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -105,21 +110,20 @@ export default function TopogramDetail() {
   const selectElement = (json) => {
     const key = canonicalKey(json)
     if (!key) return
-    if (isSelectedKey(key)) return
-    setSelectedElements(prev => [...prev, json])
-    // ensure Cytoscape selection visual state
+    // Prefer to let Cytoscape drive selection: select the element in cy and
+    // the cy select event will mirror the full selected set into React state.
     try {
       const cy = cyRef.current
       if (cy) {
+        // find element in cy and select it
         if (key.startsWith('node:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           const el = cy.filter(`node[id='${id}']`)
-          if (el && el.length) el.select()
+          if (el && el.length) { el.select(); return }
         } else if (key.startsWith('edge:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           let el = cy.filter(`edge[id='${id}']`)
           if (!el || el.length === 0) {
-            // try source/target pair
             const parts = id.split('|')
             if (parts.length === 2) {
               const s = parts[0].replace(/"/g, '\\"').replace(/'/g, "\\'")
@@ -127,25 +131,24 @@ export default function TopogramDetail() {
               el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
             }
           }
-          if (el && el.length) el.select()
+          if (el && el.length) { el.select(); return }
         }
       }
-    } catch (e) {
-      console.warn('selectElement: cy selection failed', e)
-    }
+    } catch (e) { console.warn('selectElement: cy selection failed', e) }
+    // Fallback: if cy not available, keep React state as a best-effort
+    if (!isSelectedKey(key)) setSelectedElements(prev => [...prev, json])
   }
 
   const unselectElement = (json) => {
     const key = canonicalKey(json)
     if (!key) return
-    setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key))
     try {
       const cy = cyRef.current
       if (cy) {
         if (key.startsWith('node:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           const el = cy.filter(`node[id='${id}']`)
-          if (el && el.length) el.unselect()
+          if (el && el.length) { el.unselect(); return }
         } else if (key.startsWith('edge:')) {
           const id = key.slice(5).replace(/'/g, "\\'")
           let el = cy.filter(`edge[id='${id}']`)
@@ -157,13 +160,18 @@ export default function TopogramDetail() {
               el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
             }
           }
-          if (el && el.length) el.unselect()
+          if (el && el.length) { el.unselect(); return }
         }
       }
-    } catch (e) {
-      console.warn('unselectElement: cy unselect failed', e)
-    }
+    } catch (e) { console.warn('unselectElement: cy unselect failed', e) }
+    // Fallback: remove from state if cy not available
+    setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key))
   }
+
+  const onUnselect = (json) => {
+    try { const key = canonicalKey(json); if (!key) return; setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key)) } catch (e) {}
+  }
+  const onClearSelection = () => { setSelectedElements([]) }
 
   // Keep Cytoscape event listeners in sync with state: when cy instance appears, attach select/unselect handlers
   useEffect(() => {
@@ -171,19 +179,24 @@ export default function TopogramDetail() {
     if (!cy) return
     const onSelect = (evt) => {
       try {
-        const json = evt.target.json()
-        // normalize json to include group for GeoMap expectations
-        const j = Object.assign({}, json)
-        j.group = evt.target.isNode ? 'nodes' : 'edges'
-        selectElement(j)
+        // Snapshot the current Cytoscape selection and mirror it into React state
+        const sel = cy.$(':selected').toArray().map(el => {
+          const j = el.json()
+          j.group = el.isNode && el.isNode() ? 'nodes' : 'edges'
+          return j
+        })
+        setSelectedElements(sel)
       } catch (e) { console.warn('cy select handler error', e) }
     }
     const onUnselect = (evt) => {
       try {
-        const json = evt.target.json()
-        const j = Object.assign({}, json)
-        j.group = evt.target.isNode ? 'nodes' : 'edges'
-        unselectElement(j)
+        // Mirror current selection after an unselect event
+        const sel = cy.$(':selected').toArray().map(el => {
+          const j = el.json()
+          j.group = el.isNode && el.isNode() ? 'nodes' : 'edges'
+          return j
+        })
+        setSelectedElements(sel)
       } catch (e) { console.warn('cy unselect handler error', e) }
     }
     cy.on('select', 'node, edge', onSelect)
@@ -220,10 +233,16 @@ export default function TopogramDetail() {
         if (typeof d.networkVisible === 'boolean') setNetworkVisible(d.networkVisible)
         if (typeof d.timeLineVisible === 'boolean') setTimeLineVisible(d.timeLineVisible)
         if (typeof d.debugVisible === 'boolean') setDebugVisible(d.debugVisible)
+        if (typeof d.chartsVisible === 'boolean') setChartsVisible(d.chartsVisible)
       } catch (e) { console.warn('panelToggle handler error', e) }
     }
     window.addEventListener('topo:panelToggle', handler)
     return () => window.removeEventListener('topo:panelToggle', handler)
+  }, [])
+
+  // Cleanup any global cy exposure on unmount
+  useEffect(() => {
+    return () => { try { if (window && window._topoCy) delete window._topoCy } catch (e) {} }
   }, [])
 
   // Sync visibility flags from localStorage once on mount. This avoids reading
@@ -235,9 +254,11 @@ export default function TopogramDetail() {
         const g = window.localStorage.getItem('topo.geoMapVisible')
         const n = window.localStorage.getItem('topo.networkVisible')
         const t = window.localStorage.getItem('topo.timeLineVisible')
+        const c = window.localStorage.getItem('topo.chartsVisible')
         if (g !== null) setGeoMapVisible(g === 'true')
         if (n !== null) setNetworkVisible(n !== 'false')
         if (t !== null) setTimeLineVisible(t === 'true')
+        if (c !== null) setChartsVisible(c === 'true')
       }
     } catch (e) { /* ignore */ }
   }, [])
@@ -263,6 +284,15 @@ export default function TopogramDetail() {
       let value = b
       // normalize Date -> ms
       if (value instanceof Date) value = value.getTime()
+      // Special-case a few keys that belong to this component's state
+      try {
+        if (key === 'chartsVisible') { setChartsVisible(!!value); return }
+        if (key === 'selectedElements') { setSelectedElements(Array.isArray(value) ? value : []) ; return }
+        if (key === 'geoMapVisible') { setGeoMapVisible(!!value); return }
+        if (key === 'networkVisible') { setNetworkVisible(!!value); return }
+        if (key === 'timeLineVisible') { setTimeLineVisible(!!value); return }
+        if (key === 'debugVisible') { setDebugVisible(!!value); return }
+      } catch (e) {}
       setTimelineUI(prev => ({ ...prev, [key]: value }))
       return
     }
@@ -272,6 +302,15 @@ export default function TopogramDetail() {
       if (obj.minTime instanceof Date) obj.minTime = obj.minTime.getTime()
       if (obj.maxTime instanceof Date) obj.maxTime = obj.maxTime.getTime()
       if (Array.isArray(obj.valueRange)) obj.valueRange = obj.valueRange.map(v => (v instanceof Date ? v.getTime() : v))
+      // Apply object keys to known local state too
+      try {
+        if (typeof obj.chartsVisible === 'boolean') setChartsVisible(obj.chartsVisible)
+        if (obj.selectedElements) setSelectedElements(Array.isArray(obj.selectedElements) ? obj.selectedElements : [])
+        if (typeof obj.geoMapVisible === 'boolean') setGeoMapVisible(obj.geoMapVisible)
+        if (typeof obj.networkVisible === 'boolean') setNetworkVisible(obj.networkVisible)
+        if (typeof obj.timeLineVisible === 'boolean') setTimeLineVisible(obj.timeLineVisible)
+        if (typeof obj.debugVisible === 'boolean') setDebugVisible(obj.debugVisible)
+      } catch (e) {}
       setTimelineUI(prev => ({ ...prev, ...obj }))
       return
     }
@@ -548,6 +587,12 @@ export default function TopogramDetail() {
     { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } }
   ]
 
+  // Add explicit selected styles for better visibility when chart-driven selection occurs
+  stylesheet.push(
+    { selector: 'node:selected', style: { 'border-width': 3, 'border-color': '#FFD54F', 'text-outline-color': '#000', 'z-index': 9999 } },
+    { selector: 'edge:selected', style: { 'line-color': '#1976D2', 'target-arrow-color': '#1976D2', 'width': 3, 'z-index': 9998 } }
+  )
+
     
 
   return (
@@ -639,7 +684,13 @@ export default function TopogramDetail() {
                   stylesheet={stylesheet}
                   cy={(cy) => {
                     try { cyRef.current = cy } catch (e) {}
-                    try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) }
+                    try {
+                      // enable box selection and additive selection mode when available
+                      if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
+                      if (typeof cy.selectionType === 'function') cy.selectionType('additive')
+                      if (typeof cy.autounselectify === 'function') cy.autounselectify(false)
+                      setTimeout(() => { safeFit(cy) }, 50)
+                    } catch (err) { console.warn('cy.setup failed', err) }
                   }}
                 />
               </div>
@@ -684,7 +735,7 @@ export default function TopogramDetail() {
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
                     stylesheet={stylesheet}
-                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
+                    cy={(cy) => { try { cyRef.current = cy; setCyInstance(cy); try { window._topoCy = cy } catch (err) {} } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
                 <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
@@ -700,6 +751,10 @@ export default function TopogramDetail() {
                     onUnfocusElement={() => {}}
                   />
                 </div>
+                <div style={{ width: 320 }}>
+                  <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} />
+                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
+                </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
@@ -707,20 +762,26 @@ export default function TopogramDetail() {
 
           if (onlyNetwork) {
             return (
-              <div className="cy-container" style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
-                <div className="cy-controls">
-                  <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
-                  <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
-                  <button className="cy-control-btn" onClick={doFit}>Fit</button>
+              <div style={{ display: 'flex', gap: 8 }}>
+                <div className="cy-container" style={{ width: '70%', height: '600px', border: '1px solid #ccc' }}>
+                  <div className="cy-controls">
+                    <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
+                    <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
+                    <button className="cy-control-btn" onClick={doFit}>Fit</button>
+                  </div>
+                  <CytoscapeComponent
+                    key={timelineKey}
+                    elements={elements}
+                    style={{ width: '100%', height: '100%' }}
+                    layout={layout}
+                    stylesheet={stylesheet}
+                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
+                  />
                 </div>
-                <CytoscapeComponent
-                  key={timelineKey}
-                  elements={elements}
-                  style={{ width: '100%', height: '100%' }}
-                  layout={layout}
-                  stylesheet={stylesheet}
-                  cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.fit() failed', err) } }}
-                />
+                <div style={{ width: 320 }}>
+                  <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} />
+                  {chartsVisible ? <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
+                </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
