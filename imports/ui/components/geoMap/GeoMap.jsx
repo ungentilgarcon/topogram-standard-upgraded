@@ -60,16 +60,24 @@ export default class GeoMap extends React.Component {
       const edgeId = el.data.id != null ? String(el.data.id) : undefined
       const pairKey = (el.data && el.data.source != null && el.data && el.data.target != null) ? `${String(el.data.source)}|${String(el.data.target)}` : undefined
       const isSelected = (edgeId ? selectedEdgeIds.has(edgeId) : false) || (pairKey ? selectedEdgePairs.has(pairKey) : false) || !!el.data.selected
-      // Pass the geo edge object (which contains data, source, target) to the
-      // parent's select/unselect handlers so they can update Cytoscape or state.
-      return isSelected ? this.props.unselectElement(el) : this.props.selectElement(el)
+      const geoEdgeJson = {
+        data: Object.assign({}, el.data, { id: edgeId || pairKey, source: el.data && el.data.source, target: el.data && el.data.target }),
+        group: 'edges',
+        _id: el._id
+      }
+      return isSelected ? this.props.unselectElement(geoEdgeJson) : this.props.selectElement(geoEdgeJson)
     }
 
     // node
-    const nodeId = el.data.id != null ? String(el.data.id) : undefined
+    const nodeId = el.data.id != null ? String(el.data.id) : (el._id != null ? String(el._id) : undefined)
     if (!nodeId) return
     const isSelected = selectedNodeIds.has(nodeId) || !!el.data.selected
-    return isSelected ? this.props.unselectElement(el) : this.props.selectElement(el)
+    const geoNodeJson = {
+      data: Object.assign({}, el.data, { id: nodeId }),
+      group: 'nodes',
+      _id: el._id
+    }
+    return isSelected ? this.props.unselectElement(geoNodeJson) : this.props.selectElement(geoNodeJson)
   }
 
   render() {
