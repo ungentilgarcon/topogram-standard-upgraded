@@ -98,8 +98,11 @@ class Charts extends React.Component {
       const matches = []
       for (let i = 0; i < cyEdges.length; i++) {
         const cyEl = cyEdges[i]
-        const w = String(cyEl && cyEl.data && cyEl.data('weight'))
-        if (w === target) matches.push(cyEl.json())
+        // Read weight similar to donut building logic: prefer data('weight') or json().data.weight
+        const rawW = (cyEl && typeof cyEl.data === 'function') ? cyEl.data('weight') : (cyEl && cyEl.json && cyEl.json().data && cyEl.json().data.weight)
+        const numW = Number(rawW)
+        const w = isFinite(numW) ? numW : 1
+        if (String(w) === target) matches.push(cyEl.json())
       }
       this._toggleBatch(matches)
     } catch (_) {}
