@@ -308,16 +308,16 @@ class Charts extends React.Component {
     const palette = Array.isArray(DEFAULT_COLORS) && DEFAULT_COLORS.length ? DEFAULT_COLORS : ['#1976D2','#FB8C00','#43A047','#E53935','#8E24AA','#00897B','#FDD835','#78909C']
     const { showT, showChi2 } = this.state
   const light = !!this.props.light
-  const textColor = light ? '#222' : '#F2EFE9'
-  const subtitleColor = light ? '#444' : '#F2EFE9'
-  const buttonSx = { color: textColor, borderColor: light ? '#ccc' : '#546E7A', height: 40 }
+  const textColor = '#222' 
+  const subtitleColor =  '#444' 
+  const buttonSx = { color: textColor, borderColor:'#ccc', height: 40 }
 
     return (
       <Popup
         light={true}
         show
         title={'Charts'}
-        onClose={() => this.props.updateUI('chartsVisible', false)}
+        onClose={() => this.props.updateUI(chartsVisible, false)}
         onPopOut={() => this.setState({ poppedOut: true })}
         width={popupWidth}
         height={popupHeight}
@@ -326,7 +326,7 @@ class Charts extends React.Component {
           <CardTitle
             title='Charts'
             titleStyle={{ fontSize : '12pt', lineHeight : '1em', color: textColor }}
-            subtitle='Nodes repartition (how often the band has played the same venue)'
+            subtitle='Nodes repartition'
             subtitleStyle={{ fontSize : '9pt', lineHeight : '1.2em', color: subtitleColor }}
           />
           <RechartsDonutChart
@@ -372,7 +372,7 @@ class Charts extends React.Component {
 
         <div>
           <CardTitle
-            subtitle='Edges repartition (how often the band has followed the same route)'
+            subtitle='Edges repartition'
             subtitleStyle={{ fontSize : '9pt', lineHeight : '1.2em', color: subtitleColor }}
           />
           {Array.isArray(edgesDonutData) && edgesDonutData.length > 0 ? (
