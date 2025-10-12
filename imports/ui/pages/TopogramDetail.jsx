@@ -813,7 +813,16 @@ export default function TopogramDetail() {
           // build a lightweight geo-nodes/edges list matching the structures expected by TopogramGeoMap
           // We'll derive coords into node.data.lat/lng and attach data.selected based on elements selection if any
           // Filter geo nodes to match the active timeline range as well
-          const geoNodes = nodesWithGeo.map(({n, coords}) => ({ n, coords })).filter(x => isNodeInRange(x.n)).map(({n, coords}) => ({ ...n, data: { ...n.data, lat: coords[0], lng: coords[1] } }))
+          // Ensure geo nodes carry the same visualization id (vizId) used by Cytoscape
+          // so that selection by id can be resolved. If data.id exists use it,
+          // otherwise fall back to the Mongo _id as the stable viz id.
+          const geoNodes = nodesWithGeo
+            .map(({n, coords}) => ({ n, coords }))
+            .filter(x => isNodeInRange(x.n))
+            .map(({n, coords}) => {
+              const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
+              return { ...n, data: { ...n.data, id: vizId, lat: coords[0], lng: coords[1] } }
+            })
           // For edges, attempt to resolve endpoints via data.source/data.target or top-level source/target
           const geoEdges = edges.map(e => {
             const rawSrc = (e.data && (e.data.source || e.data.from)) || e.source || e.from
