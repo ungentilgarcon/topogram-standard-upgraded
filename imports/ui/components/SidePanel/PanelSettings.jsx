@@ -102,6 +102,21 @@ const PanelSettings = ({
       >
         { (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('topo.timeLineVisible') === 'true') ? 'Hide Timeline' : 'Show Timeline' }
       </button>
+      {/* Selection panel show/hide button */}
+      <button
+        aria-pressed={typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.selectionPanelPinned') === 'true' : false}
+        onClick={() => {
+          try {
+            const cur = window.localStorage ? window.localStorage.getItem('topo.selectionPanelPinned') === 'true' : false
+            const next = !cur
+            window.localStorage && window.localStorage.setItem('topo.selectionPanelPinned', String(next))
+            window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { selectionPanelPinned: next } }))
+          } catch (e) { console.warn('toggle selectionPanelPinned failed', e) }
+        }}
+        style={{ background: '#1b5e20', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
+      >
+        { (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('topo.selectionPanelPinned') === 'true') ? 'Hide Selection' : 'Show Selection' }
+      </button>
       {/* Debug show/hide button (default hidden) */}
       {/* Charts show/hide button (default hidden) */}
       <button
