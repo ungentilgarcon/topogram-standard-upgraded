@@ -10,6 +10,7 @@ export default class GeoEdges extends React.Component {
     handleClickGeoElement : PropTypes.func.isRequired,
     onFocusElement : PropTypes.func.isRequired,
     onUnfocusElement : PropTypes.func.isRequired
+    , ui: PropTypes.object
   }
 
   // Return segments and chevrons for an edge, splitting at the antimeridian when needed
@@ -191,6 +192,27 @@ export default class GeoEdges extends React.Component {
           )
         })
       }
+
+      // Draw midpoint relationship label when geoEdgeRelVisible UI flag is true
+      try {
+        const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
+        if (geoRelVisible && e.data && e.data.relationship && e.coords && e.coords.length === 2) {
+          const [[lat1, lng1], [lat2, lng2]] = e.coords
+          const midLat = (parseFloat(lat1) + parseFloat(lat2)) / 2
+          const midLng = (parseFloat(lng1) + parseFloat(lng2)) / 2
+          const safeRel = String(e.data.relationship).replace(/[<>]/g, '')
+          const html = `<div style="background: rgba(255,255,255,0.9); padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #222; white-space: nowrap;">${safeRel}</div>`
+          const icon = L.divIcon({ className: 'edge-rel-label', html, iconSize: null })
+          children.push(
+            <Marker
+              key={`rel-${keyRoot}`}
+              position={[midLat, midLng]}
+              icon={icon}
+              interactive={false}
+            />
+          )
+        }
+      } catch (err) { /* ignore malformed coords */ }
     })
 
     const uiKey = isChevronsOn ? 'with-chevrons' : 'no-chevrons'
