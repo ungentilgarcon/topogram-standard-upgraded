@@ -1,6 +1,6 @@
 # Topogram (topogram-standard-upgraded)
 
-This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, and timeline improvements.
+This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, timeline improvements, and Meteor 3 migration work.
 
 ## Overview of recent changes (last 3 weeks)
 
@@ -41,6 +41,25 @@ Summary of notable commits (titles and context):
 - `imports/client/helpers` & server endpoints for CSV import/export.
 - `imports/ui/components/common/Popup.jsx` — popout/close improvements.
 
+## Upgrade branches (migration / Meteor 3 prep)
+
+Additional commits on upgrade/migration branches that were part of the Meteor 3 port and preparatory work. The branches include `upgrade/m3-port`, `upgrade/m3-prep`, and `topogram-m3-migration`.
+
+- `upgrade/m3-port` (examples from recent commits)
+  - `fix(sanitize): clamp numeric node/edge fields on ingest + add migration to sanitize existing docs` — data sanitization and migration scripts to clean legacy numeric fields when importing under Meteor 3.
+  - `feat(router): add /t/:id route, Home list with links, and detail view` — scaffolding for routes, publications and methods (topograms/nodes/edges).
+  - `chore: scaffold Meteor 3 app with upgraded stack deps and dev scripts` — initial Meteor 3 scaffolding.
+
+- `upgrade/m3-prep` (migration prep and historic upstream commits)
+  - `chore(migration): add plan and dev env scaffolding` — migration plan and developer environment scaffolding.
+  - This branch also contains historic Topogram commits preserved during the prep step (many UI and timeline-related improvements dating back to earlier upstream work).
+
+- `topogram-m3-migration`
+  - `migrate: Topogram Meteor3 client fixes` — client-side adjustments for Meteor 3: Cytoscape presets, color & weight normalization, layout selector, title-size UI, and adjusted publications/mappings.
+  - Timeline and UI wiring for migration: TimeLine placeholders, minimal Redux/store wiring, geo/network view toggles and side-panel wiring.
+
+These branches represent the migration effort to prepare the app for Meteor 3 and sanitize legacy data. They include scaffolding, router updates, migration scripts, and compatibility fixes.
+
 ## Testing notes / how to verify
 
 1. Start the app locally (Meteor): ensure dependencies are installed and run the Meteor app as in the project instructions.
@@ -60,6 +79,7 @@ Summary of notable commits (titles and context):
 - `exporttopotocsv` — SelectionPanel CSV export (merged to `main`).
 - `chartsandselection` — Charts and selection integration (merged to `main`).
 - `CSV_import` — CSV import server and client updates.
+- `upgrade/m3-port`, `upgrade/m3-prep`, `topogram-m3-migration` — migration/upgrade branches for Meteor 3.
 
 ## Notes & next steps
 
@@ -68,4 +88,5 @@ Summary of notable commits (titles and context):
 - If any selection still shows misclassification (node showing under edges), capture the node's `data.id` and a screenshot; the code now passes canonical JSON but some legacy data shapes may still cause mismatches.
 
 ---
+
 Generated: 2025-10-12
