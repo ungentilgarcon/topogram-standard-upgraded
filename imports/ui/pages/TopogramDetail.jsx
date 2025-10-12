@@ -587,6 +587,12 @@ export default function TopogramDetail() {
     { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } }
   ]
 
+  // Add explicit selected styles for better visibility when chart-driven selection occurs
+  stylesheet.push(
+    { selector: 'node:selected', style: { 'border-width': 3, 'border-color': '#FFD54F', 'text-outline-color': '#000', 'z-index': 9999 } },
+    { selector: 'edge:selected', style: { 'line-color': '#1976D2', 'target-arrow-color': '#1976D2', 'width': 3, 'z-index': 9998 } }
+  )
+
     
 
   return (
