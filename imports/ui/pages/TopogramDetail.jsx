@@ -593,7 +593,90 @@ export default function TopogramDetail() {
     { selector: 'edge:selected', style: { 'line-color': '#1976D2', 'target-arrow-color': '#1976D2', 'width': 3, 'z-index': 9998 } }
   )
 
-    
+  // CSV exporter: produce the same 20-field layout used by the ImportCsvModal sample
+  const _quote = (v) => {
+    if (v === null || typeof v === 'undefined') return '""'
+    const s = String(v)
+    return '"' + s.replace(/"/g, '""') + '"'
+  }
+
+  const exportTopogramCsv = () => {
+    try {
+      const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','extra']
+      const idMap = new Map()
+      nodes.forEach(n => {
+        const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
+        const candidates = new Set()
+        candidates.add(String(vizId))
+        candidates.add(String(n._id))
+        if (n.id) candidates.add(String(n.id))
+        if (n.data && n.data.id) candidates.add(String(n.data.id))
+        if (n.data && n.data.name) candidates.add(String(n.data.name))
+        if (n.name) candidates.add(String(n.name))
+        candidates.forEach(k => idMap.set(k, vizId))
+      })
+
+      const rows = []
+      // nodes first
+      nodes.forEach(node => {
+        const d = node.data || {}
+        const vizId = idMap.get(String((d && d.id) || node.id || node._id)) || String(node._id)
+        const id = vizId
+        const name = d.name || node.name || ''
+        const label = d.label || node.label || ''
+        const description = d.description || node.description || ''
+        const color = d.color || d.fillColor || d.fill || ''
+        const fillColor = d.fillColor || ''
+        const weight = (d.weight != null) ? d.weight : (d.rawWeight != null ? d.rawWeight : '')
+        const rawWeight = (d.rawWeight != null) ? d.rawWeight : (d.weight != null ? d.weight : '')
+        let lat = ''
+        let lng = ''
+        if (d.lat != null && d.lng != null) { lat = d.lat; lng = d.lng }
+        else if (d.latitude != null && d.longitude != null) { lat = d.latitude; lng = d.longitude }
+        else if (d.location && Array.isArray(d.location.coordinates) && d.location.coordinates.length >= 2) { lng = d.location.coordinates[0]; lat = d.location.coordinates[1] }
+        const start = d.start || ''
+        const end = d.end || ''
+        const time = d.time || ''
+        const date = d.date || ''
+
+        const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', '']
+        rows.push(row)
+      })
+
+      // then edges
+      edges.forEach(edge => {
+        const d = edge.data || {}
+        const rawSrc = (d && (d.source || d.from)) || edge.source || edge.from || ''
+        const rawTgt = (d && (d.target || d.to)) || edge.target || edge.to || ''
+        const src = rawSrc != null ? (idMap.get(String(rawSrc)) || String(rawSrc)) : ''
+        const tgt = rawTgt != null ? (idMap.get(String(rawTgt)) || String(rawTgt)) : ''
+        const edgeLabel = d.name || d.type || d.label || d.relation || d.edge || d.edgeType || d.edgeLabel || ''
+        const edgeColor = d.color || d.strokeColor || d.lineColor || ''
+        const edgeWeight = d.weight || d.edgeWeight || ''
+        const row = ['', '', '', '', '', '', '', '', '', '', '', '', '', '', src, tgt, edgeLabel, edgeColor, edgeWeight, '']
+        rows.push(row)
+      })
+
+      const titleLine = `# Topogram: ${top.title || top.name || String(top._id)}`
+      const headerLine = headerArr.map(_quote).join(',')
+      const bodyLines = rows.map(r => r.map(_quote).join(','))
+      const csvText = [titleLine, headerLine, ...bodyLines].join('\n')
+
+      const blob = new Blob([csvText], { type: 'text/csv;charset=utf-8;' })
+      const url = URL.createObjectURL(blob)
+      const a = document.createElement('a')
+      a.href = url
+      const safeTitle = (top.title || top.name || top._id).toString().replace(/[^a-z0-9-_\.]/gi, '_')
+      a.download = `topogram-${safeTitle}.csv`
+      document.body.appendChild(a)
+      a.click()
+      a.remove()
+      URL.revokeObjectURL(url)
+    } catch (e) {
+      console.error('exportTopogramCsv failed', e)
+      alert('Failed to export CSV: ' + String(e))
+    }
+  }
 
   return (
     <div className="topogram-page" style={{ paddingBottom: 'var(--timeline-offset, 12px)' }}>
@@ -616,6 +699,7 @@ export default function TopogramDetail() {
         </label>
 
           {/* Import CSV moved to the main Home page */}
+          <button onClick={() => exportTopogramCsv && exportTopogramCsv()} className="export-button" style={{ marginLeft: 8 }}>Export CSV</button>
 
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Title size:
