@@ -41,45 +41,35 @@ export default class GeoMap extends React.Component {
   }
 
   handleClickGeoElement({ group, el }) {
-    const { cy } = this.props.ui || {}
-    if (!cy || !el || !el.data) return
-
-    const firstJson = (col) => {
-      if (!col || col.length === 0) return undefined
-      try { return col[0] ? col[0].json() : (Array.isArray(col.json()) ? col.json()[0] : col.json()) } catch (_) { return undefined }
-    }
+    // Toggle selection based on the UI's known selectedElements set instead
+    // of querying Cytoscape. This allows GeoMap to work even when `cy` is not
+    // passed in the ui prop (common when map runs in its own pane).
+    if (!el || !el.data) return
+    const selected = (this.props.ui && this.props.ui.selectedElements) ? this.props.ui.selectedElements : []
+    const selectedNodeIds = new Set(
+      selected.filter(e => e && e.group === 'nodes' && e.data && e.data.id != null).map(e => String(e.data.id))
+    )
+    const selectedEdgeIds = new Set(
+      selected.filter(e => e && e.group === 'edges' && e.data && e.data.id != null).map(e => String(e.data.id))
+    )
+    const selectedEdgePairs = new Set(
+      selected.filter(e => e && e.group === 'edges' && e.data && e.data.source != null && e.data && e.data.target != null).map(e => `${String(e.data.source)}|${String(e.data.target)}`)
+    )
 
     if (group === 'edge') {
-      const rawId = el.data.id != null ? String(el.data.id) : undefined
-      const sid = el.data.source != null ? String(el.data.source) : undefined
-      const tid = el.data.target != null ? String(el.data.target) : undefined
-      const stableId = rawId || (sid && tid ? `${sid}|${tid}` : undefined)
-      let cyEl = cy.collection()
-      if (stableId) {
-        const safe = stableId.replace(/'/g, "\\'")
-        cyEl = cy.filter(`edge[id='${safe}']`)
-      }
-      if (!cyEl || cyEl.length === 0) {
-        if (sid && tid) {
-          const s = sid.replace(/"/g, '\\"').replace(/'/g, "\\'")
-          const t = tid.replace(/"/g, '\\"').replace(/'/g, "\\'")
-          cyEl = cy.$(`edge[source = "${s}"][target = "${t}"]`)
-        }
-      }
-      const json = firstJson(cyEl)
-      if (!json) return
-      const sel = (cyEl && cyEl.length && cyEl[0] && typeof cyEl[0].selected === 'function') ? cyEl[0].selected() : false
-      return sel ? this.props.unselectElement(json) : this.props.selectElement(json)
+      const edgeId = el.data.id != null ? String(el.data.id) : undefined
+      const pairKey = (el.data && el.data.source != null && el.data && el.data.target != null) ? `${String(el.data.source)}|${String(el.data.target)}` : undefined
+      const isSelected = (edgeId ? selectedEdgeIds.has(edgeId) : false) || (pairKey ? selectedEdgePairs.has(pairKey) : false) || !!el.data.selected
+      // Pass the geo edge object (which contains data, source, target) to the
+      // parent's select/unselect handlers so they can update Cytoscape or state.
+      return isSelected ? this.props.unselectElement(el) : this.props.selectElement(el)
     }
 
-    const id = el.data.id != null ? String(el.data.id) : undefined
-    if (!id) return
-    const safeId = id.replace(/'/g, "\\'")
-    const cyEl = cy.filter(`node[id='${safeId}']`)
-    const json = firstJson(cyEl)
-    if (!json) return
-    const sel = (cyEl && cyEl.length && cyEl[0] && typeof cyEl[0].selected === 'function') ? cyEl[0].selected() : false
-    return sel ? this.props.unselectElement(json) : this.props.selectElement(json)
+    // node
+    const nodeId = el.data.id != null ? String(el.data.id) : undefined
+    if (!nodeId) return
+    const isSelected = selectedNodeIds.has(nodeId) || !!el.data.selected
+    return isSelected ? this.props.unselectElement(el) : this.props.selectElement(el)
   }
 
   render() {
