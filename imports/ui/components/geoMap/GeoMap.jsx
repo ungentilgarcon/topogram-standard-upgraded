@@ -22,7 +22,8 @@ export default class GeoMap extends React.Component {
     super(props)
     this.state = {
       zoom : 2.4,
-      position : [20.505, 22]
+      position : [20.505, 22],
+      mapRef: null
     }
     this._tileErrorCount = 0
     this._lastTileKey = null
@@ -178,7 +179,7 @@ export default class GeoMap extends React.Component {
           zoomSnap={0.25}
           zoomDelta={0.25}
           zoomControl={false}
-          whenCreated={(map) => { this._map = map }}
+          whenCreated={(map) => { this._map = map; this.setState({ mapRef: map }) }}
         >
           {
             edges.length ? (
@@ -186,6 +187,8 @@ export default class GeoMap extends React.Component {
                 <GeoEdges
                   key={`geoedges-${(!this.props.ui || this.props.ui.showChevrons !== false) ? 'with' : 'no'}-chev`}
                   edges={edges}
+                   ui={this.props.ui}
+                  map={this.state.mapRef}
                   isolateMode={false}
                   handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
                   onFocusElement={onFocusElement}
@@ -200,6 +203,7 @@ export default class GeoMap extends React.Component {
                 <GeoNodes
                   key={`geonodes-${selectedNodeIds.size}`}
                   nodes={nodes}
+                   ui={this.props.ui}
                   isolateMode={false}
                   handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
                   onFocusElement={onFocusElement}

@@ -33,6 +33,17 @@ All notable changes for recent development (last ~3 weeks). This file summarizes
 - `upgrade/m3-prep` — migration plan and developer environment scaffolding; contains upstream historic Topogram commits preserved during prep.
 - `topogram-m3-migration` — client-side adjustments for Meteor 3 (Cytoscape presets, color & weight normalization, layout selector, title-size UI), plus timeline and UI wiring for migration.
 
+### Recent (branch: arrowed-links)
+
+- Geo: jitter midpoint labels to reduce overlap; Cytoscape parallel-edge styling and propagate edge fields (186553e)
+- Geo: increase midpoint label offsets and jitter to reduce overlap (d2ab429)
+- Geo: alternate midpoint label placement above/below edge and reduce distance (efd9298)
+- Geo: use map.project/unproject for pixel-space midpoint label placement; pass map ref to GeoEdges (fadde57)
+- Geo: pixel-space tangent/normal offsets and longitudinal jitter for midpoint labels (2aebb63)
+- Geo: increase pixel-space label separation (larger normal offset, more jitter) (c0e079d)
+- Geo: pass ui and map refs to GeoEdges/GeoNodes so UI toggles affect map layers (865cbf3)
+
+
 ## Notes
 - If you still encounter nodes being misclassified as edges in selection, capture the node's `data.id`/_id and a screenshot for tracing; the code now passes canonical JSON but legacy data shapes may still cause corner cases.
 

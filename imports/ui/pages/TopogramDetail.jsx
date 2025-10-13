@@ -87,6 +87,9 @@ export default function TopogramDetail() {
   // reading window during hook initialization (helps keep hook order stable under HMR).
   const [geoMapVisible, setGeoMapVisible] = useState(false)
   const [networkVisible, setNetworkVisible] = useState(true)
+  // Edge relationship visibility per-view (independent)
+  const [networkEdgeRelVisible, setNetworkEdgeRelVisible] = useState(true)
+  const [geoEdgeRelVisible, setGeoEdgeRelVisible] = useState(true)
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
   const [chartsVisible, setChartsVisible] = useState(true)
@@ -258,10 +261,14 @@ export default function TopogramDetail() {
         const n = window.localStorage.getItem('topo.networkVisible')
         const t = window.localStorage.getItem('topo.timeLineVisible')
         const c = window.localStorage.getItem('topo.chartsVisible')
+        const ner = window.localStorage.getItem('topo.networkEdgeRelVisible')
+        const ger = window.localStorage.getItem('topo.geoEdgeRelVisible')
         if (g !== null) setGeoMapVisible(g === 'true')
         if (n !== null) setNetworkVisible(n !== 'false')
         if (t !== null) setTimeLineVisible(t === 'true')
         if (c !== null) setChartsVisible(c === 'true')
+        if (ner !== null) setNetworkEdgeRelVisible(ner === 'true')
+        if (ger !== null) setGeoEdgeRelVisible(ger === 'true')
         const s = window.localStorage.getItem('topo.selectionPanelPinned')
         if (s !== null) setSelectionPanelPinned(s === 'true')
       }
@@ -295,6 +302,8 @@ export default function TopogramDetail() {
         if (key === 'selectedElements') { setSelectedElements(Array.isArray(value) ? value : []) ; return }
         if (key === 'geoMapVisible') { setGeoMapVisible(!!value); return }
         if (key === 'networkVisible') { setNetworkVisible(!!value); return }
+          if (key === 'networkEdgeRelVisible') { setNetworkEdgeRelVisible(!!value); try { window.localStorage.setItem('topo.networkEdgeRelVisible', !!value ? 'true' : 'false') } catch(e){}; return }
+          if (key === 'geoEdgeRelVisible') { setGeoEdgeRelVisible(!!value); try { window.localStorage.setItem('topo.geoEdgeRelVisible', !!value ? 'true' : 'false') } catch(e){}; return }
         if (key === 'timeLineVisible') { setTimeLineVisible(!!value); return }
         if (key === 'debugVisible') { setDebugVisible(!!value); return }
           if (key === 'selectionPanelPinned') { setSelectionPanelPinned(!!value); return }
@@ -314,6 +323,8 @@ export default function TopogramDetail() {
         if (obj.selectedElements) setSelectedElements(Array.isArray(obj.selectedElements) ? obj.selectedElements : [])
         if (typeof obj.geoMapVisible === 'boolean') setGeoMapVisible(obj.geoMapVisible)
         if (typeof obj.networkVisible === 'boolean') setNetworkVisible(obj.networkVisible)
+        if (typeof obj.networkEdgeRelVisible === 'boolean') { setNetworkEdgeRelVisible(obj.networkEdgeRelVisible); try { window.localStorage.setItem('topo.networkEdgeRelVisible', obj.networkEdgeRelVisible ? 'true' : 'false') } catch(e){} }
+        if (typeof obj.geoEdgeRelVisible === 'boolean') { setGeoEdgeRelVisible(obj.geoEdgeRelVisible); try { window.localStorage.setItem('topo.geoEdgeRelVisible', obj.geoEdgeRelVisible ? 'true' : 'false') } catch(e){} }
         if (typeof obj.timeLineVisible === 'boolean') setTimeLineVisible(obj.timeLineVisible)
         if (typeof obj.debugVisible === 'boolean') setDebugVisible(obj.debugVisible)
       } catch (e) {}
@@ -508,23 +519,44 @@ export default function TopogramDetail() {
       }).filter(Boolean)
 
       // map edges and attempt to resolve their endpoints against nodeMap
-      const edgeEls = edges.map(edge => {
+      // Precompute grouping for parallel edges (same source+target) so we can
+      // assign a parallel index. Use an ordered group key that is source|target
+      // where source/target are the resolved vizIds to ensure matching.
+      const grouped = new Map()
+      edges.forEach(edge => {
         const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
         const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
         const srcKey = rawSrc != null ? String(rawSrc) : null
         const tgtKey = rawTgt != null ? String(rawTgt) : null
         const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
         const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
-        if (!resolvedSrc || !resolvedTgt) {
-          // unresolved endpoints — skip this edge to avoid invalid Cytoscape entries
-          return null
-        }
-        // accept an explicit color on edges too (common variants)
-        const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
-        const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
-        if (ecolor != null) data.color = ecolor
-        return { data }
-      }).filter(Boolean)
+        if (!resolvedSrc || !resolvedTgt) return
+        const key = `${resolvedSrc}||${resolvedTgt}`
+        if (!grouped.has(key)) grouped.set(key, [])
+        grouped.get(key).push(edge)
+      })
+
+      const edgeEls = []
+      grouped.forEach((groupEdges, key) => {
+        groupEdges.forEach((edge, idx) => {
+          const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
+          const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
+          const srcKey = rawSrc != null ? String(rawSrc) : null
+          const tgtKey = rawTgt != null ? String(rawTgt) : null
+          const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
+          const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
+          if (!resolvedSrc || !resolvedTgt) return
+          const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
+          const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
+          if (edge.data && typeof edge.data.relationship !== 'undefined') data.relationship = edge.data.relationship
+          if (edge.data && typeof edge.data.enlightement !== 'undefined') data.enlightement = edge.data.enlightement
+          // attach parallel index metadata for styling separation
+          data._parallelIndex = idx
+          data._parallelCount = groupEdges.length
+          if (ecolor != null) data.color = ecolor
+          edgeEls.push({ data })
+        })
+      })
 
       const allEls = [...nodeEls, ...edgeEls]
       const hasPositions = nodeEls.some(n => n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number')
@@ -587,10 +619,26 @@ export default function TopogramDetail() {
   const minW = numericWeights.length ? Math.min(...numericWeights) : 1
   const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
   const stylesheet = [
-    { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
-    { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-    { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'target-arrow-shape': 'triangle' } },
-    { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } }
+  { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
+  { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
+  // Use bezier curves so parallel edges can be separated
+  { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
+  // Edge arrows are controlled per-edge via the `enlightement` data field
+  { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
+  { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
+    { selector: 'edge[relationship]', style: {
+        'label': 'data(relationship)',
+        'text-rotation': 'autorotate',
+        'font-size': 10,
+        'text-outline-width': 2,
+        'text-outline-color': '#fff',
+        'text-background-color': '#ffffff',
+        'text-background-opacity': 0.85,
+        'text-background-padding': 3,
+        // offset relation labels based on parallel index to reduce overlap
+        'text-margin-y': `mapData(_parallelIndex, 0, _parallelCount, -18, 18)`
+      }
+    }
   ]
 
   // Add explicit selected styles for better visibility when chart-driven selection occurs
@@ -608,7 +656,7 @@ export default function TopogramDetail() {
 
   const exportTopogramCsv = () => {
     try {
-      const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','extra']
+  const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','extra']
       const idMap = new Map()
       nodes.forEach(n => {
         const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
@@ -734,6 +782,10 @@ export default function TopogramDetail() {
           Title size:
           <input type="range" min={8} max={36} value={titleSize} onChange={e => setTitleSize(Number(e.target.value))} />
           <span style={{ minWidth: 36, textAlign: 'right' }}>{titleSize}px</span>
+        </label>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <input type="checkbox" checked={geoEdgeRelVisible} onChange={e => updateUI('geoEdgeRelVisible', e.target.checked)} />
+          <span style={{ fontSize: 12 }}>Show GeoMap relationship labels</span>
         </label>
       </div>
 
@@ -864,7 +916,7 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements }}
+                    ui={{ selectedElements, geoEdgeRelVisible }}
                     width={'50vw'}
                     height={'600px'}
                     selectElement={(json) => selectElement(json)}
@@ -902,7 +954,7 @@ export default function TopogramDetail() {
                 </div>
                 <div style={{ width: 320 }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
-                  {chartsVisible ? <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
+                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
@@ -915,7 +967,7 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                  ui={{ selectedElements }}
+                  ui={{ selectedElements, geoEdgeRelVisible }}
                   width={'100%'}
                   height={'600px'}
                   selectElement={(json) => selectElement(json)}
