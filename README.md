@@ -41,6 +41,15 @@ Summary of notable commits (titles and context):
 - `imports/client/helpers` & server endpoints for CSV import/export.
 - `imports/ui/components/common/Popup.jsx` — popout/close improvements.
 
+## Recent edits (2025-10-13)
+
+- Emoji & edge-relationship support:
+  - CSV import now accepts an `emoji` (or `em`/`icon`) column for both nodes and edges. The importer normalizes LibreOffice-encoded segments, extracts up to 3 grapheme-cluster emojis, and stores them on documents (`node.data.emoji`, `edge.data.relationshipEmoji`).
+  - Network UI: added selectors to choose how node labels and edge relationship labels are displayed (Name | Emoji | Both for nodes; Text | Emoji | Both for edges). Labels update immediately in the network view without remounting Cytoscape.
+  - GeoMap: midpoint relationship labels follow the selected edge label mode and can show emoji, text, or both. Chevrons remain a global drawing convention and per-edge arrowheads (CSV `enlightement = 'arrow'`) are respected.
+  - Sample CSV: the sample now includes multi-emoji examples and the download is prefixed with a UTF-8 BOM so LibreOffice and Excel detect UTF-8 and show emoji correctly. A short note appears in the import dialog describing this.
+  - Branch: changes were developed on branch `edgerelationshipasemoji` and pushed for review.
+
 ## Upgrade branches (migration / Meteor 3 prep)
 
 Additional commits on upgrade/migration branches that were part of the Meteor 3 port and preparatory work. The branches include `upgrade/m3-port`, `upgrade/m3-prep`, and `topogram-m3-migration`.

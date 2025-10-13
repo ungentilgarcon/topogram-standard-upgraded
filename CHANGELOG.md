@@ -43,6 +43,14 @@ All notable changes for recent development (last ~3 weeks). This file summarizes
 - Geo: increase pixel-space label separation (larger normal offset, more jitter) (c0e079d)
 - Geo: pass ui and map refs to GeoEdges/GeoNodes so UI toggles affect map layers (865cbf3)
 
+### Recent edits (emoji & edge-relationship support) - 2025-10-13
+
+- CSV import: support for emoji fields on nodes and edges. Importer now normalizes emoji input (handles LibreOffice +...- segments), extracts up to 3 grapheme clusters and stores them as UTF-8 strings on documents (`node.data.emoji`, `edge.data.relationshipEmoji`).
+- Network: added UI controls to choose node label mode (Name | Emoji | Both) and edge relationship label mode (Text | Emoji | Both). Cytoscape elements include computed display fields (`data._vizLabel` for nodes, `data._relVizLabel` for edges) and a runtime updater updates labels immediately when selectors change.
+- GeoMap: midpoint relationship labels and chevrons respect the new edge relationship label mode and will show emoji/text/both according to UI. Per-edge semantic arrowheads (CSV `enlightement` field canonicalized to `arrow`) still apply. Midpoint label placement improvements (pixel-space offsets, jitter, slotting) remain in effect.
+- Sample CSV: sample file now includes multi-emoji examples and the download is prefixed with a UTF-8 BOM to improve LibreOffice/Excel detection of UTF-8 so emoji display correctly.
+- Branch: these edits were developed on branch `edgerelationshipasemoji` and pushed for review.
+
 
 ## Notes
 - If you still encounter nodes being misclassified as edges in selection, capture the node's `data.id`/_id and a screenshot for tracing; the code now passes canonical JSON but legacy data shapes may still cause corner cases.
