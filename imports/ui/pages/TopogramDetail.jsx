@@ -507,7 +507,9 @@ export default function TopogramDetail() {
         // pick a color from several commonly-used fields in legacy docs
         const color = (node.data && (node.data.color || node.data.fillColor || node.data.fill || node.data.backgroundColor || node.data.bg || node.data.colour || node.data.hex))
         const rawWeight = node.data && (node.data.weight || (node.data.rawData && node.data.rawData.weight))
-        const data = { id: String(vizId), label, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight }
+  const data = { id: String(vizId), label, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight }
+  // include optional emoji visualization field if present
+  if (node.data && node.data.emoji) data.emoji = node.data.emoji
         if (color != null) data.color = color
         const el = { data }
         // If the node document contains a saved position, pass it through
@@ -619,7 +621,10 @@ export default function TopogramDetail() {
   const minW = numericWeights.length ? Math.min(...numericWeights) : 1
   const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
   const stylesheet = [
+  // default node style shows label text
   { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
+  // if an emoji field is present, render it as the primary label with a larger font
+  { selector: 'node[emoji]', style: { 'label': 'data(emoji)', 'font-size': `mapData(weight, ${minW}, ${maxW}, ${Math.max(16, titleSize)}, 48)`, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } },
   { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
   // Use bezier curves so parallel edges can be separated
   { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
@@ -656,7 +661,7 @@ export default function TopogramDetail() {
 
   const exportTopogramCsv = () => {
     try {
-  const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','extra']
+  const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','emoji','extra']
       const idMap = new Map()
       nodes.forEach(n => {
         const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
@@ -700,7 +705,8 @@ export default function TopogramDetail() {
   const time = fmtDate(d.time)
   const date = fmtDate(d.date)
 
-        const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', '']
+  const emoji = d.emoji || ''
+  const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', emoji, '']
         rows.push(row)
       })
 

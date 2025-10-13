@@ -55,7 +55,30 @@ const processJob = async (job) => {
     const BATCH = 500
     let inserted = 0
     for (let i = 0; i < nodes.length; i += BATCH) {
-      const batch = nodes.slice(i, i + BATCH).map(r => ({ topogramId, data: r, createdAt: new Date() }))
+      const batch = nodes.slice(i, i + BATCH).map(r => {
+        // Normalize emoji field for node visualization: keep a short value
+        let emojiVal = null
+        try {
+          const raw = r.emoji || r.em || r.icon || null
+          if (raw && typeof raw === 'string') {
+            // Prefer Intl.Segmenter for grapheme clusters when available
+            if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+              try {
+                const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+                const first = Array.from(seg.segment(raw))[0]
+                emojiVal = first ? first.segment : raw.trim()
+              } catch (e) { emojiVal = raw.trim() }
+            } else {
+              // Fallback: use first codepoint (may split some emoji sequences)
+              emojiVal = Array.from(raw.trim())[0] || raw.trim()
+            }
+            if (emojiVal === '') emojiVal = null
+          }
+        } catch (e) { emojiVal = null }
+        const data = { ...r }
+        if (emojiVal) data.emoji = emojiVal
+        return ({ topogramId, data, createdAt: new Date() })
+      })
       const res = await Nodes.rawCollection().insertMany(batch)
       const batchInserted = (res && res.insertedCount) || batch.length
       inserted += batchInserted
