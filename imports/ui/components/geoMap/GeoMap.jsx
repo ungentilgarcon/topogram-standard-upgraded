@@ -187,6 +187,7 @@ export default class GeoMap extends React.Component {
                 <GeoEdges
                   key={`geoedges-${(!this.props.ui || this.props.ui.showChevrons !== false) ? 'with' : 'no'}-chev`}
                   edges={edges}
+                   ui={this.props.ui}
                   map={this.state.mapRef}
                   isolateMode={false}
                   handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
@@ -202,6 +203,7 @@ export default class GeoMap extends React.Component {
                 <GeoNodes
                   key={`geonodes-${selectedNodeIds.size}`}
                   nodes={nodes}
+                   ui={this.props.ui}
                   isolateMode={false}
                   handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
                   onFocusElement={onFocusElement}
