@@ -111,6 +111,13 @@
 /* Cytoscape pan/zoom control styling */
 .cy-container { position: relative; }
 .cy-controls { position: absolute; top: 10px; left: 10px; display: flex; flex-direction: column; gap: 8px; z-index: 2000; }
+/* Ensure Cytoscape's container flexes to fill the parent height
+  When placed inside a flex row (split view) the child element that
+  holds the Cytoscape renderer must be allowed to shrink/grow. Setting
+  flex properties and min-height:0 prevents the common flexbox collapse
+  that makes children appear much smaller than their sibling (GeoMap). */
+.cy-container { display: flex; flex-direction: column; }
+.cy-container > :not(.cy-controls) { flex: 1 1 auto; min-height: 0; }
 .cy-control-btn { background: rgba(255,255,255,0.9); border: 1px solid rgba(0,0,0,0.06); padding: 6px 8px; border-radius: 6px; cursor: pointer; box-shadow: 0 2px 6px rgba(0,0,0,0.06); font-weight: 600; color: var(--green-900); }
 .cy-control-btn:hover { filter: brightness(0.98); }
 .cy-control-row { display:flex; gap:8px; }
