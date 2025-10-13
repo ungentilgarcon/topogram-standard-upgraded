@@ -509,6 +509,23 @@ export default function TopogramDetail() {
     return () => window.removeEventListener('resize', handler)
   }, [])
 
+  // When the timeline selection (valueRange) changes frequently (playing),
+  // ensure Cytoscape resizes and fits the view. Use requestAnimationFrame
+  // to avoid blocking the main thread on very frequent updates.
+  useEffect(() => {
+    const vr = (timelineUI && Array.isArray(timelineUI.valueRange)) ? timelineUI.valueRange : null
+    if (!vr) return
+    const cy = cyRef.current
+    if (!cy) return
+    let raf = null
+    try {
+      raf = window.requestAnimationFrame(() => {
+        try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy) } catch (e) {}
+      })
+    } catch (e) {}
+    return () => { try { if (raf) window.cancelAnimationFrame(raf) } catch (e) {} }
+  }, [timelineUI && timelineUI.valueRange ? timelineUI.valueRange[0] : null, timelineUI && timelineUI.valueRange ? timelineUI.valueRange[1] : null])
+
   // Cytoscape control helpers (use animate when available)
   const doZoom = (factor) => {
     const cy = cyRef.current
