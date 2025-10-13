@@ -95,6 +95,45 @@ export default function TopogramDetail() {
   const [chartsVisible, setChartsVisible] = useState(true)
   // Selection panel pinned/visible flag (persisted via localStorage)
   const [selectionPanelPinned, setSelectionPanelPinned] = useState(false)
+  // Emoji rendering toggle (default: true)
+  const [emojiVisible, setEmojiVisible] = useState(() => {
+    try { const v = window.localStorage.getItem('topo.emojiVisible'); return v == null ? true : (v === 'true') } catch (e) { return true }
+  })
+  // Node label display mode in network: 'name' | 'emoji' | 'both'
+  const [nodeLabelMode, setNodeLabelMode] = useState(() => {
+    try { const v = window.localStorage.getItem('topo.nodeLabelMode'); return v || 'both' } catch (e) { return 'both' }
+  })
+
+  // When nodeLabelMode or emojiVisible changes, update the active Cytoscape
+  // instance so labels refresh immediately without remounting the component.
+  useEffect(() => {
+    try {
+      const cy = cyRef.current
+      if (!cy) return
+      // iterate nodes and update their _vizLabel according to current mode
+      const nlm = nodeLabelMode || 'both'
+      cy.nodes().forEach(n => {
+        try {
+          const d = n.data() || {}
+          const label = d.label || ''
+          if (nlm === 'emoji') {
+            const v = d.emoji ? String(d.emoji) : String(label || '')
+            n.data('_vizLabel', v)
+          } else if (nlm === 'name') {
+            n.data('_vizLabel', String(label || ''))
+          } else {
+            // both
+            const v = d.emoji ? `${String(d.emoji)} ${String(label || '')}` : String(label || '')
+            n.data('_vizLabel', v)
+          }
+        } catch (e) {}
+      })
+      // request a style refresh so Cytoscape re-renders labels
+      try { if (typeof cy.style === 'function') cy.style().update() } catch (e) {}
+    } catch (e) {
+      // swallow errors to avoid breaking the UI
+    }
+  }, [nodeLabelMode, emojiVisible])
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -307,6 +346,7 @@ export default function TopogramDetail() {
         if (key === 'timeLineVisible') { setTimeLineVisible(!!value); return }
         if (key === 'debugVisible') { setDebugVisible(!!value); return }
           if (key === 'selectionPanelPinned') { setSelectionPanelPinned(!!value); return }
+          if (key === 'nodeLabelMode') { setNodeLabelMode(value || 'both'); try { window.localStorage.setItem('topo.nodeLabelMode', value || 'both') } catch (e){}; return }
       } catch (e) {}
       setTimelineUI(prev => ({ ...prev, [key]: value }))
       return
@@ -507,7 +547,18 @@ export default function TopogramDetail() {
         // pick a color from several commonly-used fields in legacy docs
         const color = (node.data && (node.data.color || node.data.fillColor || node.data.fill || node.data.backgroundColor || node.data.bg || node.data.colour || node.data.hex))
         const rawWeight = node.data && (node.data.weight || (node.data.rawData && node.data.rawData.weight))
-        const data = { id: String(vizId), label, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight }
+      const data = { id: String(vizId), label, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight }
+        // include optional emoji visualization field if present
+        if (node.data && node.data.emoji) data.emoji = node.data.emoji
+        // compute a display label according to nodeLabelMode: 'name' | 'emoji' | 'both'
+        const nlm = nodeLabelMode || 'both'
+        let vizLabel = ''
+        if (nlm === 'emoji') vizLabel = (node.data && node.data.emoji) ? String(node.data.emoji) : String(label || '')
+        else if (nlm === 'name') vizLabel = String(label || '')
+        else { // both
+          vizLabel = (node.data && node.data.emoji) ? `${String(node.data.emoji)} ${String(label || '')}` : String(label || '')
+        }
+        data._vizLabel = vizLabel
         if (color != null) data.color = color
         const el = { data }
         // If the node document contains a saved position, pass it through
@@ -619,7 +670,11 @@ export default function TopogramDetail() {
   const minW = numericWeights.length ? Math.min(...numericWeights) : 1
   const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
   const stylesheet = [
-  { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
+  // default node style shows computed _vizLabel
+  { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
+  // Note: emoji-only label style is applied conditionally below so it
+  // doesn't unconditionally override the computed _vizLabel. We want
+  // the `nodeLabelMode` selector to control which label is shown.
   { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
   // Use bezier curves so parallel edges can be separated
   { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
@@ -641,6 +696,12 @@ export default function TopogramDetail() {
     }
   ]
 
+  // If the user requested emoji-only labels in the network, add a rule
+  // that renders the node label from `data(emoji)` with a larger font.
+  if (nodeLabelMode === 'emoji') {
+    stylesheet.push({ selector: 'node[emoji]', style: { 'label': 'data(emoji)', 'font-size': `mapData(weight, ${minW}, ${maxW}, ${Math.max(16, titleSize)}, 48)`, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } })
+  }
+
   // Add explicit selected styles for better visibility when chart-driven selection occurs
   stylesheet.push(
     { selector: 'node:selected', style: { 'border-width': 3, 'border-color': '#FFD54F', 'text-outline-color': '#000', 'z-index': 9999 } },
@@ -656,7 +717,7 @@ export default function TopogramDetail() {
 
   const exportTopogramCsv = () => {
     try {
-  const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','extra']
+  const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','emoji','extra']
       const idMap = new Map()
       nodes.forEach(n => {
         const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
@@ -700,7 +761,8 @@ export default function TopogramDetail() {
   const time = fmtDate(d.time)
   const date = fmtDate(d.date)
 
-        const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', '']
+  const emoji = d.emoji || ''
+  const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', emoji, '']
         rows.push(row)
       })
 
@@ -784,8 +846,20 @@ export default function TopogramDetail() {
           <span style={{ minWidth: 36, textAlign: 'right' }}>{titleSize}px</span>
         </label>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          Node labels:
+          <select value={nodeLabelMode} onChange={e => { const v = e.target.value; setNodeLabelMode(v); try { window.localStorage.setItem('topo.nodeLabelMode', v) } catch (err) {} }}>
+            <option value="name">Name</option>
+            <option value="emoji">Emoji</option>
+            <option value="both">Both</option>
+          </select>
+        </label>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <input type="checkbox" checked={geoEdgeRelVisible} onChange={e => updateUI('geoEdgeRelVisible', e.target.checked)} />
           <span style={{ fontSize: 12 }}>Show GeoMap relationship labels</span>
+        </label>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <input type="checkbox" checked={emojiVisible} onChange={e => { const val = !!e.target.checked; setEmojiVisible(val); try { window.localStorage.setItem('topo.emojiVisible', val ? 'true' : 'false') } catch (err) {} }} />
+          <span style={{ fontSize: 12 }}>Show node emojis</span>
         </label>
       </div>
 
@@ -916,7 +990,7 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible }}
+                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible }}
                     width={'50vw'}
                     height={'600px'}
                     selectElement={(json) => selectElement(json)}
@@ -967,7 +1041,7 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                  ui={{ selectedElements, geoEdgeRelVisible }}
+                  ui={{ selectedElements, geoEdgeRelVisible, emojiVisible }}
                   width={'100%'}
                   height={'600px'}
                   selectElement={(json) => selectElement(json)}

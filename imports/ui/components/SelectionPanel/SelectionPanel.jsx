@@ -25,7 +25,7 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
 
   const exportSelectedCsv = () => {
     try {
-      const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','extra']
+  const headerArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','emoji','extra']
       const idMap = new Map()
       // create id mapping for nodes similar to topogram exporter
       nodes.forEach(n => {
@@ -68,7 +68,8 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
         const time = fmtDate(d.time)
         const date = fmtDate(d.date)
 
-        const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', '']
+  const emoji = d.emoji || ''
+  const row = [id, name, label, description, color, fillColor, weight, rawWeight, lat, lng, start, end, time, date, '', '', '', '', '', emoji, '']
         rows.push(row)
       })
 

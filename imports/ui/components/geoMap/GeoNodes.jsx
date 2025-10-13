@@ -1,6 +1,7 @@
 import React from 'react'
 import PropTypes from 'prop-types'
-import { FeatureGroup, CircleMarker } from 'react-leaflet'
+import { FeatureGroup, CircleMarker, Marker } from 'react-leaflet'
+import L from 'leaflet'
 
 export default class GeoNodes extends React.Component {
 
@@ -25,6 +26,44 @@ export default class GeoNodes extends React.Component {
       const visualRadius = n.data.weight ? (n.data.weight > 100 ? 167 : n.data.weight * 5) : 3
       const hitRadius = Math.max(visualRadius, 10)
       const color = n.data.selected ? 'yellow' : (n.data.color ? n.data.color : 'steelblue')
+      // Emoji rendering may be globally disabled via ui.emojiVisible
+      const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+      // If node has an emoji field and emoji rendering is enabled, render a Marker with a divIcon
+      if (emojiEnabled && n.data && n.data.emoji) {
+        const emoji = String(n.data.emoji)
+        const icon = L.divIcon({
+          className: 'geo-emoji-icon',
+          html: `<span style="font-size:${Math.max(18, Math.min(40, visualRadius))}px; line-height:1">${emoji}</span>`,
+          iconSize: [visualRadius * 2, visualRadius * 2],
+          iconAnchor: [visualRadius, visualRadius]
+        })
+        return (
+          <React.Fragment key={`node-${i}`}>
+            <Marker
+              position={n.coords}
+              icon={icon}
+              eventHandlers={{ click: () => { if (!isolateMode) handleClickGeoElement({ group: 'node', el: n }) } }}
+            />
+            {/* keep invisible hit area for small nodes */}
+            {hitRadius > visualRadius ? (
+              <CircleMarker
+                radius={hitRadius}
+                center={n.coords}
+                stroke={false}
+                fillOpacity={0.01}
+                fillColor={color}
+                interactive={true}
+                eventHandlers={{
+                  click: () => { if (!isolateMode) handleClickGeoElement({ group: 'node', el: n }) },
+                  mousedown: () => { if (isolateMode) onFocusElement(n) },
+                  mouseup: () => { if (isolateMode) onUnfocusElement() }
+                }}
+              />
+            ) : null}
+          </React.Fragment>
+        )
+      }
+
       return (
         <React.Fragment key={`node-${i}`}>
           {/* visual marker */}
