@@ -916,6 +916,7 @@ export default function TopogramDetail() {
       {/** Decide if any node has geo coords **/}
           {
             (() => {
+          const visualHeight = 'calc(100vh - 140px)'
           // Helper to detect lat/lng in node.data under common legacy fields
           const extractLatLng = (n) => {
             if (!n || !n.data) return null
@@ -949,13 +950,13 @@ export default function TopogramDetail() {
             // No geo data: show network if enabled, otherwise a placeholder
             if (!networkVisible) {
               return (
-                <div style={{ width: '100%', height: '600px', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
                   <div>Both views hidden — use the settings panel to show Network or GeoMap.</div>
                 </div>
               )
             }
             return (
-              <div className="cy-container" style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+              <div className="cy-container" style={{ width: '100%', height: visualHeight, border: '1px solid #ccc' }}>
                 <div className="cy-controls">
                   <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                   <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
@@ -1019,8 +1020,8 @@ export default function TopogramDetail() {
 
           if (both) {
             return (
-              <div style={{ display: 'flex', gap: 8 }}>
-                <div className="cy-container" style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'stretch' }}>
+                <div className="cy-container" style={{ width: '50%', height: visualHeight, border: '1px solid #ccc' }}>
                   <div className="cy-controls">
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
@@ -1035,20 +1036,20 @@ export default function TopogramDetail() {
                     cy={(cy) => { try { cyRef.current = cy; setCyInstance(cy); try { window._topoCy = cy } catch (err) {} } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
-                <div style={{ width: '50%', height: '600px', border: '1px solid #ccc' }}>
+                <div style={{ width: '50%', height: visualHeight, border: '1px solid #ccc' }}>
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
                     ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode }}
                     width={'50vw'}
-                    height={'600px'}
+                    height={visualHeight}
                     selectElement={(json) => selectElement(json)}
                     unselectElement={(json) => unselectElement(json)}
                     onFocusElement={() => {}}
                     onUnfocusElement={() => {}}
                   />
                 </div>
-                <div style={{ width: 320 }}>
+                <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
                   {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
@@ -1059,8 +1060,8 @@ export default function TopogramDetail() {
 
           if (onlyNetwork) {
             return (
-              <div style={{ display: 'flex', gap: 8 }}>
-                <div className="cy-container" style={{ width: '70%', height: '600px', border: '1px solid #ccc' }}>
+              <div style={{ display: 'flex', gap: 8, alignItems: 'stretch' }}>
+                <div className="cy-container" style={{ width: '70%', height: visualHeight, border: '1px solid #ccc' }}>
                   <div className="cy-controls">
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
@@ -1075,7 +1076,7 @@ export default function TopogramDetail() {
                     cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
-                <div style={{ width: 320 }}>
+                <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
                   {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
@@ -1086,13 +1087,13 @@ export default function TopogramDetail() {
 
           if (onlyMap) {
             return (
-              <div style={{ width: '100%', height: '600px', border: '1px solid #ccc' }}>
+              <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc' }}>
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
                     ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode }}
                   width={'100%'}
-                  height={'600px'}
+                  height={visualHeight}
                   selectElement={(json) => selectElement(json)}
                   unselectElement={(json) => unselectElement(json)}
                   onFocusElement={() => {}}
@@ -1105,7 +1106,7 @@ export default function TopogramDetail() {
 
           // Neither pane visible: show a placeholder with settings handle
           return (
-            <div style={{ width: '100%', height: '600px', border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+            <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <div>Both views hidden — use the settings panel (top-right) to show them.</div>
               <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
             </div>
