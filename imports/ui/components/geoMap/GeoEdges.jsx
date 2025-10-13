@@ -338,14 +338,14 @@ export default class GeoEdges extends React.Component {
                 // normal points to the left of tangent
                 const normal = [-tangent[1], tangent[0]]
                 const sideSign = side
-                const basePx = 10 // keep labels closer to edge
-                const slotPx = pairIndex * 6
+                const basePx = 18 // move labels further off the edge
+                const slotPx = pairIndex * 12
                 // longitudinal jitter along tangent (deterministic)
                 const hashLong = Math.abs((hash >> 5))
                 const rndLong = ((hashLong % 1000) / 1000) - 0.5
-                const jitterLongPx = Math.round(rndLong * 30)
+                const jitterLongPx = Math.round(rndLong * 80)
                 const normalOffsetPx = Math.round(sideSign * (basePx + slotPx))
-                const jitterCrossPx = Math.round(((hash % 1000) / 1000 - 0.5) * 8)
+                const jitterCrossPx = Math.round(((hash % 1000) / 1000 - 0.5) * 18)
                 const newPt = midPt.add([ tangent[0]*jitterLongPx + normal[0]*(normalOffsetPx + jitterCrossPx), tangent[1]*jitterLongPx + normal[1]*(normalOffsetPx + jitterCrossPx) ])
                 const newLatLng = map.unproject(newPt, z)
                 children.push(
