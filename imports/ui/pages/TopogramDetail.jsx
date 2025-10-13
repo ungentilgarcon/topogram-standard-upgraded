@@ -104,6 +104,37 @@ export default function TopogramDetail() {
     try { const v = window.localStorage.getItem('topo.nodeLabelMode'); return v || 'both' } catch (e) { return 'both' }
   })
 
+  // When nodeLabelMode or emojiVisible changes, update the active Cytoscape
+  // instance so labels refresh immediately without remounting the component.
+  useEffect(() => {
+    try {
+      const cy = cyRef.current
+      if (!cy) return
+      // iterate nodes and update their _vizLabel according to current mode
+      const nlm = nodeLabelMode || 'both'
+      cy.nodes().forEach(n => {
+        try {
+          const d = n.data() || {}
+          const label = d.label || ''
+          if (nlm === 'emoji') {
+            const v = d.emoji ? String(d.emoji) : String(label || '')
+            n.data('_vizLabel', v)
+          } else if (nlm === 'name') {
+            n.data('_vizLabel', String(label || ''))
+          } else {
+            // both
+            const v = d.emoji ? `${String(d.emoji)} ${String(label || '')}` : String(label || '')
+            n.data('_vizLabel', v)
+          }
+        } catch (e) {}
+      })
+      // request a style refresh so Cytoscape re-renders labels
+      try { if (typeof cy.style === 'function') cy.style().update() } catch (e) {}
+    } catch (e) {
+      // swallow errors to avoid breaking the UI
+    }
+  }, [nodeLabelMode, emojiVisible])
+
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
     if (!json || !json.data) return null
@@ -641,11 +672,9 @@ export default function TopogramDetail() {
   const stylesheet = [
   // default node style shows computed _vizLabel
   { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
-  // if an emoji field is present, render it as the primary label with a larger font
-  // Emoji label rendering: we'll conditionally replace the node label with
-  // emoji when the UI toggle is enabled (TopogramDetail sets emojiVisible
-  // and rebuilds stylesheet accordingly).
-  { selector: 'node[emoji]', style: { 'label': 'data(emoji)', 'font-size': `mapData(weight, ${minW}, ${maxW}, ${Math.max(16, titleSize)}, 48)`, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } },
+  // Note: emoji-only label style is applied conditionally below so it
+  // doesn't unconditionally override the computed _vizLabel. We want
+  // the `nodeLabelMode` selector to control which label is shown.
   { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
   // Use bezier curves so parallel edges can be separated
   { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
@@ -666,6 +695,12 @@ export default function TopogramDetail() {
       }
     }
   ]
+
+  // If the user requested emoji-only labels in the network, add a rule
+  // that renders the node label from `data(emoji)` with a larger font.
+  if (nodeLabelMode === 'emoji') {
+    stylesheet.push({ selector: 'node[emoji]', style: { 'label': 'data(emoji)', 'font-size': `mapData(weight, ${minW}, ${maxW}, ${Math.max(16, titleSize)}, 48)`, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } })
+  }
 
   // Add explicit selected styles for better visibility when chart-driven selection occurs
   stylesheet.push(
