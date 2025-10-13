@@ -106,7 +106,8 @@ export default class GeoEdges extends React.Component {
       return offset
     }
 
-    this.props.edges.forEach( (e,i) => {
+  const map = this.props.map
+  this.props.edges.forEach( (e,i) => {
       const label = i + 1
       const color = e.selected ? 'yellow' : (e.data.color ? e.data.color : 'purple')
       const weight = e.data.weight ? (e.data.weight > 6 ? 20 : Math.pow(e.data.weight,2)) : 1
@@ -321,10 +322,37 @@ export default class GeoEdges extends React.Component {
             const jitterLat = rnd * 0.12 // up to ~0.12 degrees jitter
             const rndLng = (((hash >> 3) % 1000) / 1000) - 0.5
             const jitterLng = rndLng * 0.12
-            const offsetMidLat = midLat + side * (oy + slotOffset) + jitterLat
-            const offsetMidLng = midLng + side * ox + jitterLng
             const html = `<div style="display:inline-block; transform: rotate(${uprightDeg}deg); background: rgba(255,255,255,0.95); padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #222; white-space: nowrap;">${safeRel}</div>`
             const icon = L.divIcon({ className: 'edge-rel-label', html, iconSize: null })
+            if (map && typeof map.project === 'function' && typeof map.unproject === 'function') {
+              try {
+                // Convert midpoint lat/lng to container point, offset in pixels, then unproject back
+                const pt = map.project([midLat, midLng], map.getZoom())
+                // compute pixel offset: base perp offset + slot offset + jitter (jitter scaled to pixels)
+                const basePx = 20
+                const sideSign = side
+                const slotPx = pairIndex * 10
+                const jitterPx = Math.round((jitterLat + jitterLng) * 100) // deterministic small pixel jitter
+                const pxOffsetX = Math.round(sideSign * (ox * 100) + jitterPx)
+                const pxOffsetY = Math.round(sideSign * (basePx + slotPx))
+                const newPt = pt.add([pxOffsetX, pxOffsetY])
+                const newLatLng = map.unproject(newPt, map.getZoom())
+                children.push(
+                  <Marker
+                    key={`rel-${keyRoot}`}
+                    position={[newLatLng.lat, newLatLng.lng]}
+                    icon={icon}
+                    interactive={false}
+                  />
+                )
+                return
+              } catch (err) {
+                // fallback to geo placement below
+              }
+            }
+            // fallback: place in geographic coords
+            const offsetMidLat = midLat + side * (oy + slotOffset) + jitterLat
+            const offsetMidLng = midLng + side * ox + jitterLng
             children.push(
               <Marker
                 key={`rel-${keyRoot}`}
