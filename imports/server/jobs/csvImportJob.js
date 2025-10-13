@@ -4,6 +4,54 @@ import fs from 'fs'
 import Papa from 'papaparse'
 import { Topograms, Nodes, Edges } from '/imports/api/collections'
 
+// Small helper to decode UTF-7 sequences (e.g. LibreOffice CSV exports
+// non-ASCII as +...- sequences). This decoder finds +...- segments and
+// base64-decodes them into UTF-16BE bytes, converting into JS strings.
+const decodeUtf7Segments = (s) => {
+  if (!s || typeof s !== 'string') return s
+  // quick heuristic: if there's no '+' then likely not UTF-7 encoded
+  if (s.indexOf('+') === -1) return s
+  try {
+    return s.replace(/\+([A-Za-z0-9+/=,]+)-/g, (match, b64) => {
+      const norm = b64.replace(/,/g, '/')
+      let buf
+      try { buf = Buffer.from(norm, 'base64') } catch (e) { return match }
+
+      // candidate1: interpret as UTF-16BE
+      let cand16 = ''
+      for (let i = 0; i < buf.length; i += 2) {
+        const hi = buf[i]
+        const lo = (i + 1 < buf.length) ? buf[i + 1] : 0
+        const code = (hi << 8) | lo
+        cand16 += String.fromCharCode(code)
+      }
+
+      // candidate2: interpret as UTF-8
+      let cand8 = ''
+      try { cand8 = buf.toString('utf8') } catch (e) { cand8 = '' }
+
+      // prefer the candidate containing emoji codepoints
+      const emojiRe = /\p{Emoji}/u
+      if (emojiRe.test(cand8) && !emojiRe.test(cand16)) return cand8
+      if (emojiRe.test(cand16) && !emojiRe.test(cand8)) return cand16
+
+      // otherwise pick the candidate with higher printable character ratio
+      const score = (str) => {
+        if (!str) return 0
+        let printable = 0
+        for (let ch of str) {
+          const code = ch.charCodeAt(0)
+          if (code >= 32 && code !== 127) printable++
+        }
+        return printable / Math.max(1, str.length)
+      }
+      return (score(cand8) >= score(cand16)) ? cand8 : cand16
+    }).replace(/\+-/g, '+')
+  } catch (e) {
+    return s
+  }
+}
+
 // Simple worker: poll queued jobs every few seconds and process them
 const POLL_INTERVAL = 2000
 
@@ -32,7 +80,22 @@ const processJob = async (job) => {
         parsed = { data: dataRows, errors: [] }
       }
     }
-    const rows = parsed.data || []
+    let rows = parsed.data || []
+    // If LibreOffice exported modified UTF-7 like +...- sequences in any cell,
+    // decode those segments across all fields so subsequent normalization
+    // (emoji extraction, etc.) sees proper Unicode.
+    try {
+      rows = rows.map(r => {
+        const out = {}
+        Object.keys(r || {}).forEach(k => {
+          const v = r[k]
+          if (v && typeof v === 'string' && v.indexOf('+') !== -1 && /\+[A-Za-z0-9+,/]+=*-/.test(v)) {
+            out[k] = decodeUtf7Segments(v)
+          } else out[k] = v
+        })
+        return out
+      })
+    } catch (e) { /* ignore decode failures, keep original rows */ }
   await Jobs.updateAsync(job._id, { $set: { total: rows.length } })
 
     // Two pass approach: collect nodes and edges separately
@@ -59,8 +122,10 @@ const processJob = async (job) => {
         // Normalize emoji field for node visualization: keep a short value
         let emojiVal = null
         try {
-          const raw = r.emoji || r.em || r.icon || null
+          let raw = r.emoji || r.em || r.icon || null
           if (raw && typeof raw === 'string') {
+            // LibreOffice may export non-ASCII using +...- (modified UTF-7-like)
+            raw = decodeUtf7Segments(raw)
             // Prefer Intl.Segmenter for grapheme clusters when available
             if (typeof Intl !== 'undefined' && Intl.Segmenter) {
               try {
@@ -142,6 +207,26 @@ const processJob = async (job) => {
     }
     // otherwise ignore unrecognized values for now
   }
+  // Normalize an optional emoji field that may be used to decorate the edge relationship.
+  // Accept the same column candidates used for node emoji (emoji, em, icon).
+  try {
+    let rawEdgeEmoji = r.emoji || r.em || r.icon || null
+    if (rawEdgeEmoji && typeof rawEdgeEmoji === 'string') {
+      // decode potential LibreOffice +...- sequences
+      rawEdgeEmoji = decodeUtf7Segments(rawEdgeEmoji)
+      let edgeEmojiVal = null
+      if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+        try {
+          const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+          const first = Array.from(seg.segment(rawEdgeEmoji))[0]
+          edgeEmojiVal = first ? first.segment : rawEdgeEmoji.trim()
+        } catch (e) { edgeEmojiVal = rawEdgeEmoji.trim() }
+      } else {
+        edgeEmojiVal = Array.from(rawEdgeEmoji.trim())[0] || rawEdgeEmoji.trim()
+      }
+      if (edgeEmojiVal && edgeEmojiVal !== '') ed.relationshipEmoji = edgeEmojiVal
+    }
+  } catch (e) {}
   return { topogramId, data: { ...ed, raw: r }, createdAt: new Date() }
       }).filter(Boolean)
       if (!batch.length) {

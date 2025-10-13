@@ -33,11 +33,11 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
     ['2','Bob','Bob B','Another node','#3f51b5','#c5cae9','5','5','34.0522','-118.2437','2019-05-01','2019-12-31','2019-09-10','2019-09-10','','','','','','','','🎸','preferred contact'],
     ['3','Carol','Carol C','Third node','#2e7d32','#c8e6c9','8','8','51.5074','-0.1278','2021-03-10','2021-10-10','2021-06-20','2021-06-20','','','','','','','','🎤','imported'],
   ['', '','', '','','','','','','','','','','','1','2','friendship','#9c27b0','2','friendship','arrow','','note about edge'],
-  ['', '','', '','','','','','','','','','','','2','3','collab','#607d8b','1','collab','','notes'],
+  ['', '','', '','','','','','','','','','','','2','3','collab','#607d8b','1','collab','','🎸','notes'],
   ['', '','', '','','','','','','','','','','','3','1','support','#ff9800','3','support','arrow','','notes'],
-    ['', '','', '','','','','','','','','','','','1','3','mentions','#4caf50','1','mentions','','notes'],
+    ['', '','', '','','','','','','','','','','','1','3','mentions','#4caf50','1','mentions','','','notes'],
     ['', '','', '','','','','','','','','','','','2','1','replies','#795548','1','replies','arrow','','notes'],
-    ['', '','', '','','','','','','','','','','','3','2','links','#616161','1','links','','notes']
+    ['', '','', '','','','','','','','','','','','3','2','links','#616161','1','links','','','notes']
   ]
 
   const sampleCsv = ['# Topogram: Sample Topogram', sampleHeaderArr.map(_quote).join(',')].concat(sampleRowsArr.map(r => r.map(_quote).join(','))).join('\n')
@@ -100,7 +100,9 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
 
   const downloadSample = () => {
     try {
-      const blob = new Blob([sampleCsv], { type: 'text/csv;charset=utf-8;' })
+  // Prefix with a UTF-8 BOM so spreadsheet apps (LibreOffice, Excel)
+  // reliably detect UTF-8 encoding and render emoji characters.
+  const blob = new Blob(["\uFEFF" + sampleCsv], { type: 'text/csv;charset=utf-8;' })
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url

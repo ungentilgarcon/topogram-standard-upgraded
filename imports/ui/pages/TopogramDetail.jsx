@@ -104,6 +104,11 @@ export default function TopogramDetail() {
     try { const v = window.localStorage.getItem('topo.nodeLabelMode'); return v || 'both' } catch (e) { return 'both' }
   })
 
+  // Edge relationship label display mode in network: 'text' | 'emoji' | 'both'
+  const [edgeRelLabelMode, setEdgeRelLabelMode] = useState(() => {
+    try { const v = window.localStorage.getItem('topo.edgeRelLabelMode'); return v || 'text' } catch (e) { return 'text' }
+  })
+
   // When nodeLabelMode or emojiVisible changes, update the active Cytoscape
   // instance so labels refresh immediately without remounting the component.
   useEffect(() => {
@@ -134,6 +139,31 @@ export default function TopogramDetail() {
       // swallow errors to avoid breaking the UI
     }
   }, [nodeLabelMode, emojiVisible])
+
+  // When edgeRelLabelMode or emojiVisible changes, update edge labels on the live cy instance
+  useEffect(() => {
+    try {
+      const cy = cyRef.current
+      if (!cy) return
+      const mode = edgeRelLabelMode || 'text'
+      cy.edges().forEach(e => {
+        try {
+          const d = e.data() || {}
+          const text = d.name || d.relationship || ''
+          const emoji = d.relationshipEmoji || ''
+          if (mode === 'emoji') {
+            e.data('_relVizLabel', emoji || String(text || ''))
+          } else if (mode === 'text') {
+            e.data('_relVizLabel', String(text || ''))
+          } else {
+            // both
+            e.data('_relVizLabel', emoji ? `${String(emoji)} ${String(text || '')}` : String(text || ''))
+          }
+        } catch (err) {}
+      })
+      try { if (typeof cy.style === 'function') cy.style().update() } catch (e) {}
+    } catch (e) {}
+  }, [edgeRelLabelMode, emojiVisible])
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -600,11 +630,21 @@ export default function TopogramDetail() {
           const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
           const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
           if (edge.data && typeof edge.data.relationship !== 'undefined') data.relationship = edge.data.relationship
+          // include optional relationship emoji if present
+          if (edge.data && typeof edge.data.relationshipEmoji !== 'undefined') data.relationshipEmoji = edge.data.relationshipEmoji
           if (edge.data && typeof edge.data.enlightement !== 'undefined') data.enlightement = edge.data.enlightement
           // attach parallel index metadata for styling separation
           data._parallelIndex = idx
           data._parallelCount = groupEdges.length
           if (ecolor != null) data.color = ecolor
+          // compute an initial _relVizLabel according to the current UI mode
+          try {
+            const relText = data.relationship || data.name || ''
+            const relEmoji = data.relationshipEmoji || ''
+            if (edgeRelLabelMode === 'emoji') data._relVizLabel = relEmoji || String(relText || '')
+            else if (edgeRelLabelMode === 'text') data._relVizLabel = String(relText || '')
+            else data._relVizLabel = relEmoji ? `${String(relEmoji)} ${String(relText || '')}` : String(relText || '')
+          } catch (e) { data._relVizLabel = data.relationship || data.name || '' }
           edgeEls.push({ data })
         })
       })
@@ -681,8 +721,9 @@ export default function TopogramDetail() {
   // Edge arrows are controlled per-edge via the `enlightement` data field
   { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
   { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
-    { selector: 'edge[relationship]', style: {
-        'label': 'data(relationship)',
+  { selector: 'edge[relationship], edge', style: {
+    // Use the computed _relVizLabel (set at build time and updated at runtime)
+    'label': 'data(_relVizLabel)',
         'text-rotation': 'autorotate',
         'font-size': 10,
         'text-outline-width': 2,
@@ -854,6 +895,14 @@ export default function TopogramDetail() {
           </select>
         </label>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          Edge labels:
+          <select value={edgeRelLabelMode} onChange={e => { const v = e.target.value; setEdgeRelLabelMode(v); try { window.localStorage.setItem('topo.edgeRelLabelMode', v) } catch (err) {} }}>
+            <option value="text">Text</option>
+            <option value="emoji">Emoji</option>
+            <option value="both">Both</option>
+          </select>
+        </label>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <input type="checkbox" checked={geoEdgeRelVisible} onChange={e => updateUI('geoEdgeRelVisible', e.target.checked)} />
           <span style={{ fontSize: 12 }}>Show GeoMap relationship labels</span>
         </label>
@@ -990,7 +1039,7 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible }}
+                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode }}
                     width={'50vw'}
                     height={'600px'}
                     selectElement={(json) => selectElement(json)}
@@ -1041,7 +1090,7 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                  ui={{ selectedElements, geoEdgeRelVisible, emojiVisible }}
+                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode }}
                   width={'100%'}
                   height={'600px'}
                   selectElement={(json) => selectElement(json)}
