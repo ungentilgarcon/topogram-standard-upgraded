@@ -13,20 +13,39 @@ const decodeUtf7Segments = (s) => {
   if (s.indexOf('+') === -1) return s
   try {
     return s.replace(/\+([A-Za-z0-9+/=,]+)-/g, (match, b64) => {
-      // Some implementations use ',' instead of '/' in modified base64; normalize
       const norm = b64.replace(/,/g, '/')
-      // base64-decode into a Buffer
       let buf
       try { buf = Buffer.from(norm, 'base64') } catch (e) { return match }
-      // Interpret as UTF-16BE
-      let out = ''
+
+      // candidate1: interpret as UTF-16BE
+      let cand16 = ''
       for (let i = 0; i < buf.length; i += 2) {
         const hi = buf[i]
         const lo = (i + 1 < buf.length) ? buf[i + 1] : 0
         const code = (hi << 8) | lo
-        out += String.fromCharCode(code)
+        cand16 += String.fromCharCode(code)
       }
-      return out
+
+      // candidate2: interpret as UTF-8
+      let cand8 = ''
+      try { cand8 = buf.toString('utf8') } catch (e) { cand8 = '' }
+
+      // prefer the candidate containing emoji codepoints
+      const emojiRe = /\p{Emoji}/u
+      if (emojiRe.test(cand8) && !emojiRe.test(cand16)) return cand8
+      if (emojiRe.test(cand16) && !emojiRe.test(cand8)) return cand16
+
+      // otherwise pick the candidate with higher printable character ratio
+      const score = (str) => {
+        if (!str) return 0
+        let printable = 0
+        for (let ch of str) {
+          const code = ch.charCodeAt(0)
+          if (code >= 32 && code !== 127) printable++
+        }
+        return printable / Math.max(1, str.length)
+      }
+      return (score(cand8) >= score(cand16)) ? cand8 : cand16
     }).replace(/\+-/g, '+')
   } catch (e) {
     return s
@@ -61,7 +80,22 @@ const processJob = async (job) => {
         parsed = { data: dataRows, errors: [] }
       }
     }
-    const rows = parsed.data || []
+    let rows = parsed.data || []
+    // If LibreOffice exported modified UTF-7 like +...- sequences in any cell,
+    // decode those segments across all fields so subsequent normalization
+    // (emoji extraction, etc.) sees proper Unicode.
+    try {
+      rows = rows.map(r => {
+        const out = {}
+        Object.keys(r || {}).forEach(k => {
+          const v = r[k]
+          if (v && typeof v === 'string' && v.indexOf('+') !== -1 && /\+[A-Za-z0-9+,/]+=*-/.test(v)) {
+            out[k] = decodeUtf7Segments(v)
+          } else out[k] = v
+        })
+        return out
+      })
+    } catch (e) { /* ignore decode failures, keep original rows */ }
   await Jobs.updateAsync(job._id, { $set: { total: rows.length } })
 
     // Two pass approach: collect nodes and edges separately
