@@ -515,6 +515,74 @@ export default function TopogramDetail() {
   // and causes the layout to jitter during playback. Resize/fit happen on
   // panel toggles, window resizes, and after layout completes.
 
+  // When the timeline selection changes, toggle a 'hidden' class on nodes
+  // and edges so we avoid remounting Cytoscape or calling fit/resize during
+  // playback. This keeps the layout stable and only updates element
+  // visibility.
+  useEffect(() => {
+    const vr = (timelineUI && Array.isArray(timelineUI.valueRange)) ? timelineUI.valueRange : null
+    const cy = cyRef.current
+    if (!cy) return
+    let raf = null
+    try {
+      raf = window.requestAnimationFrame(() => {
+        try {
+          const activeRange = vr ? [Number(vr[0]), Number(vr[1])] : null
+          // Nodes: show if in range, hide otherwise
+          cy.nodes().forEach(n => {
+            try {
+              const d = n.data() || {}
+              const id = n.id()
+              let visible = true
+              if (activeRange) {
+                visible = false
+                const fields = ['start','end','time','date','from','to']
+                for (const f of fields) {
+                  const v = d[f]
+                  if (v == null) continue
+                  const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
+                  if (!Number.isFinite(t)) continue
+                  if (t >= activeRange[0] && t <= activeRange[1]) { visible = true; break }
+                }
+              }
+              if (visible) n.removeClass('hidden')
+              else n.addClass('hidden')
+            } catch (e) {}
+          })
+          // Edges: hide if either endpoint is hidden or if edge data itself is out of range
+          cy.edges().forEach(e => {
+            try {
+              const d = e.data() || {}
+              const src = e.source() && cy.getElementById(e.source())
+              const tgt = e.target() && cy.getElementById(e.target())
+              const srcHidden = src ? src.hasClass && src.hasClass('hidden') : false
+              const tgtHidden = tgt ? tgt.hasClass && tgt.hasClass('hidden') : false
+              let visible = !(srcHidden || tgtHidden)
+              if (visible && activeRange) {
+                // if edge carries its own time fields, respect them
+                const fields = ['start','end','time','date','from','to']
+                let edgeHasTime = false
+                for (const f of fields) {
+                  const v = d[f]
+                  if (v == null) continue
+                  edgeHasTime = true
+                  const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
+                  if (!Number.isFinite(t)) continue
+                  if (t >= activeRange[0] && t <= activeRange[1]) { visible = true; break }
+                  visible = false
+                }
+                // if edge has no time info, keep visibility driven by endpoints
+              }
+              if (visible) e.removeClass('hidden')
+              else e.addClass('hidden')
+            } catch (e) {}
+          })
+        } catch (e) {}
+      })
+    } catch (e) {}
+    return () => { try { if (raf) window.cancelAnimationFrame(raf) } catch (e) {} }
+  }, [timelineUI && timelineUI.valueRange ? timelineUI.valueRange[0] : null, timelineUI && timelineUI.valueRange ? timelineUI.valueRange[1] : null])
+
   // Cytoscape control helpers (use animate when available)
   const doZoom = (factor) => {
     const cy = cyRef.current
@@ -753,6 +821,12 @@ export default function TopogramDetail() {
       }
     }
   ]
+
+  // Add rules so a 'hidden' class will fully hide nodes/edges without
+  // affecting layout size. We'll toggle this class on elements to show/hide
+  // them during timeline playback instead of remounting or calling fit().
+  stylesheet.push({ selector: 'node.hidden', style: { 'display': 'none' } })
+  stylesheet.push({ selector: 'edge.hidden', style: { 'display': 'none' } })
 
   // If the user requested emoji-only labels in the network, add a rule
   // that renders the node label from `data(emoji)` with a larger font.
