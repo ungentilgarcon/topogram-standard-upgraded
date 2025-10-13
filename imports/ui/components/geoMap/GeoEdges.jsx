@@ -326,17 +326,28 @@ export default class GeoEdges extends React.Component {
             const icon = L.divIcon({ className: 'edge-rel-label', html, iconSize: null })
             if (map && typeof map.project === 'function' && typeof map.unproject === 'function') {
               try {
-                // Convert midpoint lat/lng to container point, offset in pixels, then unproject back
-                const pt = map.project([midLat, midLng], map.getZoom())
-                // compute pixel offset: base perp offset + slot offset + jitter (jitter scaled to pixels)
-                const basePx = 20
+                // Project both endpoints to pixel space so we can compute
+                // tangent/normal in screen pixels and offset consistently.
+                const z = map.getZoom()
+                const p1 = map.project([a1, o1], z)
+                const p2 = map.project([a2, o2], z)
+                const midPt = map.project([midLat, midLng], z)
+                const t = [p2.x - p1.x, p2.y - p1.y]
+                const tLen = Math.sqrt(t[0]*t[0] + t[1]*t[1]) || 1
+                const tangent = [t[0]/tLen, t[1]/tLen]
+                // normal points to the left of tangent
+                const normal = [-tangent[1], tangent[0]]
                 const sideSign = side
-                const slotPx = pairIndex * 10
-                const jitterPx = Math.round((jitterLat + jitterLng) * 100) // deterministic small pixel jitter
-                const pxOffsetX = Math.round(sideSign * (ox * 100) + jitterPx)
-                const pxOffsetY = Math.round(sideSign * (basePx + slotPx))
-                const newPt = pt.add([pxOffsetX, pxOffsetY])
-                const newLatLng = map.unproject(newPt, map.getZoom())
+                const basePx = 10 // keep labels closer to edge
+                const slotPx = pairIndex * 6
+                // longitudinal jitter along tangent (deterministic)
+                const hashLong = Math.abs((hash >> 5))
+                const rndLong = ((hashLong % 1000) / 1000) - 0.5
+                const jitterLongPx = Math.round(rndLong * 30)
+                const normalOffsetPx = Math.round(sideSign * (basePx + slotPx))
+                const jitterCrossPx = Math.round(((hash % 1000) / 1000 - 0.5) * 8)
+                const newPt = midPt.add([ tangent[0]*jitterLongPx + normal[0]*(normalOffsetPx + jitterCrossPx), tangent[1]*jitterLongPx + normal[1]*(normalOffsetPx + jitterCrossPx) ])
+                const newLatLng = map.unproject(newPt, z)
                 children.push(
                   <Marker
                     key={`rel-${keyRoot}`}
