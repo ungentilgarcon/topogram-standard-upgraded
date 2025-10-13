@@ -309,15 +309,20 @@ export default class GeoEdges extends React.Component {
             const bucketKey = `${Math.round(midLat * 10)}/${Math.round(midLng * 10)}`
             const slotIndex = labelSlots.has(bucketKey) ? labelSlots.get(bucketKey) : 0
             labelSlots.set(bucketKey, slotIndex + 1)
+            // alternate side: even slots above, odd slots below (helps keep labels
+            // closer to their edge by placing some on either side)
+            const side = (slotIndex % 2 === 0) ? 1 : -1
+            const pairIndex = Math.floor(slotIndex / 2) + 1
+            const baseSlot = 0.02 // base separation per pair
+            const slotOffset = pairIndex * baseSlot
             // deterministic hash of bucketKey to create stable jitter
             const hash = Math.abs(String(bucketKey).split('').reduce((h, c) => ((h << 5) - h) + c.charCodeAt(0), 0))
             const rnd = ((hash % 1000) / 1000) - 0.5 // -0.5 .. +0.499
             const jitterLat = rnd * 0.12 // up to ~0.12 degrees jitter
             const rndLng = (((hash >> 3) % 1000) / 1000) - 0.5
             const jitterLng = rndLng * 0.12
-            const slotOffset = (slotIndex - 0.5) * 0.06 // larger separation per slot
-            const offsetMidLat = midLat + oy + slotOffset + jitterLat
-            const offsetMidLng = midLng + ox + jitterLng
+            const offsetMidLat = midLat + side * (oy + slotOffset) + jitterLat
+            const offsetMidLng = midLng + side * ox + jitterLng
             const html = `<div style="display:inline-block; transform: rotate(${uprightDeg}deg); background: rgba(255,255,255,0.95); padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #222; white-space: nowrap;">${safeRel}</div>`
             const icon = L.divIcon({ className: 'edge-rel-label', html, iconSize: null })
             children.push(
