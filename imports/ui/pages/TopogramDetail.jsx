@@ -859,7 +859,7 @@ export default function TopogramDetail() {
         </label>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <input type="checkbox" checked={emojiVisible} onChange={e => { const val = !!e.target.checked; setEmojiVisible(val); try { window.localStorage.setItem('topo.emojiVisible', val ? 'true' : 'false') } catch (err) {} }} />
-          <span style={{ fontSize: 12 }}>Show node emojis</span>
+          <span style={{ fontSize: 12 }}>Show Geomap node emojis</span>
         </label>
       </div>
 
