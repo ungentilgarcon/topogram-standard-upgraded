@@ -58,6 +58,25 @@ Additional commits on upgrade/migration branches that were part of the Meteor 3 
   - `migrate: Topogram Meteor3 client fixes` — client-side adjustments for Meteor 3: Cytoscape presets, color & weight normalization, layout selector, title-size UI, and adjusted publications/mappings.
   - Timeline and UI wiring for migration: TimeLine placeholders, minimal Redux/store wiring, geo/network view toggles and side-panel wiring.
 
+## Recent commits (branch: arrowed-links)
+
+The most recent work on branch `arrowed-links` focuses on GeoMap midpoint label placement, UI prop propagation, and minor polish for geo/network arrow rendering:
+
+- 82335c0 working enough3
+- bbb50c8 working enough2
+- 2aa742a working enough
+- 7ca2a0f Revert "Cytoscape: precompute per-edge numeric style fields and restrict color mappings to avoid mapData/mapping warnings"
+- dc2d38a Cytoscape: precompute per-edge numeric style fields and restrict color mappings to avoid mapData/mapping warnings
+- 865cbf3 Geo: pass ui and map refs to GeoEdges/GeoNodes so UI toggles affect map layers
+- c0e079d Geo: increase pixel-space label separation (larger normal offset, more jitter)
+- 2aebb63 Geo: pixel-space tangent/normal offsets and longitudinal jitter for midpoint labels
+- fadde57 Geo: use map.project/unproject for pixel-space midpoint label placement; pass map ref to GeoEdges
+- efd9298 Geo: alternate midpoint label placement above/below edge and reduce distance
+- d2ab429 Geo: increase midpoint label offsets and jitter to reduce overlap
+- 186553e Geo: jitter midpoint labels to reduce overlap; Cytoscape parallel-edge styling and propagate edge fields
+
+Please see `CHANGELOG.md` for a concise entry (appended there as well).
+
 These branches represent the migration effort to prepare the app for Meteor 3 and sanitize legacy data. They include scaffolding, router updates, migration scripts, and compatibility fixes.
 
 ## Testing notes / how to verify
