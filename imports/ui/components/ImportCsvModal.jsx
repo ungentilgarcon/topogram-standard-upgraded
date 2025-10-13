@@ -32,15 +32,16 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
     ['1','Alice','Alice A','Node with geo & time','#ff5722','#ffccbc','10','10','40.7128','-74.0060','2020-01-01','2020-12-31','2020-06-15','2020-06-15','','','','','','','','','notes for alice'],
     ['2','Bob','Bob B','Another node','#3f51b5','#c5cae9','5','5','34.0522','-118.2437','2019-05-01','2019-12-31','2019-09-10','2019-09-10','','','','','','','','🎸','preferred contact'],
     ['3','Carol','Carol C','Third node','#2e7d32','#c8e6c9','8','8','51.5074','-0.1278','2021-03-10','2021-10-10','2021-06-20','2021-06-20','','','','','','','','🎤','imported'],
-  ['', '','', '','','','','','','','','','','','1','2','friendship','#9c27b0','2','friendship','arrow','','note about edge'],
-  ['', '','', '','','','','','','','','','','','2','3','collab','#607d8b','1','collab','','','notes'],
+  ['', '','', '','','','','','','','','','','','1','2','friendship','#9c27b0','2','friendship','arrow','✈️','note about edge'],
+  ['', '','', '','','','','','','','','','','','2','3','collab','#607d8b','1','collab','','🤝','notes'],
   ['', '','', '','','','','','','','','','','','3','1','support','#ff9800','3','support','arrow','','notes'],
     ['', '','', '','','','','','','','','','','','1','3','mentions','#4caf50','1','mentions','','','notes'],
     ['', '','', '','','','','','','','','','','','2','1','replies','#795548','1','replies','arrow','','notes'],
     ['', '','', '','','','','','','','','','','','3','2','links','#616161','1','links','','','notes']
   ]
 
-  const sampleCsv = ['# Topogram: Sample Topogram', sampleHeaderArr.map(_quote).join(',')].concat(sampleRowsArr.map(r => r.map(_quote).join(','))).join('\n')
+  // Use CRLF line endings for better compatibility with spreadsheet apps
+  const sampleCsv = ['# Topogram: Sample Topogram', sampleHeaderArr.map(_quote).join(',')].concat(sampleRowsArr.map(r => r.map(_quote).join(','))).join('\r\n')
 
   const handleFile = (e) => {
     const f = e.target.files && e.target.files[0]
@@ -100,7 +101,8 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
 
   const downloadSample = () => {
     try {
-      const blob = new Blob([sampleCsv], { type: 'text/csv;charset=utf-8;' })
+      // Prepend a UTF-8 BOM so Excel/Sheets detect UTF-8 and emojis render correctly
+      const blob = new Blob(['\uFEFF', sampleCsv], { type: 'text/csv;charset=utf-8;' })
       const url = URL.createObjectURL(blob)
       const a = document.createElement('a')
       a.href = url
