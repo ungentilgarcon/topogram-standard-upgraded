@@ -95,6 +95,10 @@ export default function TopogramDetail() {
   const [chartsVisible, setChartsVisible] = useState(true)
   // Selection panel pinned/visible flag (persisted via localStorage)
   const [selectionPanelPinned, setSelectionPanelPinned] = useState(false)
+  // Emoji rendering toggle (default: true)
+  const [emojiVisible, setEmojiVisible] = useState(() => {
+    try { const v = window.localStorage.getItem('topo.emojiVisible'); return v == null ? true : (v === 'true') } catch (e) { return true }
+  })
 
   // Helper: canonical key for an element JSON (node or edge)
   const canonicalKey = (json) => {
@@ -624,6 +628,9 @@ export default function TopogramDetail() {
   // default node style shows label text
   { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
   // if an emoji field is present, render it as the primary label with a larger font
+  // Emoji label rendering: we'll conditionally replace the node label with
+  // emoji when the UI toggle is enabled (TopogramDetail sets emojiVisible
+  // and rebuilds stylesheet accordingly).
   { selector: 'node[emoji]', style: { 'label': 'data(emoji)', 'font-size': `mapData(weight, ${minW}, ${maxW}, ${Math.max(16, titleSize)}, 48)`, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } },
   { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
   // Use bezier curves so parallel edges can be separated
@@ -793,6 +800,10 @@ export default function TopogramDetail() {
           <input type="checkbox" checked={geoEdgeRelVisible} onChange={e => updateUI('geoEdgeRelVisible', e.target.checked)} />
           <span style={{ fontSize: 12 }}>Show GeoMap relationship labels</span>
         </label>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <input type="checkbox" checked={emojiVisible} onChange={e => { const val = !!e.target.checked; setEmojiVisible(val); try { window.localStorage.setItem('topo.emojiVisible', val ? 'true' : 'false') } catch (err) {} }} />
+          <span style={{ fontSize: 12 }}>Show node emojis</span>
+        </label>
       </div>
 
       {/* If geo is present, render a split view: network on left, map on right */}
@@ -922,7 +933,7 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible }}
+                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible }}
                     width={'50vw'}
                     height={'600px'}
                     selectElement={(json) => selectElement(json)}
@@ -973,7 +984,7 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                  ui={{ selectedElements, geoEdgeRelVisible }}
+                  ui={{ selectedElements, geoEdgeRelVisible, emojiVisible }}
                   width={'100%'}
                   height={'600px'}
                   selectElement={(json) => selectElement(json)}

@@ -26,8 +26,10 @@ export default class GeoNodes extends React.Component {
       const visualRadius = n.data.weight ? (n.data.weight > 100 ? 167 : n.data.weight * 5) : 3
       const hitRadius = Math.max(visualRadius, 10)
       const color = n.data.selected ? 'yellow' : (n.data.color ? n.data.color : 'steelblue')
-      // If node has an emoji field, render a Marker with a divIcon to show the emoji
-      if (n.data && n.data.emoji) {
+      // Emoji rendering may be globally disabled via ui.emojiVisible
+      const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+      // If node has an emoji field and emoji rendering is enabled, render a Marker with a divIcon
+      if (emojiEnabled && n.data && n.data.emoji) {
         const emoji = String(n.data.emoji)
         const icon = L.divIcon({
           className: 'geo-emoji-icon',
