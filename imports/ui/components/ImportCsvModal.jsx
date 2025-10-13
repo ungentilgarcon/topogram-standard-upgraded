@@ -30,10 +30,10 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
   const sampleHeaderArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','enlightement','emoji','extra']
   const sampleRowsArr = [
     ['1','Alice','Alice A','Node with geo & time','#ff5722','#ffccbc','10','10','40.7128','-74.0060','2020-01-01','2020-12-31','2020-06-15','2020-06-15','','','','','','','','','notes for alice'],
-    ['2','Bob','Bob B','Another node','#3f51b5','#c5cae9','5','5','34.0522','-118.2437','2019-05-01','2019-12-31','2019-09-10','2019-09-10','','','','','','','','🎸','preferred contact'],
-    ['3','Carol','Carol C','Third node','#2e7d32','#c8e6c9','8','8','51.5074','-0.1278','2021-03-10','2021-10-10','2021-06-20','2021-06-20','','','','','','','','🎤','imported'],
+  ['2','Bob','Bob B','Another node','#3f51b5','#c5cae9','5','5','34.0522','-118.2437','2019-05-01','2019-12-31','2019-09-10','2019-09-10','','','','','','','','🎸 🎤','preferred contact'],
+  ['3','Carol','Carol C','Third node','#2e7d32','#c8e6c9','8','8','51.5074','-0.1278','2021-03-10','2021-10-10','2021-06-20','2021-06-20','','','','','','','','🎤','imported'],
   ['', '','', '','','','','','','','','','','','1','2','friendship','#9c27b0','2','friendship','arrow','','note about edge'],
-  ['', '','', '','','','','','','','','','','','2','3','collab','#607d8b','1','collab','','🎸','notes'],
+  ['', '','', '','','','','','','','','','','','2','3','collab','#607d8b','1','collab','','🎸 🎤','notes'],
   ['', '','', '','','','','','','','','','','','3','1','support','#ff9800','3','support','arrow','','notes'],
     ['', '','', '','','','','','','','','','','','1','3','mentions','#4caf50','1','mentions','','','notes'],
     ['', '','', '','','','','','','','','','','','2','1','replies','#795548','1','replies','arrow','','notes'],
@@ -124,6 +124,10 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
         <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 8 }}>
           <input type="file" accept="text/csv" onChange={handleFile} />
           <Button onClick={downloadSample} variant="outlined">Download sample CSV</Button>
+        </div>
+        <div style={{ fontSize: 12, color: '#555', marginBottom: 8 }}>
+          <div><strong>Note:</strong> The sample CSV is saved with a UTF-8 byte-order mark (BOM) to help spreadsheet apps (LibreOffice, Excel) detect UTF-8 and display emoji correctly.</div>
+          <div>If you still see garbled characters after opening in LibreOffice, try File → Open and explicitly choose UTF-8 as the file encoding.</div>
         </div>
         <TextField label="Topogram title (optional)" value={title} onChange={e => setTitle(e.target.value)} fullWidth />
       </DialogContent>

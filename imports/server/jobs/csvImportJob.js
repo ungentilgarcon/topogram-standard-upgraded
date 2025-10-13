@@ -119,23 +119,25 @@ const processJob = async (job) => {
     let inserted = 0
     for (let i = 0; i < nodes.length; i += BATCH) {
       const batch = nodes.slice(i, i + BATCH).map(r => {
-        // Normalize emoji field for node visualization: keep a short value
+        // Normalize emoji field for node visualization: keep up to N grapheme clusters
         let emojiVal = null
         try {
           let raw = r.emoji || r.em || r.icon || null
           if (raw && typeof raw === 'string') {
-            // LibreOffice may export non-ASCII using +...- (modified UTF-7-like)
             raw = decodeUtf7Segments(raw)
-            // Prefer Intl.Segmenter for grapheme clusters when available
+            // Extract up to N grapheme clusters (preserves multi-emoji like "🎸🎤")
+            const N = 3
             if (typeof Intl !== 'undefined' && Intl.Segmenter) {
               try {
                 const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
-                const first = Array.from(seg.segment(raw))[0]
-                emojiVal = first ? first.segment : raw.trim()
+                const parts = Array.from(seg.segment(raw)).map(s => s.segment).filter(Boolean)
+                if (parts.length) emojiVal = parts.slice(0, N).join('')
+                else emojiVal = raw.trim()
               } catch (e) { emojiVal = raw.trim() }
             } else {
-              // Fallback: use first codepoint (may split some emoji sequences)
-              emojiVal = Array.from(raw.trim())[0] || raw.trim()
+              const parts = Array.from(raw.trim())
+              if (parts.length) emojiVal = parts.slice(0, N).join('')
+              else emojiVal = raw.trim()
             }
             if (emojiVal === '') emojiVal = null
           }
@@ -212,17 +214,19 @@ const processJob = async (job) => {
   try {
     let rawEdgeEmoji = r.emoji || r.em || r.icon || null
     if (rawEdgeEmoji && typeof rawEdgeEmoji === 'string') {
-      // decode potential LibreOffice +...- sequences
       rawEdgeEmoji = decodeUtf7Segments(rawEdgeEmoji)
+      const N = 3
       let edgeEmojiVal = null
       if (typeof Intl !== 'undefined' && Intl.Segmenter) {
         try {
           const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
-          const first = Array.from(seg.segment(rawEdgeEmoji))[0]
-          edgeEmojiVal = first ? first.segment : rawEdgeEmoji.trim()
+          const parts = Array.from(seg.segment(rawEdgeEmoji)).map(s => s.segment).filter(Boolean)
+          if (parts.length) edgeEmojiVal = parts.slice(0, N).join('')
+          else edgeEmojiVal = rawEdgeEmoji.trim()
         } catch (e) { edgeEmojiVal = rawEdgeEmoji.trim() }
       } else {
-        edgeEmojiVal = Array.from(rawEdgeEmoji.trim())[0] || rawEdgeEmoji.trim()
+  const parts = Array.from(rawEdgeEmoji.trim())
+  edgeEmojiVal = parts.length ? parts.slice(0, N).join('') : rawEdgeEmoji.trim()
       }
       if (edgeEmojiVal && edgeEmojiVal !== '') ed.relationshipEmoji = edgeEmojiVal
     }
