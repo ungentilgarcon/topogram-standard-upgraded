@@ -142,6 +142,24 @@ const processJob = async (job) => {
     }
     // otherwise ignore unrecognized values for now
   }
+  // Normalize an optional emoji field that may be used to decorate the edge relationship.
+  // Accept the same column candidates used for node emoji (emoji, em, icon).
+  try {
+    const rawEdgeEmoji = r.emoji || r.em || r.icon || null
+    if (rawEdgeEmoji && typeof rawEdgeEmoji === 'string') {
+      let edgeEmojiVal = null
+      if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+        try {
+          const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+          const first = Array.from(seg.segment(rawEdgeEmoji))[0]
+          edgeEmojiVal = first ? first.segment : rawEdgeEmoji.trim()
+        } catch (e) { edgeEmojiVal = rawEdgeEmoji.trim() }
+      } else {
+        edgeEmojiVal = Array.from(rawEdgeEmoji.trim())[0] || rawEdgeEmoji.trim()
+      }
+      if (edgeEmojiVal && edgeEmojiVal !== '') ed.relationshipEmoji = edgeEmojiVal
+    }
+  } catch (e) {}
   return { topogramId, data: { ...ed, raw: r }, createdAt: new Date() }
       }).filter(Boolean)
       if (!batch.length) {

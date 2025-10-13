@@ -272,7 +272,12 @@ export default class GeoEdges extends React.Component {
       // Draw midpoint relationship label when geoEdgeRelVisible UI flag is true
       try {
         const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
-        if (geoRelVisible && e.data && e.data.relationship && e.coords && e.coords.length === 2) {
+        // Determine edge rel text and emoji, and whether we should render any label
+        const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+        const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+        const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+        const hasRelContent = (String(relTextRaw || '').trim() !== '') || (String(relEmojiRaw || '').trim() !== '')
+        if (geoRelVisible && hasRelContent && e.coords && e.coords.length === 2) {
           const [[lat1, lng1], [lat2, lng2]] = e.coords
           const a1 = parseFloat(lat1); const o1 = parseFloat(lng1)
           const a2 = parseFloat(lat2); const o2 = parseFloat(lng2)
@@ -287,7 +292,14 @@ export default class GeoEdges extends React.Component {
             const dx = (o2 - o1)
             const rad = Math.atan2(dy, dx)
             const deg = rad * 180 / Math.PI
-            const safeRel = String(e.data.relationship).replace(/[<>]/g, '')
+            // Build label according to mode
+            let relLabel = ''
+            try {
+              if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+              else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+              else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+            } catch (e) { relLabel = String(relTextRaw || '') }
+            const safeRel = String(relLabel).replace(/[<>]/g, '')
             // rotate the label so it follows the line angle but keep it
             // upright (avoid upside-down text).
             const normDeg = ((deg % 360) + 360) % 360
