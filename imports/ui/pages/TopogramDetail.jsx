@@ -553,6 +553,19 @@ export default function TopogramDetail() {
           // attach parallel index metadata for styling separation
           data._parallelIndex = idx
           data._parallelCount = groupEdges.length
+          // precompute numeric style values to avoid invalid mapData usage
+          // control-point-step-size: interpolate from 10..40 depending on index
+          const pcsMin = 10
+          const pcsMax = 40
+          const tcMin = -18
+          const tcMax = 18
+          const count = groupEdges.length || 1
+          const index = Math.max(0, Math.min(idx, count - 1))
+          const t = count <= 1 ? 0 : (index / (count - 1))
+          const controlPointStepSize = Math.round(pcsMin + t * (pcsMax - pcsMin))
+          const textMarginY = Math.round(tcMin + t * (tcMax - tcMin))
+          data._controlPointStepSize = controlPointStepSize
+          data._textMarginY = textMarginY
           if (ecolor != null) data.color = ecolor
           edgeEls.push({ data })
         })
@@ -622,10 +635,14 @@ export default function TopogramDetail() {
   { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
   { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
   // Use bezier curves so parallel edges can be separated
-  { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
-  // Edge arrows are controlled per-edge via the `enlightement` data field
-  { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
+  { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'data(_controlPointStepSize)' } },
+  // Edge arrows are controlled per-edge via the `enlightement` data field.
+  // Only set the arrow shape/fill here; color mapping is applied for edges
+  // that actually carry a `color` field to avoid Cytoscape mapping warnings.
+  { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-fill': 'filled' } },
+  // Apply arrow/line color only when the edge has a color value
   { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
+  { selector: 'edge[enlightement = "arrow"][color]', style: { 'target-arrow-color': 'data(color)' } },
     { selector: 'edge[relationship]', style: {
         'label': 'data(relationship)',
         'text-rotation': 'autorotate',
@@ -636,7 +653,8 @@ export default function TopogramDetail() {
         'text-background-opacity': 0.85,
         'text-background-padding': 3,
         // offset relation labels based on parallel index to reduce overlap
-        'text-margin-y': `mapData(_parallelIndex, 0, _parallelCount, -18, 18)`
+        // numeric value precomputed per-edge in data._textMarginY
+        'text-margin-y': 'data(_textMarginY)'
       }
     }
   ]
