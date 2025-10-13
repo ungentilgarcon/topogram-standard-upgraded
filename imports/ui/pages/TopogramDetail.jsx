@@ -519,26 +519,44 @@ export default function TopogramDetail() {
       }).filter(Boolean)
 
       // map edges and attempt to resolve their endpoints against nodeMap
-      const edgeEls = edges.map(edge => {
+      // Precompute grouping for parallel edges (same source+target) so we can
+      // assign a parallel index. Use an ordered group key that is source|target
+      // where source/target are the resolved vizIds to ensure matching.
+      const grouped = new Map()
+      edges.forEach(edge => {
         const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
         const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
         const srcKey = rawSrc != null ? String(rawSrc) : null
         const tgtKey = rawTgt != null ? String(rawTgt) : null
         const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
         const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
-        if (!resolvedSrc || !resolvedTgt) {
-          // unresolved endpoints — skip this edge to avoid invalid Cytoscape entries
-          return null
-        }
-        // accept an explicit color on edges too (common variants)
-        const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
-        // carry through a few useful data fields from the stored edge document
-        const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
-        if (ecolor != null) data.color = ecolor
-        // include the enlightement flag so Cytoscape stylesheet selectors can show arrows per-edge
-        if (edge.data && edge.data.enlightement != null) data.enlightement = edge.data.enlightement
-        return { data }
-      }).filter(Boolean)
+        if (!resolvedSrc || !resolvedTgt) return
+        const key = `${resolvedSrc}||${resolvedTgt}`
+        if (!grouped.has(key)) grouped.set(key, [])
+        grouped.get(key).push(edge)
+      })
+
+      const edgeEls = []
+      grouped.forEach((groupEdges, key) => {
+        groupEdges.forEach((edge, idx) => {
+          const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
+          const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
+          const srcKey = rawSrc != null ? String(rawSrc) : null
+          const tgtKey = rawTgt != null ? String(rawTgt) : null
+          const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
+          const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
+          if (!resolvedSrc || !resolvedTgt) return
+          const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
+          const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
+          if (edge.data && typeof edge.data.relationship !== 'undefined') data.relationship = edge.data.relationship
+          if (edge.data && typeof edge.data.enlightement !== 'undefined') data.enlightement = edge.data.enlightement
+          // attach parallel index metadata for styling separation
+          data._parallelIndex = idx
+          data._parallelCount = groupEdges.length
+          if (ecolor != null) data.color = ecolor
+          edgeEls.push({ data })
+        })
+      })
 
       const allEls = [...nodeEls, ...edgeEls]
       const hasPositions = nodeEls.some(n => n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number')
@@ -601,13 +619,13 @@ export default function TopogramDetail() {
   const minW = numericWeights.length ? Math.min(...numericWeights) : 1
   const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
   const stylesheet = [
-    { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
-    { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-    // default edge appearance (no arrow shape by default)
-    { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb' } },
-    { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
-    // only edges with enlightement === 'arrow' get a triangular target arrow
-    { selector: "edge[enlightement = 'arrow']", style: { 'target-arrow-shape': 'triangle' } },
+  { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
+  { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
+  // Use bezier curves so parallel edges can be separated
+  { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
+  // Edge arrows are controlled per-edge via the `enlightement` data field
+  { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
+  { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
     { selector: 'edge[relationship]', style: {
         'label': 'data(relationship)',
         'text-rotation': 'autorotate',
@@ -617,7 +635,8 @@ export default function TopogramDetail() {
         'text-background-color': '#ffffff',
         'text-background-opacity': 0.85,
         'text-background-padding': 3,
-        'text-margin-y': -6
+        // offset relation labels based on parallel index to reduce overlap
+        'text-margin-y': `mapData(_parallelIndex, 0, _parallelCount, -18, 18)`
       }
     }
   ]
