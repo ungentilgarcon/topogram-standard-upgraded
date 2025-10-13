@@ -117,7 +117,10 @@ export default class GeoEdges extends React.Component {
       ) : ""
       const edgeIdSafe = (e && e.data && e.data.id != null) ? String(e.data.id) : ''
       const keyRoot = `edge-${edgeIdSafe}-${i}`
-      const showChevrons = isChevronsOn
+  // showChevrons is true when the global UI toggle allows chevrons
+  const showChevrons = isChevronsOn
+  // For per-edge control, only show chevrons when edge.data.enlightement === 'arrow'
+  const edgeAllowsChevrons = e && e.data && String(e.data.enlightement).toLowerCase() === 'arrow'
       let segments = []
       let chevrons = []
       if (showChevrons) {
@@ -170,7 +173,7 @@ export default class GeoEdges extends React.Component {
           )
         })
       }
-      if (isChevronsOn && chevrons && chevrons.length) {
+  if (isChevronsOn && edgeAllowsChevrons && chevrons && chevrons.length) {
         chevrons.forEach((ch, cIdx) => {
           let lat = parseFloat(ch.position[0])
           let lng = parseFloat(ch.position[1])

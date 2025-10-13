@@ -532,8 +532,11 @@ export default function TopogramDetail() {
         }
         // accept an explicit color on edges too (common variants)
         const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
+        // carry through a few useful data fields from the stored edge document
         const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
         if (ecolor != null) data.color = ecolor
+        // include the enlightement flag so Cytoscape stylesheet selectors can show arrows per-edge
+        if (edge.data && edge.data.enlightement != null) data.enlightement = edge.data.enlightement
         return { data }
       }).filter(Boolean)
 
@@ -600,8 +603,11 @@ export default function TopogramDetail() {
   const stylesheet = [
     { selector: 'node', style: { 'label': 'data(label)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
     { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-    { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'target-arrow-shape': 'triangle' } },
+    // default edge appearance (no arrow shape by default)
+    { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb' } },
     { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
+    // only edges with enlightement === 'arrow' get a triangular target arrow
+    { selector: "edge[enlightement = 'arrow']", style: { 'target-arrow-shape': 'triangle' } },
     { selector: 'edge[relationship]', style: {
         'label': 'data(relationship)',
         'text-rotation': 'autorotate',

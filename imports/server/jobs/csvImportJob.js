@@ -103,6 +103,22 @@ const processJob = async (job) => {
   const ed = { source: String(src), target: String(tgt) }
   if (ename) ed.name = String(ename)
   if (ecolor) ed.color = String(ecolor)
+  // optional relationship field (human-readable qualifier for the edge)
+  const erel = r.relationship || r.relationType || r.rel || null
+  if (erel) ed.relationship = String(erel)
+  // flexible 'enlightement' field: for now we only accept the canonical
+  // value 'arrow' (case-insensitive). Future formats may include other
+  // metadata, but keep import behavior strict: set ed.enlightement === 'arrow'
+  // only when the CSV value is exactly 'arrow' (ignoring surrounding space
+  // and case). Accept common alias spellings for the column name.
+  const rawEel = r.enlightement || r.enlightenment || r.enlight || null
+  if (rawEel && typeof rawEel === 'string') {
+    const norm = rawEel.trim().toLowerCase()
+    if (norm === 'arrow') {
+      ed.enlightement = 'arrow'
+    }
+    // otherwise ignore unrecognized values for now
+  }
   return { topogramId, data: { ...ed, raw: r }, createdAt: new Date() }
       }).filter(Boolean)
       if (!batch.length) {
