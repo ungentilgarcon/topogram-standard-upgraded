@@ -59,6 +59,8 @@ export default function TopogramDetail() {
   const cyRef = useRef(null)
   // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
   const [cyInstance, setCyInstance] = useState(null)
+  // throttle timestamp for timeline-driven redraws
+  const lastTimelineTsRef = useRef(0)
 
   // Safe fit helper: only call fit when the renderer is initialized to avoid
   // runtime errors like "this._private.renderer is null" observed when
@@ -481,8 +483,8 @@ export default function TopogramDetail() {
       const runLayout = cy.layout(layoutObj)
       runLayout.run()
       // fit after layout completes
-      runLayout.on && runLayout.on('layoutstop', () => { try { safeFit(cy); } catch (e) {} })
-      setTimeout(() => { try { safeFit(cy); } catch (e) {} }, 150)
+  runLayout.on && runLayout.on('layoutstop', () => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} })
+  setTimeout(() => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} }, 150)
     } catch (err) {
       console.warn('failed to run cy layout', err)
     }
@@ -517,6 +519,14 @@ export default function TopogramDetail() {
     if (!vr) return
     const cy = cyRef.current
     if (!cy) return
+    // Throttle timeline-driven redraws to avoid rendering artifacts and
+    // excessive layout calls while the timeline is playing. Allow up to
+    // about 15 updates per second.
+    const now = Date.now()
+    const last = lastTimelineTsRef.current || 0
+    const minMs = 66 // ~15 FPS
+    if (now - last < minMs) return
+    lastTimelineTsRef.current = now
     let raf = null
     try {
       raf = window.requestAnimationFrame(() => {
@@ -1006,6 +1016,11 @@ export default function TopogramDetail() {
                       if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
                       if (typeof cy.selectionType === 'function') cy.selectionType('additive')
                       if (typeof cy.autounselectify === 'function') cy.autounselectify(false)
+                      // ensure the renderer knows about the container size immediately
+                      try { if (typeof cy.resize === 'function') cy.resize() } catch (e) {}
+                      // expose cy on state for any consumers
+                      try { setCyInstance && setCyInstance(cy) } catch (e) {}
+                      // small delayed fit to allow layout/renderer to settle
                       setTimeout(() => { safeFit(cy) }, 50)
                     } catch (err) { console.warn('cy.setup failed', err) }
                   }}
