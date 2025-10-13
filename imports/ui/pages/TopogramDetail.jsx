@@ -59,8 +59,7 @@ export default function TopogramDetail() {
   const cyRef = useRef(null)
   // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
   const [cyInstance, setCyInstance] = useState(null)
-  // throttle timestamp for timeline-driven redraws
-  const lastTimelineTsRef = useRef(0)
+  // keep cyInstance in state for panels/widgets that consume it
 
   // Safe fit helper: only call fit when the renderer is initialized to avoid
   // runtime errors like "this._private.renderer is null" observed when
@@ -511,30 +510,10 @@ export default function TopogramDetail() {
     return () => window.removeEventListener('resize', handler)
   }, [])
 
-  // When the timeline selection (valueRange) changes frequently (playing),
-  // ensure Cytoscape resizes and fits the view. Use requestAnimationFrame
-  // to avoid blocking the main thread on very frequent updates.
-  useEffect(() => {
-    const vr = (timelineUI && Array.isArray(timelineUI.valueRange)) ? timelineUI.valueRange : null
-    if (!vr) return
-    const cy = cyRef.current
-    if (!cy) return
-    // Throttle timeline-driven redraws to avoid rendering artifacts and
-    // excessive layout calls while the timeline is playing. Allow up to
-    // about 15 updates per second.
-    const now = Date.now()
-    const last = lastTimelineTsRef.current || 0
-    const minMs = 66 // ~15 FPS
-    if (now - last < minMs) return
-    lastTimelineTsRef.current = now
-    let raf = null
-    try {
-      raf = window.requestAnimationFrame(() => {
-        try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy) } catch (e) {}
-      })
-    } catch (e) {}
-    return () => { try { if (raf) window.cancelAnimationFrame(raf) } catch (e) {} }
-  }, [timelineUI && timelineUI.valueRange ? timelineUI.valueRange[0] : null, timelineUI && timelineUI.valueRange ? timelineUI.valueRange[1] : null])
+  // Note: do NOT trigger cy.resize()/fit on every timeline tick. The
+  // timeline's job is to hide/show elements; resizing/fitting is costly
+  // and causes the layout to jitter during playback. Resize/fit happen on
+  // panel toggles, window resizes, and after layout completes.
 
   // Cytoscape control helpers (use animate when available)
   const doZoom = (factor) => {
@@ -1004,7 +983,6 @@ export default function TopogramDetail() {
                   </div>
                 </div>
                 <CytoscapeComponent
-                  key={timelineKey}
                   elements={elements}
                   style={{ width: '100%', height: '100%' }}
                   layout={layout}
@@ -1071,7 +1049,6 @@ export default function TopogramDetail() {
                     <button className="cy-control-btn" onClick={doFit}>Fit</button>
                   </div>
                   <CytoscapeComponent
-                    key={timelineKey}
                     elements={elements}
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
@@ -1111,7 +1088,6 @@ export default function TopogramDetail() {
                     <button className="cy-control-btn" onClick={doFit}>Fit</button>
                   </div>
                   <CytoscapeComponent
-                    key={timelineKey}
                     elements={elements}
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
