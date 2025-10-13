@@ -4,6 +4,35 @@ import fs from 'fs'
 import Papa from 'papaparse'
 import { Topograms, Nodes, Edges } from '/imports/api/collections'
 
+// Small helper to decode UTF-7 sequences (e.g. LibreOffice CSV exports
+// non-ASCII as +...- sequences). This decoder finds +...- segments and
+// base64-decodes them into UTF-16BE bytes, converting into JS strings.
+const decodeUtf7Segments = (s) => {
+  if (!s || typeof s !== 'string') return s
+  // quick heuristic: if there's no '+' then likely not UTF-7 encoded
+  if (s.indexOf('+') === -1) return s
+  try {
+    return s.replace(/\+([A-Za-z0-9+/=,]+)-/g, (match, b64) => {
+      // Some implementations use ',' instead of '/' in modified base64; normalize
+      const norm = b64.replace(/,/g, '/')
+      // base64-decode into a Buffer
+      let buf
+      try { buf = Buffer.from(norm, 'base64') } catch (e) { return match }
+      // Interpret as UTF-16BE
+      let out = ''
+      for (let i = 0; i < buf.length; i += 2) {
+        const hi = buf[i]
+        const lo = (i + 1 < buf.length) ? buf[i + 1] : 0
+        const code = (hi << 8) | lo
+        out += String.fromCharCode(code)
+      }
+      return out
+    }).replace(/\+-/g, '+')
+  } catch (e) {
+    return s
+  }
+}
+
 // Simple worker: poll queued jobs every few seconds and process them
 const POLL_INTERVAL = 2000
 
@@ -59,8 +88,10 @@ const processJob = async (job) => {
         // Normalize emoji field for node visualization: keep a short value
         let emojiVal = null
         try {
-          const raw = r.emoji || r.em || r.icon || null
+          let raw = r.emoji || r.em || r.icon || null
           if (raw && typeof raw === 'string') {
+            // LibreOffice may export non-ASCII using +...- (modified UTF-7-like)
+            raw = decodeUtf7Segments(raw)
             // Prefer Intl.Segmenter for grapheme clusters when available
             if (typeof Intl !== 'undefined' && Intl.Segmenter) {
               try {
@@ -145,8 +176,10 @@ const processJob = async (job) => {
   // Normalize an optional emoji field that may be used to decorate the edge relationship.
   // Accept the same column candidates used for node emoji (emoji, em, icon).
   try {
-    const rawEdgeEmoji = r.emoji || r.em || r.icon || null
+    let rawEdgeEmoji = r.emoji || r.em || r.icon || null
     if (rawEdgeEmoji && typeof rawEdgeEmoji === 'string') {
+      // decode potential LibreOffice +...- sequences
+      rawEdgeEmoji = decodeUtf7Segments(rawEdgeEmoji)
       let edgeEmojiVal = null
       if (typeof Intl !== 'undefined' && Intl.Segmenter) {
         try {
