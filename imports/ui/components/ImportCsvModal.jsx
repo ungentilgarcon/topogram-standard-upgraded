@@ -125,6 +125,10 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
           <input type="file" accept="text/csv" onChange={handleFile} />
           <Button onClick={downloadSample} variant="outlined">Download sample CSV</Button>
         </div>
+        <div style={{ fontSize: 12, color: '#555', marginBottom: 8 }}>
+          <div><strong>Note:</strong> The sample CSV is saved with a UTF-8 byte-order mark (BOM) to help spreadsheet apps (LibreOffice, Excel) detect UTF-8 and display emoji correctly.</div>
+          <div>If you still see garbled characters after opening in LibreOffice, try File → Open and explicitly choose UTF-8 as the file encoding.</div>
+        </div>
         <TextField label="Topogram title (optional)" value={title} onChange={e => setTitle(e.target.value)} fullWidth />
       </DialogContent>
       <DialogActions>

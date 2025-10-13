@@ -131,12 +131,12 @@ const processJob = async (job) => {
               try {
                 const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
                 const parts = Array.from(seg.segment(raw)).map(s => s.segment).filter(Boolean)
-                if (parts.length) emojiVal = parts.slice(0, N).join(' ')
+                if (parts.length) emojiVal = parts.slice(0, N).join('')
                 else emojiVal = raw.trim()
               } catch (e) { emojiVal = raw.trim() }
             } else {
               const parts = Array.from(raw.trim())
-              if (parts.length) emojiVal = parts.slice(0, N).join(' ')
+              if (parts.length) emojiVal = parts.slice(0, N).join('')
               else emojiVal = raw.trim()
             }
             if (emojiVal === '') emojiVal = null
@@ -221,12 +221,12 @@ const processJob = async (job) => {
         try {
           const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
           const parts = Array.from(seg.segment(rawEdgeEmoji)).map(s => s.segment).filter(Boolean)
-          if (parts.length) edgeEmojiVal = parts.slice(0, N).join(' ')
+          if (parts.length) edgeEmojiVal = parts.slice(0, N).join('')
           else edgeEmojiVal = rawEdgeEmoji.trim()
         } catch (e) { edgeEmojiVal = rawEdgeEmoji.trim() }
       } else {
-        const parts = Array.from(rawEdgeEmoji.trim())
-        edgeEmojiVal = parts.length ? parts.slice(0, N).join(' ') : rawEdgeEmoji.trim()
+  const parts = Array.from(rawEdgeEmoji.trim())
+  edgeEmojiVal = parts.length ? parts.slice(0, N).join('') : rawEdgeEmoji.trim()
       }
       if (edgeEmojiVal && edgeEmojiVal !== '') ed.relationshipEmoji = edgeEmojiVal
     }
