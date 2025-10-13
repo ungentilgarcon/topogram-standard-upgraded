@@ -638,10 +638,9 @@ export default function TopogramDetail() {
     // candidate strings to the vizId so edges referencing different
     // forms can be resolved.
       const nodeMap = new Map()
+      const vizIdToNode = new Map()
       nodes.forEach(node => {
         const vizId = node.data && node.data.id ? String(node.data.id) : String(node._id)
-        // Only index nodes that are within the active timeline range
-        if (!isNodeInRange(node)) return
         const candidates = new Set()
         candidates.add(vizId)
         candidates.add(String(node._id))
@@ -651,12 +650,11 @@ export default function TopogramDetail() {
         if (node.name) candidates.add(String(node.name))
         // map each candidate key -> vizId
         candidates.forEach(k => nodeMap.set(k, vizId))
+        vizIdToNode.set(String(vizId), node)
       })
 
       // map nodes into cytoscape node elements (id = vizId)
       const nodeEls = nodes.map(node => {
-        // skip nodes outside range
-        if (!isNodeInRange(node)) return null
         const vizId = nodeMap.get(String((node.data && node.data.id) || node.id || node._id)) || String(node._id)
         const label = (node.data && (node.data.name || node.data.label)) || node.name || node.label || node.id
         // pick a color from several commonly-used fields in legacy docs
@@ -675,14 +673,16 @@ export default function TopogramDetail() {
         }
         data._vizLabel = vizLabel
         if (color != null) data.color = color
-        const el = { data }
+  // compute initial visibility according to the current timeline
+  const visible = isNodeInRange(node)
+  const el = visible ? { data } : { data, classes: 'hidden' }
         // If the node document contains a saved position, pass it through
         // to Cytoscape as `position: { x, y }` so the 'preset' layout works.
         if (node.position && typeof node.position.x === 'number' && typeof node.position.y === 'number') {
           el.position = { x: node.position.x, y: node.position.y }
         }
         return el
-      }).filter(Boolean)
+  }).filter(Boolean)
 
       // map edges and attempt to resolve their endpoints against nodeMap
       // Precompute grouping for parallel edges (same source+target) so we can
@@ -730,7 +730,34 @@ export default function TopogramDetail() {
             else if (edgeRelLabelMode === 'text') data._relVizLabel = String(relText || '')
             else data._relVizLabel = relEmoji ? `${String(relEmoji)} ${String(relText || '')}` : String(relText || '')
           } catch (e) { data._relVizLabel = data.relationship || data.name || '' }
-          edgeEls.push({ data })
+          // determine initial visibility: hide if either endpoint node is out of range
+          let visible = true
+          try {
+            const srcNode = vizIdToNode.get(String(resolvedSrc))
+            const tgtNode = vizIdToNode.get(String(resolvedTgt))
+            if (srcNode && !isNodeInRange(srcNode)) visible = false
+            if (tgtNode && !isNodeInRange(tgtNode)) visible = false
+            // if edge carries its own time fields, prefer those
+            const edgeHasTime = ['start','end','time','date','from','to'].some(f => edge.data && edge.data[f] != null)
+            if (edgeHasTime) {
+              // evaluate edge time against active range if present
+              const activeRange = (timelineUI && Array.isArray(timelineUI.valueRange) && timelineUI.valueRange[0] != null && timelineUI.valueRange[1] != null)
+                ? [Number(timelineUI.valueRange[0]), Number(timelineUI.valueRange[1])] : null
+              if (activeRange) {
+                let edgeVisible = false
+                for (const f of ['start','end','time','date','from','to']) {
+                  const v = edge.data && edge.data[f]
+                  if (v == null) continue
+                  const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
+                  if (!Number.isFinite(t)) continue
+                  if (t >= activeRange[0] && t <= activeRange[1]) { edgeVisible = true; break }
+                }
+                visible = edgeVisible
+              }
+            }
+          } catch (e) {}
+          if (visible) edgeEls.push({ data })
+          else edgeEls.push({ data, classes: 'hidden' })
         })
       })
 
