@@ -87,6 +87,9 @@ export default function TopogramDetail() {
   // reading window during hook initialization (helps keep hook order stable under HMR).
   const [geoMapVisible, setGeoMapVisible] = useState(false)
   const [networkVisible, setNetworkVisible] = useState(true)
+  // Edge relationship visibility per-view (independent)
+  const [networkEdgeRelVisible, setNetworkEdgeRelVisible] = useState(true)
+  const [geoEdgeRelVisible, setGeoEdgeRelVisible] = useState(true)
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
   const [chartsVisible, setChartsVisible] = useState(true)
@@ -258,10 +261,14 @@ export default function TopogramDetail() {
         const n = window.localStorage.getItem('topo.networkVisible')
         const t = window.localStorage.getItem('topo.timeLineVisible')
         const c = window.localStorage.getItem('topo.chartsVisible')
+        const ner = window.localStorage.getItem('topo.networkEdgeRelVisible')
+        const ger = window.localStorage.getItem('topo.geoEdgeRelVisible')
         if (g !== null) setGeoMapVisible(g === 'true')
         if (n !== null) setNetworkVisible(n !== 'false')
         if (t !== null) setTimeLineVisible(t === 'true')
         if (c !== null) setChartsVisible(c === 'true')
+        if (ner !== null) setNetworkEdgeRelVisible(ner === 'true')
+        if (ger !== null) setGeoEdgeRelVisible(ger === 'true')
         const s = window.localStorage.getItem('topo.selectionPanelPinned')
         if (s !== null) setSelectionPanelPinned(s === 'true')
       }
@@ -295,6 +302,8 @@ export default function TopogramDetail() {
         if (key === 'selectedElements') { setSelectedElements(Array.isArray(value) ? value : []) ; return }
         if (key === 'geoMapVisible') { setGeoMapVisible(!!value); return }
         if (key === 'networkVisible') { setNetworkVisible(!!value); return }
+          if (key === 'networkEdgeRelVisible') { setNetworkEdgeRelVisible(!!value); try { window.localStorage.setItem('topo.networkEdgeRelVisible', !!value ? 'true' : 'false') } catch(e){}; return }
+          if (key === 'geoEdgeRelVisible') { setGeoEdgeRelVisible(!!value); try { window.localStorage.setItem('topo.geoEdgeRelVisible', !!value ? 'true' : 'false') } catch(e){}; return }
         if (key === 'timeLineVisible') { setTimeLineVisible(!!value); return }
         if (key === 'debugVisible') { setDebugVisible(!!value); return }
           if (key === 'selectionPanelPinned') { setSelectionPanelPinned(!!value); return }
@@ -314,6 +323,8 @@ export default function TopogramDetail() {
         if (obj.selectedElements) setSelectedElements(Array.isArray(obj.selectedElements) ? obj.selectedElements : [])
         if (typeof obj.geoMapVisible === 'boolean') setGeoMapVisible(obj.geoMapVisible)
         if (typeof obj.networkVisible === 'boolean') setNetworkVisible(obj.networkVisible)
+        if (typeof obj.networkEdgeRelVisible === 'boolean') { setNetworkEdgeRelVisible(obj.networkEdgeRelVisible); try { window.localStorage.setItem('topo.networkEdgeRelVisible', obj.networkEdgeRelVisible ? 'true' : 'false') } catch(e){} }
+        if (typeof obj.geoEdgeRelVisible === 'boolean') { setGeoEdgeRelVisible(obj.geoEdgeRelVisible); try { window.localStorage.setItem('topo.geoEdgeRelVisible', obj.geoEdgeRelVisible ? 'true' : 'false') } catch(e){} }
         if (typeof obj.timeLineVisible === 'boolean') setTimeLineVisible(obj.timeLineVisible)
         if (typeof obj.debugVisible === 'boolean') setDebugVisible(obj.debugVisible)
       } catch (e) {}
@@ -914,7 +925,7 @@ export default function TopogramDetail() {
                 </div>
                 <div style={{ width: 320 }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
-                  {chartsVisible ? <NodeCharts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
+                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
