@@ -758,6 +758,10 @@ export default function TopogramDetail() {
           <input type="range" min={8} max={36} value={titleSize} onChange={e => setTitleSize(Number(e.target.value))} />
           <span style={{ minWidth: 36, textAlign: 'right' }}>{titleSize}px</span>
         </label>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <input type="checkbox" checked={geoEdgeRelVisible} onChange={e => updateUI('geoEdgeRelVisible', e.target.checked)} />
+          <span style={{ fontSize: 12 }}>Show GeoMap relationship labels</span>
+        </label>
       </div>
 
       {/* If geo is present, render a split view: network on left, map on right */}
@@ -887,7 +891,7 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements }}
+                    ui={{ selectedElements, geoEdgeRelVisible }}
                     width={'50vw'}
                     height={'600px'}
                     selectElement={(json) => selectElement(json)}
@@ -938,7 +942,7 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                  ui={{ selectedElements }}
+                  ui={{ selectedElements, geoEdgeRelVisible }}
                   width={'100%'}
                   height={'600px'}
                   selectElement={(json) => selectElement(json)}

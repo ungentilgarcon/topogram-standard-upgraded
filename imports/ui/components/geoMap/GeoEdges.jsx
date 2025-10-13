@@ -198,19 +198,29 @@ export default class GeoEdges extends React.Component {
         const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
         if (geoRelVisible && e.data && e.data.relationship && e.coords && e.coords.length === 2) {
           const [[lat1, lng1], [lat2, lng2]] = e.coords
-          const midLat = (parseFloat(lat1) + parseFloat(lat2)) / 2
-          const midLng = (parseFloat(lng1) + parseFloat(lng2)) / 2
-          const safeRel = String(e.data.relationship).replace(/[<>]/g, '')
-          const html = `<div style="background: rgba(255,255,255,0.9); padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #222; white-space: nowrap;">${safeRel}</div>`
-          const icon = L.divIcon({ className: 'edge-rel-label', html, iconSize: null })
-          children.push(
-            <Marker
-              key={`rel-${keyRoot}`}
-              position={[midLat, midLng]}
-              icon={icon}
-              interactive={false}
-            />
-          )
+          const a1 = parseFloat(lat1); const o1 = parseFloat(lng1)
+          const a2 = parseFloat(lat2); const o2 = parseFloat(lng2)
+          if (isFinite(a1) && isFinite(o1) && isFinite(a2) && isFinite(o2)) {
+            const midLat = (a1 + a2) / 2
+            const midLng = (o1 + o2) / 2
+            // compute heading angle in degrees from point1 to point2
+            const dy = a2 - a1
+            const dx = (o2 - o1)
+            const rad = Math.atan2(dy, dx)
+            const deg = rad * 180 / Math.PI
+            const safeRel = String(e.data.relationship).replace(/[<>]/g, '')
+            // rotate the label so it follows the line angle
+            const html = `<div style="display:inline-block; transform: rotate(${deg}deg); background: rgba(255,255,255,0.9); padding: 2px 6px; border-radius: 3px; font-size: 11px; color: #222; white-space: nowrap;">${safeRel}</div>`
+            const icon = L.divIcon({ className: 'edge-rel-label', html, iconSize: null })
+            children.push(
+              <Marker
+                key={`rel-${keyRoot}`}
+                position={[midLat, midLng]}
+                icon={icon}
+                interactive={false}
+              />
+            )
+          }
         }
       } catch (err) { /* ignore malformed coords */ }
     })
