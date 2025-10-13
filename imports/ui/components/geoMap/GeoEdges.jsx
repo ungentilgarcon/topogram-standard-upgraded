@@ -314,7 +314,7 @@ export default class GeoEdges extends React.Component {
             // closer to their edge by placing some on either side)
             const side = (slotIndex % 2 === 0) ? 1 : -1
             const pairIndex = Math.floor(slotIndex / 2) + 1
-            const baseSlot = 0.02 // base separation per pair
+            const baseSlot = 2 // base separation per pair
             const slotOffset = pairIndex * baseSlot
             // deterministic hash of bucketKey to create stable jitter
             const hash = Math.abs(String(bucketKey).split('').reduce((h, c) => ((h << 5) - h) + c.charCodeAt(0), 0))
