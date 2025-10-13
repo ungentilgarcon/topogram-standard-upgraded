@@ -494,9 +494,20 @@ export default function TopogramDetail() {
     if (!cy) return
     try {
       // small timeout to let layout/DOM stabilize
-      setTimeout(() => { if (cy && networkVisible) safeFit(cy) }, 80)
+      setTimeout(() => { try { if (cy && networkVisible) { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } } catch(e){} }, 80)
     } catch (e) {}
   }, [networkVisible, geoMapVisible])
+
+  // Ensure Cytoscape resizes on window resize events (helps when moving between displays)
+  useEffect(() => {
+    const handler = () => {
+      const cy = cyRef.current
+      if (!cy) return
+      try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy) } catch (e) {}
+    }
+    window.addEventListener('resize', handler)
+    return () => window.removeEventListener('resize', handler)
+  }, [])
 
   // Cytoscape control helpers (use animate when available)
   const doZoom = (factor) => {
