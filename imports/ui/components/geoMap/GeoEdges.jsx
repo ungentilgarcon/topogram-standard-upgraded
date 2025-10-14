@@ -297,6 +297,7 @@ export default class GeoEdges extends React.Component {
             try {
               if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
               else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+              else if (edgeMode === 'none') relLabel = ''
               else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
             } catch (e) { relLabel = String(relTextRaw || '') }
             const safeRel = String(relLabel).replace(/[<>]/g, '')
