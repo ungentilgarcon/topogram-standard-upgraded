@@ -45,7 +45,11 @@
 
           this.originalTempo = origTempo
 
-          this.state = { playing: false, step: 1, tempo: this.originalTempo, timer: null, stopPressedOnce: true }
+          // stopPressedOnce controls the toggle for the Stop button:
+          // - first click should restore the full range
+          // - second click should set the slider to the first year window
+          // Initialize to false so the first click restores full range.
+          this.state = { playing: false, step: 1, tempo: this.originalTempo, timer: null, stopPressedOnce: false }
         }
 
       static propTypes = {
@@ -192,14 +196,14 @@
                             </IconButton>
                           </Tooltip>
 
-                          <IconButton className="timeline-btn" size="small" onClick={() => {}} alt="next year of tours">
-                            <Tooltip title="next year of tours">
+                          <IconButton className="timeline-btn" size="small" onClick={this.next} alt="next year of data">
+                            <Tooltip title="next year of data">
                               <SkipNext />
                             </Tooltip>
                           </IconButton>
 
-                          <Tooltip title="Stop/1st year of tour">
-                            <IconButton className="timeline-btn" size="small" onClick={() => {}} alt="Stop/1st year of tour">
+                          <Tooltip title="Stop/1rst year of data">
+                            <IconButton className="timeline-btn" size="small" onClick={this.stop} alt="Stop/1rst year of data">
                               <Stop />
                             </IconButton>
                           </Tooltip>
