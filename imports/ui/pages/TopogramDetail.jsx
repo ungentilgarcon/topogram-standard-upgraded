@@ -16,7 +16,7 @@ cytoscape.use(cola);
 
 export default function TopogramDetail() {
   const { id } = useParams();
-  console.debug && console.debug('TopogramDetail rendered with id:', id);
+  // Debug rendering info is gated behind the sidepanel debug toggle (debugVisible)
 
   const isReadyTopogram = useSubscribe('topogram', id);
   const isReadyNodes = useSubscribe('nodes', id);
@@ -36,20 +36,10 @@ export default function TopogramDetail() {
     return Edges.find(q);
   }, [id]);
 
-  console.debug && console.debug('TopogramDetail isReady:', isReady(), 'tops.length:', tops.length, 'nodes.length:', nodes.length, 'edges.length:', edges.length);
-
-  // --- Debug: log first few documents even when we short-circuit to Loading…
-  // This runs early so the browser console will show a sample of documents
-  // even if subscriptions are not yet fully ready.
-  try {
-    const dbgTops = tops.slice(0, 3).map(t => ({ _id: t._id, title: t.title || t.name }));
-    const dbgNodes = nodes.slice(0, 6).map(n => ({ _id: n._id, id: n.id || (n.data && n.data.id), name: n.name || n.label || (n.data && n.data.name), topogramId: n.topogramId || (n.data && n.data.topogramId) }));
-    const dbgEdges = edges.slice(0, 6).map(e => ({ _id: e._id, source: e.source || (e.data && e.data.source), target: e.target || (e.data && e.data.target) }));
-    // Use console.log (more visible) so this will show even when debug level is hidden
-    console && console.log && console.log('TopogramDetail sample docs', { dbgTops, dbgNodes, dbgEdges });
-  } catch (err) {
-    console.error('TopogramDetail debug panel error:', err);
-  }
+  // Note: detailed debug output (render/id/sample docs) is emitted below
+  // inside a useEffect that checks `debugVisible` so it only appears when
+  // the user enables the "Debug network" toggle in the sidepanel.
+  // (debug effect moved lower so it runs after debugVisible is declared)
   // UI state/hooks must come before any early return to keep hook order stable
   // UI state: allow the user to override the layout (or choose 'auto' to use computed)
   const [selectedLayout, setSelectedLayout] = useState('auto')
@@ -59,6 +49,10 @@ export default function TopogramDetail() {
   const cyRef = useRef(null)
   // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
   const [cyInstance, setCyInstance] = useState(null)
+  // remember last visible nodes count to detect visibility changes
+  const lastVisibleCountRef = useRef(null)
+  // remember last timeline range so we can detect which side moved
+  const lastTimelineRangeRef = useRef(null)
   // keep cyInstance in state for panels/widgets that consume it
 
   // Safe fit helper: only call fit when the renderer is initialized to avoid
@@ -90,15 +84,21 @@ export default function TopogramDetail() {
   const [networkVisible, setNetworkVisible] = useState(true)
   // Edge relationship visibility per-view (independent)
   const [networkEdgeRelVisible, setNetworkEdgeRelVisible] = useState(true)
+  // Default to true, but for large graphs we'll default to false unless user stored a preference
   const [geoEdgeRelVisible, setGeoEdgeRelVisible] = useState(true)
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
   const [chartsVisible, setChartsVisible] = useState(true)
   // Selection panel pinned/visible flag (persisted via localStorage)
   const [selectionPanelPinned, setSelectionPanelPinned] = useState(false)
-  // Emoji rendering toggle (default: true)
+  // Emoji rendering toggle (default: true; for large graphs default to false unless user override exists)
   const [emojiVisible, setEmojiVisible] = useState(() => {
-    try { const v = window.localStorage.getItem('topo.emojiVisible'); return v == null ? true : (v === 'true') } catch (e) { return true }
+    try {
+      const v = window.localStorage.getItem('topo.emojiVisible')
+      if (v != null) return (v === 'true')
+      // Defer large-graph default until nodes are known; assume true for now and we'll re-sync after nodes load
+      return true
+    } catch (e) { return true }
   })
   // Node label display mode in network: 'name' | 'emoji' | 'both'
   const [nodeLabelMode, setNodeLabelMode] = useState(() => {
@@ -106,9 +106,34 @@ export default function TopogramDetail() {
   })
 
   // Edge relationship label display mode in network: 'text' | 'emoji' | 'both'
+  // Edge relationship label display mode in network: 'text' | 'emoji' | 'both' | 'none'
   const [edgeRelLabelMode, setEdgeRelLabelMode] = useState(() => {
-    try { const v = window.localStorage.getItem('topo.edgeRelLabelMode'); return v || 'text' } catch (e) { return 'text' }
+    try {
+      const v = window.localStorage.getItem('topo.edgeRelLabelMode')
+      if (v) return v
+      // If no user preference, for very large graphs default to 'none' to reduce clutter
+      try {
+        // nodes may not be populated yet; guard access
+        if (Array.isArray(nodes) && nodes.length > 1500) return 'none'
+      } catch (e) {}
+      return 'text'
+    } catch (e) { return 'text' }
   })
+
+  // Emit verbose render/sample diagnostics only when debugVisible is enabled.
+  useEffect(() => {
+    if (!debugVisible) return
+    try {
+      console.debug && console.debug('TopogramDetail rendered with id:', id)
+      console.debug && console.debug('TopogramDetail isReady:', isReady(), 'tops.length:', tops.length, 'nodes.length:', nodes.length, 'edges.length:', edges.length)
+      const dbgTops = tops.slice(0, 3).map(t => ({ _id: t._id, title: t.title || t.name }))
+      const dbgNodes = nodes.slice(0, 6).map(n => ({ _id: n._id, id: n.id || (n.data && n.data.id), name: n.name || n.label || (n.data && n.data.name), topogramId: n.topogramId || (n.data && n.data.topogramId) }))
+      const dbgEdges = edges.slice(0, 6).map(e => ({ _id: e._id, source: e.source || (e.data && e.data.source), target: e.target || (e.data && e.data.target) }))
+      console.log && console.log('TopogramDetail sample docs', { dbgTops, dbgNodes, dbgEdges })
+    } catch (err) {
+      console.error && console.error('TopogramDetail debug panel error:', err)
+    }
+  }, [debugVisible, id, tops.length, nodes.length, edges.length])
 
   // When nodeLabelMode or emojiVisible changes, update the active Cytoscape
   // instance so labels refresh immediately without remounting the component.
@@ -156,6 +181,8 @@ export default function TopogramDetail() {
             e.data('_relVizLabel', emoji || String(text || ''))
           } else if (mode === 'text') {
             e.data('_relVizLabel', String(text || ''))
+          } else if (mode === 'none') {
+            e.data('_relVizLabel', '')
           } else {
             // both
             e.data('_relVizLabel', emoji ? `${String(emoji)} ${String(text || '')}` : String(text || ''))
@@ -345,12 +372,60 @@ export default function TopogramDetail() {
     } catch (e) { /* ignore */ }
   }, [])
 
+  // After nodes load, apply large-graph conservative defaults for certain vis flags
+  useEffect(() => {
+    try {
+      if (!Array.isArray(nodes)) return
+      const large = nodes.length > 1500
+      // If the user has not explicitly set geoEdgeRelVisible in localStorage, default to false for large graphs
+      try {
+        const ger = typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoEdgeRelVisible') : null
+        if (large && (ger === null)) setGeoEdgeRelVisible(false)
+      } catch (e) {}
+      // If the user has not explicitly set emojiVisible in localStorage, default to false for large graphs
+      try {
+        const ev = typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.emojiVisible') : null
+        if (large && (ev === null)) { setEmojiVisible(false) }
+      } catch (e) {}
+      // If the user has not set edgeRelLabelMode, and we previously defaulted to 'text', adjust to 'none'
+      try {
+        const erm = typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.edgeRelLabelMode') : null
+        if (large && (erm === null) && edgeRelLabelMode !== 'none') setEdgeRelLabelMode('none')
+      } catch (e) {}
+    } catch (e) {}
+  }, [nodes.length])
+
   // Detect if nodes carry time information (common legacy fields: start/end/time/date)
-  const hasTimeInfo = nodes.some(n => {
-    if (!n || !n.data) return false
-    const d = n.data
-    return (!!d.start || !!d.end || !!d.time || !!d.date || !!d.from || !!d.to)
-  })
+  // Provide helpers to read time fields from either top-level properties or nested `.data`.
+  const _timeFields = ['start', 'end', 'time', 'date', 'from', 'to']
+  const getTimeValue = (doc, field) => {
+    if (!doc) return undefined
+    try {
+      if (doc.data && typeof doc.data[field] !== 'undefined' && doc.data[field] !== '') return doc.data[field]
+      if (typeof doc[field] !== 'undefined' && doc[field] !== '') return doc[field]
+    } catch (e) {}
+    return undefined
+  }
+
+  // Compute how many nodes have any time-like field present. We'll enable the
+  // timeline only when a sufficient portion of nodes carry time info to avoid
+  // misleading filtering on mostly-timeless graphs.
+  const nodeTimePresentCount = nodes.reduce((acc, n) => {
+    try {
+      for (const f of _timeFields) {
+        const v = getTimeValue(n, f)
+        if (v != null && String(v).trim() !== '') { return acc + 1 }
+      }
+    } catch (e) {}
+    return acc
+  }, 0)
+  const timeCoverage = nodes.length ? (nodeTimePresentCount / nodes.length) : 0
+  const TIME_COVERAGE_THRESHOLD = 0.8
+  const hasTimeInfo = timeCoverage >= TIME_COVERAGE_THRESHOLD
+  // Debug: report time coverage when the developer toggles debugVisible
+  try {
+    if (debugVisible) console.info && console.info('TOPOGRAM: timeCoverage', { timeCoverage, nodeTimePresentCount, totalNodes: nodes.length, threshold: TIME_COVERAGE_THRESHOLD })
+  } catch (e) {}
 
   // Minimal UI state and updater used by the legacy TimeLine component.
   const [timelineUI, setTimelineUI] = useState(() => ({
@@ -409,18 +484,216 @@ export default function TopogramDetail() {
   const isNodeInRange = (node) => {
     const activeRange = (timelineUI && Array.isArray(timelineUI.valueRange) && timelineUI.valueRange[0] != null && timelineUI.valueRange[1] != null)
       ? [Number(timelineUI.valueRange[0]), Number(timelineUI.valueRange[1])] : null
+    // If there's no active range, keep nodes visible
     if (!activeRange) return true
-    if (!node || !node.data) return false
-    const fields = ['start','end','time','date','from','to']
-    for (const f of fields) {
-      const v = node.data[f]
-      if (v == null) continue
+    if (!node) return true
+    // Track whether the node actually has any valid time fields
+    let hasTimeField = false
+    for (const f of _timeFields) {
+      const v = getTimeValue(node, f)
+      if (v == null || String(v).trim() === '') continue
       const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
       if (!Number.isFinite(t)) continue
+      hasTimeField = true
       if (t >= activeRange[0] && t <= activeRange[1]) return true
     }
-    return false
+    // If the node had time fields but none matched the active range, hide it.
+    // If the node had no time fields, keep it visible.
+    return !hasTimeField
   }
+
+  // Build cytoscape elements and pick a layout. Memoize the result so
+  // prop identities passed to CytoscapeComponent remain stable while the
+  // timeline only toggles classes. This avoids unnecessary remounts/updates
+  // during playback (inspired by the original `topogram` project patterns).
+  const { elements, layout, stylesheet } = React.useMemo(() => {
+    const nodeMap = new Map()
+    const vizIdToNode = new Map()
+    nodes.forEach(node => {
+      const vizId = node.data && node.data.id ? String(node.data.id) : String(node._id)
+      const candidates = new Set()
+      candidates.add(vizId)
+      candidates.add(String(node._id))
+      if (node.id) candidates.add(String(node.id))
+      if (node.data && node.data.id) candidates.add(String(node.data.id))
+      if (node.data && node.data.name) candidates.add(String(node.data.name))
+      if (node.name) candidates.add(String(node.name))
+      candidates.forEach(k => nodeMap.set(k, vizId))
+      vizIdToNode.set(String(vizId), node)
+    })
+
+    const nodeEls = nodes.map(node => {
+      const vizId = nodeMap.get(String((node.data && node.data.id) || node.id || node._id)) || String(node._id)
+      const label = (node.data && (node.data.name || node.data.label)) || node.name || node.label || node.id
+      const color = (node.data && (node.data.color || node.data.fillColor || node.data.fill || node.data.backgroundColor || node.data.bg || node.data.colour || node.data.hex))
+      const rawWeight = node.data && (node.data.weight || (node.data.rawData && node.data.rawData.weight))
+      const data = { id: String(vizId), label, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight }
+      // Preserve time fields on the Cytoscape element so timeline visibility
+      // logic can inspect them directly on cy.nodes(). Read from either
+      // top-level or nested `.data` fields to handle CSV/imported shapes.
+      try {
+        _timeFields.forEach(f => {
+          const v = getTimeValue(node, f)
+          if (typeof v !== 'undefined' && v !== null && String(v).trim() !== '') data[f] = v
+        })
+      } catch (e) {}
+      if (node.data && node.data.emoji) data.emoji = node.data.emoji
+      const nlm = nodeLabelMode || 'both'
+      let vizLabel = ''
+      if (nlm === 'emoji') vizLabel = (node.data && node.data.emoji) ? String(node.data.emoji) : String(label || '')
+      else if (nlm === 'name') vizLabel = String(label || '')
+      else { vizLabel = (node.data && node.data.emoji) ? `${String(node.data.emoji)} ${String(label || '')}` : String(label || '') }
+      data._vizLabel = vizLabel
+      if (color != null) data.color = color
+  const el = { data }
+      if (node.position && typeof node.position.x === 'number' && typeof node.position.y === 'number') {
+        el.position = { x: node.position.x, y: node.position.y }
+      }
+      return el
+    }).filter(Boolean)
+
+    const grouped = new Map()
+    edges.forEach(edge => {
+      const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
+      const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
+      const srcKey = rawSrc != null ? String(rawSrc) : null
+      const tgtKey = rawTgt != null ? String(rawTgt) : null
+      const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
+      const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
+      if (!resolvedSrc || !resolvedTgt) return
+      const key = `${resolvedSrc}||${resolvedTgt}`
+      if (!grouped.has(key)) grouped.set(key, [])
+      grouped.get(key).push(edge)
+    })
+
+    const edgeEls = []
+    grouped.forEach((groupEdges, key) => {
+      groupEdges.forEach((edge, idx) => {
+        const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
+        const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
+        const srcKey = rawSrc != null ? String(rawSrc) : null
+        const tgtKey = rawTgt != null ? String(rawTgt) : null
+        const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
+        const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
+        if (!resolvedSrc || !resolvedTgt) return
+        const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
+        const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
+        // Copy time fields from the original edge into the element so
+        // timeline visibility checks on cy.edges() can read them. Also
+        // accept edgeStart/edgeEnd variants from CSV imports and map them to
+        // start/end for easier downstream checks.
+        try {
+          _timeFields.forEach(f => {
+            const v = getTimeValue(edge, f)
+            if (typeof v !== 'undefined' && v !== null && String(v).trim() !== '') data[f] = v
+          })
+          // Accept common CSV edge columns like edgeStart/edgeEnd and map them
+          if (edge && edge.edgeStart && !data.start) data.start = edge.edgeStart
+          if (edge && edge.edgeEnd && !data.end) data.end = edge.edgeEnd
+          if (edge && edge.data && edge.data.edgeStart && !data.start) data.start = edge.data.edgeStart
+          if (edge && edge.data && edge.data.edgeEnd && !data.end) data.end = edge.data.edgeEnd
+        } catch (e) {}
+        if (edge.data && typeof edge.data.relationship !== 'undefined') data.relationship = edge.data.relationship
+        if (edge.data && typeof edge.data.relationshipEmoji !== 'undefined') data.relationshipEmoji = edge.data.relationshipEmoji
+        if (edge.data && typeof edge.data.enlightement !== 'undefined') data.enlightement = edge.data.enlightement
+        data._parallelIndex = idx
+        data._parallelCount = groupEdges.length
+        if (ecolor != null) data.color = ecolor
+        try {
+          const relText = data.relationship || data.name || ''
+          const relEmoji = data.relationshipEmoji || ''
+          if (edgeRelLabelMode === 'emoji') data._relVizLabel = relEmoji || String(relText || '')
+          else if (edgeRelLabelMode === 'text') data._relVizLabel = String(relText || '')
+          else if (edgeRelLabelMode === 'none') data._relVizLabel = ''
+          else data._relVizLabel = relEmoji ? `${String(relEmoji)} ${String(relText || '')}` : String(relText || '')
+        } catch (e) { data._relVizLabel = data.relationship || data.name || '' }
+        let visible = true
+        try {
+          const srcNode = vizIdToNode.get(String(resolvedSrc))
+          const tgtNode = vizIdToNode.get(String(resolvedTgt))
+          if (srcNode && !isNodeInRange(srcNode)) visible = false
+          if (tgtNode && !isNodeInRange(tgtNode)) visible = false
+          const edgeHasTime = ['start','end','time','date','from','to'].some(f => edge.data && edge.data[f] != null)
+          if (edgeHasTime) {
+            const activeRange = (timelineUI && Array.isArray(timelineUI.valueRange) && timelineUI.valueRange[0] != null && timelineUI.valueRange[1] != null)
+              ? [Number(timelineUI.valueRange[0]), Number(timelineUI.valueRange[1])] : null
+            if (activeRange) {
+              let edgeVisible = false
+              for (const f of ['start','end','time','date','from','to']) {
+                const v = edge.data && edge.data[f]
+                if (v == null) continue
+                const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
+                if (!Number.isFinite(t)) continue
+                if (t >= activeRange[0] && t <= activeRange[1]) { edgeVisible = true; break }
+              }
+              visible = edgeVisible
+            }
+          }
+        } catch (e) {}
+  edgeEls.push({ data })
+      })
+    })
+
+    const allEls = [...nodeEls, ...edgeEls]
+    const hasPositions = nodeEls.some(n => n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number')
+    const layout = hasPositions
+      ? { name: 'preset' }
+      : { name: 'cola', nodeSpacing: 5, avoidOverlap: true, randomize: true, maxSimulationTime: 1500 }
+
+    const numericWeights = allEls.filter(el => el.data && el.data.id && (el.data.source == null && el.data.target == null)).map(el => Number(el.data.weight || 1))
+    const minW = numericWeights.length ? Math.min(...numericWeights) : 1
+    const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
+
+    const stylesheet = [
+      { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
+      { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
+      { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
+      { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
+      { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
+      { selector: 'edge[relationship], edge', style: {
+        'label': 'data(_relVizLabel)',
+        'text-rotation': 'autorotate',
+        'font-size': 10,
+        'text-outline-width': 2,
+        'text-outline-color': '#fff',
+        'text-background-color': '#ffffff',
+        'text-background-opacity': 0.85,
+        'text-background-padding': 3,
+        'text-margin-y': `mapData(_parallelIndex, 0, _parallelCount, -18, 18)`
+      } },
+    ]
+
+    if (nodeLabelMode === 'emoji') {
+      stylesheet.push({ selector: 'node[emoji]', style: { 'label': 'data(emoji)', 'font-size': `mapData(weight, ${minW}, ${maxW}, ${Math.max(16, titleSize)}, 48)`, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } })
+    }
+    stylesheet.push(
+      { selector: 'node:selected', style: { 'border-width': 3, 'border-color': '#FFD54F', 'text-outline-color': '#000', 'z-index': 9999 } },
+      { selector: 'edge:selected', style: { 'line-color': '#1976D2', 'target-arrow-color': '#1976D2', 'width': 3, 'z-index': 9998 } }
+    )
+  // Avoid using `display: none` which removes elements from the renderer
+  // completely and can interfere with interactivity. Use visibility/opacity
+  // and disable events instead so elements can be restored without layout
+  // side-effects and interactions on visible elements remain functional.
+  stylesheet.push({ selector: 'node.hidden', style: { 'visibility': 'hidden', 'opacity': 0, 'text-opacity': 0, 'events': 'no' } })
+  stylesheet.push({ selector: 'edge.hidden', style: { 'visibility': 'hidden', 'opacity': 0, 'line-opacity': 0, 'text-opacity': 0, 'events': 'no' } })
+
+    return { elements: allEls, layout, stylesheet }
+  }, [nodes, edges, nodeLabelMode, edgeRelLabelMode, titleSize])
+
+  // Debug: log element counts so we can detect why network appears empty
+  try {
+    if (typeof window !== 'undefined' && debugVisible) {
+      try {
+        const nCount = Array.isArray(nodes) ? nodes.length : 0
+        const eCount = Array.isArray(edges) ? edges.length : 0
+        const elCount = Array.isArray(elements) ? elements.length : 0
+        const hiddenNodes = Array.isArray(elements) ? elements.filter(el => el && el.classes && String(el.classes).split(/\s+/).includes('hidden') && el.data && el.data.id && (el.data.source == null && el.data.target == null)).length : 0
+        const hiddenEdges = Array.isArray(elements) ? elements.filter(el => el && el.classes && String(el.classes).split(/\s+/).includes('hidden') && (el.data && (el.data.source != null || el.data.target != null))).length : 0
+  if (debugVisible) console.debug && console.debug('TopogramDetail elements debug', { nodes: nCount, edges: eCount, elements: elCount, hiddenNodes, hiddenEdges })
+      } catch (e) { /* ignore */ }
+    }
+  } catch (e) {}
+
 
   // Initialize timeline UI min/max when nodes change and time info is present
   useEffect(() => {
@@ -449,8 +722,8 @@ export default function TopogramDetail() {
       maxTime: prev.maxTime || max,
       valueRange: (Array.isArray(prev.valueRange) && prev.valueRange[0] != null && prev.valueRange[1] != null) ? prev.valueRange : [min, max]
     }))
-    // Debug: log the numeric defaults we will apply (so console shows numbers, not closures)
-    try { console.info('TOPOGRAM: TopogramDetail will apply timeline defaults', { min, max, valueRange: [min, max], nodesCount: nodes.length }) } catch (e) {}
+  // Debug: log the numeric defaults we will apply (so console shows numbers, not closures)
+  try { if (debugVisible) console.info('TOPOGRAM: TopogramDetail will apply timeline defaults', { min, max, valueRange: [min, max], nodesCount: nodes.length }) } catch (e) {}
   }, [nodes.length])
 
   // When timeline panel is visible, bump the leaflet control bottom offset so controls don't overlap
@@ -524,59 +797,251 @@ export default function TopogramDetail() {
     const cy = cyRef.current
     if (!cy) return
     let raf = null
+  // schedule a single fit after visibility changes
+  let scheduleFitId = null
     try {
       raf = window.requestAnimationFrame(() => {
         try {
-          const activeRange = vr ? [Number(vr[0]), Number(vr[1])] : null
-          // Nodes: show if in range, hide otherwise
-          cy.nodes().forEach(n => {
-            try {
-              const d = n.data() || {}
-              const id = n.id()
-              let visible = true
-              if (activeRange) {
-                visible = false
-                const fields = ['start','end','time','date','from','to']
-                for (const f of fields) {
-                  const v = d[f]
-                  if (v == null) continue
-                  const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
-                  if (!Number.isFinite(t)) continue
-                  if (t >= activeRange[0] && t <= activeRange[1]) { visible = true; break }
+          const activeRange = (vr && vr[0] != null && vr[1] != null) ? [Number(vr[0]), Number(vr[1])] : null
+          // Diagnostic: report activeRange and how many nodes carry a valid `start` field
+          try {
+            let nodesWithStart = 0
+            let nodesWithoutStart = 0
+            cy.nodes().forEach(n => {
+              try {
+                const d = n.data() || {}
+                const v = d && d.start
+                const t = (v == null) ? NaN : ((typeof v === 'number') ? v : (new Date(v)).getTime())
+                if (Number.isFinite(t)) nodesWithStart += 1
+                else nodesWithoutStart += 1
+              } catch (e) {}
+            })
+            const visibleBefore = cy.nodes().filter(n => !n.hasClass || !n.hasClass('hidden')).length
+            if (debugVisible) console.debug && console.debug('timeline visibility debug', { activeRange, totalNodes: cy.nodes().length, nodesWithStart, nodesWithoutStart, visibleBefore })
+          } catch (e) {}
+
+          // Legacy behavior: when the dataset `hasTimeInfo`, show only nodes
+          // whose `start` timestamp is within the active range [left,right]. If
+          // the dataset has no time info, show all nodes.
+          // This mirrors the original implementation where filtering used
+          // `minTime` and `currentSliderTime`.
+          const left = activeRange ? Number(activeRange[0]) : null
+          const right = activeRange ? Number(activeRange[1]) : null
+          let wouldBeVisible = 0
+          const sample = []
+          if (!activeRange) {
+            wouldBeVisible = cy.nodes().length
+          } else {
+            cy.nodes().forEach(n => {
+              try {
+                const d = n.data() || {}
+                let visible = true
+                if (hasTimeInfo) {
+                  const vstart = d && d.start
+                  const tstart = (vstart == null) ? NaN : ((typeof vstart === 'number') ? vstart : (new Date(vstart)).getTime())
+                  visible = Number.isFinite(tstart) && (tstart >= left) && (tstart <= right)
                 }
+                if (visible) wouldBeVisible += 1
+                if (sample.length < 12) sample.push({ id: n.id(), start: d && d.start, parsedStart: Number.isFinite((d && d.start) ? ((typeof d.start === 'number') ? d.start : (new Date(d.start)).getTime()) : NaN) })
+              } catch (e) {}
+            })
+          }
+          if (wouldBeVisible === 0) {
+            try { if (debugVisible) console.warn('timeline visibility guard: applying this range would hide all nodes; skipping update', { activeRange, totalNodes: cy.nodes().length, wouldBeVisible, sample }) } catch (e) {}
+          } else {
+            cy.nodes().forEach(n => {
+              try {
+                const d = n.data() || {}
+                let visible = true
+                if (activeRange && hasTimeInfo) {
+                  const vstart = d && d.start
+                  const tstart = (vstart == null) ? NaN : ((typeof vstart === 'number') ? vstart : (new Date(vstart)).getTime())
+                  visible = Number.isFinite(tstart) && (tstart >= left) && (tstart <= right)
+                }
+                if (visible) n.removeClass('hidden')
+                else n.addClass('hidden')
+              } catch (e) {}
+            })
+          }
+          // After toggling node visibility, check how many nodes are visible
+          try {
+            const visibleNodes = cy.nodes().filter(n => !n.hasClass || !n.hasClass('hidden')).length
+            const prev = lastVisibleCountRef.current
+            if (prev == null || prev !== visibleNodes) {
+              lastVisibleCountRef.current = visibleNodes
+              // schedule a single fit/resize on the next animation frame, cancel previous
+              try { if (scheduleFitId) { try { window.cancelAnimationFrame(scheduleFitId) } catch(e){} } } catch(e){}
+              scheduleFitId = window.requestAnimationFrame(() => {
+                try {
+                  if (typeof cy.resize === 'function') cy.resize();
+                  safeFit(cy);
+                  if (visibleNodes === 0) {
+                    // Recovery: timeline left zero visible nodes — un-hide everything,
+                    // perform the fix view action, and show a small badge so the
+                    // user knows a recovery was applied.
+                    try {
+                      if (debugVisible) console.warn('TopogramDetail recovery: timeline pass left zero visible nodes — un-hiding all elements and applying Fix view')
+                      cy.elements().removeClass('hidden')
+                    } catch (e) { if (debugVisible) console.warn('TopogramDetail recovery: failed to un-hide elements', e) }
+                    try {
+                      if (typeof doFixView === 'function') doFixView()
+                      else if (typeof cy.fit === 'function') cy.fit()
+                    } catch (e) { if (debugVisible) console.warn('TopogramDetail recovery: doFixView failed', e) }
+                    try {
+                      let badge = document.getElementById('topogram-fixview-badge')
+                      if (!badge) {
+                        badge = document.createElement('div')
+                        badge.id = 'topogram-fixview-badge'
+                        badge.textContent = 'Fix view applied'
+                        badge.style.position = 'fixed'
+                        badge.style.right = '12px'
+                        badge.style.top = '12px'
+                        badge.style.background = 'rgba(0,0,0,0.75)'
+                        badge.style.color = '#fff'
+                        badge.style.padding = '6px 10px'
+                        badge.style.borderRadius = '6px'
+                        badge.style.zIndex = 99999
+                        badge.style.fontFamily = 'sans-serif'
+                        badge.style.fontSize = '13px'
+                        document.body.appendChild(badge)
+                      }
+                      setTimeout(() => { const b = document.getElementById('topogram-fixview-badge'); if (b) b.remove() }, 2500)
+                    } catch (e) { /* ignore DOM issues */ }
+                  }
+                } catch (e) {}
+              })
+            }
+          } catch (e) {}
+          // Extra verbose diagnostics: when the visibleNodes count changes,
+          // dump a compact report of hidden nodes and their incident edges.
+          try {
+            const prev = lastVisibleCountRef.current
+            const curr = cy.nodes().filter(n => !n.hasClass || !n.hasClass('hidden')).length
+            if (prev == null || prev !== curr) {
+              const hiddenNodes = []
+              const visibleEdges = []
+              cy.nodes().forEach(n => {
+                try {
+                  const isHidden = n.hasClass && n.hasClass('hidden')
+                  if (isHidden) {
+                    const d = n.data() || {}
+                    const raw = d.start
+                    const parsed = (raw == null) ? null : ((typeof raw === 'number') ? raw : (new Date(raw)).getTime())
+                    hiddenNodes.push({ id: n.id(), startRaw: raw, startParsed: Number.isFinite(parsed) ? parsed : null })
+                  }
+                } catch (e) {}
+              })
+              cy.edges().forEach(e => {
+                try {
+                  const isHidden = e.hasClass && e.hasClass('hidden')
+                  if (!isHidden) {
+                    const d = e.data() || {}
+                    visibleEdges.push({ id: e.id(), source: e.source() && e.source().id(), target: e.target() && e.target().id(), start: d && d.start })
+                  }
+                } catch (e) {}
+              })
+              if (hiddenNodes.length || visibleEdges.length) {
+                try {
+                  if (debugVisible) {
+                    console.groupCollapsed && console.groupCollapsed('timeline verbose report', { activeRange })
+                    if (debugVisible) {
+                      console.info && console.info('visibleNodes change', { prev, curr })
+                      if (hiddenNodes.length) console.info('hidden nodes (sample up to 32)', hiddenNodes.slice(0, 32))
+                      if (visibleEdges.length) console.info('visible edges (sample up to 32)', visibleEdges.slice(0, 32))
+                    }
+                    // For each visible edge, check if its endpoints are hidden and report
+                    const inconsistencies = []
+                    visibleEdges.slice(0, 64).forEach(ve => {
+                      try {
+                        const s = cy.getElementById(ve.source)
+                        const t = cy.getElementById(ve.target)
+                        const sHidden = s && s.hasClass && s.hasClass('hidden')
+                        const tHidden = t && t.hasClass && t.hasClass('hidden')
+                        if (sHidden || tHidden) inconsistencies.push({ edge: ve.id, source: ve.source, sourceHidden: !!sHidden, target: ve.target, targetHidden: !!tHidden })
+                      } catch (e) {}
+                    })
+                    if (inconsistencies.length) console.warn('visible edges with hidden endpoints', inconsistencies.slice(0, 32))
+                    console.groupEnd && console.groupEnd()
+                  }
+                } catch (e) {}
               }
-              if (visible) n.removeClass('hidden')
-              else n.addClass('hidden')
-            } catch (e) {}
-          })
+            }
+          } catch (e) {}
+          // --- Per-tick diagnostics sampler: when the slider changes we may enter
+          // transient states where elements are being hidden/unhidden rapidly.
+          // To help with remote debugging, sample counts every 250ms for 2s and
+          // print verbose details. Keep the logs short-lived to avoid noise.
+          try {
+            const sampleDuration = 2000 // ms
+            const sampleInterval = 250 // ms
+            let elapsed = 0
+            const samplerId = setInterval(() => {
+              try {
+                const total = cy.nodes().length
+                const hidden = cy.nodes().filter(n => n.hasClass && n.hasClass('hidden')).length
+                const visible = total - hidden
+                // print a concise one-line summary plus a tiny sample of starts
+                const sample = []
+                let c = 0
+                cy.nodes().forEach(n => {
+                  try {
+                    if (c >= 8) return
+                    const d = n.data() || {}
+                    const v = d && d.start
+                    sample.push({ id: n.id(), start: v })
+                    c += 1
+                  } catch (e) {}
+                })
+                if (debugVisible) console.info && console.info('timeline per-tick diag', { elapsed, total, visible, hidden, sample })
+              } catch (e) {}
+              elapsed += sampleInterval
+              if (elapsed >= sampleDuration) try { clearInterval(samplerId) } catch (e) {}
+            }, sampleInterval)
+          } catch (e) {}
           // Edges: hide if either endpoint is hidden or if edge data itself is out of range
           cy.edges().forEach(e => {
             try {
               const d = e.data() || {}
-              const src = e.source() && cy.getElementById(e.source())
-              const tgt = e.target() && cy.getElementById(e.target())
-              const srcHidden = src ? src.hasClass && src.hasClass('hidden') : false
-              const tgtHidden = tgt ? tgt.hasClass && tgt.hasClass('hidden') : false
+              const srcId = d && d.source != null ? String(d.source) : (e.source && typeof e.source === 'function' && e.source().id ? String(e.source().id()) : null)
+              const tgtId = d && d.target != null ? String(d.target) : (e.target && typeof e.target === 'function' && e.target().id ? String(e.target().id()) : null)
+              const src = srcId ? cy.getElementById(srcId) : null
+              const tgt = tgtId ? cy.getElementById(tgtId) : null
+              const srcHidden = src && src.length ? (src.hasClass && src.hasClass('hidden')) : true
+              const tgtHidden = tgt && tgt.length ? (tgt.hasClass && tgt.hasClass('hidden')) : true
+              // If either endpoint is missing in the graph, treat the edge as not visible
               let visible = !(srcHidden || tgtHidden)
               if (visible && activeRange) {
-                // if edge carries its own time fields, respect them
-                const fields = ['start','end','time','date','from','to']
-                let edgeHasTime = false
-                for (const f of fields) {
-                  const v = d[f]
-                  if (v == null) continue
-                  edgeHasTime = true
+                // if edge carries its own start field, respect it; otherwise
+                // visibility follows endpoints.
+                const v = d && d.start
+                if (v != null) {
                   const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
-                  if (!Number.isFinite(t)) continue
-                  if (t >= activeRange[0] && t <= activeRange[1]) { visible = true; break }
-                  visible = false
+                  visible = Number.isFinite(t) && (t >= activeRange[0] && t <= activeRange[1])
                 }
-                // if edge has no time info, keep visibility driven by endpoints
               }
               if (visible) e.removeClass('hidden')
               else e.addClass('hidden')
             } catch (e) {}
           })
+          // Post-process: ensure any node that is incident to a visible edge is
+          // visible. This prevents a node from disappearing while its connected
+          // edges remain visible (user-reported behavior when moving the left
+          // slider).
+          try {
+            cy.edges().forEach(e => {
+              try {
+                if (!(e.hasClass && e.hasClass('hidden'))) {
+                  const d = e.data() || {}
+                  const sId = d && d.source != null ? String(d.source) : (e.source && typeof e.source === 'function' && e.source().id ? String(e.source().id()) : null)
+                  const tId = d && d.target != null ? String(d.target) : (e.target && typeof e.target === 'function' && e.target().id ? String(e.target().id()) : null)
+                  const s = sId ? cy.getElementById(sId) : null
+                  const t = tId ? cy.getElementById(tId) : null
+                  if (s && s.length && (s.hasClass && s.hasClass('hidden'))) s.removeClass('hidden')
+                  if (t && t.length && (t.hasClass && t.hasClass('hidden'))) t.removeClass('hidden')
+                }
+              } catch (e) {}
+            })
+          } catch (e) {}
         } catch (e) {}
       })
     } catch (e) {}
@@ -599,6 +1064,17 @@ export default function TopogramDetail() {
   const doZoomIn = () => doZoom(1.2)
   const doZoomOut = () => doZoom(1/1.2)
   const doFit = () => { try { if (cyRef.current) safeFit(cyRef.current) } catch (e) {} }
+  const doFixView = () => {
+    try {
+      const cy = cyRef.current
+      if (!cy) return
+      // Force a reseat: resize, reset zoom to 1, center and fit visible elements
+      try { if (typeof cy.resize === 'function') cy.resize() } catch (e) {}
+      try { if (typeof cy.zoom === 'function') cy.zoom(1) } catch (e) {}
+      try { if (typeof cy.center === 'function') cy.center() } catch (e) {}
+      safeFit(cy)
+    } catch (e) { console.warn('doFixView failed', e) }
+  }
   const doReset = () => {
     try {
       const cy = cyRef.current
@@ -628,146 +1104,7 @@ export default function TopogramDetail() {
     );
   }
 
-  // Build cytoscape elements and pick a layout. If nodes include saved
-  // positions (node.position = { x,y }) use the 'preset' layout so
-  // positions are respected. Otherwise fall back to a cola layout.
-  const { elements, layout } = (() => {
-    // Choose the visualization id (vizId) as node.data.id when present
-    // (legacy dataset uses data.id as the stable identifier); fall back
-    // to the Mongo _id otherwise. Build a lookup that maps many possible
-    // candidate strings to the vizId so edges referencing different
-    // forms can be resolved.
-      const nodeMap = new Map()
-      const vizIdToNode = new Map()
-      nodes.forEach(node => {
-        const vizId = node.data && node.data.id ? String(node.data.id) : String(node._id)
-        const candidates = new Set()
-        candidates.add(vizId)
-        candidates.add(String(node._id))
-        if (node.id) candidates.add(String(node.id))
-        if (node.data && node.data.id) candidates.add(String(node.data.id))
-        if (node.data && node.data.name) candidates.add(String(node.data.name))
-        if (node.name) candidates.add(String(node.name))
-        // map each candidate key -> vizId
-        candidates.forEach(k => nodeMap.set(k, vizId))
-        vizIdToNode.set(String(vizId), node)
-      })
-
-      // map nodes into cytoscape node elements (id = vizId)
-      const nodeEls = nodes.map(node => {
-        const vizId = nodeMap.get(String((node.data && node.data.id) || node.id || node._id)) || String(node._id)
-        const label = (node.data && (node.data.name || node.data.label)) || node.name || node.label || node.id
-        // pick a color from several commonly-used fields in legacy docs
-        const color = (node.data && (node.data.color || node.data.fillColor || node.data.fill || node.data.backgroundColor || node.data.bg || node.data.colour || node.data.hex))
-        const rawWeight = node.data && (node.data.weight || (node.data.rawData && node.data.rawData.weight))
-      const data = { id: String(vizId), label, weight: rawWeight, topogramId: node.topogramId || (node.data && node.data.topogramId), rawWeight }
-        // include optional emoji visualization field if present
-        if (node.data && node.data.emoji) data.emoji = node.data.emoji
-        // compute a display label according to nodeLabelMode: 'name' | 'emoji' | 'both'
-        const nlm = nodeLabelMode || 'both'
-        let vizLabel = ''
-        if (nlm === 'emoji') vizLabel = (node.data && node.data.emoji) ? String(node.data.emoji) : String(label || '')
-        else if (nlm === 'name') vizLabel = String(label || '')
-        else { // both
-          vizLabel = (node.data && node.data.emoji) ? `${String(node.data.emoji)} ${String(label || '')}` : String(label || '')
-        }
-        data._vizLabel = vizLabel
-        if (color != null) data.color = color
-  // compute initial visibility according to the current timeline
-  const visible = isNodeInRange(node)
-  const el = visible ? { data } : { data, classes: 'hidden' }
-        // If the node document contains a saved position, pass it through
-        // to Cytoscape as `position: { x, y }` so the 'preset' layout works.
-        if (node.position && typeof node.position.x === 'number' && typeof node.position.y === 'number') {
-          el.position = { x: node.position.x, y: node.position.y }
-        }
-        return el
-  }).filter(Boolean)
-
-      // map edges and attempt to resolve their endpoints against nodeMap
-      // Precompute grouping for parallel edges (same source+target) so we can
-      // assign a parallel index. Use an ordered group key that is source|target
-      // where source/target are the resolved vizIds to ensure matching.
-      const grouped = new Map()
-      edges.forEach(edge => {
-        const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
-        const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
-        const srcKey = rawSrc != null ? String(rawSrc) : null
-        const tgtKey = rawTgt != null ? String(rawTgt) : null
-        const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
-        const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
-        if (!resolvedSrc || !resolvedTgt) return
-        const key = `${resolvedSrc}||${resolvedTgt}`
-        if (!grouped.has(key)) grouped.set(key, [])
-        grouped.get(key).push(edge)
-      })
-
-      const edgeEls = []
-      grouped.forEach((groupEdges, key) => {
-        groupEdges.forEach((edge, idx) => {
-          const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
-          const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
-          const srcKey = rawSrc != null ? String(rawSrc) : null
-          const tgtKey = rawTgt != null ? String(rawTgt) : null
-          const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
-          const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
-          if (!resolvedSrc || !resolvedTgt) return
-          const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
-          const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
-          if (edge.data && typeof edge.data.relationship !== 'undefined') data.relationship = edge.data.relationship
-          // include optional relationship emoji if present
-          if (edge.data && typeof edge.data.relationshipEmoji !== 'undefined') data.relationshipEmoji = edge.data.relationshipEmoji
-          if (edge.data && typeof edge.data.enlightement !== 'undefined') data.enlightement = edge.data.enlightement
-          // attach parallel index metadata for styling separation
-          data._parallelIndex = idx
-          data._parallelCount = groupEdges.length
-          if (ecolor != null) data.color = ecolor
-          // compute an initial _relVizLabel according to the current UI mode
-          try {
-            const relText = data.relationship || data.name || ''
-            const relEmoji = data.relationshipEmoji || ''
-            if (edgeRelLabelMode === 'emoji') data._relVizLabel = relEmoji || String(relText || '')
-            else if (edgeRelLabelMode === 'text') data._relVizLabel = String(relText || '')
-            else data._relVizLabel = relEmoji ? `${String(relEmoji)} ${String(relText || '')}` : String(relText || '')
-          } catch (e) { data._relVizLabel = data.relationship || data.name || '' }
-          // determine initial visibility: hide if either endpoint node is out of range
-          let visible = true
-          try {
-            const srcNode = vizIdToNode.get(String(resolvedSrc))
-            const tgtNode = vizIdToNode.get(String(resolvedTgt))
-            if (srcNode && !isNodeInRange(srcNode)) visible = false
-            if (tgtNode && !isNodeInRange(tgtNode)) visible = false
-            // if edge carries its own time fields, prefer those
-            const edgeHasTime = ['start','end','time','date','from','to'].some(f => edge.data && edge.data[f] != null)
-            if (edgeHasTime) {
-              // evaluate edge time against active range if present
-              const activeRange = (timelineUI && Array.isArray(timelineUI.valueRange) && timelineUI.valueRange[0] != null && timelineUI.valueRange[1] != null)
-                ? [Number(timelineUI.valueRange[0]), Number(timelineUI.valueRange[1])] : null
-              if (activeRange) {
-                let edgeVisible = false
-                for (const f of ['start','end','time','date','from','to']) {
-                  const v = edge.data && edge.data[f]
-                  if (v == null) continue
-                  const t = (typeof v === 'number') ? v : (new Date(v)).getTime()
-                  if (!Number.isFinite(t)) continue
-                  if (t >= activeRange[0] && t <= activeRange[1]) { edgeVisible = true; break }
-                }
-                visible = edgeVisible
-              }
-            }
-          } catch (e) {}
-          if (visible) edgeEls.push({ data })
-          else edgeEls.push({ data, classes: 'hidden' })
-        })
-      })
-
-      const allEls = [...nodeEls, ...edgeEls]
-      const hasPositions = nodeEls.some(n => n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number')
-      const layout = hasPositions
-        ? { name: 'preset' }
-        : { name: 'cola', nodeSpacing: 5, avoidOverlap: true, randomize: true, maxSimulationTime: 1500 }
-      return { elements: allEls, layout }
-    })()
+  
 
     // A compact key derived from the active timeline range so we can force
     // remounting Cytoscape when the user changes the slider. Some versions
@@ -817,55 +1154,10 @@ export default function TopogramDetail() {
     }
   })
 
-  // compute min/max from normalized weights
+  // compute min/max from normalized weights (elements comes from memoized value)
   const numericWeights = elements.filter(el => el.data && el.data.id && (el.data.source == null && el.data.target == null)).map(el => Number(el.data.weight || 1))
   const minW = numericWeights.length ? Math.min(...numericWeights) : 1
   const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
-  const stylesheet = [
-  // default node style shows computed _vizLabel
-  { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
-  // Note: emoji-only label style is applied conditionally below so it
-  // doesn't unconditionally override the computed _vizLabel. We want
-  // the `nodeLabelMode` selector to control which label is shown.
-  { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-  // Use bezier curves so parallel edges can be separated
-  { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
-  // Edge arrows are controlled per-edge via the `enlightement` data field
-  { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
-  { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
-  { selector: 'edge[relationship], edge', style: {
-    // Use the computed _relVizLabel (set at build time and updated at runtime)
-    'label': 'data(_relVizLabel)',
-        'text-rotation': 'autorotate',
-        'font-size': 10,
-        'text-outline-width': 2,
-        'text-outline-color': '#fff',
-        'text-background-color': '#ffffff',
-        'text-background-opacity': 0.85,
-        'text-background-padding': 3,
-        // offset relation labels based on parallel index to reduce overlap
-        'text-margin-y': `mapData(_parallelIndex, 0, _parallelCount, -18, 18)`
-      }
-    }
-  ]
-
-  // Add rules so a 'hidden' class will fully hide nodes/edges without
-  // affecting layout size. We'll toggle this class on elements to show/hide
-  // them during timeline playback instead of remounting or calling fit().
-  stylesheet.push({ selector: 'node.hidden', style: { 'display': 'none' } })
-  stylesheet.push({ selector: 'edge.hidden', style: { 'display': 'none' } })
-
-  // If the user requested emoji-only labels in the network, add a rule
-  // that renders the node label from `data(emoji)` with a larger font.
-  if (nodeLabelMode === 'emoji') {
-    stylesheet.push({ selector: 'node[emoji]', style: { 'label': 'data(emoji)', 'font-size': `mapData(weight, ${minW}, ${maxW}, ${Math.max(16, titleSize)}, 48)`, 'text-valign': 'center', 'text-halign': 'center', 'text-outline-width': 0 } })
-  }
-
-  // Add explicit selected styles for better visibility when chart-driven selection occurs
-  stylesheet.push(
-    { selector: 'node:selected', style: { 'border-width': 3, 'border-color': '#FFD54F', 'text-outline-color': '#000', 'z-index': 9999 } },
-    { selector: 'edge:selected', style: { 'line-color': '#1976D2', 'target-arrow-color': '#1976D2', 'width': 3, 'z-index': 9998 } }
-  )
 
   // CSV exporter: produce the same 20-field layout used by the ImportCsvModal sample
   const _quote = (v) => {
@@ -998,6 +1290,8 @@ export default function TopogramDetail() {
 
           {/* Import CSV moved to the main Home page */}
           <button onClick={() => exportTopogramCsv && exportTopogramCsv()} className="export-button" style={{ marginLeft: 8 }}>Export CSV</button>
+          {/* Quick rescue: force a resize/center/fit when the network appears blank */}
+          <button onClick={() => { try { doFixView() } catch(e){} }} className="cy-control-btn" style={{ marginLeft: 8, padding: '4px 8px' }} title="Force Cytoscape to resize, center and fit">Fix view</button>
 
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Title size:
@@ -1018,6 +1312,7 @@ export default function TopogramDetail() {
             <option value="text">Text</option>
             <option value="emoji">Emoji</option>
             <option value="both">Both</option>
+            <option value="none">None</option>
           </select>
         </label>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
@@ -1080,7 +1375,7 @@ export default function TopogramDetail() {
                   <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
                   <button className="cy-control-btn" onClick={doFit}>Fit</button>
                   <div className="cy-control-row">
-                    <button className="cy-control-btn" onClick={() => { try { if (cyRef.current) { cyRef.current.zoom(1); cyRef.current.center(); } } catch (e) {} }}>Reset</button>
+                    <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
                   </div>
                 </div>
                 <CytoscapeComponent
@@ -1099,8 +1394,26 @@ export default function TopogramDetail() {
                       try { if (typeof cy.resize === 'function') cy.resize() } catch (e) {}
                       // expose cy on state for any consumers
                       try { setCyInstance && setCyInstance(cy) } catch (e) {}
-                      // small delayed fit to allow layout/renderer to settle
-                      setTimeout(() => { safeFit(cy) }, 50)
+                      // If the react-cytoscapejs wrapper didn't synchronously add
+                      // elements into the instance, add them here (guarded) so
+                      // the renderer has data to display immediately.
+                      try {
+                        if (Array.isArray(elements) && elements.length && cy.elements().length === 0) {
+                          try { cy.add(elements) } catch(e) {}
+                        }
+                      } catch (e) {}
+                      try { if (debugVisible) console.debug && console.debug('cy mounted (no-geo)', { elementsProp: Array.isArray(elements) ? elements.length : 0, elements: cy.elements().length, nodesHidden: cy.nodes().filter('.hidden').length, edgesHidden: cy.edges().filter('.hidden').length }) } catch(e){}
+                      try {
+                        const rect = cy.container && cy.container() && cy.container().getBoundingClientRect ? cy.container().getBoundingClientRect() : null
+                        const width = typeof cy.width === 'function' ? cy.width() : (rect ? rect.width : null)
+                        const height = typeof cy.height === 'function' ? cy.height() : (rect ? rect.height : null)
+                        const bb = cy.elements && cy.elements().length ? (() => { try { return cy.elements().boundingBox() } catch(e) { return null } })() : null
+                        const zoom = typeof cy.zoom === 'function' ? cy.zoom() : null
+                        const pan = typeof cy.pan === 'function' ? cy.pan() : null
+                        if (debugVisible) console.debug && console.debug('cy diagnostics (no-geo)', { containerRect: rect, width, height, elementsBoundingBox: bb, zoom, pan })
+                      } catch (e) {}
+                      // small delayed fit to allow layout/renderer to settle and then log state
+                        setTimeout(() => { try { safeFit(cy); const bb2 = cy.elements().length ? cy.elements().boundingBox() : null; if (debugVisible) console.debug && console.debug('cy post-fit diagnostics (no-geo)', { elements: cy.elements().length, bbox: bb2, zoom: cy.zoom(), pan: cy.pan() }) } catch(e){} }, 150)
                     } catch (err) { console.warn('cy.setup failed', err) }
                   }}
                 />
@@ -1148,13 +1461,16 @@ export default function TopogramDetail() {
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
                     <button className="cy-control-btn" onClick={doFit}>Fit</button>
+                    <div className="cy-control-row">
+                      <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
+                    </div>
                   </div>
                   <CytoscapeComponent
                     elements={elements}
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
                     stylesheet={stylesheet}
-                    cy={(cy) => { try { cyRef.current = cy; setCyInstance(cy); try { window._topoCy = cy } catch (err) {} } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
+                    cy={(cy) => { try { cyRef.current = cy; setCyInstance(cy); try { window._topoCy = cy } catch (err) {} } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); try { if (Array.isArray(elements) && elements.length && cy.elements().length === 0) { try { cy.add(elements) } catch(e) {} } } catch(e){} try { if (debugVisible) console.debug && console.debug('cy mounted (both)', { elementsProp: Array.isArray(elements) ? elements.length : 0, elements: cy.elements().length, nodesHidden: cy.nodes().filter('.hidden').length, edgesHidden: cy.edges().filter('.hidden').length }) } catch(e){}; setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
                 <div style={{ width: '50%', height: visualHeight, border: '1px solid #ccc' }}>
@@ -1187,13 +1503,16 @@ export default function TopogramDetail() {
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
                     <button className="cy-control-btn" onClick={doFit}>Fit</button>
+                    <div className="cy-control-row">
+                      <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
+                    </div>
                   </div>
                   <CytoscapeComponent
                     elements={elements}
                     style={{ width: '100%', height: '100%' }}
                     layout={layout}
                     stylesheet={stylesheet}
-                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
+                    cy={(cy) => { try { cyRef.current = cy } catch (e) {} try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); try { if (Array.isArray(elements) && elements.length && cy.elements().length === 0) { try { cy.add(elements) } catch(e) {} } } catch(e){} try { if (debugVisible) console.debug && console.debug('cy mounted (onlyNetwork)', { elementsProp: Array.isArray(elements) ? elements.length : 0, elements: cy.elements().length, nodesHidden: cy.nodes().filter('.hidden').length, edgesHidden: cy.edges().filter('.hidden').length }) } catch(e){}; setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) } }}
                   />
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
@@ -1236,7 +1555,7 @@ export default function TopogramDetail() {
 
       {/* Timeline: render when this topogram appears to have time info */}
       { hasTimeInfo && timeLineVisible ? (
-        <TimeLine hasTimeInfo={true} ui={timelineUI} updateUI={updateUI} />
+        <TimeLine hasTimeInfo={true} ui={timelineUI} updateUI={updateUI} debugVisible={debugVisible} />
       ) : null }
 
       {/* Debug panel (render last so it's below visual overlays) */}

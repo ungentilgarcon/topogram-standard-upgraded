@@ -1,0 +1,71 @@
+#!/usr/bin/env bash
+# analysis/bissectscript
+# Usage:
+#   ./analysis/bissectscript GOOD_COMMIT
+# Environment variables used:
+#   TOPO_ID - required: the topogram id to load in the browser (e.g. a known failing dataset id)
+#   APP_URL - optional: URL of the running app (default http://localhost:3000)
+# Notes:
+# - This script will perform a `git bisect` using `node analysis/bisect-check.js` as the test.
+# - The check script expects a running Meteor app on APP_URL. It will launch a headless browser
+#   and load the Topogram detail page for TOPO_ID and inspect `window._topoCy` to determine
+#   if the network is visible (pass) or not (fail).
+# - Do NOT run this script until you have a reproducible manual test and Meteor running,
+#   and you've installed the Node dependencies (see below).
+# Prerequisites (run once):
+#   cd <repo-root>
+#   npm install puppeteer --no-audit --no-fund
+# or if you prefer a lighter install and supply Chrome yourself:
+#   npm install puppeteer-core
+# The check script exit codes follow `git bisect run` expectations:
+#   0 -> good (pass)
+#   1 -> bad (fail)
+# 125 -> skip (test couldn't be run)
+set -euo pipefail
+SCRIPT_DIR="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+REPO_ROOT="${SCRIPT_DIR}/.."
+GOOD_COMMIT="${1-}"
+if [ -z "$GOOD_COMMIT" ]; then
+  echo "Usage: $0 GOOD_COMMIT"
+  echo "Example: $0 origin/main"
+  exit 2
+fi
+if [ -z "${TOPO_ID-}" ]; then
+  echo "Environment variable TOPO_ID is required. Set TOPO_ID to the topogram id to test." >&2
+  exit 2
+fi
+APP_URL="${APP_URL-http://localhost:3000}"
+# sanity checks
+command -v node >/dev/null 2>&1 || { echo "node not found in PATH" >&2; exit 2; }
+command -v git >/dev/null 2>&1 || { echo "git not found in PATH" >&2; exit 2; }
+# Show planned bisect command and confirm
+echo "Preparing to run git bisect using check script: ${SCRIPT_DIR}/bisect-check.js"
+echo "Repository: $(pwd)"
+echo "Bad (current HEAD): $(git rev-parse --short HEAD)"
+echo "Good commit (argument): $GOOD_COMMIT"
+echo "App URL: $APP_URL"
+echo "Topogram id (TOPO_ID): $TOPO_ID"
+read -p "Proceed with git bisect (this will modify HEAD) ? [y/N] " yn
+case "$yn" in
+  [Yy]*) ;;
+  *) echo "Aborting."; exit 0 ;;
+esac
+# Start bisect
+git bisect start
+git bisect bad HEAD
+git bisect good "$GOOD_COMMIT"
+# Run the bisect using the Node check script
+# git will repeatedly call the check script; it should return 0 for good, 1 for bad, 125 to skip
+GIT_BISECT_TEST="$SCRIPT_DIR/bisect-check.js"
+if [ ! -f "$GIT_BISECT_TEST" ]; then
+  echo "Check script not found: $GIT_BISECT_TEST" >&2
+  git bisect reset
+  exit 2
+fi
+# export APP_URL for the check script
+export APP_URL
+export TOPO_ID
+# Run bisect
+git bisect run node "$GIT_BISECT_TEST"
+# When finished, git bisect will print the result. Keep it.
+exit 0

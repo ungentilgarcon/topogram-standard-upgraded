@@ -49,7 +49,8 @@
         }
 
       static propTypes = {
-        hasTimeInfo: PropTypes.bool
+        hasTimeInfo: PropTypes.bool,
+        debugVisible: PropTypes.bool
       }
 
       handleChangeMinTime = (event, date) => { this.props.updateUI('minTime', date) }
@@ -157,10 +158,10 @@
         const minTime = coerceToMs(ui.minTime)
         const maxTime = coerceToMs(ui.maxTime)
 
-        // Debug: log UI props and panel visibility/size
+        // Debug: log UI props and panel visibility/size only when debugVisible
         try {
           const el = (typeof document !== 'undefined') ? document.getElementById('timeline-panel') : null
-          console.info('TOPOGRAM: TimeLine render', { uiPreview: { minTime: ui.minTime, maxTime: ui.maxTime, valueRange: ui.valueRange }, coerced: { minTime, maxTime }, panelExists: !!el, panelHeight: el ? el.offsetHeight : null })
+          if (this.props && this.props.debugVisible) console.info('TOPOGRAM: TimeLine render', { uiPreview: { minTime: ui.minTime, maxTime: ui.maxTime, valueRange: ui.valueRange }, coerced: { minTime, maxTime }, panelExists: !!el, panelHeight: el ? el.offsetHeight : null })
         } catch (e) {}
 
         return (
