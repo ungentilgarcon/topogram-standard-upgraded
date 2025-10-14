@@ -1,0 +1,33 @@
+# Enforce LF (Unix) line endings for all text files to avoid CRLF conversions on Windows
+# This ensures consistent end-of-line characters in the repository.
+
+# Treat these file types as text and normalize to LF
+* text=auto eol=lf
+
+# Explicitly set common text file patterns to LF
+*.js text eol=lf
+*.jsx text eol=lf
+*.ts text eol=lf
+*.tsx text eol=lf
+*.json text eol=lf
+*.md text eol=lf
+*.html text eol=lf
+*.css text eol=lf
+*.yml text eol=lf
+*.yaml text eol=lf
+*.csv text eol=lf
+*.py text eol=lf
+*.sh text eol=lf
+
+# Keep binary files as binary
+*.png binary
+*.jpg binary
+*.jpeg binary
+*.gif binary
+*.ico binary
+*.pdf binary
+*.zip binary
+
+# Ensure executable scripts keep executable bit where supported
+# (Git on Windows ignores executable bit but this is harmless on Unix)
+*.sh text eol=lf
