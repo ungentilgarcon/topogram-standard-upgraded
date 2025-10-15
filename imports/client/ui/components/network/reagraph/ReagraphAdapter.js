@@ -141,16 +141,19 @@ const ReagraphAdapter = {
           const sx = s.__renderX || 0; const sy = s.__renderY || 0;
           const tx = t.__renderX || 0; const ty = t.__renderY || 0;
           line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
-          // Visual highlight when edge is selected
+          // Visual highlight when edge is selected: use a bright yellow and thicker stroke
           const sel = edge.attrs && edge.attrs.selected;
           const baseColor = (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)';
-          const strokeColor = sel ? (edge.attrs && edge.attrs.color ? edge.attrs.color : '#ef4444') : baseColor;
+          // prefer a highlight color provided on the edge, otherwise use a clear yellow
+          const highlightColor = (edge.attrs && edge.attrs.highlightColor) || '#FFEB3B';
+          const strokeColor = sel ? highlightColor : baseColor;
           const baseWidth = (edge.attrs && edge.attrs.width) || 1;
-          const strokeWidth = sel ? Math.max(2, baseWidth * 1.5) : baseWidth;
+          const strokeWidth = sel ? Math.max(3, Math.round(baseWidth * 2)) : baseWidth;
           line.setAttribute('stroke', strokeColor);
           line.setAttribute('stroke-width', strokeWidth);
-          // Slightly stronger opacity when selected for clearer highlighting
+          // stronger opacity and rounded caps for highlighted edges
           line.setAttribute('opacity', sel ? '1' : '0.9');
+          line.setAttribute('stroke-linecap', 'round');
           line.dataset.id = edge.id;
           line.style.cursor = 'pointer';
           // Append the visible line first
