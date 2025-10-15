@@ -172,7 +172,27 @@ class Charts extends React.Component {
           // ensure group exists on provided element JSON
           if (!el.group) el.group = (el.data && (el.data.source != null || el.data.target != null)) ? 'edges' : 'nodes'
           const sel = `${el.group.slice(0,-1)}[id='${el.data.id}']`
-          try { cy.filter(sel).unselect() } catch (_) { try { cy.filter(sel).data('selected', false) } catch (_) {} }
+          try {
+            const coll = cy && typeof cy.filter === 'function' ? cy.filter(sel) : null
+            console.debug && console.debug('[Charts] _toggleBatch unselect sel', sel, { coll, hasSelect: coll && typeof coll.select === 'function', hasUnselect: coll && typeof coll.unselect === 'function', hasData: coll && typeof coll.data === 'function' })
+            if (coll && typeof coll.unselect === 'function') {
+              coll.unselect()
+            } else if (coll && typeof coll.data === 'function') {
+              coll.data('selected', false)
+            } else if (cy && typeof cy.filter === 'function') {
+              const arr = cy.filter(sel)
+              if (Array.isArray(arr)) {
+                arr.forEach(a => {
+                  try {
+                    if (a && typeof a.unselect === 'function') a.unselect()
+                    else if (a && a.data && typeof a.data === 'function') a.data('selected', false)
+                  } catch (e) {}
+                })
+              }
+            }
+          } catch (err) {
+            console.warn && console.warn('[Charts] _toggleBatch unselect error', sel, err)
+          }
         } catch (_) {}
       })
       this.props.updateUI('selectedElements', next)
@@ -184,7 +204,27 @@ class Charts extends React.Component {
           if (!el.group) el.group = (el.data && (el.data.source != null || el.data.target != null)) ? 'edges' : 'nodes'
           map.set(key(el), el)
           const sel = `${el.group.slice(0,-1)}[id='${el.data.id}']`
-          try { cy.filter(sel).select() } catch (_) { try { cy.filter(sel).data('selected', true) } catch (_) {} }
+          try {
+            const coll = cy && typeof cy.filter === 'function' ? cy.filter(sel) : null
+            console.debug && console.debug('[Charts] _toggleBatch select sel', sel, { coll, hasSelect: coll && typeof coll.select === 'function', hasUnselect: coll && typeof coll.unselect === 'function', hasData: coll && typeof coll.data === 'function' })
+            if (coll && typeof coll.select === 'function') {
+              coll.select()
+            } else if (coll && typeof coll.data === 'function') {
+              coll.data('selected', true)
+            } else if (cy && typeof cy.filter === 'function') {
+              const arr = cy.filter(sel)
+              if (Array.isArray(arr)) {
+                arr.forEach(a => {
+                  try {
+                    if (a && typeof a.select === 'function') a.select()
+                    else if (a && a.data && typeof a.data === 'function') a.data('selected', true)
+                  } catch (e) {}
+                })
+              }
+            }
+          } catch (err) {
+            console.warn && console.warn('[Charts] _toggleBatch select error', sel, err)
+          }
         } catch (_) {
           map.set(key(el), el)
         }
