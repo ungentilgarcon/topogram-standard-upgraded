@@ -41,27 +41,77 @@ const ReagraphAdapter = {
     const edgeMap = new Map();
     edges.forEach(e => { edgeMap.set(e.id || `${e.source}-${e.target}`, { id: e.id || `${e.source}-${e.target}`, source: e.source, target: e.target, attrs: e.attrs || {} }); });
 
-    // create SVG container
+    // create SVG container and size it to the container element
     container.innerHTML = '';
     const svgNS = 'http://www.w3.org/2000/svg';
     const svg = document.createElementNS(svgNS, 'svg');
-    svg.setAttribute('width', '100%');
-    svg.setAttribute('height', '100%');
     svg.style.display = 'block';
+    svg.style.width = '100%';
+    svg.style.height = '100%';
+    svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     container.appendChild(svg);
 
-    // helper to render nodes/edges
+    // determine container pixel size
+    function measure() {
+      const rect = container.getBoundingClientRect();
+      const w = Math.max(50, Math.floor(rect.width || container.clientWidth || 600));
+      const h = Math.max(50, Math.floor(rect.height || container.clientHeight || 400));
+      svg.setAttribute('width', String(w));
+      svg.setAttribute('height', String(h));
+      // default viewBox maps to pixel coordinates
+      svg.setAttribute('viewBox', `0 0 ${w} ${h}`);
+      return { w, h };
+    }
+
+    // helper to render nodes/edges. It computes a render transform so nodes with
+    // arbitrary coords (or none) are mapped to the visible SVG viewport.
     function render() {
+      const { w, h } = measure();
       // clear
       while (svg.firstChild) svg.removeChild(svg.firstChild);
+
+      // collect numeric positions
+      const posList = [];
+      nodeMap.forEach(n => {
+        const x = n.attrs && typeof n.attrs.x === 'number' ? n.attrs.x : null;
+        const y = n.attrs && typeof n.attrs.y === 'number' ? n.attrs.y : null;
+        if (x !== null && y !== null) posList.push({ id: n.id, x, y });
+      });
+
+      // If no numeric positions, assign temporary random positions inside viewport
+      if (posList.length === 0) {
+        nodeMap.forEach(n => {
+          n.__renderX = Math.random() * (w * 0.8) + (w * 0.1);
+          n.__renderY = Math.random() * (h * 0.8) + (h * 0.1);
+        });
+      } else {
+        // compute bounding box
+        let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+        posList.forEach(p => { if (p.x < minX) minX = p.x; if (p.y < minY) minY = p.y; if (p.x > maxX) maxX = p.x; if (p.y > maxY) maxY = p.y; });
+        if (!isFinite(minX) || !isFinite(minY) || !isFinite(maxX) || !isFinite(maxY)) {
+          nodeMap.forEach(n => { n.__renderX = Math.random() * (w * 0.8) + (w * 0.1); n.__renderY = Math.random() * (h * 0.8) + (h * 0.1); });
+        } else {
+          const dx = maxX - minX || 1;
+          const dy = maxY - minY || 1;
+          const pad = 20; // pixels
+          const scale = Math.min((w - pad*2) / dx, (h - pad*2) / dy);
+          nodeMap.forEach(n => {
+            const nx = (typeof n.attrs.x === 'number') ? (n.attrs.x - minX) * scale + pad : Math.random() * (w - pad*2) + pad;
+            const ny = (typeof n.attrs.y === 'number') ? (n.attrs.y - minY) * scale + pad : Math.random() * (h - pad*2) + pad;
+            n.__renderX = nx;
+            n.__renderY = ny;
+          });
+        }
+      }
+
       // edges
       edgeMap.forEach(edge => {
         const s = nodeMap.get(edge.source);
         const t = nodeMap.get(edge.target);
         if (!s || !t) return;
         const line = document.createElementNS(svgNS, 'line');
-        const sx = s.attrs.x || 0; const sy = s.attrs.y || 0;
-        const tx = t.attrs.x || 0; const ty = t.attrs.y || 0;
+        const sx = s.__renderX || 0; const sy = s.__renderY || 0;
+        const tx = t.__renderX || 0; const ty = t.__renderY || 0;
         line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
         line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(0,0,0,0.2)');
         line.setAttribute('stroke-width', (edge.attrs && edge.attrs.width) || 1);
@@ -70,7 +120,7 @@ const ReagraphAdapter = {
       });
       // nodes
       nodeMap.forEach(node => {
-        const cx = node.attrs.x || 0; const cy = node.attrs.y || 0;
+        const cx = node.__renderX || 0; const cy = node.__renderY || 0;
         const r = (node.attrs && (node.attrs.size || node.attrs.weight)) ? Math.max(3, (node.attrs.size || node.attrs.weight) / 4) : 6;
         const circ = document.createElementNS(svgNS, 'circle');
         circ.setAttribute('cx', cx); circ.setAttribute('cy', cy); circ.setAttribute('r', r);
