@@ -162,6 +162,7 @@ class Charts extends React.Component {
     const key = (e) => `${e.group}|${e.data && e.data.id}`
     const currKeys = new Set(curr.map(key))
     const matchKeys = elements.map(key)
+  try { console.debug && console.debug('[Charts] _toggleBatch debug', { currLen: curr.length, currSample: curr.slice(0,5), currKeys: Array.from(currKeys).slice(0,10), matchKeys }) } catch (e) {}
     const allSelected = matchKeys.length > 0 && matchKeys.every(k => currKeys.has(k))
 
     if (allSelected) {
