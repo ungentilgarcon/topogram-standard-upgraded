@@ -50,6 +50,19 @@ const ReagraphAdapter = {
     svg.style.height = '100%';
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
     container.appendChild(svg);
+    // viewport group that will be transformed for pan/zoom
+    const viewport = document.createElementNS(svgNS, 'g');
+    svg.appendChild(viewport);
+
+    // transform state
+    let _scale = 1;
+    let _tx = 0;
+    let _ty = 0;
+    function applyTransform() {
+      try {
+        viewport.setAttribute('transform', `translate(${_tx},${_ty}) scale(${_scale})`);
+      } catch (e) {}
+    }
 
     // determine container pixel size
     function measure() {
@@ -116,7 +129,7 @@ const ReagraphAdapter = {
         line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)');
         line.setAttribute('stroke-width', (edge.attrs && edge.attrs.width) || 1);
         line.dataset.id = edge.id;
-        svg.appendChild(line);
+        viewport.appendChild(line);
       });
       // nodes
       nodeMap.forEach(node => {
@@ -135,8 +148,10 @@ const ReagraphAdapter = {
           const handlers = adapter._events && adapter._events.select || [];
           handlers.forEach(h => { try { h.handler({ type: 'select', target: { id: node.id } }); } catch (e) {} });
         });
-        svg.appendChild(circ);
+        viewport.appendChild(circ);
       });
+      // re-apply transform after rendering
+      applyTransform();
     }
 
     // basic event registry and adapter object
@@ -154,7 +169,77 @@ const ReagraphAdapter = {
         this._events[event].push({ selector: typeof selectorOrHandler === 'string' ? selectorOrHandler : null, handler });
       },
       off(event, handler) { if (!this._events[event]) return; this._events[event] = this._events[event].filter(h => h.handler !== handler); },
-      fit() {}, resize() {}, zoom() {}, center() {},
+      fit() {
+        try {
+          const { w, h } = measure();
+          // compute bounding box of nodes
+          let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+          let has = false;
+          nodeMap.forEach(n => {
+            const x = n.__renderX || (n.attrs && typeof n.attrs.x === 'number' ? n.attrs.x : null);
+            const y = n.__renderY || (n.attrs && typeof n.attrs.y === 'number' ? n.attrs.y : null);
+            if (x != null && y != null) {
+              has = true;
+              if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y;
+            }
+          });
+          if (!has) { return; }
+          const pad = 20;
+          const dx = Math.max(1, maxX - minX);
+          const dy = Math.max(1, maxY - minY);
+          const scale = Math.min((w - pad*2) / dx, (h - pad*2) / dy);
+          _scale = scale;
+          // center
+          const cx = (minX + maxX) / 2;
+          const cy = (minY + maxY) / 2;
+          _tx = w / 2 - cx * _scale;
+          _ty = h / 2 - cy * _scale;
+          applyTransform();
+        } catch (e) {}
+      },
+      resize() { try { measure(); render(); applyTransform(); } catch (e) {} },
+      zoom(val) { try { if (val === undefined) return _scale; _scale = Number(val) || 1; applyTransform(); } catch (e) {} },
+      animate({ zoom: targetZoom, center: centerObj, duration } = {}) {
+        try {
+          const startZoom = _scale;
+          const startTx = _tx; const startTy = _ty;
+          let endZoom = typeof targetZoom === 'number' ? targetZoom : _scale;
+          let endTx = startTx; let endTy = startTy;
+          if (centerObj && centerObj.eles) {
+            // center on all nodes
+            const { w, h } = measure();
+            let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity; let has = false;
+            nodeMap.forEach(n => { const x = n.__renderX || (n.attrs && typeof n.attrs.x === 'number' ? n.attrs.x : null); const y = n.__renderY || (n.attrs && typeof n.attrs.y === 'number' ? n.attrs.y : null); if (x != null && y != null) { has = true; if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y; } });
+            if (has) {
+              const cx = (minX + maxX) / 2; const cy = (minY + maxY) / 2;
+              endTx = w / 2 - cx * endZoom; endTy = h / 2 - cy * endZoom;
+            }
+          }
+          const dur = typeof duration === 'number' ? duration : 240;
+          const start = performance.now();
+          function step(now) {
+            const t = Math.min(1, (now - start) / dur);
+            const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t; // simple ease
+            _scale = startZoom + (endZoom - startZoom) * ease;
+            _tx = startTx + (endTx - startTx) * ease;
+            _ty = startTy + (endTy - startTy) * ease;
+            applyTransform();
+            if (t < 1) requestAnimationFrame(step);
+          }
+          requestAnimationFrame(step);
+        } catch (e) {}
+      },
+      center() {
+        try {
+          const { w, h } = measure();
+          // center on all nodes
+          let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity; let has = false;
+          nodeMap.forEach(n => { const x = n.__renderX || (n.attrs && typeof n.attrs.x === 'number' ? n.attrs.x : null); const y = n.__renderY || (n.attrs && typeof n.attrs.y === 'number' ? n.attrs.y : null); if (x != null && y != null) { has = true; if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y; } });
+          if (!has) return;
+          const cx = (minX + maxX) / 2; const cy = (minY + maxY) / 2;
+          _tx = w / 2 - cx * _scale; _ty = h / 2 - cy * _scale; applyTransform();
+        } catch (e) {}
+      },
       nodes() {
         const ids = Array.from(nodeMap.keys());
         return {
