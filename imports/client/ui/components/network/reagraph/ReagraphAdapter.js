@@ -141,8 +141,16 @@ const ReagraphAdapter = {
           const sx = s.__renderX || 0; const sy = s.__renderY || 0;
           const tx = t.__renderX || 0; const ty = t.__renderY || 0;
           line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
-          line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)');
-          line.setAttribute('stroke-width', (edge.attrs && edge.attrs.width) || 1);
+          // Visual highlight when edge is selected
+          const sel = edge.attrs && edge.attrs.selected;
+          const baseColor = (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)';
+          const strokeColor = sel ? (edge.attrs && edge.attrs.color ? edge.attrs.color : '#ef4444') : baseColor;
+          const baseWidth = (edge.attrs && edge.attrs.width) || 1;
+          const strokeWidth = sel ? Math.max(2, baseWidth * 1.5) : baseWidth;
+          line.setAttribute('stroke', strokeColor);
+          line.setAttribute('stroke-width', strokeWidth);
+          // Slightly stronger opacity when selected for clearer highlighting
+          line.setAttribute('opacity', sel ? '1' : '0.9');
           line.dataset.id = edge.id;
           line.style.cursor = 'pointer';
           // Append the visible line first
