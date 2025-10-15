@@ -132,12 +132,18 @@ const ReagraphAdapter = {
         line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)');
         line.setAttribute('stroke-width', (edge.attrs && edge.attrs.width) || 1);
         line.dataset.id = edge.id;
+        line.style.cursor = 'pointer';
+        // edge click toggles selection; stop propagation to avoid background click clearing
+        line.addEventListener('click', (ev) => {
+          try { ev.stopPropagation(); if (adapter && typeof adapter.select === 'function') adapter.select(edge.id); } catch (e) {}
+        });
         viewport.appendChild(line);
       });
       // nodes
       nodeMap.forEach(node => {
         const cx = node.__renderX || 0; const cy = node.__renderY || 0;
-        const r = (node.attrs && (node.attrs.size || node.attrs.weight)) ? Math.max(3, (node.attrs.size || node.attrs.weight) / 4) : 6;
+          // larger default radius and stronger scaling from weight/size
+          const r = (node.attrs && (node.attrs.size || node.attrs.weight)) ? Math.max(4, (node.attrs.size || node.attrs.weight) / 2) : 10;
         const circ = document.createElementNS(svgNS, 'circle');
         circ.setAttribute('cx', cx); circ.setAttribute('cy', cy); circ.setAttribute('r', r);
         // dark node fill by default on light background
@@ -148,14 +154,34 @@ const ReagraphAdapter = {
         circ.setAttribute('data-id', node.id);
         circ.style.cursor = 'pointer';
         circ.addEventListener('click', (ev) => {
-          const handlers = adapter._events && adapter._events.select || [];
-          handlers.forEach(h => { try { h.handler({ type: 'select', target: { id: node.id } }); } catch (e) {} });
+          try { ev.stopPropagation(); if (adapter && typeof adapter.select === 'function') adapter.select(node.id); } catch (e) {}
         });
         viewport.appendChild(circ);
+        // render label if present (use _vizLabel or label fields)
+        try {
+          const label = (node.attrs && (node.attrs._vizLabel || node.attrs.label || node.attrs.name)) || null;
+          if (label) {
+            const txt = document.createElementNS(svgNS, 'text');
+            txt.setAttribute('x', cx);
+            // place label slightly below the node's center
+            txt.setAttribute('y', cy + r + 12);
+            txt.setAttribute('fill', '#0f172a');
+            txt.setAttribute('font-size', '12');
+            txt.setAttribute('text-anchor', 'middle');
+            txt.setAttribute('pointer-events', 'none');
+            txt.textContent = String(label);
+            viewport.appendChild(txt);
+          }
+        } catch (e) {}
       });
       // re-apply transform after rendering
       applyTransform();
     }
+
+    // background click clears selection
+    svg.addEventListener('click', (ev) => {
+      try { adapter.unselectAll(); } catch (e) {}
+    });
 
     // basic event registry and adapter object
     const adapter = {
@@ -272,8 +298,39 @@ const ReagraphAdapter = {
         };
       },
       elements() { return { nodes: this.nodes(), edges: this.edges() }; },
-      select(id) { try { const n = nodeMap.get(id); if (n) { n.attrs.selected = true; render(); const handlers = adapter._events.select || []; handlers.forEach(h => h.handler({ type: 'select', target: { id } })); } } catch (e) {} },
-      unselect(id) { try { const n = nodeMap.get(id); if (n) { delete n.attrs.selected; render(); const handlers = adapter._events.unselect || []; handlers.forEach(h => h.handler({ type: 'unselect', target: { id } })); } } catch (e) {} },
+      // selector helper similar to Cytoscape's $ - supports ':selected', node[id='..'], edge[id='..'] and source/target
+      $: function(selector) {
+        const nodes = [];
+        const edges = [];
+        if (!selector) return { toArray: () => [], forEach() {}, map() { return []; }, filter() { return []; }, length: 0 };
+        if (selector === ':selected') {
+          nodeMap.forEach((n, id) => { if (n.attrs && n.attrs.selected) nodes.push(makeNodeWrapper(id)); });
+          edgeMap.forEach((e, id) => { if (e.attrs && e.attrs.selected) edges.push(makeEdgeWrapper(id)); });
+        } else if (selector.startsWith('node')) {
+          const m = selector.match(/id\s*=\s*['"]?([^'\"]+)['"]?/);
+          if (m) { const id = m[1]; if (nodeMap.has(id)) nodes.push(makeNodeWrapper(id)); }
+        } else if (selector.startsWith('edge')) {
+          const m = selector.match(/id\s*=\s*['"]?([^'\"]+)['"]?/);
+          if (m) { const id = m[1]; if (edgeMap.has(id)) edges.push(makeEdgeWrapper(id)); }
+          else {
+            const ms = selector.match(/source\s*=\s*['"]?([^'"\]]+)['"]?[\s\S]*target\s*=\s*['"]?([^'"\]]+)['"]?/);
+            if (ms) {
+              const s = ms[1], t = ms[2]; edgeMap.forEach((e, id) => { if (String(e.source) === String(s) && String(e.target) === String(t)) edges.push(makeEdgeWrapper(id)); });
+            }
+          }
+        }
+        const arr = nodes.concat(edges);
+        return {
+          length: arr.length,
+          toArray: () => arr,
+          forEach: (fn) => { arr.forEach(fn); },
+          map: (fn) => arr.map(fn),
+          filter: (pred) => arr.filter(pred)
+        };
+      },
+  select(id) { try { const n = nodeMap.get(id); if (n) { n.attrs.selected = true; render(); const handlers = adapter._events.select || []; handlers.forEach(h => h.handler({ type: 'select', target: { id } })); return; } const e = edgeMap.get(id); if (e) { e.attrs.selected = true; render(); const handlers = adapter._events.select || []; handlers.forEach(h => h.handler({ type: 'select', target: { id } })); } } catch (e) {} },
+  unselect(id) { try { const n = nodeMap.get(id); if (n) { if (n.attrs) delete n.attrs.selected; render(); const handlers = adapter._events.unselect || []; handlers.forEach(h => h.handler({ type: 'unselect', target: { id } })); return; } const ed = edgeMap.get(id); if (ed) { if (ed.attrs) delete ed.attrs.selected; render(); const handlers = adapter._events.unselect || []; handlers.forEach(h => h.handler({ type: 'unselect', target: { id } })); } } catch (e) {} },
+  unselectAll() { try { const ids = Array.from(nodeMap.keys()); ids.forEach(id => { const n = nodeMap.get(id); if (n && n.attrs && n.attrs.selected) { delete n.attrs.selected; const handlers = adapter._events.unselect || []; handlers.forEach(h => { try { h.handler({ type: 'unselect', target: { id } }); } catch (e) {} }); } }); const eids = Array.from(edgeMap.keys()); eids.forEach(id => { const ed = edgeMap.get(id); if (ed && ed.attrs && ed.attrs.selected) { delete ed.attrs.selected; const handlers = adapter._events.unselect || []; handlers.forEach(h => { try { h.handler({ type: 'unselect', target: { id } }); } catch (e) {} }); } }); render(); } catch (e) {} },
       add(elementsToAdd) {
         const { nodes: n, edges: e } = cyElementsToGraphology(elementsToAdd || []);
         n.forEach(n1 => { const attrs = n1.attrs || {}; nodeMap.set(n1.id, { id: n1.id, attrs }); });

@@ -46,7 +46,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
     const { nodes = [], edges = [] } = cyElementsToGraphology(elements || []);
     // add nodes, coerce x/y if provided as strings
     nodes.forEach(n => {
-      const attrs = { ...(n.attrs || {}) };
+  const attrs = { ...(n.attrs || {}) };
       if (attrs.x !== undefined && attrs.x !== null && typeof attrs.x !== 'number') {
         const px = parseFloat(attrs.x);
         if (!Number.isNaN(px)) attrs.x = px; else delete attrs.x;
@@ -55,6 +55,14 @@ function SigmaAdapter(container, elements = [], options = {}) {
         const py = parseFloat(attrs.y);
         if (!Number.isNaN(py)) attrs.y = py; else delete attrs.y;
       }
+      // ensure a size attribute so Sigma renders nodes at a reasonable default
+      try {
+        if (typeof attrs.size === 'undefined' || attrs.size === null) {
+          const w = attrs.weight != null ? Number(attrs.weight) : null;
+          if (w != null && !Number.isNaN(w)) attrs.size = Math.max(6, Math.min(48, Math.floor(w / 2)));
+          else attrs.size = 10;
+        }
+      } catch (e) { attrs.size = attrs.size || 10 }
       if (!graph.hasNode(n.id)) graph.addNode(n.id, attrs);
     });
     edges.forEach(e => { try { if (!graph.hasEdge(e.id)) graph.addEdgeWithKey(e.id || `${e.source}-${e.target}`, e.source, e.target, e.attrs || {}); } catch (e) {} });
@@ -104,6 +112,33 @@ function SigmaAdapter(container, elements = [], options = {}) {
   }
   try { console.debug('SigmaAdapter: renderer created', { renderer: !!renderer, graphOrder: graph.order, graphSize: graph.size }); } catch (e) { console.debug('SigmaAdapter: renderer created'); }
 
+  // wire input events from the renderer to update graph selection state
+  try {
+    if (renderer && typeof renderer.on === 'function') {
+      try {
+        // click on a node: toggle selection
+        renderer.on('clickNode', (evt) => {
+          try {
+            const nodeId = evt && (evt.node || evt.data && evt.data.node) ? (evt.node || (evt.data && evt.data.node)) : null;
+            if (!nodeId) return;
+            const currently = !!graph.getNodeAttribute(nodeId, 'selected');
+            if (currently) graph.removeNodeAttribute(nodeId, 'selected'); else graph.setNodeAttribute(nodeId, 'selected', true);
+            try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+          } catch (e) {}
+        });
+        // click on empty stage: clear selection
+        renderer.on('clickStage', (evt) => {
+          try {
+            graph.forEachNode(id => { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); });
+            try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+          } catch (e) {}
+        });
+      } catch (e) {
+        // some builds expose events under different names; try renderer.getMouseHandlers or container
+      }
+    }
+  } catch (e) {}
+
   const makeNodeWrapper = (id) => ({
     id: () => id,
     data: () => ({ ...graph.getNodeAttributes(id) }),
@@ -142,7 +177,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
     getInstance() { return renderer; },
     // simple event registry to emulate Cytoscape's on(selector) semantics for 'select'/'unselect'
     _events: {},
-    on(event, selectorOrHandler, handlerMaybe) {
+  on(event, selectorOrHandler, handlerMaybe) {
       // allow (event, handler) or (event, selector, handler)
       const handler = typeof selectorOrHandler === 'function' ? selectorOrHandler : handlerMaybe;
       const selector = typeof selectorOrHandler === 'string' ? selectorOrHandler : null;
@@ -152,18 +187,66 @@ function SigmaAdapter(container, elements = [], options = {}) {
       // wire graph attribute listener for selected changes
       if ((event === 'select' || event === 'unselect') && graph && typeof graph.on === 'function') {
         try {
-          // lazy install a single attribute change listener
+          // lazy install a single attribute change listener if not present
           if (!this._attrListener) {
-            this._attrListener = (node, attrName, newVal, oldVal) => {
-              if (attrName !== 'selected') return;
-              // call select handlers when newVal truthy, unselect when falsy
-              const evName = newVal ? 'select' : 'unselect';
-              const handlers = this._events[evName] || [];
-              handlers.forEach(h => {
-                try { h.handler({ type: evName, target: { id: node } }); } catch (e) {}
-              });
+            // Accept a variety of Graphology event signatures. Some versions
+            // call listeners as (node, attrName, newVal, oldVal), others as
+            // (node, attributesObject). We normalize and handle selected changes.
+            this._attrListener = function() {
+              try {
+                const args = Array.prototype.slice.call(arguments);
+                const node = args[0];
+                let attrName = null; let newVal = undefined; let oldVal = undefined;
+                if (args.length >= 4 && typeof args[1] === 'string') {
+                  // (node, attrName, newVal, oldVal)
+                  attrName = args[1]; newVal = args[2]; oldVal = args[3];
+                } else if (args.length >= 2 && typeof args[1] === 'object' && args[1] !== null) {
+                  // (node, attributesObject)
+                  const attrs = args[1];
+                  if (Object.prototype.hasOwnProperty.call(attrs, 'selected')) {
+                    attrName = 'selected'; newVal = attrs.selected; oldVal = undefined;
+                  }
+                }
+                if (attrName !== 'selected') return;
+                try {
+                  // visual highlight: change node color and size when selected
+                  if (newVal) {
+                    try {
+                      const curColor = graph.getNodeAttribute(node, 'color');
+                      if (typeof curColor !== 'undefined') graph.setNodeAttribute(node, '__prev_color', curColor);
+                      graph.setNodeAttribute(node, 'color', '#FFD54F');
+                    } catch (e) {}
+                    try {
+                      const curSize = graph.getNodeAttribute(node, 'size');
+                      if (typeof curSize !== 'undefined') graph.setNodeAttribute(node, '__prev_size', curSize);
+                      const newSize = (typeof curSize === 'number' ? Math.max(6, curSize * 1.25) : 12);
+                      graph.setNodeAttribute(node, 'size', newSize);
+                    } catch (e) {}
+                  } else {
+                    try {
+                      const prevColor = graph.getNodeAttribute(node, '__prev_color');
+                      if (typeof prevColor !== 'undefined') { graph.setNodeAttribute(node, 'color', prevColor); graph.removeNodeAttribute(node, '__prev_color'); }
+                    } catch (e) {}
+                    try {
+                      const prevSize = graph.getNodeAttribute(node, '__prev_size');
+                      if (typeof prevSize !== 'undefined') { graph.setNodeAttribute(node, 'size', prevSize); graph.removeNodeAttribute(node, '__prev_size'); }
+                    } catch (e) {}
+                  }
+                } catch (e) {}
+                // ensure renderer updates
+                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+                // call select handlers when newVal truthy, unselect when falsy
+                const evName = newVal ? 'select' : 'unselect';
+                const handlers = adapter._events[evName] || [];
+                handlers.forEach(h => { try { h.handler({ type: evName, target: { id: node } }); } catch (e) {} });
+              } catch (e) {}
             };
-            graph.on('nodeAttributesUpdated', this._attrListener);
+            // Graphology emits different event names depending on version/build;
+            // attach to multiple likely names for robustness.
+            try { graph.on('nodeAttributesUpdated', this._attrListener); } catch (e) {}
+            try { graph.on('nodeAttributesChanged', this._attrListener); } catch (e) {}
+            try { graph.on('attributesUpdated', this._attrListener); } catch (e) {}
+            try { graph.on('attributesChanged', this._attrListener); } catch (e) {}
           }
         } catch (e) { console.warn('SigmaAdapter: failed to attach graph attr listener', e); }
       }
