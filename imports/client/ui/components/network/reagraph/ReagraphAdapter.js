@@ -129,7 +129,18 @@ const ReagraphAdapter = {
 
   // edges
   const loopElements = [];
-      edgeMap.forEach(edge => {
+      // group edges by ordered pair source->target so parallel edges can be rendered with offsets
+      const edgeGroups = new Map();
+      edgeMap.forEach((edge, id) => {
+        try {
+          const key = `${edge.source}>>>${edge.target}`;
+          if (!edgeGroups.has(key)) edgeGroups.set(key, []);
+          edgeGroups.get(key).push(edge);
+        } catch (e) {}
+      });
+      // iterate groups and render each edge with an index so parallel edges get curved offsets
+      edgeGroups.forEach((edgesArr, groupKey) => {
+        edgesArr.forEach((edge, idx) => {
         try {
           // respect timeline/hidden attribute: skip drawing edges marked hidden
           if (edge && edge.attrs && edge.attrs.hidden) return;
@@ -192,51 +203,104 @@ const ReagraphAdapter = {
             path.style.cursor = 'pointer';
             // collect loops to append after nodes so they sit on top of labels
             loopElements.push({ path, hitD: d, edge });
-          } else {
-            const line = document.createElementNS(svgNS, 'line');
-            line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
-            line.setAttribute('stroke', strokeColor);
-            line.setAttribute('stroke-width', strokeWidth);
-            line.setAttribute('opacity', sel ? '1' : '0.9');
-            line.setAttribute('stroke-linecap', 'round');
-            line.dataset.id = edge.id;
-            line.style.cursor = 'pointer';
-            // Append the visible line first
-            viewport.appendChild(line);
-            // Create an invisible but pointer-sensitive hit line on top to widen click area
-            try {
-              const hit = document.createElementNS(svgNS, 'line');
-              hit.setAttribute('x1', sx); hit.setAttribute('y1', sy); hit.setAttribute('x2', tx); hit.setAttribute('y2', ty);
-              // thicker stroke for hit testing, transparent so it doesn't show
-              const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
-              hit.setAttribute('stroke', 'transparent');
-              hit.setAttribute('stroke-width', hitWidth);
-              // ensure pointer events register on the stroke
-              hit.style.pointerEvents = 'stroke';
-              hit.dataset.id = edge.id;
-              hit.style.cursor = 'pointer';
-              // edge click toggles selection via the hit area; stop propagation to avoid background click clearing
-              hit.addEventListener('click', (ev) => {
-                try {
-                  try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
-                  ev.stopPropagation();
-                  // toggle selection state locally
+            } else {
+            // multiple parallel edges: render curved quadratic Bezier paths offset from the center line
+            // compute total count for this pair and symmetric offset index
+            const groupKey = `${edge.source}>>>${edge.target}`;
+            const group = edgeGroups.get(groupKey) || [];
+            const count = group.length || 1;
+            const index = idx; // provided by edgesArr.forEach
+            if (count <= 1) {
+              // single straight line
+              const line = document.createElementNS(svgNS, 'line');
+              line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
+              line.setAttribute('stroke', strokeColor);
+              line.setAttribute('stroke-width', strokeWidth);
+              line.setAttribute('opacity', sel ? '1' : '0.9');
+              line.setAttribute('stroke-linecap', 'round');
+              line.dataset.id = edge.id;
+              line.style.cursor = 'pointer';
+              viewport.appendChild(line);
+              try {
+                const hit = document.createElementNS(svgNS, 'line');
+                hit.setAttribute('x1', sx); hit.setAttribute('y1', sy); hit.setAttribute('x2', tx); hit.setAttribute('y2', ty);
+                const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
+                hit.setAttribute('stroke', 'transparent');
+                hit.setAttribute('stroke-width', hitWidth);
+                hit.style.pointerEvents = 'stroke';
+                hit.dataset.id = edge.id;
+                hit.style.cursor = 'pointer';
+                hit.addEventListener('click', (ev) => {
                   try {
+                    try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
+                    ev.stopPropagation();
                     const cur = edge.attrs && edge.attrs.selected;
                     if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
-                    // mark local origin and notify SelectionManager
                     const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
                     const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
                     try { _localSelKeys.add(k); } catch (e) {}
                     try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
                   } catch (e) {}
                   try { render(); } catch (e) {}
-                } catch (e) {}
-              });
-              viewport.appendChild(hit);
-            } catch (e) {}
+                });
+                viewport.appendChild(hit);
+              } catch (e) {}
+            } else {
+              // curve parameters
+              const midX = (sx + tx) / 2;
+              const midY = (sy + ty) / 2;
+              const dx = tx - sx;
+              const dy = ty - sy;
+              const len = Math.sqrt(dx*dx + dy*dy) || 1;
+              // perpendicular unit vector
+              const px = -dy / len;
+              const py = dx / len;
+              // spacing between parallel edges
+              const spacing = Math.max(12, Math.round(strokeWidth * 6));
+              const offsetIndex = index - (count - 1) / 2;
+              const offset = offsetIndex * spacing;
+              const cx = midX + px * offset;
+              const cy = midY + py * offset;
+              const d = `M ${sx} ${sy} Q ${cx} ${cy} ${tx} ${ty}`;
+              const path = document.createElementNS(svgNS, 'path');
+              path.setAttribute('d', d);
+              path.setAttribute('fill', 'none');
+              path.setAttribute('stroke', strokeColor);
+              path.setAttribute('stroke-width', strokeWidth);
+              path.setAttribute('opacity', sel ? '1' : '0.9');
+              path.setAttribute('stroke-linecap', 'round');
+              path.dataset.id = edge.id;
+              path.style.cursor = 'pointer';
+              viewport.appendChild(path);
+              try {
+                const hit = document.createElementNS(svgNS, 'path');
+                hit.setAttribute('d', d);
+                const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
+                hit.setAttribute('stroke', 'transparent');
+                hit.setAttribute('stroke-width', hitWidth);
+                hit.setAttribute('fill', 'none');
+                hit.style.pointerEvents = 'stroke';
+                hit.dataset.id = edge.id;
+                hit.style.cursor = 'pointer';
+                hit.addEventListener('click', (ev) => {
+                  try {
+                    try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
+                    ev.stopPropagation();
+                    const cur = edge.attrs && edge.attrs.selected;
+                    if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
+                    const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
+                    const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
+                    try { _localSelKeys.add(k); } catch (e) {}
+                    try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+                  } catch (e) {}
+                  try { render(); } catch (e) {}
+                });
+                viewport.appendChild(hit);
+              } catch (e) {}
+            }
           }
         } catch (e) {}
+        });
       });
       
       // nodes
