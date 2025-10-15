@@ -255,10 +255,12 @@ const ReagraphAdapter = {
               // perpendicular unit vector
               const px = -dy / len;
               const py = dx / len;
-              // spacing between parallel edges
-              const spacing = Math.max(12, Math.round(strokeWidth * 6));
+              // spacing between parallel edges: use a larger base and scale with number of parallels
+              const baseSpacing = Math.max(18, Math.round(strokeWidth * 8));
+              const spreadFactor = 1 + Math.max(0, (count - 1) / 2);
+              const spacing = baseSpacing;
               const offsetIndex = index - (count - 1) / 2;
-              const offset = offsetIndex * spacing;
+              const offset = offsetIndex * spacing * spreadFactor;
               const cx = midX + px * offset;
               const cy = midY + py * offset;
               const d = `M ${sx} ${sy} Q ${cx} ${cy} ${tx} ${ty}`;
