@@ -331,10 +331,70 @@ const ReagraphAdapter = {
 
     // local-origin selection keys to avoid echo loops when mirroring to SelectionManager
     const _localSelKeys = new Set();
+    // panning state: support background drag-to-pan (mouse + touch)
+    let _isPanning = false;
+    let _panStart = null; // {x,y,startTx,startTy}
+    let _didPan = false; // suppress click action after a pan
+
+    function _getEventPoint(ev) {
+      if (!ev) return null;
+      if (ev.touches && ev.touches.length) {
+        return { x: ev.touches[0].clientX, y: ev.touches[0].clientY };
+      }
+      return { x: ev.clientX, y: ev.clientY };
+    }
+
+    function onPointerDown(ev) {
+      try {
+        // only start panning when clicking/touching the SVG background (not nodes/edges)
+        if (ev.target !== svg) return;
+        const pt = _getEventPoint(ev);
+        if (!pt) return;
+        _isPanning = true;
+        _didPan = false;
+        _panStart = { x: pt.x, y: pt.y, startTx: _tx, startTy: _ty };
+        // prevent default to avoid text selection
+        try { ev.preventDefault(); } catch (e) {}
+      } catch (e) {}
+    }
+
+    function onPointerMove(ev) {
+      try {
+        if (!_isPanning || !_panStart) return;
+        const pt = _getEventPoint(ev);
+        if (!pt) return;
+        const dx = pt.x - _panStart.x;
+        const dy = pt.y - _panStart.y;
+        _tx = _panStart.startTx + dx;
+        _ty = _panStart.startTy + dy;
+        _didPan = Math.abs(dx) > 2 || Math.abs(dy) > 2;
+        applyTransform();
+      } catch (e) {}
+    }
+
+    function onPointerUp(ev) {
+      try {
+        if (!_isPanning) return;
+        _isPanning = false;
+        _panStart = null;
+        // small timeout to allow click event to see _didPan flag
+        setTimeout(() => { _didPan = false; }, 50);
+      } catch (e) {}
+    }
+
+    // wire mouse and touch events
+    svg.addEventListener('mousedown', onPointerDown);
+    window.addEventListener('mousemove', onPointerMove);
+    window.addEventListener('mouseup', onPointerUp);
+    svg.addEventListener('touchstart', onPointerDown, { passive: false });
+    window.addEventListener('touchmove', onPointerMove, { passive: false });
+    window.addEventListener('touchend', onPointerUp);
 
     // background click clears selection (notify SelectionManager so other views update)
     svg.addEventListener('click', (ev) => {
       try {
+        // if we just panned, don't treat this as a click to clear selection
+        if (_didPan) { try { _didPan = false; } catch (e) {} return; }
         // mark currently selected elements as local before clearing to prevent echo
         try {
           nodeMap.forEach((n, id) => { if (n && n.attrs && n.attrs.selected) { const j = { data: { id } }; const k = SelectionManager ? SelectionManager.canonicalKey(j) : `node:${id}`; _localSelKeys.add(k); } });
