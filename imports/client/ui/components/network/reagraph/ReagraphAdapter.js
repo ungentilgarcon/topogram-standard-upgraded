@@ -127,7 +127,8 @@ const ReagraphAdapter = {
         }
       }
 
-      // edges
+  // edges
+  const loopElements = [];
       edgeMap.forEach(edge => {
         try {
           // respect timeline/hidden attribute: skip drawing edges marked hidden
@@ -156,11 +157,12 @@ const ReagraphAdapter = {
             // estimate node radius from attrs if available
             const nodeAttrs = node && node.attrs;
             const nodeR = (nodeAttrs && (nodeAttrs.size || nodeAttrs.weight)) ? Math.max(4, (nodeAttrs.size || nodeAttrs.weight) / 2) : 10;
-            const loopRadius = Math.max(18, nodeR * 2 + 8);
+            // make loops larger so they sit clearly outside the node and labels
+            const loopRadius = Math.max(28, Math.round(nodeR * 3) + 12);
             // draw an arc path (almost full circle) offset from node center so it doesn't intersect the node or label
             // position the loop to the top-right of the node by offsetting its center
-            const centerX = cx + nodeR + loopRadius * 0.5;
-            const centerY = cy - nodeR - loopRadius * 0.2;
+            const centerX = cx + nodeR + Math.round(loopRadius * 0.8);
+            const centerY = cy - nodeR - Math.round(loopRadius * 0.4);
             const startX = centerX + loopRadius;
             const startY = centerY;
             const d = `M ${startX} ${startY} A ${loopRadius} ${loopRadius} 0 1 1 ${startX - 0.1} ${startY}`;
@@ -173,36 +175,8 @@ const ReagraphAdapter = {
             path.setAttribute('stroke-linecap', 'round');
             path.dataset.id = edge.id;
             path.style.cursor = 'pointer';
-            viewport.appendChild(path);
-            // hit area: thicker transparent path for pointer
-            try {
-              const hit = document.createElementNS(svgNS, 'path');
-              hit.setAttribute('d', d);
-              const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
-              hit.setAttribute('stroke', 'transparent');
-              hit.setAttribute('stroke-width', hitWidth);
-              hit.setAttribute('fill', 'none');
-              hit.style.pointerEvents = 'stroke';
-              hit.dataset.id = edge.id;
-              hit.style.cursor = 'pointer';
-              hit.addEventListener('click', (ev) => {
-                try {
-                  try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
-                  ev.stopPropagation();
-                  // toggle selection state locally
-                  try {
-                    const cur = edge.attrs && edge.attrs.selected;
-                    if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
-                    const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
-                    const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
-                    try { _localSelKeys.add(k); } catch (e) {}
-                    try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
-                  } catch (e) {}
-                  try { render(); } catch (e) {}
-                } catch (e) {}
-              });
-              viewport.appendChild(hit);
-            } catch (e) {}
+            // collect loops to append after nodes so they sit on top of labels
+            loopElements.push({ path, hitD: d, edge });
           } else {
             const line = document.createElementNS(svgNS, 'line');
             line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
@@ -249,6 +223,7 @@ const ReagraphAdapter = {
           }
         } catch (e) {}
       });
+      
       // nodes
       nodeMap.forEach(node => {
         try {
@@ -282,6 +257,40 @@ const ReagraphAdapter = {
               try { render(); } catch (e) {}
             } catch (e) {}
           });
+            // append collected loops after node labels so loops are visible above labels
+            try {
+              loopElements.forEach(({ path, hitD, edge }) => {
+                try { viewport.appendChild(path); } catch (e) {}
+                try {
+                  const hit = document.createElementNS(svgNS, 'path');
+                  hit.setAttribute('d', hitD);
+                  const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
+                  hit.setAttribute('stroke', 'transparent');
+                  hit.setAttribute('stroke-width', hitWidth);
+                  hit.setAttribute('fill', 'none');
+                  hit.style.pointerEvents = 'stroke';
+                  hit.dataset.id = edge.id;
+                  hit.style.cursor = 'pointer';
+                  hit.addEventListener('click', (ev) => {
+                    try {
+                      try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
+                      ev.stopPropagation();
+                      // toggle selection state locally
+                      try {
+                        const cur = edge.attrs && edge.attrs.selected;
+                        if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
+                        const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
+                        const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
+                        try { _localSelKeys.add(k); } catch (e) {}
+                        try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+                      } catch (e) {}
+                      try { render(); } catch (e) {}
+                    } catch (e) {}
+                  });
+                  viewport.appendChild(hit);
+                } catch (e) {}
+              });
+            } catch (e) {}
           viewport.appendChild(circ);
         // render label if present (use _vizLabel or label fields)
         try {
