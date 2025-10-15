@@ -161,8 +161,12 @@ class Charts extends React.Component {
     const curr = Array.isArray(this.props.ui.selectedElements) ? this.props.ui.selectedElements.slice() : []
     const key = (e) => `${e.group}|${e.data && e.data.id}`
     const currKeys = new Set(curr.map(key))
-    const matchKeys = elements.map(key)
-  try { console.debug && console.debug('[Charts] _toggleBatch debug', { currLen: curr.length, currSample: curr.slice(0,5), currKeys: Array.from(currKeys).slice(0,10), matchKeys }) } catch (e) {}
+    // Normalize element.group before computing matchKeys so we compare like-for-like
+    const matchKeys = elements.map(el => {
+      const group = el.group || ((el.data && (el.data.source != null || el.data.target != null)) ? 'edges' : 'nodes')
+      return `${group}|${el.data && el.data.id}`
+    })
+    try { console.debug && console.debug('[Charts] _toggleBatch debug', { currLen: curr.length, currSample: curr.slice(0,5), currKeys: Array.from(currKeys).slice(0,10), matchKeys, allSelected: matchKeys.length > 0 && matchKeys.every(k => currKeys.has(k)) }) } catch (e) {}
     const allSelected = matchKeys.length > 0 && matchKeys.every(k => currKeys.has(k))
 
     if (allSelected) {
