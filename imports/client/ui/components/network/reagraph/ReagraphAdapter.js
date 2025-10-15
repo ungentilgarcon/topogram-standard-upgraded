@@ -163,9 +163,24 @@ const ReagraphAdapter = {
             // position the loop to the top-right of the node by offsetting its center
             const centerX = cx + nodeR + Math.round(loopRadius * 0.8);
             const centerY = cy - nodeR - Math.round(loopRadius * 0.4);
-            const startX = centerX + loopRadius;
-            const startY = centerY;
-            const d = `M ${startX} ${startY} A ${loopRadius} ${loopRadius} 0 1 1 ${startX - 0.1} ${startY}`;
+            // compute start point on the node perimeter in the direction of the loop center
+            const dirX = centerX - cx;
+            const dirY = centerY - cy;
+            const dirLen = Math.sqrt(dirX*dirX + dirY*dirY) || 1;
+            const ux = dirX / dirLen;
+            const uy = dirY / dirLen;
+            // start on node perimeter so the loop visually 'touches' the node
+            const startX = cx + ux * nodeR;
+            const startY = cy + uy * nodeR;
+            // compute angle from loop center to start point for arc start
+            const relStartX = startX - centerX;
+            const relStartY = startY - centerY;
+            const angleStart = Math.atan2(relStartY, relStartX);
+            // compute a point very close to start point on the arc to close the loop
+            const epsilon = 0.6;
+            const closeX = centerX + Math.cos(angleStart - epsilon) * loopRadius;
+            const closeY = centerY + Math.sin(angleStart - epsilon) * loopRadius;
+            const d = `M ${startX} ${startY} A ${loopRadius} ${loopRadius} 0 1 1 ${closeX} ${closeY}`;
             const path = document.createElementNS(svgNS, 'path');
             path.setAttribute('d', d);
             path.setAttribute('fill', 'none');
