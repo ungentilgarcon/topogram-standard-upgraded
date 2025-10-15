@@ -157,8 +157,12 @@ const ReagraphAdapter = {
             const nodeAttrs = node && node.attrs;
             const nodeR = (nodeAttrs && (nodeAttrs.size || nodeAttrs.weight)) ? Math.max(4, (nodeAttrs.size || nodeAttrs.weight) / 2) : 10;
             const loopRadius = Math.max(18, nodeR * 2 + 8);
-            // draw an arc path (almost full circle) offset from node center
-            const startX = cx + loopRadius; const startY = cy;
+            // draw an arc path (almost full circle) offset from node center so it doesn't intersect the node or label
+            // position the loop to the top-right of the node by offsetting its center
+            const centerX = cx + nodeR + loopRadius * 0.5;
+            const centerY = cy - nodeR - loopRadius * 0.2;
+            const startX = centerX + loopRadius;
+            const startY = centerY;
             const d = `M ${startX} ${startY} A ${loopRadius} ${loopRadius} 0 1 1 ${startX - 0.1} ${startY}`;
             const path = document.createElementNS(svgNS, 'path');
             path.setAttribute('d', d);
