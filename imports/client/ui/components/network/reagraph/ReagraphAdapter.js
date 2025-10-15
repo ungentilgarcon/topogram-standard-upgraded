@@ -335,6 +335,9 @@ const ReagraphAdapter = {
     let _isPanning = false;
     let _panStart = null; // {x,y,startTx,startTy}
     let _didPan = false; // suppress click action after a pan
+  let _isSelecting = false;
+  let _selStart = null; // {x,y}
+  let _selRect = null; // SVG rect element
 
     function _getEventPoint(ev) {
       if (!ev) return null;
@@ -346,20 +349,50 @@ const ReagraphAdapter = {
 
     function onPointerDown(ev) {
       try {
-        // only start panning when clicking/touching the SVG background (not nodes/edges)
+        // only start when clicking/touching the SVG background (not nodes/edges)
         if (ev.target !== svg) return;
         const pt = _getEventPoint(ev);
         if (!pt) return;
+        // Ctrl/Meta + drag -> selection box; otherwise pan
+        const isCtrl = !!(ev.ctrlKey || ev.metaKey);
+        if (isCtrl) {
+          _isSelecting = true;
+          _selStart = { x: pt.x, y: pt.y };
+          _didPan = true; // prevent immediate background-click clearing
+          // create overlay rect on svg (not in viewport) so it isn't transformed
+          try {
+            _selRect = document.createElementNS(svgNS, 'rect');
+            _selRect.setAttribute('x', String(pt.x)); _selRect.setAttribute('y', String(pt.y));
+            _selRect.setAttribute('width', '0'); _selRect.setAttribute('height', '0');
+            _selRect.setAttribute('fill', 'rgba(59,130,246,0.08)');
+            _selRect.setAttribute('stroke', 'rgba(59,130,246,0.9)');
+            _selRect.setAttribute('stroke-dasharray', '4 3');
+            _selRect.style.pointerEvents = 'none';
+            svg.appendChild(_selRect);
+          } catch (e) {}
+          try { ev.preventDefault(); } catch (e) {}
+          return;
+        }
+        // otherwise start panning
         _isPanning = true;
         _didPan = false;
         _panStart = { x: pt.x, y: pt.y, startTx: _tx, startTy: _ty };
-        // prevent default to avoid text selection
         try { ev.preventDefault(); } catch (e) {}
       } catch (e) {}
     }
 
     function onPointerMove(ev) {
       try {
+        if (_isSelecting && _selStart && _selRect) {
+          const pt = _getEventPoint(ev);
+          if (!pt) return;
+          const x = Math.min(_selStart.x, pt.x);
+          const y = Math.min(_selStart.y, pt.y);
+          const w = Math.abs(pt.x - _selStart.x);
+          const h = Math.abs(pt.y - _selStart.y);
+          try { _selRect.setAttribute('x', String(x)); _selRect.setAttribute('y', String(y)); _selRect.setAttribute('width', String(w)); _selRect.setAttribute('height', String(h)); } catch (e) {}
+          return;
+        }
         if (!_isPanning || !_panStart) return;
         const pt = _getEventPoint(ev);
         if (!pt) return;
@@ -374,6 +407,82 @@ const ReagraphAdapter = {
 
     function onPointerUp(ev) {
       try {
+        if (_isSelecting) {
+          // finalize selection box
+          try {
+            const rectBox = (function() {
+              try {
+                const x = Number(_selRect.getAttribute('x') || 0);
+                const y = Number(_selRect.getAttribute('y') || 0);
+                const w = Number(_selRect.getAttribute('width') || 0);
+                const h = Number(_selRect.getAttribute('height') || 0);
+                return { x, y, w, h };
+              } catch (e) { return null; }
+            })();
+            if (rectBox && rectBox.w > 0 && rectBox.h > 0) {
+              // collect nodes whose screen positions are inside rect
+              const pickedNodes = [];
+              nodeMap.forEach((n, id) => {
+                try {
+                  const sx = (n.__renderX || 0) * _scale + _tx;
+                  const sy = (n.__renderY || 0) * _scale + _ty;
+                  if (sx >= rectBox.x && sx <= rectBox.x + rectBox.w && sy >= rectBox.y && sy <= rectBox.y + rectBox.h) pickedNodes.push(id);
+                } catch (e) {}
+              });
+              // pick edges whose midpoint is inside rect
+              const pickedEdges = [];
+              edgeMap.forEach((e, id) => {
+                try {
+                  const s = nodeMap.get(e.source); const t = nodeMap.get(e.target);
+                  if (!s || !t) return;
+                  const mx = ((s.__renderX || 0) + (t.__renderX || 0)) / 2 * _scale + _tx;
+                  const my = ((s.__renderY || 0) + (t.__renderY || 0)) / 2 * _scale + _ty;
+                  if (mx >= rectBox.x && mx <= rectBox.x + rectBox.w && my >= rectBox.y && my <= rectBox.y + rectBox.h) pickedEdges.push(id);
+                } catch (e) {}
+              });
+
+              // apply selection: if ctrl/meta was used at start, do additive; otherwise replace
+              const add = !!(ev.ctrlKey || ev.metaKey);
+              if (SelectionManager && typeof SelectionManager.select === 'function') {
+                try {
+                  if (!add) { SelectionManager.clear(); }
+                } catch (e) {}
+                pickedNodes.forEach(id => {
+                  try {
+                    const j = { data: { id } };
+                    const k = SelectionManager ? SelectionManager.canonicalKey(j) : `node:${id}`;
+                    try { _localSelKeys.add(k); } catch (e) {}
+                    SelectionManager.select(j);
+                  } catch (e) {}
+                });
+                pickedEdges.forEach(id => {
+                  try {
+                    const e = edgeMap.get(id);
+                    const j = { data: { id: e.id, source: e.source, target: e.target } };
+                    const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${id}`;
+                    try { _localSelKeys.add(k); } catch (e) {}
+                    SelectionManager.select(j);
+                  } catch (e) {}
+                });
+              } else {
+                // fallback: set attrs directly
+                if (!add) {
+                  nodeMap.forEach(n => { if (n && n.attrs && n.attrs.selected) delete n.attrs.selected; });
+                  edgeMap.forEach(ed => { if (ed && ed.attrs && ed.attrs.selected) delete ed.attrs.selected; });
+                }
+                pickedNodes.forEach(id => { try { const n = nodeMap.get(id); if (n) { if (!n.attrs) n.attrs = {}; n.attrs.selected = true; } } catch (e) {} });
+                pickedEdges.forEach(id => { try { const ed = edgeMap.get(id); if (ed) { if (!ed.attrs) ed.attrs = {}; ed.attrs.selected = true; } } catch (e) {} });
+                try { render(); } catch (e) {}
+              }
+            }
+          } catch (e) {}
+          // cleanup selection rect
+          try { if (_selRect && _selRect.parentNode) _selRect.parentNode.removeChild(_selRect); } catch (e) {}
+          _selRect = null; _selStart = null; _isSelecting = false;
+          // leave _didPan true briefly so click handler doesn't clear
+          setTimeout(() => { _didPan = false; }, 50);
+          return;
+        }
         if (!_isPanning) return;
         _isPanning = false;
         _panStart = null;
