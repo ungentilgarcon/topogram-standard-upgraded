@@ -48,6 +48,18 @@ export default function TopogramDetail() {
   const [selectedLayout, setSelectedLayout] = useState('auto')
   // Node title font size (px)
   const [titleSize, setTitleSize] = useState(12)
+  // Graph renderer selection: null means "follow defaults / query param"; user choice stored here
+  const [graphAdapter, setGraphAdapter] = useState(null)
+
+  // initialize from localStorage if present
+  useEffect(() => {
+    try {
+      if (typeof window !== 'undefined' && window.localStorage) {
+        const v = window.localStorage.getItem('topo.graphAdapter')
+        if (v) setGraphAdapter(v)
+      }
+    } catch (e) {}
+  }, [])
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
   // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
@@ -1187,7 +1199,16 @@ export default function TopogramDetail() {
 
   // Helper to read graph impl selection from query param
   const getGraphImpl = () => {
-    try { const qp = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('graph') : null; return qp || null } catch(e) { return null }
+    try {
+      // 1) user override via selector
+      if (graphAdapter) return graphAdapter
+      // 2) query param override
+      const qp = typeof window !== 'undefined' ? new URLSearchParams(window.location.search).get('graph') : null
+      if (qp) return qp
+      // 3) sensible defaults: cytoscape for normal graphs, sigma for very large graphs
+      try { if (Array.isArray(nodes) && nodes.length > 3000) return 'sigma' } catch (e) {}
+      return 'cytoscape'
+    } catch(e) { return 'cytoscape' }
   }
 
   // If the document is already present in the client cache (for example because
@@ -1394,6 +1415,17 @@ export default function TopogramDetail() {
           <button onClick={() => exportTopogramCsv && exportTopogramCsv()} className="export-button" style={{ marginLeft: 8 }}>Export CSV</button>
           {/* Quick rescue: force a resize/center/fit when the network appears blank */}
           <button onClick={() => { try { doFixView() } catch(e){} }} className="cy-control-btn" style={{ marginLeft: 8, padding: '4px 8px' }} title="Force Cytoscape to resize, center and fit">Fix view</button>
+
+        {/* Graph adapter selector: user choice overrides query param/defaults. Placed between Fix view and Title size */}
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          Renderer:
+          <select value={graphAdapter || ''} onChange={e => { const v = e.target.value || null; setGraphAdapter(v); try { if (v) window.localStorage.setItem('topo.graphAdapter', v); else window.localStorage.removeItem('topo.graphAdapter'); } catch(e){} }} style={{ minWidth: 120 }}>
+            <option value="">(auto)</option>
+            <option value="cytoscape">cytoscape</option>
+            <option value="sigma">sigma</option>
+            <option value="reagraph">reagraph</option>
+          </select>
+        </label>
 
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Title size:

@@ -174,10 +174,83 @@ function SigmaAdapter(container, elements = [], options = {}) {
         this._events[event] = this._events[event].filter(h => h.handler !== handler);
       } catch (e) {}
     },
-    fit() { try { if (renderer && renderer.getCamera) renderer.getCamera().goTo({ x: 0, y: 0, ratio: 1 }); } catch (e) {} },
+    fit() { try {
+        if (renderer && renderer.getCamera) {
+          // try to compute a bounding box from graph nodes; fallback to reset
+          try {
+            const nodes = graph.nodes();
+            if (nodes.length === 0) { renderer.getCamera().goTo({ x: 0, y: 0, ratio: 1 }); return }
+            let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+            nodes.forEach(id => {
+              const a = graph.getNodeAttributes(id) || {};
+              const x = typeof a.x === 'number' ? a.x : 0;
+              const y = typeof a.y === 'number' ? a.y : 0;
+              if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y;
+            });
+            if (!isFinite(minX) || !isFinite(minY) || !isFinite(maxX) || !isFinite(maxY)) { renderer.getCamera().goTo({ x: 0, y: 0, ratio: 1 }); return }
+            const cx = (minX + maxX) / 2; const cy = (minY + maxY) / 2; const dx = Math.max(1, maxX - minX); const dy = Math.max(1, maxY - minY);
+            // estimate ratio so that bounding box fits roughly into view; sigma's ratio is zoom factor relative to unit world
+            const container = renderer.getContainer && renderer.getContainer();
+            const w = container ? container.clientWidth || 800 : 800; const h = container ? container.clientHeight || 600 : 600;
+            const pad = 40;
+            const ratio = Math.min((w - pad*2) / dx, (h - pad*2) / dy);
+            renderer.getCamera().goTo({ x: cx, y: cy, ratio: Math.max(0.0001, ratio) });
+            return;
+          } catch (e) { try { renderer.getCamera().goTo({ x: 0, y: 0, ratio: 1 }); } catch (e) {} }
+        }
+      } catch (e) {} },
     resize() { try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {} },
-    zoom(level) { try { if (renderer && renderer.getCamera) renderer.getCamera().set({ ratio: level }); } catch (e) {} },
-    center() { try { if (renderer && renderer.getCamera) renderer.getCamera().set({ x: 0, y: 0 }); } catch (e) {} },
+    zoom(level) { try {
+        if (!renderer || !renderer.getCamera) return undefined;
+        const cam = renderer.getCamera();
+        // read current ratio when no arg provided
+        if (typeof level === 'undefined' || level === null) {
+          try {
+            if (cam.getState) return cam.getState().ratio;
+            if (cam.state) return cam.state.ratio;
+            return undefined;
+          } catch (e) { return undefined }
+        }
+        // set explicit ratio
+        try { cam.set ? cam.set({ ratio: level }) : cam.goTo && cam.goTo({ ratio: level }); } catch (e) { try { cam.goTo({ ratio: level }); } catch (e) {} }
+      } catch (e) {} },
+    center() { try { if (renderer && renderer.getCamera) {
+        const cam = renderer.getCamera();
+        try { if (cam.set) cam.set({ x: 0, y: 0 }); else if (cam.goTo) cam.goTo({ x: 0, y: 0 }); } catch (e) {}
+      } } catch (e) {} },
+    animate({ zoom: targetZoom, center: centerObj, duration } = {}) {
+      try {
+        if (!renderer || !renderer.getCamera) return;
+        const cam = renderer.getCamera();
+        const startState = (cam.getState && cam.getState()) || (cam.state ? cam.state : { x: 0, y: 0, ratio: 1 });
+        const startZoom = startState.ratio || 1;
+        const startX = startState.x || 0; const startY = startState.y || 0;
+        const endZoom = (typeof targetZoom === 'number') ? targetZoom : startZoom;
+        let endX = startX, endY = startY;
+        if (centerObj && centerObj.eles) {
+          // center on all nodes
+          try {
+            const nodes = graph.nodes(); if (!nodes.length) { endX = 0; endY = 0; } else {
+              let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+              nodes.forEach(id => { const a = graph.getNodeAttributes(id) || {}; const x = typeof a.x === 'number' ? a.x : 0; const y = typeof a.y === 'number' ? a.y : 0; if (x < minX) minX = x; if (y < minY) minY = y; if (x > maxX) maxX = x; if (y > maxY) maxY = y; });
+              if (isFinite(minX) && isFinite(minY) && isFinite(maxX) && isFinite(maxY)) { endX = (minX + maxX) / 2; endY = (minY + maxY) / 2; }
+            }
+          } catch (e) {}
+        }
+        const dur = typeof duration === 'number' ? duration : 240;
+        const start = performance.now();
+        function step(now) {
+          const t = Math.min(1, (now - start) / dur);
+          const ease = t < 0.5 ? 2 * t * t : -1 + (4 - 2 * t) * t;
+          const rz = startZoom + (endZoom - startZoom) * ease;
+          const rx = startX + (endX - startX) * ease;
+          const ry = startY + (endY - startY) * ease;
+          try { if (cam.set) cam.set({ ratio: rz, x: rx, y: ry }); else if (cam.goTo) cam.goTo({ ratio: rz, x: rx, y: ry }); } catch (e) {}
+          if (t < 1) requestAnimationFrame(step);
+        }
+        requestAnimationFrame(step);
+      } catch (e) {}
+    },
     nodes() {
       const ids = graph.nodes();
       const collection = {

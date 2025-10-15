@@ -80,8 +80,11 @@ const ReagraphAdapter = {
     // arbitrary coords (or none) are mapped to the visible SVG viewport.
     function render() {
       const { w, h } = measure();
-      // clear
-      while (svg.firstChild) svg.removeChild(svg.firstChild);
+  // clear only viewport children (keep svg and viewport elements intact)
+  // previously we removed the entire svg contents which also removed the
+  // viewport <g>. That left `viewport` detached and appended children
+  // were invisible. Clear only the viewport so svg and viewport remain.
+  while (viewport.firstChild) viewport.removeChild(viewport.firstChild);
 
       // collect numeric positions
       const posList = [];
