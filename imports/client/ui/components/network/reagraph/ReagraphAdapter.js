@@ -41,6 +41,13 @@ const ReagraphAdapter = {
     const edgeMap = new Map();
     edges.forEach(e => { edgeMap.set(e.id || `${e.source}-${e.target}`, { id: e.id || `${e.source}-${e.target}`, source: e.source, target: e.target, attrs: e.attrs || {} }); });
 
+    // SelectionManager integration (optional)
+    let SelectionManager = null;
+    try {
+      const sm = require('/imports/client/selection/SelectionManager');
+      SelectionManager = sm && (sm.default || sm);
+    } catch (e) { SelectionManager = null }
+
     // create SVG container and size it to the container element
     container.innerHTML = '';
     const svgNS = 'http://www.w3.org/2000/svg';
@@ -135,7 +142,20 @@ const ReagraphAdapter = {
         line.style.cursor = 'pointer';
         // edge click toggles selection; stop propagation to avoid background click clearing
         line.addEventListener('click', (ev) => {
-          try { ev.stopPropagation(); if (adapter && typeof adapter.select === 'function') adapter.select(edge.id); } catch (e) {}
+          try {
+            ev.stopPropagation();
+            // toggle selection state locally
+            try {
+              const cur = edge.attrs && edge.attrs.selected;
+              if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
+              // mark local origin and notify SelectionManager
+              const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
+              const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
+              try { _localSelKeys.add(k); } catch (e) {}
+              try { if (SelectionManager) { if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+            } catch (e) {}
+            try { render(); } catch (e) {}
+          } catch (e) {}
         });
         viewport.appendChild(line);
       });
@@ -154,7 +174,19 @@ const ReagraphAdapter = {
         circ.setAttribute('data-id', node.id);
         circ.style.cursor = 'pointer';
         circ.addEventListener('click', (ev) => {
-          try { ev.stopPropagation(); if (adapter && typeof adapter.select === 'function') adapter.select(node.id); } catch (e) {}
+          try {
+            ev.stopPropagation();
+            // toggle selection locally
+            try {
+              const cur = node.attrs && node.attrs.selected;
+              if (cur) { if (node.attrs) delete node.attrs.selected; } else { if (!node.attrs) node.attrs = {}; node.attrs.selected = true; }
+              const j = { data: { id: node.id } };
+              const k = SelectionManager ? SelectionManager.canonicalKey(j) : `node:${node.id}`;
+              try { _localSelKeys.add(k); } catch (e) {}
+              try { if (SelectionManager) { if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+            } catch (e) {}
+            try { render(); } catch (e) {}
+          } catch (e) {}
         });
         viewport.appendChild(circ);
         // render label if present (use _vizLabel or label fields)
@@ -178,9 +210,20 @@ const ReagraphAdapter = {
       applyTransform();
     }
 
-    // background click clears selection
+    // local-origin selection keys to avoid echo loops when mirroring to SelectionManager
+    const _localSelKeys = new Set();
+
+    // background click clears selection (notify SelectionManager so other views update)
     svg.addEventListener('click', (ev) => {
-      try { adapter.unselectAll(); } catch (e) {}
+      try {
+        // mark currently selected elements as local before clearing to prevent echo
+        try {
+          nodeMap.forEach((n, id) => { if (n && n.attrs && n.attrs.selected) { const j = { data: { id } }; const k = SelectionManager ? SelectionManager.canonicalKey(j) : `node:${id}`; _localSelKeys.add(k); } });
+          edgeMap.forEach((e, id) => { if (e && e.attrs && e.attrs.selected) { const j = { data: { id: e.id, source: e.source, target: e.target } }; const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${id}`; _localSelKeys.add(k); } });
+        } catch (e) {}
+        try { if (SelectionManager) SelectionManager.clear(); } catch (e) {}
+        try { adapter.unselectAll(); } catch (e) {}
+      } catch (e) {}
     });
 
     // basic event registry and adapter object
@@ -397,6 +440,58 @@ const ReagraphAdapter = {
         on: (evt, cb) => { if (evt === 'layoutstop' && typeof cb === 'function') callbacks.push(cb); }
       };
     };
+
+    // wire SelectionManager subscriptions so selection changes elsewhere update this view
+    try {
+      if (SelectionManager && typeof SelectionManager.on === 'function') {
+        // when an element is selected elsewhere, apply visual selection here
+        SelectionManager.on('select', ({ element } = {}) => {
+          try {
+            if (!element || !element.data) return;
+            const data = element.data;
+            const key = SelectionManager.canonicalKey(element);
+            if (_localSelKeys && _localSelKeys.has(key)) { try { _localSelKeys.delete(key); } catch (e) {} return; }
+            // node selection
+            if (data.id != null && nodeMap.has(String(data.id))) {
+              const n = nodeMap.get(String(data.id)); if (n) { if (!n.attrs) n.attrs = {}; n.attrs.selected = true; }
+            } else if (data.source != null && data.target != null) {
+              // edge selection — find by compound id or matching source/target
+              const eid = String(data.id || `${data.source}-${data.target}`);
+              if (edgeMap.has(eid)) { const e = edgeMap.get(eid); if (e) { if (!e.attrs) e.attrs = {}; e.attrs.selected = true; } }
+              else {
+                edgeMap.forEach((e, id) => { if (String(e.source) === String(data.source) && String(e.target) === String(data.target)) { if (!e.attrs) e.attrs = {}; e.attrs.selected = true; } });
+              }
+            }
+            try { render(); } catch (e) {}
+          } catch (e) {}
+        });
+        SelectionManager.on('unselect', ({ element } = {}) => {
+          try {
+            if (!element || !element.data) return;
+            const data = element.data;
+            const key = SelectionManager.canonicalKey(element);
+            if (_localSelKeys && _localSelKeys.has(key)) { try { _localSelKeys.delete(key); } catch (e) {} return; }
+            if (data.id != null && nodeMap.has(String(data.id))) {
+              const n = nodeMap.get(String(data.id)); if (n && n.attrs) { delete n.attrs.selected; }
+            } else if (data.source != null && data.target != null) {
+              const eid = String(data.id || `${data.source}-${data.target}`);
+              if (edgeMap.has(eid)) { const e = edgeMap.get(eid); if (e && e.attrs) delete e.attrs.selected; }
+              else { edgeMap.forEach((e, id) => { if (String(e.source) === String(data.source) && String(e.target) === String(data.target)) { if (e && e.attrs) delete e.attrs.selected; } }); }
+            }
+            try { render(); } catch (e) {}
+          } catch (e) {}
+        });
+        SelectionManager.on('clear', () => {
+          try {
+            // if local-origin keys exist, clear them (they were used to avoid echoes)
+            try { _localSelKeys.clear(); } catch (e) {}
+            nodeMap.forEach(n => { if (n && n.attrs && n.attrs.selected) delete n.attrs.selected; });
+            edgeMap.forEach(e => { if (e && e.attrs && e.attrs.selected) delete e.attrs.selected; });
+            try { render(); } catch (e) {}
+          } catch (e) {}
+        });
+      }
+    } catch (e) {}
 
     // initial render and return adapter
     setTimeout(() => render(), 0);

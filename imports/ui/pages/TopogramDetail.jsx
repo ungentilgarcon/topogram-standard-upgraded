@@ -11,6 +11,7 @@ import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 import '/imports/ui/styles/greenTheme.css'
 import SelectionPanel from '/imports/ui/components/SelectionPanel/SelectionPanel'
 import Charts from '/imports/ui/components/charts/Charts'
+import SelectionManager from '/imports/client/selection/SelectionManager'
 
 cytoscape.use(cola);
 
@@ -90,8 +91,15 @@ export default function TopogramDetail() {
       // swallow to avoid bubbling to React error boundary
     }
   }
-  // Selected elements shared between Cytoscape and GeoMap
-  const [selectedElements, setSelectedElements] = useState([])
+  // Selected elements shared between Cytoscape and GeoMap — now backed by SelectionManager
+  const [selectedElements, setSelectedElements] = useState(() => SelectionManager.getSelection())
+  // subscribe to SelectionManager changes once
+  useEffect(() => {
+    const unsub = SelectionManager.subscribe(({ action, selected }) => {
+      try { setSelectedElements(Array.isArray(selected) ? selected : SelectionManager.getSelection()) } catch (e) {}
+    })
+    return () => { try { unsub && unsub() } catch (e) {} }
+  }, [])
   // Panel visibility flags (persisted in localStorage and controllable from PanelSettings)
   // Initialize to safe defaults and sync from localStorage once on mount to avoid
   // reading window during hook initialization (helps keep hook order stable under HMR).
@@ -225,64 +233,16 @@ export default function TopogramDetail() {
 
   // selectElement/unselectElement are used by GeoMap (and can be used programmatically)
   const selectElement = (json) => {
-    const key = canonicalKey(json)
-    if (!key) return
-    // Prefer to let Cytoscape drive selection: select the element in cy and
-    // the cy select event will mirror the full selected set into React state.
     try {
-      const cy = cyRef.current
-      if (cy) {
-        // find element in cy and select it
-        if (key.startsWith('node:')) {
-          const id = key.slice(5).replace(/'/g, "\\'")
-          const el = cy.filter(`node[id='${id}']`)
-          if (el && el.length) { el.select(); return }
-        } else if (key.startsWith('edge:')) {
-          const id = key.slice(5).replace(/'/g, "\\'")
-          let el = cy.filter(`edge[id='${id}']`)
-          if (!el || el.length === 0) {
-            const parts = id.split('|')
-            if (parts.length === 2) {
-              const s = parts[0].replace(/"/g, '\\"').replace(/'/g, "\\'")
-              const t = parts[1].replace(/"/g, '\\"').replace(/'/g, "\\'")
-              el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
-            }
-          }
-          if (el && el.length) { el.select(); return }
-        }
-      }
-    } catch (e) { console.warn('selectElement: cy selection failed', e) }
-    // Fallback: if cy not available, keep React state as a best-effort
-    if (!isSelectedKey(key)) setSelectedElements(prev => [...prev, json])
+      // delegate to SelectionManager; adapters or cy may also listen
+      SelectionManager.select(json)
+    } catch (e) { console.warn('selectElement: SelectionManager.select failed', e) }
   }
 
   const unselectElement = (json) => {
-    const key = canonicalKey(json)
-    if (!key) return
     try {
-      const cy = cyRef.current
-      if (cy) {
-        if (key.startsWith('node:')) {
-          const id = key.slice(5).replace(/'/g, "\\'")
-          const el = cy.filter(`node[id='${id}']`)
-          if (el && el.length) { el.unselect(); return }
-        } else if (key.startsWith('edge:')) {
-          const id = key.slice(5).replace(/'/g, "\\'")
-          let el = cy.filter(`edge[id='${id}']`)
-          if (!el || el.length === 0) {
-            const parts = id.split('|')
-            if (parts.length === 2) {
-              const s = parts[0].replace(/"/g, '\\"').replace(/'/g, "\\'")
-              const t = parts[1].replace(/"/g, '\\"').replace(/'/g, "\\'")
-              el = cy.$(`edge[source = "${s}"][target = "${t}"]`)
-            }
-          }
-          if (el && el.length) { el.unselect(); return }
-        }
-      }
-    } catch (e) { console.warn('unselectElement: cy unselect failed', e) }
-    // Fallback: remove from state if cy not available
-    setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key))
+      SelectionManager.unselect(json)
+    } catch (e) { console.warn('unselectElement: SelectionManager.unselect failed', e) }
   }
 
   const onUnselect = (json) => {

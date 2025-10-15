@@ -13,6 +13,13 @@ try {
   cyElementsToGraphology = null;
 }
 
+// SelectionManager integration (optional)
+let SelectionManager = null;
+try {
+  const sm = require('/imports/client/selection/SelectionManager');
+  SelectionManager = sm && (sm.default || sm);
+} catch (e) { SelectionManager = null }
+
 function SigmaAdapter(container, elements = [], options = {}) {
   let GraphConstructor = null;
   let SigmaCtor = null;
@@ -112,24 +119,42 @@ function SigmaAdapter(container, elements = [], options = {}) {
   }
   try { console.debug('SigmaAdapter: renderer created', { renderer: !!renderer, graphOrder: graph.order, graphSize: graph.size }); } catch (e) { console.debug('SigmaAdapter: renderer created'); }
 
+  // local origin keys to avoid event loops when adapters and SelectionManager mirror
+  let _localSelKeys = new Set();
+
+
   // wire input events from the renderer to update graph selection state
   try {
     if (renderer && typeof renderer.on === 'function') {
       try {
-        // click on a node: toggle selection
+        // click on a node: toggle selection and inform SelectionManager
         renderer.on('clickNode', (evt) => {
           try {
             const nodeId = evt && (evt.node || evt.data && evt.data.node) ? (evt.node || (evt.data && evt.data.node)) : null;
             if (!nodeId) return;
             const currently = !!graph.getNodeAttribute(nodeId, 'selected');
-            if (currently) graph.removeNodeAttribute(nodeId, 'selected'); else graph.setNodeAttribute(nodeId, 'selected', true);
-            try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+            const json = { data: { id: String(nodeId) } };
+            const key = SelectionManager ? SelectionManager.canonicalKey(json) : `node:${String(nodeId)}`;
+            // mark local origin to avoid SelectionManager echo loop
+            _localSelKeys.add(key);
+            if (currently) {
+              try { graph.removeNodeAttribute(nodeId, 'selected'); } catch (e) {}
+              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+              try { if (SelectionManager) SelectionManager.unselect(json); } catch (e) {}
+            } else {
+              try { graph.setNodeAttribute(nodeId, 'selected', true); } catch (e) {}
+              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+              try { if (SelectionManager) SelectionManager.select(json); } catch (e) {}
+            }
           } catch (e) {}
         });
-        // click on empty stage: clear selection
+        // click on empty stage: clear selection via SelectionManager so other views are notified
         renderer.on('clickStage', (evt) => {
           try {
-            graph.forEachNode(id => { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); });
+            try {
+              if (SelectionManager) SelectionManager.clear();
+              else graph.forEachNode(id => { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); });
+            } catch (e) {}
             try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
           } catch (e) {}
         });
@@ -239,6 +264,19 @@ function SigmaAdapter(container, elements = [], options = {}) {
                 const evName = newVal ? 'select' : 'unselect';
                 const handlers = adapter._events[evName] || [];
                 handlers.forEach(h => { try { h.handler({ type: evName, target: { id: node } }); } catch (e) {} });
+                // Reflect selection into SelectionManager (unless we originated it locally)
+                try {
+                  if (SelectionManager) {
+                    const j = { data: { id: node } };
+                    const k = SelectionManager.canonicalKey(j);
+                    if (_localSelKeys && _localSelKeys.has(k)) {
+                      // this change originated from this adapter; remove local marker
+                      try { _localSelKeys.delete(k); } catch (e) {}
+                    } else {
+                      if (newVal) SelectionManager.select(j); else SelectionManager.unselect(j);
+                    }
+                  }
+                } catch (e) {}
               } catch (e) {}
             };
             // Graphology emits different event names depending on version/build;
