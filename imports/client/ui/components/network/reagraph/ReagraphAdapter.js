@@ -137,10 +137,8 @@ const ReagraphAdapter = {
           if (!s || !t) return;
           // if either endpoint is hidden, skip rendering this edge
           if ((s.attrs && s.attrs.hidden) || (t.attrs && t.attrs.hidden)) return;
-          const line = document.createElementNS(svgNS, 'line');
           const sx = s.__renderX || 0; const sy = s.__renderY || 0;
           const tx = t.__renderX || 0; const ty = t.__renderY || 0;
-          line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
           // Visual highlight when edge is selected: use a bright yellow and thicker stroke
           const sel = edge.attrs && edge.attrs.selected;
           const baseColor = (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)';
@@ -149,47 +147,102 @@ const ReagraphAdapter = {
           const strokeColor = sel ? highlightColor : baseColor;
           const baseWidth = (edge.attrs && edge.attrs.width) || 1;
           const strokeWidth = sel ? Math.max(3, Math.round(baseWidth * 2)) : baseWidth;
-          line.setAttribute('stroke', strokeColor);
-          line.setAttribute('stroke-width', strokeWidth);
-          // stronger opacity and rounded caps for highlighted edges
-          line.setAttribute('opacity', sel ? '1' : '0.9');
-          line.setAttribute('stroke-linecap', 'round');
-          line.dataset.id = edge.id;
-          line.style.cursor = 'pointer';
-          // Append the visible line first
-          viewport.appendChild(line);
-          // Create an invisible but pointer-sensitive hit line on top to widen click area
-          try {
-            const hit = document.createElementNS(svgNS, 'line');
-            hit.setAttribute('x1', sx); hit.setAttribute('y1', sy); hit.setAttribute('x2', tx); hit.setAttribute('y2', ty);
-            // thicker stroke for hit testing, transparent so it doesn't show
-            const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
-            hit.setAttribute('stroke', 'transparent');
-            hit.setAttribute('stroke-width', hitWidth);
-            // ensure pointer events register on the stroke
-            hit.style.pointerEvents = 'stroke';
-            hit.dataset.id = edge.id;
-            hit.style.cursor = 'pointer';
-            // edge click toggles selection via the hit area; stop propagation to avoid background click clearing
-            hit.addEventListener('click', (ev) => {
-              try {
-                try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
-                ev.stopPropagation();
-                // toggle selection state locally
+
+          if (String(edge.source) === String(edge.target)) {
+            // self-loop: render as a circular arc/path around the node
+            const node = nodeMap.get(edge.source);
+            const cx = node && (node.__renderX || 0);
+            const cy = node && (node.__renderY || 0);
+            // estimate node radius from attrs if available
+            const nodeAttrs = node && node.attrs;
+            const nodeR = (nodeAttrs && (nodeAttrs.size || nodeAttrs.weight)) ? Math.max(4, (nodeAttrs.size || nodeAttrs.weight) / 2) : 10;
+            const loopRadius = Math.max(18, nodeR * 2 + 8);
+            // draw an arc path (almost full circle) offset from node center
+            const startX = cx + loopRadius; const startY = cy;
+            const d = `M ${startX} ${startY} A ${loopRadius} ${loopRadius} 0 1 1 ${startX - 0.1} ${startY}`;
+            const path = document.createElementNS(svgNS, 'path');
+            path.setAttribute('d', d);
+            path.setAttribute('fill', 'none');
+            path.setAttribute('stroke', strokeColor);
+            path.setAttribute('stroke-width', strokeWidth);
+            path.setAttribute('opacity', sel ? '1' : '0.9');
+            path.setAttribute('stroke-linecap', 'round');
+            path.dataset.id = edge.id;
+            path.style.cursor = 'pointer';
+            viewport.appendChild(path);
+            // hit area: thicker transparent path for pointer
+            try {
+              const hit = document.createElementNS(svgNS, 'path');
+              hit.setAttribute('d', d);
+              const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
+              hit.setAttribute('stroke', 'transparent');
+              hit.setAttribute('stroke-width', hitWidth);
+              hit.setAttribute('fill', 'none');
+              hit.style.pointerEvents = 'stroke';
+              hit.dataset.id = edge.id;
+              hit.style.cursor = 'pointer';
+              hit.addEventListener('click', (ev) => {
                 try {
-                  const cur = edge.attrs && edge.attrs.selected;
-                  if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
-                  // mark local origin and notify SelectionManager
-                  const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
-                  const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
-                  try { _localSelKeys.add(k); } catch (e) {}
-                  try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+                  try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
+                  ev.stopPropagation();
+                  // toggle selection state locally
+                  try {
+                    const cur = edge.attrs && edge.attrs.selected;
+                    if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
+                    const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
+                    const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
+                    try { _localSelKeys.add(k); } catch (e) {}
+                    try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+                  } catch (e) {}
+                  try { render(); } catch (e) {}
                 } catch (e) {}
-                try { render(); } catch (e) {}
-              } catch (e) {}
-            });
-            viewport.appendChild(hit);
-          } catch (e) {}
+              });
+              viewport.appendChild(hit);
+            } catch (e) {}
+          } else {
+            const line = document.createElementNS(svgNS, 'line');
+            line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
+            line.setAttribute('stroke', strokeColor);
+            line.setAttribute('stroke-width', strokeWidth);
+            line.setAttribute('opacity', sel ? '1' : '0.9');
+            line.setAttribute('stroke-linecap', 'round');
+            line.dataset.id = edge.id;
+            line.style.cursor = 'pointer';
+            // Append the visible line first
+            viewport.appendChild(line);
+            // Create an invisible but pointer-sensitive hit line on top to widen click area
+            try {
+              const hit = document.createElementNS(svgNS, 'line');
+              hit.setAttribute('x1', sx); hit.setAttribute('y1', sy); hit.setAttribute('x2', tx); hit.setAttribute('y2', ty);
+              // thicker stroke for hit testing, transparent so it doesn't show
+              const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
+              hit.setAttribute('stroke', 'transparent');
+              hit.setAttribute('stroke-width', hitWidth);
+              // ensure pointer events register on the stroke
+              hit.style.pointerEvents = 'stroke';
+              hit.dataset.id = edge.id;
+              hit.style.cursor = 'pointer';
+              // edge click toggles selection via the hit area; stop propagation to avoid background click clearing
+              hit.addEventListener('click', (ev) => {
+                try {
+                  try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
+                  ev.stopPropagation();
+                  // toggle selection state locally
+                  try {
+                    const cur = edge.attrs && edge.attrs.selected;
+                    if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
+                    // mark local origin and notify SelectionManager
+                    const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
+                    const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
+                    try { _localSelKeys.add(k); } catch (e) {}
+                    try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+                  } catch (e) {}
+                  try { render(); } catch (e) {}
+                } catch (e) {}
+              });
+              viewport.appendChild(hit);
+            } catch (e) {}
+          }
         } catch (e) {}
       });
       // nodes
