@@ -347,6 +347,13 @@ const ReagraphAdapter = {
       return { x: ev.clientX, y: ev.clientY };
     }
 
+    function clientToSvg(pt) {
+      try {
+        const rect = svg.getBoundingClientRect();
+        return { x: (pt.x - rect.left), y: (pt.y - rect.top) };
+      } catch (e) { return { x: pt.x, y: pt.y }; }
+    }
+
     function onPointerDown(ev) {
       try {
         // only start when clicking/touching the SVG background (not nodes/edges)
@@ -357,12 +364,13 @@ const ReagraphAdapter = {
         const isCtrl = !!(ev.ctrlKey || ev.metaKey);
         if (isCtrl) {
           _isSelecting = true;
-          _selStart = { x: pt.x, y: pt.y };
+          const svgPt = clientToSvg(pt);
+          _selStart = { x: svgPt.x, y: svgPt.y };
           _didPan = true; // prevent immediate background-click clearing
           // create overlay rect on svg (not in viewport) so it isn't transformed
           try {
             _selRect = document.createElementNS(svgNS, 'rect');
-            _selRect.setAttribute('x', String(pt.x)); _selRect.setAttribute('y', String(pt.y));
+            _selRect.setAttribute('x', String(_selStart.x)); _selRect.setAttribute('y', String(_selStart.y));
             _selRect.setAttribute('width', '0'); _selRect.setAttribute('height', '0');
             _selRect.setAttribute('fill', 'rgba(59,130,246,0.08)');
             _selRect.setAttribute('stroke', 'rgba(59,130,246,0.9)');
@@ -386,10 +394,11 @@ const ReagraphAdapter = {
         if (_isSelecting && _selStart && _selRect) {
           const pt = _getEventPoint(ev);
           if (!pt) return;
-          const x = Math.min(_selStart.x, pt.x);
-          const y = Math.min(_selStart.y, pt.y);
-          const w = Math.abs(pt.x - _selStart.x);
-          const h = Math.abs(pt.y - _selStart.y);
+          const svgPt = clientToSvg(pt);
+          const x = Math.min(_selStart.x, svgPt.x);
+          const y = Math.min(_selStart.y, svgPt.y);
+          const w = Math.abs(svgPt.x - _selStart.x);
+          const h = Math.abs(svgPt.y - _selStart.y);
           try { _selRect.setAttribute('x', String(x)); _selRect.setAttribute('y', String(y)); _selRect.setAttribute('width', String(w)); _selRect.setAttribute('height', String(h)); } catch (e) {}
           return;
         }
@@ -424,6 +433,7 @@ const ReagraphAdapter = {
               const pickedNodes = [];
               nodeMap.forEach((n, id) => {
                 try {
+                  // node screen position in SVG local coords
                   const sx = (n.__renderX || 0) * _scale + _tx;
                   const sy = (n.__renderY || 0) * _scale + _ty;
                   if (sx >= rectBox.x && sx <= rectBox.x + rectBox.w && sy >= rectBox.y && sy <= rectBox.y + rectBox.h) pickedNodes.push(id);
