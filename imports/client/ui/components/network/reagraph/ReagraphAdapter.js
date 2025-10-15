@@ -113,7 +113,7 @@ const ReagraphAdapter = {
         const sx = s.__renderX || 0; const sy = s.__renderY || 0;
         const tx = t.__renderX || 0; const ty = t.__renderY || 0;
         line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
-        line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(0,0,0,0.2)');
+        line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)');
         line.setAttribute('stroke-width', (edge.attrs && edge.attrs.width) || 1);
         line.dataset.id = edge.id;
         svg.appendChild(line);
@@ -124,8 +124,11 @@ const ReagraphAdapter = {
         const r = (node.attrs && (node.attrs.size || node.attrs.weight)) ? Math.max(3, (node.attrs.size || node.attrs.weight) / 4) : 6;
         const circ = document.createElementNS(svgNS, 'circle');
         circ.setAttribute('cx', cx); circ.setAttribute('cy', cy); circ.setAttribute('r', r);
-        circ.setAttribute('fill', (node.attrs && node.attrs.color) || '#60a5fa');
-        circ.setAttribute('stroke', node.attrs && node.attrs.selected ? 'yellow' : 'rgba(0,0,0,0.1)');
+        // dark node fill by default on light background
+        circ.setAttribute('fill', (node.attrs && node.attrs.color) || '#1f2937');
+        // stroke: red when selected, otherwise subtle dark outline
+        circ.setAttribute('stroke', node.attrs && node.attrs.selected ? '#ef4444' : 'rgba(31,41,55,0.15)');
+        circ.setAttribute('stroke-width', node.attrs && node.attrs.selected ? 2 : 0.5);
         circ.setAttribute('data-id', node.id);
         circ.style.cursor = 'pointer';
         circ.addEventListener('click', (ev) => {

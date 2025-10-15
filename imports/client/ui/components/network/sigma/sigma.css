@@ -1,24 +1,28 @@
-/* Minimal Sigma container styling for GPU-friendly rendering */
+/* Minimal Sigma container styling — light theme */
 .sigma-container {
   width: 100%;
   height: 100%;
   position: relative;
-  /* let the canvas be GPU composited */
   transform: translateZ(0);
   will-change: transform;
-  background: #0f1720; /* subtle dark background */
+  background: #f7faf9; /* light/whitish background */
 }
 
 .sigma-container .sigma-label {
   font-family: Inter, Roboto, Arial, sans-serif;
   font-size: 12px;
-  color: rgba(255,255,255,0.85);
+  color: rgba(17,24,39,0.9); /* dark label color */
 }
 
-/* simple node edge defaults (can be overridden by adapter node attributes) */
+/* simple node/edge defaults (can be overridden by adapter node attributes) */
 .sigma-node-default {
-  fill: #60a5fa;
+  fill: #1f2937; /* dark node color */
 }
 .sigma-edge-default {
-  stroke: rgba(255,255,255,0.12);
+  stroke: rgba(31,41,55,0.6); /* darker edge stroke */
+}
+
+.sigma-node-selected {
+  stroke: #ef4444; /* red-ish selected outline */
+  stroke-width: 2px;
 }
