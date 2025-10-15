@@ -129,66 +129,92 @@ const ReagraphAdapter = {
 
       // edges
       edgeMap.forEach(edge => {
-        const s = nodeMap.get(edge.source);
-        const t = nodeMap.get(edge.target);
-        if (!s || !t) return;
-        const line = document.createElementNS(svgNS, 'line');
-        const sx = s.__renderX || 0; const sy = s.__renderY || 0;
-        const tx = t.__renderX || 0; const ty = t.__renderY || 0;
-        line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
-        line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)');
-        line.setAttribute('stroke-width', (edge.attrs && edge.attrs.width) || 1);
-        line.dataset.id = edge.id;
-        line.style.cursor = 'pointer';
-        // edge click toggles selection; stop propagation to avoid background click clearing
-        line.addEventListener('click', (ev) => {
+        try {
+          // respect timeline/hidden attribute: skip drawing edges marked hidden
+          if (edge && edge.attrs && edge.attrs.hidden) return;
+          const s = nodeMap.get(edge.source);
+          const t = nodeMap.get(edge.target);
+          if (!s || !t) return;
+          // if either endpoint is hidden, skip rendering this edge
+          if ((s.attrs && s.attrs.hidden) || (t.attrs && t.attrs.hidden)) return;
+          const line = document.createElementNS(svgNS, 'line');
+          const sx = s.__renderX || 0; const sy = s.__renderY || 0;
+          const tx = t.__renderX || 0; const ty = t.__renderY || 0;
+          line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
+          line.setAttribute('stroke', (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)');
+          line.setAttribute('stroke-width', (edge.attrs && edge.attrs.width) || 1);
+          line.dataset.id = edge.id;
+          line.style.cursor = 'pointer';
+          // Append the visible line first
+          viewport.appendChild(line);
+          // Create an invisible but pointer-sensitive hit line on top to widen click area
           try {
-            ev.stopPropagation();
-            // toggle selection state locally
-            try {
-              const cur = edge.attrs && edge.attrs.selected;
-              if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
-              // mark local origin and notify SelectionManager
-              const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
-              const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
-              try { _localSelKeys.add(k); } catch (e) {}
-              try { if (SelectionManager) { if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
-            } catch (e) {}
-            try { render(); } catch (e) {}
+            const hit = document.createElementNS(svgNS, 'line');
+            hit.setAttribute('x1', sx); hit.setAttribute('y1', sy); hit.setAttribute('x2', tx); hit.setAttribute('y2', ty);
+            // thicker stroke for hit testing, transparent so it doesn't show
+            const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
+            hit.setAttribute('stroke', 'transparent');
+            hit.setAttribute('stroke-width', hitWidth);
+            // ensure pointer events register on the stroke
+            hit.style.pointerEvents = 'stroke';
+            hit.dataset.id = edge.id;
+            hit.style.cursor = 'pointer';
+            // edge click toggles selection via the hit area; stop propagation to avoid background click clearing
+            hit.addEventListener('click', (ev) => {
+              try {
+                try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
+                ev.stopPropagation();
+                // toggle selection state locally
+                try {
+                  const cur = edge.attrs && edge.attrs.selected;
+                  if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
+                  // mark local origin and notify SelectionManager
+                  const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
+                  const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
+                  try { _localSelKeys.add(k); } catch (e) {}
+                  try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+                } catch (e) {}
+                try { render(); } catch (e) {}
+              } catch (e) {}
+            });
+            viewport.appendChild(hit);
           } catch (e) {}
-        });
-        viewport.appendChild(line);
+        } catch (e) {}
       });
       // nodes
       nodeMap.forEach(node => {
-        const cx = node.__renderX || 0; const cy = node.__renderY || 0;
+        try {
+          // Respect hidden attribute: skip rendering nodes marked hidden
+          if (node && node.attrs && node.attrs.hidden) return;
+          const cx = node.__renderX || 0; const cy = node.__renderY || 0;
           // larger default radius and stronger scaling from weight/size
           const r = (node.attrs && (node.attrs.size || node.attrs.weight)) ? Math.max(4, (node.attrs.size || node.attrs.weight) / 2) : 10;
-        const circ = document.createElementNS(svgNS, 'circle');
-        circ.setAttribute('cx', cx); circ.setAttribute('cy', cy); circ.setAttribute('r', r);
-        // dark node fill by default on light background
-        circ.setAttribute('fill', (node.attrs && node.attrs.color) || '#1f2937');
-        // stroke: red when selected, otherwise subtle dark outline
-        circ.setAttribute('stroke', node.attrs && node.attrs.selected ? '#ef4444' : 'rgba(31,41,55,0.15)');
-        circ.setAttribute('stroke-width', node.attrs && node.attrs.selected ? 2 : 0.5);
-        circ.setAttribute('data-id', node.id);
-        circ.style.cursor = 'pointer';
-        circ.addEventListener('click', (ev) => {
-          try {
-            ev.stopPropagation();
-            // toggle selection locally
+          const circ = document.createElementNS(svgNS, 'circle');
+          circ.setAttribute('cx', cx); circ.setAttribute('cy', cy); circ.setAttribute('r', r);
+          // dark node fill by default on light background
+          circ.setAttribute('fill', (node.attrs && node.attrs.color) || '#1f2937');
+          // stroke: red when selected, otherwise subtle dark outline
+          circ.setAttribute('stroke', node.attrs && node.attrs.selected ? '#ef4444' : 'rgba(31,41,55,0.15)');
+          circ.setAttribute('stroke-width', node.attrs && node.attrs.selected ? 2 : 0.5);
+          circ.setAttribute('data-id', node.id);
+          circ.style.cursor = 'pointer';
+          circ.addEventListener('click', (ev) => {
             try {
-              const cur = node.attrs && node.attrs.selected;
-              if (cur) { if (node.attrs) delete node.attrs.selected; } else { if (!node.attrs) node.attrs = {}; node.attrs.selected = true; }
-              const j = { data: { id: node.id } };
-              const k = SelectionManager ? SelectionManager.canonicalKey(j) : `node:${node.id}`;
-              try { _localSelKeys.add(k); } catch (e) {}
-              try { if (SelectionManager) { if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+              try { console.debug && console.debug('ReagraphAdapter: node click', { nodeId: node.id, event: ev }); } catch (e) {}
+              ev.stopPropagation();
+              // toggle selection locally
+              try {
+                const cur = node.attrs && node.attrs.selected;
+                if (cur) { if (node.attrs) delete node.attrs.selected; } else { if (!node.attrs) node.attrs = {}; node.attrs.selected = true; }
+                const j = { data: { id: node.id } };
+                const k = SelectionManager ? SelectionManager.canonicalKey(j) : `node:${node.id}`;
+                try { _localSelKeys.add(k); } catch (e) {}
+                try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
+              } catch (e) {}
+              try { render(); } catch (e) {}
             } catch (e) {}
-            try { render(); } catch (e) {}
-          } catch (e) {}
-        });
-        viewport.appendChild(circ);
+          });
+          viewport.appendChild(circ);
         // render label if present (use _vizLabel or label fields)
         try {
           const label = (node.attrs && (node.attrs._vizLabel || node.attrs.label || node.attrs.name)) || null;
@@ -204,6 +230,7 @@ const ReagraphAdapter = {
             txt.textContent = String(label);
             viewport.appendChild(txt);
           }
+        } catch (e) {}
         } catch (e) {}
       });
       // re-apply transform after rendering
@@ -322,7 +349,7 @@ const ReagraphAdapter = {
             if (typeof predicate === 'function') return ids.filter(i => predicate(makeNodeWrapper(i))).map(i => makeNodeWrapper(i));
             if (typeof predicate === 'string' && predicate.startsWith('.')) {
               const cls = predicate.slice(1);
-              return ids.filter(i => { const n = nodeMap.get(i); if (!n) return false; if (cls === 'selected') return !!n.attrs.selected; return false; }).map(i => makeNodeWrapper(i));
+              return ids.filter(i => { const n = nodeMap.get(i); if (!n) return false; if (cls === 'selected') return !!(n.attrs && n.attrs.selected); if (cls === 'hidden') return !!(n.attrs && n.attrs.hidden); return false; }).map(i => makeNodeWrapper(i));
             }
             return [];
           }
@@ -340,12 +367,76 @@ const ReagraphAdapter = {
           }
         };
       },
-      elements() { return { nodes: this.nodes(), edges: this.edges() }; },
+      elements() {
+        // build arrays of wrappers
+        const nodeArr = [];
+        const edgeArr = [];
+        nodeMap.forEach((n, id) => nodeArr.push(makeNodeWrapper(id)));
+        edgeMap.forEach((e, id) => edgeArr.push(makeEdgeWrapper(id)));
+        const all = nodeArr.concat(edgeArr);
+        return {
+          length: all.length,
+          toArray: () => all,
+          forEach: (fn) => all.forEach(fn),
+          map: (fn) => all.map(fn),
+          filter: (pred) => all.filter(pred),
+          select: () => { all.forEach(w => { try { if (typeof w.select === 'function') w.select(); else if (typeof w.addClass === 'function') w.addClass('selected'); } catch (e) {} }); },
+          unselect: () => { all.forEach(w => { try { if (typeof w.unselect === 'function') w.unselect(); else if (typeof w.removeClass === 'function') w.removeClass('selected'); } catch (e) {} }); },
+          data: (k, v) => {
+            if (k === 'selected') { if (v) return this.select(); return this.unselect(); }
+            // generic set on attrs where possible: update underlying maps
+            all.forEach(w => {
+              try {
+                const j = w.json && w.json();
+                if (j && j.data && typeof j.data.id !== 'undefined') {
+                  const id = j.data.id;
+                  // try node map first
+                  if (nodeMap.has(id)) {
+                    const n = nodeMap.get(id); if (!n.attrs) n.attrs = {}; n.attrs[k] = v;
+                  } else if (edgeMap.has(id)) {
+                    const e = edgeMap.get(id); if (!e.attrs) e.attrs = {}; e.attrs[k] = v;
+                  }
+                }
+              } catch (e) {}
+            });
+            try { render(); } catch (e) {}
+          }
+        };
+      },
       // selector helper similar to Cytoscape's $ - supports ':selected', node[id='..'], edge[id='..'] and source/target
       $: function(selector) {
         const nodes = [];
         const edges = [];
         if (!selector) return { toArray: () => [], forEach() {}, map() { return []; }, filter() { return []; }, length: 0 };
+        // support 'node' and 'edge' to return all wrappers
+        if (selector === 'node') {
+          nodeMap.forEach((n, id) => nodes.push(makeNodeWrapper(id)));
+          const arrN = nodes;
+          return {
+            length: arrN.length,
+            toArray: () => arrN,
+            forEach: (fn) => arrN.forEach(fn),
+            map: (fn) => arrN.map(fn),
+            filter: (pred) => (Array.isArray(arrN) ? arrN.filter(pred) : []),
+            select: () => { arrN.forEach(w => { try { if (typeof w.select === 'function') w.select(); else if (typeof w.addClass === 'function') w.addClass('selected'); } catch (e) {} }); },
+            unselect: () => { arrN.forEach(w => { try { if (typeof w.unselect === 'function') w.unselect(); else if (typeof w.removeClass === 'function') w.removeClass('selected'); } catch (e) {} }); },
+            data: (k, v) => { if (k === 'selected') { if (v) return this.select(); return this.unselect(); } }
+          };
+        }
+        if (selector === 'edge') {
+          edgeMap.forEach((e, id) => edges.push(makeEdgeWrapper(id)));
+          const arrE = edges;
+          return {
+            length: arrE.length,
+            toArray: () => arrE,
+            forEach: (fn) => arrE.forEach(fn),
+            map: (fn) => arrE.map(fn),
+            filter: (pred) => (Array.isArray(arrE) ? arrE.filter(pred) : []),
+            select: () => { arrE.forEach(w => { try { if (typeof w.select === 'function') w.select(); else if (typeof w.addClass === 'function') w.addClass('selected'); } catch (e) {} }); },
+            unselect: () => { arrE.forEach(w => { try { if (typeof w.unselect === 'function') w.unselect(); else if (typeof w.removeClass === 'function') w.removeClass('selected'); } catch (e) {} }); },
+            data: (k, v) => { if (k === 'selected') { if (v) return this.select(); return this.unselect(); } }
+          };
+        }
         if (selector === ':selected') {
           nodeMap.forEach((n, id) => { if (n.attrs && n.attrs.selected) nodes.push(makeNodeWrapper(id)); });
           edgeMap.forEach((e, id) => { if (e.attrs && e.attrs.selected) edges.push(makeEdgeWrapper(id)); });
@@ -384,19 +475,41 @@ const ReagraphAdapter = {
         (elementsToRemove || []).forEach(el => { try { const id = el && el.data && el.data.id; if (id && nodeMap.has(id)) nodeMap.delete(id); } catch (e) {} });
         render();
       },
-      filter(fn) { try { return Array.from(nodeMap.values()).filter(n => fn({ json: () => ({ data: n.attrs }) })); } catch (e) { return []; } },
+      filter(predicate) {
+        try {
+          // selector string -> delegate to $ and return array of wrappers
+          if (typeof predicate === 'string') {
+            const res = this.$(predicate)
+            if (res && typeof res.toArray === 'function') return res.toArray()
+            // fallback: ensure an array
+            return Array.isArray(res) ? res : (res ? (res.map ? res.map(x=>x) : []) : [])
+          }
+          // function predicate -> call with wrapper objects
+          if (typeof predicate === 'function') {
+            const out = []
+            nodeMap.forEach((n, id) => { try { const w = makeNodeWrapper(id); if (predicate(w)) out.push(w); } catch (e) {} });
+            edgeMap.forEach((e, id) => { try { const w = makeEdgeWrapper(id); if (predicate(w)) out.push(w); } catch (e) {} });
+            return out
+          }
+          return []
+        } catch (e) { return []; }
+      },
       destroy() { try { container.removeChild(svg); } catch (e) {} }
     };
 
     function makeNodeWrapper(id) {
       return {
         id: () => id,
-        data: () => ({ ... (nodeMap.get(id) && nodeMap.get(id).attrs) }),
+        data: (k) => {
+          const obj = { ... (nodeMap.get(id) && nodeMap.get(id).attrs) };
+          if (typeof k === 'undefined') return obj;
+          return obj ? obj[k] : undefined;
+        },
         json: () => ({ data: { ... (nodeMap.get(id) && nodeMap.get(id).attrs) } }),
         isNode: () => true,
-        hasClass: (cls) => { if (cls === 'selected') return !!(nodeMap.get(id) && nodeMap.get(id).attrs.selected); return false; },
-        addClass: (cls) => { if (cls === 'selected') { const n = nodeMap.get(id); if (n) { n.attrs.selected = true; render(); } } },
-        removeClass: (cls) => { if (cls === 'selected') { const n = nodeMap.get(id); if (n) { delete n.attrs.selected; render(); } } },
+        hasClass: (cls) => { const n = nodeMap.get(id); if (!n) return false; if (cls === 'selected') return !!(n.attrs && n.attrs.selected); if (cls === 'hidden') return !!(n.attrs && n.attrs.hidden); return false; },
+        addClass: (cls) => { const n = nodeMap.get(id); if (!n) return; if (!n.attrs) n.attrs = {}; if (cls === 'selected') { n.attrs.selected = true; render(); } if (cls === 'hidden') { n.attrs.hidden = true; render(); } },
+        removeClass: (cls) => { const n = nodeMap.get(id); if (!n || !n.attrs) return; if (cls === 'selected') { delete n.attrs.selected; render(); } if (cls === 'hidden') { delete n.attrs.hidden; render(); } },
         select: () => adapter.select(id),
         unselect: () => adapter.unselect(id)
       };
@@ -405,13 +518,18 @@ const ReagraphAdapter = {
     function makeEdgeWrapper(id) {
       return {
         id: () => id,
-        data: () => ({ ...(edgeMap.get(id) && edgeMap.get(id).attrs) }),
+        data: (k) => {
+          const obj = { ...(edgeMap.get(id) && edgeMap.get(id).attrs) };
+          if (typeof k === 'undefined') return obj;
+          return obj ? obj[k] : undefined;
+        },
         json: () => ({ data: { ...(edgeMap.get(id) && edgeMap.get(id).attrs) } }),
         isNode: () => false,
         source: () => ({ id: () => (edgeMap.get(id) && edgeMap.get(id).source) }),
         target: () => ({ id: () => (edgeMap.get(id) && edgeMap.get(id).target) }),
-        hasClass: () => false,
-        addClass: () => {}, removeClass: () => {}
+        hasClass: (cls) => { const e = edgeMap.get(id); if (!e) return false; if (cls === 'hidden') return !!(e.attrs && e.attrs.hidden); if (cls === 'selected') return !!(e.attrs && e.attrs.selected); return false; },
+        addClass: (cls) => { const e = edgeMap.get(id); if (!e) return; if (!e.attrs) e.attrs = {}; if (cls === 'hidden') { e.attrs.hidden = true; render(); } if (cls === 'selected') { e.attrs.selected = true; render(); } },
+        removeClass: (cls) => { const e = edgeMap.get(id); if (!e || !e.attrs) return; if (cls === 'hidden') { delete e.attrs.hidden; render(); } if (cls === 'selected') { delete e.attrs.selected; render(); } }
       };
     }
 
@@ -447,6 +565,7 @@ const ReagraphAdapter = {
         // when an element is selected elsewhere, apply visual selection here
         SelectionManager.on('select', ({ element } = {}) => {
           try {
+            try { console.debug && console.debug('ReagraphAdapter: SelectionManager.select', element); } catch (e) {}
             if (!element || !element.data) return;
             const data = element.data;
             const key = SelectionManager.canonicalKey(element);
@@ -467,6 +586,7 @@ const ReagraphAdapter = {
         });
         SelectionManager.on('unselect', ({ element } = {}) => {
           try {
+            try { console.debug && console.debug('ReagraphAdapter: SelectionManager.unselect', element); } catch (e) {}
             if (!element || !element.data) return;
             const data = element.data;
             const key = SelectionManager.canonicalKey(element);
@@ -483,6 +603,7 @@ const ReagraphAdapter = {
         });
         SelectionManager.on('clear', () => {
           try {
+            try { console.debug && console.debug('ReagraphAdapter: SelectionManager.clear'); } catch (e) {}
             // if local-origin keys exist, clear them (they were used to avoid echoes)
             try { _localSelKeys.clear(); } catch (e) {}
             nodeMap.forEach(n => { if (n && n.attrs && n.attrs.selected) delete n.attrs.selected; });

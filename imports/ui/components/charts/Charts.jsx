@@ -44,6 +44,49 @@ class Charts extends React.Component {
     unselectElement: PropTypes.func
   }
 
+  // Normalize a collection returned by cy.filter/nodes/edges into a plain
+  // JavaScript array of element wrappers. Handles:
+  // - Cytoscape collections (have toArray())
+  // - Adapter collections (objects with forEach/map/filter and length)
+  // - Plain arrays
+  // - Objects (value map)
+  static normalizeElements(coll) {
+    if (!coll) return []
+    // Plain JS array
+    if (Array.isArray(coll)) return coll
+    // Cytoscape collections expose toArray()
+    try {
+      if (typeof coll.toArray === 'function') {
+        const arr = coll.toArray()
+        if (Array.isArray(arr)) return arr
+      }
+    } catch (e) {}
+    // Objects with forEach (like Reagraph.nodes() result)
+    try {
+      if (typeof coll.forEach === 'function') {
+        const out = []
+        // If numeric indices are present, prefer indexed access
+        if (coll.length != null && typeof coll[0] !== 'undefined') {
+          for (let i = 0; i < coll.length; i++) {
+            try { if (typeof coll[i] !== 'undefined') out.push(coll[i]) } catch (e) {}
+          }
+          if (out.length) return out
+        }
+        // Otherwise use forEach collector
+        try { coll.forEach((el) => out.push(el)); return out } catch (e) {}
+      }
+    } catch (e) {}
+    // Support map-like objects
+    try {
+      if (typeof coll.map === 'function') return coll.map(x => x)
+    } catch (e) {}
+    // Plain object -> values
+    try {
+      if (typeof coll === 'object') return Object.values(coll)
+    } catch (e) {}
+    return []
+  }
+
   selectElement = (el) => {
     if (!el) return
     el.data.selected = true
@@ -76,11 +119,13 @@ class Charts extends React.Component {
       const id = payload && (payload.id != null ? payload.id : payload.name)
       const target = String(id)
       const { cy } = this.props.ui
-      const cyNodes = cy.filter('node')
+      const cyNodesRaw = cy.filter ? cy.filter('node') : []
+      const cyNodes = Charts.normalizeElements(cyNodesRaw)
       const matches = []
       for (let i = 0; i < cyNodes.length; i++) {
         const cyEl = cyNodes[i]
-        const w = Number(cyEl && cyEl.data && cyEl.data('weight'))
+        const rawW = (cyEl && typeof cyEl.data === 'function') ? cyEl.data('weight') : (cyEl && cyEl.json && cyEl.json().data && cyEl.json().data.weight)
+        const w = Number(rawW)
         if (!isFinite(w)) continue
         const bin = String(Math.round(Math.pow(w, 2)))
         if (bin === target) matches.push(cyEl.json())
@@ -94,7 +139,8 @@ class Charts extends React.Component {
       const id = payload && (payload.id != null ? payload.id : payload.name)
       const target = String(id)
       const { cy } = this.props.ui
-      const cyEdges = cy.filter('edge')
+      const cyEdgesRaw = cy.filter ? cy.filter('edge') : []
+      const cyEdges = Charts.normalizeElements(cyEdgesRaw)
       const matches = []
       for (let i = 0; i < cyEdges.length; i++) {
         const cyEl = cyEdges[i]
@@ -157,9 +203,11 @@ class Charts extends React.Component {
     let resweigEdges = []
     try {
       // In Cytoscape v3, internal _private.initrender may not exist; compute whenever cy is available
-      if (cy && typeof cy.nodes === 'function' && typeof cy.filter === 'function') {
-        const cyNodes = cy.filter('node')
-        const cyEdges = cy.filter('edge')
+      if (cy && (typeof cy.nodes === 'function' || typeof cy.filter === 'function')) {
+        const cyNodesRaw = (typeof cy.filter === 'function') ? cy.filter('node') : (typeof cy.nodes === 'function' ? cy.nodes() : [])
+        const cyEdgesRaw = (typeof cy.filter === 'function') ? cy.filter('edge') : (typeof cy.edges === 'function' ? cy.edges() : [])
+        const cyNodes = Charts.normalizeElements(cyNodesRaw)
+        const cyEdges = Charts.normalizeElements(cyEdgesRaw)
         for (let i = 0; i < cyNodes.length; i++) {
           const el = cyNodes[i]
           const rawW = (el && typeof el.data === 'function') ? el.data('weight') : (el && el.json && el.json().data && el.json().data.weight)
