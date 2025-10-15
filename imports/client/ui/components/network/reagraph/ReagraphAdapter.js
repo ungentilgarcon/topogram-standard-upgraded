@@ -480,16 +480,49 @@ const ReagraphAdapter = {
           // selector string -> delegate to $ and return array of wrappers
           if (typeof predicate === 'string') {
             const res = this.$(predicate)
-            if (res && typeof res.toArray === 'function') return res.toArray()
-            // fallback: ensure an array
-            return Array.isArray(res) ? res : (res ? (res.map ? res.map(x=>x) : []) : [])
+            const arr = (res && typeof res.toArray === 'function') ? res.toArray() : (Array.isArray(res) ? res : [])
+            const coll = {
+              length: arr.length,
+              toArray: () => arr,
+              forEach: (fn) => arr.forEach(fn),
+              map: (fn) => arr.map(fn),
+              filter: (pred) => arr.filter(pred),
+              select: () => { arr.forEach(w => { try { if (typeof w.select === 'function') w.select(); else if (typeof w.addClass === 'function') w.addClass('selected'); } catch (e) {} }); },
+              unselect: () => { arr.forEach(w => { try { if (typeof w.unselect === 'function') w.unselect(); else if (typeof w.removeClass === 'function') w.removeClass('selected'); } catch (e) {} }); },
+              data: (k, v) => {
+                if (typeof k === 'undefined') return arr.map(w => (w.json && w.json().data) || (w.data && (typeof w.data === 'function' ? w.data() : w.data)));
+                if (k === 'selected') { if (v) return coll.select(); return coll.unselect(); }
+                arr.forEach(w => {
+                  try {
+                    const j = w.json && w.json();
+                    if (j && j.data && typeof j.data.id !== 'undefined') {
+                      const id = j.data.id;
+                      if (nodeMap.has(id)) { const n = nodeMap.get(id); if (!n.attrs) n.attrs = {}; n.attrs[k] = v; }
+                      else if (edgeMap.has(id)) { const e = edgeMap.get(id); if (!e.attrs) e.attrs = {}; e.attrs[k] = v; }
+                    }
+                  } catch (e) {}
+                });
+                try { render(); } catch (e) {}
+              }
+            }
+            return coll
           }
           // function predicate -> call with wrapper objects
           if (typeof predicate === 'function') {
             const out = []
             nodeMap.forEach((n, id) => { try { const w = makeNodeWrapper(id); if (predicate(w)) out.push(w); } catch (e) {} });
             edgeMap.forEach((e, id) => { try { const w = makeEdgeWrapper(id); if (predicate(w)) out.push(w); } catch (e) {} });
-            return out
+            const coll2 = {
+              length: out.length,
+              toArray: () => out,
+              forEach: (fn) => out.forEach(fn),
+              map: (fn) => out.map(fn),
+              filter: (pred) => out.filter(pred),
+              select: () => { out.forEach(w => { try { if (typeof w.select === 'function') w.select(); else if (typeof w.addClass === 'function') w.addClass('selected'); } catch (e) {} }); },
+              unselect: () => { out.forEach(w => { try { if (typeof w.unselect === 'function') w.unselect(); else if (typeof w.removeClass === 'function') w.removeClass('selected'); } catch (e) {} }); },
+              data: (k, v) => { if (k === 'selected') { if (v) return coll2.select(); return coll2.unselect(); } }
+            }
+            return coll2
           }
           return []
         } catch (e) { return []; }
