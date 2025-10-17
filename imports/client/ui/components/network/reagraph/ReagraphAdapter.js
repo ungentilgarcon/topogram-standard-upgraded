@@ -41,6 +41,36 @@ const ReagraphAdapter = {
     const edgeMap = new Map();
     edges.forEach(e => { edgeMap.set(e.id || `${e.source}-${e.target}`, { id: e.id || `${e.source}-${e.target}`, source: e.source, target: e.target, attrs: e.attrs || {} }); });
 
+    // Compute node degrees from edges so we can derive sensible default sizes
+    const degreeMap = new Map();
+    edgeMap.forEach(e => {
+      try {
+        const s = String(e.source); const t = String(e.target);
+        degreeMap.set(s, (degreeMap.get(s) || 0) + 1);
+        degreeMap.set(t, (degreeMap.get(t) || 0) + 1);
+      } catch (err) {}
+    });
+    // Ensure every node has a numeric 'size' attribute (diameter-like). Priority:
+    // 1) explicit attrs.size
+    // 2) attrs.weight (numeric)
+    // 3) computed from degree (8 px base + 4px per link)
+    nodeMap.forEach(n => {
+      try {
+        const attrs = n.attrs || {};
+        if (typeof attrs.size === 'undefined' || attrs.size === null) {
+          const w = (typeof attrs.weight !== 'undefined' && attrs.weight !== null) ? Number(attrs.weight) : null;
+          if (w != null && !Number.isNaN(w)) {
+            attrs.size = Math.max(8, Math.min(48, Math.floor(w)));
+          } else {
+            const deg = degreeMap.get(String(n.id)) || 0;
+            attrs.size = Math.max(8, Math.min(48, 8 + deg * 4));
+          }
+        }
+        // persist possibly updated attrs back
+        n.attrs = attrs;
+      } catch (e) {}
+    });
+
     // SelectionManager integration (optional)
     let SelectionManager = null;
     try {
@@ -56,10 +86,75 @@ const ReagraphAdapter = {
     svg.style.width = '100%';
     svg.style.height = '100%';
     svg.setAttribute('preserveAspectRatio', 'xMidYMid meet');
+    // defs for reusable markers (arrowheads)
+    const defs = document.createElementNS(svgNS, 'defs');
+    try {
+      const marker = document.createElementNS(svgNS, 'marker');
+      marker.setAttribute('id', 'reagraph-arrow');
+      marker.setAttribute('markerWidth', '8');
+      marker.setAttribute('markerHeight', '8');
+      marker.setAttribute('refX', '6');
+      marker.setAttribute('refY', '3');
+      marker.setAttribute('orient', 'auto');
+      marker.setAttribute('markerUnits', 'strokeWidth');
+      // triangle path that inherits currentColor for flexible coloring
+      const poly = document.createElementNS(svgNS, 'polygon');
+      poly.setAttribute('points', '0 0, 8 3, 0 6');
+      poly.setAttribute('fill', 'currentColor');
+      poly.setAttribute('stroke', 'none');
+      marker.appendChild(poly);
+      defs.appendChild(marker);
+    } catch (e) {}
+    svg.appendChild(defs);
     container.appendChild(svg);
     // viewport group that will be transformed for pan/zoom
     const viewport = document.createElementNS(svgNS, 'g');
     svg.appendChild(viewport);
+
+    // helper to create per-edge markers sized and colored for visibility
+    const _markerCache = new Map();
+    function createEdgeMarker(edgeId, color, strokeW) {
+      try {
+        const key = String(edgeId);
+        const existing = _markerCache.get(key);
+        if (existing) return existing;
+        const m = document.createElementNS(svgNS, 'marker');
+        const size = Math.max(8, Math.round((strokeW || 1) * 6));
+        m.setAttribute('id', `reagraph-arrow-${key}`);
+        m.setAttribute('markerWidth', String(size));
+        m.setAttribute('markerHeight', String(size));
+        m.setAttribute('refX', String(Math.max(6, Math.round(size * 0.75))));
+        m.setAttribute('refY', String(Math.round(size / 2)));
+        m.setAttribute('orient', 'auto');
+        m.setAttribute('markerUnits', 'strokeWidth');
+        const poly = document.createElementNS(svgNS, 'polygon');
+        // create a slightly larger triangle for visibility
+        poly.setAttribute('points', `0 0, ${size} ${Math.round(size/2)}, 0 ${size}`);
+        poly.setAttribute('fill', color || 'currentColor');
+        poly.setAttribute('stroke', 'none');
+        m.appendChild(poly);
+        try { defs.appendChild(m); } catch (e) {}
+        _markerCache.set(key, m);
+        return m;
+      } catch (e) { return null; }
+    }
+    // helper to create an arrow polygon positioned at x,y rotated by angleDeg
+    function createArrowPolygon(edgeId, color, size, x, y, angleDeg) {
+      try {
+        const key = `arrow-${edgeId}`;
+        const poly = document.createElementNS(svgNS, 'polygon');
+        const h = Math.max(6, Math.round(size || 10));
+        // triangle centered at origin, pointing to +X, will be transformed
+        const points = `0 ${-Math.round(h/2)} ${Math.round(h)} 0 0 ${Math.round(h/2)}`;
+        poly.setAttribute('points', points);
+        poly.setAttribute('fill', color || '#0f172a');
+        poly.setAttribute('stroke', 'none');
+        poly.setAttribute('data-edge-arrow', String(edgeId));
+        poly.setAttribute('transform', `translate(${x},${y}) rotate(${angleDeg})`);
+        poly.setAttribute('pointer-events', 'none');
+        return poly;
+      } catch (e) { return null; }
+    }
 
     // transform state
     let _scale = 1;
@@ -104,6 +199,10 @@ const ReagraphAdapter = {
       // If no numeric positions, assign temporary random positions inside viewport
       if (posList.length === 0) {
         nodeMap.forEach(n => {
+          // preserve previously computed render positions when available to
+          // avoid re-randomizing on every render (which caused jitter on
+          // selection). Only assign random positions when none exist.
+          if (typeof n.__renderX === 'number' && typeof n.__renderY === 'number') return;
           n.__renderX = Math.random() * (w * 0.8) + (w * 0.1);
           n.__renderY = Math.random() * (h * 0.8) + (h * 0.1);
         });
@@ -119,8 +218,12 @@ const ReagraphAdapter = {
           const pad = 20; // pixels
           const scale = Math.min((w - pad*2) / dx, (h - pad*2) / dy);
           nodeMap.forEach(n => {
-            const nx = (typeof n.attrs.x === 'number') ? (n.attrs.x - minX) * scale + pad : Math.random() * (w - pad*2) + pad;
-            const ny = (typeof n.attrs.y === 'number') ? (n.attrs.y - minY) * scale + pad : Math.random() * (h - pad*2) + pad;
+            // If the node has numeric attrs.x/attrs.y, map them into viewport
+            // coordinates. Otherwise, preserve any existing __renderX/__renderY
+            // to avoid moving nodes on trivial attribute changes (like
+            // selection). Only create a random fallback if none exists yet.
+            const nx = (typeof n.attrs.x === 'number') ? (n.attrs.x - minX) * scale + pad : (typeof n.__renderX === 'number' ? n.__renderX : Math.random() * (w - pad*2) + pad);
+            const ny = (typeof n.attrs.y === 'number') ? (n.attrs.y - minY) * scale + pad : (typeof n.__renderY === 'number' ? n.__renderY : Math.random() * (h - pad*2) + pad);
             n.__renderX = nx;
             n.__renderY = ny;
           });
@@ -129,18 +232,40 @@ const ReagraphAdapter = {
 
   // edges
   const loopElements = [];
-      // group edges by ordered pair source->target so parallel edges can be rendered with offsets
+  const arrowElements = [];
+      // group edges by unordered pair so reciprocal edges (A->B and B->A)
+      // are considered together and can be curved to opposite sides for
+      // visual differentiation
       const edgeGroups = new Map();
       edgeMap.forEach((edge, id) => {
         try {
-          const key = `${edge.source}>>>${edge.target}`;
+          const a = String(edge.source);
+          const b = String(edge.target);
+          const key = a < b ? `${a}<>${b}` : `${b}<>${a}`;
           if (!edgeGroups.has(key)) edgeGroups.set(key, []);
           edgeGroups.get(key).push(edge);
         } catch (e) {}
       });
-      // iterate groups and render each edge with an index so parallel edges get curved offsets
+      // iterate groups and render each edge; if there are multiple edges
+      // between the same unordered pair, render curved offsets. For
+      // reciprocal edges, forward edges are curved to one side, backward
+      // edges to the other side.
       edgeGroups.forEach((edgesArr, groupKey) => {
-        edgesArr.forEach((edge, idx) => {
+        // prepare forward/back sublists based on direction
+        const forward = []; const back = [];
+        edgesArr.forEach(e => { try { if (String(e.source) <= String(e.target)) forward.push(e); else back.push(e); } catch (er) {} });
+        // create an ordered list (forward edges first, then back). Using
+        // the ordered list to compute offsets ensures reciprocal edges
+        // (A->B and B->A) get symmetric, non-zero offsets even when each
+        // directional count is 1.
+        const ordered = forward.concat(back);
+        // helper to get index/count for an edge within the ordered list
+        function dirIndexAndCount(edge) {
+          const idx = ordered.indexOf(edge);
+          return { idx, count: ordered.length, isForward: (String(edge.source) <= String(edge.target)) };
+        }
+        edgesArr.forEach((edge) => {
+          const { idx, count, isForward } = dirIndexAndCount(edge);
         try {
           // respect timeline/hidden attribute: skip drawing edges marked hidden
           if (edge && edge.attrs && edge.attrs.hidden) return;
@@ -160,7 +285,7 @@ const ReagraphAdapter = {
           const baseWidth = (edge.attrs && edge.attrs.width) || 1;
           const strokeWidth = sel ? Math.max(3, Math.round(baseWidth * 2)) : baseWidth;
 
-          if (String(edge.source) === String(edge.target)) {
+            if (String(edge.source) === String(edge.target)) {
             // self-loop: render as a circular arc/path around the node
             const node = nodeMap.get(edge.source);
             const cx = node && (node.__renderX || 0);
@@ -168,12 +293,26 @@ const ReagraphAdapter = {
             // estimate node radius from attrs if available
             const nodeAttrs = node && node.attrs;
             const nodeR = (nodeAttrs && (nodeAttrs.size || nodeAttrs.weight)) ? Math.max(4, (nodeAttrs.size || nodeAttrs.weight) / 2) : 10;
-            // make loops larger so they sit clearly outside the node and labels
-            const loopRadius = Math.max(28, Math.round(nodeR * 3) + 12);
-            // draw an arc path (almost full circle) offset from node center so it doesn't intersect the node or label
-            // position the loop to the top-right of the node by offsetting its center
-            const centerX = cx + nodeR + Math.round(loopRadius * 0.8);
-            const centerY = cy - nodeR - Math.round(loopRadius * 0.4);
+            // Support multiple loops: compute an index and count so each loop can
+            // be offset in radius and angle to avoid exact overlap (like Cytoscape).
+            const loopIdx = (typeof idx === 'number') ? idx : 0;
+            const loopCount = (typeof count === 'number' && count > 0) ? count : 1;
+            // base loop radius and per-loop spacing
+            const baseLoopRadius = Math.max(28, Math.round(nodeR * 3) + 12);
+            // slightly smaller spacing so multiple loops are closer together
+            // tightened further to make adjacent loops nearer each other
+            const loopSpacing = Math.max(4, Math.round(nodeR * 0.5));
+            const loopRadius = baseLoopRadius + loopIdx * loopSpacing;
+            // angle distribution around the node (radians). center the spread
+            // around the top-right quadrant by default, and step per-loop.
+            const angleBase = -Math.PI / 3; // -60deg (upper-right)
+            const angleStep = 0.28; // ~16deg step between loops (tighter)
+            const angle = angleBase + (loopIdx - (loopCount - 1) / 2) * angleStep;
+            // compute loop center offset from node using computed angle
+            // slightly reduce the radial center distance so loops appear closer
+            const centerDist = nodeR + Math.round(loopRadius * 0.55);
+            const centerX = cx + Math.cos(angle) * centerDist;
+            const centerY = cy + Math.sin(angle) * centerDist;
             // compute start point on the node perimeter in the direction of the loop center
             const dirX = centerX - cx;
             const dirY = centerY - cy;
@@ -201,16 +340,42 @@ const ReagraphAdapter = {
             path.setAttribute('stroke-linecap', 'round');
             path.dataset.id = edge.id;
             path.style.cursor = 'pointer';
-            // collect loops to append after nodes so they sit on top of labels
-            loopElements.push({ path, hitD: d, edge });
+            // prepare loop label (use relationship/emoji/title/name when available)
+            try {
+              const labelText = (edge.attrs && (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name)) || null;
+              let labelEl = null;
+              if (labelText) {
+                labelEl = document.createElementNS(svgNS, 'text');
+                labelEl.setAttribute('x', String(centerX));
+                labelEl.setAttribute('y', String(centerY - Math.max(6, loopRadius / 3)));
+                labelEl.setAttribute('fill', '#0f172a');
+                labelEl.setAttribute('font-size', '12');
+                labelEl.setAttribute('text-anchor', 'middle');
+                labelEl.setAttribute('pointer-events', 'none');
+                labelEl.textContent = String(labelText);
+              }
+              // create loop arrow if requested
+              try {
+                const hasArrow = (edge.attrs && (String(edge.attrs.enlightement).toLowerCase() === 'arrow' || edge.attrs.arrow));
+                let arrowEl = null;
+                if (hasArrow) {
+                  const px = startX + (centerX - startX) * 0.33;
+                  const py = startY + (centerY - startY) * 0.33;
+                  const angleDeg = (Math.atan2(centerY - startY, centerX - startX) * 180 / Math.PI);
+                  const size = Math.max(10, Math.round(strokeWidth * 6));
+                  arrowEl = createArrowPolygon(edge.id, strokeColor, size, px, py, angleDeg);
+                }
+                loopElements.push({ path, hitD: d, edge, labelEl, arrowEl });
+              } catch (e) { loopElements.push({ path, hitD: d, edge, labelEl }); }
+            } catch (e) { loopElements.push({ path, hitD: d, edge }); }
             } else {
             // multiple parallel edges: render curved quadratic Bezier paths offset from the center line
             // compute total count for this pair and symmetric offset index
-            const groupKey = `${edge.source}>>>${edge.target}`;
-            const group = edgeGroups.get(groupKey) || [];
-            const count = group.length || 1;
-            const index = idx; // provided by edgesArr.forEach
-            if (count <= 1) {
+            const group = edgesArr || [];
+            const index = idx; // index within directional list
+            // decide whether to curve: if more than one edge exists between
+            // the unordered pair, curve all of them; otherwise keep straight
+            if (group.length <= 1) {
               // single straight line
               const line = document.createElementNS(svgNS, 'line');
               line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
@@ -220,7 +385,38 @@ const ReagraphAdapter = {
               line.setAttribute('stroke-linecap', 'round');
               line.dataset.id = edge.id;
               line.style.cursor = 'pointer';
+              // if edge indicates an arrow, draw a visible polygon arrowhead
+              try {
+                const hasArrow = (edge.attrs && (String(edge.attrs.enlightement).toLowerCase() === 'arrow' || edge.attrs.arrow));
+                  if (hasArrow) {
+                  const dx = tx - sx; const dy = ty - sy; const llen = Math.sqrt(dx*dx + dy*dy) || 1;
+                  const ux = dx / llen; const uy = dy / llen;
+                  const tgtNode = t;
+                  const tgtR = (tgtNode && tgtNode.attrs && (tgtNode.attrs.size || tgtNode.attrs.weight)) ? Math.max(4, (tgtNode.attrs.size || tgtNode.attrs.weight) / 2) : 10;
+                  const size = Math.max(10, Math.round(Math.min(14, strokeWidth * 4)));
+                  const offset = tgtR + Math.max(4, Math.round(size / 3));
+                  const ax = tx - ux * offset; const ay = ty - uy * offset;
+                  const angleDeg = (Math.atan2(uy, ux) * 180 / Math.PI);
+                  const arrow = createArrowPolygon(edge.id, strokeColor, size, ax, ay, angleDeg);
+                  if (arrow) arrowElements.push(arrow);
+                }
+              } catch (e) {}
               viewport.appendChild(line);
+              // label near midpoint, offset slightly perpendicular to avoid node overlap
+              try {
+                const labelText = (edge.attrs && (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name)) || null;
+                if (labelText) {
+                  const dxl = tx - sx; const dyl = ty - sy; const llen = Math.sqrt(dxl*dxl + dyl*dyl) || 1;
+                  const pxl = -dyl / llen; const pyl = dxl / llen;
+                  const midX = (sx + tx) / 2 + pxl * Math.min(12, Math.max(8, strokeWidth*4));
+                  const midY = (sy + ty) / 2 + pyl * Math.min(12, Math.max(8, strokeWidth*4));
+                  const txt = document.createElementNS(svgNS, 'text');
+                  txt.setAttribute('x', String(midX)); txt.setAttribute('y', String(midY));
+                  txt.setAttribute('fill', '#0f172a'); txt.setAttribute('font-size', '12'); txt.setAttribute('text-anchor', 'middle'); txt.setAttribute('pointer-events', 'none');
+                  txt.textContent = String(labelText);
+                  viewport.appendChild(txt);
+                }
+              } catch (e) {}
               try {
                 const hit = document.createElementNS(svgNS, 'line');
                 hit.setAttribute('x1', sx); hit.setAttribute('y1', sy); hit.setAttribute('x2', tx); hit.setAttribute('y2', ty);
@@ -245,7 +441,7 @@ const ReagraphAdapter = {
                 });
                 viewport.appendChild(hit);
               } catch (e) {}
-            } else {
+              } else {
               // curve parameters
               const midX = (sx + tx) / 2;
               const midY = (sy + ty) / 2;
@@ -255,12 +451,24 @@ const ReagraphAdapter = {
               // perpendicular unit vector
               const px = -dy / len;
               const py = dx / len;
-              // spacing between parallel edges: use a larger base and scale with number of parallels
+              // spacing between parallel edges: increase base so curves are visible
+              // at typical viewport scales. Previously this was 18px which can
+              // be too small when nodes are far apart; use 28px as a better
+              // default for clear curvature.
               const baseSpacing = Math.max(18, Math.round(strokeWidth * 8));
               const spreadFactor = 1 + Math.max(0, (count - 1) / 2);
               const spacing = baseSpacing;
-              const offsetIndex = index - (count - 1) / 2;
-              const offset = offsetIndex * spacing * spreadFactor;
+              // compute directional offset: spread edges of same direction
+              // symmetrically around center, and push forward/back to
+              // opposite sides
+              const offsetIndex = (typeof idx === 'number' && typeof count === 'number') ? (idx - (count - 1) / 2) : 0;
+              const dirSign = isForward ? 1 : -1;
+              // If there are an even number of edges, the centered index will be
+              // fractional (e.g. -0.5, +0.5). Multiply those offsets by 2 so a
+              // pair of reciprocal/parallel edges produce symmetric full-step
+              // offsets (-1, +1) making curvature visually apparent.
+              const evenMultiplier = (typeof count === 'number' && (count % 2) === 0) ? 2 : 1;
+              const offset = offsetIndex * spacing * spreadFactor * dirSign * evenMultiplier;
               const cx = midX + px * offset;
               const cy = midY + py * offset;
               const d = `M ${sx} ${sy} Q ${cx} ${cy} ${tx} ${ty}`;
@@ -273,7 +481,39 @@ const ReagraphAdapter = {
               path.setAttribute('stroke-linecap', 'round');
               path.dataset.id = edge.id;
               path.style.cursor = 'pointer';
+              try {
+                const hasArrow = (edge.attrs && (String(edge.attrs.enlightement).toLowerCase() === 'arrow' || edge.attrs.arrow));
+                  if (hasArrow) {
+                  const vx = tx - cx; const vy = ty - cy; const vlen = Math.sqrt(vx*vx + vy*vy) || 1;
+                  const ux = vx / vlen; const uy = vy / vlen;
+                  const tgtNode = t;
+                  const tgtR = (tgtNode && tgtNode.attrs && (tgtNode.attrs.size || tgtNode.attrs.weight)) ? Math.max(4, (tgtNode.attrs.size || tgtNode.attrs.weight) / 2) : 10;
+                  const size = Math.max(10, Math.round(Math.min(14, strokeWidth * 4)));
+                  const offset = tgtR + Math.max(4, Math.round(size / 3));
+                  const ax = tx - ux * offset; const ay = ty - uy * offset;
+                  const angleDeg = (Math.atan2(uy, ux) * 180 / Math.PI);
+                  const arrow = createArrowPolygon(edge.id, strokeColor, size, ax, ay, angleDeg);
+                  if (arrow) arrowElements.push(arrow);
+                }
+              } catch (e) {}
               viewport.appendChild(path);
+              // label positioned at quadratic bezier midpoint (t=0.5) and offset slightly
+              try {
+                const labelText = (edge.attrs && (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name)) || null;
+                if (labelText) {
+                  const midX = 0.25 * sx + 0.5 * cx + 0.25 * tx;
+                  const midY = 0.25 * sy + 0.5 * cy + 0.25 * ty;
+                  const dxl = tx - sx; const dyl = ty - sy; const llen = Math.sqrt(dxl*dxl + dyl*dyl) || 1;
+                  const pxl = -dyl / llen; const pyl = dxl / llen;
+                  const mx = midX + pxl * Math.min(12, Math.max(8, strokeWidth*4));
+                  const my = midY + pyl * Math.min(12, Math.max(8, strokeWidth*4));
+                  const txt = document.createElementNS(svgNS, 'text');
+                  txt.setAttribute('x', String(mx)); txt.setAttribute('y', String(my));
+                  txt.setAttribute('fill', '#0f172a'); txt.setAttribute('font-size', '12'); txt.setAttribute('text-anchor', 'middle'); txt.setAttribute('pointer-events', 'none');
+                  txt.textContent = String(labelText);
+                  viewport.appendChild(txt);
+                }
+              } catch (e) {}
               try {
                 const hit = document.createElementNS(svgNS, 'path');
                 hit.setAttribute('d', d);
@@ -340,8 +580,9 @@ const ReagraphAdapter = {
           });
             // append collected loops after node labels so loops are visible above labels
             try {
-              loopElements.forEach(({ path, hitD, edge }) => {
+              loopElements.forEach(({ path, hitD, edge, labelEl }) => {
                 try { viewport.appendChild(path); } catch (e) {}
+                try { if (labelEl) viewport.appendChild(labelEl); } catch (e) {}
                 try {
                   const hit = document.createElementNS(svgNS, 'path');
                   hit.setAttribute('d', hitD);
@@ -372,6 +613,7 @@ const ReagraphAdapter = {
                 } catch (e) {}
               });
             } catch (e) {}
+            try { arrowElements.forEach(a => { try { viewport.appendChild(a); } catch (e) {} }); } catch (e) {}
           viewport.appendChild(circ);
         // render label if present (use _vizLabel or label fields)
         try {
@@ -580,13 +822,11 @@ const ReagraphAdapter = {
       try {
         // if we just panned, don't treat this as a click to clear selection
         if (_didPan) { try { _didPan = false; } catch (e) {} return; }
-        // mark currently selected elements as local before clearing to prevent echo
-        try {
-          nodeMap.forEach((n, id) => { if (n && n.attrs && n.attrs.selected) { const j = { data: { id } }; const k = SelectionManager ? SelectionManager.canonicalKey(j) : `node:${id}`; _localSelKeys.add(k); } });
-          edgeMap.forEach((e, id) => { if (e && e.attrs && e.attrs.selected) { const j = { data: { id: e.id, source: e.source, target: e.target } }; const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${id}`; _localSelKeys.add(k); } });
-        } catch (e) {}
-        try { if (SelectionManager) SelectionManager.clear(); } catch (e) {}
-        try { adapter.unselectAll(); } catch (e) {}
+        // NOTE: previously background clicks cleared selection. That caused
+        // unintentional deselection when users clicked empty canvas areas.
+        // We intentionally do nothing here so clicking the background does
+        // not change selection. Selection should only change via explicit
+        // interactions (element clicks, selection box, or programmatic calls).
       } catch (e) {}
     });
 
