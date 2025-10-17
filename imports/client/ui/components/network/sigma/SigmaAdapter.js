@@ -13,6 +13,19 @@ try {
   cyElementsToGraphology = null;
 }
 
+  // optional EdgeCurveProgram loaded at runtime (if available)
+  let SigmaAdapter__EdgeCurveProgram = null;
+
+// Attempt to require @sigma/edge-curve at module load time so bundlers
+// pick it up when present. Keep a reference to the raw module; we'll
+// normalize it into a callable program class inside SigmaAdapter.
+let SigmaAdapter__EdgeCurveModule = null;
+try {
+  SigmaAdapter__EdgeCurveModule = require('@sigma/edge-curve');
+} catch (e) {
+  SigmaAdapter__EdgeCurveModule = null;
+}
+
 // SelectionManager integration (optional)
 let SelectionManager = null;
 try {
@@ -29,6 +42,33 @@ function SigmaAdapter(container, elements = [], options = {}) {
     GraphConstructor = gmod && (gmod.Graph || gmod);
     const smod = require('sigma');
     SigmaCtor = smod && (smod.Sigma || smod.default || smod);
+    // try to load optional edge program for curved edges. Be defensive about
+    // different module shapes and only accept it if it looks like a constructor
+    // / callable program class.
+    try {
+      // Prefer the module-level require result (helps bundlers include it).
+      const eprog = SigmaAdapter__EdgeCurveModule || (() => { try { return require('@sigma/edge-curve'); } catch (e) { return null; } })();
+      // Candidate picks: default export, named export, or the module itself
+      let candidate = null;
+      if (eprog) candidate = (eprog.default || eprog.EdgeCurveProgram || eprog);
+      // If candidate is an object with a default, dig one level deeper
+      if (candidate && typeof candidate !== 'function' && candidate.default) candidate = candidate.default;
+      // Only accept if candidate is callable (function/class)
+      if (typeof candidate === 'function') SigmaAdapter__EdgeCurveProgram = candidate;
+      else SigmaAdapter__EdgeCurveProgram = null;
+    } catch (e) {
+      SigmaAdapter__EdgeCurveProgram = null;
+    }
+
+    // Informational: indicate whether the optional curved-edge program was
+    // detected and will be registered with Sigma's edgeProgramClasses.
+    try {
+      if (SigmaAdapter__EdgeCurveProgram) {
+        console.info('SigmaAdapter: @sigma/edge-curve detected and will be registered for curved edges');
+      } else {
+        console.info('SigmaAdapter: @sigma/edge-curve NOT detected; curved edges will fall back to the default edge program');
+      }
+    } catch (e) {}
   } catch (err) {
     console.warn('SigmaAdapter: graphology or sigma not available', err);
     return { impl: 'sigma', noop: true };
@@ -72,6 +112,19 @@ function SigmaAdapter(container, elements = [], options = {}) {
       } catch (e) { attrs.size = attrs.size || 10 }
       if (!graph.hasNode(n.id)) graph.addNode(n.id, attrs);
     });
+    // Ensure node 'label' attribute is set from computed _vizLabel or label/name
+    try {
+      nodes.forEach(n => {
+        try {
+          const attr = n.attrs || {};
+          const nodeId = n.id;
+          const viz = (attr._vizLabel || attr.label || attr.name || '');
+          if (typeof viz !== 'undefined' && viz !== null) {
+            try { graph.setNodeAttribute(nodeId, 'label', String(viz)); } catch (e) {}
+          }
+        } catch (e) {}
+      });
+    } catch (e) {}
     edges.forEach(e => { try { if (!graph.hasEdge(e.id)) graph.addEdgeWithKey(e.id || `${e.source}-${e.target}`, e.source, e.target, e.attrs || {}); } catch (e) {} });
     edges.forEach(e => { try { const attrs = Object.assign({}, e.attrs || {}); if (typeof attrs.size === 'undefined' || attrs.size === null) { attrs.size = (typeof attrs.width === 'number' ? attrs.width : (attrs.weight != null ? Number(attrs.weight) : 1)); } if (!graph.hasEdge(e.id || `${e.source}-${e.target}`)) graph.addEdgeWithKey(e.id || `${e.source}-${e.target}`, e.source, e.target, attrs); } catch (err) {} });
     try { console.debug('SigmaAdapter: populated graph', { nodeCount: graph.order, edgeCount: graph.size }); } catch (e) { console.debug('SigmaAdapter: populated graph (counts unavailable)'); }
@@ -80,14 +133,25 @@ function SigmaAdapter(container, elements = [], options = {}) {
     // and pickable in Sigma. Prefer explicit attrs.size, then attrs.width,
     // then attrs.weight, otherwise fallback to 1.
     try {
+      // Force a numeric 'size' on every edge so Sigma's programs can pick and
+      // hit edge hover/click detection reliably. Coerce any existing size or
+      // fall back to width/weight or 1.
       graph.forEachEdge((id, attr) => {
         try {
           const a = attr || {};
-          if (typeof a.size === 'undefined' || a.size === null) {
-            const w = (typeof a.width === 'number') ? a.width : (a.weight != null ? Number(a.weight) : null);
-            const sizeVal = (w != null && !Number.isNaN(w)) ? Math.max(1, w) : 1;
-            try { graph.setEdgeAttribute(id, 'size', sizeVal); } catch (e) {}
+          // prefer explicit numeric size
+          let sizeVal = null;
+          if (typeof a.size === 'number' && !Number.isNaN(a.size)) {
+            sizeVal = Math.max(1, a.size);
+          } else if (typeof a.size === 'string') {
+            const parsed = parseFloat(a.size);
+            if (!Number.isNaN(parsed)) sizeVal = Math.max(1, parsed);
           }
+          if (sizeVal === null) {
+            const w = (typeof a.width === 'number') ? a.width : (a.weight != null ? Number(a.weight) : null);
+            sizeVal = (w != null && !Number.isNaN(w)) ? Math.max(1, w) : 1;
+          }
+          try { graph.setEdgeAttribute(id, 'size', sizeVal); } catch (e) {}
           // If an edge carries a label, emoji, name or title, ensure it's
           // exposed to Sigma as the 'label' attribute and request forceLabel
           // so the label shows regardless of zoom if possible.
@@ -105,14 +169,98 @@ function SigmaAdapter(container, elements = [], options = {}) {
           try {
             const hasArrow = (a && (String(a.enlightement).toLowerCase() === 'arrow' || a.arrow));
             if (hasArrow) {
-              try { graph.setEdgeAttribute(id, 'type', 'arrow'); } catch (e) {}
+              // Prefer to select the curved+arrow program when available.
+              try { graph.setEdgeAttribute(id, 'arrow', true); } catch (e) {}
               try { if (a.color) graph.setEdgeAttribute(id, 'targetArrowColor', a.color); } catch (e) {}
               try { graph.setEdgeAttribute(id, 'enlightement', 'arrow'); } catch (e) {}
+              try {
+                // If we registered a curvedArrow program, set the edge.type to match it
+                const mod = SigmaAdapter__EdgeCurveModule || (typeof require === 'function' ? require('@sigma/edge-curve') : null);
+                const Arrow = mod && (mod.EdgeCurvedArrowProgram || (mod.default && mod.default.EdgeCurvedArrowProgram));
+                if (Arrow && typeof Arrow === 'function') {
+                  try { graph.setEdgeAttribute(id, 'type', 'curvedArrow'); } catch (e) {}
+                }
+              } catch (e) {}
             }
           } catch (e) {}
         } catch (e) {}
       });
     } catch (e) {}
+
+    // If the optional curved edge program isn't available, neutralize any
+    // incoming edge.type === 'curved' so Sigma doesn't reject them at init.
+    try {
+      if (!SigmaAdapter__EdgeCurveProgram) {
+        let seenCurved = false;
+        graph.forEachEdge((id, attr) => {
+          try {
+            if (attr && String(attr.type) === 'curved') {
+              seenCurved = true;
+              try { graph.setEdgeAttribute(id, 'type', 'edge'); } catch (e) {}
+            }
+          } catch (e) {}
+        });
+        if (seenCurved) console.warn('SigmaAdapter: @sigma/edge-curve not available; downgraded curved edges to default edge program');
+      }
+    } catch (e) {}
+
+      // Use Sigma's native curve edge rendering: mark multi-edge groups and
+      // self-loops with type 'curve' so Sigma can draw them as curved edges.
+      try {
+        const edgeGroups = new Map();
+        graph.forEachEdge((id, attr, source, target) => {
+          try {
+            const a = String(source);
+            const b = String(target);
+            const key = a < b ? `${a}<>${b}` : `${b}<>${a}`;
+            if (!edgeGroups.has(key)) edgeGroups.set(key, []);
+            edgeGroups.get(key).push({ id, source, target, attr });
+          } catch (err) {}
+        });
+        edgeGroups.forEach((list) => {
+          try {
+            if (!list || !list.length) return;
+                if (list.length > 1) {
+                  // multiple edges between same unordered pair -> mark as curved when supported
+                  // Set attributes expected by @sigma/edge-curve's indexing helper
+                  const mid = (list.length - 1) / 2;
+                  const min = -mid;
+                  const max = mid;
+                  list.forEach((item, idx) => {
+                    try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(item.id, 'type', 'curved'); } catch (e) {}
+                    try {
+                      const parallelIndex = Math.round(idx - mid);
+                      graph.setEdgeAttribute(item.id, 'parallelIndex', parallelIndex);
+                      graph.setEdgeAttribute(item.id, 'parallelMinIndex', min);
+                      graph.setEdgeAttribute(item.id, 'parallelMaxIndex', max);
+                      // keep older names for compatibility
+                      graph.setEdgeAttribute(item.id, 'curveIndex', idx);
+                      graph.setEdgeAttribute(item.id, 'curveCount', list.length);
+                      // provide a numeric curvature hint: centered around 0
+                      const curvature = (parallelIndex) * 0.7; // spacing factor
+                      graph.setEdgeAttribute(item.id, 'curvature', curvature);
+                    } catch (e) {}
+                  });
+                } else {
+                  // single edge: if it's a self-loop, mark as curved so Sigma shows a loop (only if program loaded)
+                  const itm = list[0];
+                  if (String(itm.source) === String(itm.target)) {
+                    try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(itm.id, 'type', 'curved'); } catch (e) {}
+                    try {
+                      // For self-loops, give a large curvature so the arc is visible
+                      graph.setEdgeAttribute(itm.id, 'parallelIndex', 1);
+                      graph.setEdgeAttribute(itm.id, 'parallelMinIndex', 1);
+                      graph.setEdgeAttribute(itm.id, 'parallelMaxIndex', 1);
+                      graph.setEdgeAttribute(itm.id, 'curveIndex', 0);
+                      graph.setEdgeAttribute(itm.id, 'curveCount', 1);
+                      graph.setEdgeAttribute(itm.id, 'curvature', 2.5);
+                      graph.setEdgeAttribute(itm.id, 'selfLoop', true);
+                    } catch (e) {}
+                  }
+                }
+          } catch (err) {}
+        });
+      } catch (e) {}
   } catch (e) {
     console.warn('SigmaAdapter: failed to populate graph', e);
     return makeNoopAdapter('populate_failed');
@@ -162,28 +310,78 @@ function SigmaAdapter(container, elements = [], options = {}) {
   } catch (e) {}
 
   let renderer = null;
+  // If a pre-created renderer is provided (for example by a React wrapper like
+  // react-sigma), use it instead of creating a new Sigma instance here. This
+  // also supports passing a custom Sigma constructor via options.SigmaCtor.
+  try {
+    if (options && options.renderer) {
+      // caller is responsible for ensuring the provided renderer is bound to
+      // the same graph or will accept our graph. We accept it as-is.
+      renderer = options.renderer;
+    }
+    if (options && options.SigmaCtor) {
+      // allow overriding the Sigma constructor (e.g., a React-friendly one)
+      SigmaCtor = options.SigmaCtor;
+    }
+  } catch (e) {}
   try {
     // Provide GPU-friendly renderer options where supported by sigma v3
-    const sigmaOpts = {
+    // assemble edge program classes; only register the curved program when
+    // available. Do not set bogus defaults (e.g. 'edge': 'edge') which are
+    // not valid program constructors.
+    const edgeProgramClasses = {};
+    try {
+      if (typeof SigmaAdapter__EdgeCurveProgram !== 'undefined' && SigmaAdapter__EdgeCurveProgram) {
+        // register base curved program
+        edgeProgramClasses.curved = SigmaAdapter__EdgeCurveProgram;
+        // try to register arrow-capable variants if exported by the module
+        try {
+          const mod = SigmaAdapter__EdgeCurveModule || require('@sigma/edge-curve');
+          const Arrow = mod && (mod.EdgeCurvedArrowProgram || mod.EdgeCurvedArrowProgram || (mod.default && mod.default.EdgeCurvedArrowProgram));
+          const DoubleArrow = mod && (mod.EdgeCurvedDoubleArrowProgram || (mod.default && mod.default.EdgeCurvedDoubleArrowProgram));
+          if (Arrow && typeof Arrow === 'function') edgeProgramClasses.curvedArrow = Arrow;
+          if (DoubleArrow && typeof DoubleArrow === 'function') edgeProgramClasses.curvedDoubleArrow = DoubleArrow;
+        } catch (e) {}
+      }
+    } catch (e) {}
+
+  // Debug: list registered edge program keys to help diagnose missing program errors
+  try { console.debug('SigmaAdapter: edgeProgramClasses keys', Object.keys(edgeProgramClasses)); } catch (e) {}
+
+  const sigmaOpts = {
       // WebGL context hints: prefer low power if available, but let browser decide
       // (sigma exposes renderer-related options in various builds; pass what we can)
       render: { background: '#ffffff00' },
+      // expose program classes at top-level so Sigma can pick them up (e.g. { curved: EdgeCurveProgram })
+  edgeProgramClasses: edgeProgramClasses,
       settings: {
         // prefer WebGL GPU accelerated rendering when available
         labelRenderedSizeThreshold: 6,
         defaultNodeType: 'circle',
-        edgeProgramClasses: { 'edge': 'edge' },
         // v3 uses a single flag to enable edge-related events
         enableEdgeHovering: true,
         enableEdgeEvents: true,
         enableEdgeClickEvents: true,
         defaultDrawEdgeLabels: true,
+        // explicit edge label settings to ensure labels (and emoji) render
+        edgeLabelSize: 14,
+        edgeLabelFont: 'Arial, sans-serif',
+        edgeLabelWeight: '600',
+        edgeLabelColor: { color: '#000' },
         // make hover detection more permissive; edges need a size to be clickable
         edgeHoverSizeRatio: 4
       }
     };
-    // attempt to pass options if SigmaCtor accepts them
-    try { renderer = new SigmaCtor(graph, container, sigmaOpts); } catch (e) { renderer = new SigmaCtor(graph, container); }
+    // attempt to pass options if SigmaCtor accepts them. If a renderer was
+    // injected via options.renderer earlier, skip construction here.
+    try {
+      if (!renderer) {
+        try { renderer = new SigmaCtor(graph, container, sigmaOpts); } catch (e) { renderer = new SigmaCtor(graph, container); }
+      }
+    } catch (e) {
+      // If construction fails and we have an injected renderer, proceed; else rethrow
+      if (!renderer) throw e;
+    }
   } catch (err) {
     console.error('SigmaAdapter: failed to create Sigma renderer', err);
     return makeNoopAdapter('renderer_failed');
@@ -192,6 +390,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
 
   // local origin keys to avoid event loops when adapters and SelectionManager mirror
   let _localSelKeys = new Set();
+  // No SVG overlay: rely on Sigma's native curved-edge rendering (edge.type='curve')
 
 
   // wire input events from the renderer to update graph selection state
@@ -848,7 +1047,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
 export default SigmaAdapter;
 
 // Provide a convenience async mount API used by GraphWrapper
-SigmaAdapter.mount = async ({ container, elements = [], layout = null, stylesheet = null } = {}) => {
-  // layout/stylesheet currently unused by SigmaAdapter but accepted for API parity
-  return SigmaAdapter(container, elements, { layout, stylesheet });
+SigmaAdapter.mount = async ({ container, elements = [], layout = null, stylesheet = null, renderer = null, SigmaCtor = null } = {}) => {
+  // layout/stylesheet currently unused by SigmaAdapter but accepted for API parity.
+  // Accept `renderer` or `SigmaCtor` so React wrappers can inject their own
+  // renderer/constructor (for example when using a react-sigma integration).
+  return SigmaAdapter(container, elements, { layout, stylesheet, renderer, SigmaCtor });
 }
