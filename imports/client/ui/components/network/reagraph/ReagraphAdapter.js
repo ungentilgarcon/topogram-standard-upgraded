@@ -342,18 +342,43 @@ const ReagraphAdapter = {
             path.style.cursor = 'pointer';
             // prepare loop label (use relationship/emoji/title/name when available)
             try {
-              const labelText = (edge.attrs && (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name)) || null;
-              let labelEl = null;
-              if (labelText) {
-                labelEl = document.createElementNS(svgNS, 'text');
-                labelEl.setAttribute('x', String(centerX));
-                labelEl.setAttribute('y', String(centerY - Math.max(6, loopRadius / 3)));
-                labelEl.setAttribute('fill', '#0f172a');
-                labelEl.setAttribute('font-size', '12');
-                labelEl.setAttribute('text-anchor', 'middle');
-                labelEl.setAttribute('pointer-events', 'none');
-                labelEl.textContent = String(labelText);
+              // Prefer an explicitly computed `_relVizLabel` (set by TopogramDetail).
+              // If `_relVizLabel` exists it is authoritative (even if empty string -> 'none').
+              let labelText = null;
+              if (edge.attrs) {
+                if (Object.prototype.hasOwnProperty.call(edge.attrs, '_relVizLabel')) {
+                  labelText = String(edge.attrs._relVizLabel || '');
+                } else {
+                  labelText = (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name) || null;
+                }
               }
+              let labelEl = null;
+                if (labelText) {
+                  // Use foreignObject+HTML so emoji color glyphs render reliably
+                  try {
+                    const foW = 160; const foH = 20;
+                    const fo = document.createElementNS(svgNS, 'foreignObject');
+                    fo.setAttribute('x', String(Math.round(centerX - foW / 2)));
+                    fo.setAttribute('y', String(Math.round(centerY - Math.max(6, loopRadius / 3) - foH / 2)));
+                    fo.setAttribute('width', String(foW)); fo.setAttribute('height', String(foH));
+                    fo.setAttribute('pointer-events', 'none');
+                    const div = document.createElement('div');
+                    div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+                    div.style.cssText = "font-size:12px; font-family: Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, 'Segoe UI Symbol', Arial, sans-serif; color: #0f172a; text-align:center; line-height:1;";
+                    div.textContent = String(labelText);
+                    fo.appendChild(div);
+                    labelEl = fo;
+                  } catch (e) {
+                    labelEl = document.createElementNS(svgNS, 'text');
+                    labelEl.setAttribute('x', String(centerX));
+                    labelEl.setAttribute('y', String(centerY - Math.max(6, loopRadius / 3)));
+                    labelEl.setAttribute('fill', '#0f172a');
+                    labelEl.setAttribute('font-size', '12');
+                    labelEl.setAttribute('text-anchor', 'middle');
+                    labelEl.setAttribute('pointer-events', 'none');
+                    labelEl.textContent = String(labelText);
+                  }
+                }
               // create loop arrow if requested
               try {
                 const hasArrow = (edge.attrs && (String(edge.attrs.enlightement).toLowerCase() === 'arrow' || edge.attrs.arrow));
@@ -404,17 +429,38 @@ const ReagraphAdapter = {
               viewport.appendChild(line);
               // label near midpoint, offset slightly perpendicular to avoid node overlap
               try {
-                const labelText = (edge.attrs && (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name)) || null;
+                let labelText = null;
+                if (edge.attrs) {
+                  if (Object.prototype.hasOwnProperty.call(edge.attrs, '_relVizLabel')) {
+                    labelText = String(edge.attrs._relVizLabel || '');
+                  } else {
+                    labelText = (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name) || null;
+                  }
+                }
                 if (labelText) {
                   const dxl = tx - sx; const dyl = ty - sy; const llen = Math.sqrt(dxl*dxl + dyl*dyl) || 1;
                   const pxl = -dyl / llen; const pyl = dxl / llen;
                   const midX = (sx + tx) / 2 + pxl * Math.min(12, Math.max(8, strokeWidth*4));
                   const midY = (sy + ty) / 2 + pyl * Math.min(12, Math.max(8, strokeWidth*4));
-                  const txt = document.createElementNS(svgNS, 'text');
-                  txt.setAttribute('x', String(midX)); txt.setAttribute('y', String(midY));
-                  txt.setAttribute('fill', '#0f172a'); txt.setAttribute('font-size', '12'); txt.setAttribute('text-anchor', 'middle'); txt.setAttribute('pointer-events', 'none');
-                  txt.textContent = String(labelText);
-                  viewport.appendChild(txt);
+                  try {
+                    const foW = 180; const foH = 20;
+                    const fo = document.createElementNS(svgNS, 'foreignObject');
+                    fo.setAttribute('x', String(Math.round(midX - foW / 2))); fo.setAttribute('y', String(Math.round(midY - foH / 2)));
+                    fo.setAttribute('width', String(foW)); fo.setAttribute('height', String(foH));
+                    fo.setAttribute('pointer-events', 'none');
+                    const div = document.createElement('div');
+                    div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+                    div.style.cssText = "font-size:12px; font-family: Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, 'Segoe UI Symbol', Arial, sans-serif; color: #0f172a; text-align:center; line-height:1;";
+                    div.textContent = String(labelText);
+                    fo.appendChild(div);
+                    viewport.appendChild(fo);
+                  } catch (e) {
+                    const txt = document.createElementNS(svgNS, 'text');
+                    txt.setAttribute('x', String(midX)); txt.setAttribute('y', String(midY));
+                    txt.setAttribute('fill', '#0f172a'); txt.setAttribute('font-size', '12'); txt.setAttribute('text-anchor', 'middle'); txt.setAttribute('pointer-events', 'none');
+                    txt.textContent = String(labelText);
+                    viewport.appendChild(txt);
+                  }
                 }
               } catch (e) {}
               try {
@@ -499,7 +545,14 @@ const ReagraphAdapter = {
               viewport.appendChild(path);
               // label positioned at quadratic bezier midpoint (t=0.5) and offset slightly
               try {
-                const labelText = (edge.attrs && (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name)) || null;
+                let labelText = null;
+                if (edge.attrs) {
+                  if (Object.prototype.hasOwnProperty.call(edge.attrs, '_relVizLabel')) {
+                    labelText = String(edge.attrs._relVizLabel || '');
+                  } else {
+                    labelText = (edge.attrs.label || edge.attrs.relationship || edge.attrs.emoji || edge.attrs.title || edge.attrs.name) || null;
+                  }
+                }
                 if (labelText) {
                   const midX = 0.25 * sx + 0.5 * cx + 0.25 * tx;
                   const midY = 0.25 * sy + 0.5 * cy + 0.25 * ty;
@@ -507,11 +560,25 @@ const ReagraphAdapter = {
                   const pxl = -dyl / llen; const pyl = dxl / llen;
                   const mx = midX + pxl * Math.min(12, Math.max(8, strokeWidth*4));
                   const my = midY + pyl * Math.min(12, Math.max(8, strokeWidth*4));
-                  const txt = document.createElementNS(svgNS, 'text');
-                  txt.setAttribute('x', String(mx)); txt.setAttribute('y', String(my));
-                  txt.setAttribute('fill', '#0f172a'); txt.setAttribute('font-size', '12'); txt.setAttribute('text-anchor', 'middle'); txt.setAttribute('pointer-events', 'none');
-                  txt.textContent = String(labelText);
-                  viewport.appendChild(txt);
+                  try {
+                    const foW = 180; const foH = 20;
+                    const fo = document.createElementNS(svgNS, 'foreignObject');
+                    fo.setAttribute('x', String(Math.round(mx - foW / 2))); fo.setAttribute('y', String(Math.round(my - foH / 2)));
+                    fo.setAttribute('width', String(foW)); fo.setAttribute('height', String(foH));
+                    fo.setAttribute('pointer-events', 'none');
+                    const div = document.createElement('div');
+                    div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+                    div.style.cssText = "font-size:12px; font-family: Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, 'Segoe UI Symbol', Arial, sans-serif; color: #0f172a; text-align:center; line-height:1;";
+                    div.textContent = String(labelText);
+                    fo.appendChild(div);
+                    viewport.appendChild(fo);
+                  } catch (e) {
+                    const txt = document.createElementNS(svgNS, 'text');
+                    txt.setAttribute('x', String(mx)); txt.setAttribute('y', String(my));
+                    txt.setAttribute('fill', '#0f172a'); txt.setAttribute('font-size', '12'); txt.setAttribute('text-anchor', 'middle'); txt.setAttribute('pointer-events', 'none');
+                    txt.textContent = String(labelText);
+                    viewport.appendChild(txt);
+                  }
                 }
               } catch (e) {}
               try {
@@ -619,16 +686,29 @@ const ReagraphAdapter = {
         try {
           const label = (node.attrs && (node.attrs._vizLabel || node.attrs.label || node.attrs.name)) || null;
           if (label) {
-            const txt = document.createElementNS(svgNS, 'text');
-            txt.setAttribute('x', cx);
-            // place label slightly below the node's center
-            txt.setAttribute('y', cy + r + 12);
-            txt.setAttribute('fill', '#0f172a');
-            txt.setAttribute('font-size', '12');
-            txt.setAttribute('text-anchor', 'middle');
-            txt.setAttribute('pointer-events', 'none');
-            txt.textContent = String(label);
-            viewport.appendChild(txt);
+            try {
+              const foW = Math.max(80, Math.round(r * 3)); const foH = 20;
+              const fo = document.createElementNS(svgNS, 'foreignObject');
+              fo.setAttribute('x', String(Math.round(cx - foW / 2))); fo.setAttribute('y', String(Math.round(cy + r + 12 - foH / 2)));
+              fo.setAttribute('width', String(foW)); fo.setAttribute('height', String(foH));
+              fo.setAttribute('pointer-events', 'none');
+              const div = document.createElement('div');
+              div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+              div.style.cssText = "font-size:12px; font-family: Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, 'Segoe UI Symbol', Arial, sans-serif; color: #0f172a; text-align:center; line-height:1;";
+              div.textContent = String(label);
+              fo.appendChild(div);
+              viewport.appendChild(fo);
+            } catch (e) {
+              const txt = document.createElementNS(svgNS, 'text');
+              txt.setAttribute('x', cx);
+              txt.setAttribute('y', cy + r + 12);
+              txt.setAttribute('fill', '#0f172a');
+              txt.setAttribute('font-size', '12');
+              txt.setAttribute('text-anchor', 'middle');
+              txt.setAttribute('pointer-events', 'none');
+              txt.textContent = String(label);
+              viewport.appendChild(txt);
+            }
           }
         } catch (e) {}
         } catch (e) {}
