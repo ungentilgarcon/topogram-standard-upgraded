@@ -1459,6 +1459,15 @@ export default function TopogramDetail() {
         </label>
 
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          Map renderer:
+          <select value={((ui && ui.geoMapRenderer) || 'leaflet')} onChange={e => { const v = e.target.value || 'leaflet'; try { updateUI('geoMapRenderer', v); if (window && window.localStorage) window.localStorage.setItem('topo.geoMapRenderer', v); } catch (err) {} }} style={{ minWidth: 120 }}>
+            <option value="leaflet">Leaflet</option>
+            <option value="maplibre">MapLibre</option>
+            <option value="cesium">Cesium</option>
+          </select>
+        </label>
+
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Title size:
           <input type="range" min={8} max={36} value={titleSize} onChange={e => setTitleSize(Number(e.target.value))} />
           <span style={{ minWidth: 36, textAlign: 'right' }}>{titleSize}px</span>
