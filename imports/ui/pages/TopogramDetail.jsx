@@ -1469,6 +1469,8 @@ export default function TopogramDetail() {
             <option value="weight">by weight</option>
             <option value="degree">by degree</option>
           </select>
+          <span title="Choose how node size is computed: 'by weight' uses node.data.weight (often from import); 'by degree' sizes nodes by the number of incident edges." style={{ fontSize: 12, color: '#666', marginLeft: 6, cursor: 'help' }}>?
+          </span>
         </label>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Node labels:
