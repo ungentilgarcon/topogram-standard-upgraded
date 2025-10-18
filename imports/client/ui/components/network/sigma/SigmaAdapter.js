@@ -76,6 +76,32 @@ function SigmaAdapter(container, elements = [], options = {}) {
 
   const graph = new GraphConstructor();
 
+  // deterministic color helper (same approach as TopogramDetail)
+  function _stringToColorHex(str) {
+    try {
+      if (!str) str = '';
+      let h = 0;
+      for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+      const hue = h % 360;
+      const sat = 62; const light = 52;
+      const hNorm = hue / 360; const s = sat / 100; const l = light / 100;
+      const hue2rgb = (p, q, t) => {
+        if (t < 0) t += 1; if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+      };
+      let r, g, b;
+      if (s === 0) { r = g = b = l; } else {
+        const q = l < 0.5 ? l * (1 + s) : l + s - l * s; const p = 2 * l - q;
+        r = hue2rgb(p, q, hNorm + 1/3); g = hue2rgb(p, q, hNorm); b = hue2rgb(p, q, hNorm - 1/3);
+      }
+      const toHex = (x) => { const v = Math.round(x * 255); return (v < 16 ? '0' : '') + v.toString(16); };
+      return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+    } catch (e) { return '#1f2937'; }
+  }
+
   // helper to build a safe noop adapter when we can't create a real one
   const makeNoopAdapter = (reason) => ({
     impl: 'sigma', noop: true, reason: reason || 'noop',
@@ -91,6 +117,19 @@ function SigmaAdapter(container, elements = [], options = {}) {
   try {
     if (typeof cyElementsToGraphology !== 'function') throw new Error('cyElementsToGraphology is not a function');
     const { nodes = [], edges = [] } = cyElementsToGraphology(elements || []);
+    // compute numeric weight range (like TopogramDetail) so we can map weight -> diameter
+    const numericWeights = (nodes || []).map(n => Number((n.attrs && (n.attrs.weight != null ? n.attrs.weight : 1)) || 1));
+    const minW = numericWeights.length ? Math.min(...numericWeights) : 1;
+    const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1);
+    function mapData(value, dmin, dmax, rmin, rmax) {
+      const v = (typeof value === 'number' && isFinite(value)) ? value : Number(value || 0);
+      const a = Number(dmin || 0); const b = Number(dmax || (a + 1));
+      const mn = Number(rmin || 0); const mx = Number(rmax || mn + 1);
+      if (b === a) return (mn + mx) / 2;
+      const t = (v - a) / (b - a);
+      return mn + t * (mx - mn);
+    }
+
     // add nodes, coerce x/y if provided as strings
     nodes.forEach(n => {
   const attrs = { ...(n.attrs || {}) };
@@ -102,15 +141,30 @@ function SigmaAdapter(container, elements = [], options = {}) {
         const py = parseFloat(attrs.y);
         if (!Number.isNaN(py)) attrs.y = py; else delete attrs.y;
       }
-      // ensure a size attribute so Sigma renders nodes at a reasonable default
+      // Determine diameter via mapData(weight,minW,maxW,12,60) unless explicit size provided.
       try {
-        if (typeof attrs.size === 'undefined' || attrs.size === null) {
-          const w = attrs.weight != null ? Number(attrs.weight) : null;
-          if (w != null && !Number.isNaN(w)) attrs.size = Math.max(6, Math.min(48, Math.floor(w / 2)));
-          else attrs.size = 10;
+        if (typeof attrs.size !== 'undefined' && attrs.size !== null && !Number.isNaN(Number(attrs.size))) {
+          // treat attrs.size as a diameter (pixels) for parity with Cytoscape; Sigma expects radius
+          const dia = Number(attrs.size);
+          const radius = Math.max(6, Math.min(30, dia / 2));
+          attrs.size = radius;
+        } else {
+          const w = (attrs.weight != null && !Number.isNaN(Number(attrs.weight))) ? Number(attrs.weight) : 1;
+          const dia = mapData(w, minW, maxW, 12, 60);
+          attrs.size = Math.max(6, Math.min(30, dia / 2)); // Sigma size = radius
         }
       } catch (e) { attrs.size = attrs.size || 10 }
       if (!graph.hasNode(n.id)) graph.addNode(n.id, attrs);
+    });
+    // ensure node colors exist
+    graph.forEachNode((id, attr) => {
+      try {
+        const a = attr || {};
+        if (!a.color) {
+          const key = String(id || a.id || '');
+          graph.setNodeAttribute(id, 'color', _stringToColorHex(key));
+        }
+      } catch (e) {}
     });
     // Ensure node 'label' attribute is set from computed _vizLabel or label/name
     try {
@@ -129,9 +183,23 @@ function SigmaAdapter(container, elements = [], options = {}) {
     edges.forEach(e => { try { const attrs = Object.assign({}, e.attrs || {}); if (typeof attrs.size === 'undefined' || attrs.size === null) { attrs.size = (typeof attrs.width === 'number' ? attrs.width : (attrs.weight != null ? Number(attrs.weight) : 1)); } if (!graph.hasEdge(e.id || `${e.source}-${e.target}`)) graph.addEdgeWithKey(e.id || `${e.source}-${e.target}`, e.source, e.target, attrs); } catch (err) {} });
     try { console.debug('SigmaAdapter: populated graph', { nodeCount: graph.order, edgeCount: graph.size }); } catch (e) { console.debug('SigmaAdapter: populated graph (counts unavailable)'); }
 
+    // Determine edge weight range and map weights -> visual width (pixels)
+    const edgeWeights = (edges || []).map(e => Number((e.attrs && (e.attrs.weight != null ? e.attrs.weight : (e.attrs && e.attrs.width != null ? e.attrs.width : 1))) || 1));
+    const minEW = edgeWeights.length ? Math.min(...edgeWeights) : 1;
+    const maxEW = edgeWeights.length ? Math.max(...edgeWeights) : (minEW + 1);
+    function mapDataLocal(value, dmin, dmax, rmin, rmax) {
+      const v = (typeof value === 'number' && isFinite(value)) ? value : Number(value || 0);
+      const a = Number(dmin || 0); const b = Number(dmax || (a + 1));
+      const mn = Number(rmin || 0); const mx = Number(rmax || mn + 1);
+      if (b === a) return (mn + mx) / 2;
+      const t = (v - a) / (b - a);
+      return mn + t * (mx - mn);
+    }
+
     // Ensure every edge has a sensible 'size' attribute so edges are visible
     // and pickable in Sigma. Prefer explicit attrs.size, then attrs.width,
-    // then attrs.weight, otherwise fallback to 1.
+    // then attrs.weight, otherwise fallback to 1. If weight is present we map
+    // it to a display width in pixels using mapDataLocal(minEW..maxEW -> 1..6).
     try {
       // Force a numeric 'size' on every edge so Sigma's programs can pick and
       // hit edge hover/click detection reliably. Coerce any existing size or
@@ -149,9 +217,22 @@ function SigmaAdapter(container, elements = [], options = {}) {
           }
           if (sizeVal === null) {
             const w = (typeof a.width === 'number') ? a.width : (a.weight != null ? Number(a.weight) : null);
-            sizeVal = (w != null && !Number.isNaN(w)) ? Math.max(1, w) : 1;
+            if (w != null && !Number.isNaN(w)) {
+              // map data domain [minEW, maxEW] to visual width [1,6] pixels
+              const visualW = mapDataLocal(w, minEW, maxEW, 1, 6);
+              sizeVal = Math.max(1, visualW);
+            } else {
+              sizeVal = 1;
+            }
           }
           try { graph.setEdgeAttribute(id, 'size', sizeVal); } catch (e) {}
+            // ensure edge color exists
+            try {
+              if (!a.color) {
+                const key = String(id || a.id || (a.source ? `${a.source}|${a.target}` : ''));
+                graph.setEdgeAttribute(id, 'color', _stringToColorHex(key));
+              }
+            } catch (e) {}
           // If an edge carries a label, emoji, name or title, ensure it's
           // exposed to Sigma as the 'label' attribute and request forceLabel
           // so the label shows regardless of zoom if possible.

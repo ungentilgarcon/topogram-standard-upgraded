@@ -229,6 +229,41 @@ export default function TopogramDetail() {
     return id ? `node:${id}` : null
   }
 
+  // Deterministic color helper: hash a string to an HSL color and return hex
+  const _stringToColorHex = (str) => {
+    try {
+      if (!str) str = '';
+      // simple hash
+      let h = 0;
+      for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+      const hue = h % 360;
+      const sat = 62;
+      const light = 52;
+      // convert HSL to RGB hex
+      const hNorm = hue / 360;
+      const s = sat / 100;
+      const l = light / 100;
+      const hue2rgb = (p, q, t) => {
+        if (t < 0) t += 1;
+        if (t > 1) t -= 1;
+        if (t < 1/6) return p + (q - p) * 6 * t;
+        if (t < 1/2) return q;
+        if (t < 2/3) return p + (q - p) * (2/3 - t) * 6;
+        return p;
+      };
+      let r, g, b;
+      if (s === 0) { r = g = b = l; } else {
+        const q = l < 0.5 ? l * (1 + s) : l + s - l * s;
+        const p = 2 * l - q;
+        r = hue2rgb(p, q, hNorm + 1/3);
+        g = hue2rgb(p, q, hNorm);
+        b = hue2rgb(p, q, hNorm - 1/3);
+      }
+      const toHex = (x) => { const v = Math.round(x * 255); return (v < 16 ? '0' : '') + v.toString(16); };
+      return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+    } catch (e) { return '#1f2937'; }
+  };
+
   const isSelectedKey = (key) => selectedElements.some(e => canonicalKey(e) === key)
 
   // selectElement/unselectElement are used by GeoMap (and can be used programmatically)
@@ -519,7 +554,8 @@ export default function TopogramDetail() {
       else if (nlm === 'name') vizLabel = String(label || '')
       else { vizLabel = (node.data && node.data.emoji) ? `${String(node.data.emoji)} ${String(label || '')}` : String(label || '') }
       data._vizLabel = vizLabel
-      if (color != null) data.color = color
+    if (color != null) data.color = color
+    else data.color = _stringToColorHex(String(node.data && (node.data.id || node.data.name) || node._id || node.id || ''))
   const el = { data }
       if (node.position && typeof node.position.x === 'number' && typeof node.position.y === 'number') {
         el.position = { x: node.position.x, y: node.position.y }
@@ -571,9 +607,15 @@ export default function TopogramDetail() {
         if (edge.data && typeof edge.data.relationship !== 'undefined') data.relationship = edge.data.relationship
         if (edge.data && typeof edge.data.relationshipEmoji !== 'undefined') data.relationshipEmoji = edge.data.relationshipEmoji
         if (edge.data && typeof edge.data.enlightement !== 'undefined') data.enlightement = edge.data.enlightement
+        // preserve edge weight (or width) so renderers can map it to visual width
+        try {
+          const rawEdgeWeight = edge && edge.data ? (edge.data.weight || edge.data.rawWeight || edge.data.width) : (edge.weight || edge.width || null)
+          data.weight = (typeof rawEdgeWeight !== 'undefined' && rawEdgeWeight !== null) ? rawEdgeWeight : 1
+        } catch (e) {}
         data._parallelIndex = idx
         data._parallelCount = groupEdges.length
         if (ecolor != null) data.color = ecolor
+  else data.color = _stringToColorHex(String(edge._id || (edge.data && (edge.data.source || '') + '|' + (edge.data && edge.data.target || ''))))
         try {
           const relText = data.relationship || data.name || ''
           const relEmoji = data.relationshipEmoji || ''
@@ -615,14 +657,18 @@ export default function TopogramDetail() {
       ? { name: 'preset' }
       : { name: 'cola', nodeSpacing: 5, avoidOverlap: true, randomize: true, maxSimulationTime: 1500 }
 
-    const numericWeights = allEls.filter(el => el.data && el.data.id && (el.data.source == null && el.data.target == null)).map(el => Number(el.data.weight || 1))
-    const minW = numericWeights.length ? Math.min(...numericWeights) : 1
-    const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
+  const numericWeights = allEls.filter(el => el.data && el.data.id && (el.data.source == null && el.data.target == null)).map(el => Number(el.data.weight || 1))
+  const minW = numericWeights.length ? Math.min(...numericWeights) : 1
+  const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
+  // edge weight range for width mapping
+  const numericEdgeWeights = allEls.filter(el => el.data && el.data.source != null && el.data.target != null).map(el => Number(el.data.weight || el.data.width || 1))
+  const minEW = numericEdgeWeights.length ? Math.min(...numericEdgeWeights) : 1
+  const maxEW = numericEdgeWeights.length ? Math.max(...numericEdgeWeights) : (minEW + 1)
 
     const stylesheet = [
       { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
       { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-      { selector: 'edge', style: { 'width': 1, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
+  { selector: 'edge', style: { 'width': `mapData(weight, ${minEW}, ${maxEW}, 1, 6)`, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
       { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
       { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
       { selector: 'edge[relationship], edge', style: {

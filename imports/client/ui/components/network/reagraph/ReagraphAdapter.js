@@ -22,8 +22,8 @@ const ReagraphAdapter = {
       return { impl: 'reagraph', noop: true };
     }
 
-    // build internal model
-    const { nodes = [], edges = [] } = cyElementsToGraphology(elements || []);
+  // build internal model
+  const { nodes = [], edges = [] } = cyElementsToGraphology(elements || []);
     const nodeMap = new Map();
     nodes.forEach(n => {
       const attrs = Object.assign({}, n.attrs || {});
@@ -50,17 +50,31 @@ const ReagraphAdapter = {
         degreeMap.set(t, (degreeMap.get(t) || 0) + 1);
       } catch (err) {}
     });
-    // Ensure every node has a numeric 'size' attribute (diameter-like). Priority:
-    // 1) explicit attrs.size
-    // 2) attrs.weight (numeric)
-    // 3) computed from degree (8 px base + 4px per link)
+    // Compute numeric weight range so we can map weight -> diameter consistent with Cytoscape
+    const numericWeights = [];
+    nodeMap.forEach(n => {
+      try { numericWeights.push(Number((n.attrs && (n.attrs.weight != null ? n.attrs.weight : 1)) || 1)); } catch (e) {}
+    });
+    const minW = numericWeights.length ? Math.min(...numericWeights) : 1;
+    const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1);
+    function mapData(value, dmin, dmax, rmin, rmax) {
+      const v = (typeof value === 'number' && isFinite(value)) ? value : Number(value || 0);
+      const a = Number(dmin || 0); const b = Number(dmax || (a + 1));
+      const mn = Number(rmin || 0); const mx = Number(rmax || mn + 1);
+      if (b === a) return (mn + mx) / 2;
+      const t = (v - a) / (b - a);
+      return mn + t * (mx - mn);
+    }
+
+    // Ensure every node has a numeric 'size' attribute (used here as diameter)
     nodeMap.forEach(n => {
       try {
         const attrs = n.attrs || {};
         if (typeof attrs.size === 'undefined' || attrs.size === null) {
-          const w = (typeof attrs.weight !== 'undefined' && attrs.weight !== null) ? Number(attrs.weight) : null;
+          const w = (typeof attrs.weight !== 'undefined' && attrs.weight !== null) ? Number(attrs.weight) : 1;
           if (w != null && !Number.isNaN(w)) {
-            attrs.size = Math.max(8, Math.min(48, Math.floor(w)));
+            const dia = mapData(w, minW, maxW, 12, 60);
+            attrs.size = Math.max(8, Math.min(48, Math.floor(dia)));
           } else {
             const deg = degreeMap.get(String(n.id)) || 0;
             attrs.size = Math.max(8, Math.min(48, 8 + deg * 4));
@@ -113,6 +127,19 @@ const ReagraphAdapter = {
 
     // helper to create per-edge markers sized and colored for visibility
     const _markerCache = new Map();
+    // deterministic color helper (same algorithm as TopogramDetail)
+    function _stringToColorHex(str) {
+      try {
+        if (!str) str = '';
+        let h = 0; for (let i = 0; i < str.length; i++) h = (h * 31 + str.charCodeAt(i)) >>> 0;
+        const hue = h % 360; const sat = 62; const light = 52;
+        const hNorm = hue / 360; const s = sat / 100; const l = light / 100;
+        const hue2rgb = (p, q, t) => { if (t < 0) t += 1; if (t > 1) t -= 1; if (t < 1/6) return p + (q - p) * 6 * t; if (t < 1/2) return q; if (t < 2/3) return p + (q - p) * (2/3 - t) * 6; return p; };
+        let r, g, b; if (s === 0) { r = g = b = l; } else { const q = l < 0.5 ? l * (1 + s) : l + s - l * s; const p = 2 * l - q; r = hue2rgb(p, q, hNorm + 1/3); g = hue2rgb(p, q, hNorm); b = hue2rgb(p, q, hNorm - 1/3); }
+        const toHex = (x) => { const v = Math.round(x * 255); return (v < 16 ? '0' : '') + v.toString(16); };
+        return `#${toHex(r)}${toHex(g)}${toHex(b)}`;
+      } catch (e) { return '#1f2937'; }
+    }
     function createEdgeMarker(edgeId, color, strokeW) {
       try {
         const key = String(edgeId);
@@ -250,6 +277,19 @@ const ReagraphAdapter = {
       // between the same unordered pair, render curved offsets. For
       // reciprocal edges, forward edges are curved to one side, backward
       // edges to the other side.
+      // compute global edge weight range for mapping
+      const allEdgeWeights = [];
+      edgeMap.forEach(e => { try { allEdgeWeights.push(Number((e.attrs && (e.attrs.weight != null ? e.attrs.weight : (e.attrs && e.attrs.width != null ? e.attrs.width : 1))) || 1)); } catch (er) {} });
+      const minEW = allEdgeWeights.length ? Math.min(...allEdgeWeights) : 1;
+      const maxEW = allEdgeWeights.length ? Math.max(...allEdgeWeights) : (minEW + 1);
+      function mapDataLocal(v, a, b, mn, mx) {
+        const val = (typeof v === 'number' && isFinite(v)) ? v : Number(v || 0);
+        const A = Number(a || 0); const B = Number(b || (A + 1));
+        const MN = Number(mn || 0); const MX = Number(mx || (MN + 1));
+        if (B === A) return (MN + MX) / 2;
+        const t = (val - A) / (B - A);
+        return MN + t * (MX - MN);
+      }
       edgeGroups.forEach((edgesArr, groupKey) => {
         // prepare forward/back sublists based on direction
         const forward = []; const back = [];
@@ -278,12 +318,13 @@ const ReagraphAdapter = {
           const tx = t.__renderX || 0; const ty = t.__renderY || 0;
           // Visual highlight when edge is selected: use a bright yellow and thicker stroke
           const sel = edge.attrs && edge.attrs.selected;
-          const baseColor = (edge.attrs && edge.attrs.color) || 'rgba(31,41,55,0.6)';
+          const baseColor = (edge.attrs && edge.attrs.color) || _stringToColorHex(String(edge.id || `${edge.source}|${edge.target}`)) || 'rgba(31,41,55,0.6)';
           // prefer a highlight color provided on the edge, otherwise use a clear yellow
           const highlightColor = (edge.attrs && edge.attrs.highlightColor) || '#FFEB3B';
           const strokeColor = sel ? highlightColor : baseColor;
-          const baseWidth = (edge.attrs && edge.attrs.width) || 1;
-          const strokeWidth = sel ? Math.max(3, Math.round(baseWidth * 2)) : baseWidth;
+          const rawEdgeW = (edge.attrs && (edge.attrs.weight != null ? edge.attrs.weight : (edge.attrs && edge.attrs.width != null ? edge.attrs.width : 1))) || 1;
+          const mappedWidth = Math.max(1, mapDataLocal(rawEdgeW, minEW, maxEW, 1, 6));
+          const strokeWidth = sel ? Math.max(3, Math.round(mappedWidth * 2)) : mappedWidth;
 
             if (String(edge.source) === String(edge.target)) {
             // self-loop: render as a circular arc/path around the node
@@ -334,7 +375,7 @@ const ReagraphAdapter = {
             const path = document.createElementNS(svgNS, 'path');
             path.setAttribute('d', d);
             path.setAttribute('fill', 'none');
-            path.setAttribute('stroke', strokeColor);
+            path.setAttribute('stroke', strokeColor || _stringToColorHex(String(edge.id || `${edge.source}|${edge.target}`)));
             path.setAttribute('stroke-width', strokeWidth);
             path.setAttribute('opacity', sel ? '1' : '0.9');
             path.setAttribute('stroke-linecap', 'round');
@@ -404,7 +445,7 @@ const ReagraphAdapter = {
               // single straight line
               const line = document.createElementNS(svgNS, 'line');
               line.setAttribute('x1', sx); line.setAttribute('y1', sy); line.setAttribute('x2', tx); line.setAttribute('y2', ty);
-              line.setAttribute('stroke', strokeColor);
+                line.setAttribute('stroke', strokeColor || _stringToColorHex(String(edge.id || `${edge.source}|${edge.target}`)));
               line.setAttribute('stroke-width', strokeWidth);
               line.setAttribute('opacity', sel ? '1' : '0.9');
               line.setAttribute('stroke-linecap', 'round');
@@ -520,8 +561,8 @@ const ReagraphAdapter = {
               const d = `M ${sx} ${sy} Q ${cx} ${cy} ${tx} ${ty}`;
               const path = document.createElementNS(svgNS, 'path');
               path.setAttribute('d', d);
-              path.setAttribute('fill', 'none');
-              path.setAttribute('stroke', strokeColor);
+            path.setAttribute('fill', 'none');
+            path.setAttribute('stroke', strokeColor || _stringToColorHex(String(edge.id || `${edge.source}|${edge.target}`)));
               path.setAttribute('stroke-width', strokeWidth);
               path.setAttribute('opacity', sel ? '1' : '0.9');
               path.setAttribute('stroke-linecap', 'round');
@@ -623,7 +664,7 @@ const ReagraphAdapter = {
           const circ = document.createElementNS(svgNS, 'circle');
           circ.setAttribute('cx', cx); circ.setAttribute('cy', cy); circ.setAttribute('r', r);
           // dark node fill by default on light background
-          circ.setAttribute('fill', (node.attrs && node.attrs.color) || '#1f2937');
+          circ.setAttribute('fill', (node.attrs && node.attrs.color) || _stringToColorHex(String(node.id || '')));
           // stroke: red when selected, otherwise subtle dark outline
           circ.setAttribute('stroke', node.attrs && node.attrs.selected ? '#ef4444' : 'rgba(31,41,55,0.15)');
           circ.setAttribute('stroke-width', node.attrs && node.attrs.selected ? 2 : 0.5);
@@ -653,7 +694,7 @@ const ReagraphAdapter = {
                 try {
                   const hit = document.createElementNS(svgNS, 'path');
                   hit.setAttribute('d', hitD);
-                  const hitWidth = (edge.attrs && edge.attrs.width) ? Math.max(8, edge.attrs.width * 4) : 12;
+                  const hitWidth = Math.max(8, Math.round((edge.attrs && edge.attrs.width) ? edge.attrs.width * 4 : (mappedWidth * 4)));
                   hit.setAttribute('stroke', 'transparent');
                   hit.setAttribute('stroke-width', hitWidth);
                   hit.setAttribute('fill', 'none');
