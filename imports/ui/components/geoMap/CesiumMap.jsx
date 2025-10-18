@@ -13,20 +13,20 @@ export default class CesiumMap extends React.Component {
   }
 
   componentDidMount() {
-    let Cesium = null
-    try { Cesium = require('cesium') } catch (e) { Cesium = null }
-    if (!Cesium) return
-    try {
-      // Cesium requires a global window.CESIUM_BASE_URL for assets; set a sensible default
-      try { if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) window.CESIUM_BASE_URL = '' } catch (e) {}
-      const el = this.container.current
-      // Create the viewer
-      // Use the Cesium module's Viewer class if available
-      const Viewer = Cesium && (Cesium.Viewer || (Cesium && Cesium.default && Cesium.default.Viewer))
-      if (!Viewer) return
-      this.viewer = new Viewer(el, { animation: false, timeline: false })
-      this._renderPoints()
-    } catch (err) { console.warn('CesiumMap: init failed', err) }
+    // Dynamic import Cesium at runtime to avoid bundling its ESM into Meteor
+    if (typeof window === 'undefined') return
+    import('cesium').then((mod) => {
+      try {
+        const Cesium = mod && (mod.default || mod)
+        try { if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) window.CESIUM_BASE_URL = '' } catch (e) {}
+        const el = this.container.current
+        const Viewer = Cesium && (Cesium.Viewer || (Cesium && Cesium.default && Cesium.default.Viewer))
+        if (!Viewer) return
+        this.Cesium = Cesium
+        this.viewer = new Viewer(el, { animation: false, timeline: false })
+        this._renderPoints()
+      } catch (err) { console.warn('CesiumMap: init error', err) }
+    }).catch((err) => { console.warn('CesiumMap: dynamic import failed', err) })
   }
 
   componentDidUpdate(prevProps) { if (this.props.nodes !== prevProps.nodes) this._renderPoints() }
@@ -54,7 +54,8 @@ export default class CesiumMap extends React.Component {
           const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
           const ctx = cvs.getContext('2d'); ctx.fillStyle = color; ctx.beginPath(); ctx.arc(8,8,6,0,Math.PI*2); ctx.fill()
           const image = cvs.toDataURL()
-          const Cesium = require('cesium')
+          const Cesium = this.Cesium
+          if (!Cesium) return
           const cart = Cesium.Cartesian3.fromDegrees(lng, lat, 0)
           const billboardCollection = new Cesium.BillboardCollection()
           primitives.add(billboardCollection)

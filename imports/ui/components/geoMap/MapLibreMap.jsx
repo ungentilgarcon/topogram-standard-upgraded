@@ -15,26 +15,27 @@ export default class MapLibreMap extends React.Component {
   }
 
   componentDidMount() {
-    let maplibregl = null
-    try {
-      maplibregl = require('maplibre-gl')
-    } catch (e) { maplibregl = null }
-    if (!maplibregl) return
-
-    try {
-      const { width, height } = this.props
-      const el = this.container.current
-      // create map
-      this.map = new maplibregl.Map({
-        container: el,
-        style: this.props.style || 'https://demotiles.maplibre.org/style.json',
-        center: this.props.center || [0, 0],
-        zoom: typeof this.props.zoom === 'number' ? this.props.zoom : 2
-      })
-      this.map.on('load', () => { this._renderMarkers() })
-    } catch (err) {
-      console.warn('MapLibreMap: failed to initialize maplibre', err)
-    }
+    // Dynamic import avoids bundling ESM-only modules into Meteor's client
+    // bootstrap which can introduce `import.meta` into the bundle. Only
+    // attempt to load on the client at runtime.
+    if (typeof window === 'undefined') return
+    import('maplibre-gl').then((mod) => {
+      try {
+        const maplibregl = (mod && (mod.default || mod))
+        this._maplibregl = maplibregl
+        const el = this.container.current
+        this.map = new maplibregl.Map({
+          container: el,
+          style: this.props.style || 'https://demotiles.maplibre.org/style.json',
+          center: this.props.center || [0, 0],
+          zoom: typeof this.props.zoom === 'number' ? this.props.zoom : 2
+        })
+        this.map.on('load', () => { this._renderMarkers() })
+      } catch (err) { console.warn('MapLibreMap: init error', err) }
+    }).catch((err) => {
+      // module not present or failed to load
+      console.warn('MapLibreMap: dynamic import failed', err)
+    })
   }
 
   componentDidUpdate(prevProps) {
@@ -55,8 +56,8 @@ export default class MapLibreMap extends React.Component {
   }
 
   _renderMarkers() {
-    if (!this.map) return
-    const maplibregl = require('maplibre-gl')
+  if (!this.map) return
+  const maplibregl = this._maplibregl || (typeof window !== 'undefined' ? (window.maplibregl || null) : null)
     const { nodes } = this.props
     try {
       (nodes || []).forEach(n => {
