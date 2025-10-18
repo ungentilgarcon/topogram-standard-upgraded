@@ -52,6 +52,11 @@ export default function TopogramDetail() {
   // Graph renderer selection: null means "follow defaults / query param"; user choice stored here
   const [graphAdapter, setGraphAdapter] = useState(null)
 
+  // Node sizing mode: 'weight' (default) or 'degree' (use node degree)
+  const [nodeSizeMode, setNodeSizeMode] = useState(() => {
+    try { const v = typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.nodeSizeMode') : null; return v || 'weight' } catch (e) { return 'weight' }
+  })
+
   // initialize from localStorage if present
   useEffect(() => {
     try {
@@ -652,6 +657,26 @@ export default function TopogramDetail() {
     })
 
     const allEls = [...nodeEls, ...edgeEls]
+      // If user requested degree-based sizing, compute node degrees and set data.weight accordingly
+      try {
+        if (nodeSizeMode === 'degree') {
+          const degMap = new Map();
+          edgeEls.forEach(e => {
+            try {
+              const s = e.data && e.data.source; const t = e.data && e.data.target;
+              if (s != null) degMap.set(String(s), (degMap.get(String(s)) || 0) + 1);
+              if (t != null) degMap.set(String(t), (degMap.get(String(t)) || 0) + 1);
+            } catch (er) {}
+          });
+          nodeEls.forEach(n => {
+            try {
+              const id = n && n.data && n.data.id;
+              const d = degMap.get(String(id)) || 0;
+              if (n && n.data) n.data.weight = d || 1;
+            } catch (er) {}
+          });
+        }
+      } catch (e) {}
     const hasPositions = nodeEls.some(n => n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number')
     const layout = hasPositions
       ? { name: 'preset' }
@@ -699,7 +724,7 @@ export default function TopogramDetail() {
   stylesheet.push({ selector: 'edge.hidden', style: { 'visibility': 'hidden', 'opacity': 0, 'line-opacity': 0, 'text-opacity': 0, 'events': 'no' } })
 
     return { elements: allEls, layout, stylesheet }
-  }, [nodes, edges, nodeLabelMode, edgeRelLabelMode, titleSize])
+  }, [nodes, edges, nodeLabelMode, edgeRelLabelMode, titleSize, nodeSizeMode])
 
   // Debug: log element counts so we can detect why network appears empty
   try {
@@ -1437,6 +1462,13 @@ export default function TopogramDetail() {
           Title size:
           <input type="range" min={8} max={36} value={titleSize} onChange={e => setTitleSize(Number(e.target.value))} />
           <span style={{ minWidth: 36, textAlign: 'right' }}>{titleSize}px</span>
+        </label>
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          Node size:
+          <select value={nodeSizeMode} onChange={e => { const v = e.target.value || 'weight'; setNodeSizeMode(v); try { window.localStorage.setItem('topo.nodeSizeMode', v) } catch (err) {} }}>
+            <option value="weight">by weight</option>
+            <option value="degree">by degree</option>
+          </select>
         </label>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Node labels:
