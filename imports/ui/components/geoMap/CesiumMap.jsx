@@ -27,47 +27,50 @@ export default class CesiumMap extends React.Component {
       }
     } catch (e) {}
 
-    import('cesium').then((mod) => {
-      try {
-        const Cesium = mod && (mod.default || mod)
-        try { if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) window.CESIUM_BASE_URL = '' } catch (e) {}
-        const el = this._mountEl || this.container.current
-        const Viewer = Cesium && (Cesium.Viewer || (Cesium && Cesium.default && Cesium.default.Viewer))
-        if (!Viewer) return
-        this.Cesium = Cesium
-        this.viewer = new Viewer(el, { animation: false, timeline: false })
-        try { this._renderPoints() } catch (e) {}
-        // ensure viewer knows about layout and requests a render
-        try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
-        try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
-      } catch (err) { console.warn('CesiumMap: init error', err) }
-    }).catch((err) => {
-      // Some bundlers (Meteor) try to evaluate ESM files which may contain
-      // `import.meta` and fail when evaluated in a non-module runtime. Fall
-      // back to loading the Cesium UMD bundle from CDN and initialize from
-      // the global `window.Cesium` object.
-      console.warn('CesiumMap: dynamic import failed', err)
-      // If error mentions import.meta, try CDN fallback
-      const msg = err && err.message ? String(err.message) : ''
-      if (msg.includes('import.meta') || msg.includes('may only appear in a module') || msg.includes('Unexpected token')) {
-        this._loadCesiumFromCdn().then((Cesium) => {
-          try {
-            this.Cesium = Cesium || (typeof window !== 'undefined' ? window.Cesium : null)
-            const el = this._mountEl || this.container.current
-            const Viewer = this.Cesium && (this.Cesium.Viewer || (this.Cesium && this.Cesium.default && this.Cesium.default.Viewer))
-            if (!Viewer) { console.warn('CesiumMap: CDN Cesium loaded but Viewer not found'); return }
-            try { if (this.container && this.container.current) {
-              try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
-              this._mountEl = document.createElement('div'); this._mountEl.setAttribute('data-cesium-mount', '1'); this._mountEl.style.width='100%'; this._mountEl.style.height='100%'; this.container.current.appendChild(this._mountEl)
-            } } catch (e) {}
-            this.viewer = new Viewer(el, { animation: false, timeline: false })
-            try { this._renderPoints() } catch (e) {}
-            try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
-            try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
-          } catch (e) { console.warn('CesiumMap: init after CDN load failed', e) }
-        }).catch((e) => { console.warn('CesiumMap: CDN fallback failed', e) })
-      }
-    })
+    const isLikelyMeteor = (typeof window !== 'undefined' && (window.__meteor_runtime_config__ || window.__meteor_runtime_config))
+    const tryCdn = () => {
+      this._loadCesiumFromCdn().then((Cesium) => {
+        try {
+          this.Cesium = Cesium || (typeof window !== 'undefined' ? window.Cesium : null)
+          const el = this._mountEl || this.container.current
+          const Viewer = this.Cesium && (this.Cesium.Viewer || (this.Cesium && this.Cesium.default && this.Cesium.default.Viewer))
+          if (!Viewer) { console.warn('CesiumMap: CDN Cesium loaded but Viewer not found'); return }
+          try { if (this.container && this.container.current) {
+            try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
+            this._mountEl = document.createElement('div'); this._mountEl.setAttribute('data-cesium-mount', '1'); this._mountEl.style.width='100%'; this._mountEl.style.height='100%'; this.container.current.appendChild(this._mountEl)
+          } } catch (e) {}
+          this.viewer = new Viewer(el, { animation: false, timeline: false })
+          try { this._renderPoints() } catch (e) {}
+          try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
+          try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
+        } catch (e) { console.warn('CesiumMap: init after CDN load failed', e) }
+      }).catch((e) => { console.warn('CesiumMap: CDN fallback failed', e) })
+    }
+
+    if (isLikelyMeteor) {
+      // Meteor's bundler sometimes evaluates ESM with import.meta which breaks
+      // dynamic import in the non-module runtime. Prefer CDN UMD in that case.
+      tryCdn()
+    } else {
+      import('cesium').then((mod) => {
+        try {
+          const Cesium = mod && (mod.default || mod)
+          try { if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) window.CESIUM_BASE_URL = '' } catch (e) {}
+          const el = this._mountEl || this.container.current
+          const Viewer = Cesium && (Cesium.Viewer || (Cesium && Cesium.default && Cesium.default.Viewer))
+          if (!Viewer) return
+          this.Cesium = Cesium
+          this.viewer = new Viewer(el, { animation: false, timeline: false })
+          try { this._renderPoints() } catch (e) {}
+          try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
+          try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
+        } catch (err) { console.warn('CesiumMap: init error', err) }
+      }).catch((err) => {
+        console.warn('CesiumMap: dynamic import failed', err)
+        // On any failure, fall back to CDN UMD
+        tryCdn()
+      })
+    }
   }
 
   // Normalize various color formats into a CSS string usable by canvas
