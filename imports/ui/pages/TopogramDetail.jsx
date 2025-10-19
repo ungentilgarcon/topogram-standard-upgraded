@@ -1460,7 +1460,7 @@ export default function TopogramDetail() {
 
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Map renderer:
-          <select value={((ui && ui.geoMapRenderer) || 'leaflet')} onChange={e => { const v = e.target.value || 'leaflet'; try { updateUI('geoMapRenderer', v); if (window && window.localStorage) window.localStorage.setItem('topo.geoMapRenderer', v); } catch (err) {} }} style={{ minWidth: 120 }}>
+          <select value={((timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) || 'leaflet')} onChange={e => { const v = e.target.value || 'leaflet'; try { updateUI('geoMapRenderer', v); if (window && window.localStorage) window.localStorage.setItem('topo.geoMapRenderer', v); } catch (err) {} }} style={{ minWidth: 120 }}>
             <option value="leaflet">Leaflet</option>
             <option value="maplibre">MapLibre</option>
             <option value="cesium">Cesium</option>
@@ -1722,7 +1722,7 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode }}
+                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
                     width={'50vw'}
                     height={visualHeight}
                     selectElement={(json) => selectElement(json)}
@@ -1791,7 +1791,7 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode }}
+                      ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
                   width={'100%'}
                   height={visualHeight}
                   selectElement={(json) => selectElement(json)}

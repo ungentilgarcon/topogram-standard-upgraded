@@ -68,14 +68,17 @@ export default class CesiumMap extends React.Component {
       this._loadCesiumFromCdn().then((Cesium) => {
         try {
           this.Cesium = Cesium || (typeof window !== 'undefined' ? window.Cesium : null)
+          // ensure our mount element exists in the DOM before creating the Viewer
+          try {
+            if (this.container && this.container.current) {
+              try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
+              this._mountEl = document.createElement('div'); this._mountEl.setAttribute('data-cesium-mount', '1');
+              this._mountEl.style.position = 'absolute'; this._mountEl.style.top='0'; this._mountEl.style.left='0'; this._mountEl.style.width='100%'; this._mountEl.style.height='100%'; this._mountEl.style.zIndex='1000'; this._mountEl.style.pointerEvents='auto'; this.container.current.appendChild(this._mountEl)
+            }
+          } catch (e) {}
           const el = this._mountEl || this.container.current
           const Viewer = this.Cesium && (this.Cesium.Viewer || (this.Cesium && this.Cesium.default && this.Cesium.default.Viewer))
           if (!Viewer) { console.warn('CesiumMap: CDN Cesium loaded but Viewer not found'); return }
-          try { if (this.container && this.container.current) {
-            try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
-              this._mountEl = document.createElement('div'); this._mountEl.setAttribute('data-cesium-mount', '1');
-              this._mountEl.style.position = 'absolute'; this._mountEl.style.top='0'; this._mountEl.style.left='0'; this._mountEl.style.width='100%'; this._mountEl.style.height='100%'; this._mountEl.style.zIndex='1000'; this._mountEl.style.pointerEvents='auto'; this.container.current.appendChild(this._mountEl)
-          } } catch (e) {}
           this.viewer = new Viewer(el, { animation: false, timeline: false })
           try { this._renderPoints() } catch (e) {}
           // Ensure Cesium's canvas is sized and visible inside the mount element
@@ -103,11 +106,14 @@ export default class CesiumMap extends React.Component {
         try {
           const Cesium = mod && (mod.default || mod)
           try { if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) window.CESIUM_BASE_URL = '' } catch (e) {}
+          // ensure mount exists so viewer attaches to a visible element
+          try { if (!this._mountEl) this._ensureMount() } catch (e) {}
           const el = this._mountEl || this.container.current
           const Viewer = Cesium && (Cesium.Viewer || (Cesium && Cesium.default && Cesium.default.Viewer))
           if (!Viewer) return
           this.Cesium = Cesium
           this.viewer = new Viewer(el, { animation: false, timeline: false })
+          try { if (this._mountEl) { this._mountEl.setAttribute('data-cesium-state', 'viewer-created'); if (this._statusEl) this._statusEl.innerText = 'Cesium: viewer' } } catch (e) {}
           try { this._renderPoints() } catch (e) {}
           try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
           try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
@@ -118,6 +124,42 @@ export default class CesiumMap extends React.Component {
         tryCdn()
       })
     }
+  }
+
+  // Ensure our mount and simple status element exist in the container
+  _ensureMount() {
+    try {
+      if (!this.container || !this.container.current) return
+      if (this._mountEl && this._mountEl.isConnected) return
+      try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
+      this._mountEl = document.createElement('div')
+      this._mountEl.setAttribute('data-cesium-mount', '1')
+      this._mountEl.setAttribute('data-cesium-state', 'mounted')
+      this._mountEl.style.position = 'absolute'
+      this._mountEl.style.top = '0'
+      this._mountEl.style.left = '0'
+      this._mountEl.style.width = '100%'
+      this._mountEl.style.height = '100%'
+      this._mountEl.style.zIndex = '1000'
+      this._mountEl.style.pointerEvents = 'auto'
+      try { this.container.current.style.position = this.container.current.style.position || 'relative' } catch (e) {}
+      this.container.current.appendChild(this._mountEl)
+      try {
+        this._statusEl = document.createElement('div')
+        this._statusEl.setAttribute('data-cesium-status', '1')
+        this._statusEl.style.position = 'absolute'
+        this._statusEl.style.right = '8px'
+        this._statusEl.style.top = '8px'
+        this._statusEl.style.background = 'rgba(0,0,0,0.6)'
+        this._statusEl.style.color = '#fff'
+        this._statusEl.style.padding = '4px 8px'
+        this._statusEl.style.borderRadius = '4px'
+        this._statusEl.style.zIndex = '1100'
+        this._statusEl.style.fontSize = '12px'
+        this._statusEl.innerText = 'Cesium: mount'
+        this._mountEl.appendChild(this._statusEl)
+      } catch (e) {}
+    } catch (e) {}
   }
 
   // Normalize various color formats into a CSS string usable by canvas
@@ -190,9 +232,16 @@ export default class CesiumMap extends React.Component {
   s.src = scriptSrc
   s.async = true
   s.setAttribute('data-cesium-cdn', '1')
+  s.setAttribute('data-cesium-script', '1')
   try { s.crossOrigin = 'anonymous' } catch (e) {}
-  s.onload = () => { if (window.Cesium) resolve(window.Cesium); else reject(new Error('Cesium loaded but window.Cesium missing')) }
-  s.onerror = (e) => reject(new Error('Cesium script load failed'))
+  s.onload = () => {
+    try { if (this._mountEl) this._mountEl.setAttribute('data-cesium-state', 'script-loaded'); if (this._statusEl) this._statusEl.innerText = 'Cesium: script-loaded' } catch (e) {}
+    if (window.Cesium) resolve(window.Cesium); else reject(new Error('Cesium loaded but window.Cesium missing'))
+  }
+  s.onerror = (e) => {
+    try { if (this._mountEl) this._mountEl.setAttribute('data-cesium-state', 'script-error'); if (this._statusEl) this._statusEl.innerText = 'Cesium: script-error' } catch (err) {}
+    reject(new Error('Cesium script load failed'))
+  }
   document.body.appendChild(s)
       } catch (e) { reject(e) }
     })
