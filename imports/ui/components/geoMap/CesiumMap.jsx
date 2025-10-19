@@ -178,6 +178,42 @@ export default class CesiumMap extends React.Component {
     try { if (this.container && this.container.current) this.container.current.innerHTML = '' } catch (e) {}
   }
 
+  // Initialize the Cesium Viewer only when the mount element has a non-zero
+  // size. Some parents (flex, calc heights) may not be laid out immediately
+  // during mount; creating the viewer while size is 0x0 results in a blank
+  // canvas. Retry a few times before giving up.
+  _initViewerWhenReady(ViewerClass, el) {
+    const tryInit = (attempt = 0) => {
+      try {
+        const w = (el && (el.clientWidth || el.offsetWidth)) || 0
+        const h = (el && (el.clientHeight || el.offsetHeight)) || 0
+        if (w > 2 && h > 2) {
+          try {
+            this.viewer = new ViewerClass(el, { animation: false, timeline: false })
+            try { this._renderPoints() } catch (e) {}
+            try { const canvas = (this.viewer && this.viewer.scene && this.viewer.scene.canvas) || (this.viewer && this.viewer.canvas) || null; if (canvas) { canvas.style.width='100%'; canvas.style.height='100%'; canvas.style.display='block'; canvas.style.zIndex='1000' } } catch (e) {}
+            try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
+            try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
+            return
+          } catch (e) { console.warn('CesiumMap: viewer creation failed', e) }
+        }
+      } catch (e) {}
+      if (attempt < 10) {
+        // exponential backoff-ish
+        setTimeout(() => tryInit(attempt + 1), 100 + attempt * 50)
+      } else {
+        // last resort: try once anyway
+        try {
+          this.viewer = new ViewerClass(el, { animation: false, timeline: false })
+          try { this._renderPoints() } catch (e) {}
+          try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
+          try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
+        } catch (e) { console.warn('CesiumMap: final viewer create failed', e) }
+      }
+    }
+    tryInit()
+  }
+
   _renderPoints() {
     try {
       if (!this.viewer) return
