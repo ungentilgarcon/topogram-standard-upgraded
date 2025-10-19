@@ -74,13 +74,19 @@ export default class MapLibreMap extends React.Component {
   componentDidUpdate(prevProps) {
     // re-render markers when nodes/edges change
     if (this.props.nodes !== prevProps.nodes || this.props.edges !== prevProps.edges) {
-      this._clearMarkers(); this._renderMarkers()
+      this._clearMarkers(); this._renderMarkers(); this._updateEdgesLayer()
     }
   }
 
   componentWillUnmount() {
     this._clearMarkers()
-    try { if (this.map && this.map.remove) this.map.remove() } catch (e) {}
+    try {
+      if (this.map) {
+        try { if (this.map.getLayer && this.map.getLayer('geo-edges-line')) this.map.removeLayer('geo-edges-line') } catch (e) {}
+        try { if (this.map.getSource && this.map.getSource('geo-edges')) this.map.removeSource('geo-edges') } catch (e) {}
+        try { if (this.map.remove) this.map.remove() } catch (e) {}
+      }
+    } catch (e) {}
   }
 
   _clearMarkers() {
@@ -116,6 +122,40 @@ export default class MapLibreMap extends React.Component {
       })
     } catch (e) { console.warn('MapLibreMap: marker render failed', e) }
   }
+
+      _updateEdgesLayer() {
+        try {
+          if (!this.map) return
+          const edges = this.props.edges || []
+          const features = (edges || []).map((e, i) => {
+            if (!e || !e.coords || e.coords.length !== 2) return null
+            const [[lat1, lng1], [lat2, lng2]] = e.coords
+            const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
+            if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return null
+            return {
+              type: 'Feature',
+              properties: { color: (e && e.data && e.data.color) || '#9f7aea', weight: (e && e.data && e.data.weight) || 2 },
+              geometry: { type: 'LineString', coordinates: [ [o1, a1], [o2, a2] ] }
+            }
+          }).filter(Boolean)
+          const geo = { type: 'FeatureCollection', features }
+          // Add or update source
+          if (this.map.getSource && this.map.getSource('geo-edges')) {
+            try { this.map.getSource('geo-edges').setData(geo) } catch (e) {}
+          } else {
+            try {
+              this.map.addSource('geo-edges', { type: 'geojson', data: geo })
+              this.map.addLayer({
+                id: 'geo-edges-line',
+                type: 'line',
+                source: 'geo-edges',
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: { 'line-color': ['get', 'color'], 'line-width': ['get', 'weight'], 'line-opacity': 0.9 }
+              })
+            } catch (e) { /* ignore if layer exists or map not ready */ }
+          }
+        } catch (e) { console.warn('MapLibreMap: edges layer update failed', e) }
+      }
 
   render() {
     const { width = '100%', height = '100%' } = this.props

@@ -252,6 +252,11 @@ export default class CesiumMap extends React.Component {
   componentWillUnmount() {
     try { if (this.viewer && this.viewer.destroy) this.viewer.destroy() } catch (e) {}
     try { if (this.container && this.container.current) this.container.current.innerHTML = '' } catch (e) {}
+    try {
+      if (this._edgeEntities && this._edgeEntities.length && this.viewer && this.viewer.entities) {
+        this._edgeEntities.forEach(en => { try { this.viewer.entities.remove(en) } catch (e) {} })
+      }
+    } catch (e) {}
   }
 
   // Initialize the Cesium Viewer only when the mount element has a non-zero
@@ -406,6 +411,42 @@ export default class CesiumMap extends React.Component {
         const destination = Cesium.Cartesian3.fromDegrees(avgLng, avgLat, height)
         try { this.viewer.camera.flyTo({ destination, duration: 0.6 }) } catch (e) { this.viewer.camera.setView({ destination }) }
       } catch (e) { console.warn('CesiumMap: camera set failed', e) }
+      // Render edges (polylines) if provided
+      try {
+        // remove previous edge entities we created
+        try {
+          if (this._edgeEntities && this._edgeEntities.length && this.viewer && this.viewer.entities) {
+            this._edgeEntities.forEach(en => { try { this.viewer.entities.remove(en) } catch (e) {} })
+          }
+        } catch (e) {}
+        this._edgeEntities = []
+        const edges = this.props.edges || []
+        if (edges && edges.length && this.viewer && this.Cesium && this.viewer.entities) {
+          edges.forEach((e) => {
+            try {
+              if (!e || !e.coords || !e.coords.length) return
+              const coords = e.coords.map(pt => {
+                const lat = Number(pt && pt[0]); const lng = Number(pt && pt[1])
+                if (!isFinite(lat) || !isFinite(lng)) return null
+                return this.Cesium.Cartesian3.fromDegrees(lng, lat, 0)
+              }).filter(Boolean)
+              if (!coords || coords.length < 2) return
+              const rawColor = (e && e.data && e.data.color) || '#9f7aea'
+              const cesColor = (this.Cesium.Color && this.Cesium.Color.fromCssColorString) ? this.Cesium.Color.fromCssColorString(rawColor) : (this.Cesium.Color ? this.Cesium.Color.WHITE : null)
+              const weight = e && e.data && e.data.weight ? (e.data.weight > 6 ? 20 : Math.pow(e.data.weight,2)) : 2
+              const ent = this.viewer.entities.add({
+                polyline: {
+                  positions: coords,
+                  width: Math.min(Math.max(1, weight), 20),
+                  material: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined),
+                  clampToGround: true
+                }
+              })
+              if (ent) this._edgeEntities.push(ent)
+            } catch (err) { console.warn('CesiumMap: add edge failed', err) }
+          })
+        }
+      } catch (e) { console.warn('CesiumMap: edges render failed', e) }
     } catch (e) { console.warn('CesiumMap: render points failed', e) }
   }
 
