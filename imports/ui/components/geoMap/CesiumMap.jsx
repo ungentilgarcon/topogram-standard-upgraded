@@ -531,10 +531,21 @@ export default class CesiumMap extends React.Component {
                 else if (edgeMode === 'none') relLabel = ''
                 else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
                 if (!relLabel || String(relLabel).trim() === '') return
-                const midLat = (a1 + a2) / 2
+                // compute a geodesic midpoint (great-circle) between the two endpoints
+                let midLat = (a1 + a2) / 2
                 let midLng = (o1 + o2) / 2
-                if (midLng > 180) midLng = ((midLng + 180) % 360) - 180
-                if (midLng < -180) midLng = ((midLng - 180) % 360) + 180
+                try {
+                  // prefer Cesium's EllipsoidGeodesic for accurate midpoints across long arcs
+                  if (this.Cesium && this.Cesium.EllipsoidGeodesic) {
+                    const carto0 = new this.Cesium.Cartographic(this.Cesium.Math.toRadians(o1), this.Cesium.Math.toRadians(a1))
+                    const carto1 = new this.Cesium.Cartographic(this.Cesium.Math.toRadians(o2), this.Cesium.Math.toRadians(a2))
+                    const geod = new this.Cesium.EllipsoidGeodesic(carto0, carto1)
+                    const midCarto = geod.interpolateUsingFraction(0.5, new this.Cesium.Cartographic())
+                    // convert back to degrees
+                    midLat = this.Cesium.Math.toDegrees(midCarto.latitude)
+                    midLng = this.Cesium.Math.toDegrees(midCarto.longitude)
+                  }
+                } catch (err) { /* fallback to arithmetic midpoint on error */ }
                 // compute stacking slot index for this edge and offset latitude
                 const k = canonicalKey(e)
                 const bucket = buckets.has(k) ? buckets.get(k) : []
@@ -548,12 +559,30 @@ export default class CesiumMap extends React.Component {
                 const slotIndex = slotIdx >= 0 ? slotIdx : 0
                 const spacingPx = 18 // pixels between stacked labels
                 // compute geographic midpoint position for world placement
-                const pos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
+                // Use the cartographic midpoint at ground level (height 0) so
+                // label positions align with clampToGround polylines.
+                let pos = null
+                try {
+                  if (this.Cesium && this.Cesium.Ellipsoid && this.Cesium.Cartographic) {
+                    const midCart = new this.Cesium.Cartographic(this.Cesium.Math.toRadians(midLng), this.Cesium.Math.toRadians(midLat + slotOffsetDeg), 0)
+                    pos = this.Cesium.Ellipsoid.WGS84.cartographicToCartesian(midCart)
+                  }
+                } catch (err) { pos = null }
+                if (!pos) pos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
+                // We'll compute a world-space position to use for placing
+                // emoji/labels. By default this is the geographic midpoint
+                // but if we cannot project to screen space (SceneTransforms
+                // returns null) we'll attempt a camera-space conversion that
+                // turns desired pixel offsets into a world offset. This keeps
+                // the visible separation consistent across zoom/latitude.
+                let worldPos = pos
                 // Determine desired screen midpoint for the edge and avoid overlaps by shifting
                 let ox = 0, oy = 0
+                let forceMidpoint = false
                 try {
                   let screenMid = null
                   try { if (this.viewer && this.viewer.scene && this.Cesium && this.Cesium.SceneTransforms) screenMid = this.Cesium.SceneTransforms.wgs84ToWindowCoordinates(this.viewer.scene, pos) } catch (err) { screenMid = null }
+                  try { console.info('CesiumMap: screenMidRaw', { idx, screenMid: (screenMid ? { x: screenMid.x, y: screenMid.y } : null) }) } catch (e) {}
                   const labelText = String(relTextRaw || relLabel || '')
                   let textW = 80, textH = 16
                   try {
@@ -593,8 +622,167 @@ export default class CesiumMap extends React.Component {
                       }
                       if (!found) { placedRects.push(baseRect) }
                     }
+                  } else {
+                    // No screen projection available — anchor exactly at the
+                    // geographic midpoint and compute pixel stacking offsets
+                    // deterministically from the slot index. This ensures labels
+                    // remain centered on the edge even when we can't project.
+                    try {
+                      const centerIndex = (slotCount - 1) / 2
+                      oy = Math.round((slotIndex - centerIndex) * spacingPx)
+                      ox = 0
+                      worldPos = pos
+                      forceMidpoint = true
+                      try { console.info('CesiumMap: fallback-midpoint-used', { idx, slotIndex, slotCount, ox, oy }) } catch (e) {}
+                    } catch (e) { /* non-fatal */ }
                   }
+
+                  // If we still don't have a reliable screenMid, try a multi-sample
+                  // pick-based fallback: sample multiple screen pixels along the
+                  // perpendicular to the edge and pick the hit whose lat/lng is
+                  // closest to the geographic midpoint. This is robust with
+                  // terrain and clamp-to-ground polylines.
+                  try {
+                    if (this.viewer && this.viewer.camera && this.viewer.scene) {
+                      const scene = this.viewer.scene
+                      const canvas2 = scene.canvas
+                      const cw = canvas2.clientWidth || canvas2.width || 800
+                      const ch = canvas2.clientHeight || canvas2.height || 600
+
+                      // compute a base screen point to sample around: prefer SceneTransforms if available
+                      let baseX = Math.round(cw / 2), baseY = Math.round(ch / 2)
+                      try {
+                        const sm = (this.Cesium && this.Cesium.SceneTransforms) ? this.Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, pos) : null
+                        if (sm && sm.x != null && sm.y != null) { baseX = Math.round(sm.x); baseY = Math.round(sm.y) }
+                      } catch (e) { /* ignore */ }
+
+                      // determine perpendicular direction in screen-space
+                      let perp = { x: 0, y: -1 }
+                      try {
+                        // try to project the edge endpoints; if available use them
+                        const eps = (e && e.coords && e.coords.length === 2) ? e.coords : null
+                        if (eps && eps.length === 2 && this.Cesium && this.Cesium.SceneTransforms) {
+                          const p0 = this.Cesium.Cartesian3.fromDegrees(eps[0][1], eps[0][0], 0)
+                          const p1 = this.Cesium.Cartesian3.fromDegrees(eps[1][1], eps[1][0], 0)
+                          const s0 = this.Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, p0)
+                          const s1 = this.Cesium.SceneTransforms.wgs84ToWindowCoordinates(scene, p1)
+                          if (s0 && s1 && s0.x != null && s1.x != null) {
+                            const dx = s1.x - s0.x, dy = s1.y - s0.y
+                            // perpendicular
+                            perp = { x: -dy, y: dx }
+                            const len = Math.sqrt(perp.x * perp.x + perp.y * perp.y) || 1
+                            perp.x /= len; perp.y /= len
+                          }
+                        }
+                      } catch (e) { /* ignore */ }
+
+                      const spacing = spacingPx || 18
+                      const maxSteps = 4
+                      let bestPick = null
+                      let bestScore = Number.POSITIVE_INFINITY
+                      // haversine helper
+                      const haversine = (lat1, lon1, lat2, lon2) => {
+                        const toRad = Math.PI / 180
+                        const dLat = (lat2 - lat1) * toRad
+                        const dLon = (lon2 - lon1) * toRad
+                        const a = Math.sin(dLat/2) * Math.sin(dLat/2) + Math.cos(lat1*toRad) * Math.cos(lat2*toRad) * Math.sin(dLon/2) * Math.sin(dLon/2)
+                        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1-a))
+                        return 6371000 * c
+                      }
+
+                      for (let step = 0; step <= maxSteps; step++) {
+                        const offsets = (step === 0) ? [0] : [step, -step]
+                        for (let oi = 0; oi < offsets.length; oi++) {
+                          const o = offsets[oi]
+                          const attemptX = Math.round(baseX + perp.x * spacing * o + (ox || 0))
+                          const attemptY = Math.round(baseY + perp.y * spacing * o + (oy || 0))
+                          let picked = null
+                          try {
+                            if (scene.globe && typeof this.viewer.camera.getPickRay === 'function' && typeof scene.globe.pick === 'function') {
+                              const ray = this.viewer.camera.getPickRay({ x: attemptX, y: attemptY })
+                              picked = scene.globe.pick(ray, scene)
+                            }
+                          } catch (e) { picked = null }
+                          if (!picked) {
+                            try { if (typeof scene.pickPosition === 'function') picked = scene.pickPosition({ x: attemptX, y: attemptY }) } catch (e) { picked = null }
+                          }
+                          if (picked) {
+                            try {
+                              const cart = this.Cesium.Cartographic.fromCartesian(picked)
+                              const pickLat = cart.latitude * 180 / Math.PI
+                              const pickLon = cart.longitude * 180 / Math.PI
+                              const score = haversine(midLat, midLng, pickLat, pickLon)
+                              if (score < bestScore) { bestScore = score; bestPick = picked }
+                            } catch (e) { /* ignore */ }
+                          }
+                        }
+                        // early out if we found a very close pick
+                        if (bestScore < 40) break
+                      }
+                      // report pick sampling outcome even when not found
+                      try { console.info('CesiumMap: pick-sampling result', { idx, bestScore: (bestScore === Number.POSITIVE_INFINITY ? null : bestScore), found: !!bestPick }) } catch (e) {}
+                      if (bestPick) {
+                        worldPos = bestPick
+                        try { console.info('CesiumMap: multi-pick fallback used', { idx, bestScore }) } catch (e) {}
+                      }
+                    }
+                  } catch (e) { /* non-fatal */ }
                 } catch (err) { /* best-effort only */ }
+
+                // If no pick or camera fallback produced a different worldPos,
+                // try a hybrid perpendicular world-space fallback that offsets
+                // the geographic midpoint along the local tangent perpendicular.
+                try {
+                  const needHybrid = (!screenMid || !screenMid.x) && worldPos && pos && (worldPos.x === pos.x && worldPos.y === pos.y && worldPos.z === pos.z)
+                      if (needHybrid) {
+                    try {
+                      // geodetic normal at midpoint
+                      const normal = this.Cesium.Ellipsoid.WGS84.geodeticSurfaceNormal(pos)
+                      // compute approximate edge direction in world-space
+                      let edgeDir = null
+                      const eps = (e && e.coords && e.coords.length === 2) ? e.coords : null
+                      if (eps && eps.length === 2) {
+                        const p0 = this.Cesium.Cartesian3.fromDegrees(eps[0][1], eps[0][0], 0)
+                        const p1 = this.Cesium.Cartesian3.fromDegrees(eps[1][1], eps[1][0], 0)
+                        edgeDir = this.Cesium.Cartesian3.subtract(p1, p0, new this.Cesium.Cartesian3())
+                        this.Cesium.Cartesian3.normalize(edgeDir, edgeDir)
+                      }
+                      // perpendicular on tangent plane
+                      let perpVec = null
+                      if (edgeDir) {
+                        perpVec = this.Cesium.Cartesian3.cross(normal, edgeDir, new this.Cesium.Cartesian3())
+                        this.Cesium.Cartesian3.normalize(perpVec, perpVec)
+                      } else {
+                        const east = this.Cesium.Cartesian3.cross(this.Cesium.Cartesian3.UNIT_Z, normal, new this.Cesium.Cartesian3())
+                        this.Cesium.Cartesian3.normalize(east, east)
+                        perpVec = this.Cesium.Cartesian3.cross(normal, east, new this.Cesium.Cartesian3())
+                        this.Cesium.Cartesian3.normalize(perpVec, perpVec)
+                      }
+
+                      // metersPerPixel via camera if available
+                      let metersPerPixel = 1
+                      try {
+                        const cam = this.viewer && this.viewer.camera
+                        const canvas = this.viewer && this.viewer.scene && this.viewer.scene.canvas
+                        if (cam && canvas) {
+                          const camPos = cam.position || new this.Cesium.Cartesian3()
+                          const vToMid = this.Cesium.Cartesian3.subtract(pos, camPos, new this.Cesium.Cartesian3())
+                          const camDir = cam.direction || this.Cesium.Cartesian3.normalize(vToMid, new this.Cesium.Cartesian3())
+                          const rangeAlongView = Math.max(1, Math.abs(this.Cesium.Cartesian3.dot(vToMid, camDir)))
+                          const fovy = (cam.frustum && cam.frustum.fovy) ? cam.frustum.fovy : (Math.PI / 3)
+                          metersPerPixel = (2 * rangeAlongView * Math.tan(fovy / 2)) / Math.max(1, (canvas.clientHeight || 1))
+                        }
+                      } catch (e) { metersPerPixel = 1 }
+
+                      const offsetMeters = (spacingPx || 18) * (Math.abs(oy) > 0 ? Math.abs(oy) : 1) * metersPerPixel
+                      const worldOffset = this.Cesium.Cartesian3.multiplyByScalar(new this.Cesium.Cartesian3(), offsetMeters, perpVec)
+                      const hybridPos = this.Cesium.Cartesian3.add(pos, worldOffset, new this.Cesium.Cartesian3())
+                      worldPos = hybridPos
+                      try { console.info('CesiumMap: hybrid-perp fallback used', { idx, offsetMeters, hybridPos }) } catch (e) {}
+                    } catch (err) { /* non-fatal */ }
+                  }
+                } catch (err) { /* non-fatal */ }
+
                 // debug logging for placement
                 try {
                   const debugPlacement = (this.props && this.props.debug && this.props.debug.geoEdgePlacement) || (typeof window !== 'undefined' && window.__CESIUM_EDGE_DEBUG)
@@ -625,7 +813,9 @@ export default class CesiumMap extends React.Component {
                     // place emoji billboard at the midpoint and rely on pixelOffset/horizontalOrigin
                     // to position it a few screen pixels left of the text. This keeps placement
                     // consistent across zoom/latitude instead of using degree offsets.
-                    const emojiPos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
+                    // use the computed worldPos (which may be the geographic
+                    // midpoint or the camera-space adjusted point)
+                    const emojiPos = worldPos
                     try {
                       // compute pixelOffset with vertical stacking applied. Prefer Cesium's
                       // SceneTransforms.wgs84ToWindowCoordinates to determine accurate screen coords.
@@ -645,7 +835,7 @@ export default class CesiumMap extends React.Component {
                     if (edgeMode === 'both' && relTextRaw) {
                       // text label at the same geographic midpoint; pixelOffset/horizontalOrigin
                       // will shift it a few screen pixels to the right so it appears after the emoji
-                      const textPos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
+                      const textPos = worldPos
                       const labelOffsetX = 12 + (ox || 0)
                       const labelOffsetY = (oy || 0)
                       const labelEnt = this.viewer.entities.add({
@@ -667,7 +857,7 @@ export default class CesiumMap extends React.Component {
                   } catch (e) {}
                 } else {
                   const labelEnt = this.viewer.entities.add({
-                    position: pos,
+                    position: worldPos,
                     label: {
                       text: String(relLabel),
                       font: '11px sans-serif',
