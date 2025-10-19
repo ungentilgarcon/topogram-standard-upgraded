@@ -173,7 +173,7 @@ export default class MapLibreMap extends React.Component {
   const maplibregl = this._maplibregl || (typeof window !== 'undefined' ? (window.maplibregl || null) : null)
     const { nodes } = this.props
     try {
-      (nodes || []).forEach(n => {
+      (nodes || []).forEach((n, i) => {
         try {
           const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
           const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
@@ -186,44 +186,28 @@ export default class MapLibreMap extends React.Component {
           const nodeEmoji = this._getNodeEmoji(n)
           const emojiEnabled = nodeEmoji ? true : ((this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true)
           const hasEmoji = emojiEnabled && !!nodeEmoji
+          // Skip creating DOM markers for emoji nodes — MapLibre symbol layer
+          // will render them more reliably. We still keep them in the nodes
+          // array so _updateNodesLayer can create a symbol source.
           if (hasEmoji) {
-            const emoji = String(nodeEmoji || (n && n.data && n.data.emoji))
-            // build a PNG dataURL with a readable halo so emoji shows reliably
-            const sizePx = Math.max(48, Math.min(120, Math.round(Math.max(visualRadius, 32) * 1.8)))
-            const dataUrl = this._emojiToDataUrl(emoji, sizePx)
-            if (dataUrl) {
-              const img = document.createElement('img')
-              img.src = dataUrl
-              img.style.width = `${sizePx}px`
-              img.style.height = `${sizePx}px`
-              img.style.display = 'block'
-              img.style.transform = 'translate(-50%, -50%)'
-              img.style.pointerEvents = 'auto'
-              img.className = 'maplibre-emoji-marker'
-              img.setAttribute('data-emoji-marker', emoji)
-              // set title for accessibility/tooltip
-              img.title = (n && n.data && (n.data._vizLabel || n.data.label || '')) || ''
-              el.appendChild(img)
-            } else {
-              // fallback to text if canvas failed
-              el.className = 'maplibre-emoji-marker'
-              el.setAttribute('data-emoji-marker', emoji)
-              try { el.textContent = emoji } catch (e) {}
-            }
-          } else {
-            // size the DOM marker to match Leaflet visual radius (radius->pixels)
-            const sizePx = Math.max(2, Math.round(visualRadius * 2))
-            el.style.width = `${sizePx}px`
-            el.style.height = `${sizePx}px`
-            el.style.borderRadius = '50%'
-            // accept color from various shapes used across adapters
-            const rawColor = (n && n.data && n.data.color) || (n && n.attrs && n.attrs.color) || (n && n.color) || '#1f2937'
-            el.style.background = rawColor
-            el.style.border = '1px solid #fff'
-            el.style.boxSizing = 'border-box'
-            el.style.cursor = 'pointer'
-            el.title = (n && n.data && (n.data._vizLabel || n.data.label || '')) || ''
+            // still add a lightweight placeholder for counting, but skip DOM Marker
+            const marker = { __emojiPlaceholder: true }
+            this._markers.push(marker)
+            return
           }
+
+          // size the DOM marker to match Leaflet visual radius (radius->pixels)
+          const sizePx = Math.max(2, Math.round(visualRadius * 2))
+          el.style.width = `${sizePx}px`
+          el.style.height = `${sizePx}px`
+          el.style.borderRadius = '50%'
+          // accept color from various shapes used across adapters
+          const rawColor = (n && n.data && n.data.color) || (n && n.attrs && n.attrs.color) || (n && n.color) || '#1f2937'
+          el.style.background = rawColor
+          el.style.border = '1px solid #fff'
+          el.style.boxSizing = 'border-box'
+          el.style.cursor = 'pointer'
+          el.title = (n && n.data && (n.data._vizLabel || n.data.label || '')) || ''
           el.addEventListener('click', (ev) => {
             ev.stopPropagation(); try { this.props.handleClickGeoElement && this.props.handleClickGeoElement({ group: 'node', el: n }) } catch (e) {}
           })
@@ -413,9 +397,8 @@ export default class MapLibreMap extends React.Component {
         try {
           if (!this.map) return
           const nodes = this.props.nodes || []
-              // Exclude nodes that contain an emoji from the vector circle layer so
-              // their DOM emoji markers (MapLibre Marker) are not occluded by the
-              // canvas-drawn circle. Emoji nodes are handled by _renderMarkers().
+              // Build vector circle features for non-emoji nodes, and separately
+              // build an emoji feature collection for nodes that contain emoji.
               const features = (nodes || []).map((n, i) => {
                 if (n && n.data && n.data.emoji) return null
             const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
@@ -433,6 +416,19 @@ export default class MapLibreMap extends React.Component {
               geometry: { type: 'Point', coordinates: [lng, lat] }
             }
           }).filter(Boolean)
+              // emoji features: nodes that have emoji
+              const emojiFeatures = (nodes || []).map((n, i) => {
+                const emoji = this._getNodeEmoji(n)
+                if (!emoji) return null
+                const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
+                const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
+                if (!isFinite(lat) || !isFinite(lng)) return null
+                return {
+                  type: 'Feature',
+                  properties: { id: (n && n.data && n.data.id) || i, icon: `emoji-${i}`, size: Math.max(0.5, Math.min(2.0, ((n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 2.0 : Math.min(2.0, n.data.weight/50)) : 0.6))) },
+                  geometry: { type: 'Point', coordinates: [lng, lat] }
+                }
+              }).filter(Boolean)
           const geo = { type: 'FeatureCollection', features }
           if (this.map.getSource && this.map.getSource('geo-nodes')) {
             try { this.map.getSource('geo-nodes').setData(geo) } catch (e) {}
@@ -466,6 +462,49 @@ export default class MapLibreMap extends React.Component {
             } catch (e) { console.warn('MapLibreMap: add nodes layer failed', e) }
           }
           try { console.info('MapLibreMap: nodes features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${features.length}` } catch (e) {}
+
+          // Add or update emoji source + symbol layer (images loaded from our canvas dataURLs)
+          try {
+            const emojiGeo = { type: 'FeatureCollection', features: emojiFeatures }
+            // ensure images are registered
+            emojiFeatures.forEach((f) => {
+              try {
+                const idx = f.properties && f.properties.id
+                const name = f.properties && f.properties.icon
+                const node = (this.props.nodes || [])[idx]
+                const emoji = this._getNodeEmoji(node)
+                const sizePx = Math.max(48, Math.min(120, Math.round(Math.max((node && node.data && node.data.weight) || 32, 32) * 1.8)))
+                const dataUrl = this._emojiToDataUrl(emoji, sizePx)
+                if (dataUrl) {
+                  // create an Image and add it to the map when loaded
+                  const img = new Image()
+                  img.crossOrigin = 'anonymous'
+                  img.onload = () => { try { if (this.map && !this.map.hasImage(name)) this.map.addImage(name, img) } catch (e) {} }
+                  img.src = dataUrl
+                }
+              } catch (e) {}
+            })
+            if (this.map.getSource && this.map.getSource('geo-emoji')) {
+              try { this.map.getSource('geo-emoji').setData(emojiGeo) } catch (e) {}
+            } else if (emojiFeatures.length) {
+              try {
+                this.map.addSource('geo-emoji', { type: 'geojson', data: emojiGeo })
+                this.map.addLayer({
+                  id: 'geo-emoji-symbol',
+                  type: 'symbol',
+                  source: 'geo-emoji',
+                  layout: {
+                    'icon-image': ['get', 'icon'],
+                    'icon-allow-overlap': true,
+                    'icon-ignore-placement': true,
+                    'icon-size': ['get', 'size']
+                  }
+                })
+              } catch (e) { console.warn('MapLibreMap: add emoji layer failed', e) }
+            }
+            // update status badge emoji count
+            try { if (this._statusEl) this._statusEl._emojiCount = emojiFeatures.length } catch (e) {}
+          } catch (e) { console.warn('MapLibreMap: emoji layer update failed', e) }
         } catch (e) { console.warn('MapLibreMap: nodes layer update failed', e) }
       }
 
