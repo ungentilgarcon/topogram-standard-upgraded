@@ -78,8 +78,19 @@ export default class CesiumMap extends React.Component {
       try {
         if (typeof window === 'undefined') return reject(new Error('no-window'))
         if (window.Cesium) return resolve(window.Cesium)
-        const cssHref = 'https://unpkg.com/cesium@' + (require('../../../../package.json').dependencies.cesium || 'latest') + '/Build/Cesium/Widgets/widgets.css'
-        const scriptSrcBase = 'https://unpkg.com/cesium@' + (require('../../../../package.json').dependencies.cesium || 'latest') + '/Build/Cesium'
+        // read the cesium version from package.json but normalize it: strip
+        // leading non-digit characters such as '^' so URLs like
+        // https://unpkg.com/cesium@1.134.1/... are used (no percent-encoding)
+        let depVer = null
+        try { depVer = require('../../../../package.json').dependencies.cesium } catch (e) { depVer = null }
+        let version = 'latest'
+        if (depVer && typeof depVer === 'string') {
+          // remove any leading characters that are not digits (caret, ~, >= etc)
+          const m = String(depVer).match(/(\d+\.[0-9.]+)/)
+          if (m && m[1]) version = m[1]
+        }
+        const cssHref = `https://unpkg.com/cesium@${version}/Build/Cesium/Widgets/widgets.css`
+        const scriptSrcBase = `https://unpkg.com/cesium@${version}/Build/Cesium`
         const scriptSrc = scriptSrcBase + '/Cesium.js'
         // set CESIUM_BASE_URL so Cesium can find its static assets
         try { window.CESIUM_BASE_URL = scriptSrcBase } catch (e) {}
@@ -100,8 +111,10 @@ export default class CesiumMap extends React.Component {
           waitFor()
           return
         }
-        const s = document.createElement('script')
-        s.src = scriptSrc
+  // helpful log for debugging CDN path issues
+  try { console.info('CesiumMap: loading Cesium from CDN', scriptSrc) } catch (e) {}
+  const s = document.createElement('script')
+  s.src = scriptSrc
         s.async = true
         s.setAttribute('data-cesium-cdn', '1')
         s.onload = () => { if (window.Cesium) resolve(window.Cesium); else reject(new Error('Cesium loaded but window.Cesium missing')) }
