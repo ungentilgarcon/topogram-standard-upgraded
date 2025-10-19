@@ -8,6 +8,11 @@ import './GeoMap.css'
 import mapTiles from './mapTiles'
 import GeoNodes from './GeoNodes.jsx'
 import GeoEdges from './GeoEdges.jsx'
+// Optional alternatives
+let MapLibreMap = null
+let CesiumMap = null
+try { MapLibreMap = require('./MapLibreMap.jsx').default } catch (e) { MapLibreMap = null }
+try { CesiumMap = require('./CesiumMap.jsx').default } catch (e) { CesiumMap = null }
 
 const MAP_DIV_ID = 'map'
 // Use relative positioning so the map fills its wrapper instead of being fixed to the viewport
@@ -170,8 +175,36 @@ export default class GeoMap extends React.Component {
     const chevOn = (!this.props.ui || this.props.ui.showChevrons !== false)
     const panelOpen = !!(this.props.ui && this.props.ui.filterPanelIsOpen)
     const controlPos = panelOpen ? 'bottomleft' : 'bottomright'
+    // Choose renderer: default -> leaflet, 'maplibre' -> MapLibreMap (if available), 'cesium' -> CesiumMap (if available)
+    const renderer = (this.props.ui && this.props.ui.geoMapRenderer) ? String(this.props.ui.geoMapRenderer) : 'leaflet'
+    if (renderer === 'maplibre' && MapLibreMap) {
+      return (
+        <div id={MAP_DIV_ID} style={containerStyle}>
+          <MapLibreMap
+            nodes={nodes}
+            edges={edges}
+            ui={this.props.ui}
+            width={width}
+            height={height}
+            handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
+            center={position}
+            zoom={zoom}
+            style={tileSpec && tileSpec.maplibreStyle}
+          />
+        </div>
+      )
+    }
+    if (renderer === 'cesium' && CesiumMap) {
+      return (
+        <div id={MAP_DIV_ID} style={containerStyle}>
+          <CesiumMap nodes={nodes} edges={edges} ui={this.props.ui} width={width} height={height} />
+        </div>
+      )
+    }
+
+    // Fallback: Leaflet (existing implementation)
     return (
-  <div id={MAP_DIV_ID} style={containerStyle}>
+      <div id={MAP_DIV_ID} style={containerStyle}>
         <MapContainer
           key={`map-${chevOn ? 'with' : 'no'}-chev`}
           center={position}
