@@ -148,13 +148,6 @@ export default class CesiumMap extends React.Component {
       const Cesium = this.Cesium
       if (!Cesium) return
 
-      // Improve visibility: enable depth test against terrain when available
-      try {
-        if (this.viewer && this.viewer.scene && this.viewer.scene.globe && typeof this.viewer.scene.globe.depthTestAgainstTerrain === 'boolean') {
-          this.viewer.scene.globe.depthTestAgainstTerrain = true
-        }
-      } catch (e) {}
-
       if (!nodes.length) {
         // No points: set a default globe/backdrop view so the canvas isn't empty
         try {
@@ -194,16 +187,11 @@ export default class CesiumMap extends React.Component {
             || (n && n.color)
             || '#1f2937'
           const color = this._normalizeColor(rawColor)
-          // add a tiny altitude so points don't get clipped into terrain at high zoom
-          const altitude = (n && n.data && (n.data.alt || n.data.altitude)) || 20
-          const cart = Cesium.Cartesian3.fromDegrees(lng, lat, Number(altitude) || 20)
+          const cart = Cesium.Cartesian3.fromDegrees(lng, lat, 0)
           if (this._pointCollection) {
             try {
               const c = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString(color) : Cesium.Color.WHITE
-              const opts = { position: cart, color: c, pixelSize: 10 }
-              // when available, set heightReference/disableDepthTestDistance to keep points visible
-              try { opts.heightReference = Cesium.HeightReference.NONE } catch (e) {}
-              this._pointCollection.add(opts)
+              this._pointCollection.add({ position: cart, color: c, pixelSize: 10 })
             } catch (e) {
               // fallback to canvas billboard if color->Cesium.Color conversion fails
               const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
