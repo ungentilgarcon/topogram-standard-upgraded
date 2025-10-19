@@ -335,21 +335,18 @@ export default class CesiumMap extends React.Component {
         return
       }
 
-      // Prefer PointPrimitiveCollection which supports color and pixelSize
-      let pointCollection = null
+      // Create both a PointPrimitiveCollection (for plain circles) and a
+      // BillboardCollection which we'll use for emoji rendering. Always
+      // create a billboard collection so emoji billboards can be added even
+      // when point primitives are available.
       try {
-        pointCollection = new Cesium.PointPrimitiveCollection()
-      } catch (e) {
-        pointCollection = null
-      }
-      if (pointCollection) {
-        this._pointCollection = pointCollection
-        primitives.add(pointCollection)
-      } else {
-        const billboardCollection = new Cesium.BillboardCollection()
-        this._billboardCollection = billboardCollection
-        primitives.add(billboardCollection)
-      }
+        this._pointCollection = new Cesium.PointPrimitiveCollection()
+        primitives.add(this._pointCollection)
+      } catch (e) { this._pointCollection = null }
+      try {
+        this._billboardCollection = new Cesium.BillboardCollection()
+        primitives.add(this._billboardCollection)
+      } catch (e) { this._billboardCollection = null }
 
       const lats = []
       const lngs = []
@@ -376,18 +373,23 @@ export default class CesiumMap extends React.Component {
           if (hasEmoji) {
             try {
               const emoji = String(n.data.emoji)
-              const fontPx = Math.max(18, Math.min(40, visualRadius))
-              const cvs = document.createElement('canvas'); cvs.width = pixelSize; cvs.height = pixelSize
+              // enlarge emoji for visibility: ensure canvas big enough
+              const fontPx = Math.max(28, Math.min(96, Math.round(Math.max(visualRadius, 28) * 1.4)))
+              const cvsSize = Math.max(pixelSize, Math.round(fontPx * 1.6))
+              const cvs = document.createElement('canvas'); cvs.width = cvsSize; cvs.height = cvsSize
               const ctx = cvs.getContext('2d'); if (ctx) {
-                ctx.clearRect(0,0,pixelSize,pixelSize)
+                ctx.clearRect(0,0,cvsSize,cvsSize)
                 ctx.font = `${fontPx}px sans-serif`
                 ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-                // draw a subtle white halo for readability
-                ctx.fillStyle = '#fff'; ctx.lineWidth = 3; ctx.strokeStyle = '#fff'; ctx.strokeText(emoji, pixelSize/2, pixelSize/2)
-                ctx.fillStyle = color; ctx.fillText(emoji, pixelSize/2, pixelSize/2)
+                // draw a stronger white halo for readability and larger emoji
+                ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
+                ctx.strokeStyle = '#ffffff'
+                ctx.strokeText(emoji, cvsSize / 2, cvsSize / 2)
+                ctx.fillStyle = color || '#111'
+                ctx.fillText(emoji, cvsSize / 2, cvsSize / 2)
               }
               const image = cvs.toDataURL()
-              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
+              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, scale: 1.0, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
             } catch (e) { /* ignore emoji rendering errors */ }
           } else if (this._pointCollection) {
             try {

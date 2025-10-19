@@ -129,20 +129,28 @@ export default class MapLibreMap extends React.Component {
           // compute visual radius like Leaflet GeoNodes
           const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
           const hitRadius = Math.max(visualRadius, 10)
-          // Emoji handling: show emoji when UI allows and node has emoji
-          const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
-          const hasEmoji = emojiEnabled && n && n.data && n.data.emoji
+          // Emoji handling: force-show emoji when node contains emoji, otherwise respect UI toggle
+          const nodeHasEmoji = n && n.data && n.data.emoji
+          const emojiEnabled = nodeHasEmoji ? true : ((this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true)
+          const hasEmoji = emojiEnabled && nodeHasEmoji
           if (hasEmoji) {
             const emoji = String(n.data.emoji)
-            const fontPx = Math.max(18, Math.min(40, visualRadius))
+            // make the emoji visibly large (force show)
+            const fontPx = Math.max(24, Math.min(72, Math.round(Math.max(visualRadius, 24) * 1.2)))
+            const sizePx = Math.max(28, Math.round(fontPx * 1.2))
+            el.style.width = `${sizePx}px`
+            el.style.height = `${sizePx}px`
             el.style.fontSize = `${fontPx}px`
-            el.style.lineHeight = '1'
+            el.style.lineHeight = `${sizePx}px`
             el.style.display = 'inline-flex'
             el.style.alignItems = 'center'
             el.style.justifyContent = 'center'
             el.style.pointerEvents = 'auto'
             el.style.transform = 'translate(-50%, -50%)'
             el.style.position = 'relative'
+            el.style.background = 'transparent'
+            el.style.border = 'none'
+            el.style.boxShadow = '0 0 0 2px rgba(255,255,255,0.9) inset'
             el.innerText = emoji
           } else {
             // size the DOM marker to match Leaflet visual radius (radius->pixels)
