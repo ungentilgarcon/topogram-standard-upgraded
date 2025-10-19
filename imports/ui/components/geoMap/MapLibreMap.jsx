@@ -425,7 +425,8 @@ export default class MapLibreMap extends React.Component {
                 if (!isFinite(lat) || !isFinite(lng)) return null
                 return {
                   type: 'Feature',
-                  properties: { id: (n && n.data && n.data.id) || i, icon: `emoji-${i}`, size: Math.max(0.5, Math.min(2.0, ((n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 2.0 : Math.min(2.0, n.data.weight/50)) : 0.6))) },
+                  // include nodeIndex so we can reliably reference the original node
+                  properties: { nodeIndex: i, id: (n && n.data && n.data.id) || i, icon: `emoji-${i}`, size: Math.max(0.5, Math.min(2.0, ((n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 2.0 : Math.min(2.0, n.data.weight/50)) : 0.6))) },
                   geometry: { type: 'Point', coordinates: [lng, lat] }
                 }
               }).filter(Boolean)
@@ -469,9 +470,9 @@ export default class MapLibreMap extends React.Component {
             // ensure images are registered
             emojiFeatures.forEach((f) => {
               try {
-                const idx = f.properties && f.properties.id
+                const nodeIndex = f.properties && f.properties.nodeIndex
                 const name = f.properties && f.properties.icon
-                const node = (this.props.nodes || [])[idx]
+                const node = (this.props.nodes || [])[nodeIndex]
                 const emoji = this._getNodeEmoji(node)
                 const sizePx = Math.max(48, Math.min(120, Math.round(Math.max((node && node.data && node.data.weight) || 32, 32) * 1.8)))
                 const dataUrl = this._emojiToDataUrl(emoji, sizePx)
