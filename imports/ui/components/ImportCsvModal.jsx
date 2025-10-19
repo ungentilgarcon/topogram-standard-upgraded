@@ -89,8 +89,32 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
           })
         } catch (e) { reject(e) }
       })
-      onEnqueue && onEnqueue(res && res.jobId)
-      onClose && onClose()
+      if (res && res.queued && res.waitlistId) {
+        alert('Server is busy — you are on the import waitlist. We will promote your job automatically when a slot is free.')
+        // start polling in background
+        const poll = async () => {
+          try {
+            const info = await new Promise((resolve, reject) => {
+              Meteor.call('waitlist.position', (err, r) => { if (err) return reject(err); resolve(r) })
+            })
+            if (info && info.inWaitlist && info.position === 1) {
+              const promoted = await new Promise((resolve, reject) => {
+                Meteor.call('waitlist.tryPromote', { waitlistId: res.waitlistId }, (err, r) => { if (err) return reject(err); resolve(r) })
+              })
+              if (promoted && promoted.promoted) {
+                onEnqueue && onEnqueue(promoted.jobId)
+                onClose && onClose()
+                return
+              }
+            }
+          } catch (e) { console.debug && console.debug('waitlist poll error', e) }
+          setTimeout(poll, 5000)
+        }
+        poll()
+      } else {
+        onEnqueue && onEnqueue(res && res.jobId)
+        onClose && onClose()
+      }
     } catch (err) {
       console.error('enqueueCsvImport error', err)
       const msg = (err && (err.error || err.message)) ? (err.error ? `${err.error}: ${err.message}` : err.message) : String(err)

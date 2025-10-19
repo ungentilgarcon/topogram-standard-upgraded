@@ -1,0 +1,9 @@
+{
+  "nodes": [
+    { "id": "n1", "name": "Node One", "label": "One", "color": "#ffcc00", "emoji": "🎵", "notes": "from graph.json" },
+    { "id": "n2", "name": "Node Two", "label": "Two", "color": "#00ccff", "emoji": "🎤", "notes": "from graph.json" }
+  ],
+  "edges": [
+    { "source": "n1", "target": "n2", "name": "connects", "edgeColor": "#888888", "relationship": "link", "notes": "edge from graph.json" }
+  ]
+}

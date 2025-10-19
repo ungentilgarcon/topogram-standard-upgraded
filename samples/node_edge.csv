@@ -1,0 +1,7 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+1,Alice,Alice A,Node A,#ff5722,#ffccbc,10,10,40.7128,-74.0060,🎤,,, ,,, ,,,
+2,Bob,Bob B,Node B,#3f51b5,#c5cae9,5,5,34.0522,-118.2437,🎸,,, ,,, ,,,
+3,Carol,Carol C,Node C,#2e7d32,#c8e6c9,8,8,51.5074,-0.1278,🎧,,, ,,, ,,,
+,,,,,,,,,,, , ,1,2,friendship,#9c27b0,2,friendship,{"meta":"edge1"}
+,,,,,,,,,,, , ,2,3,collab,#607d8b,1,collab,{"meta":"edge2"}
+,,,,,,,,,,, , ,3,1,support,#ff9800,3,support,{"meta":"edge3"}

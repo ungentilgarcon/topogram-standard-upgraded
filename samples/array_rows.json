@@ -1,0 +1,5 @@
+[
+  { "id": "1", "name": "A", "label": "A node", "emoji": "🎧", "notes": "array sample" },
+  { "id": "2", "name": "B", "label": "B node", "emoji": "🎸" },
+  { "source": "1", "target": "2", "name": "A->B", "relationship": "follows" }
+]

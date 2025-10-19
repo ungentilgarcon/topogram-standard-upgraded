@@ -1,0 +1,4 @@
+_id,title,desc,colour,fill,wt,raw_wt,latitude,longitude,em,notes,src,dst,relation,rel_color,rel_wt,extra_field
+n-100,NodeX,An example node,#abc123,#ffeecc,4,4,48.8566,2.3522,🎤,noteX,,, ,,,,
+n-101,NodeY,Second node,#123abc,#ccffee,6,6,41.9028,12.4964,🎸,noteY,,, ,,,,
+,,, , , , , , , , ,n-100,n-101,mentions,#445566,1,{"source":"mismatch"}
