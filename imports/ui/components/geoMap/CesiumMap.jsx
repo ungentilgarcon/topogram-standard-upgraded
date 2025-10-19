@@ -15,6 +15,9 @@ export default class CesiumMap extends React.Component {
   componentDidMount() {
     // Dynamic import Cesium at runtime to avoid bundling its ESM into Meteor
     if (typeof window === 'undefined') return
+    // ensure container is empty before initialization (removes leftover canvases)
+    try { if (this.container && this.container.current) this.container.current.innerHTML = '' } catch (e) {}
+
     import('cesium').then((mod) => {
       try {
         const Cesium = mod && (mod.default || mod)
@@ -24,7 +27,10 @@ export default class CesiumMap extends React.Component {
         if (!Viewer) return
         this.Cesium = Cesium
         this.viewer = new Viewer(el, { animation: false, timeline: false })
-        this._renderPoints()
+        try { this._renderPoints() } catch (e) {}
+        // ensure viewer knows about layout and requests a render
+        try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
+        try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
       } catch (err) { console.warn('CesiumMap: init error', err) }
     }).catch((err) => {
       // Some bundlers (Meteor) try to evaluate ESM files which may contain
@@ -41,8 +47,11 @@ export default class CesiumMap extends React.Component {
             const el = this.container.current
             const Viewer = this.Cesium && (this.Cesium.Viewer || (this.Cesium && this.Cesium.default && this.Cesium.default.Viewer))
             if (!Viewer) { console.warn('CesiumMap: CDN Cesium loaded but Viewer not found'); return }
+            try { if (this.container && this.container.current) this.container.current.innerHTML = '' } catch (e) {}
             this.viewer = new Viewer(el, { animation: false, timeline: false })
-            this._renderPoints()
+            try { this._renderPoints() } catch (e) {}
+            try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
+            try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
           } catch (e) { console.warn('CesiumMap: init after CDN load failed', e) }
         }).catch((e) => { console.warn('CesiumMap: CDN fallback failed', e) })
       }
@@ -128,6 +137,7 @@ export default class CesiumMap extends React.Component {
 
   componentWillUnmount() {
     try { if (this.viewer && this.viewer.destroy) this.viewer.destroy() } catch (e) {}
+    try { if (this.container && this.container.current) this.container.current.innerHTML = '' } catch (e) {}
   }
 
   _renderPoints() {
