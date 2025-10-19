@@ -156,12 +156,25 @@ export default class CesiumMap extends React.Component {
         return
       }
 
-      const billboardCollection = new Cesium.BillboardCollection()
-      this._billboardCollection = billboardCollection
-      primitives.add(billboardCollection)
+      // Prefer PointPrimitiveCollection which supports color and pixelSize
+      let pointCollection = null
+      try {
+        pointCollection = new Cesium.PointPrimitiveCollection()
+      } catch (e) {
+        pointCollection = null
+      }
+      if (pointCollection) {
+        this._pointCollection = pointCollection
+        primitives.add(pointCollection)
+      } else {
+        const billboardCollection = new Cesium.BillboardCollection()
+        this._billboardCollection = billboardCollection
+        primitives.add(billboardCollection)
+      }
 
       const lats = []
       const lngs = []
+      console.info('CesiumMap: rendering', nodes.length, 'nodes')
       nodes.forEach(n => {
         try {
           const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
@@ -174,14 +187,34 @@ export default class CesiumMap extends React.Component {
             || (n && n.color)
             || '#1f2937'
           const color = this._normalizeColor(rawColor)
-          // create a small canvas texture for the billboard
-          const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
-          const ctx = cvs.getContext('2d'); if (ctx) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(8,8,6,0,Math.PI*2); ctx.fill() }
-          const image = cvs.toDataURL()
           const cart = Cesium.Cartesian3.fromDegrees(lng, lat, 0)
-          billboardCollection.add({ position: cart, image })
+          if (this._pointCollection) {
+            try {
+              const c = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString(color) : Cesium.Color.WHITE
+              this._pointCollection.add({ position: cart, color: c, pixelSize: 10 })
+            } catch (e) {
+              // fallback to canvas billboard if color->Cesium.Color conversion fails
+              const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
+              const ctx = cvs.getContext('2d'); if (ctx) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(8,8,6,0,Math.PI*2); ctx.fill() }
+              const image = cvs.toDataURL()
+              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image }) } catch (e2) {}
+            }
+          } else if (this._billboardCollection) {
+            // create a small canvas texture for the billboard
+            const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
+            const ctx = cvs.getContext('2d'); if (ctx) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(8,8,6,0,Math.PI*2); ctx.fill() }
+            const image = cvs.toDataURL()
+            try { this._billboardCollection.add({ position: cart, image }) } catch (e) {}
+          }
         } catch (e) { console.warn('CesiumMap: point add failed', e) }
       })
+
+      // Log primitives counts for debugging
+      try {
+        console.info('CesiumMap: primitives count after add', primitives.length || (primitives._primitives && primitives._primitives.length))
+        if (this._pointCollection) console.info('CesiumMap: pointCollection count', this._pointCollection.length || (this._pointCollection._primitives && this._pointCollection._primitives.length))
+        if (this._billboardCollection) console.info('CesiumMap: billboardCollection count', this._billboardCollection.length || (this._billboardCollection._primitives && this._billboardCollection._primitives.length))
+      } catch (e) {}
 
       // Center camera on average coords and choose a height based on spread
       try {
