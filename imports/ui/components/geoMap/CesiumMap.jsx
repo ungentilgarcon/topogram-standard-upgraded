@@ -367,21 +367,33 @@ export default class CesiumMap extends React.Component {
             || '#1f2937'
           const color = this._normalizeColor(rawColor)
           const cart = Cesium.Cartesian3.fromDegrees(lng, lat, 0)
+          // compute visual radius matching Leaflet GeoNodes
+          const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+          const pixelSize = Math.max(2, Math.round(visualRadius * 2))
           if (this._pointCollection) {
             try {
               const c = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString(color) : Cesium.Color.WHITE
-              this._pointCollection.add({ position: cart, color: c, pixelSize: 10 })
+              // add outline using outlineColor/outlineWidth when supported
+              const outlineWidth = Math.max(1, Math.round(pixelSize / 6))
+              this._pointCollection.add({ position: cart, color: c, pixelSize: pixelSize, outlineColor: Cesium.Color.BLACK, outlineWidth })
             } catch (e) {
               // fallback to canvas billboard if color->Cesium.Color conversion fails
-              const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
-              const ctx = cvs.getContext('2d'); if (ctx) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(8,8,6,0,Math.PI*2); ctx.fill() }
+              const cvs = document.createElement('canvas'); cvs.width = pixelSize; cvs.height = pixelSize
+              const ctx = cvs.getContext('2d'); if (ctx) {
+                // draw filled circle with black stroke outline
+                ctx.fillStyle = color; ctx.beginPath(); ctx.arc(pixelSize/2,pixelSize/2,Math.max(1, Math.floor(pixelSize/2)-1),0,Math.PI*2); ctx.fill()
+                ctx.lineWidth = Math.max(1, Math.round(pixelSize / 8)); ctx.strokeStyle = '#000'; ctx.stroke()
+              }
               const image = cvs.toDataURL()
               try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image }) } catch (e2) {}
             }
           } else if (this._billboardCollection) {
-            // create a small canvas texture for the billboard
-            const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
-            const ctx = cvs.getContext('2d'); if (ctx) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(8,8,6,0,Math.PI*2); ctx.fill() }
+            // create a small canvas texture for the billboard with black outline
+            const cvs = document.createElement('canvas'); cvs.width = pixelSize; cvs.height = pixelSize
+            const ctx = cvs.getContext('2d'); if (ctx) {
+              ctx.fillStyle = color; ctx.beginPath(); ctx.arc(pixelSize/2,pixelSize/2,Math.max(1, Math.floor(pixelSize/2)-1),0,Math.PI*2); ctx.fill()
+              ctx.lineWidth = Math.max(1, Math.round(pixelSize / 8)); ctx.strokeStyle = '#000'; ctx.stroke()
+            }
             const image = cvs.toDataURL()
             try { this._billboardCollection.add({ position: cart, image }) } catch (e) {}
           }
@@ -433,11 +445,27 @@ export default class CesiumMap extends React.Component {
               if (!coords || coords.length < 2) return
               const rawColor = (e && e.data && e.data.color) || '#9f7aea'
               const cesColor = (this.Cesium.Color && this.Cesium.Color.fromCssColorString) ? this.Cesium.Color.fromCssColorString(rawColor) : (this.Cesium.Color ? this.Cesium.Color.WHITE : null)
-              const weight = e && e.data && e.data.weight ? (e.data.weight > 6 ? 20 : Math.pow(e.data.weight,2)) : 2
+              // compute weight using GeoEdges formula: if weight>6 -> 20 else squared, default 1
+              const weightRaw = e && e.data && e.data.weight
+              const weight = weightRaw ? ((weightRaw > 6) ? 20 : Math.pow(weightRaw, 2)) : 1
+              const widthPx = Math.min(Math.max(1, weight), 20)
+              // add a black thicker polyline underneath for outline, then colored polyline
+              try {
+                const outlineWidth = Math.min( Math.max(1, Math.round(widthPx + 2)), 40)
+                const outlineEnt = this.viewer.entities.add({
+                  polyline: {
+                    positions: coords,
+                    width: outlineWidth,
+                    material: this.Cesium.Color.BLACK,
+                    clampToGround: true
+                  }
+                })
+                if (outlineEnt) this._edgeEntities.push(outlineEnt)
+              } catch (e) {}
               const ent = this.viewer.entities.add({
                 polyline: {
                   positions: coords,
-                  width: Math.min(Math.max(1, weight), 20),
+                  width: widthPx,
                   material: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined),
                   clampToGround: true
                 }
