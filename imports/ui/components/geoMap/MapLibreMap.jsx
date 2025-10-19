@@ -30,7 +30,24 @@ export default class MapLibreMap extends React.Component {
           center: this.props.center || [0, 0],
           zoom: typeof this.props.zoom === 'number' ? this.props.zoom : 2
         })
-        this.map.on('load', () => { this._renderMarkers() })
+        // create simple status badge for runtime debugging
+        try {
+          this._statusEl = document.createElement('div')
+          this._statusEl.setAttribute('data-maplibre-status', '1')
+          this._statusEl.style.position = 'absolute'
+          this._statusEl.style.right = '8px'
+          this._statusEl.style.top = '8px'
+          this._statusEl.style.background = 'rgba(0,0,0,0.6)'
+          this._statusEl.style.color = '#fff'
+          this._statusEl.style.padding = '4px 8px'
+          this._statusEl.style.borderRadius = '4px'
+          this._statusEl.style.zIndex = '1100'
+          this._statusEl.style.fontSize = '12px'
+          this._statusEl.innerText = 'MapLibre: init'
+          try { if (this.container && this.container.current) this.container.current.appendChild(this._statusEl) } catch (e) {}
+        } catch (e) {}
+        this.map.on('load', () => { this._renderMarkers(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
+        this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
       } catch (err) { console.warn('MapLibreMap: init error', err) }
     }).catch((err) => {
       // module not present or failed to load
@@ -41,7 +58,9 @@ export default class MapLibreMap extends React.Component {
         try {
           const el = this.container.current
           this.map = new this._maplibregl.Map({ container: el, style: this.props.style || 'https://demotiles.maplibre.org/style.json', center: this.props.center || [0,0], zoom: typeof this.props.zoom === 'number' ? this.props.zoom : 2 })
-          this.map.on('load', () => { this._renderMarkers() })
+          try { this._statusEl = document.createElement('div'); this._statusEl.setAttribute('data-maplibre-status','1'); this._statusEl.style.position='absolute'; this._statusEl.style.right='8px'; this._statusEl.style.top='8px'; this._statusEl.style.background='rgba(0,0,0,0.6)'; this._statusEl.style.color='#fff'; this._statusEl.style.padding='4px 8px'; this._statusEl.style.borderRadius='4px'; this._statusEl.style.zIndex='1100'; this._statusEl.style.fontSize='12px'; this._statusEl.innerText='MapLibre: init'; try{ if(this.container&&this.container.current) this.container.current.appendChild(this._statusEl)}catch(e){} } catch(e){}
+          this.map.on('load', () => { this._renderMarkers(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
+          this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
         } catch (e) { console.warn('MapLibreMap: init after CDN load failed', e) }
       }).catch((e) => { console.warn('MapLibreMap: CDN fallback failed', e) })
     })
@@ -120,6 +139,10 @@ export default class MapLibreMap extends React.Component {
           this._markers.push(marker)
         } catch (e) {}
       })
+      try {
+        console.info('MapLibreMap: markers created', this._markers.length)
+        if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length}`
+      } catch (e) {}
     } catch (e) { console.warn('MapLibreMap: marker render failed', e) }
   }
 
@@ -152,8 +175,9 @@ export default class MapLibreMap extends React.Component {
                 layout: { 'line-join': 'round', 'line-cap': 'round' },
                 paint: { 'line-color': ['get', 'color'], 'line-width': ['get', 'weight'], 'line-opacity': 0.9 }
               })
-            } catch (e) { /* ignore if layer exists or map not ready */ }
+            } catch (e) { console.warn('MapLibreMap: add layer failed', e) }
           }
+          try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length}` } catch (e) {}
         } catch (e) { console.warn('MapLibreMap: edges layer update failed', e) }
       }
 
