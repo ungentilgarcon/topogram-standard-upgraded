@@ -375,7 +375,8 @@ export default class CesiumMap extends React.Component {
               const c = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString(color) : Cesium.Color.WHITE
               // add outline using outlineColor/outlineWidth when supported
               const outlineWidth = Math.max(1, Math.round(pixelSize / 6))
-              this._pointCollection.add({ position: cart, color: c, pixelSize: pixelSize, outlineColor: Cesium.Color.BLACK, outlineWidth })
+              // disable depth test for nodes so they render on top of ground-clamped polylines
+              this._pointCollection.add({ position: cart, color: c, pixelSize: pixelSize, outlineColor: Cesium.Color.BLACK, outlineWidth, disableDepthTestDistance: Number.POSITIVE_INFINITY })
             } catch (e) {
               // fallback to canvas billboard if color->Cesium.Color conversion fails
               const cvs = document.createElement('canvas'); cvs.width = pixelSize; cvs.height = pixelSize
@@ -385,7 +386,7 @@ export default class CesiumMap extends React.Component {
                 ctx.lineWidth = Math.max(1, Math.round(pixelSize / 8)); ctx.strokeStyle = '#000'; ctx.stroke()
               }
               const image = cvs.toDataURL()
-              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image }) } catch (e2) {}
+              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
             }
           } else if (this._billboardCollection) {
             // create a small canvas texture for the billboard with black outline
@@ -395,7 +396,7 @@ export default class CesiumMap extends React.Component {
               ctx.lineWidth = Math.max(1, Math.round(pixelSize / 8)); ctx.strokeStyle = '#000'; ctx.stroke()
             }
             const image = cvs.toDataURL()
-            try { this._billboardCollection.add({ position: cart, image }) } catch (e) {}
+            try { this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e) {}
           }
         } catch (e) { console.warn('CesiumMap: point add failed', e) }
       })
