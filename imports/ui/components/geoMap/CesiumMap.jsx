@@ -451,30 +451,19 @@ export default class CesiumMap extends React.Component {
               const weight = weightRaw ? ((weightRaw > 6) ? 20 : Math.pow(weightRaw, 2)) : 1
               const widthPx = Math.min(Math.max(1, weight), 20)
               try {
-                // Use a single polyline entity with an outline material so the
-                // outline is rendered as an outline (not a separate overlaid
-                // primitive). This avoids z-ordering issues where separate
-                // entities can appear above/below unpredictably.
-                const outlineWidth = Math.min(Math.max(1, Math.round(widthPx / 3)), 8)
-                const material = (this.Cesium.PolylineOutlineMaterialProperty)
-                  ? new this.Cesium.PolylineOutlineMaterialProperty({ color: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined), outlineColor: this.Cesium.Color.BLACK, outlineWidth })
-                  : (cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined))
+                // Render only the colored polyline (no black outline) so edges
+                // are drawn as a single primitive. This avoids explicit outline
+                // drawing which the UI requested to undo.
                 const ent = this.viewer.entities.add({
                   polyline: {
                     positions: coords,
                     width: widthPx,
-                    material,
+                    material: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined),
                     clampToGround: true
                   }
                 })
                 if (ent) this._edgeEntities.push(ent)
-              } catch (e) {
-                // fallback: add the colored polyline without outline
-                try {
-                  const ent = this.viewer.entities.add({ polyline: { positions: coords, width: widthPx, material: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined), clampToGround: true } })
-                  if (ent) this._edgeEntities.push(ent)
-                } catch (err) { /* ignore */ }
-              }
+              } catch (e) { /* ignore edge add errors */ }
             } catch (err) { console.warn('CesiumMap: add edge failed', err) }
           })
         }
