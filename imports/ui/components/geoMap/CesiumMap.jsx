@@ -366,7 +366,8 @@ export default class CesiumMap extends React.Component {
           const cart = Cesium.Cartesian3.fromDegrees(lng, lat, 0)
           // compute visual radius matching Leaflet GeoNodes
           const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
-          const pixelSize = Math.max(2, Math.round(visualRadius * 2))
+          // reduce circle-rendered node size further (half again) so emoji and circle sizes align better
+          const pixelSize = Math.max(2, Math.round(visualRadius * 0.5))
           // emoji rendering: when UI allows and node has an emoji, draw it as a billboard
           const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
           const hasEmoji = emojiEnabled && n && n.data && n.data.emoji
