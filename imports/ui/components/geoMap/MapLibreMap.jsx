@@ -166,8 +166,12 @@ export default class MapLibreMap extends React.Component {
         } catch (e) {}
       })
       try {
-        console.info('MapLibreMap: markers created', this._markers.length)
-        if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length}`
+        // count how many markers contained emoji vs plain circles
+        const emojiCount = this._markers.filter(m => {
+          try { return m && m.getElement && m.getElement().innerText && String(m.getElement().innerText).trim().length > 0 } catch (e) { return false }
+        }).length
+        console.info('MapLibreMap: markers created', this._markers.length, 'emoji:', emojiCount)
+        if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} emoji:${emojiCount}`
       } catch (e) {}
     } catch (e) { console.warn('MapLibreMap: marker render failed', e) }
   }

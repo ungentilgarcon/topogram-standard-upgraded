@@ -420,6 +420,14 @@ export default class CesiumMap extends React.Component {
         } catch (e) { console.warn('CesiumMap: point add failed', e) }
       })
 
+      // report how many visual primitives we created and whether emoji were used
+      try {
+        const bbCount = this._billboardCollection ? (this._billboardCollection.length || (this._billboardCollection._primitives && this._billboardCollection._primitives.length) || 0) : 0
+        const ppCount = this._pointCollection ? (this._pointCollection.length || (this._pointCollection._primitives && this._pointCollection._primitives.length) || 0) : 0
+        console.info('CesiumMap: billboardCount', bbCount, 'pointPrimitiveCount', ppCount)
+        if (this._statusEl) this._statusEl.innerText = `Cesium: ready • nodes:${nodes.length} bb:${bbCount} pp:${ppCount}`
+      } catch (e) {}
+
       // Log primitives counts for debugging
       try {
         console.info('CesiumMap: primitives count after add', primitives.length || (primitives._primitives && primitives._primitives.length))
