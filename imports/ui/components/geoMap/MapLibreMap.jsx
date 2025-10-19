@@ -209,7 +209,27 @@ export default class MapLibreMap extends React.Component {
           try {
             const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
             if (geoRelVisible) {
-              const labelFeatures = (this.props.edges || []).map((e, i) => {
+              // bucket edges by canonical endpoint key so labels on identical
+              // routes can be stacked rather than rendered on top of each other
+              const edgesList = (this.props.edges || [])
+              const buckets = new Map()
+              const canonicalKey = (e) => {
+                if (!e || !e.coords || e.coords.length !== 2) return ''
+                const [[la1, lo1], [la2, lo2]] = e.coords
+                const a1 = Number(la1); const o1 = Number(lo1); const a2 = Number(la2); const o2 = Number(lo2)
+                if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return ''
+                // canonicalize ordering so AB and BA map to same key
+                const k1 = `${a1},${o1}`
+                const k2 = `${a2},${o2}`
+                return (k1 < k2) ? `${k1}|${k2}` : `${k2}|${k1}`
+              }
+              edgesList.forEach((e, idx) => {
+                const k = canonicalKey(e)
+                if (!k) return
+                if (!buckets.has(k)) buckets.set(k, [])
+                buckets.get(k).push(idx)
+              })
+              const labelFeatures = edgesList.map((e, i) => {
               if (!e || !e.coords || e.coords.length !== 2) return null
               const [[lat1, lng1], [lat2, lng2]] = e.coords
               const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
@@ -227,9 +247,14 @@ export default class MapLibreMap extends React.Component {
               let midLng = (o1 + o2) / 2
               if (midLng > 180) midLng = ((midLng + 180) % 360) - 180
               if (midLng < -180) midLng = ((midLng - 180) % 360) + 180
+              // compute slot index for this edge in its bucket
+              const k = canonicalKey(e)
+              const slotIdx = (buckets.has(k) ? buckets.get(k).indexOf(i) : -1)
+              // vertical offset per slot (in ems for MapLibre's text-offset)
+              const offsetY = slotIdx >= 0 ? (slotIdx * 0.9) : 0
               return {
                 type: 'Feature',
-                properties: { label: String(relLabel), id: i },
+                properties: { label: String(relLabel), id: i, offset: [0, offsetY] },
                 geometry: { type: 'Point', coordinates: [midLng, midLat] }
               }
             }).filter(Boolean)
@@ -244,11 +269,13 @@ export default class MapLibreMap extends React.Component {
                   type: 'symbol',
                   source: 'geo-edge-labels',
                   layout: {
-                    'text-field': ['get', 'label'],
-                    'text-size': 11,
-                    'text-allow-overlap': true,
-                    'text-ignore-placement': true
-                  },
+                      'text-field': ['get', 'label'],
+                      'text-size': 11,
+                      'text-allow-overlap': true,
+                      'text-ignore-placement': true,
+                      // read per-feature offset [x, y] (in ems) to stack labels
+                      'text-offset': ['get', 'offset']
+                    },
                   paint: {
                     'text-color': '#111',
                     'text-halo-color': '#fff',

@@ -489,7 +489,20 @@ export default class CesiumMap extends React.Component {
           try {
             const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
             if (geoRelVisible) {
-              (this.props.edges || []).forEach((e) => {
+              // build buckets of edges sharing the same canonical endpoints
+              const edgesList = (this.props.edges || [])
+              const buckets = new Map()
+              const canonicalKey = (ee) => {
+                if (!ee || !ee.coords || ee.coords.length !== 2) return ''
+                const [[la1, lo1], [la2, lo2]] = ee.coords
+                const a1 = Number(la1); const o1 = Number(lo1); const a2 = Number(la2); const o2 = Number(lo2)
+                if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return ''
+                const k1 = `${a1},${o1}`
+                const k2 = `${a2},${o2}`
+                return (k1 < k2) ? `${k1}|${k2}` : `${k2}|${k1}`
+              }
+              edgesList.forEach((ee, idx) => { const k = canonicalKey(ee); if (!k) return; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(idx) })
+              ;(this.props.edges || []).forEach((e, idx) => {
               try {
                 if (!e || !e.coords || e.coords.length !== 2) return
                 const [[lat1, lng1], [lat2, lng2]] = e.coords
@@ -508,7 +521,11 @@ export default class CesiumMap extends React.Component {
                 let midLng = (o1 + o2) / 2
                 if (midLng > 180) midLng = ((midLng + 180) % 360) - 180
                 if (midLng < -180) midLng = ((midLng - 180) % 360) + 180
-                const pos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat, 5)
+                // compute stacking slot index for this edge and offset latitude
+                const k = canonicalKey(e)
+                const slotIdx = (buckets.has(k) ? buckets.get(k).indexOf(idx) : -1)
+                const slotOffsetDeg = slotIdx >= 0 ? (slotIdx * 0.03) : 0 // ~0.03° per slot
+                const pos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
                 const labelEnt = this.viewer.entities.add({
                   position: pos,
                   label: {
