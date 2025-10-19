@@ -450,28 +450,31 @@ export default class CesiumMap extends React.Component {
               const weightRaw = e && e.data && e.data.weight
               const weight = weightRaw ? ((weightRaw > 6) ? 20 : Math.pow(weightRaw, 2)) : 1
               const widthPx = Math.min(Math.max(1, weight), 20)
-              // add a black thicker polyline underneath for outline, then colored polyline
               try {
-                const outlineWidth = Math.min( Math.max(1, Math.round(widthPx + 2)), 40)
-                const outlineEnt = this.viewer.entities.add({
+                // Use a single polyline entity with an outline material so the
+                // outline is rendered as an outline (not a separate overlaid
+                // primitive). This avoids z-ordering issues where separate
+                // entities can appear above/below unpredictably.
+                const outlineWidth = Math.min(Math.max(1, Math.round(widthPx / 3)), 8)
+                const material = (this.Cesium.PolylineOutlineMaterialProperty)
+                  ? new this.Cesium.PolylineOutlineMaterialProperty({ color: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined), outlineColor: this.Cesium.Color.BLACK, outlineWidth })
+                  : (cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined))
+                const ent = this.viewer.entities.add({
                   polyline: {
                     positions: coords,
-                    width: outlineWidth,
-                    material: this.Cesium.Color.BLACK,
+                    width: widthPx,
+                    material,
                     clampToGround: true
                   }
                 })
-                if (outlineEnt) this._edgeEntities.push(outlineEnt)
-              } catch (e) {}
-              const ent = this.viewer.entities.add({
-                polyline: {
-                  positions: coords,
-                  width: widthPx,
-                  material: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined),
-                  clampToGround: true
-                }
-              })
-              if (ent) this._edgeEntities.push(ent)
+                if (ent) this._edgeEntities.push(ent)
+              } catch (e) {
+                // fallback: add the colored polyline without outline
+                try {
+                  const ent = this.viewer.entities.add({ polyline: { positions: coords, width: widthPx, material: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined), clampToGround: true } })
+                  if (ent) this._edgeEntities.push(ent)
+                } catch (err) { /* ignore */ }
+              }
             } catch (err) { console.warn('CesiumMap: add edge failed', err) }
           })
         }
