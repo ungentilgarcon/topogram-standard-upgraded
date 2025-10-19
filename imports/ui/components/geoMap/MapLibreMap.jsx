@@ -46,7 +46,7 @@ export default class MapLibreMap extends React.Component {
           this._statusEl.innerText = 'MapLibre: init'
           try { if (this.container && this.container.current) this.container.current.appendChild(this._statusEl) } catch (e) {}
         } catch (e) {}
-        this.map.on('load', () => { this._renderMarkers(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
+  this.map.on('load', () => { this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
         this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
       } catch (err) { console.warn('MapLibreMap: init error', err) }
     }).catch((err) => {
@@ -59,7 +59,7 @@ export default class MapLibreMap extends React.Component {
           const el = this.container.current
           this.map = new this._maplibregl.Map({ container: el, style: this.props.style || 'https://demotiles.maplibre.org/style.json', center: this.props.center || [0,0], zoom: typeof this.props.zoom === 'number' ? this.props.zoom : 2 })
           try { this._statusEl = document.createElement('div'); this._statusEl.setAttribute('data-maplibre-status','1'); this._statusEl.style.position='absolute'; this._statusEl.style.right='8px'; this._statusEl.style.top='8px'; this._statusEl.style.background='rgba(0,0,0,0.6)'; this._statusEl.style.color='#fff'; this._statusEl.style.padding='4px 8px'; this._statusEl.style.borderRadius='4px'; this._statusEl.style.zIndex='1100'; this._statusEl.style.fontSize='12px'; this._statusEl.innerText='MapLibre: init'; try{ if(this.container&&this.container.current) this.container.current.appendChild(this._statusEl)}catch(e){} } catch(e){}
-          this.map.on('load', () => { this._renderMarkers(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
+          this.map.on('load', () => { this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
           this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
         } catch (e) { console.warn('MapLibreMap: init after CDN load failed', e) }
       }).catch((e) => { console.warn('MapLibreMap: CDN fallback failed', e) })
@@ -103,6 +103,8 @@ export default class MapLibreMap extends React.Component {
       if (this.map) {
         try { if (this.map.getLayer && this.map.getLayer('geo-edges-line')) this.map.removeLayer('geo-edges-line') } catch (e) {}
         try { if (this.map.getSource && this.map.getSource('geo-edges')) this.map.removeSource('geo-edges') } catch (e) {}
+        try { if (this.map.getLayer && this.map.getLayer('geo-nodes-circle')) this.map.removeLayer('geo-nodes-circle') } catch (e) {}
+        try { if (this.map.getSource && this.map.getSource('geo-nodes')) this.map.removeSource('geo-nodes') } catch (e) {}
         try { if (this.map.remove) this.map.remove() } catch (e) {}
       }
     } catch (e) {}
@@ -179,6 +181,60 @@ export default class MapLibreMap extends React.Component {
           }
           try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length}` } catch (e) {}
         } catch (e) { console.warn('MapLibreMap: edges layer update failed', e) }
+      }
+
+      _updateNodesLayer() {
+        try {
+          if (!this.map) return
+          const nodes = this.props.nodes || []
+          const features = (nodes || []).map((n, i) => {
+            const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
+            const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
+            if (!isFinite(lat) || !isFinite(lng)) return null
+            return {
+              type: 'Feature',
+              properties: {
+                id: (n && n.data && n.data.id) || i,
+                color: (n && n.data && n.data.color) || (n && n.color) || '#1f2937',
+                radius: (n && n.data && n.data.weight) ? Math.min(20, Math.max(2, Math.sqrt(n.data.weight))) : 6
+              },
+              geometry: { type: 'Point', coordinates: [lng, lat] }
+            }
+          }).filter(Boolean)
+          const geo = { type: 'FeatureCollection', features }
+          if (this.map.getSource && this.map.getSource('geo-nodes')) {
+            try { this.map.getSource('geo-nodes').setData(geo) } catch (e) {}
+          } else {
+            try {
+              this.map.addSource('geo-nodes', { type: 'geojson', data: geo })
+              this.map.addLayer({
+                id: 'geo-nodes-circle',
+                type: 'circle',
+                source: 'geo-nodes',
+                paint: {
+                  'circle-color': ['get', 'color'],
+                  'circle-radius': ['get', 'radius'],
+                  'circle-stroke-color': '#ffffff',
+                  'circle-stroke-width': 1,
+                  'circle-opacity': 0.95
+                }
+              })
+              // click handling for nodes
+              this.map.on('click', 'geo-nodes-circle', (e) => {
+                try {
+                  const feat = e && e.features && e.features[0]
+                  if (feat && feat.properties && this.props.handleClickGeoElement) {
+                    const id = feat.properties.id
+                    // find the node by id and call handler
+                    const node = (this.props.nodes || []).find(n => String((n && n.data && n.data.id) || '') === String(id))
+                    if (node) this.props.handleClickGeoElement({ group: 'node', el: node })
+                  }
+                } catch (err) { console.warn('MapLibreMap: node click handler error', err) }
+              })
+            } catch (e) { console.warn('MapLibreMap: add nodes layer failed', e) }
+          }
+          try { console.info('MapLibreMap: nodes features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${features.length}` } catch (e) {}
+        } catch (e) { console.warn('MapLibreMap: nodes layer update failed', e) }
       }
 
   render() {
