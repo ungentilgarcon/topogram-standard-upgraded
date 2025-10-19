@@ -90,12 +90,27 @@ Meteor.methods({
     const bundleDir = path.join(baseTemp, `${bundleId}-${timestamp}`)
     await fsp.mkdir(bundleDir, { recursive: true })
 
-    // Copy presentation template
+    // Copy presentation template. If a template file named index.html.tpl exists we will
+    // write a proper index.html (with DOCTYPE) into the bundle to avoid Meteor static-html issues
     const templateDir = path.join(process.cwd(), 'mapappbuilder', 'presentation-template')
     try {
-      await copyRecursive(templateDir, path.join(bundleDir, 'presentation'))
+      // copy all files except index.html.tpl (we will materialize index.html with DOCTYPE)
+      const entries = await fsp.readdir(templateDir)
+      for (const e of entries) {
+        const src = path.join(templateDir, e)
+        const destRel = path.join('presentation', e)
+        if (e === 'index.html.tpl') continue
+        await copyRecursive(src, path.join(bundleDir, destRel))
+      }
+      // If tpl exists, render it into index.html with DOCTYPE
+      const tplPath = path.join(templateDir, 'index.html.tpl')
+      if (fs.existsSync(tplPath)) {
+        const tpl = await fsp.readFile(tplPath, 'utf8')
+        // simple replacement for {{TITLE}}
+        const rendered = `<!doctype html>\n${tpl.replace(/{{TITLE}}/g, (outConfig && outConfig.title) || topogram.title || 'Topogram')}`
+        await fsp.writeFile(path.join(bundleDir, 'presentation', 'index.html'), rendered, 'utf8')
+      }
     } catch (e) {
-      // If missing, continue — presentation template is optional
       console.warn('presentation template copy failed', e && e.message)
     }
 
