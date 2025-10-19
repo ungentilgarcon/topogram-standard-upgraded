@@ -693,11 +693,13 @@ export default class MapLibreMap extends React.Component {
                 const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
                 const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
                 if (!isFinite(lat) || !isFinite(lng)) return null
-                // compute an explicit pixel size so the canvas dimensions match
-                // the icon name (MapLibre requires consistent image sizes)
-                const iconScale = Math.max(0.5, Math.min(2.0, ((n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 2.0 : Math.min(2.0, n.data.weight/50)) : 0.6)))
-                // use a fixed canvas size (power-of-two) to avoid MapLibre size mismatches
-                const computedSizePx = 64
+                // compute an explicit pixel size derived from visualRadius so
+                // nodeSizeMode affects emoji icon size consistently across adapters
+                const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+                const computedSizePx = Math.max(28, Math.min(256, Math.round(visualRadius * 1.6)))
+                // Use a unit icon-size (1.0) so the image intrinsic pixel size
+                // matches the displayed size; MapLibre will scale icons by this factor.
+                const iconScale = 1.0
                 const iconName = `emoji-${i}@${computedSizePx}`
                 return {
                   type: 'Feature',
