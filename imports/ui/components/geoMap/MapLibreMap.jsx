@@ -31,6 +31,29 @@ export default class MapLibreMap extends React.Component {
     return null
   }
 
+  // Render an emoji into a PNG data URL for use as an <img> marker.
+  _emojiToDataUrl(emoji, sizePx = 64, color = '#111') {
+    try {
+      const cvs = document.createElement('canvas')
+      cvs.width = sizePx; cvs.height = sizePx
+      const ctx = cvs.getContext && cvs.getContext('2d')
+      if (!ctx) return null
+      // clear
+      ctx.clearRect(0,0,sizePx,sizePx)
+      // draw a subtle white halo by stroking text
+      const fontPx = Math.round(sizePx * 0.7)
+      ctx.font = `${fontPx}px sans-serif`
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
+      ctx.strokeStyle = '#ffffff'
+      try { ctx.strokeText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      ctx.fillStyle = color || '#111'
+      try { ctx.fillText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      return cvs.toDataURL('image/png')
+    } catch (e) { return null }
+  }
+
   componentDidMount() {
     // Dynamic import avoids bundling ESM-only modules into Meteor's client
     // bootstrap which can introduce `import.meta` into the bundle. Only
@@ -152,26 +175,28 @@ export default class MapLibreMap extends React.Component {
           const hasEmoji = emojiEnabled && !!nodeEmoji
           if (hasEmoji) {
             const emoji = String(nodeEmoji || (n && n.data && n.data.emoji))
-            // make the emoji visibly large (force show)
-            const fontPx = Math.max(24, Math.min(72, Math.round(Math.max(visualRadius, 24) * 1.2)))
-            const sizePx = Math.max(28, Math.round(fontPx * 1.2))
-            el.style.width = `${sizePx}px`
-            el.style.height = `${sizePx}px`
-            el.style.fontSize = `${fontPx}px`
-            el.style.lineHeight = `${sizePx}px`
-            el.style.display = 'inline-flex'
-            el.style.alignItems = 'center'
-            el.style.justifyContent = 'center'
-            el.style.pointerEvents = 'auto'
-            el.style.transform = 'translate(-50%, -50%)'
-            el.style.position = 'relative'
-            el.style.background = 'transparent'
-            el.style.border = 'none'
-            el.style.boxShadow = '0 0 0 2px rgba(255,255,255,0.9) inset'
-            el.className = 'maplibre-emoji-marker'
-            el.setAttribute('data-emoji-marker', emoji)
-            // put emoji as textContent as well (some platforms use textContent)
-            try { el.textContent = emoji } catch (e) {}
+            // build a PNG dataURL with a readable halo so emoji shows reliably
+            const sizePx = Math.max(48, Math.min(120, Math.round(Math.max(visualRadius, 32) * 1.8)))
+            const dataUrl = this._emojiToDataUrl(emoji, sizePx)
+            if (dataUrl) {
+              const img = document.createElement('img')
+              img.src = dataUrl
+              img.style.width = `${sizePx}px`
+              img.style.height = `${sizePx}px`
+              img.style.display = 'block'
+              img.style.transform = 'translate(-50%, -50%)'
+              img.style.pointerEvents = 'auto'
+              img.className = 'maplibre-emoji-marker'
+              img.setAttribute('data-emoji-marker', emoji)
+              // set title for accessibility/tooltip
+              img.title = (n && n.data && (n.data._vizLabel || n.data.label || '')) || ''
+              el.appendChild(img)
+            } else {
+              // fallback to text if canvas failed
+              el.className = 'maplibre-emoji-marker'
+              el.setAttribute('data-emoji-marker', emoji)
+              try { el.textContent = emoji } catch (e) {}
+            }
           } else {
             // size the DOM marker to match Leaflet visual radius (radius->pixels)
             const sizePx = Math.max(2, Math.round(visualRadius * 2))
