@@ -326,9 +326,9 @@ export default class MapLibreMap extends React.Component {
           // compute visual radius like Leaflet GeoNodes
           const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
           const hitRadius = Math.max(visualRadius, 10)
-          // Emoji handling: detect emoji via helper and force-show when present
+          // Emoji handling: detect emoji via helper and respect the ui.emojiVisible toggle
           const nodeEmoji = this._getNodeEmoji(n)
-          const emojiEnabled = nodeEmoji ? true : ((this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true)
+          const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
           const hasEmoji = emojiEnabled && !!nodeEmoji
           // Skip creating DOM markers for emoji nodes — MapLibre symbol layer
           // will render them more reliably. We still keep them in the nodes
@@ -688,8 +688,9 @@ export default class MapLibreMap extends React.Component {
           }).filter(Boolean)
               // emoji features: nodes that have emoji
               const emojiFeatures = (nodes || []).map((n, i) => {
-                const emoji = this._getNodeEmoji(n)
-                if (!emoji) return null
+                  const emoji = this._getNodeEmoji(n)
+                  const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+                  if (!emoji || !emojiEnabled) return null
                 const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
                 const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
                 if (!isFinite(lat) || !isFinite(lng)) return null
