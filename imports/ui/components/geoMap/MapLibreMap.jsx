@@ -669,8 +669,14 @@ export default class MapLibreMap extends React.Component {
           const nodes = this.props.nodes || []
               // Build vector circle features for non-emoji nodes, and separately
               // build an emoji feature collection for nodes that contain emoji.
+              // Respect the ui.emojiVisible toggle: if emojiVisible is true,
+              // exclude emoji nodes from circle features; if false, draw circles
+              // for all nodes including those that have emoji.
+              const emojiToggle = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
               const features = (nodes || []).map((n, i) => {
-                if (n && n.data && n.data.emoji) return null
+                // exclude nodes from circle features only when they have emoji
+                // and the UI requests emoji rendering
+                if (n && n.data && n.data.emoji && emojiToggle) return null
             const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
             const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
             if (!isFinite(lat) || !isFinite(lng)) return null
