@@ -1649,12 +1649,34 @@ export default function TopogramDetail() {
           // Ensure geo nodes carry the same visualization id (vizId) used by Cytoscape
           // so that selection by id can be resolved. If data.id exists use it,
           // otherwise fall back to the Mongo _id as the stable viz id.
+          // Compute degree map for geo nodes so we can set weights when nodeSizeMode === 'degree'
+          const degreeMapForGeo = new Map()
+          try {
+            (edges || []).forEach(e => {
+              try {
+                const s = e && e.data && (e.data.source || e.source)
+                const t = e && e.data && (e.data.target || e.target)
+                if (s != null) degreeMapForGeo.set(String(s), (degreeMapForGeo.get(String(s)) || 0) + 1)
+                if (t != null) degreeMapForGeo.set(String(t), (degreeMapForGeo.get(String(t)) || 0) + 1)
+              } catch (err) {}
+            })
+          } catch (err) {}
+
           const geoNodes = nodesWithGeo
             .map(({n, coords}) => ({ n, coords }))
             .filter(x => isNodeInRange(x.n))
             .map(({n, coords}) => {
               const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
-              return { ...n, data: { ...n.data, id: vizId, lat: coords[0], lng: coords[1] } }
+              // Decide weight: prefer explicit n.data.weight; if nodeSizeMode === 'degree' use degreeMap
+              let weightVal = (n && n.data && typeof n.data.weight !== 'undefined') ? Number(n.data.weight) : undefined
+              try {
+                if ((nodeSizeMode === 'degree' || String(nodeSizeMode) === 'degree')) {
+                  const deg = degreeMapForGeo.get(String(vizId)) || 0
+                  // If upstream had a weight, don't override unless degree-based mode is selected
+                  weightVal = deg || Math.max(1, Number(weightVal) || 1)
+                }
+              } catch (e) {}
+              return { ...n, data: { ...n.data, id: vizId, lat: coords[0], lng: coords[1], weight: typeof weightVal !== 'undefined' ? Number(weightVal) : (n && n.data && n.data.weight ? Number(n.data.weight) : 1) } }
             })
           // For edges, attempt to resolve endpoints via data.source/data.target or top-level source/target
           const geoEdges = edges.map(e => {
@@ -1719,17 +1741,19 @@ export default function TopogramDetail() {
                   }
                 </div>
                 <div style={{ width: '50%', height: visualHeight, border: '1px solid #ccc' }}>
+                  {/* debug: sample geoNodes weights passed to GeoMap */}
+                  {(() => { try { if (typeof console !== 'undefined' && console.debug) console.debug('TopogramDetail: geoNodes sample before TopogramGeoMap (both)', { nodeSizeMode, sample: (geoNodes||[]).slice(0,6).map(n => ({ id: n && n.data && n.data.id, weight: n && n.data && n.data.weight })) }) } catch(e){} return null })()}
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
-                    width={'50vw'}
-                    height={visualHeight}
-                    selectElement={(json) => selectElement(json)}
-                    unselectElement={(json) => unselectElement(json)}
-                    onFocusElement={() => {}}
-                    onUnfocusElement={() => {}}
-                  />
+                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
+                      width={'50vw'}
+                      height={visualHeight}
+                      selectElement={(json) => selectElement(json)}
+                      unselectElement={(json) => unselectElement(json)}
+                      onFocusElement={() => {}}
+                      onUnfocusElement={() => {}}
+                    />
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
@@ -1788,10 +1812,12 @@ export default function TopogramDetail() {
           if (onlyMap) {
             return (
               <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc' }}>
+                {/* debug: sample geoNodes weights before TopogramGeoMap (onlyMap) */}
+                {(() => { try { if (typeof console !== 'undefined' && console.debug) console.debug('TopogramDetail: geoNodes sample before TopogramGeoMap (onlyMap)', { nodeSizeMode, sample: (geoNodes||[]).slice(0,6).map(n => ({ id: n && n.data && n.data.id, weight: n && n.data && n.data.weight })) }) } catch(e){} return null })()}
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                      ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
+                      ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
                   width={'100%'}
                   height={visualHeight}
                   selectElement={(json) => selectElement(json)}

@@ -247,7 +247,14 @@ export default class CesiumMap extends React.Component {
     })
   }
 
-  componentDidUpdate(prevProps) { if (this.props.nodes !== prevProps.nodes) this._renderPoints() }
+  componentDidUpdate(prevProps) {
+    // Re-render points when nodes, edges or UI settings change. Previous
+    // implementation only re-rendered on nodes which caused UI toggles to
+    // leave stale placements in the Cesium scene.
+    if (this.props.nodes !== prevProps.nodes || this.props.edges !== prevProps.edges || this.props.ui !== prevProps.ui) {
+      this._renderPoints()
+    }
+  }
 
   componentWillUnmount() {
     try { if (this.viewer && this.viewer.destroy) this.viewer.destroy() } catch (e) {}
@@ -340,6 +347,11 @@ export default class CesiumMap extends React.Component {
       // create a billboard collection so emoji billboards can be added even
       // when point primitives are available.
       try {
+        // cleanup prior collections if present
+        try { if (this._pointCollection && primitives.contains && primitives.contains(this._pointCollection)) primitives.remove(this._pointCollection) } catch (e) {}
+        if (this._pointCollection) this._pointCollection = null
+        try { if (this._billboardCollection && primitives.contains && primitives.contains(this._billboardCollection)) primitives.remove(this._billboardCollection) } catch (e) {}
+        if (this._billboardCollection) this._billboardCollection = null
         this._pointCollection = new Cesium.PointPrimitiveCollection()
         primitives.add(this._pointCollection)
       } catch (e) { this._pointCollection = null }
@@ -351,6 +363,39 @@ export default class CesiumMap extends React.Component {
       const lats = []
       const lngs = []
       console.info('CesiumMap: rendering', nodes.length, 'nodes')
+      // compute degree map as a fallback if upstream hasn't set n.data.weight
+      const degreeMap = new Map()
+      try {
+        const edges = this.props.edges || []
+        edges.forEach(ed => {
+          try {
+            const s = ed && ed.data && ed.data.source
+            const t = ed && ed.data && ed.data.target
+            if (s != null) degreeMap.set(String(s), (degreeMap.get(String(s)) || 0) + 1)
+            if (t != null) degreeMap.set(String(t), (degreeMap.get(String(t)) || 0) + 1)
+          } catch (e) {}
+        })
+      } catch (e) {}
+
+      // Temporary debug: print a sample of incoming nodes and the sizes we'll compute
+      try {
+        if (typeof console !== 'undefined' && console.debug) {
+          const sample = (nodes || []).slice(0, 6).map(n => {
+            try {
+              const id = n && n.data && n.data.id
+              const incomingWeight = (n && n.data && typeof n.data.weight !== 'undefined') ? n.data.weight : undefined
+              const weightVal = (typeof incomingWeight !== 'undefined') ? Number(incomingWeight) : (degreeMap.get(String(id)) || 1)
+              const visualRadiusDebug = (weightVal) ? ((weightVal > 100) ? 167 : (weightVal * 5)) : 3
+              const pixelSizeDebug = Math.max(2, Math.round(visualRadiusDebug * 0.5))
+              return { id, incomingWeight, weightVal, visualRadius: visualRadiusDebug, pixelSize: pixelSizeDebug }
+            } catch (err) { return { error: String(err) } }
+          })
+          const dmEntries = Array.from(degreeMap.entries()).slice(0, 8)
+          const info = { nodeSizeMode: (this.props && this.props.ui && this.props.ui.nodeSizeMode) || null, degreeMapSample: dmEntries, sample }
+          try { console.debug('CesiumMap: debug nodeSizes (stringified)\n' + JSON.stringify(info, null, 2)) } catch (e) { console.debug('CesiumMap: debug nodeSizes', info) }
+        }
+      } catch (e) {}
+
       nodes.forEach(n => {
         try {
           const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
@@ -365,7 +410,9 @@ export default class CesiumMap extends React.Component {
           const color = this._normalizeColor(rawColor)
           const cart = Cesium.Cartesian3.fromDegrees(lng, lat, 0)
           // compute visual radius matching Leaflet GeoNodes
-          const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+          // Use n.data.weight if present; otherwise fall back to degree map
+          const weightVal = (n && n.data && (typeof n.data.weight !== 'undefined')) ? Number(n.data.weight) : (degreeMap.get(String(n && n.data && n.data.id)) || 1)
+          const visualRadius = (weightVal) ? ((weightVal > 100) ? 167 : (weightVal * 5)) : 3
           // reduce circle-rendered node size further (half again) so emoji and circle sizes align better
           const pixelSize = Math.max(2, Math.round(visualRadius * 0.5))
           // emoji rendering: when UI allows and node has an emoji, draw it as a billboard
@@ -374,23 +421,28 @@ export default class CesiumMap extends React.Component {
           if (hasEmoji) {
             try {
               const emoji = String(n.data.emoji)
-              // enlarge emoji for visibility: ensure canvas big enough
-              const fontPx = Math.max(28, Math.min(96, Math.round(Math.max(visualRadius, 28) * 1.4)))
-              const cvsSize = Math.max(pixelSize, Math.round(fontPx * 1.6))
+              // compute font size proportional to visualRadius so nodeSizeMode affects emoji
+              // visualRadius is in the same units used for non-emoji rendering
+              const baseFont = Math.max(10, Math.min(96, Math.round(visualRadius * 0.9)))
+              // canvas size should comfortably contain the glyph plus halo
+              const cvsSize = Math.max( Math.round(baseFont * 1.6), Math.max(24, Math.round(pixelSize * 2)) )
               const cvs = document.createElement('canvas'); cvs.width = cvsSize; cvs.height = cvsSize
               const ctx = cvs.getContext('2d'); if (ctx) {
                 ctx.clearRect(0,0,cvsSize,cvsSize)
-                ctx.font = `${fontPx}px sans-serif`
+                ctx.font = `${baseFont}px sans-serif`
                 ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-                // draw a stronger white halo for readability and larger emoji
-                ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
+                // draw a stronger white halo for readability
+                ctx.lineWidth = Math.max(2, Math.round(baseFont / 10))
                 ctx.strokeStyle = '#ffffff'
                 ctx.strokeText(emoji, cvsSize / 2, cvsSize / 2)
                 ctx.fillStyle = color || '#111'
                 ctx.fillText(emoji, cvsSize / 2, cvsSize / 2)
               }
               const image = cvs.toDataURL()
-              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, scale: 0.5, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
+              // choose a scale so the billboard's displayed pixel size matches pixelSize
+              // Note: Cesium billboards' scale multiplies the source image. We'll compute an approximate scale.
+              const scale = Math.max(0.25, (pixelSize * 1.0) / Math.max(8, Math.round(cvsSize / 2)))
+              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, scale: scale, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
             } catch (e) { /* ignore emoji rendering errors */ }
           } else if (this._pointCollection) {
             try {
@@ -422,6 +474,42 @@ export default class CesiumMap extends React.Component {
           }
         } catch (e) { console.warn('CesiumMap: point add failed', e) }
       })
+
+      // Node labels: if UI requests node names, create entities (cleanup any prior)
+      try {
+        // remove previous node label entities tracked here
+        try { if (this._nodeLabelEntities && this._nodeLabelEntities.length && this.viewer && this.viewer.entities) { this._nodeLabelEntities.forEach(en => { try { this.viewer.entities.remove(en) } catch (e) {} }) } } catch (e) {}
+        this._nodeLabelEntities = []
+        const nodeLabelMode = (this.props.ui && this.props.ui.nodeLabelMode) ? String(this.props.ui.nodeLabelMode) : 'both'
+        const titleSize = (this.props.ui && this.props.ui.titleSize) ? Number(this.props.ui.titleSize) : 12
+        if (nodeLabelMode === 'name' || nodeLabelMode === 'both' || nodeLabelMode === 'emoji') {
+          nodes.forEach(n => {
+            try {
+              const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
+              const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
+              if (!isFinite(lat) || !isFinite(lng)) return
+              const txt = (nodeLabelMode === 'emoji') ? (n && n.data && n.data.emoji ? String(n.data.emoji) : String(n && n.data && (n.data.name || n.data.label) || '')) : String(n && n.data && (n.data.name || n.data.label) || '')
+              if (!txt) return
+              const pos = Cesium.Cartesian3.fromDegrees(lng, lat, 5)
+              const ent = this.viewer.entities.add({
+                position: pos,
+                label: {
+                  text: txt,
+                  font: `${Math.max(10, titleSize)}px sans-serif`,
+                  fillColor: Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString('#ffffff') : Cesium.Color.WHITE,
+                  outlineColor: Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString('#111111') : Cesium.Color.BLACK,
+                  outlineWidth: 2,
+                  style: Cesium.LabelStyle.FILL,
+                  pixelOffset: (Cesium && Cesium.Cartesian2) ? new Cesium.Cartesian2(0, -12) : undefined,
+                  horizontalOrigin: Cesium && Cesium.HorizontalOrigin ? Cesium.HorizontalOrigin.CENTER : undefined
+                },
+                disableDepthTestDistance: Number.POSITIVE_INFINITY
+              })
+              if (ent) this._nodeLabelEntities.push(ent)
+            } catch (e) {}
+          })
+        }
+      } catch (e) {}
 
       // report how many visual primitives we created and whether emoji were used
       try {
@@ -721,10 +809,17 @@ export default class CesiumMap extends React.Component {
                         if (bestScore < 40) break
                       }
                       // report pick sampling outcome even when not found
-                      try { console.info('CesiumMap: pick-sampling result', { idx, bestScore: (bestScore === Number.POSITIVE_INFINITY ? null : bestScore), found: !!bestPick }) } catch (e) {}
-                      if (bestPick) {
+                      try { console.info('CesiumMap: pick-sampling result', { idx, bestScore: (bestScore === Number.POSITIVE_INFINITY ? null : bestScore), found: !!bestPick, forceMidpoint }) } catch (e) {}
+                      // Only accept sampled picks when they are reasonably close to
+                      // the geographic midpoint. Reject extremely distant picks
+                      // which tend to appear when the raycast hits unrelated terrain
+                      // features. PICK_ACCEPT_THRESHOLD is meters.
+                      const PICK_ACCEPT_THRESHOLD = 10000 // 10 km
+                      if (bestPick && !forceMidpoint && bestScore < PICK_ACCEPT_THRESHOLD) {
                         worldPos = bestPick
                         try { console.info('CesiumMap: multi-pick fallback used', { idx, bestScore }) } catch (e) {}
+                      } else if (bestPick && bestScore >= PICK_ACCEPT_THRESHOLD) {
+                        try { console.info('CesiumMap: pick ignored (too far)', { idx, bestScore }) } catch (e) {}
                       }
                     }
                   } catch (e) { /* non-fatal */ }
@@ -776,10 +871,15 @@ export default class CesiumMap extends React.Component {
                       } catch (e) { metersPerPixel = 1 }
 
                       const offsetMeters = (spacingPx || 18) * (Math.abs(oy) > 0 ? Math.abs(oy) : 1) * metersPerPixel
-                      const worldOffset = this.Cesium.Cartesian3.multiplyByScalar(new this.Cesium.Cartesian3(), offsetMeters, perpVec)
-                      const hybridPos = this.Cesium.Cartesian3.add(pos, worldOffset, new this.Cesium.Cartesian3())
-                      worldPos = hybridPos
-                      try { console.info('CesiumMap: hybrid-perp fallback used', { idx, offsetMeters, hybridPos }) } catch (e) {}
+                      const HYBRID_OFFSET_MAX = 5e6 // 5,000 km max offset
+                      if (Math.abs(offsetMeters) > HYBRID_OFFSET_MAX) {
+                        try { console.info('CesiumMap: hybrid-perp skipped (offset too large)', { idx, offsetMeters }) } catch (e) {}
+                      } else {
+                        const worldOffset = this.Cesium.Cartesian3.multiplyByScalar(new this.Cesium.Cartesian3(), offsetMeters, perpVec)
+                        const hybridPos = this.Cesium.Cartesian3.add(pos, worldOffset, new this.Cesium.Cartesian3())
+                        worldPos = hybridPos
+                        try { console.info('CesiumMap: hybrid-perp fallback used', { idx, offsetMeters, hybridPos }) } catch (e) {}
+                      }
                     } catch (err) { /* non-fatal */ }
                   }
                 } catch (err) { /* non-fatal */ }
@@ -857,20 +957,29 @@ export default class CesiumMap extends React.Component {
                     }
                   } catch (e) {}
                 } else {
-                  const labelEnt = this.viewer.entities.add({
-                    position: worldPos,
-                    label: {
-                      text: String(relLabel),
-                      font: '11px sans-serif',
-                      // render white text with dark halo for visibility
-                      fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
-                      outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
-                      outlineWidth: 2,
-                      style: this.Cesium.LabelStyle.FILL
-                    },
-                    disableDepthTestDistance: Number.POSITIVE_INFINITY
-                  })
-                  if (labelEnt) this._edgeEntities.push(labelEnt)
+                  try {
+                    // For text-only mode, apply the same pixelOffset/horizontalOrigin
+                    // stacking used by the 'both' mode so text-only placement
+                    // matches the aligned emoji+text arrangement.
+                    const labelOffsetX = (ox || 0)
+                    const labelOffsetY = (oy || 0)
+                    const labelEnt = this.viewer.entities.add({
+                      position: worldPos,
+                      label: {
+                        text: String(relLabel),
+                        font: '11px sans-serif',
+                        // render white text with dark halo for visibility
+                        fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
+                        outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
+                        outlineWidth: 2,
+                        style: this.Cesium.LabelStyle.FILL,
+                        pixelOffset: (this.Cesium && this.Cesium.Cartesian2) ? new this.Cesium.Cartesian2(labelOffsetX, labelOffsetY) : undefined,
+                        horizontalOrigin: this.Cesium && this.Cesium.HorizontalOrigin ? this.Cesium.HorizontalOrigin.CENTER : undefined
+                      },
+                      disableDepthTestDistance: Number.POSITIVE_INFINITY
+                    })
+                    if (labelEnt) this._edgeEntities.push(labelEnt)
+                  } catch (e) { /* ignore label add errors */ }
                 }
               } catch (err) {}
               })
