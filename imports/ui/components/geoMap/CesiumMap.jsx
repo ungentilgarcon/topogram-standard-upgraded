@@ -18,6 +18,17 @@ export default class CesiumMap extends React.Component {
     // create a fresh inner mount node so previous renderer canvases don't interfere
     try {
       if (this.container && this.container.current) {
+        // if parent hasn't been laid out (height 0), force a temporary
+        // min-height so Cesium can initialize properly. This is a safe
+        // fallback for layout cases like calc(-140px + 100vh).
+        try {
+          const rect = this.container.current.getBoundingClientRect()
+          if ((!rect || rect.height <= 2) && !this.container.current.style.minHeightSetForCesium) {
+            this.container.current.style.minHeight = '300px'
+            this.container.current.style.minHeightSetForCesium = '1'
+            console.warn('CesiumMap: parent had zero height; temporarily set minHeight=300px')
+          }
+        } catch (e) {}
         // remove any previous mount
         try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
   this._mountEl = document.createElement('div')
