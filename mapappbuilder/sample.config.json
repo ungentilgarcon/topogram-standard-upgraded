@@ -1,0 +1,13 @@
+{
+  "id": "my-topogram-app",
+  "title": "My Topogram Presentation",
+  "topogramId": "REPLACE_WITH_ID",
+  "networkRenderer": "cytoscape",
+  "geoRenderer": "maplibre",
+  "presentation": {
+    "showLegend": true,
+    "initialLayout": "cose",
+    "mapCenter": [48.8566, 2.3522, 5]
+  },
+  "assets": ["styles/custom.css", "images/logo.png"]
+}

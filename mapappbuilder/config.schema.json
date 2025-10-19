@@ -1,0 +1,22 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "MapApp bundle configuration",
+  "type": "object",
+  "required": ["id", "title", "networkRenderer", "geoRenderer"],
+  "properties": {
+    "id": { "type": "string", "description": "Bundle id (used for filenames)" },
+    "title": { "type": "string", "description": "Human-friendly title" },
+    "topogramId": { "type": "string", "description": "Topogram id to export" },
+    "networkRenderer": { "type": "string", "enum": ["cytoscape", "sigma", "reagraph"], "description": "Which network renderer to include" },
+    "geoRenderer": { "type": "string", "enum": ["maplibre", "leaflet", "cesium"], "description": "Which geo renderer to include" },
+    "presentation": {
+      "type": "object",
+      "properties": {
+        "showLegend": { "type": "boolean" },
+        "initialLayout": { "type": "string" },
+        "mapCenter": { "type": "array", "items": { "type": "number" }, "minItems": 2, "maxItems": 3 }
+      }
+    },
+    "assets": { "type": "array", "items": { "type": "string" }, "description": "Extra asset files to include (paths relative to bundle root)" }
+  }
+}
