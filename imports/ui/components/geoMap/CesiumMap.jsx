@@ -20,10 +20,19 @@ export default class CesiumMap extends React.Component {
       if (this.container && this.container.current) {
         // remove any previous mount
         try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
-        this._mountEl = document.createElement('div')
-        this._mountEl.setAttribute('data-cesium-mount', '1')
-        this._mountEl.style.width = '100%'; this._mountEl.style.height = '100%'
-        this.container.current.appendChild(this._mountEl)
+  this._mountEl = document.createElement('div')
+  this._mountEl.setAttribute('data-cesium-mount', '1')
+  // ensure the mount fills the parent and is on top to avoid being
+  // obscured by leftover canvases from Leaflet/MapLibre
+  this._mountEl.style.position = 'absolute'
+  this._mountEl.style.top = '0'
+  this._mountEl.style.left = '0'
+  this._mountEl.style.width = '100%'
+  this._mountEl.style.height = '100%'
+  this._mountEl.style.zIndex = '1000'
+  this._mountEl.style.pointerEvents = 'auto'
+  try { if (this.container && this.container.current) this.container.current.style.position = this.container.current.style.position || 'relative' } catch (e) {}
+  this.container.current.appendChild(this._mountEl)
       }
     } catch (e) {}
 
@@ -37,7 +46,8 @@ export default class CesiumMap extends React.Component {
           if (!Viewer) { console.warn('CesiumMap: CDN Cesium loaded but Viewer not found'); return }
           try { if (this.container && this.container.current) {
             try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
-            this._mountEl = document.createElement('div'); this._mountEl.setAttribute('data-cesium-mount', '1'); this._mountEl.style.width='100%'; this._mountEl.style.height='100%'; this.container.current.appendChild(this._mountEl)
+              this._mountEl = document.createElement('div'); this._mountEl.setAttribute('data-cesium-mount', '1');
+              this._mountEl.style.position = 'absolute'; this._mountEl.style.top='0'; this._mountEl.style.left='0'; this._mountEl.style.width='100%'; this._mountEl.style.height='100%'; this._mountEl.style.zIndex='1000'; this._mountEl.style.pointerEvents='auto'; this.container.current.appendChild(this._mountEl)
           } } catch (e) {}
           this.viewer = new Viewer(el, { animation: false, timeline: false })
           try { this._renderPoints() } catch (e) {}
