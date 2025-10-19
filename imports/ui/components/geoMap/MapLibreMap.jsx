@@ -169,7 +169,9 @@ export default class MapLibreMap extends React.Component {
             el.style.border = 'none'
             el.style.boxShadow = '0 0 0 2px rgba(255,255,255,0.9) inset'
             el.className = 'maplibre-emoji-marker'
-            el.innerText = emoji
+            el.setAttribute('data-emoji-marker', emoji)
+            // put emoji as textContent as well (some platforms use textContent)
+            try { el.textContent = emoji } catch (e) {}
           } else {
             // size the DOM marker to match Leaflet visual radius (radius->pixels)
             const sizePx = Math.max(2, Math.round(visualRadius * 2))
@@ -192,9 +194,17 @@ export default class MapLibreMap extends React.Component {
         } catch (e) {}
       })
       try {
-        // count how many markers contained emoji vs plain circles
+        // count how many markers contained emoji vs plain circles. Prefer
+        // checking the explicit data attribute because MapLibre may wrap
+        // marker elements and innerText can be unreliable in some builds.
         const emojiCount = this._markers.filter(m => {
-          try { return m && m.getElement && m.getElement().innerText && String(m.getElement().innerText).trim().length > 0 } catch (e) { return false }
+          try {
+            const el = m && m.getElement && m.getElement()
+            if (!el) return false
+            if (el.getAttribute && el.getAttribute('data-emoji-marker')) return true
+            const text = (el.innerText || el.textContent || '')
+            return String(text).trim().length > 0
+          } catch (e) { return false }
         }).length
         console.info('MapLibreMap: markers created', this._markers.length, 'emoji:', emojiCount)
         if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} emoji:${emojiCount}`
