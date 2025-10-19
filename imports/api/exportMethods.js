@@ -6,6 +6,9 @@ import path from 'path'
 import os from 'os'
 import { spawnSync } from 'child_process'
 import { Topograms, Nodes, Edges } from '/imports/api/collections'
+import Ajv from 'ajv'
+import addFormats from 'ajv-formats'
+import schemaJson from '/mapappbuilder/config.schema.json'
 
 function getConfiguredAdmin() {
   try {
@@ -46,6 +49,24 @@ Meteor.methods({
   async 'topogram.exportBundle'({ topogramId, config }) {
     check(topogramId, String)
     check(config, Object)
+
+    // Validate config using JSON schema
+    try {
+      const ajv = new Ajv({ allErrors: true, strict: false })
+      addFormats(ajv)
+      const validate = ajv.compile(schemaJson)
+      const valid = validate(config)
+      if (!valid) {
+        // Map AJV errors into friendly messages
+        const errors = (validate.errors || []).map(e => `${e.instancePath || '/'} ${e.message}`)
+        throw new Meteor.Error('invalid-config', 'Config validation failed', { errors })
+      }
+    } catch (e) {
+      if (e && e.errors && Array.isArray(e.errors)) throw e
+      // Re-throw as Meteor.Error for client-friendly consumption
+      if (e instanceof Meteor.Error) throw e
+      throw new Meteor.Error('schema-validate-error', e && e.message ? e.message : String(e))
+    }
 
     // admin check
     const adminId = getConfiguredAdmin()
