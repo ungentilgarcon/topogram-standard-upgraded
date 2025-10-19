@@ -13,7 +13,6 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
-import JSONEditor from '@uiw/react-json-editor' // lightweight JSON editor component (optional)
 
 export default function Home() {
   console.debug && console.debug('Home component rendered');
@@ -147,14 +146,9 @@ export default function Home() {
         <DialogTitle>Export Topogram as Bundle</DialogTitle>
         <DialogContent>
           <div style={{ height: 300 }}>
-            {/* If JSONEditor is not available, fallback to a TextField */}
-            { typeof JSONEditor !== 'undefined' ? (
-              <JSONEditor value={exportConfig || {}} onChange={(v) => setExportConfig(v)} />
-            ) : (
-              <TextField label="Export config (JSON)" value={exportConfig ? JSON.stringify(exportConfig, null, 2) : ''} onChange={(e) => {
-                try { setExportConfig(JSON.parse(e.target.value)) } catch (err) { /* ignore */ }
+            <TextField label="Export config (JSON)" value={exportConfig ? JSON.stringify(exportConfig, null, 2) : ''} onChange={(e) => {
+                try { setExportConfig(JSON.parse(e.target.value)) } catch (err) { /* ignore malformed JSON until submit */ }
               }} fullWidth multiline rows={12} />
-            )}
           </div>
         </DialogContent>
         <DialogActions>
