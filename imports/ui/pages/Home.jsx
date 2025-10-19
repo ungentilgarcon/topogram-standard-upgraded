@@ -13,6 +13,7 @@ import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
+import JSONEditor from '@uiw/react-json-editor' // lightweight JSON editor component (optional)
 
 export default function Home() {
   console.debug && console.debug('Home component rendered');
@@ -25,6 +26,8 @@ export default function Home() {
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
+  const [exportOpen, setExportOpen] = useState(false)
+  const [exportConfig, setExportConfig] = useState(null)
 
   const { userId, user } = useTracker(() => {
     // Guard in case Meteor.userId/user are not available as functions in this runtime
@@ -133,8 +136,42 @@ export default function Home() {
                       console.info('Deleted topogram', t._id, r)
                     })
                   }}>Delete</Button>
+                  <Button variant="outlined" size="small" sx={{ ml: 1 }} onClick={() => {
+                    // default export config
+                    setExportConfig({ id: `topogram-${t._id}`, title: t.title || t.name || `topogram-${t._id}`, topogramId: t._id, networkRenderer: 'cytoscape', geoRenderer: 'maplibre', presentation: { showLegend: true } })
+                    setExportOpen(true)
+                  }}>Export</Button>
                 </div>
               ) : null}
+      <Dialog open={exportOpen} onClose={() => setExportOpen(false)} maxWidth="md" fullWidth>
+        <DialogTitle>Export Topogram as Bundle</DialogTitle>
+        <DialogContent>
+          <div style={{ height: 300 }}>
+            {/* If JSONEditor is not available, fallback to a TextField */}
+            { typeof JSONEditor !== 'undefined' ? (
+              <JSONEditor value={exportConfig || {}} onChange={(v) => setExportConfig(v)} />
+            ) : (
+              <TextField label="Export config (JSON)" value={exportConfig ? JSON.stringify(exportConfig, null, 2) : ''} onChange={(e) => {
+                try { setExportConfig(JSON.parse(e.target.value)) } catch (err) { /* ignore */ }
+              }} fullWidth multiline rows={12} />
+            )}
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setExportOpen(false)}>Cancel</Button>
+          <Button onClick={() => {
+            // call server method to build bundle
+            Meteor.call('topogram.exportBundle', { topogramId: exportConfig.topogramId, config: exportConfig }, (err, r) => {
+              if (err) return alert('Export failed: ' + err.message)
+              // r.filename is served from /_exports/<filename>
+              const url = `/_exports/${encodeURIComponent(r.filename)}`
+              // trigger browser download
+              const a = document.createElement('a'); a.href = url; a.download = r.filename; document.body.appendChild(a); a.click(); a.remove();
+              setExportOpen(false)
+            })
+          }} variant="contained">Export & Download</Button>
+        </DialogActions>
+      </Dialog>
             </li>
           ))}
         </ul>
