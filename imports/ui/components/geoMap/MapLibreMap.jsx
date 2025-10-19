@@ -12,6 +12,10 @@ export default class MapLibreMap extends React.Component {
     this.map = null
     this.container = React.createRef()
     this._markers = []
+    // nonce to make image names unique per update (avoids sprite/name collisions)
+    this._emojiNonce = 0
+    // store canvases by image name so we can re-register them if style reloads
+    this._registeredEmojiImages = new Map()
   }
 
   // Return an emoji-like string for a node if present in known fields
@@ -52,6 +56,88 @@ export default class MapLibreMap extends React.Component {
       try { ctx.fillText(emoji, sizePx/2, sizePx/2) } catch (e) {}
       return cvs.toDataURL('image/png')
     } catch (e) { return null }
+  }
+
+  // Return a canvas with the emoji drawn; useful to get ImageData synchronously
+  _emojiCanvas(emoji, sizePx = 64, color = '#111') {
+    try {
+      const cvs = document.createElement('canvas')
+      cvs.width = sizePx; cvs.height = sizePx
+      const ctx = cvs.getContext && cvs.getContext('2d')
+      if (!ctx) return null
+      ctx.clearRect(0,0,sizePx,sizePx)
+      const fontPx = Math.round(sizePx * 0.7)
+      ctx.font = `${fontPx}px sans-serif`
+      ctx.textAlign = 'center'
+      ctx.textBaseline = 'middle'
+      ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
+      ctx.strokeStyle = '#ffffff'
+      try { ctx.strokeText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      ctx.fillStyle = color || '#111'
+      try { ctx.fillText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      return cvs
+    } catch (e) { return null }
+  }
+
+  // Try to register a canvas as a MapLibre image using several fallbacks.
+  // Returns a Promise resolving to the final registered image name, or null.
+  _registerCanvasAsImage(nameBase, cvs) {
+    return new Promise((resolve) => {
+      try {
+        if (!this.map || !cvs) return resolve(null)
+        // assign a nonce for uniqueness
+        this._emojiNonce = (this._emojiNonce || 0) + 1
+        const uniqueName = `${nameBase}~${this._emojiNonce}`
+        const setRegistered = (registeredName) => {
+          try { this._registeredEmojiImages.set(registeredName, cvs) } catch (e) {}
+          resolve(registeredName)
+        }
+        // helper to test hasImage after add
+        const testAndResolve = (n) => {
+          try {
+            if (this.map.hasImage && this.map.hasImage(n)) return setRegistered(n)
+          } catch (e) {}
+          resolve(null)
+        }
+        // Strategy 1: create ImageBitmap then add
+        if (typeof createImageBitmap === 'function') {
+          createImageBitmap(cvs).then((bm) => {
+            try {
+              this.map.addImage(uniqueName, bm)
+            } catch (err) {
+              // ignore; try next method
+            }
+            testAndResolve(uniqueName)
+          }).catch(() => {
+            // fallback to canvas addImage
+            try {
+              this.map.addImage(uniqueName, cvs, { pixelRatio: 1 })
+            } catch (err) {}
+            testAndResolve(uniqueName)
+          })
+          return
+        }
+        // Strategy 2: try canvas directly
+        try {
+          this.map.addImage(uniqueName, cvs, { pixelRatio: 1 })
+        } catch (err) {
+          // fall through to Image fallback
+        }
+        if (this.map.hasImage && this.map.hasImage(uniqueName)) return setRegistered(uniqueName)
+        // Strategy 3: Image fallback from dataURL
+        try {
+          const dataUrl = cvs.toDataURL('image/png')
+          const img = new Image()
+          img.crossOrigin = 'anonymous'
+          img.onload = () => {
+            try { this.map.addImage(uniqueName, img) } catch (err) {}
+            testAndResolve(uniqueName)
+          }
+          img.onerror = () => { resolve(null) }
+          img.src = dataUrl
+        } catch (e) { resolve(null) }
+      } catch (e) { resolve(null) }
+    })
   }
 
   componentDidMount() {
@@ -99,7 +185,58 @@ export default class MapLibreMap extends React.Component {
             }
           } catch (e) {}
         } catch (e) {}
-  this.map.on('load', () => { this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
+        this.map.on('load', () => { this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
+        // re-register our generated canvas images if the style reloads and clears images
+        this._styleDataHandler = () => {
+          try {
+            if (!this.map || !this._registeredEmojiImages) return
+            this._registeredEmojiImages.forEach((cvs, name) => {
+              try {
+                if (this.map.hasImage && this.map.hasImage(name)) return
+                try {
+                  // prefer ImageBitmap where available
+                  if (typeof createImageBitmap === 'function') {
+                    createImageBitmap(cvs).then((bm) => {
+                      try { this.map.addImage(name, bm) } catch (ee) { console.warn('MapLibreMap: re-addImage(bitmap) failed', name, ee) }
+                    }).catch((ee) => {
+                      try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (e2) { console.warn('MapLibreMap: re-addImage(canvas) failed', name, e2) }
+                    })
+                  } else {
+                    try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (ee) { console.warn('MapLibreMap: re-addImage failed', name, ee) }
+                  }
+                } catch (ee) { console.warn('MapLibreMap: re-addImage error', name, ee) }
+              } catch (e) {}
+            })
+          } catch (e) {}
+        }
+        // re-register a specific missing image when style requests it
+        this._styleImageMissingHandler = (ev) => {
+          try {
+            const name = ev && ev.id
+            if (!name) return
+            // try exact match first
+            let cvs = (this._registeredEmojiImages && this._registeredEmojiImages.get(name)) || null
+            // if not found, try to locate a stored canvas whose registered key
+            // contains the requested base name (we register with a nonce suffix)
+            if (!cvs && this._registeredEmojiImages) {
+              try {
+                for (const [k, v] of this._registeredEmojiImages.entries()) {
+                  if (String(k).indexOf(name) === 0 || String(k).indexOf(name) > 0) { cvs = v; break }
+                }
+              } catch (ee) {}
+            }
+            if (!cvs) return
+            try {
+              if (typeof createImageBitmap === 'function') {
+                createImageBitmap(cvs).then((bm) => { try { this.map.addImage(name, bm) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed (bitmap)', name, err) } })
+              } else {
+                try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed', name, err) }
+              }
+            } catch (err) { console.warn('MapLibreMap: styleimagemissing re-add failed', name, err) }
+          } catch (e) {}
+        }
+        try { this.map.on && this.map.on('styleimagemissing', this._styleImageMissingHandler) } catch (e) {}
+        try { this.map.on && this.map.on('styledata', this._styleDataHandler) } catch (e) {}
         this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
       } catch (err) { console.warn('MapLibreMap: init error', err) }
     }).catch((err) => {
@@ -161,6 +298,13 @@ export default class MapLibreMap extends React.Component {
         try { if (this.map.remove) this.map.remove() } catch (e) {}
       }
     } catch (e) {}
+    try {
+      if (this.map && this._styleDataHandler) {
+        try { this.map.off && this.map.off('styledata', this._styleDataHandler) } catch (e) {}
+        this._styleDataHandler = null
+      }
+    } catch (e) {}
+    try { if (this._registeredEmojiImages && this._registeredEmojiImages.clear) this._registeredEmojiImages.clear() } catch (e) {}
   }
 
   _clearMarkers() {
@@ -329,7 +473,9 @@ export default class MapLibreMap extends React.Component {
                 if (!buckets.has(k)) buckets.set(k, [])
                 buckets.get(k).push(idx)
               })
-              const labelFeatures = edgesList.map((e, i) => {
+              const labelFeatures = []
+              const emojiLabelFeatures = []
+              edgesList.forEach((e, i) => {
               if (!e || !e.coords || e.coords.length !== 2) return null
               const [[lat1, lng1], [lat2, lng2]] = e.coords
               const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
@@ -342,7 +488,7 @@ export default class MapLibreMap extends React.Component {
               else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
               else if (edgeMode === 'none') relLabel = ''
               else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
-              if (!relLabel || String(relLabel).trim() === '') return null
+              // Build both text and emoji features depending on mode
               const midLat = (a1 + a2) / 2
               let midLng = (o1 + o2) / 2
               if (midLng > 180) midLng = ((midLng + 180) % 360) - 180
@@ -352,38 +498,162 @@ export default class MapLibreMap extends React.Component {
               const slotIdx = (buckets.has(k) ? buckets.get(k).indexOf(i) : -1)
               // vertical offset per slot (in ems for MapLibre's text-offset)
               const offsetY = slotIdx >= 0 ? (slotIdx * 0.9) : 0
-              return {
-                type: 'Feature',
-                properties: { label: String(relLabel), id: i, offset: [0, offsetY] },
-                geometry: { type: 'Point', coordinates: [midLng, midLat] }
-              }
-            }).filter(Boolean)
-            const labelsGeo = { type: 'FeatureCollection', features: labelFeatures }
-            if (this.map.getSource && this.map.getSource('geo-edge-labels')) {
-              try { this.map.getSource('geo-edge-labels').setData(labelsGeo) } catch (e) {}
-            } else {
-              try {
-                this.map.addSource('geo-edge-labels', { type: 'geojson', data: labelsGeo })
-                this.map.addLayer({
-                  id: 'geo-edge-labels-symbol',
-                  type: 'symbol',
-                  source: 'geo-edge-labels',
-                  layout: {
-                      'text-field': ['get', 'label'],
-                      'text-size': 11,
-                      'text-allow-overlap': true,
-                      'text-ignore-placement': true,
-                      // read per-feature offset [x, y] (in ems) to stack labels
-                      'text-offset': ['get', 'offset']
-                    },
-                  paint: {
-                    'text-color': '#111',
-                    'text-halo-color': '#fff',
-                    'text-halo-width': 1
+              // Create text and/or emoji features depending on mode. For 'both'
+              // create a single combined feature where the icon is placed before
+              // the text (icon to the left, text to the right) so they appear
+              // side-by-side instead of overlapping.
+                if (edgeMode === 'both' && relEmojiRaw) {
+                // smaller icon-size so emoji doesn't dominate (reduced)
+                const size = 0.35
+                // use a fixed canvas size (power-of-two) for images to avoid mismatches
+                const computedEdgeSizePx = 64
+                // icon offset (x,y) in pixels: move left ~ half icon width
+                const iconOffsetPx = [-Math.round(computedEdgeSizePx / 2), offsetY * 12]
+                // text offset in ems: move right to make room for icon
+                const textOffset = [0.9, offsetY]
+                const edgeIconName = `edge-emoji-${i}@${computedEdgeSizePx}`
+                // store the emoji separately so registration uses the emoji char (not the text label)
+                // set the text label to the textual relationship only (don't place the emoji in the text-field)
+                labelFeatures.push({ type: 'Feature', properties: { label: String(relTextRaw || ''), _emoji: String(relEmojiRaw), id: i, offset: textOffset, icon: edgeIconName, size, iconOffsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+              } else {
+                // text-only or emoji-as-text fallback
+                if (edgeMode === 'text' || (edgeMode === 'emoji' && !relEmojiRaw) || (edgeMode === 'both' && !relEmojiRaw)) {
+                  if (relLabel && String(relLabel).trim() !== '') {
+                    labelFeatures.push({ type: 'Feature', properties: { label: String(relLabel), id: i, offset: [0, offsetY] }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
                   }
+                }
+                // emoji-only mode: separate emoji feature (icon only)
+                if ((edgeMode === 'emoji' || edgeMode === 'both') && relEmojiRaw && edgeMode === 'emoji') {
+                  const size = 0.8
+                  const computedEdgeSizePx = 64
+                  const offsetPx = [0, offsetY * 12]
+                  const edgeIconName = `edge-emoji-${i}@${computedEdgeSizePx}`
+                  emojiLabelFeatures.push({ type: 'Feature', properties: { label: String(relEmojiRaw), id: i, icon: edgeIconName, size, offsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                }
+              }
+              return null
+            })
+            const labelFeaturesFinal = labelFeatures.filter(Boolean)
+            const emojiFeatures = emojiLabelFeatures.filter(Boolean)
+            const labelsGeo = { type: 'FeatureCollection', features: labelFeaturesFinal }
+              // Build list of features that reference icons (either combined label features
+              // or emoji-only features). Register those canvases BEFORE adding the labels layer
+              try {
+                const iconFeatures = []
+                try {
+                  // features in labelFeaturesFinal that contain an icon (combined 'both' case)
+                  (labelFeaturesFinal || []).forEach((f) => { if (f && f.properties && f.properties.icon) iconFeatures.push(f) })
+                } catch (e) {}
+                try { (emojiFeatures || []).forEach((f) => { if (f) iconFeatures.push(f) }) } catch (e) {}
+                try { console.info('MapLibreMap: edge iconFeatures', iconFeatures.map(f => (f && f.properties && f.properties.icon) || f)) } catch (e) {}
+                const edgeImagePromises = (iconFeatures || []).map((f) => {
+                  try {
+                    const name = f.properties && f.properties.icon
+                    // prefer an explicit emoji char stored in _emoji when present
+                    const emoji = (f.properties && (f.properties._emoji || f.properties.label)) || ''
+                    const sizePx = (f.properties && f.properties._sizePx) || 64
+                    const cvs = this._emojiCanvas(emoji, sizePx)
+                    if (!cvs || !this.map) return Promise.resolve(null)
+                    return this._registerCanvasAsImage(name, cvs).then((registeredName) => {
+                      if (registeredName && f && f.properties) f.properties.icon = registeredName
+                      return registeredName
+                    }).catch(() => null)
+                  } catch (e) { console.warn('MapLibreMap: edge emoji registration error', e); return Promise.resolve(null) }
                 })
-              } catch (e) { console.warn('MapLibreMap: add edge labels layer failed', e) }
-            }
+                Promise.all(edgeImagePromises).then((results) => {
+                  try {
+                    if (this.map.getSource && this.map.getSource('geo-edge-labels')) {
+                      try { this.map.getSource('geo-edge-labels').setData(labelsGeo) } catch (e) {}
+                    } else {
+                      try {
+                        this.map.addSource('geo-edge-labels', { type: 'geojson', data: labelsGeo })
+                        this.map.addLayer({
+                          id: 'geo-edge-labels-symbol',
+                          type: 'symbol',
+                          source: 'geo-edge-labels',
+                          layout: {
+                            // render icon (if present) and text in the same layer so
+                            // they appear side-by-side rather than stacked
+                            'icon-image': ['get', 'icon'],
+                            'icon-size': ['get', 'size'],
+                            'icon-offset': ['get', 'iconOffsetPx'],
+                            'icon-allow-overlap': true,
+                            'icon-ignore-placement': true,
+                            'text-field': ['get', 'label'],
+                            'text-size': 11,
+                            'text-allow-overlap': true,
+                            'text-ignore-placement': true,
+                            // read per-feature offset [x, y] (in ems) to stack labels
+                            'text-offset': ['get', 'offset']
+                          },
+                          paint: {
+                            'text-color': '#111',
+                            'text-halo-color': '#fff',
+                            'text-halo-width': 1
+                          }
+                        })
+                      } catch (e) { console.warn('MapLibreMap: add edge labels layer failed', e) }
+                    }
+                  } catch (e) { console.warn('MapLibreMap: edge labels after images failed', e) }
+                })
+                // Fallback for edges: create DOM markers for images that didn't register
+                try {
+                  (emojiFeatures || []).forEach((f, idx) => {
+                    try {
+                      const registered = (results && results[idx])
+                      if (registered) return
+                      const emoji = f.properties && f.properties.label
+                      const sizePx = (f.properties && f.properties._sizePx) || 64
+                      const cvs = this._emojiCanvas(emoji, sizePx)
+                      if (!cvs) return
+                      const dataUrl = cvs.toDataURL('image/png')
+                      const el = document.createElement('div')
+                      el.className = 'maplibre-emoji-marker'
+                      el.style.width = `${sizePx}px`
+                      el.style.height = `${sizePx}px`
+                      el.style.pointerEvents = 'auto'
+                      const img = document.createElement('img')
+                      img.src = dataUrl
+                      img.style.width = '100%'
+                      img.style.height = '100%'
+                      img.style.display = 'block'
+                      el.appendChild(img)
+                      try {
+                        const coords = f.geometry && f.geometry.coordinates
+                        if (coords && coords.length === 2 && this._maplibregl) {
+                          const marker = new this._maplibregl.Marker(el).setLngLat(coords).addTo(this.map)
+                          this._markers.push(marker)
+                        }
+                      } catch (e) {}
+                    } catch (e) {}
+                  })
+                } catch (e) {}
+              } catch (e) { console.warn('MapLibreMap: edge emoji registration outer error', e) }
+                // Edge emoji symbol source/layer (kept for emoji-only display)
+              try {
+                const emojiGeo = { type: 'FeatureCollection', features: emojiFeatures }
+                if (this.map.getSource && this.map.getSource('geo-edge-emoji')) {
+                  try { this.map.getSource('geo-edge-emoji').setData(emojiGeo) } catch (e) {}
+                } else if (emojiFeatures.length) {
+                  try {
+                    this.map.addSource('geo-edge-emoji', { type: 'geojson', data: emojiGeo })
+                    this.map.addLayer({
+                      id: 'geo-edge-emoji-symbol',
+                      type: 'symbol',
+                      source: 'geo-edge-emoji',
+                      layout: {
+                        'icon-image': ['get', 'icon'],
+                        'icon-allow-overlap': true,
+                        'icon-ignore-placement': true,
+                        'icon-size': ['get', 'size']
+                      }
+                    })
+                  } catch (e) { console.warn('MapLibreMap: add edge emoji layer failed', e) }
+                } else {
+                  try { if (this.map.getLayer && this.map.getLayer('geo-edge-emoji-symbol')) this.map.removeLayer('geo-edge-emoji-symbol') } catch (e) {}
+                  try { if (this.map.getSource && this.map.getSource('geo-edge-emoji')) this.map.removeSource('geo-edge-emoji') } catch (e) {}
+                }
+              } catch (e) { console.warn('MapLibreMap: edge emoji layer update failed', e) }
             } else {
               // UI requests labels off: remove layer/source if present
               try { if (this.map.getLayer && this.map.getLayer('geo-edge-labels-symbol')) this.map.removeLayer('geo-edge-labels-symbol') } catch (e) {}
@@ -423,10 +693,16 @@ export default class MapLibreMap extends React.Component {
                 const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
                 const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
                 if (!isFinite(lat) || !isFinite(lng)) return null
+                // compute an explicit pixel size so the canvas dimensions match
+                // the icon name (MapLibre requires consistent image sizes)
+                const iconScale = Math.max(0.5, Math.min(2.0, ((n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 2.0 : Math.min(2.0, n.data.weight/50)) : 0.6)))
+                // use a fixed canvas size (power-of-two) to avoid MapLibre size mismatches
+                const computedSizePx = 64
+                const iconName = `emoji-${i}@${computedSizePx}`
                 return {
                   type: 'Feature',
                   // include nodeIndex so we can reliably reference the original node
-                  properties: { nodeIndex: i, id: (n && n.data && n.data.id) || i, icon: `emoji-${i}`, size: Math.max(0.5, Math.min(2.0, ((n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 2.0 : Math.min(2.0, n.data.weight/50)) : 0.6))) },
+                  properties: { nodeIndex: i, id: (n && n.data && n.data.id) || i, icon: iconName, size: iconScale, _sizePx: computedSizePx },
                   geometry: { type: 'Point', coordinates: [lng, lat] }
                 }
               }).filter(Boolean)
@@ -467,42 +743,85 @@ export default class MapLibreMap extends React.Component {
           // Add or update emoji source + symbol layer (images loaded from our canvas dataURLs)
           try {
             const emojiGeo = { type: 'FeatureCollection', features: emojiFeatures }
-            // ensure images are registered
-            emojiFeatures.forEach((f) => {
+            // ensure images are registered synchronously using canvas
+            try { console.info('MapLibreMap: node emojiFeatures', emojiFeatures.map(f => (f && f.properties && f.properties.icon) || f)) } catch (e) {}
+            // register images via Image objects and wait for onload before
+            // adding the symbol layer to avoid MapLibre size/race issues
+            try { console.info('MapLibreMap: node emojiFeatures', emojiFeatures.map(f => (f && f.properties && f.properties.icon) || f)) } catch (e) {}
+                const nodeImagePromises = (emojiFeatures || []).map((f) => {
               try {
                 const nodeIndex = f.properties && f.properties.nodeIndex
                 const name = f.properties && f.properties.icon
                 const node = (this.props.nodes || [])[nodeIndex]
                 const emoji = this._getNodeEmoji(node)
-                const sizePx = Math.max(48, Math.min(120, Math.round(Math.max((node && node.data && node.data.weight) || 32, 32) * 1.8)))
-                const dataUrl = this._emojiToDataUrl(emoji, sizePx)
-                if (dataUrl) {
-                  // create an Image and add it to the map when loaded
-                  const img = new Image()
-                  img.crossOrigin = 'anonymous'
-                  img.onload = () => { try { if (this.map && !this.map.hasImage(name)) this.map.addImage(name, img) } catch (e) {} }
-                  img.src = dataUrl
+                const sizePx = (f.properties && f.properties._sizePx) || 64
+                const cvs = this._emojiCanvas(emoji, sizePx)
+                if (!cvs || !this.map) return Promise.resolve(null)
+                return this._registerCanvasAsImage(name, cvs).then((registeredName) => {
+                  if (registeredName && f && f.properties) f.properties.icon = registeredName
+                  return registeredName
+                }).catch(() => null)
+              } catch (e) { console.warn('MapLibreMap: node emoji registration error', e); return Promise.resolve(null) }
+            })
+            Promise.all(nodeImagePromises).then((results) => {
+              // After images settled, add/update geo-emoji source/layer
+              try {
+                if (this.map.getSource && this.map.getSource('geo-emoji')) {
+                  try { this.map.getSource('geo-emoji').setData(emojiGeo) } catch (e) {}
+                } else if (emojiFeatures.length) {
+                  try {
+                    this.map.addSource('geo-emoji', { type: 'geojson', data: emojiGeo })
+                    this.map.addLayer({
+                      id: 'geo-emoji-symbol',
+                      type: 'symbol',
+                      source: 'geo-emoji',
+                      layout: {
+                        'icon-image': ['get', 'icon'],
+                        'icon-allow-overlap': true,
+                        'icon-ignore-placement': true,
+                        'icon-size': ['get', 'size']
+                      }
+                    })
+                  } catch (e) { console.warn('MapLibreMap: add emoji layer failed', e) }
                 }
+              } catch (e) { console.warn('MapLibreMap: emoji layer update failed', e) }
+              // Fallback: for any images that didn't register, create DOM markers
+              try {
+                results = results || []
+                (emojiFeatures || []).forEach((f, idx) => {
+                  try {
+                    const registered = results[idx]
+                    if (registered) return
+                    // create an <img> from the canvas
+                    const nodeIndex = f.properties && f.properties.nodeIndex
+                    const node = (this.props.nodes || [])[nodeIndex]
+                    const emoji = this._getNodeEmoji(node)
+                    const sizePx = (f.properties && f.properties._sizePx) || 64
+                    const cvs = this._emojiCanvas(emoji, sizePx)
+                    if (!cvs) return
+                    const dataUrl = cvs.toDataURL('image/png')
+                    const el = document.createElement('div')
+                    el.className = 'maplibre-emoji-marker'
+                    el.style.width = `${sizePx}px`
+                    el.style.height = `${sizePx}px`
+                    el.style.pointerEvents = 'auto'
+                    const img = document.createElement('img')
+                    img.src = dataUrl
+                    img.style.width = '100%'
+                    img.style.height = '100%'
+                    img.style.display = 'block'
+                    el.appendChild(img)
+                    try {
+                      const coords = f.geometry && f.geometry.coordinates
+                      if (coords && coords.length === 2 && this._maplibregl) {
+                        const marker = new this._maplibregl.Marker(el).setLngLat(coords).addTo(this.map)
+                        this._markers.push(marker)
+                      }
+                    } catch (e) {}
+                  } catch (e) {}
+                })
               } catch (e) {}
             })
-            if (this.map.getSource && this.map.getSource('geo-emoji')) {
-              try { this.map.getSource('geo-emoji').setData(emojiGeo) } catch (e) {}
-            } else if (emojiFeatures.length) {
-              try {
-                this.map.addSource('geo-emoji', { type: 'geojson', data: emojiGeo })
-                this.map.addLayer({
-                  id: 'geo-emoji-symbol',
-                  type: 'symbol',
-                  source: 'geo-emoji',
-                  layout: {
-                    'icon-image': ['get', 'icon'],
-                    'icon-allow-overlap': true,
-                    'icon-ignore-placement': true,
-                    'icon-size': ['get', 'size']
-                  }
-                })
-              } catch (e) { console.warn('MapLibreMap: add emoji layer failed', e) }
-            }
             // update status badge emoji count
             try { if (this._statusEl) this._statusEl._emojiCount = emojiFeatures.length } catch (e) {}
           } catch (e) { console.warn('MapLibreMap: emoji layer update failed', e) }

@@ -389,7 +389,7 @@ export default class CesiumMap extends React.Component {
                 ctx.fillText(emoji, cvsSize / 2, cvsSize / 2)
               }
               const image = cvs.toDataURL()
-              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, scale: 1.0, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
+              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, scale: 0.5, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
             } catch (e) { /* ignore emoji rendering errors */ }
           } else if (this._pointCollection) {
             try {
@@ -512,6 +512,10 @@ export default class CesiumMap extends React.Component {
                 return (k1 < k2) ? `${k1}|${k2}` : `${k2}|${k1}`
               }
               edgesList.forEach((ee, idx) => { const k = canonicalKey(ee); if (!k) return; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(idx) })
+              // screen-space placement helpers: track placed label rects to avoid overlaps
+              const placedRects = [] // {x,y,w,h}
+              let measureCtx = null
+              try { if (typeof document !== 'undefined') { const mc = document.createElement('canvas'); measureCtx = mc.getContext('2d'); if (measureCtx) measureCtx.font = '11px sans-serif' } } catch (err) { measureCtx = null }
               ;(this.props.edges || []).forEach((e, idx) => {
               try {
                 if (!e || !e.coords || e.coords.length !== 2) return
@@ -533,23 +537,150 @@ export default class CesiumMap extends React.Component {
                 if (midLng < -180) midLng = ((midLng - 180) % 360) + 180
                 // compute stacking slot index for this edge and offset latitude
                 const k = canonicalKey(e)
-                const slotIdx = (buckets.has(k) ? buckets.get(k).indexOf(idx) : -1)
-                const slotOffsetDeg = slotIdx >= 0 ? (slotIdx * 0.03) : 0 // ~0.03° per slot
+                const bucket = buckets.has(k) ? buckets.get(k) : []
+                const slotIdx = bucket && bucket.length ? bucket.indexOf(idx) : -1
+                // center the stack around the midpoint so labels go above and below
+                // rather than all in one direction. We'll compute screen-space
+                // perpendicular offsets to place labels on top of their edge and
+                // distribute multiple labels along the perpendicular so they don't overlap.
+                let slotOffsetDeg = 0
+                const slotCount = (bucket && bucket.length) ? bucket.length : 0
+                const slotIndex = slotIdx >= 0 ? slotIdx : 0
+                const spacingPx = 18 // pixels between stacked labels
+                // compute geographic midpoint position for world placement
                 const pos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
-                const labelEnt = this.viewer.entities.add({
-                  position: pos,
-                  label: {
-                    text: String(relLabel),
-                    font: '11px sans-serif',
-                    // render white text with dark halo for visibility
-                    fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
-                    outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
-                    outlineWidth: 2,
-                    style: this.Cesium.LabelStyle.FILL
-                  },
-                  disableDepthTestDistance: Number.POSITIVE_INFINITY
-                })
-                if (labelEnt) this._edgeEntities.push(labelEnt)
+                // Determine desired screen midpoint for the edge and avoid overlaps by shifting
+                let ox = 0, oy = 0
+                try {
+                  let screenMid = null
+                  try { if (this.viewer && this.viewer.scene && this.Cesium && this.Cesium.SceneTransforms) screenMid = this.Cesium.SceneTransforms.wgs84ToWindowCoordinates(this.viewer.scene, pos) } catch (err) { screenMid = null }
+                  const labelText = String(relTextRaw || relLabel || '')
+                  let textW = 80, textH = 16
+                  try {
+                    if (measureCtx && labelText) {
+                      measureCtx.font = '11px sans-serif'
+                      const m = measureCtx.measureText(labelText)
+                      textW = Math.max(32, Math.round(m.width + 10))
+                      textH = 16
+                    }
+                  } catch (err) {}
+
+                  const intersects = (r1, r2) => !(r2.x > (r1.x + r1.w) || (r2.x + r2.w) < r1.x || r2.y > (r1.y + r1.h) || (r2.y + r2.h) < r1.y)
+
+                  if (screenMid) {
+                    const baseX = Math.round(screenMid.x)
+                    const baseY = Math.round(screenMid.y)
+                    const baseRect = { x: baseX - Math.round(textW / 2), y: baseY - Math.round(textH / 2), w: textW, h: textH }
+                    let ok = true
+                    for (let i = 0; i < placedRects.length; i++) { if (intersects(baseRect, placedRects[i])) { ok = false; break } }
+                    if (ok) {
+                      ox = 0; oy = 0
+                      placedRects.push(baseRect)
+                    } else {
+                      // try small shifts in cardinal directions until free
+                      const shifts = [ [ -1, 0 ], [ 1, 0 ], [ 0, -1 ], [ 0, 1 ], [ -1, -1 ], [ 1, -1 ], [ -1, 1 ], [ 1, 1 ] ]
+                      let found = false
+                      const maxSteps = 6
+                      for (let step = 1; step <= maxSteps && !found; step++) {
+                        for (let si = 0; si < shifts.length && !found; si++) {
+                          const dx = shifts[si][0] * spacingPx * step
+                          const dy = shifts[si][1] * spacingPx * step
+                          const r = { x: baseRect.x + dx, y: baseRect.y + dy, w: baseRect.w, h: baseRect.h }
+                          let coll = false
+                          for (let j = 0; j < placedRects.length; j++) { if (intersects(r, placedRects[j])) { coll = true; break } }
+                          if (!coll) { ox = dx; oy = dy; placedRects.push(r); found = true; break }
+                        }
+                      }
+                      if (!found) { placedRects.push(baseRect) }
+                    }
+                  }
+                } catch (err) { /* best-effort only */ }
+                // debug logging for placement
+                try {
+                  const debugPlacement = (this.props && this.props.debug && this.props.debug.geoEdgePlacement) || (typeof window !== 'undefined' && window.__CESIUM_EDGE_DEBUG)
+                  if (debugPlacement) {
+                    try {
+                      console.info('CesiumMap: edge debug', { idx, relLabel, relTextRaw, relEmojiRaw, screenMid, ox, oy, placedRectsCount: placedRects.length })
+                    } catch (e) {}
+                  }
+                } catch (e) {}
+                // If emoji mode is requested and relationshipEmoji exists, render emoji billboard slightly left
+                if ((edgeMode === 'emoji' || edgeMode === 'both') && relEmojiRaw) {
+                  try {
+                    const emoji = String(relEmojiRaw)
+                    const fontPx = Math.max(24, Math.min(96, Math.round(28 * 1.6)))
+                    const cvsSize = Math.max(48, Math.round(fontPx * 1.6))
+                    const cvs = document.createElement('canvas'); cvs.width = cvsSize; cvs.height = cvsSize
+                    const ctx = cvs.getContext('2d'); if (ctx) {
+                      ctx.clearRect(0,0,cvsSize,cvsSize)
+                      ctx.font = `${fontPx}px sans-serif`
+                      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
+                      ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
+                      ctx.strokeStyle = '#ffffff'
+                      ctx.strokeText(emoji, cvsSize / 2, cvsSize / 2)
+                      ctx.fillStyle = '#111'
+                      ctx.fillText(emoji, cvsSize / 2, cvsSize / 2)
+                    }
+                    const img = cvs.toDataURL()
+                    // place emoji billboard at the midpoint and rely on pixelOffset/horizontalOrigin
+                    // to position it a few screen pixels left of the text. This keeps placement
+                    // consistent across zoom/latitude instead of using degree offsets.
+                    const emojiPos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
+                    try {
+                      // compute pixelOffset with vertical stacking applied. Prefer Cesium's
+                      // SceneTransforms.wgs84ToWindowCoordinates to determine accurate screen coords.
+                      const bbOffsetX = -12 + (ox || 0)
+                      const bbOffsetY = (oy || 0)
+                      const bb = this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({
+                        position: emojiPos,
+                        image: img,
+                        scale: 0.3,
+                        // shift the billboard a few pixels to the left of its anchor and align its origin to the right
+                        pixelOffset: (this.Cesium && this.Cesium.Cartesian2) ? new this.Cesium.Cartesian2(bbOffsetX, bbOffsetY) : undefined,
+                        horizontalOrigin: this.Cesium && this.Cesium.HorizontalOrigin ? this.Cesium.HorizontalOrigin.RIGHT : undefined,
+                        disableDepthTestDistance: Number.POSITIVE_INFINITY
+                      })
+                      if (bb) this._edgeEntities.push(bb)
+                    } catch (e) {}
+                    if (edgeMode === 'both' && relTextRaw) {
+                      // text label at the same geographic midpoint; pixelOffset/horizontalOrigin
+                      // will shift it a few screen pixels to the right so it appears after the emoji
+                      const textPos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat + slotOffsetDeg, 5)
+                      const labelOffsetX = 12 + (ox || 0)
+                      const labelOffsetY = (oy || 0)
+                      const labelEnt = this.viewer.entities.add({
+                        position: textPos,
+                        label: {
+                          text: String(relTextRaw),
+                          font: '11px sans-serif',
+                          fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
+                          outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
+                          outlineWidth: 2,
+                          style: this.Cesium.LabelStyle.FILL,
+                          pixelOffset: (this.Cesium && this.Cesium.Cartesian2) ? new this.Cesium.Cartesian2(labelOffsetX, labelOffsetY) : undefined,
+                          horizontalOrigin: this.Cesium && this.Cesium.HorizontalOrigin ? this.Cesium.HorizontalOrigin.LEFT : undefined
+                        },
+                        disableDepthTestDistance: Number.POSITIVE_INFINITY
+                      })
+                      if (labelEnt) this._edgeEntities.push(labelEnt)
+                    }
+                  } catch (e) {}
+                } else {
+                  const labelEnt = this.viewer.entities.add({
+                    position: pos,
+                    label: {
+                      text: String(relLabel),
+                      font: '11px sans-serif',
+                      // render white text with dark halo for visibility
+                      fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
+                      outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
+                      outlineWidth: 2,
+                      style: this.Cesium.LabelStyle.FILL
+                    },
+                    disableDepthTestDistance: Number.POSITIVE_INFINITY
+                  })
+                  if (labelEnt) this._edgeEntities.push(labelEnt)
+                }
               } catch (err) {}
               })
             }
