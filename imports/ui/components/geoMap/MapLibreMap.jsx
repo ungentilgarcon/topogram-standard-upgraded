@@ -126,14 +126,38 @@ export default class MapLibreMap extends React.Component {
           const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
           if (!isFinite(lat) || !isFinite(lng)) return
           const el = document.createElement('div')
-          el.style.width = '10px'; el.style.height = '10px'; el.style.borderRadius = '50%'
-          // accept color from various shapes used across adapters
-          const rawColor = (n && n.data && n.data.color) || (n && n.attrs && n.attrs.color) || (n && n.color) || '#1f2937'
-          el.style.background = rawColor
-          el.style.border = '1px solid #fff'
-          el.style.boxSizing = 'border-box'
-          el.style.cursor = 'pointer'
-          el.title = (n && n.data && (n.data._vizLabel || n.data.label || '')) || ''
+          // compute visual radius like Leaflet GeoNodes
+          const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+          const hitRadius = Math.max(visualRadius, 10)
+          // Emoji handling: show emoji when UI allows and node has emoji
+          const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+          const hasEmoji = emojiEnabled && n && n.data && n.data.emoji
+          if (hasEmoji) {
+            const emoji = String(n.data.emoji)
+            const fontPx = Math.max(18, Math.min(40, visualRadius))
+            el.style.fontSize = `${fontPx}px`
+            el.style.lineHeight = '1'
+            el.style.display = 'inline-flex'
+            el.style.alignItems = 'center'
+            el.style.justifyContent = 'center'
+            el.style.pointerEvents = 'auto'
+            el.style.transform = 'translate(-50%, -50%)'
+            el.style.position = 'relative'
+            el.innerText = emoji
+          } else {
+            // size the DOM marker to match Leaflet visual radius (radius->pixels)
+            const sizePx = Math.max(2, Math.round(visualRadius * 2))
+            el.style.width = `${sizePx}px`
+            el.style.height = `${sizePx}px`
+            el.style.borderRadius = '50%'
+            // accept color from various shapes used across adapters
+            const rawColor = (n && n.data && n.data.color) || (n && n.attrs && n.attrs.color) || (n && n.color) || '#1f2937'
+            el.style.background = rawColor
+            el.style.border = '1px solid #fff'
+            el.style.boxSizing = 'border-box'
+            el.style.cursor = 'pointer'
+            el.title = (n && n.data && (n.data._vizLabel || n.data.label || '')) || ''
+          }
           el.addEventListener('click', (ev) => {
             ev.stopPropagation(); try { this.props.handleClickGeoElement && this.props.handleClickGeoElement({ group: 'node', el: n }) } catch (e) {}
           })
@@ -180,6 +204,58 @@ export default class MapLibreMap extends React.Component {
             } catch (e) { console.warn('MapLibreMap: add layer failed', e) }
           }
           try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length}` } catch (e) {}
+
+          // Build and add/update edge relationship labels (midpoint symbols)
+          try {
+            const labelFeatures = (this.props.edges || []).map((e, i) => {
+              if (!e || !e.coords || e.coords.length !== 2) return null
+              const [[lat1, lng1], [lat2, lng2]] = e.coords
+              const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
+              if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return null
+              const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+              const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+              const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+              let relLabel = ''
+              if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+              else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+              else if (edgeMode === 'none') relLabel = ''
+              else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+              if (!relLabel || String(relLabel).trim() === '') return null
+              const midLat = (a1 + a2) / 2
+              let midLng = (o1 + o2) / 2
+              if (midLng > 180) midLng = ((midLng + 180) % 360) - 180
+              if (midLng < -180) midLng = ((midLng - 180) % 360) + 180
+              return {
+                type: 'Feature',
+                properties: { label: String(relLabel), id: i },
+                geometry: { type: 'Point', coordinates: [midLng, midLat] }
+              }
+            }).filter(Boolean)
+            const labelsGeo = { type: 'FeatureCollection', features: labelFeatures }
+            if (this.map.getSource && this.map.getSource('geo-edge-labels')) {
+              try { this.map.getSource('geo-edge-labels').setData(labelsGeo) } catch (e) {}
+            } else {
+              try {
+                this.map.addSource('geo-edge-labels', { type: 'geojson', data: labelsGeo })
+                this.map.addLayer({
+                  id: 'geo-edge-labels-symbol',
+                  type: 'symbol',
+                  source: 'geo-edge-labels',
+                  layout: {
+                    'text-field': ['get', 'label'],
+                    'text-size': 11,
+                    'text-allow-overlap': true,
+                    'text-ignore-placement': true
+                  },
+                  paint: {
+                    'text-color': '#111',
+                    'text-halo-color': '#fff',
+                    'text-halo-width': 1
+                  }
+                })
+              } catch (e) { console.warn('MapLibreMap: add edge labels layer failed', e) }
+            }
+          } catch (e) { console.warn('MapLibreMap: build edge labels failed', e) }
         } catch (e) { console.warn('MapLibreMap: edges layer update failed', e) }
       }
 
@@ -191,12 +267,14 @@ export default class MapLibreMap extends React.Component {
             const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
             const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
             if (!isFinite(lat) || !isFinite(lng)) return null
+            // compute radius consistent with Leaflet GeoNodes: weight->radius px
+            const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
             return {
               type: 'Feature',
               properties: {
                 id: (n && n.data && n.data.id) || i,
                 color: (n && n.data && n.data.color) || (n && n.color) || '#1f2937',
-                radius: (n && n.data && n.data.weight) ? Math.min(20, Math.max(2, Math.sqrt(n.data.weight))) : 6
+                radius: visualRadius
               },
               geometry: { type: 'Point', coordinates: [lng, lat] }
             }

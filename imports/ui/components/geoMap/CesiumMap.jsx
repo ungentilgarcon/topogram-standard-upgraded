@@ -370,7 +370,26 @@ export default class CesiumMap extends React.Component {
           // compute visual radius matching Leaflet GeoNodes
           const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
           const pixelSize = Math.max(2, Math.round(visualRadius * 2))
-          if (this._pointCollection) {
+          // emoji rendering: when UI allows and node has an emoji, draw it as a billboard
+          const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+          const hasEmoji = emojiEnabled && n && n.data && n.data.emoji
+          if (hasEmoji) {
+            try {
+              const emoji = String(n.data.emoji)
+              const fontPx = Math.max(18, Math.min(40, visualRadius))
+              const cvs = document.createElement('canvas'); cvs.width = pixelSize; cvs.height = pixelSize
+              const ctx = cvs.getContext('2d'); if (ctx) {
+                ctx.clearRect(0,0,pixelSize,pixelSize)
+                ctx.font = `${fontPx}px sans-serif`
+                ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
+                // draw a subtle white halo for readability
+                ctx.fillStyle = '#fff'; ctx.lineWidth = 3; ctx.strokeStyle = '#fff'; ctx.strokeText(emoji, pixelSize/2, pixelSize/2)
+                ctx.fillStyle = color; ctx.fillText(emoji, pixelSize/2, pixelSize/2)
+              }
+              const image = cvs.toDataURL()
+              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
+            } catch (e) { /* ignore emoji rendering errors */ }
+          } else if (this._pointCollection) {
             try {
               const c = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString(color) : Cesium.Color.WHITE
               // add outline using outlineColor/outlineWidth when supported
@@ -466,6 +485,44 @@ export default class CesiumMap extends React.Component {
               } catch (e) { /* ignore edge add errors */ }
             } catch (err) { console.warn('CesiumMap: add edge failed', err) }
           })
+          // Add midpoint labels for edges according to UI setting (emoji/text/none)
+          try {
+            (this.props.edges || []).forEach((e) => {
+              try {
+                if (!e || !e.coords || e.coords.length !== 2) return
+                const [[lat1, lng1], [lat2, lng2]] = e.coords
+                const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
+                if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return
+                const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+                const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+                const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+                let relLabel = ''
+                if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+                else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+                else if (edgeMode === 'none') relLabel = ''
+                else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+                if (!relLabel || String(relLabel).trim() === '') return
+                const midLat = (a1 + a2) / 2
+                let midLng = (o1 + o2) / 2
+                if (midLng > 180) midLng = ((midLng + 180) % 360) - 180
+                if (midLng < -180) midLng = ((midLng - 180) % 360) + 180
+                const pos = this.Cesium.Cartesian3.fromDegrees(midLng, midLat, 5)
+                const labelEnt = this.viewer.entities.add({
+                  position: pos,
+                  label: {
+                    text: String(relLabel),
+                    font: '11px sans-serif',
+                    fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111') : this.Cesium.Color.BLACK,
+                    outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#fff') : this.Cesium.Color.WHITE,
+                    outlineWidth: 2,
+                    style: this.Cesium.LabelStyle.FILL
+                  },
+                  disableDepthTestDistance: Number.POSITIVE_INFINITY
+                })
+                if (labelEnt) this._edgeEntities.push(labelEnt)
+              } catch (err) {}
+            })
+          } catch (err) {}
         }
       } catch (e) { console.warn('CesiumMap: edges render failed', e) }
     } catch (e) { console.warn('CesiumMap: render points failed', e) }
