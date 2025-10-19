@@ -15,14 +15,23 @@ export default class CesiumMap extends React.Component {
   componentDidMount() {
     // Dynamic import Cesium at runtime to avoid bundling its ESM into Meteor
     if (typeof window === 'undefined') return
-    // ensure container is empty before initialization (removes leftover canvases)
-    try { if (this.container && this.container.current) this.container.current.innerHTML = '' } catch (e) {}
+    // create a fresh inner mount node so previous renderer canvases don't interfere
+    try {
+      if (this.container && this.container.current) {
+        // remove any previous mount
+        try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
+        this._mountEl = document.createElement('div')
+        this._mountEl.setAttribute('data-cesium-mount', '1')
+        this._mountEl.style.width = '100%'; this._mountEl.style.height = '100%'
+        this.container.current.appendChild(this._mountEl)
+      }
+    } catch (e) {}
 
     import('cesium').then((mod) => {
       try {
         const Cesium = mod && (mod.default || mod)
         try { if (typeof window !== 'undefined' && !window.CESIUM_BASE_URL) window.CESIUM_BASE_URL = '' } catch (e) {}
-        const el = this.container.current
+        const el = this._mountEl || this.container.current
         const Viewer = Cesium && (Cesium.Viewer || (Cesium && Cesium.default && Cesium.default.Viewer))
         if (!Viewer) return
         this.Cesium = Cesium
@@ -44,10 +53,13 @@ export default class CesiumMap extends React.Component {
         this._loadCesiumFromCdn().then((Cesium) => {
           try {
             this.Cesium = Cesium || (typeof window !== 'undefined' ? window.Cesium : null)
-            const el = this.container.current
+            const el = this._mountEl || this.container.current
             const Viewer = this.Cesium && (this.Cesium.Viewer || (this.Cesium && this.Cesium.default && this.Cesium.default.Viewer))
             if (!Viewer) { console.warn('CesiumMap: CDN Cesium loaded but Viewer not found'); return }
-            try { if (this.container && this.container.current) this.container.current.innerHTML = '' } catch (e) {}
+            try { if (this.container && this.container.current) {
+              try { const prev = this.container.current.querySelector('[data-cesium-mount]'); if (prev) prev.remove() } catch (e) {}
+              this._mountEl = document.createElement('div'); this._mountEl.setAttribute('data-cesium-mount', '1'); this._mountEl.style.width='100%'; this._mountEl.style.height='100%'; this.container.current.appendChild(this._mountEl)
+            } } catch (e) {}
             this.viewer = new Viewer(el, { animation: false, timeline: false })
             try { this._renderPoints() } catch (e) {}
             try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
