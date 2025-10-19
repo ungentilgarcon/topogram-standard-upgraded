@@ -183,6 +183,7 @@ export default class GeoMap extends React.Component {
           <MapLibreMap
             nodes={nodes}
             edges={edges}
+            ui={this.props.ui}
             width={width}
             height={height}
             handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
@@ -196,7 +197,7 @@ export default class GeoMap extends React.Component {
     if (renderer === 'cesium' && CesiumMap) {
       return (
         <div id={MAP_DIV_ID} style={containerStyle}>
-          <CesiumMap nodes={nodes} edges={edges} width={width} height={height} />
+          <CesiumMap nodes={nodes} edges={edges} ui={this.props.ui} width={width} height={height} />
         </div>
       )
     }
