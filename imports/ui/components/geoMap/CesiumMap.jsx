@@ -51,6 +51,16 @@ export default class CesiumMap extends React.Component {
           } } catch (e) {}
           this.viewer = new Viewer(el, { animation: false, timeline: false })
           try { this._renderPoints() } catch (e) {}
+          // Ensure Cesium's canvas is sized and visible inside the mount element
+          try {
+            const canvas = (this.viewer && this.viewer.scene && this.viewer.scene.canvas) || (this.viewer && this.viewer.canvas) || null
+            if (canvas) {
+              try { canvas.style.width = '100%'; canvas.style.height = '100%'; canvas.style.display = 'block'; canvas.style.zIndex = '1000' } catch (e) {}
+              try { console.info('CesiumMap: canvas size', canvas.clientWidth, canvas.clientHeight) } catch (e) {}
+            } else {
+              try { console.warn('CesiumMap: viewer canvas not found') } catch (e) {}
+            }
+          } catch (e) {}
           try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
           try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
         } catch (e) { console.warn('CesiumMap: init after CDN load failed', e) }
