@@ -98,11 +98,12 @@ export default class CesiumMap extends React.Component {
           const m = String(depVer).match(/(\d+\.[0-9.]+)/)
           if (m && m[1]) version = m[1]
         }
-        const cssHref = `https://unpkg.com/cesium@${version}/Build/Cesium/Widgets/widgets.css`
-        const scriptSrcBase = `https://unpkg.com/cesium@${version}/Build/Cesium`
-        const scriptSrc = scriptSrcBase + '/Cesium.js'
+  const cssHref = `https://unpkg.com/cesium@${version}/Build/Cesium/Widgets/widgets.css`
+  // ensure trailing slash so Cesium resolves relative asset URLs correctly
+  const scriptSrcBase = `https://unpkg.com/cesium@${version}/Build/Cesium/`
+  const scriptSrc = scriptSrcBase + 'Cesium.js'
         // set CESIUM_BASE_URL so Cesium can find its static assets
-        try { window.CESIUM_BASE_URL = scriptSrcBase } catch (e) {}
+  try { window.CESIUM_BASE_URL = scriptSrcBase } catch (e) {}
 
         // inject CSS
         if (!document.querySelector('link[data-cesium-cdn]')) {
@@ -110,6 +111,7 @@ export default class CesiumMap extends React.Component {
           link.rel = 'stylesheet'
           link.href = cssHref
           link.setAttribute('data-cesium-cdn', '1')
+          try { link.crossOrigin = 'anonymous' } catch (e) {}
           document.head.appendChild(link)
         }
 
@@ -124,11 +126,12 @@ export default class CesiumMap extends React.Component {
   try { console.info('CesiumMap: loading Cesium from CDN', scriptSrc) } catch (e) {}
   const s = document.createElement('script')
   s.src = scriptSrc
-        s.async = true
-        s.setAttribute('data-cesium-cdn', '1')
-        s.onload = () => { if (window.Cesium) resolve(window.Cesium); else reject(new Error('Cesium loaded but window.Cesium missing')) }
-        s.onerror = (e) => reject(new Error('Cesium script load failed'))
-        document.body.appendChild(s)
+  s.async = true
+  s.setAttribute('data-cesium-cdn', '1')
+  try { s.crossOrigin = 'anonymous' } catch (e) {}
+  s.onload = () => { if (window.Cesium) resolve(window.Cesium); else reject(new Error('Cesium loaded but window.Cesium missing')) }
+  s.onerror = (e) => reject(new Error('Cesium script load failed'))
+  document.body.appendChild(s)
       } catch (e) { reject(e) }
     })
   }
