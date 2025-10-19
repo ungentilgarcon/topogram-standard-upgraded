@@ -93,7 +93,7 @@ export default class MapLibreMap extends React.Component {
   componentDidUpdate(prevProps) {
     // re-render markers when nodes/edges change
     if (this.props.nodes !== prevProps.nodes || this.props.edges !== prevProps.edges) {
-      this._clearMarkers(); this._renderMarkers(); this._updateEdgesLayer()
+      this._clearMarkers(); this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer()
     }
   }
 
@@ -309,7 +309,11 @@ export default class MapLibreMap extends React.Component {
         try {
           if (!this.map) return
           const nodes = this.props.nodes || []
-          const features = (nodes || []).map((n, i) => {
+              // Exclude nodes that contain an emoji from the vector circle layer so
+              // their DOM emoji markers (MapLibre Marker) are not occluded by the
+              // canvas-drawn circle. Emoji nodes are handled by _renderMarkers().
+              const features = (nodes || []).map((n, i) => {
+                if (n && n.data && n.data.emoji) return null
             const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
             const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
             if (!isFinite(lat) || !isFinite(lng)) return null
