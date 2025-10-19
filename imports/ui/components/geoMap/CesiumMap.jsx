@@ -32,7 +32,23 @@ export default class CesiumMap extends React.Component {
   this._mountEl.style.zIndex = '1000'
   this._mountEl.style.pointerEvents = 'auto'
   try { if (this.container && this.container.current) this.container.current.style.position = this.container.current.style.position || 'relative' } catch (e) {}
-  this.container.current.appendChild(this._mountEl)
+        this.container.current.appendChild(this._mountEl)
+        // add a small status badge so users can see Cesium init state without devtools
+        try {
+          this._statusEl = document.createElement('div')
+          this._statusEl.setAttribute('data-cesium-status', '1')
+          this._statusEl.style.position = 'absolute'
+          this._statusEl.style.right = '8px'
+          this._statusEl.style.top = '8px'
+          this._statusEl.style.background = 'rgba(0,0,0,0.6)'
+          this._statusEl.style.color = '#fff'
+          this._statusEl.style.padding = '4px 8px'
+          this._statusEl.style.borderRadius = '4px'
+          this._statusEl.style.zIndex = '1100'
+          this._statusEl.style.fontSize = '12px'
+          this._statusEl.innerText = 'Cesium: init'
+          this._mountEl.appendChild(this._statusEl)
+        } catch (e) {}
       }
     } catch (e) {}
 
@@ -194,6 +210,20 @@ export default class CesiumMap extends React.Component {
             try { const canvas = (this.viewer && this.viewer.scene && this.viewer.scene.canvas) || (this.viewer && this.viewer.canvas) || null; if (canvas) { canvas.style.width='100%'; canvas.style.height='100%'; canvas.style.display='block'; canvas.style.zIndex='1000' } } catch (e) {}
             try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
             try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
+            // mark status ready
+            try { if (this._statusEl) this._statusEl.innerText = 'Cesium: ready' } catch (e) {}
+            // if we have nodes, center camera on first node for proof-of-life
+            try {
+              const nodes = this.props && this.props.nodes || []
+              if (nodes && nodes.length) {
+                const n = nodes[0]
+                const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
+                const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
+                if (isFinite(lat) && isFinite(lng)) {
+                  try { const dest = Cesium.Cartesian3.fromDegrees(lng, lat, 20000); this.viewer.camera.setView({ destination: dest }) } catch (e) {}
+                }
+              }
+            } catch (e) {}
             return
           } catch (e) { console.warn('CesiumMap: viewer creation failed', e) }
         }
@@ -210,7 +240,7 @@ export default class CesiumMap extends React.Component {
           try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
         } catch (e) { console.warn('CesiumMap: final viewer create failed', e) }
       }
-    }
+  }
     tryInit()
   }
 
