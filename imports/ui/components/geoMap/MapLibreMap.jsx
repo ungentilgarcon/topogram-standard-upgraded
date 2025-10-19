@@ -85,6 +85,19 @@ export default class MapLibreMap extends React.Component {
           this._statusEl.style.fontSize = '12px'
           this._statusEl.innerText = 'MapLibre: init'
           try { if (this.container && this.container.current) this.container.current.appendChild(this._statusEl) } catch (e) {}
+          // inject a small stylesheet for emoji marker positioning so img markers
+          // render above map tiles and are centered correctly
+          try {
+            if (!document.querySelector('style[data-maplibre-emoji-css]')) {
+              const s = document.createElement('style')
+              s.setAttribute('data-maplibre-emoji-css', '1')
+              s.innerHTML = `
+                .maplibre-emoji-marker { position: relative; display: inline-block; }
+                .maplibre-emoji-marker img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2000; pointer-events: auto; }
+              `
+              try { document.head.appendChild(s) } catch (e) { document.body.appendChild(s) }
+            }
+          } catch (e) {}
         } catch (e) {}
   this.map.on('load', () => { this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
         this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
@@ -216,23 +229,56 @@ export default class MapLibreMap extends React.Component {
           })
           const marker = new maplibregl.Marker(el).setLngLat([lng, lat]).addTo(this.map)
           this._markers.push(marker)
+          // After adding, ensure the actual element used by MapLibre is styled
+          try {
+            const actual = marker && marker.getElement && marker.getElement()
+            if (actual) {
+              // ensure it's absolutely positioned and on top
+              actual.style.position = actual.style.position || 'absolute'
+              actual.style.zIndex = '9999'
+              actual.style.pointerEvents = 'auto'
+              // if we inserted an <img> inside, make sure it is absolutely centered and above
+              try {
+                const img = actual.querySelector && actual.querySelector('img.maplibre-emoji-marker')
+                if (img) {
+                  img.style.position = 'absolute'
+                  img.style.left = '50%'
+                  img.style.top = '50%'
+                  img.style.transform = 'translate(-50%, -50%)'
+                  img.style.zIndex = '10000'
+                  img.style.display = 'block'
+                }
+              } catch (e) {}
+              // debug: log presence
+              try {
+                const hasImg = !!(actual.querySelector && actual.querySelector('img.maplibre-emoji-marker'))
+                const hasAttr = !!(actual.getAttribute && actual.getAttribute('data-emoji-marker'))
+                const text = (actual.innerText || actual.textContent || '').trim()
+                console.info('MapLibreMap: marker element after add', { hasImg, hasAttr, text })
+              } catch (e) {}
+            }
+          } catch (e) {}
         } catch (e) {}
       })
       try {
         // count how many markers contained emoji vs plain circles. Prefer
-        // checking the explicit data attribute because MapLibre may wrap
-        // marker elements and innerText can be unreliable in some builds.
+        // checking for our img marker element; fallback to attribute/text.
         const emojiCount = this._markers.filter(m => {
           try {
             const el = m && m.getElement && m.getElement()
             if (!el) return false
+            // check descendants for our emoji img
+            if (el.querySelector && el.querySelector('img.maplibre-emoji-marker')) return true
             if (el.getAttribute && el.getAttribute('data-emoji-marker')) return true
             const text = (el.innerText || el.textContent || '')
             return String(text).trim().length > 0
           } catch (e) { return false }
         }).length
         console.info('MapLibreMap: markers created', this._markers.length, 'emoji:', emojiCount)
-        if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} emoji:${emojiCount}`
+        if (this._statusEl) {
+          this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} emoji:${emojiCount}`
+          try { this._statusEl._emojiCount = emojiCount } catch (e) {}
+        }
         // debug: list first 10 nodes with emoji candidate values
         try {
           const candidates = (this.props.nodes || []).map((nd, idx) => ({ idx, emoji: this._getNodeEmoji(nd) })).filter(x => x.emoji).slice(0,10)
@@ -273,7 +319,7 @@ export default class MapLibreMap extends React.Component {
               })
             } catch (e) { console.warn('MapLibreMap: add layer failed', e) }
           }
-          try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length}` } catch (e) {}
+          try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length} emoji:${(this._statusEl && this._statusEl._emojiCount) || 0}` } catch (e) {}
 
           // Build and add/update edge relationship labels (midpoint symbols) only when UI allows
           try {
