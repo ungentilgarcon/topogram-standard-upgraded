@@ -1,5 +1,12 @@
 # Topogram (topogram-standard-upgraded)
 
+Topogram turns messy event and relationship data into interactive network+map visualizations for exploration and publishing. We now support multiple network visualization implementations (eg. Cytoscape, Sigma/Reagraph variants) and multiple GeoMap implementations (MapLibre, Leaflet-based layers, and experimental Cesium integrations). Since 2025 we've focused on making ingestion reliable and safe (an easy-to-use Builder UI, strict import quotas, and a waitlist to avoid overload), while finishing the Meteor 3 migration and tightening GeoMap <-> Cytoscape integration so maps and networks behave as a single, consistent exploration surface.
+
+This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, timeline improvements, and Meteor 3 migration work.
+
+```markdown
+# Topogram (topogram-standard-upgraded)
+
 This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, timeline improvements, and Meteor 3 migration work.
 
 ## Overview of recent changes (last 3 weeks)
@@ -118,3 +125,38 @@ These branches represent the migration effort to prepare the app for Meteor 3 an
 ---
 
 Generated: 2025-10-12
+
+```
+
+## Recent updates (last week)
+
+Highlights from the last week of work (oct 13–20, 2025):
+
+- feat(import): Added a Builder UI to assemble imports from multiple CSV/JSON sources, preview nodes and edges, map columns (including data.notes and data.extra), choose merge mode (Replace / Add), and produce a server-compatible CSV that enqueues the existing import worker (commit: adf0ed9).
+- server(import): Enforced operational import limits and a waitlist to prevent overloads — 1MB upload (non-admin), per-import caps (nodes 100 / edges 200 for non-admins), per-user daily topogram cap (20), global daily import cap (200), and a concurrent-import cap (10) with a queued waitlist that auto-promotes when slots free.
+- client(waitlist): Builder and Import modal now show waitlist position, poll for promotion and auto-retry when promoted.
+- admin: Added admin-only Delete controls on the Home page and server-side authorization for deletion; admin identity is read from Meteor.settings or environment variables.
+- samples: Added a set of sample CSV/JSON payloads under `/samples/` for quick testing of various import edge-cases.
+- infra: Fixed server-side async DB call regressions (converted to findOneAsync and rawCollection().countDocuments) and hardened the job enqueue flow.
+
+PR with these changes: https://github.com/ungentilgarcon/topogram-standard-upgraded/pull/new/import/export
+
+## Punchline — what Topogram does and why this week's work matters
+
+<!-- punchline moved to top -->
+
+## Quick: how to try the new import Builder
+
+1. Start the app locally and log in as a user (Builder is gated to authenticated users). If you need admin privileges, configure the admin identity in `Meteor.settings` or set `ADMIN`/`ADMIN_EMAIL` in the environment before starting the server.
+2. Open the Builder (Home -> Builder) and drag-drop or select one or more CSV/JSON files. The Builder will classify rows as nodes/edges, attempt an auto-map, and let you tweak mappings (map to data.notes and data.extra for unmapped columns).
+3. Choose Replace or Add when importing an additional file into the Builder; build the combined CSV and click "Enqueue import" to start the server worker. If imports are busy you may be queued — the UI shows your waitlist position and will auto-promote when a slot frees.
+4. Use the sample files in `/samples/` to test: node-only, node-edge mixes, LibreOffice-encoded emoji cases, and malformed rows.
+
+## Notes & admin checklist
+
+- Admin identity: set via `Meteor.settings.public.admin` (preferred) or `process.env.ADMIN` / `ADMIN_EMAIL`. Admins bypass most import caps and see the Home Delete controls.
+- If you want me to push this README change and update the PR body with the new summary, tell me and I'll commit & push.
+
+Generated: 2025-10-20
+
+```
