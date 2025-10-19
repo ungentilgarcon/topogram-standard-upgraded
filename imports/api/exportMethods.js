@@ -139,17 +139,20 @@ Meteor.methods({
       }
     }
 
-    // Run packager to zip the bundle
+    // Create a zip file of the bundle using archiver
     const outName = `${bundleId}-${timestamp}.zip`
     const outPath = path.join(baseTemp, outName)
-    const packager = path.join(process.cwd(), 'mapappbuilder', 'package.sh')
     try {
-      // Ensure package.sh is executable
-      try { await fsp.chmod(packager, 0o755) } catch (e) {}
-      const res = spawnSync(packager, [bundleDir, outPath], { stdio: 'inherit' })
-      if (res.status !== 0) {
-        throw new Error('packager failed: ' + (res.error ? res.error.message : `exit ${res.status}`))
-      }
+      const archiver = await import('archiver')
+      const output = fs.createWriteStream(outPath)
+      const archive = archiver.default('zip', { zlib: { level: 9 } })
+      await new Promise((resolve, reject) => {
+        output.on('close', resolve)
+        archive.on('error', reject)
+        archive.pipe(output)
+        archive.directory(bundleDir, false)
+        archive.finalize()
+      })
     } catch (e) {
       console.error('packager error', e && e.stack ? e.stack : String(e))
       throw new Meteor.Error('packager-failed', e.message || String(e))
