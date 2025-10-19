@@ -49,6 +49,29 @@ export default class CesiumMap extends React.Component {
     })
   }
 
+  // Normalize various color formats into a CSS string usable by canvas
+  _normalizeColor(raw) {
+    try {
+      if (!raw) return '#1f2937'
+      if (typeof raw === 'string') return raw
+      // object with r,g,b (0-255) or r,g,b (0-1)
+      if (typeof raw === 'object') {
+        const r = raw.r != null ? raw.r : (raw[0] != null ? raw[0] : null)
+        const g = raw.g != null ? raw.g : (raw[1] != null ? raw[1] : null)
+        const b = raw.b != null ? raw.b : (raw[2] != null ? raw[2] : null)
+        const a = raw.a != null ? raw.a : (raw[3] != null ? raw[3] : 1)
+        if (r == null || g == null || b == null) return '#1f2937'
+        // detect 0-1 range
+        const r255 = r <= 1 ? Math.round(r * 255) : Math.round(r)
+        const g255 = g <= 1 ? Math.round(g * 255) : Math.round(g)
+        const b255 = b <= 1 ? Math.round(b * 255) : Math.round(b)
+        if (a == null) return `rgb(${r255},${g255},${b255})`
+        return `rgba(${r255},${g255},${b255},${Number(a)})`
+      }
+    } catch (e) {}
+    return '#1f2937'
+  }
+
   // Load Cesium UMD bundle and CSS from unpkg CDN. Resolves with global Cesium.
   _loadCesiumFromCdn() {
     return new Promise((resolve, reject) => {
@@ -132,7 +155,12 @@ export default class CesiumMap extends React.Component {
           const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
           if (!isFinite(lat) || !isFinite(lng)) return
           lats.push(lat); lngs.push(lng)
-          const color = (n && n.data && n.data.color) || '#1f2937'
+          // accept color from multiple possible fields, normalize it
+          const rawColor = (n && n.data && n.data.color)
+            || (n && n.attrs && (n.attrs.color || (n.attrs.style && n.attrs.style.color)))
+            || (n && n.color)
+            || '#1f2937'
+          const color = this._normalizeColor(rawColor)
           // create a small canvas texture for the billboard
           const cvs = document.createElement('canvas'); cvs.width = 16; cvs.height = 16
           const ctx = cvs.getContext('2d'); if (ctx) { ctx.fillStyle = color; ctx.beginPath(); ctx.arc(8,8,6,0,Math.PI*2); ctx.fill() }

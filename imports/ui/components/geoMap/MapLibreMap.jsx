@@ -35,6 +35,39 @@ export default class MapLibreMap extends React.Component {
     }).catch((err) => {
       // module not present or failed to load
       console.warn('MapLibreMap: dynamic import failed', err)
+      // Try CDN UMD fallback: load maplibre-gl UMD and a default CSS if available
+      this._loadMapLibreFromCdn().then((maplibregl) => {
+        this._maplibregl = maplibregl || (typeof window !== 'undefined' ? window.maplibregl : null)
+        try {
+          const el = this.container.current
+          this.map = new this._maplibregl.Map({ container: el, style: this.props.style || 'https://demotiles.maplibre.org/style.json', center: this.props.center || [0,0], zoom: typeof this.props.zoom === 'number' ? this.props.zoom : 2 })
+          this.map.on('load', () => { this._renderMarkers() })
+        } catch (e) { console.warn('MapLibreMap: init after CDN load failed', e) }
+      }).catch((e) => { console.warn('MapLibreMap: CDN fallback failed', e) })
+    })
+  }
+
+  _loadMapLibreFromCdn() {
+    return new Promise((resolve, reject) => {
+      try {
+        if (typeof window === 'undefined') return reject(new Error('no-window'))
+        if (window.maplibregl) return resolve(window.maplibregl)
+        const cssHref = 'https://unpkg.com/maplibre-gl/dist/maplibre-gl.css'
+        if (!document.querySelector('link[data-maplibre-cdn]')) {
+          const link = document.createElement('link')
+          link.rel = 'stylesheet'; link.href = cssHref; link.setAttribute('data-maplibre-cdn', '1'); document.head.appendChild(link)
+        }
+        if (document.querySelector('script[data-maplibre-cdn]')) {
+          const waitFor = () => { if (window.maplibregl) resolve(window.maplibregl); else setTimeout(waitFor, 200) }
+          waitFor(); return
+        }
+        const s = document.createElement('script')
+        s.src = 'https://unpkg.com/maplibre-gl/dist/maplibre-gl.js'
+        s.async = true; s.setAttribute('data-maplibre-cdn', '1')
+        s.onload = () => { if (window.maplibregl) resolve(window.maplibregl); else reject(new Error('maplibre loaded but window.maplibregl missing')) }
+        s.onerror = () => reject(new Error('maplibre script load failed'))
+        document.body.appendChild(s)
+      } catch (e) { reject(e) }
     })
   }
 
@@ -67,7 +100,9 @@ export default class MapLibreMap extends React.Component {
           if (!isFinite(lat) || !isFinite(lng)) return
           const el = document.createElement('div')
           el.style.width = '10px'; el.style.height = '10px'; el.style.borderRadius = '50%'
-          el.style.background = (n && n.data && n.data.color) || '#1f2937'
+          // accept color from various shapes used across adapters
+          const rawColor = (n && n.data && n.data.color) || (n && n.attrs && n.attrs.color) || (n && n.color) || '#1f2937'
+          el.style.background = rawColor
           el.style.border = '1px solid #fff'
           el.style.boxSizing = 'border-box'
           el.style.cursor = 'pointer'
