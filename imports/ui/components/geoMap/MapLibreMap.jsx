@@ -358,9 +358,9 @@ export default class MapLibreMap extends React.Component {
           const marker = new maplibregl.Marker(el).setLngLat([lng, lat]).addTo(this.map)
           this._markers.push(marker)
           // After adding, ensure the actual element used by MapLibre is styled
-          try {
-            const actual = marker && marker.getElement && marker.getElement()
-            if (actual) {
+              try {
+                const actual = marker && marker.getElement && marker.getElement()
+                if (actual) {
               // ensure it's absolutely positioned and on top
               actual.style.position = actual.style.position || 'absolute'
               actual.style.zIndex = '9999'
@@ -382,16 +382,16 @@ export default class MapLibreMap extends React.Component {
                 const hasImg = !!(actual.querySelector && actual.querySelector('img.maplibre-emoji-marker'))
                 const hasAttr = !!(actual.getAttribute && actual.getAttribute('data-emoji-marker'))
                 const text = (actual.innerText || actual.textContent || '').trim()
-                console.info('MapLibreMap: marker element after add', { hasImg, hasAttr, text })
+                // console.info('MapLibreMap: marker element after add', { hasImg, hasAttr, text })
               } catch (e) {}
             }
           } catch (e) {}
         } catch (e) {}
       })
-      try {
-        // count how many markers contained emoji vs plain circles. Prefer
-        // checking for our img marker element; fallback to attribute/text.
-        const emojiCount = this._markers.filter(m => {
+  try {
+  // count how many markers contained emoji vs plain circles. Prefer
+  // checking for our img marker element; fallback to attribute/text.
+  const emojiCount = this._markers.filter(m => {
           try {
             const el = m && m.getElement && m.getElement()
             if (!el) return false
@@ -402,15 +402,15 @@ export default class MapLibreMap extends React.Component {
             return String(text).trim().length > 0
           } catch (e) { return false }
         }).length
-        console.info('MapLibreMap: markers created', this._markers.length, 'emoji:', emojiCount)
+        // console.info('MapLibreMap: markers created', this._markers.length, 'emoji:', emojiCount)
         if (this._statusEl) {
           this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} emoji:${emojiCount}`
           try { this._statusEl._emojiCount = emojiCount } catch (e) {}
         }
         // debug: list first 10 nodes with emoji candidate values
-        try {
+          try {
           const candidates = (this.props.nodes || []).map((nd, idx) => ({ idx, emoji: this._getNodeEmoji(nd) })).filter(x => x.emoji).slice(0,10)
-          if (candidates && candidates.length) console.info('MapLibreMap: sample emoji nodes', candidates)
+          if (candidates && candidates.length) { /* console.info('MapLibreMap: sample emoji nodes', candidates) */ }
         } catch (e) {}
       } catch (e) {}
     } catch (e) { console.warn('MapLibreMap: marker render failed', e) }

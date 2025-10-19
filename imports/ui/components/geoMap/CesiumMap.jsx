@@ -86,7 +86,7 @@ export default class CesiumMap extends React.Component {
             const canvas = (this.viewer && this.viewer.scene && this.viewer.scene.canvas) || (this.viewer && this.viewer.canvas) || null
             if (canvas) {
               try { canvas.style.width = '100%'; canvas.style.height = '100%'; canvas.style.display = 'block'; canvas.style.zIndex = '1000' } catch (e) {}
-              try { console.info('CesiumMap: canvas size', canvas.clientWidth, canvas.clientHeight) } catch (e) {}
+              try { /* console.info('CesiumMap: canvas size', canvas.clientWidth, canvas.clientHeight) */ } catch (e) {}
             } else {
               try { console.warn('CesiumMap: viewer canvas not found') } catch (e) {}
             }
@@ -227,7 +227,7 @@ export default class CesiumMap extends React.Component {
           return
         }
   // helpful log for debugging CDN path issues
-  try { console.info('CesiumMap: loading Cesium from CDN', scriptSrc) } catch (e) {}
+  try { /* console.info('CesiumMap: loading Cesium from CDN', scriptSrc) */ } catch (e) {}
   const s = document.createElement('script')
   s.src = scriptSrc
   s.async = true
@@ -362,7 +362,7 @@ export default class CesiumMap extends React.Component {
 
       const lats = []
       const lngs = []
-      console.info('CesiumMap: rendering', nodes.length, 'nodes')
+  // console.info('CesiumMap: rendering', nodes.length, 'nodes')
       // compute degree map as a fallback if upstream hasn't set n.data.weight
       const degreeMap = new Map()
       try {
@@ -392,7 +392,7 @@ export default class CesiumMap extends React.Component {
           })
           const dmEntries = Array.from(degreeMap.entries()).slice(0, 8)
           const info = { nodeSizeMode: (this.props && this.props.ui && this.props.ui.nodeSizeMode) || null, degreeMapSample: dmEntries, sample }
-          try { console.debug('CesiumMap: debug nodeSizes (stringified)\n' + JSON.stringify(info, null, 2)) } catch (e) { console.debug('CesiumMap: debug nodeSizes', info) }
+          try { /* console.debug('CesiumMap: debug nodeSizes (stringified)\n' + JSON.stringify(info, null, 2)) */ } catch (e) { /* console.debug('CesiumMap: debug nodeSizes', info) */ }
         }
       } catch (e) {}
 

@@ -152,12 +152,12 @@ export default function TopogramDetail() {
   useEffect(() => {
     if (!debugVisible) return
     try {
-      console.debug && console.debug('TopogramDetail rendered with id:', id)
-      console.debug && console.debug('TopogramDetail isReady:', isReady(), 'tops.length:', tops.length, 'nodes.length:', nodes.length, 'edges.length:', edges.length)
+  // console.debug && console.debug('TopogramDetail rendered with id:', id)
+  // console.debug && console.debug('TopogramDetail isReady:', isReady(), 'tops.length:', tops.length, 'nodes.length:', nodes.length, 'edges.length:', edges.length)
       const dbgTops = tops.slice(0, 3).map(t => ({ _id: t._id, title: t.title || t.name }))
       const dbgNodes = nodes.slice(0, 6).map(n => ({ _id: n._id, id: n.id || (n.data && n.data.id), name: n.name || n.label || (n.data && n.data.name), topogramId: n.topogramId || (n.data && n.data.topogramId) }))
       const dbgEdges = edges.slice(0, 6).map(e => ({ _id: e._id, source: e.source || (e.data && e.data.source), target: e.target || (e.data && e.data.target) }))
-      console.log && console.log('TopogramDetail sample docs', { dbgTops, dbgNodes, dbgEdges })
+  // console.log && console.log('TopogramDetail sample docs', { dbgTops, dbgNodes, dbgEdges })
     } catch (err) {
       console.error && console.error('TopogramDetail debug panel error:', err)
     }
