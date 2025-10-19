@@ -24,6 +24,7 @@ export default function Home() {
   const [loginOpen, setLoginOpen] = useState(false)
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
+  const [isAdmin, setIsAdmin] = useState(false)
 
   const { userId, user } = useTracker(() => {
     // Guard in case Meteor.userId/user are not available as functions in this runtime
@@ -65,6 +66,18 @@ export default function Home() {
     } catch (e) {}
   }, [isReady && isReady(), tops && tops.length]);
 
+  useEffect(() => {
+    // query server for admin status
+    if (!userId) return setIsAdmin(false)
+    Meteor.call('admin.isAdmin', (err, res) => {
+      if (err) {
+        console.debug && console.debug('admin.isAdmin call error', err)
+        return setIsAdmin(false)
+      }
+      setIsAdmin(!!res)
+    })
+  }, [userId])
+
   // Always render to show debug info
   // if (!isReady()) return <div>Loading topograms…</div>;
   return (
@@ -72,9 +85,10 @@ export default function Home() {
       <h1 className="home-title">Topogram Standard (Meteor 3)</h1>
       <p className="home-sub">Connected to: local Meteor Mongo</p>
       <div className="controls-row">
-        <div className="controls-left">
+          <div className="controls-left">
           <div className="ready-count"><strong>Subscription ready:</strong> {String(isReady())}   <strong>count:</strong> {tops.length}</div>
           <button onClick={() => setImportModalOpen(true)} className="import-button">Import CSV</button>
+          <Button component="a" href="/builder" variant="outlined" size="small" sx={{ ml: 1 }}>Builder</Button>
         </div>
         <div className="controls-right">
           { userId ? (
@@ -110,6 +124,17 @@ export default function Home() {
             <li key={t._id} className="topogram-item">
               <Link to={`/t/${t._id}`} className="topogram-link">{t.title || t.name || t._id}</Link>
               {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
+              {isAdmin ? (
+                <div style={{ marginTop: 6 }}>
+                  <Button variant="outlined" color="error" size="small" onClick={() => {
+                    if (!confirm(`Delete topogram ${t._id}? This will remove nodes and edges.`)) return
+                    Meteor.call('topogram.delete', { topogramId: t._id }, (err, r) => {
+                      if (err) return alert('Delete failed: ' + err.message)
+                      console.info('Deleted topogram', t._id, r)
+                    })
+                  }}>Delete</Button>
+                </div>
+              ) : null}
             </li>
           ))}
         </ul>
