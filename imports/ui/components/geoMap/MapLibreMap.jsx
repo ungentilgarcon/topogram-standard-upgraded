@@ -14,6 +14,23 @@ export default class MapLibreMap extends React.Component {
     this._markers = []
   }
 
+  // Return an emoji-like string for a node if present in known fields
+  _getNodeEmoji(n) {
+    try {
+      if (!n) return null
+      const d = n.data || {}
+      if (d.emoji) return String(d.emoji)
+      if (d.em) return String(d.em)
+      if (d.icon) return String(d.icon)
+      // fallback: sometimes a small _vizLabel contains the emoji
+      if (d._vizLabel && typeof d._vizLabel === 'string') {
+        const s = String(d._vizLabel).trim()
+        if (s && s.length <= 4 && /[^a-zA-Z0-9 ]/.test(s)) return s
+      }
+    } catch (e) {}
+    return null
+  }
+
   componentDidMount() {
     // Dynamic import avoids bundling ESM-only modules into Meteor's client
     // bootstrap which can introduce `import.meta` into the bundle. Only
@@ -129,12 +146,12 @@ export default class MapLibreMap extends React.Component {
           // compute visual radius like Leaflet GeoNodes
           const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
           const hitRadius = Math.max(visualRadius, 10)
-          // Emoji handling: force-show emoji when node contains emoji, otherwise respect UI toggle
-          const nodeHasEmoji = n && n.data && n.data.emoji
-          const emojiEnabled = nodeHasEmoji ? true : ((this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true)
-          const hasEmoji = emojiEnabled && nodeHasEmoji
+          // Emoji handling: detect emoji via helper and force-show when present
+          const nodeEmoji = this._getNodeEmoji(n)
+          const emojiEnabled = nodeEmoji ? true : ((this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true)
+          const hasEmoji = emojiEnabled && !!nodeEmoji
           if (hasEmoji) {
-            const emoji = String(n.data.emoji)
+            const emoji = String(nodeEmoji || (n && n.data && n.data.emoji))
             // make the emoji visibly large (force show)
             const fontPx = Math.max(24, Math.min(72, Math.round(Math.max(visualRadius, 24) * 1.2)))
             const sizePx = Math.max(28, Math.round(fontPx * 1.2))
@@ -151,6 +168,7 @@ export default class MapLibreMap extends React.Component {
             el.style.background = 'transparent'
             el.style.border = 'none'
             el.style.boxShadow = '0 0 0 2px rgba(255,255,255,0.9) inset'
+            el.className = 'maplibre-emoji-marker'
             el.innerText = emoji
           } else {
             // size the DOM marker to match Leaflet visual radius (radius->pixels)
@@ -180,6 +198,11 @@ export default class MapLibreMap extends React.Component {
         }).length
         console.info('MapLibreMap: markers created', this._markers.length, 'emoji:', emojiCount)
         if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} emoji:${emojiCount}`
+        // debug: list first 10 nodes with emoji candidate values
+        try {
+          const candidates = (this.props.nodes || []).map((nd, idx) => ({ idx, emoji: this._getNodeEmoji(nd) })).filter(x => x.emoji).slice(0,10)
+          if (candidates && candidates.length) console.info('MapLibreMap: sample emoji nodes', candidates)
+        } catch (e) {}
       } catch (e) {}
     } catch (e) { console.warn('MapLibreMap: marker render failed', e) }
   }
