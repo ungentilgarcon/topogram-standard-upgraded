@@ -487,7 +487,9 @@ export default class CesiumMap extends React.Component {
           })
           // Add midpoint labels for edges according to UI setting (emoji/text/none)
           try {
-            (this.props.edges || []).forEach((e) => {
+            const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
+            if (geoRelVisible) {
+              (this.props.edges || []).forEach((e) => {
               try {
                 if (!e || !e.coords || e.coords.length !== 2) return
                 const [[lat1, lng1], [lat2, lng2]] = e.coords
@@ -512,8 +514,9 @@ export default class CesiumMap extends React.Component {
                   label: {
                     text: String(relLabel),
                     font: '11px sans-serif',
-                    fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111') : this.Cesium.Color.BLACK,
-                    outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#fff') : this.Cesium.Color.WHITE,
+                    // render white text with dark halo for visibility
+                    fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
+                    outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
                     outlineWidth: 2,
                     style: this.Cesium.LabelStyle.FILL
                   },
@@ -521,7 +524,8 @@ export default class CesiumMap extends React.Component {
                 })
                 if (labelEnt) this._edgeEntities.push(labelEnt)
               } catch (err) {}
-            })
+              })
+            }
           } catch (err) {}
         }
       } catch (e) { console.warn('CesiumMap: edges render failed', e) }

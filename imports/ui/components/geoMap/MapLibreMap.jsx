@@ -205,9 +205,11 @@ export default class MapLibreMap extends React.Component {
           }
           try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length}` } catch (e) {}
 
-          // Build and add/update edge relationship labels (midpoint symbols)
+          // Build and add/update edge relationship labels (midpoint symbols) only when UI allows
           try {
-            const labelFeatures = (this.props.edges || []).map((e, i) => {
+            const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
+            if (geoRelVisible) {
+              const labelFeatures = (this.props.edges || []).map((e, i) => {
               if (!e || !e.coords || e.coords.length !== 2) return null
               const [[lat1, lng1], [lat2, lng2]] = e.coords
               const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
@@ -254,6 +256,11 @@ export default class MapLibreMap extends React.Component {
                   }
                 })
               } catch (e) { console.warn('MapLibreMap: add edge labels layer failed', e) }
+            }
+            } else {
+              // UI requests labels off: remove layer/source if present
+              try { if (this.map.getLayer && this.map.getLayer('geo-edge-labels-symbol')) this.map.removeLayer('geo-edge-labels-symbol') } catch (e) {}
+              try { if (this.map.getSource && this.map.getSource('geo-edge-labels')) this.map.removeSource('geo-edge-labels') } catch (e) {}
             }
           } catch (e) { console.warn('MapLibreMap: build edge labels failed', e) }
         } catch (e) { console.warn('MapLibreMap: edges layer update failed', e) }
