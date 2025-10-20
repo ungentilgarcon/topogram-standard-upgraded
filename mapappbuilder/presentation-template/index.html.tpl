@@ -4,11 +4,14 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>{{TITLE}}</title>
   <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/custom.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
 </head>
 <body>
   <div id="app">
     <header>
-      <h1>{{TITLE}}</h1>
+      <img src="images/logo.png" alt="logo" style="height:48px; vertical-align:middle; margin-right:8px;" />
+      <h1 style="display:inline-block; vertical-align:middle;">{{TITLE}}</h1>
     </header>
     <main>
       <div id="map" style="width:60%; height:600px; float:left;"></div>
@@ -18,15 +21,6 @@
       <small>Exported Topogram</small>
     </footer>
   </div>
-  <script>
-    // This template expects a `data/topogram.json` file relative to bundle root.
-    // Renderer selection and loading logic should be injected by the packager or server.
-    fetch('data/topogram.json').then(r=>r.json()).then(data=>{
-      console.log('Loaded topogram', data);
-      // Placeholder: initialize map and network using selected renderers.
-      document.getElementById('map').innerText = 'Map renderer placeholder';
-      document.getElementById('network').innerText = 'Network renderer placeholder';
-    });
-  </script>
+  <script src="app.js"></script>
 </body>
 </html>

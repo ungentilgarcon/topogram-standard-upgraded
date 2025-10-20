@@ -82,7 +82,7 @@ Meteor.methods({
     const nodes = await Nodes.rawCollection().find({ topogramId }).toArray()
     const edges = await Edges.rawCollection().find({ topogramId }).toArray()
 
-    // Build bundle dir
+  // Build bundle dir
     const baseTemp = path.join(os.tmpdir(), 'topogram-exports')
     await fsp.mkdir(baseTemp, { recursive: true })
     const bundleId = (config && config.id) ? config.id.replace(/[^a-zA-Z0-9-_\.]/g, '-') : `${topogramId}`
@@ -90,33 +90,69 @@ Meteor.methods({
     const bundleDir = path.join(baseTemp, `${bundleId}-${timestamp}`)
     await fsp.mkdir(bundleDir, { recursive: true })
 
-    // Copy presentation template. If a template file named index.html.tpl exists we will
-    // write a proper index.html (with DOCTYPE) into the bundle to avoid Meteor static-html issues
-    const templateDir = path.join(process.cwd(), 'mapappbuilder', 'presentation-template')
-    try {
-      // copy all files except index.html.tpl (we will materialize index.html with DOCTYPE)
-      const entries = await fsp.readdir(templateDir)
-      for (const e of entries) {
-        const src = path.join(templateDir, e)
-        const destRel = path.join('presentation', e)
-        if (e === 'index.html.tpl') continue
-        await copyRecursive(src, path.join(bundleDir, destRel))
+  // Merge provided config early so template rendering can access title and other fields
+  const outConfig = Object.assign({}, config || {}, { topogramId })
+
+    // Copy presentation template. The exporter may run in different working
+    // directories (project root during dev, or Meteor build dir in production).
+    // To be robust, walk up parent directories from both process.cwd() and
+    // __dirname and look for a `mapappbuilder/presentation-template` folder.
+    function findUpForTemplate(startDir, maxLevels = 8) {
+      let cur = path.resolve(startDir)
+      for (let i = 0; i < maxLevels; i++) {
+        const cand = path.join(cur, 'mapappbuilder', 'presentation-template')
+        try {
+          if (fs.existsSync(cand)) return cand
+        } catch (e) {
+          // ignore
+        }
+        const parent = path.dirname(cur)
+        if (parent === cur) break
+        cur = parent
       }
-      // If tpl exists, render it into index.html with DOCTYPE
-      const tplPath = path.join(templateDir, 'index.html.tpl')
-      if (fs.existsSync(tplPath)) {
-        const tpl = await fsp.readFile(tplPath, 'utf8')
-        // simple replacement for {{TITLE}}
-        const rendered = `<!doctype html>\n${tpl.replace(/{{TITLE}}/g, (outConfig && outConfig.title) || topogram.title || 'Topogram')}`
-        await fsp.writeFile(path.join(bundleDir, 'presentation', 'index.html'), rendered, 'utf8')
-      }
-    } catch (e) {
-      console.warn('presentation template copy failed', e && e.message)
+      return null
     }
 
-    // Write config.json (merge provided config with minimal fields)
-    const outConfig = Object.assign({}, config || {}, { topogramId })
-    await fsp.writeFile(path.join(bundleDir, 'config.json'), JSON.stringify(outConfig, null, 2), 'utf8')
+    let templateDir = findUpForTemplate(process.cwd()) || findUpForTemplate(__dirname)
+    if (!templateDir) {
+      // As a last resort, check project-root relative paths
+      const fallback = path.join(process.cwd(), '..', '..', 'mapappbuilder', 'presentation-template')
+      if (fs.existsSync(fallback)) templateDir = fallback
+    }
+
+    if (!templateDir) {
+      const tried = [
+        path.join(process.cwd(), 'mapappbuilder', 'presentation-template'),
+        path.join(process.cwd(), '..', '..', 'mapappbuilder', 'presentation-template'),
+        path.join(__dirname, '..', '..', '..', 'mapappbuilder', 'presentation-template'),
+        path.join(__dirname, '..', '..', '..', '..', 'mapappbuilder', 'presentation-template')
+      ]
+      console.warn('presentation template copy failed: no template dir found; tried:', tried)
+    } else {
+      try {
+        // copy all files except index.html.tpl (we will materialize index.html with DOCTYPE)
+        const entries = await fsp.readdir(templateDir)
+        for (const e of entries) {
+          const src = path.join(templateDir, e)
+          const destRel = path.join('presentation', e)
+          if (e === 'index.html.tpl') continue
+          await copyRecursive(src, path.join(bundleDir, destRel))
+        }
+        // If tpl exists, render it into index.html with DOCTYPE
+        const tplPath = path.join(templateDir, 'index.html.tpl')
+        if (fs.existsSync(tplPath)) {
+          const tpl = await fsp.readFile(tplPath, 'utf8')
+          // simple replacement for {{TITLE}}
+          const rendered = `<!doctype html>\n${tpl.replace(/{{TITLE}}/g, (outConfig && outConfig.title) || topogram.title || 'Topogram')}`
+          await fsp.writeFile(path.join(bundleDir, 'presentation', 'index.html'), rendered, 'utf8')
+        }
+      } catch (e) {
+        console.warn('presentation template copy failed', e && e.message)
+      }
+    }
+
+  // Write config.json (merge provided config with minimal fields)
+  await fsp.writeFile(path.join(bundleDir, 'config.json'), JSON.stringify(outConfig, null, 2), 'utf8')
 
     // Data dir
     await fsp.mkdir(path.join(bundleDir, 'data'), { recursive: true })
@@ -124,19 +160,96 @@ Meteor.methods({
 
     // Copy assets referenced in config.assets (if paths exist in repo)
     if (outConfig.assets && Array.isArray(outConfig.assets)) {
+      // Use a finder similar to template finder: walk up to find project root
+      function findAssetBase(startDir, relPath, maxLevels = 8) {
+        let cur = path.resolve(startDir)
+        for (let i = 0; i < maxLevels; i++) {
+          const cand = path.join(cur, relPath)
+          try {
+            if (fs.existsSync(cand)) return cur
+          } catch (e) {}
+          const parent = path.dirname(cur)
+          if (parent === cur) break
+          cur = parent
+        }
+        return null
+      }
+
       for (const assetRel of outConfig.assets) {
-        try {
-          const srcPath = path.join(process.cwd(), assetRel)
-          const destPath = path.join(bundleDir, 'assets', assetRel)
-          if (fs.existsSync(srcPath)) {
-            await copyRecursive(srcPath, destPath)
-          } else {
-            console.warn('asset not found, skipping', srcPath)
+        let copied = false
+
+        // 1) If we have a templateDir, try copying relative to it into presentation/
+        if (templateDir) {
+          try {
+            const srcPath = path.join(templateDir, assetRel)
+            if (fs.existsSync(srcPath)) {
+              const destPath = path.join(bundleDir, 'presentation', assetRel)
+              await copyRecursive(srcPath, destPath)
+              copied = true
+            }
+          } catch (e) {
+            // continue to other strategies
           }
-        } catch (e) {
-          console.warn('copy asset failed', assetRel, e && e.message)
+          if (copied) continue
+        }
+
+        // 2) Try walking upwards from several starting points to locate the asset
+        const starts = [process.cwd(), __dirname, path.join(process.cwd(), '..', '..')]
+        for (const s of starts) {
+          const base = findAssetBase(s, assetRel)
+          if (base) {
+            try {
+              const srcPath = path.join(base, assetRel)
+              const destPath = path.join(bundleDir, 'assets', assetRel)
+              await copyRecursive(srcPath, destPath)
+              copied = true
+              break
+            } catch (e) {
+              // continue
+            }
+          }
+        }
+
+        if (!copied) {
+          console.warn('asset not found, skipping (tried templateDir and upwards)', assetRel)
         }
       }
+    }
+
+    // Create a minimal runnable Node app inside the bundle so the zip can be
+    // unpacked and run independently. This app simply serves the `presentation`
+    // directory as static files.
+    try {
+      const nodePkg = {
+        name: bundleId,
+        version: '0.0.1',
+        private: true,
+        scripts: {
+          start: 'node server.js'
+        },
+        dependencies: {
+          express: '^4.18.2'
+        }
+      }
+      await fsp.writeFile(path.join(bundleDir, 'package.json'), JSON.stringify(nodePkg, null, 2), 'utf8')
+      // Copy static server template into bundle as server.js
+      try {
+        const serverTemplate = path.join(process.cwd(), 'imports', 'templates', 'server-template.js')
+        if (fs.existsSync(serverTemplate)) {
+          await copyRecursive(serverTemplate, path.join(bundleDir, 'server.js'))
+        } else {
+          // Fallback: write a minimal inline server if template missing
+          const fallback = `const express=require('express');const app=express();app.use('/',express.static(__dirname+'/presentation'));app.get('/health',(r,s)=>s.send('OK'));app.listen(process.env.PORT||3000,()=>console.log('listening'))`;
+          await fsp.writeFile(path.join(bundleDir, 'server.js'), fallback, 'utf8')
+        }
+      } catch (e) {
+        console.warn('failed to write/copy server runner file', e && e.message)
+      }
+
+      const readme = `This bundle contains a standalone Topogram presentation.\n\nTo run:\n\n1. Unzip the bundle\n2. cd ${bundleId}-${timestamp}\n3. npm install\n4. npm start\n\nThe presentation will be served on port 3000 by default.\n`
+      await fsp.writeFile(path.join(bundleDir, 'README.md'), readme, 'utf8')
+    } catch (e) {
+      console.warn('failed to write node runner files', e && e.message)
     }
 
     // Create a zip file of the bundle using archiver
@@ -162,3 +275,4 @@ Meteor.methods({
     return { filename: outName }
   }
 })
+
