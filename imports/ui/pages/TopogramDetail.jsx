@@ -18,6 +18,101 @@ cytoscape.use(cola);
 import GraphWrapper from '/imports/client/ui/components/network/GraphWrapper.jsx'
 import ErrorBoundary from '/imports/ui/components/ErrorBoundary.jsx'
 
+// Compatibility shim: adapt adapter objects (Reagraph/Sigma adapters) to a
+// minimal Cytoscape-like API expected by legacy components (Charts, etc.).
+// The shim is intentionally small and defensive: it prefers existing adapter
+// methods when present, otherwise it builds collections from adapter.elements()
+// or adapter.nodes()/adapter.edges().
+function makeCyCompat(adapter) {
+  if (!adapter) return null
+  // If this already looks like a Cytoscape instance (has filter/nodes/edges), return as-is
+  if (typeof adapter.filter === 'function' && typeof adapter.nodes === 'function' && typeof adapter.edges === 'function') return adapter
+
+  // Helper to normalize collections into arrays of element wrappers
+  const toArray = (coll) => {
+    if (!coll) return []
+    if (Array.isArray(coll)) return coll
+    try { if (typeof coll.toArray === 'function') return coll.toArray() } catch (e) {}
+    try { if (typeof coll.forEach === 'function') { const out = []; coll.forEach(el => out.push(el)); if (out.length) return out } } catch (e) {}
+    try { if (typeof coll.map === 'function') return coll.map(x => x) } catch (e) {}
+    return []
+  }
+
+  // Get all nodes/edges from adapter
+  const allNodes = () => {
+    try {
+      if (typeof adapter.nodes === 'function') return toArray(adapter.nodes())
+      if (typeof adapter.elements === 'function') return toArray(adapter.elements()).filter(e => { try { return !(e.data && (e.data.source != null || e.data.target != null)) } catch (err) { return false } })
+    } catch (e) {}
+    return []
+  }
+  const allEdges = () => {
+    try {
+      if (typeof adapter.edges === 'function') return toArray(adapter.edges())
+      if (typeof adapter.elements === 'function') return toArray(adapter.elements()).filter(e => { try { return (e.data && (e.data.source != null || e.data.target != null)) } catch (err) { return false } })
+    } catch (e) {}
+    return []
+  }
+
+  // Build a collection object that supports .select(), .unselect(), .data(k,v), forEach, map, toArray, length
+  const makeCollection = (arr) => {
+    const list = Array.isArray(arr) ? arr.slice() : []
+    return {
+      length: list.length,
+      toArray: () => list,
+      forEach: (fn) => list.forEach(fn),
+      map: (fn) => list.map(fn),
+      filter: (pred) => list.filter(pred),
+      select: () => { list.forEach(el => { try { if (el && typeof el.select === 'function') el.select(); else if (el && el.data && typeof el.data === 'function') el.data('selected', true); else if (el && el.attrs) el.attrs.selected = true } catch (e) {} }) },
+      unselect: () => { list.forEach(el => { try { if (el && typeof el.unselect === 'function') el.unselect(); else if (el && el.data && typeof el.data === 'function') el.data('selected', false); else if (el && el.attrs) delete el.attrs.selected } catch (e) {} }) },
+      data: (k, v) => { if (typeof k === 'undefined') return list.map(el => (el && el.data && typeof el.data === 'function') ? el.data() : (el && el.json ? el.json().data : (el && el.attrs ? el.attrs : {}))); if (k === 'selected') { if (v) return this.select(); return this.unselect() } ; list.forEach(el => { try { if (el && el.data && typeof el.data === 'function') el.data(k, v); else if (el && el.attrs) { el.attrs = el.attrs || {}; el.attrs[k] = v } } catch (e) {} }) }
+    }
+  }
+
+  // Very small selector parser: supports 'node', 'edge', and id selectors like node[id='X']
+  function filterSelector(sel) {
+    try {
+      if (!sel) return []
+      const s = String(sel).trim()
+      if (s === 'node') return allNodes()
+      if (s === 'edge') return allEdges()
+      // id match: node[id='X'] or edge[id='X'] or [id='X']
+      const m = s.match(/(?:node|edge)?\s*\[\s*id\s*=\s*['"]([^'"]+)['"]\s*\]/)
+      if (m) {
+        const id = m[1]
+        const nodes = allNodes().filter(e => { try { const idv = (typeof e.data === 'function') ? e.data('id') : (e.json && e.json().data && e.json().data.id); return String(idv) === String(id) } catch (err) { return false } })
+        if (nodes.length) return nodes
+        const edges = allEdges().filter(e => { try { const idv = (typeof e.data === 'function') ? e.data('id') : (e.json && e.json().data && e.json().data.id); return String(idv) === String(id) } catch (err) { return false } })
+        return edges
+      }
+      // fallback: return all elements
+      if (typeof adapter.elements === 'function') return toArray(adapter.elements())
+      return allNodes().concat(allEdges())
+    } catch (e) { return [] }
+  }
+
+  const compat = {
+    impl: adapter.impl || 'adapter',
+    // nodes/edges/elements produce array-like collections
+    nodes: () => makeCollection(allNodes()),
+    edges: () => makeCollection(allEdges()),
+    elements: () => makeCollection((() => { try { return toArray(adapter.elements ? adapter.elements() : []).concat([]) } catch(e){ return [] } })()),
+    filter: (sel) => makeCollection(filterSelector(sel)),
+    // passthrough common methods if present
+    getInstance: () => (typeof adapter.getInstance === 'function' ? adapter.getInstance() : null),
+    on: (e, h) => { try { if (typeof adapter.on === 'function') return adapter.on(e, h); } catch (err) {} },
+    off: (e, h) => { try { if (typeof adapter.off === 'function') return adapter.off(e, h); } catch (err) {} },
+    fit: () => { try { if (typeof adapter.fit === 'function') return adapter.fit(); } catch (err) {} },
+    resize: () => { try { if (typeof adapter.resize === 'function') return adapter.resize(); } catch (err) {} },
+    zoom: (v) => { try { if (typeof adapter.zoom === 'function') return adapter.zoom(v); } catch (err) {} },
+    center: () => { try { if (typeof adapter.center === 'function') return adapter.center(); } catch (err) {} },
+    select: (id) => { try { if (typeof adapter.select === 'function') return adapter.select(id); } catch (err) {} },
+    unselect: (id) => { try { if (typeof adapter.unselect === 'function') return adapter.unselect(id); } catch (err) {} }
+  }
+
+  return compat
+}
+
 export default function TopogramDetail() {
   const { id } = useParams();
   // Debug rendering info is gated behind the sidepanel debug toggle (debugVisible)
@@ -1571,18 +1666,11 @@ export default function TopogramDetail() {
                       impl={impl}
                       cyCallback={(adapter) => {
                         try {
-                          // For Sigma adapter, expose adapter as cyRef so existing helpers can detect and use it
-                          if (adapter && adapter.impl === 'sigma') {
-                            cyRef.current = adapter
-                            setCyInstance && setCyInstance(adapter)
-                          } else if (adapter && adapter.impl === 'reagraph') {
-                            cyRef.current = adapter
-                            setCyInstance && setCyInstance(adapter)
-                          } else {
-                            // fallback: if adapter exposes a raw cy instance, use that
-                            cyRef.current = adapter
-                            setCyInstance && setCyInstance(adapter)
-                          }
+                          // Wrap adapter in compat shim so legacy consumers (Charts, etc.)
+                          // receive a cy-like object even when using non-cytoscape adapters.
+                          const compat = makeCyCompat(adapter)
+                          cyRef.current = compat
+                          setCyInstance && setCyInstance(compat)
                         } catch (e) { console.warn('GraphWrapper cyCallback error', e) }
                       }}
                     />
@@ -1717,7 +1805,7 @@ export default function TopogramDetail() {
                         layout={layout}
                         stylesheet={stylesheet}
                         impl={impl}
-                        cyCallback={(adapter) => { try { cyRef.current = adapter; setCyInstance(adapter); try { window._topoCy = adapter } catch(e){} } catch(e){} }}
+                        cyCallback={(adapter) => { try { const compat = makeCyCompat(adapter); cyRef.current = compat; setCyInstance && setCyInstance(compat); try { window._topoCy = compat } catch(e){} } catch(e){} }}
                       />
                     ) : (
                       <CytoscapeComponent
@@ -1784,7 +1872,7 @@ export default function TopogramDetail() {
                         layout={layout}
                         stylesheet={stylesheet}
                         impl={impl}
-                        cyCallback={(adapter) => { try { cyRef.current = adapter } catch (e) {} try { setCyInstance && setCyInstance(adapter) } catch (e) {} }}
+                        cyCallback={(adapter) => { try { const compat = makeCyCompat(adapter); cyRef.current = compat } catch (e) {} try { setCyInstance && setCyInstance(compat) } catch (e) {} }}
                       />
                     ) : (
                       <CytoscapeComponent
