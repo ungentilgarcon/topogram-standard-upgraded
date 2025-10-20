@@ -1,10 +1,30 @@
 /* ReagraphAdapter
- * Lightweight, dependency-free adapter that renders a simple SVG graph in the
- * provided container and exposes a small Cytoscape-like API so TopogramDetail
- * can use `?graph=reagraph` without pulling the full Reagraph dependency.
+ * Adapter that integrates the npm-installed 'reagraph' + 'graphology' packages
+ * and exposes a small Cytoscape-like API so TopogramDetail can use
+ * `?graph=reagraph`. This module requires the packages to be installed and
+ * will throw an error early if they're not present (no global/window fallback).
  */
 
-// Translate cy-style elements to simple node/edge arrays
+// Require reagraph and graphology from node_modules (fail loudly if absent)
+let ReagraphPkg = null;
+try {
+  // eslint-disable-next-line global-require
+  ReagraphPkg = require('reagraph');
+} catch (err) {
+  console.error('ReagraphAdapter: missing required package "reagraph". Please run `npm install reagraph@4.27.0`');
+  throw err;
+}
+
+let Graphology = null;
+try {
+  // eslint-disable-next-line global-require
+  Graphology = require('graphology');
+} catch (err) {
+  console.error('ReagraphAdapter: missing required package "graphology". Please run `npm install graphology`');
+  throw err;
+}
+
+// Translate cy-style elements to simple node/edge arrays (local helper)
 let cyElementsToGraphology = null;
 try {
   const mod = require('../utils/cyElementsToGraphology');
