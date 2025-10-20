@@ -1,0 +1,11 @@
+{
+	"nodes": [
+		{ "id": "n1", "label": "A", "lat": 37.77, "lon": -122.42, "weight": 3 },
+		{ "id": "n2", "label": "B", "lat": 34.05, "lon": -118.24, "weight": 2 },
+		{ "id": "n3", "label": "C", "lat": 36.17, "lon": -115.14, "weight": 1 }
+	],
+	"edges": [
+		{ "source": "n1", "target": "n2", "weight": 5, "label": "ab" },
+		{ "source": "n2", "target": "n3", "weight": 2, "label": "bc" }
+	]
+}

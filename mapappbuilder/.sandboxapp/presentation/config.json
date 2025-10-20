@@ -1,0 +1,5 @@
+{
+	"mapRenderer": "leaflet",
+	"networkRenderer": "cytoscape",
+	"networkOptions": {}
+}

@@ -28,6 +28,7 @@ fi
 
 # Copy sample data and config if not present (so the sandbox can run standalone)
 mkdir -p "$ROOT_DIR/sandboxapp/data"
+mkdir -p "$DST/data"
 if [ ! -f "$DST/data/topogram.json" ]; then
 	echo "Copying sample topogram.json into sandbox"
 	cat > "$DST/data/topogram.json" <<'JSON'

@@ -1,0 +1,8 @@
+{
+  "description": "Local presentation runtime libraries. Populate with minified builds if you want offline exports.",
+  "files": [
+    { "name": "leaflet.js", "source": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" },
+    { "name": "leaflet.css", "source": "https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" },
+    { "name": "cytoscape.min.js", "source": "https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js" }
+  ]
+}
