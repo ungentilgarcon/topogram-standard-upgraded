@@ -24,6 +24,28 @@ try {
   throw err;
 }
 
+// Runtime assertion / info to make it obvious which implementation is used
+try {
+  const reagraphPkgJson = (function() {
+    try {
+      return require('reagraph/package.json');
+    } catch (e) { return null; }
+  })();
+  const graphologyPkgJson = (function() {
+    try { return require('graphology/package.json'); } catch (e) { return null; }
+  })();
+  console.info('ReagraphAdapter: using npm packages', {
+    reagraph: reagraphPkgJson ? `${reagraphPkgJson.name}@${reagraphPkgJson.version}` : (ReagraphPkg && (ReagraphPkg.version || ReagraphPkg.default && ReagraphPkg.default.version)) || 'unknown',
+    graphology: graphologyPkgJson ? `${graphologyPkgJson.name}@${graphologyPkgJson.version}` : (Graphology && Graphology.version) || 'unknown',
+    globalReagraphDetected: (typeof window !== 'undefined' && window.reagraph) ? true : false
+  });
+  if (typeof window !== 'undefined' && window.reagraph) {
+    console.warn('ReagraphAdapter: detected a global `window.reagraph` — the adapter is configured to use the npm package; remove UMD shims to avoid confusion.');
+  }
+} catch (e) {
+  // swallow logging errors
+}
+
 // Translate cy-style elements to simple node/edge arrays (local helper)
 let cyElementsToGraphology = null;
 try {
