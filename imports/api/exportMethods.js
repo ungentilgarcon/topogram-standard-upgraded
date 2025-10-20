@@ -138,6 +138,71 @@ Meteor.methods({
           if (e === 'index.html.tpl') continue
           await copyRecursive(src, path.join(bundleDir, destRel))
         }
+  // If the template contains a `lib` folder (e.g. local leaflet/cytoscape
+  // builds), copy it into the presentation so exports are offline-ready.
+        const libPath = path.join(templateDir, 'lib')
+        if (fs.existsSync(libPath)) {
+          await copyRecursive(libPath, path.join(bundleDir, 'presentation', 'lib'))
+        } else {
+          // If the template didn't include a lib folder, attempt a few repo-relative
+          // fallbacks to locate a presentation-template/lib that may exist elsewhere
+          // in the repository (packaged dev tree vs build output). This addresses
+          // cases where the exporter was invoked from a different working dir
+          // and the earlier findUp didn't catch the lib path.
+          const fallbackLibCandidates = [
+            path.join(process.cwd(), 'mapappbuilder', 'presentation-template', 'lib'),
+            path.join(__dirname, '..', 'mapappbuilder', 'presentation-template', 'lib'),
+            path.join(__dirname, '..', '..', 'mapappbuilder', 'presentation-template', 'lib'),
+            path.join(__dirname, '..', '..', '..', 'mapappbuilder', 'presentation-template', 'lib')
+          ]
+          let copiedFallback = false
+          for (const cand of fallbackLibCandidates) {
+            try {
+              if (fs.existsSync(cand)) {
+                await copyRecursive(cand, path.join(bundleDir, 'presentation', 'lib'))
+                copiedFallback = true
+                break
+              }
+            } catch (e) {
+              // continue
+            }
+          }
+          if (!copiedFallback) {
+          // Try to find local node_modules for leaflet and cytoscape and
+          // copy minified assets into presentation/lib when present. This
+          // helps developers who have installed dependencies locally via npm.
+          const tryFindNodeModule = (start, rel) => {
+            let cur = path.resolve(start)
+            for (let i = 0; i < 6; i++) {
+              const cand = path.join(cur, 'node_modules', rel)
+              try { if (fs.existsSync(cand)) return cand } catch (e) {}
+              const parent = path.dirname(cur)
+              if (parent === cur) break
+              cur = parent
+            }
+            return null
+          }
+
+          // Include cytoscape as well so exported bundles have the network
+          // runtime available even if the presentation template didn't ship it.
+          const libsToCopy = [
+            { pkg: 'leaflet', rel: path.join('leaflet', 'dist') },
+            { pkg: 'cytoscape', rel: path.join('cytoscape', 'dist') }
+          ]
+
+          const destLib = path.join(bundleDir, 'presentation', 'lib')
+          for (const lib of libsToCopy) {
+            let found = tryFindNodeModule(process.cwd(), lib.rel) || tryFindNodeModule(__dirname, lib.rel)
+            if (found) {
+              try {
+                await copyRecursive(found, destLib)
+              } catch (e) {
+                console.warn('failed to copy local node_module assets for', lib.pkg, e && e.message)
+              }
+            }
+          }
+          }
+        }
         // If tpl exists, render it into index.html with DOCTYPE
         const tplPath = path.join(templateDir, 'index.html.tpl')
         if (fs.existsSync(tplPath)) {
@@ -232,18 +297,60 @@ Meteor.methods({
         }
       }
       await fsp.writeFile(path.join(bundleDir, 'package.json'), JSON.stringify(nodePkg, null, 2), 'utf8')
-      // Copy static server template into bundle as server.js
+      // If there's a package-lock.json at project root, copy it into the bundle
+      // so `npm ci` can be used by verification and CI for deterministic installs.
       try {
-        const serverTemplate = path.join(process.cwd(), 'imports', 'templates', 'server-template.js')
-        if (fs.existsSync(serverTemplate)) {
-          await copyRecursive(serverTemplate, path.join(bundleDir, 'server.js'))
-        } else {
-          // Fallback: write a minimal inline server if template missing
-          const fallback = `const express=require('express');const app=express();app.use('/',express.static(__dirname+'/presentation'));app.get('/health',(r,s)=>s.send('OK'));app.listen(process.env.PORT||3000,()=>console.log('listening'))`;
-          await fsp.writeFile(path.join(bundleDir, 'server.js'), fallback, 'utf8')
+        const projectLock = path.join(process.cwd(), 'package-lock.json')
+        if (fs.existsSync(projectLock)) {
+          await copyRecursive(projectLock, path.join(bundleDir, 'package-lock.json'))
         }
       } catch (e) {
-        console.warn('failed to write/copy server runner file', e && e.message)
+        // Non-fatal: just log and continue (lockfile optional)
+        console.info('package-lock.json not copied (missing or failed to copy):', e && e.message)
+      }
+      // Copy static server template into bundle as server.js
+      try {
+        // Search for the server template in a few likely locations (project root,
+        // __dirname parents, and upwards). If not found, fail the export so
+        // bundles always contain a server that serves /data, /assets and the
+        // presentation.
+        function findUp(startDir, relPath, maxLevels = 8) {
+          let cur = path.resolve(startDir)
+          for (let i = 0; i < maxLevels; i++) {
+            const cand = path.join(cur, relPath)
+            try {
+              if (fs.existsSync(cand)) return cand
+            } catch (e) {}
+            const parent = path.dirname(cur)
+            if (parent === cur) break
+            cur = parent
+          }
+          return null
+        }
+
+        const candidates = [
+          path.join(process.cwd(), 'imports', 'templates', 'server-template.js'),
+          path.join(__dirname, '..', 'imports', 'templates', 'server-template.js'),
+          path.join(__dirname, '..', '..', 'imports', 'templates', 'server-template.js')
+        ]
+
+        let serverTemplate = null
+        for (const c of candidates) {
+          try { if (fs.existsSync(c)) { serverTemplate = c; break } } catch (e) {}
+        }
+
+        if (!serverTemplate) {
+          serverTemplate = findUp(process.cwd(), path.join('imports', 'templates', 'server-template.js')) || findUp(__dirname, path.join('imports', 'templates', 'server-template.js'))
+        }
+
+        if (!serverTemplate) {
+          throw new Error('server-template not found; ensure imports/templates/server-template.js exists in project')
+        }
+
+        await copyRecursive(serverTemplate, path.join(bundleDir, 'server.js'))
+      } catch (e) {
+        console.error('failed to write/copy server runner file', e && e.message ? e.message : String(e))
+        throw new Meteor.Error('server-template-missing', 'Server template missing or could not be copied into bundle: ' + (e && e.message ? e.message : String(e)))
       }
 
       const readme = `This bundle contains a standalone Topogram presentation.\n\nTo run:\n\n1. Unzip the bundle\n2. cd ${bundleId}-${timestamp}\n3. npm install\n4. npm start\n\nThe presentation will be served on port 3000 by default.\n`
