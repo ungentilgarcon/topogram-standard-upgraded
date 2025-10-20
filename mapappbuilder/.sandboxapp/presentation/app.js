@@ -368,9 +368,17 @@
                   features.push({ type: 'Feature', geometry: { type: 'Point', coordinates: [lon, lat] }, properties: { id: n.id || n._id || (n.data&&n.data.id), label: n.label||n.name||n.title } })
                 }
               })
-    
-                // Network plugin implementations
-              map.addLayer({ id: 'nodes-layer', type: 'circle', source: 'nodes', paint: { 'circle-radius': 6, 'circle-color': '#666' } })
+                // add a GeoJSON source with the features, then add a circle layer
+                try {
+                  const geojson = { type: 'FeatureCollection', features: features }
+                  if (!map.getSource || !map.addSource) {
+                    // older maplibre builds may expose different API
+                    // fall back to not drawing if source API unavailable
+                  } else {
+                    map.addSource('nodes', { type: 'geojson', data: geojson })
+                    map.addLayer({ id: 'nodes-layer', type: 'circle', source: 'nodes', paint: { 'circle-radius': 6, 'circle-color': '#666' } })
+                  }
+                } catch(e) { console.warn('maplibre plugin layer add failed', e) }
             })
           } catch(e) { console.warn('maplibre plugin failed', e) }
         }
@@ -384,7 +392,18 @@
             container.style.height = '100%'
             el.appendChild(container)
             const Ces = window.Cesium || window.CesiumJS
-            const viewer = new Ces.Viewer(container, { terrainProvider: Ces.createWorldTerrain ? Ces.createWorldTerrain() : undefined })
+            // avoid Cesium Ion default-access-token warning in sandbox by setting a harmless default
+            try { if (Ces && Ces.Ion && typeof Ces.Ion.defaultAccessToken !== 'undefined') {
+                // leave token empty for sandbox; only call createWorldTerrain if token present
+                if (!Ces.Ion.defaultAccessToken) {
+                  // no token: don't use Ion terrain provider
+                }
+              }
+            } catch(e) {}
+            // Set the base URL to ensure Cesium's Widgets/Assets resolve locally
+            try { if (Ces && Ces.buildModuleUrl) Ces.buildModuleUrl('', LIB_BASE + '/') } catch(e) {}
+            const terrainProvider = (Ces && Ces.Ion && Ces.Ion.defaultAccessToken) ? (Ces.createWorldTerrain ? Ces.createWorldTerrain() : undefined) : undefined
+            const viewer = new Ces.Viewer(container, { terrainProvider })
             nodesLocal.forEach(n => {
               const lat = parseCoord(readField(n, 'lat', 'latitude', 'y'))
               const lon = parseCoord(readField(n, 'lon', 'lng', 'longitude', 'x'))
@@ -609,9 +628,21 @@
       
     }
 
-    // Determine which plugins to use (allow explicit config override)
-    const mapRenderer = (config && config.mapRenderer) || (hasGeo ? 'leaflet' : null)
-  const networkRenderer = (config && config.networkRenderer) || 'cytoscape'
+    // Allow query-params to override renderer choices for quick sandbox testing
+    // e.g. ?network=sigma&geomap=leaflet
+    function getQueryParam(name) {
+      try {
+        const params = new URLSearchParams(window.location.search)
+        return params.get(name)
+      } catch (e) { return null }
+    }
+
+    const qpNetwork = getQueryParam('network') || getQueryParam('net') || null
+    const qpGeo = getQueryParam('geomap') || getQueryParam('map') || getQueryParam('mapRenderer') || null
+
+    // Determine which plugins to use (allow explicit config override and query params)
+    const mapRenderer = (qpGeo) || (config && config.mapRenderer) || (hasGeo ? 'leaflet' : null)
+    const networkRenderer = (qpNetwork) || (config && config.networkRenderer) || 'cytoscape'
 
       // Initialize map plugin (if any) and ensure required globals
     if (mapRenderer) {
@@ -626,6 +657,8 @@
             await ensureGlobal('maplibregl', 'maplibre-gl.js', (CDNS.maplibre && CDNS.maplibre.js) || null)
             await ensureGlobal('maplibre', 'maplibre-gl.js', (CDNS.maplibre && CDNS.maplibre.js) || null)
           } else if (mapRenderer === 'cesium') {
+            // Ensure Cesium loads its Widgets/Assets from the local lib path
+            try { window.CESIUM_BASE_URL = LIB_BASE + '/' } catch(e) {}
             await ensureGlobal('Cesium', 'cesium.js', (CDNS.cesium && CDNS.cesium.js) || null)
           }
           await plugin(mapEl, nodes, edges, config)
@@ -648,6 +681,15 @@
         if (networkRenderer === 'cytoscape') {
           const ok = await ensureGlobal('cytoscape', 'cytoscape.min.js', (CDNS.cytoscape && CDNS.cytoscape.js) || null)
           if (!ok) throw new Error('cytoscape not available')
+        }
+        if (networkRenderer === 'sigma') {
+          // try local sigma or CDN
+          const ok = await ensureGlobal('sigma', 'sigma.min.js', (CDNS.sigma && CDNS.sigma.js) || null)
+          if (!ok && typeof window.sigma === 'undefined') throw new Error('sigma not available')
+        }
+        if (networkRenderer === 'reagraph') {
+          const ok = await ensureGlobal('reagraph', 'reagraph.min.js', (CDNS.reagraph && CDNS.reagraph.js) || null)
+          if (!ok && typeof window.reagraph === 'undefined') throw new Error('reagraph not available')
         }
         await netPlugin(netEl, nodes, edges, config)
       } catch (e) {

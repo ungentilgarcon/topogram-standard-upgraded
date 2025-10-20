@@ -3,7 +3,12 @@ set -euo pipefail
 # Sync presentation-template into sandboxapp/presentation for quick testing
 ROOT_DIR="$(cd "$(dirname "$0")" && pwd)"
 SRC="$ROOT_DIR/presentation-template"
-DST="$ROOT_DIR/sandboxapp/presentation"
+# prefer hidden sandbox folder to avoid Meteor scanning, but fall back for compatibility
+if [ -d "$ROOT_DIR/.sandboxapp" ]; then
+	DST="$ROOT_DIR/.sandboxapp/presentation"
+else
+	DST="$ROOT_DIR/sandboxapp/presentation"
+fi
 
 # When syncing, render index.html from index.html.tpl (simple template replacement)
 TEMPLATE="$SRC/index.html.tpl"
@@ -15,7 +20,11 @@ rsync -a --delete "$SRC/" "$DST/"
 echo "Sync complete: $SRC -> $DST"
 
 echo "You can now run:"
-echo "  cd $ROOT_DIR && ./sandboxapp/start_server.sh 3024"
+if [ -d "$ROOT_DIR/.sandboxapp" ]; then
+	echo "  cd $ROOT_DIR && ./.sandboxapp/start_server.sh 3024"
+else
+	echo "  cd $ROOT_DIR && ./sandboxapp/start_server.sh 3024"
+fi
 
 # render index.html from template
 if [ -f "$TEMPLATE" ]; then
@@ -27,8 +36,8 @@ if [ -f "$TEMPLATE" ]; then
 fi
 
 # Copy sample data and config if not present (so the sandbox can run standalone)
-mkdir -p "$ROOT_DIR/sandboxapp/data"
-mkdir -p "$DST/data"
+mkdir -p "${DST%/}/data"
+mkdir -p "$ROOT_DIR/sandboxapp/data" || true
 if [ ! -f "$DST/data/topogram.json" ]; then
 	echo "Copying sample topogram.json into sandbox"
 	cat > "$DST/data/topogram.json" <<'JSON'
