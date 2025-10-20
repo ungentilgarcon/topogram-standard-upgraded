@@ -1,52 +1,10 @@
 /* ReagraphAdapter
- * Adapter that integrates the npm-installed 'reagraph' + 'graphology' packages
- * and exposes a small Cytoscape-like API so TopogramDetail can use
- * `?graph=reagraph`. This module requires the packages to be installed and
- * will throw an error early if they're not present (no global/window fallback).
+ * Lightweight, dependency-free adapter that renders a simple SVG graph in the
+ * provided container and exposes a small Cytoscape-like API so TopogramDetail
+ * can use `?graph=reagraph` without pulling the full Reagraph dependency.
  */
 
-// Require reagraph and graphology from node_modules (fail loudly if absent)
-let ReagraphPkg = null;
-try {
-  // eslint-disable-next-line global-require
-  ReagraphPkg = require('reagraph');
-} catch (err) {
-  console.error('ReagraphAdapter: missing required package "reagraph". Please run `npm install reagraph@4.27.0`');
-  throw err;
-}
-
-let Graphology = null;
-try {
-  // eslint-disable-next-line global-require
-  Graphology = require('graphology');
-} catch (err) {
-  console.error('ReagraphAdapter: missing required package "graphology". Please run `npm install graphology`');
-  throw err;
-}
-
-// Runtime assertion / info to make it obvious which implementation is used
-try {
-  const reagraphPkgJson = (function() {
-    try {
-      return require('reagraph/package.json');
-    } catch (e) { return null; }
-  })();
-  const graphologyPkgJson = (function() {
-    try { return require('graphology/package.json'); } catch (e) { return null; }
-  })();
-  console.info('ReagraphAdapter: using npm packages', {
-    reagraph: reagraphPkgJson ? `${reagraphPkgJson.name}@${reagraphPkgJson.version}` : (ReagraphPkg && (ReagraphPkg.version || ReagraphPkg.default && ReagraphPkg.default.version)) || 'unknown',
-    graphology: graphologyPkgJson ? `${graphologyPkgJson.name}@${graphologyPkgJson.version}` : (Graphology && Graphology.version) || 'unknown',
-    globalReagraphDetected: (typeof window !== 'undefined' && window.reagraph) ? true : false
-  });
-  if (typeof window !== 'undefined' && window.reagraph) {
-    console.warn('ReagraphAdapter: detected a global `window.reagraph` — the adapter is configured to use the npm package; remove UMD shims to avoid confusion.');
-  }
-} catch (e) {
-  // swallow logging errors
-}
-
-// Translate cy-style elements to simple node/edge arrays (local helper)
+// Translate cy-style elements to simple node/edge arrays
 let cyElementsToGraphology = null;
 try {
   const mod = require('../utils/cyElementsToGraphology');
@@ -1389,8 +1347,11 @@ const ReagraphAdapter = {
 
     // initial render and return adapter
     setTimeout(() => render(), 0);
-    return adapter;
-  }
+
+    // Return the adapter object so callers receive the imperative API
+    try { return adapter; } catch (e) { return { impl: 'reagraph', noop: true }; }
+
+  } // end mount
 };
 
 export default ReagraphAdapter;
