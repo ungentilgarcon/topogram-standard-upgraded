@@ -1347,8 +1347,11 @@ const ReagraphAdapter = {
 
     // initial render and return adapter
     setTimeout(() => render(), 0);
-    return adapter;
-  }
+
+    // Return the adapter object so callers receive the imperative API
+    try { return adapter; } catch (e) { return { impl: 'reagraph', noop: true }; }
+
+  } // end mount
 };
 
 export default ReagraphAdapter;

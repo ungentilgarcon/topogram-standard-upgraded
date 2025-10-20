@@ -3,7 +3,9 @@ import './sigma/sigma.css';
 
 // Adapters
 import SigmaAdapter from './sigma/SigmaAdapter';
-import ReagraphAdapter from './reagraph/ReagraphAdapter';
+// Note: do not statically import the npm-backed reagraph adapter here because
+// it may evaluate heavy packages at bundle-time. We'll lazy-load
+// `./graphAdapters/reagraphAdapter.js` when requested.
 import CytoscapeWrapper from './cy/CytoscapeWrapper';
 
 /**
@@ -37,12 +39,24 @@ export default function GraphWrapper(props) {
           stylesheet,
         });
       } else if (impl === 'reagraph') {
-        adapterRef.current = await ReagraphAdapter.mount({
-          container: containerRef.current,
-          elements,
-          layout,
-          stylesheet,
-        });
+        // Lazy-load the adapter facade that will import the npm packages only
+        // at mount time and delegate to the local shim for the imperative API.
+        try {
+          const mod = await import(/* webpackChunkName: "adapter-reagraph" */ './graphAdapters/reagraphAdapter');
+          const Adapter = mod && (mod.default || mod);
+          if (!Adapter || typeof Adapter.mount !== 'function') throw new Error('invalid reagraph adapter');
+          adapterRef.current = await Adapter.mount({
+            container: containerRef.current,
+            elements,
+            layout,
+            stylesheet,
+          });
+        } catch (err) {
+          console.error('GraphWrapper: failed to load reagraph adapter', err);
+          // fallback to local shim directly if lazy adapter fails
+          const Shim = (await import('./reagraph/ReagraphAdapter')).default;
+          adapterRef.current = await Shim.mount({ container: containerRef.current, elements, layout, stylesheet });
+        }
       } else {
         // default to Cytoscape wrapper which expects the same props
         adapterRef.current = await CytoscapeWrapper.mount({
