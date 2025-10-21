@@ -47,17 +47,28 @@
 
   // Try to ensure a global is available by loading local file from
   // <LIB_BASE>/<filename> or falling back to the provided CDN URL.
-  async function ensureGlobal(globalName, localFilename, cdnUrl) {
+  // ensureGlobal tries to make a global available by loading local file and/or CDN.
+  // options: { preferCdn: boolean }
+  async function ensureGlobal(globalName, localFilename, cdnUrl, options = {}) {
+    const preferCdn = !!options.preferCdn
     if (typeof window !== 'undefined' && window[globalName]) return true
     const localUrl = `${LIB_BASE}/${localFilename}`
+    // If preferCdn is true, try CDN first, then local
+    if (preferCdn && cdnUrl) {
+      try {
+        await loadScript(cdnUrl)
+        if (window[globalName]) return true
+      } catch (e) {
+        // ignore and try local next
+      }
+    }
     try {
-      // try loading local file first
       await loadScript(localUrl)
       if (window[globalName]) return true
     } catch (e) {
       // ignore and try CDN next
     }
-    if (cdnUrl) {
+    if (!preferCdn && cdnUrl) {
       try {
         await loadScript(cdnUrl)
         if (window[globalName]) return true
@@ -134,10 +145,18 @@
       } else if (CDNS.sigma && CDNS.sigma.js) {
         promises.push(loadScript(CDNS.sigma.js).catch(()=>{}))
       }
-      if (await localExists(reagraphJsLocal)) {
+      // For reagraph we prefer the CDN version by default (some environments serve a CDN-friendly build)
+      if (CDNS.reagraph && CDNS.reagraph.js) {
+        // attempt to load CDN first but do not fail hard if it 404s; fall back to local
+        promises.push((async ()=>{
+          try {
+            // prefer CDN: try it first with ensureGlobal(preferCdn=true)
+            const ok = await ensureGlobal('reagraph', 'reagraph.min.js', CDNS.reagraph.js, { preferCdn: true })
+            return ok
+          } catch(e){ return false }
+        })())
+      } else if (await localExists(reagraphJsLocal)) {
         promises.push(loadScript(reagraphJsLocal))
-      } else if (CDNS.reagraph && CDNS.reagraph.js) {
-        promises.push(loadScript(CDNS.reagraph.js).catch(()=>{}))
       }
 
       // try cytoscape local copy as well (optional)
@@ -688,7 +707,7 @@
           if (!ok && typeof window.sigma === 'undefined') throw new Error('sigma not available')
         }
         if (networkRenderer === 'reagraph') {
-          const ok = await ensureGlobal('reagraph', 'reagraph.min.js', (CDNS.reagraph && CDNS.reagraph.js) || null)
+          const ok = await ensureGlobal('reagraph', 'reagraph.min.js', (CDNS.reagraph && CDNS.reagraph.js) || null, { preferCdn: true })
           if (!ok && typeof window.reagraph === 'undefined') throw new Error('reagraph not available')
         }
         await netPlugin(netEl, nodes, edges, config)
