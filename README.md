@@ -4,6 +4,35 @@ Topogram turns messy event and relationship data into interactive network+map vi
 
 This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, timeline improvements, and Meteor 3 migration work.
 
+## MapApp Builder — build portable mini map+network apps
+
+The `mapappbuilder/` workspace contains everything needed to export a single Topogram as
+a self-contained static presentation that can be served anywhere (CDN, static host, or
+file server). Each exported bundle includes the serialized dataset, a configurable
+presentation shell, and the runtime UMD libraries required to render network and map
+views offline.
+
+Key files and quick workflow:
+
+- `mapappbuilder/config.schema.json` — JSON Schema for the bundle configuration.
+- `mapappbuilder/presentation-template/` — HTML+JS template copied into each export.
+- `mapappbuilder/.sandboxapp/` — local test harness mirroring the template for QA.
+- `mapappbuilder/package.sh <output.zip>` — packaging helper that injects `config.json`
+  and `data/topogram.json`, preserves `lib/` and zips the presentation.
+
+Quick test flow:
+
+```bash
+cd mapappbuilder
+./sync_sandboxapp.sh            # copy presentation-template → .sandboxapp/presentation
+./.sandboxapp/start_server.sh   # serve sandbox on http://localhost:3024 (defaults to Reagraph)
+./package.sh ./exported-presentation.zip
+```
+
+See `mapappbuilder/README.md` and `mapappbuilder/DEPENDENCY_GRAPH.md` for a full
+workflow, renderer notes, and the dependency diagram that explains how templates,
+libs, and packaging interact.
+
 ```markdown
 # Topogram (topogram-standard-upgraded)
 
