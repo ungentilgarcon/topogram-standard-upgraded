@@ -7,13 +7,36 @@
     "build-umd": "rollup -c rollup.config.js"
   },
   "devDependencies": {
+  "@rollup/plugin-replace": "^6.0.2",
     "@rollup/plugin-commonjs": "^28.0.8",
     "@rollup/plugin-node-resolve": "^16.0.3",
     "rollup": "^4.52.5",
     "@rollup/plugin-terser": "^0.4.4"
   },
   "dependencies": {
+    "@react-spring/three": "10.0.1",
+    "@react-three/drei": "^10.6.1",
+    "@react-three/fiber": "9.1.2",
+    "@use-gesture/react": "^10.3.1",
+    "camera-controls": "^3.1.0",
+    "classnames": "^2.5.1",
+    "d3-array": "^3.2.4",
+    "d3-force-3d": "^3.0.6",
+    "d3-hierarchy": "^3.1.2",
+    "d3-scale": "^4.0.2",
+    "ellipsize": "^0.6.1",
     "graphology": "^0.26.0",
-    "reagraph": "^4.27.0"
+    "graphology-layout": "^0.6.1",
+    "graphology-layout-forceatlas2": "^0.10.1",
+    "graphology-layout-noverlap": "^0.4.2",
+    "graphology-metrics": "^2.4.0",
+    "graphology-shortest-path": "^2.1.0",
+    "hold-event": "^1.1.2",
+  "react": "19.2.0",
+  "react-dom": "19.2.0",
+    "reagraph": "4.30.5",
+    "three": "^0.177.0",
+    "three-stdlib": "^2.36.0",
+    "zustand": "5.0.6"
   }
 }

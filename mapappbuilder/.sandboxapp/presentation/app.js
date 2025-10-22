@@ -16,7 +16,7 @@
   CDNS.maplibre = { css: 'https://unpkg.com/maplibre-gl@2.6.2/dist/maplibre-gl.css', js: 'https://unpkg.com/maplibre-gl@2.6.2/dist/maplibre-gl.js' }
   CDNS.cesium = { js: 'https://unpkg.com/cesium/Build/Cesium/Cesium.js' }
   CDNS.sigma = { js: 'https://unpkg.com/sigma@2.3.0/build/sigma.min.js' }
-  CDNS.reagraph = { js: 'https://unpkg.com/reagraph@1.5.0/dist/reagraph.min.js' }
+  // Reagraph is bundled locally with its peer dependencies via `lib/reagraph.umd.js`
 
   function loadScript(url){
     return new Promise((resolve,reject)=>{
@@ -88,6 +88,22 @@
     })
   }
 
+  // Ensure a minimal process shim exists so UMD bundles referencing process.env don't crash in browsers
+  function ensureProcessShim(){
+    const globalScope = typeof globalThis !== 'undefined' ? globalThis : (typeof window !== 'undefined' ? window : undefined)
+    if (!globalScope) return
+    if (!globalScope.process) {
+      globalScope.process = { env: { NODE_ENV: 'production' } }
+      return
+    }
+    if (!globalScope.process.env) {
+      globalScope.process.env = {}
+    }
+    if (typeof globalScope.process.env.NODE_ENV === 'undefined') {
+      globalScope.process.env.NODE_ENV = 'production'
+    }
+  }
+
     function tryLoadAll(){
     // Prefer local copies in presentation/lib if available, otherwise fall
     // back to CDN. We try to load leaflet.css, leaflet.js and cytoscape.js
@@ -106,7 +122,8 @@
       const maplibreJsLocal = `${localBase}/maplibre-gl.js`
       const cesiumJsLocal = `${localBase}/cesium.js`
       const sigmaJsLocal = `${localBase}/sigma.min.js`
-      const reagraphJsLocal = `${localBase}/reagraph.min.js`
+      //const reagraphJsLocal = `${localBase}/reagraph.umd.js`
+
 
       if (await localExists(leafletCssLocal)) {
         promises.push(loadCss(leafletCssLocal))
@@ -145,19 +162,18 @@
       } else if (CDNS.sigma && CDNS.sigma.js) {
         promises.push(loadScript(CDNS.sigma.js).catch(()=>{}))
       }
-      // For reagraph we prefer the CDN version by default (some environments serve a CDN-friendly build)
-      if (CDNS.reagraph && CDNS.reagraph.js) {
-        // attempt to load CDN first but do not fail hard if it 404s; fall back to local
-        promises.push((async ()=>{
-          try {
-            // prefer CDN: try it first with ensureGlobal(preferCdn=true)
-            const ok = await ensureGlobal('reagraph', 'reagraph.min.js', CDNS.reagraph.js, { preferCdn: true })
-            return ok
-          } catch(e){ return false }
-        })())
-      } else if (await localExists(reagraphJsLocal)) {
-        promises.push(loadScript(reagraphJsLocal))
-      }
+      // Reagraph standalone bundle (includes peer dependencies)
+      promises.push((async () => {
+        try {
+          ensureProcessShim()
+          const loaded = await ensureGlobal('reagraph', 'reagraph.umd.js')
+          if (!loaded) console.warn('Reagraph bundle was not found locally; run the presentation build step.')
+          return loaded
+        } catch (e) {
+          console.warn('Failed to load reagraph bundle', e)
+          return false
+        }
+      })())
 
       // try cytoscape local copy as well (optional)
       if (await localExists(cytoJsLocal)) {
@@ -707,8 +723,8 @@
           if (!ok && typeof window.sigma === 'undefined') throw new Error('sigma not available')
         }
         if (networkRenderer === 'reagraph') {
-          const ok = await ensureGlobal('reagraph', 'reagraph.min.js', (CDNS.reagraph && CDNS.reagraph.js) || null, { preferCdn: true })
-          if (!ok && typeof window.reagraph === 'undefined') throw new Error('reagraph not available')
+          const ok = await ensureGlobal('reagraph', 'reagraph.umd.js')
+          if (!ok || typeof window.reagraph === 'undefined') throw new Error('reagraph standalone bundle not available')
         }
         await netPlugin(netEl, nodes, edges, config)
       } catch (e) {

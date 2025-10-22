@@ -19,7 +19,7 @@ This document collects how the exported presentation (in `mapappbuilder/.sandbox
 CDNs used by default in the loader (editable in the file):
 - Cytoscape: `https://unpkg.com/cytoscape@3.24.0/dist/cytoscape.min.js`
 - Sigma: `https://unpkg.com/sigma@2.3.0/build/sigma.min.js`
-- Reagraph (older default in loader): `https://unpkg.com/reagraph@1.5.0/dist/reagraph.min.js`
+- Reagraph (bundled default for presentations): `https://unpkg.com/reagraph@4.30.5/dist/index.umd.js` or local UMD `lib/reagraph.umd.js`
 
 ## Which renderer is chosen
 - Query param override: `?network=sigma` or `?network=cytoscape` (also `net` or `network` params)
@@ -69,7 +69,7 @@ CDNs used by default in the loader (editable in the file):
 
 ## Practical tips / edit checklist
 - To test alternate renderers quickly, use query params: `?network=sigma&geomap=leaflet`.
-- To add a bundled version of a renderer, put its UMD file into `presentation/lib/` with the expected name (`cytoscape.min.js`, `sigma.min.js`, `reagraph.min.js`) — the loader will try local first.
+- To add a bundled version of a renderer, put its UMD file into `presentation/lib/` with the expected name (`cytoscape.min.js`, `sigma.min.js`, `reagraph.umd.js`) — the loader will try local first.
 - To modify style/label logic for Cytoscape: edit `networkPlugins.cytoscape` in `app.js` — adjust `style` array and the `cy.nodes().forEach`/`cy.edges().forEach` mappings.
 - To debug Cytoscape interactively: add a debug line after creation, e.g. `window._lastCy = cy`.
 
