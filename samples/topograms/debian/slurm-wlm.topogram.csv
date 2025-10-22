@@ -1,0 +1,11 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libpam-slurm","libpam-slurm","libpam-slurm","PAM module to authenticate using the Slurm resource manager","","","1","1","","","","Section=admin; Version=24.11.5-4","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"libslurm42t64","libslurm42t64","libslurm42t64","Runtime library files for Slurm","","","1","1","","","","Section=libs; Version=24.11.5-4","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
+"","","","","","","","","","","","","libpam-slurm","libc6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libpam-slurm","libslurm42t64","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
+"","","","","","","","","","","","","libslurm42t64","libc6","Depends","#333","1","Depends","{}"

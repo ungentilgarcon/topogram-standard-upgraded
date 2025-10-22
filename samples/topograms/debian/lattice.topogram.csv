@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"r-cran-lattice","r-cran-lattice","r-cran-lattice","GNU R package for 'Trellis' graphics","","","1","1","","","","Section=gnu-r; Version=0.22-7-1","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"r-api-4.0","r-api-4.0","r-api-4.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
+"","","","","","","","","","","","","r-cran-lattice","libc6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","r-cran-lattice","r-api-4.0","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"

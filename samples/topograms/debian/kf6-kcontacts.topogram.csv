@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libkf6contacts-data","libkf6contacts-data","libkf6contacts-data","data files for kcontacts","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""

@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libkf5configwidgets-data","libkf5configwidgets-data","libkf5configwidgets-data","Extra widgets for easier configuration support.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"","","","","","","","","","","","","libkf5configwidgets-data","perl:any","Depends","#333","1","Depends","{}"

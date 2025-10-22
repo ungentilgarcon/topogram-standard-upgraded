@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libplexus-utils2-java","libplexus-utils2-java","libplexus-utils2-java","utilities for the Plexus framework","","","1","1","","","","Section=java; Version=3.4.2-1","","","","","",""

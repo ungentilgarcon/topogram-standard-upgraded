@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"dh-dkms","dh-dkms","dh-dkms","debhelper addon for the Dynamic Kernel Module System (DKMS)","","","1","1","","","","Section=kernel; Version=3.2.0-1","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"","","","","","","","","","","","","dh-dkms","perl:any","Depends","#333","1","Depends","{}"

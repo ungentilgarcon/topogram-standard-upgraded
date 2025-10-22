@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libxaw-doc","libxaw-doc","libxaw-doc","X11 Athena Widget library (documentation)","","","1","1","","","","Section=doc; Version=2:1.0.16-1","","","","","",""

@@ -1,0 +1,7 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libfile-sharedir-perl","libfile-sharedir-perl","libfile-sharedir-perl","module to locate non-code files during run-time","","","1","1","","","","Section=perl; Version=1.118-3","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libclass-inspector-perl","libclass-inspector-perl","libclass-inspector-perl","Perl module that provides information about classes","","","1","1","","","","Section=perl; Version=1.36-3","","","","","",""
+"","","","","","","","","","","","","libfile-sharedir-perl","perl:any","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libfile-sharedir-perl","libclass-inspector-perl","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libclass-inspector-perl","perl:any","Depends","#333","1","Depends","{}"

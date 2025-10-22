@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libnss-sudo","libnss-sudo","libnss-sudo","NSS configuration for sudoers service","","","1","1","","","","Section=admin; Version=1.9.16p2-3","","","","","",""

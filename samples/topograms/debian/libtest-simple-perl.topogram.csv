@@ -1,0 +1,9 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libtest-simple-perl","libtest-simple-perl","libtest-simple-perl","set of basic utilities for writing tests in Perl","","","1","1","","","","Section=perl; Version=1.302210-1","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libterm-table-perl","libterm-table-perl","libterm-table-perl","module to format a header and rows into a table","","","1","1","","","","Section=perl; Version=0.024-1","","","","","",""
+"libunicode-linebreak-perl","libunicode-linebreak-perl","libunicode-linebreak-perl","UAX #14 Unicode Line Breaking Algorithm","","","1","1","","","","Section=perl; Version=0.0.20190101-1+b9","","","","","",""
+"","","","","","","","","","","","","libtest-simple-perl","perl:any","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libtest-simple-perl","libterm-table-perl","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libterm-table-perl","perl:any","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libterm-table-perl","libunicode-linebreak-perl","Recommends","#333","1","Recommends","{}"

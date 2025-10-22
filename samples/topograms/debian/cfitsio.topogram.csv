@@ -1,0 +1,8 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"fitsverify","fitsverify","fitsverify","transitional dummy package","","","1","1","","","","Section=science; Version=4.22+cfitsio4.6.2-2","","","","","",""
+"libcfitsio-bin","libcfitsio-bin","libcfitsio-bin","CFITSIO based utilities","","","1","1","","","","Section=devel; Version=4.6.2-2","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"libcfitsio10t64","libcfitsio10t64","libcfitsio10t64","shared library for I/O with FITS format data files","","","1","1","","","","Section=libs; Version=4.6.2-2","","","","","",""
+"","","","","","","","","","","","","fitsverify","libcfitsio-bin","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcfitsio-bin","libc6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcfitsio-bin","libcfitsio10t64","Depends","#333","1","Depends","{}"

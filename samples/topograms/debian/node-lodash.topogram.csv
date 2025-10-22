@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libjs-lodash","libjs-lodash","libjs-lodash","Lo-dash is a Javascript utility library","","","1","1","","","","Section=javascript; Version=4.17.21+dfsg+~cs8.31.198.20210220-9","","","","","",""
+"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","",""
+"","","","","","","","","","","","","libjs-lodash","javascript-common","Depends","#333","1","Depends","{}"

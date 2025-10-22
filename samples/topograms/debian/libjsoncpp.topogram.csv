@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libjsoncpp-dev","libjsoncpp-dev","libjsoncpp-dev","library for reading and writing JSON for C++ (devel files)","","","1","1","","","","Section=libdevel; Version=1.9.6-3","","","","","",""
+"libjsoncpp26","libjsoncpp26","libjsoncpp26","library for reading and writing JSON for C++","","","1","1","","","","Section=libs; Version=1.9.6-3","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
+"","","","","","","","","","","","","libjsoncpp-dev","libjsoncpp26","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libjsoncpp26","libc6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libjsoncpp26","libgcc-s1","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libjsoncpp26","libstdc++6","Depends","#333","1","Depends","{}"

@@ -1,0 +1,13 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libcdio++-dev","libcdio++-dev","libcdio++-dev","C++ library to read and control CD-ROM (development files)","","","1","1","","","","Section=libdevel; Version=2.2.0-4","","","","","",""
+"libcdio++1t64","libcdio++1t64","libcdio++1t64","C++ library to read and control CD-ROM","","","1","1","","","","Section=libs; Version=2.2.0-4","","","","","",""
+"libcdio-dev","libcdio-dev","libcdio-dev","library to read and control CD-ROM (development files)","","","1","1","","","","Section=libdevel; Version=2.2.0-4","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"libcdio19t64","libcdio19t64","libcdio19t64","library to read and control CD-ROM","","","1","1","","","","Section=libs; Version=2.2.0-4","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
+"","","","","","","","","","","","","libcdio++-dev","libcdio++1t64","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcdio++-dev","libcdio-dev","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcdio++1t64","libc6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcdio++1t64","libcdio19t64","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcdio++1t64","libstdc++6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcdio-dev","libcdio19t64","Depends","#333","1","Depends","{}"
