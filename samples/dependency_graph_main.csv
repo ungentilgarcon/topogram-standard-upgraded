@@ -1,0 +1,11 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+T,Topograms,Topograms,Collection node,#f9f,,5,5,48.8566,2.3522,,collections/topograms.js,T,N,contains,#333,1,contains,{"meta":"file=imports/collections/topograms.js;type=collection;edge=contains"}
+N,Nodes,Nodes,Collection node,#9ff,,5,5,51.5074,-0.1278,,collections/nodes.js,N,Net,feeds,#333,1,feeds,{"meta":"file=imports/collections/nodes.js;type=collection;edge=feeds"}
+E,Edges,Edges,Collection node,#ff9,,5,5,40.7128,-74.0060,,collections/edges.js,E,Net,feeds,#333,1,feeds,{"meta":"file=imports/collections/edges.js;type=collection;edge=feeds"}
+U,Users,Users (Meteor.users),User collection,#ddd,,3,3,37.7749,-122.4194,,accounts/users.js,U,T,owns,#333,1,owns,{"meta":"file=imports/startup/accounts.js;type=collection;edge=owns"}
+Sidx,ServerIndexes,Server startup indexes,Startup file,#eee,,2,2,52.52,13.4050,,startup/indexes.js,Sidx,T,indexes,#333,1,indexes,{"meta":"file=imports/startup/server/indexes.js;type=startup;edge=indexes"}
+MTopo,API_Topograms,Topograms API endpoint,API module,#cfc,,2,2,52.5208,13.4095,,endpoints/topograms.js,MTopo,T,exposes,#333,1,exposes,{"meta":"file=imports/endpoints/topograms.js;type=api;edge=exposes"}
+NetComp,NetworkComponent,Network UI component (cytoscape),UI component,#aaf,,3,3,48.8566,2.3522,,ui/components/Network.jsx,N,NetComp,used-by,#333,1,used-by,{"meta":"file=imports/ui/components/Network.jsx;type=ui;edge=used-by"}
+GeoComp,GeoComponent,GeoMap UI component,UI component,#aff,,3,3,45.4642,9.1900,,ui/components/geoMap/*,N,GeoComp,used-by,#333,1,used-by,{"meta":"file=imports/ui/components/geoMap;type=ui;edge=used-by"}
+Charts,Charts,Charts UI component,UI component,#ffa,,2,2,41.9028,12.4964,,ui/components/charts/*,N,Charts,used-by,#333,1,used-by,{"meta":"file=imports/ui/components/charts;type=ui;edge=used-by"}
+Sel,SelectionPanel,SelectionPanel component,UI component,#ddd,,2,2,48.8566,2.3522,,ui/components/SelectionPanel/*,NetComp,Sel,selection-events,#666,1,events,{"meta":"file=imports/ui/components/SelectionPanel;type=ui;edge=selection-events"}

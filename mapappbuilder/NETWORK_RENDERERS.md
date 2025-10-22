@@ -63,9 +63,36 @@ CDNs used by default in the loader (editable in the file):
 - Notes:
   - Minimal styling is applied; extend after instantiation or supply extended node/edge properties
 
-## Reagraph (short)
-- Entry: `networkPlugins.reagraph(el, nodesLocal, edgesLocal, cfg)`
-- It expects `window.reagraph` and calls `window.reagraph.render(container, data)` when available.
+## Reagraph (GraphCanvas bridge)
+
+- Entry: `networkPlugins.reagraph(el, nodesLocal, edgesLocal, cfg)`.
+- Loader resolves the bundle in the following order:
+  1. `window.reagraph` (preferred) — set when the UMD exports a top-level object with
+     `GraphCanvas`.
+  2. `window.reagraphBundle` — some UMD builds namespace the exports under this object.
+  3. `bundle.default` — when the bundle uses an ESM-style default export.
+- React/graphology dependencies are also shipped locally. The loader exposes them back onto
+  `window.React`, `window.ReactDOM(Client)`, `window.graphology` when absent so the rest of
+  the page can interop.
+- Graph creation:
+  - Tries to instantiate `new GraphCtor({ multi: true, allowSelfLoops: true })` when
+    `graphology` is bundled.
+  - Calls `reagraph.buildGraph(graph, nodes, edges)`; if the constructor failed it falls back
+    to `buildGraph(null, ...)` so Reagraph can create its internal store.
+- Layout:
+  - Uses `networkOptions.layoutType` and `networkOptions.layoutIterations` with a safe
+    fallback to `forceDirected2d`.
+  - Logs `[reagraph] render inputs prepared` with the chosen layout and node/edge counts to
+    make debugging easier.
+- Rendering:
+  - Creates a React element via `React.createElement(reagraph.GraphCanvas, { graph, layout,
+    nodes, edges, ...options })`.
+  - Prefers `createRoot(container)` (React 18/19) and falls back to legacy
+    `ReactDOM.render(...)` if necessary.
+  - Stores an `_reagraphCleanup` handle on the DOM element so hot-swapping renderers unmounts
+    cleanly.
+- Data payload: the normalised `nodes`/`edges` arrays remain available on the props and match
+  what the Cytoscape adapter receives. Node size, colour and label hints mirror the main app.
 
 ## Practical tips / edit checklist
 - To test alternate renderers quickly, use query params: `?network=sigma&geomap=leaflet`.

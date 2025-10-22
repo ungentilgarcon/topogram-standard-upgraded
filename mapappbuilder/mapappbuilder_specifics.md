@@ -1,14 +1,33 @@
-we are in topogram, an app to vizualize networks and geomaps.
+We are in the `mapappbuilder` branch of Topogram. This folder packages the artefacts that
+turn a Topogram dataset into a standalone static application. Use these notes as a quick
+orientation before modifying the builder.
 
-this branch, mapappbuilder has its own folder, called  mapappbuilder, which contains the code for building custom map applications. The folder structure is organized to separate the core functionality of the app from the custom components being developed. mappappbuilder uses a json configuration file to define the parameters and settings for the custom map applications, file is called mapappbuilder/config/mapapp_config.json. This file allows developers to specify various options for the map applications, such as data sources, visualization styles, and user interface elements.
-The mapappbuilder folder contains several subfolders, including:
-- components: This folder contains reusable components that can be used across different map applications. These components may include map layers, legends, tooltips, and other UI elements.
-- utils: This folder contains utility functions and helper methods that support the core functionality of the map applications. These utilities may include data processing functions, API integrations, and other common tasks.
-- styles: This folder contains the styling files for the map applications, including CSS or SCSS files that define the visual appearance of the app.
-- tests: This folder contains test files to ensure the functionality and reliability of the map applications. These tests may include unit tests, integration tests, and end-to-end tests.
+Key points:
 
-The mapappbuilder branch is designed to facilitate the development of custom map applications by providing a structured framework and reusable components. Developers can easily modify the configuration file and utilize the components and utilities provided in the folder structure to create tailored map applications that meet specific requirements.
-The main entry point for the mapappbuilder is typically an index.js or app.js file located in the root of the mapappbuilder folder. This file initializes the application, loads the configuration settings from the JSON file, and renders the map application using the specified components and styles.
-Overall, the mapappbuilder branch provides a dedicated environment for building custom map applications within the topogram project, allowing for flexibility and scalability in developing geospatial visualization tools.
-.sandboxapp is another folder in this branch, which contains a sandbox environment for testing and experimenting with the map applications. This folder allows developers to quickly prototype and iterate on new features and functionalities without affecting the main application. The sandboxapp folder may include sample data, test cases, and experimental components that can be used to validate ideas and concepts before integrating them into the main mapappbuilder codebase.
-It is updated with the main branch of topogram to ensure compatibility and access to the latest features and improvements. This synchronization helps maintain consistency between the mapappbuilder and the core topogram application, allowing developers to leverage new functionalities and enhancements as they are introduced via the bash script sync_sandbox.sh.
+- **No Meteor runtime.** Everything under `mapappbuilder/` is plain Node/JS tooling plus a
+	static presentation template. Keep it framework-agnostic so bundles stay lightweight.
+- **Presentation assets live in two places:**
+	- `presentation-template/` — source template copied into exported bundles.
+	- `.sandboxapp/presentation/` — a synced copy used for local testing. Run
+		`./sync_sandboxapp.sh` after editing the template.
+- **Renderer adapters:** `mapappbuilder/.sandboxapp/presentation/app.js` hosts the loader
+	that normalises nodes/edges and instantiates map/network plugins. Every renderer (Cytoscape,
+	Sigma, Reagraph, Leaflet, MapLibre, Cesium) is documented in
+	`NETWORK_RENDERERS.md` and `MAP_RENDERERS.md`. Update these notes whenever adapter logic
+	changes.
+- **Bundled dependencies:** UMD builds for React 19, Reagraph, graphology, Cytoscape, Sigma,
+	Leaflet, MapLibre and Cesium sit under `presentation-template/lib/`. When you upgrade a
+	dependency, update the copies in both the template and the sandbox.
+- **Configuration contract:** `config.schema.json` defines what the exporter must write.
+	`sample.config.json` demonstrates the supported fields. Any breaking change to the schema
+	should include a migration note here and in the README.
+- **Packaging:** `package.sh` expects `presentation/config.json` and
+	`presentation/data/topogram.json` to exist. It zips the template in-place; no build system
+	is invoked. Scripts interacting with it should copy their artefacts into `presentation/`
+	before running the package step.
+- **Testing:** `.sandboxapp/start_server.sh` launches a static server bound to port 3024 by
+	default. Use query parameters (`?network=reagraph&geomap=leaflet`) to toggle renderers at
+	runtime while debugging.
+
+Keep the builder focused: do not import Meteor client code or server-side helpers here.
+Instead, export JSON from the main app and drop it into the builder.
