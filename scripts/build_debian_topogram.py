@@ -146,6 +146,7 @@ def write_topogram_csv(nodes, edges, outpath):
             row = [n['id'], n['name'], n['label'], n['description'], '', '', '1', '1', '', '', '', n.get('notes',''), '', '', '', '', '', '']
             f.write(','.join('"{}"'.format(s.replace('"','""')) for s in row) + '\n')
         # write edges as rows where source/target fields are filled
+        # edges are tuples (dependent, dependency, rel) so we write source=dependent, target=dependency
         for src, tgt, rel in edges:
             row = ['', '', '', '', '', '', '', '', '', '', '', '', src, tgt, rel, '#333', '1', rel, '{}']
             f.write(','.join('"{}"'.format(s.replace('"','""')) for s in row) + '\n')
