@@ -61,3 +61,4 @@ flowchart TD
 
 Notes:
 - The graph above is simplified — publications and methods glue collections to the UI with server-side filtering for permissions and limits.
+- The export workflow (`mapappbuilder/`) ships with a dedicated dependency diagram in `mapappbuilder/README.md` that focuses on the static bundle toolchain and sandbox.

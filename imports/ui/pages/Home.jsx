@@ -25,6 +25,8 @@ export default function Home() {
   const [loginEmail, setLoginEmail] = useState('')
   const [loginPassword, setLoginPassword] = useState('')
   const [isAdmin, setIsAdmin] = useState(false)
+  const [exportOpen, setExportOpen] = useState(false)
+  const [exportConfig, setExportConfig] = useState(null)
 
   const { userId, user } = useTracker(() => {
     // Guard in case Meteor.userId/user are not available as functions in this runtime
@@ -133,8 +135,55 @@ export default function Home() {
                       console.info('Deleted topogram', t._id, r)
                     })
                   }}>Delete</Button>
+                  <Button variant="outlined" size="small" sx={{ ml: 1 }} onClick={() => {
+                    // richer default export config
+                    setExportConfig({
+                      id: `topogram-${t._id}`,
+                      title: t.title || t.name || `topogram-${t._id}`,
+                      topogramId: t._id,
+                      networkRenderer: 'cytoscape',
+                      geoRenderer: 'maplibre',
+                      emojiSupport: true,
+                      presentation: {
+                        showLegend: true,
+                        initialLayout: 'cose',
+                        mapCenter: [48.8566, 2.3522, 5],
+                        hasTimeline: true,
+                        timeline: { autoPlay: false, playSpeed: 1.0, start: '2020-01-01', end: '2025-12-31' }
+                      },
+                      labeling: { nodeLabelMode: 'both', edgeLabelMode: 'both', maxEmojiPerLabel: 3 },
+                      networkOptions: { initialLayout: 'cose', nodeSizeField: 'weight', nodeColorField: 'group', edgeColorField: 'relationship', showNodeEmoji: true },
+                      geoOptions: { mapStyle: 'https://demotiles.maplibre.org/style.json', initialZoom: 4, showGeoNodes: true, midpointLabels: { show: true, mode: 'both', jitter: 3, offset: 10 }, chevrons: { show: true, style: 'small' }, usePixelPlacement: true },
+                      assets: ['styles/custom.css', 'images/logo.png']
+                    })
+                    setExportOpen(true)
+                  }}>Export</Button>
                 </div>
               ) : null}
+      <Dialog open={exportOpen} onClose={() => setExportOpen(false)} maxWidth="md" fullWidth>
+        <DialogTitle>Export Topogram as Bundle</DialogTitle>
+        <DialogContent>
+          <div style={{ height: 300 }}>
+            <TextField label="Export config (JSON)" value={exportConfig ? JSON.stringify(exportConfig, null, 2) : ''} onChange={(e) => {
+                try { setExportConfig(JSON.parse(e.target.value)) } catch (err) { /* ignore malformed JSON until submit */ }
+              }} fullWidth multiline rows={12} />
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setExportOpen(false)}>Cancel</Button>
+          <Button onClick={() => {
+            // call server method to build bundle
+            Meteor.call('topogram.exportBundle', { topogramId: exportConfig.topogramId, config: exportConfig }, (err, r) => {
+              if (err) return alert('Export failed: ' + err.message)
+              // r.filename is served from /_exports/<filename>
+              const url = `/_exports/${encodeURIComponent(r.filename)}`
+              // trigger browser download
+              const a = document.createElement('a'); a.href = url; a.download = r.filename; document.body.appendChild(a); a.click(); a.remove();
+              setExportOpen(false)
+            })
+          }} variant="contained">Export & Download</Button>
+        </DialogActions>
+      </Dialog>
             </li>
           ))}
         </ul>

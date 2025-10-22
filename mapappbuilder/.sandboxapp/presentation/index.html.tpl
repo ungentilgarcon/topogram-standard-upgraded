@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>{{TITLE}}</title>
+  <link rel="stylesheet" href="styles/main.css" />
+  <link rel="stylesheet" href="styles/custom.css" />
+  <link rel="icon" type="image/png" href="favicon.png" />
+  <!-- Leaflet CSS will be dynamically loaded by app.js if needed -->
+  <style>
+    html,body,#app{height:100%;margin:0}
+    header{padding:8px 12px;background:#fafafa;border-bottom:1px solid #eee}
+    main{display:flex;gap:8px;padding:8px;height:calc(100% - 120px)}
+    #map{flex:1;border:1px solid #ddd;min-height:200px}
+    #network{flex:1;border:1px solid #ddd;min-height:200px}
+    @media(max-width:800px){main{flex-direction:column}}
+  </style>
+</head>
+<body>
+  <div id="app">
+    <header>
+      <img src="images/logo.png" alt="logo" style="height:48px; vertical-align:middle; margin-right:8px;" />
+      <h1 style="display:inline-block; vertical-align:middle;">{{TITLE}}</h1>
+    </header>
+    <main>
+      <div id="map" aria-label="Map area">Loading map...</div>
+      <div id="network" aria-label="Network area">Loading network...</div>
+    </main>
+    <footer>
+      <small>Exported Topogram</small>
+    </footer>
+  </div>
+  <script src="app.js"></script>
+</body>
+</html>

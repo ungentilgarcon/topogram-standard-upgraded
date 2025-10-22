@@ -10,5 +10,6 @@ Files:
 - `QUICKSTART.md` — how to run the app locally for development.
 - `CONTRIBUTING.md` — contribution workflow, PR rules, and a sample pre-push hook.
 - `API.md` — where to find server endpoints, publications and methods.
+- `../mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
 
 Start with `QUICKSTART.md` to run the project, then read `ARCHITECTURE.md` and `DATASET.md` to understand the data model.
