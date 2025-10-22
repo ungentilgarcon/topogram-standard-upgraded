@@ -49,7 +49,22 @@
   // <LIB_BASE>/<filename> or falling back to the provided CDN URL.
   // ensureGlobal tries to make a global available by loading local file and/or CDN.
   // options: { preferCdn: boolean }
+  function aliasLoadedGlobal(globalName) {
+    if (typeof window === 'undefined') return
+    if (globalName === 'reagraph') {
+      const existing = window.reagraph
+      if (!existing || typeof existing.render !== 'function') {
+        const bundle = window.reagraphBundle
+        if (bundle) {
+          const candidate = typeof bundle.render === 'function' ? bundle : (bundle.default && typeof bundle.default.render === 'function' ? bundle.default : null)
+          if (candidate) window.reagraph = candidate
+        }
+      }
+    }
+  }
+
   async function ensureGlobal(globalName, localFilename, cdnUrl, options = {}) {
+    aliasLoadedGlobal(globalName)
     const preferCdn = !!options.preferCdn
     if (typeof window !== 'undefined' && window[globalName]) return true
     const localUrl = `${LIB_BASE}/${localFilename}`
@@ -57,23 +72,27 @@
     if (preferCdn && cdnUrl) {
       try {
         await loadScript(cdnUrl)
-        if (window[globalName]) return true
+        aliasLoadedGlobal(globalName)
+        if (typeof window !== 'undefined' && window[globalName]) return true
       } catch (e) {
         // ignore and try local next
       }
     }
     try {
       await loadScript(localUrl)
-      if (window[globalName]) return true
+      aliasLoadedGlobal(globalName)
+      if (typeof window !== 'undefined' && window[globalName]) return true
     } catch (e) {
       // ignore and try CDN next
     }
     if (!preferCdn && cdnUrl) {
       try {
         await loadScript(cdnUrl)
-        if (window[globalName]) return true
+        aliasLoadedGlobal(globalName)
+        if (typeof window !== 'undefined' && window[globalName]) return true
       } catch (e) {}
     }
+    aliasLoadedGlobal(globalName)
     return false
   }
 
@@ -635,10 +654,13 @@
         if (!el) return
         if (typeof sigma === 'undefined' && typeof window.sigma === 'undefined') throw new Error('sigma not available')
         el.innerHTML = ''
+        el.style.position = 'relative'
+        if (!el.style.minHeight) el.style.minHeight = '480px'
         try {
           const container = document.createElement('div')
           container.style.width = '100%'
           container.style.height = '100%'
+          container.style.minHeight = '480px'
           el.appendChild(container)
           const graph = { nodes: [], edges: [] }
           nodesLocal.forEach(n => {
@@ -666,24 +688,209 @@
       },
       reagraph: async function(el, nodesLocal, edgesLocal, cfg) {
         if (!el) return
-        if (typeof reagraph === 'undefined' && typeof window.reagraph === 'undefined') throw new Error('reagraph not available')
+        const reagraphApi = (function resolveReagraph(){
+          const candidate = window.reagraph || window.reagraphBundle || (window.reagraphBundle && window.reagraphBundle.default) || null
+          if (candidate && typeof candidate === 'object') {
+            if (candidate.default && typeof candidate.default === 'object' && Object.keys(candidate).length <= 2) {
+              return candidate.default
+            }
+            return candidate
+          }
+          return null
+        })()
+        if (!reagraphApi) throw new Error('reagraph global not found after loading bundle')
+        window.reagraph = reagraphApi
+
+  const React = window.React || reagraphApi.React || reagraphApi.react || null
+  const ReactDOMClient = window.ReactDOMClient || window.reactDomClient || reagraphApi.ReactDOMClient || reagraphApi.reactDomClient || null
+  const ReactDOM = window.ReactDOM || reagraphApi.ReactDOM || reagraphApi.reactDom || null
+        const createRoot = window.createRoot || (ReactDOMClient && ReactDOMClient.createRoot) || (ReactDOM && ReactDOM.createRoot) || reagraphApi.createRoot || null
+        const GraphCanvas = reagraphApi.GraphCanvas || (reagraphApi.default && reagraphApi.default.GraphCanvas) || null
+        const GraphCtor = (reagraphApi.graphology && (reagraphApi.graphology.Graph || reagraphApi.graphology.default)) || window.Graph || (window.graphology && (window.graphology.Graph || window.graphology.default)) || null
+
+        if (!React) throw new Error('React not available for reagraph rendering')
+        if (!GraphCanvas) throw new Error('GraphCanvas component missing from reagraph bundle')
+        if (!createRoot && !ReactDOMClient && !ReactDOM) throw new Error('React renderer (createRoot / ReactDOM) not available')
+
+  if (!window.React && React) window.React = React
+  if (!window.ReactDOM && ReactDOM) window.ReactDOM = ReactDOM
+  if (!window.ReactDOMClient && ReactDOMClient) window.ReactDOMClient = ReactDOMClient
+
+        if (el._reagraphCleanup) {
+          try { el._reagraphCleanup() } catch (cleanupErr) { console.warn('reagraph cleanup error', cleanupErr) }
+          el._reagraphCleanup = null
+        }
+
         el.innerHTML = ''
+        el.style.position = 'relative'
+        if (!el.style.minHeight) el.style.minHeight = '480px'
+
         try {
           const container = document.createElement('div')
           container.style.width = '100%'
           container.style.height = '100%'
+          container.style.minHeight = '480px'
           el.appendChild(container)
-          const data = {
-            nodes: nodesLocal.map(n => ({ id: String(n.id || n._id || Math.random()), ...((n.data && n.data) || n) })),
-            edges: edgesLocal.map(e => ({
-              id: String(e._id || Math.random()),
-              source: e.from || e.source || (e.data && e.data.source),
-              target: e.to || e.target || (e.data && e.data.target),
-              weight: readField(e, 'weight')
-            }))
+
+          const nodeEntries = []
+          const nodeSeen = new Set()
+          nodesLocal.forEach((n, idx) => {
+            const idRaw = n && (n.id ?? n._id ?? (n.data && (n.data.id ?? n.data._id)))
+            const id = idRaw != null ? String(idRaw) : String(idx)
+            if (nodeSeen.has(id)) return
+            nodeSeen.add(id)
+            const label = readField(n, 'label', 'name', 'title', 'id', '_id')
+            const colorVal = readField(n, 'color')
+            const sizeVal = readField(n, 'size', 'weight')
+            nodeEntries.push({
+              id,
+              label: label != null ? String(label) : id,
+              color: colorVal != null ? String(colorVal) : undefined,
+              size: sizeVal != null ? Math.max(1, parseFloat(sizeVal) || 1) : undefined,
+              raw: n
+            })
+          })
+
+          const edgeEntries = []
+          const edgeSeen = new Set()
+          edgesLocal.forEach((e, idx) => {
+            const sourceRaw = readField(e, 'from', 'source')
+            const targetRaw = readField(e, 'to', 'target')
+            const source = sourceRaw != null ? String(sourceRaw) : null
+            const target = targetRaw != null ? String(targetRaw) : null
+            if (!source || !target) return
+            if (!nodeSeen.has(source) || !nodeSeen.has(target)) return
+            const keyRaw = e && (e.id ?? e._id ?? (e.data && (e.data.id ?? e.data._id)))
+            const key = keyRaw != null ? String(keyRaw) : `${source}->${target}#${idx}`
+            if (edgeSeen.has(key)) return
+            edgeSeen.add(key)
+            const label = readField(e, 'label', 'relationship')
+            const weight = readField(e, 'weight')
+            const colorVal = readField(e, 'color')
+            edgeEntries.push({
+              id: key,
+              source,
+              target,
+              label: label != null ? String(label) : undefined,
+              weight: weight != null ? Math.max(0, parseFloat(weight) || 0) : undefined,
+              color: colorVal != null ? String(colorVal) : undefined,
+              raw: e
+            })
+          })
+
+          const logDebug = (msg, payload) => {
+            try {
+              console.debug(`[reagraph] ${msg}`, payload)
+            } catch (err) {}
           }
-          try { if (window.reagraph && window.reagraph.render) window.reagraph.render(container, data) } catch (e) { console.warn('reagraph render failed', e) }
-        } catch (e) { console.warn('reagraph plugin failed', e) }
+
+          logDebug('bootstrapping', {
+            nodes: nodeEntries.length,
+            edges: edgeEntries.length,
+            hasGraphCtor: !!GraphCtor,
+            reactVersion: React.version || 'unknown',
+            hasCreateRoot: typeof createRoot === 'function',
+            hasReactDOM: !!ReactDOM,
+            hasReactDOMClient: !!ReactDOMClient
+          })
+
+          let graph = null
+          if (GraphCtor) {
+            try {
+              graph = new GraphCtor({ multi: true, allowSelfLoops: true })
+            } catch (ctorErr) {
+              console.warn('reagraph graph ctor failed, falling back to buildGraph return value', ctorErr)
+              graph = null
+            }
+          }
+
+          if (graph && typeof reagraphApi.buildGraph === 'function') {
+            try {
+              reagraphApi.buildGraph(graph, nodeEntries, edgeEntries)
+            } catch (buildErr) {
+              console.warn('reagraph buildGraph failed with provided graph', buildErr)
+            }
+          }
+
+          if ((!graph || typeof graph.forEachNode !== 'function') && typeof reagraphApi.buildGraph === 'function') {
+            try {
+              const built = reagraphApi.buildGraph(null, nodeEntries, edgeEntries)
+              if (built && typeof built.forEachNode === 'function') graph = built
+            } catch (altErr) {
+              console.warn('reagraph buildGraph fallback failed', altErr)
+            }
+          }
+
+          if (!graph || typeof graph.forEachNode !== 'function') {
+            throw new Error('Failed to construct reagraph graph; ensure graphology is bundled')
+          }
+
+          const netOpts = (cfg && cfg.networkOptions) || {}
+          const layoutType = typeof netOpts.layoutType === 'string' ? netOpts.layoutType : 'forceDirected2d'
+          const iterations = Number.isFinite(netOpts.layoutIterations) ? netOpts.layoutIterations : 1000
+
+          let layout = null
+          if (typeof reagraphApi.layoutProvider === 'function') {
+            try {
+              layout = reagraphApi.layoutProvider({ type: layoutType, graph, iterations })
+            } catch (layoutErr) {
+              console.warn('reagraph layoutProvider failed, falling back to defaults', layoutErr)
+              try {
+                layout = reagraphApi.layoutProvider({ type: 'forceDirected2d', graph, iterations: 1000 })
+              } catch (layoutErr2) {
+                console.warn('reagraph layoutProvider second attempt failed', layoutErr2)
+                layout = null
+              }
+            }
+          }
+
+          logDebug('render inputs prepared', {
+            layoutTypeUsed: layoutType,
+            hasLayout: !!layout,
+            graphOrder: typeof graph.order === 'function' ? graph.order() : null
+          })
+
+          const element = React.createElement(GraphCanvas, {
+            nodes: nodeEntries,
+            edges: edgeEntries,
+            graph,
+            layout,
+            theme: reagraphApi.lightTheme || undefined,
+            labelType: netOpts.labelType || 'all',
+            sizingType: 'attribute',
+            sizingAttribute: 'size',
+            edgeArrowPosition: 0.9,
+            edgeCurved: true,
+            interactionMode: netOpts.interactionMode || 'pan',
+            cameraMode: netOpts.cameraMode || 'perspective'
+          })
+
+          let root = null
+          if (typeof createRoot === 'function') {
+            root = createRoot(container)
+            root.render(element)
+          } else if (ReactDOMClient && typeof ReactDOMClient.createRoot === 'function') {
+            root = ReactDOMClient.createRoot(container)
+            root.render(element)
+          } else if (ReactDOM && typeof ReactDOM.render === 'function') {
+            ReactDOM.render(element, container)
+          } else {
+            throw new Error('Unable to determine a React render entry point for reagraph')
+          }
+
+          if (root && typeof root.unmount === 'function') {
+            el._reagraphCleanup = () => {
+              try { root.unmount() } catch (unmountErr) { console.warn('reagraph unmount failed', unmountErr) }
+            }
+          } else if (ReactDOM && typeof ReactDOM.unmountComponentAtNode === 'function') {
+            el._reagraphCleanup = () => {
+              try { ReactDOM.unmountComponentAtNode(container) } catch (unmountErr) { console.warn('reagraph legacy unmount failed', unmountErr) }
+            }
+          }
+        } catch (e) {
+          console.error('reagraph plugin failed', e)
+          el.innerText = `Reagraph failed to render the network.\n${e && e.message ? e.message : ''}`
+        }
       }
     }
 
@@ -748,7 +955,9 @@
         }
         if (networkRenderer === 'reagraph') {
           const ok = await ensureGlobal('reagraph', 'reagraph.umd.js')
-          if (!ok || typeof window.reagraph === 'undefined') throw new Error('reagraph standalone bundle not available')
+          const api = window.reagraph && typeof window.reagraph.render === 'function' ? window.reagraph : (window.reagraphBundle && typeof window.reagraphBundle.render === 'function' ? window.reagraphBundle : null)
+          if (!window.reagraph && api) window.reagraph = api
+          if (!ok && !api) throw new Error('reagraph standalone bundle not available')
         }
         await netPlugin(netEl, nodes, edges, config)
       } catch (e) {

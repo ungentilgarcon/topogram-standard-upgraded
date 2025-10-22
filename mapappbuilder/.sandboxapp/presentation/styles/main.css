@@ -1,1 +1,1 @@
-body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0}header{background:#222;color:#fff;padding:12px}main{display:flex}#map{background:#eef}#network{background:#f9f9f9;padding:8px}footer{clear:both;padding:10px;text-align:center;color:#666}
+body{font-family:Arial,Helvetica,sans-serif;margin:0;padding:0}header{background:#222;color:#fff;padding:12px}main{display:flex;min-height:480px}#map,#network{flex:1;min-height:480px}#map{background:#eef}#network{background:#f9f9f9;padding:8px;position:relative}footer{clear:both;padding:10px;text-align:center;color:#666}
