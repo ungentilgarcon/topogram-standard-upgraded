@@ -448,35 +448,6 @@
             })
           } catch(e) { console.warn('cesium plugin failed', e) }
         }
-  ,sigma: async function(el, nodesLocal, edgesLocal, cfg) {
-        if (!el) return
-        if (typeof sigma === 'undefined' && typeof window.sigma === 'undefined') throw new Error('sigma not available')
-        el.innerHTML = ''
-        try {
-          const container = document.createElement('div')
-          container.style.width = '100%'
-          container.style.height = '100%'
-          el.appendChild(container)
-          const graph = { nodes: [], edges: [] }
-          nodesLocal.forEach(n => { graph.nodes.push({ id: String(n.id||n._id||Math.random()), label: n.label||n.name||n.title, x: Math.random(), y: Math.random(), size: Math.max(1, parseFloat(readField(n,'weight')||4)), color: readField(n,'color')||'#666' }) })
-          edgesLocal.forEach((e, idx) => { graph.edges.push({ id: String(e._id||idx), source: String(e.from||e.source||(e.data&&e.data.source)), target: String(e.to||e.target||(e.data&&e.data.target)), size: Math.max(1, parseFloat(readField(e,'weight')||1)), color: readField(e,'color')||'#999' }) })
-          const Sigma = window.sigma || sigma
-          try { new Sigma({ graph, container }) } catch(e) { console.warn('sigma render failed', e) }
-        } catch(e){ console.warn('sigma plugin failed', e) }
-      }
-  ,reagraph: async function(el, nodesLocal, edgesLocal, cfg) {
-        if (!el) return
-        if (typeof reagraph === 'undefined' && typeof window.reagraph === 'undefined') throw new Error('reagraph not available')
-        el.innerHTML = ''
-        try {
-          const container = document.createElement('div')
-          container.style.width = '100%'
-          container.style.height = '100%'
-          el.appendChild(container)
-          const data = { nodes: nodesLocal.map(n => ({ id: String(n.id||n._id||Math.random()), ...((n.data&&n.data)||n) })), edges: edgesLocal.map(e => ({ id: String(e._id||Math.random()), source: e.from||e.source||(e.data&&e.data.source), target: e.to||e.target||(e.data&&e.data.target), weight: readField(e,'weight') })) }
-          try { if (window.reagraph && window.reagraph.render) window.reagraph.render(container, data) } catch(e){ console.warn('reagraph render failed', e) }
-        } catch(e){ console.warn('reagraph plugin failed', e) }
-          }
       // other map plugins (maplibre, cesium) are intentionally not added here
     }
 
@@ -660,7 +631,60 @@
           try { cy.layout({ name: 'cose' }).run() } catch (e) { /* ignore */ }
         }
       },
-      
+      sigma: async function(el, nodesLocal, edgesLocal, cfg) {
+        if (!el) return
+        if (typeof sigma === 'undefined' && typeof window.sigma === 'undefined') throw new Error('sigma not available')
+        el.innerHTML = ''
+        try {
+          const container = document.createElement('div')
+          container.style.width = '100%'
+          container.style.height = '100%'
+          el.appendChild(container)
+          const graph = { nodes: [], edges: [] }
+          nodesLocal.forEach(n => {
+            graph.nodes.push({
+              id: String(n.id || n._id || Math.random()),
+              label: n.label || n.name || n.title,
+              x: Math.random(),
+              y: Math.random(),
+              size: Math.max(1, parseFloat(readField(n, 'weight') || 4)),
+              color: readField(n, 'color') || '#666'
+            })
+          })
+          edgesLocal.forEach((e, idx) => {
+            graph.edges.push({
+              id: String(e._id || idx),
+              source: String(e.from || e.source || (e.data && e.data.source)),
+              target: String(e.to || e.target || (e.data && e.data.target)),
+              size: Math.max(1, parseFloat(readField(e, 'weight') || 1)),
+              color: readField(e, 'color') || '#999'
+            })
+          })
+          const Sigma = window.sigma || sigma
+          try { new Sigma({ graph, container }) } catch (e) { console.warn('sigma render failed', e) }
+        } catch (e) { console.warn('sigma plugin failed', e) }
+      },
+      reagraph: async function(el, nodesLocal, edgesLocal, cfg) {
+        if (!el) return
+        if (typeof reagraph === 'undefined' && typeof window.reagraph === 'undefined') throw new Error('reagraph not available')
+        el.innerHTML = ''
+        try {
+          const container = document.createElement('div')
+          container.style.width = '100%'
+          container.style.height = '100%'
+          el.appendChild(container)
+          const data = {
+            nodes: nodesLocal.map(n => ({ id: String(n.id || n._id || Math.random()), ...((n.data && n.data) || n) })),
+            edges: edgesLocal.map(e => ({
+              id: String(e._id || Math.random()),
+              source: e.from || e.source || (e.data && e.data.source),
+              target: e.to || e.target || (e.data && e.data.target),
+              weight: readField(e, 'weight')
+            }))
+          }
+          try { if (window.reagraph && window.reagraph.render) window.reagraph.render(container, data) } catch (e) { console.warn('reagraph render failed', e) }
+        } catch (e) { console.warn('reagraph plugin failed', e) }
+      }
     }
 
     // Allow query-params to override renderer choices for quick sandbox testing
