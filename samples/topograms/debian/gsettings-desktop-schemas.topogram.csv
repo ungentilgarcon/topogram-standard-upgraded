@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"gir1.2-gdesktopenums-3.0","gir1.2-gdesktopenums-3.0","gir1.2-gdesktopenums-3.0","GObject introspection for GSettings desktop-wide schemas","","","1","1","","","","Section=introspection; Version=48.0-1","","","","","",""

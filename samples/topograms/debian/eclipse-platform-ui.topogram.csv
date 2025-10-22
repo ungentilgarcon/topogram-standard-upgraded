@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libeclipse-core-commands-java","libeclipse-core-commands-java","libeclipse-core-commands-java","Eclipse Commands","","","1","1","","","","Section=java; Version=3.11.100+eclipse4.29-1","","","","","",""

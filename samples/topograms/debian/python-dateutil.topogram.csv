@@ -1,0 +1,8 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"python3-dateutil","python3-dateutil","python3-dateutil","powerful extensions to the standard Python 3 datetime module","","","1","1","","","","Section=python; Version=2.9.0-4","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"tzdata","tzdata","tzdata","time zone and daylight-saving time data","","","1","1","","","","Section=localization; Version=2025b-4+deb13u1","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","",""
+"","","","","","","","","","","","","python3-dateutil","python3:any","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","python3-dateutil","tzdata","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","tzdata","debconf","Depends","#333","1","Depends","{}"

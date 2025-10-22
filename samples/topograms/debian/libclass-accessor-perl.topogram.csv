@@ -1,0 +1,12 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libclass-accessor-perl","libclass-accessor-perl","libclass-accessor-perl","Perl module that automatically generates accessors","","","1","1","","","","Section=perl; Version=0.51-2","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libsub-name-perl","libsub-name-perl","libsub-name-perl","module for assigning a new name to referenced sub","","","1","1","","","","Section=perl; Version=0.28-1","","","","","",""
+"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
+"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"","","","","","","","","","","","","libclass-accessor-perl","perl:any","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libclass-accessor-perl","libsub-name-perl","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libsub-name-perl","perl","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libsub-name-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libsub-name-perl","libc6","Depends","#333","1","Depends","{}"

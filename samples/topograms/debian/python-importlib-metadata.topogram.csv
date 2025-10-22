@@ -1,0 +1,7 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"python3-importlib-metadata","python3-importlib-metadata","python3-importlib-metadata","library to access the metadata for a Python package - Python 3.x","","","1","1","","","","Section=python; Version=8.7.0-1","","","","","",""
+"python3-zipp","python3-zipp","python3-zipp","pathlib-compatible Zipfile object wrapper - Python 3.x","","","1","1","","","","Section=python; Version=3.21.0-1","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"","","","","","","","","","","","","python3-importlib-metadata","python3-zipp","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","python3-importlib-metadata","python3:any","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","python3-zipp","python3:any","Depends","#333","1","Depends","{}"

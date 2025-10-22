@@ -1,0 +1,12 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libpath-tiny-perl","libpath-tiny-perl","libpath-tiny-perl","file path utility","","","1","1","","","","Section=perl; Version=0.148-1","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libunicode-utf8-perl","libunicode-utf8-perl","libunicode-utf8-perl","encoding and decoding of UTF-8 encoding form","","","1","1","","","","Section=perl; Version=0.62-3","","","","","",""
+"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
+"perlapi-5.40.1","perlapi-5.40.1","perlapi-5.40.1","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"","","","","","","","","","","","","libpath-tiny-perl","perl:any","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libpath-tiny-perl","libunicode-utf8-perl","Recommends","#333","1","Recommends","{}"
+"","","","","","","","","","","","","libunicode-utf8-perl","perl","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libunicode-utf8-perl","perlapi-5.40.1","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libunicode-utf8-perl","libc6","Depends","#333","1","Depends","{}"

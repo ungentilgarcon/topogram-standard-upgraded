@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"gir1.2-freedesktop","gir1.2-freedesktop","gir1.2-freedesktop","Introspection data for some FreeDesktop components","","","1","1","","","","Section=introspection; Version=1.84.0-1","","","","","",""
+"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"libcairo-gobject2","libcairo-gobject2","libcairo-gobject2","Cairo 2D vector graphics library (GObject library)","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
+"","","","","","","","","","","","","gir1.2-freedesktop","gir1.2-gobject-2.0","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","gir1.2-freedesktop","libcairo-gobject2","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcairo-gobject2","libcairo2","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcairo-gobject2","libglib2.0-0t64","Depends","#333","1","Depends","{}"

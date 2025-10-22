@@ -1,0 +1,6 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libcommons-io-java","libcommons-io-java","libcommons-io-java","Common useful IO related classes","","","1","1","","","","Section=java; Version=2.19.0-1","","","","","",""
+"libcommons-parent-java","libcommons-parent-java","libcommons-parent-java","Maven metadata for Apache Commons project","","","1","1","","","","Section=java; Version=56-1","","","","","",""
+"libapache-pom-java","libapache-pom-java","libapache-pom-java","Maven metadata for all Apache Software projects","","","1","1","","","","Section=java; Version=33-2","","","","","",""
+"","","","","","","","","","","","","libcommons-io-java","libcommons-parent-java","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libcommons-parent-java","libapache-pom-java","Depends","#333","1","Depends","{}"

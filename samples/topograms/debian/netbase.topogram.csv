@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","",""

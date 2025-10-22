@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"pyqt5-dev","pyqt5-dev","pyqt5-dev","Development files for PyQt5","","","1","1","","","","Section=python; Version=5.15.11+dfsg-2","","","","","",""

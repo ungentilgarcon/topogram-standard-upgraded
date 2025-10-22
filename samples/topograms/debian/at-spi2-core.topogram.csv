@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"at-spi2-common","at-spi2-common","at-spi2-common","Assistive Technology Service Provider Interface (common files)","","","1","1","","","","Section=misc; Version=2.56.2-1","","","","","",""

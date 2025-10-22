@@ -1,0 +1,6 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"lsb-base","lsb-base","lsb-base","transitional package for Linux Standard Base init script functionality","","","1","1","","","","Section=misc; Version=11.6","","","","","",""
+"sysvinit-utils","sysvinit-utils","sysvinit-utils","System-V-like utilities","","","1","1","","","","Section=admin; Version=3.14-4","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"","","","","","","","","","","","","lsb-base","sysvinit-utils","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","sysvinit-utils","libc6","Depends","#333","1","Depends","{}"

@@ -1,0 +1,6 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libfindlib-ocaml","libfindlib-ocaml","libfindlib-ocaml","library for managing OCaml libraries (runtime)","","","1","1","","","","Section=ocaml; Version=1.9.8-1+b1","","","","","",""
+"libstdlib-ocaml-m4xw9","libstdlib-ocaml-m4xw9","libstdlib-ocaml-m4xw9","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"ocaml-base-5.3.0","ocaml-base-5.3.0","ocaml-base-5.3.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
+"","","","","","","","","","","","","libfindlib-ocaml","libstdlib-ocaml-m4xw9","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libfindlib-ocaml","ocaml-base-5.3.0","Depends","#333","1","Depends","{}"

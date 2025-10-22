@@ -1,0 +1,13 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libmpfr-dev","libmpfr-dev","libmpfr-dev","multiple precision floating-point computation developers tools","","","1","1","","","","Section=libdevel; Version=4.2.2-1","","","","","",""
+"libgmp-dev","libgmp-dev","libgmp-dev","Multiprecision arithmetic library developers tools","","","1","1","","","","Section=libdevel; Version=2:6.3.0+dfsg-3","","","","","",""
+"libmpfr6","libmpfr6","libmpfr6","multiple precision floating-point computation","","","1","1","","","","Section=libs; Version=4.2.2-1","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
+"libgmpxx4ldbl","libgmpxx4ldbl","libgmpxx4ldbl","Multiprecision arithmetic library (C++ bindings)","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
+"","","","","","","","","","","","","libmpfr-dev","libgmp-dev","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libmpfr-dev","libmpfr6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libgmp-dev","libgmp10","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libgmp-dev","libgmpxx4ldbl","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libmpfr6","libc6","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libmpfr6","libgmp10","Depends","#333","1","Depends","{}"

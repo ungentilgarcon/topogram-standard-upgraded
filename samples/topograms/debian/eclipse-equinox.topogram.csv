@@ -1,0 +1,6 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libeclipse-osgi-compatibility-state-java","libeclipse-osgi-compatibility-state-java","libeclipse-osgi-compatibility-state-java","Equinox State and Resolver Compatibility Fragment","","","1","1","","","","Section=java; Version=1.2.800+eclipse4.29-2","","","","","",""
+"libeclipse-osgi-java","libeclipse-osgi-java","libeclipse-osgi-java","Eclipse OSGi System Bundle","","","1","1","","","","Section=java; Version=3.18.500+eclipse4.29-2","","","","","",""
+"libosgi-annotation-java","libosgi-annotation-java","libosgi-annotation-java","Java OSGi API - annotation module","","","1","1","","","","Section=java; Version=8.1.0-1","","","","","",""
+"","","","","","","","","","","","","libeclipse-osgi-compatibility-state-java","libeclipse-osgi-java","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","libeclipse-osgi-java","libosgi-annotation-java","Depends","#333","1","Depends","{}"

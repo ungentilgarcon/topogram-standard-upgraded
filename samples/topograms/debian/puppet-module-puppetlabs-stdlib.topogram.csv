@@ -1,0 +1,6 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"puppet-module-puppetlabs-stdlib","puppet-module-puppetlabs-stdlib","puppet-module-puppetlabs-stdlib","Puppet module standard library","","","1","1","","","","Section=admin; Version=9.4.1-1","","","","","",""
+"puppet","puppet","puppet","transitional dummy package","","","1","1","","","","Section=admin; Version=8.10.0-5","","","","","",""
+"puppet-agent","puppet-agent","puppet-agent","configuration management system, agent","","","1","1","","","","Section=admin; Version=8.10.0-5","","","","","",""
+"","","","","","","","","","","","","puppet-module-puppetlabs-stdlib","puppet","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","puppet","puppet-agent","Depends","#333","1","Depends","{}"

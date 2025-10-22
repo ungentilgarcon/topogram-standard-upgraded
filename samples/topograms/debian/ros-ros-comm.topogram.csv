@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"cl-roscpp-msg","cl-roscpp-msg","cl-roscpp-msg","Header for roscpp messages, LISP","","","1","1","","","","Section=lisp; Version=1.17.0+ds-2","","","","","",""

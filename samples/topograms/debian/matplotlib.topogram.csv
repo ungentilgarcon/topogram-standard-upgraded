@@ -1,0 +1,8 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"python-matplotlib-data","python-matplotlib-data","python-matplotlib-data","Python based plotting system (data package)","","","1","1","","","","Section=python; Version=3.10.1+dfsg1-4","","","","","",""
+"fonts-dejavu-core","fonts-dejavu-core","fonts-dejavu-core","Vera font family derivate with additional characters","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","",""
+"fonts-lyx","fonts-lyx","fonts-lyx","TrueType versions of some TeX fonts used by LyX","","","1","1","","","","Section=fonts; Version=2.4.3-1","","","","","",""
+"fonts-dejavu-mono","fonts-dejavu-mono","fonts-dejavu-mono","Vera font family derivate with additional characters","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","",""
+"","","","","","","","","","","","","python-matplotlib-data","fonts-dejavu-core","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","python-matplotlib-data","fonts-lyx","Depends","#333","1","Depends","{}"
+"","","","","","","","","","","","","fonts-dejavu-core","fonts-dejavu-mono","Depends","#333","1","Depends","{}"

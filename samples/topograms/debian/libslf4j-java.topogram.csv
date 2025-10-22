@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"libslf4j-java","libslf4j-java","libslf4j-java","Simple Logging Facade for Java","","","1","1","","","","Section=java; Version=1.7.32-2","","","","","",""

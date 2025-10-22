@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
+"golang-golang-x-sys-dev","golang-golang-x-sys-dev","golang-golang-x-sys-dev","Low-level interaction with the operating system","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","",""
