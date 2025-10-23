@@ -1,32 +1,32 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-cpp-12-alpha-linux-gnu,cpp-12-alpha-linux-gnu,cpp-12-alpha-linux-gnu,GNU C preprocessor,,,1,1,,,,Section=devel; Version=12.4.0-5cross1,,,,,,,
-gcc-12-alpha-linux-gnu-base,gcc-12-alpha-linux-gnu-base,gcc-12-alpha-linux-gnu-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=devel; Version=12.4.0-5cross1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
-libisl23,libisl23,libisl23,manipulating sets and relations of integer points bounded by linear constraints,,,1,1,,,,Section=libs; Version=0.27-1,,,,,,,
-libmpc3,libmpc3,libmpc3,multiple precision complex floating-point library,,,1,1,,,,Section=libs; Version=1.3.1-1+b3,,,,,,,
-libmpfr6,libmpfr6,libmpfr6,multiple precision floating-point computation,,,1,1,,,,Section=libs; Version=4.2.2-1,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,gcc-12-alpha-linux-gnu-base,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libisl23,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmpc3,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmpfr6,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,cpp-12-alpha-linux-gnu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libgmp10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libisl23,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,libisl23,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libmpc3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,libmpc3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmpfr6,libmpc3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libmpfr6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,libmpfr6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libzstd1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,zlib1g,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"cpp-12-alpha-linux-gnu","cpp-12-alpha-linux-gnu","cpp-12-alpha-linux-gnu","GNU C preprocessor","","","1","1","","","","Section=devel; Version=12.4.0-5cross1","","","","","","","",""
+"gcc-12-alpha-linux-gnu-base","gcc-12-alpha-linux-gnu-base","gcc-12-alpha-linux-gnu-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=devel; Version=12.4.0-5cross1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"libisl23","libisl23","libisl23","manipulating sets and relations of integer points bounded by linear constraints","","","1","1","","","","Section=libs; Version=0.27-1","","","","","","","",""
+"libmpc3","libmpc3","libmpc3","multiple precision complex floating-point library","","","1","1","","","","Section=libs; Version=1.3.1-1+b3","","","","","","","",""
+"libmpfr6","libmpfr6","libmpfr6","multiple precision floating-point computation","","","1","1","","","","Section=libs; Version=4.2.2-1","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","gcc-12-alpha-linux-gnu-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","libisl23","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","libmpc3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","libmpfr6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cpp-12-alpha-linux-gnu","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgmp10","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libisl23","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libisl23","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmpc3","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmpc3","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmpc3","libmpfr6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmpfr6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmpfr6","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libzstd1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g","libc6","Depends","#333","1","Depends","arrow","{}"

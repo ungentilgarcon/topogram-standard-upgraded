@@ -1,213 +1,213 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-librdf-trine-perl,librdf-trine-perl,librdf-trine-perl,RDF Framework for Perl,,,1,1,,,,Section=perl; Version=1.019-4,,,,,,,
-libalgorithm-combinatorics-perl,libalgorithm-combinatorics-perl,libalgorithm-combinatorics-perl,module for the efficient generation of combinatorial sequences,,,1,1,,,,Section=perl; Version=0.27-3+b4,,,,,,,
-libcache-lru-perl,libcache-lru-perl,libcache-lru-perl,"simple, fast implementation of LRU cache",,,1,1,,,,Section=perl; Version=0.04-4,,,,,,,
-libdbd-sqlite3-perl,libdbd-sqlite3-perl,libdbd-sqlite3-perl,Perl DBI driver with a self-contained RDBMS,,,1,1,,,,Section=perl; Version=1.76-1,,,,,,,
-libdbi-perl,libdbi-perl,libdbi-perl,Perl Database Interface (DBI),,,1,1,,,,Section=perl; Version=1.647-1,,,,,,,
-libdbix-connector-perl,libdbix-connector-perl,libdbix-connector-perl,fast and safe DBI connection and transaction management,,,1,1,,,,Section=perl; Version=0.60-1,,,,,,,
-liberror-perl,liberror-perl,liberror-perl,Perl module for error/exception handling in an OO-ish way,,,1,1,,,,Section=perl; Version=0.17030-1,,,,,,,
-libiri-perl,libiri-perl,libiri-perl,Handle Internationalized Resource Identifiers in Perl,,,1,1,,,,Section=perl; Version=0.013-1,,,,,,,
-libjson-perl,libjson-perl,libjson-perl,module for manipulating JSON-formatted data,,,1,1,,,,Section=perl; Version=4.10000-1,,,,,,,
-liblog-log4perl-perl,liblog-log4perl-perl,liblog-log4perl-perl,Perl port of the widely popular log4j logging package,,,1,1,,,,Section=perl; Version=1.57-1,,,,,,,
-libmoose-perl,libmoose-perl,libmoose-perl,modern Perl object system framework,,,1,1,,,,Section=perl; Version=2.2207-1+b3,,,,,,,
-libmoosex-arrayref-perl,libmoosex-arrayref-perl,libmoosex-arrayref-perl,blessed arrayrefs with Moose,,,1,1,,,,Section=perl; Version=0.005-4,,,,,,,
-libossp-uuid-perl,libossp-uuid-perl,libossp-uuid-perl,perl OSSP::UUID - OSSP uuid Perl Binding,,,1,1,,,,Section=perl; Version=1.6.4-1,,,,,,,
-libset-scalar-perl,libset-scalar-perl,libset-scalar-perl,Perl interface for operations on finite sets,,,1,1,,,,Section=perl; Version=1.29-3,,,,,,,
-libtext-csv-xs-perl,libtext-csv-xs-perl,libtext-csv-xs-perl,Perl C/XS module to process Comma-Separated Value files,,,1,1,,,,Section=perl; Version=1.60-1,,,,,,,
-libtext-table-perl,libtext-table-perl,libtext-table-perl,Create tables that adapt to alignment requirements,,,1,1,,,,Section=perl; Version=1.132-1+b1,,,,,,,
-liburi-perl,liburi-perl,liburi-perl,module to manipulate and access URI strings,,,1,1,,,,Section=perl; Version=5.30-1,,,,,,,
-libwww-perl,libwww-perl,libwww-perl,simple and consistent interface to the world-wide web,,,1,1,,,,Section=perl; Version=6.78-1,,,,,,,
-libxml-commonns-perl,libxml-commonns-perl,libxml-commonns-perl,list of commonly used XML namespaces,,,1,1,,,,Section=perl; Version=0.06-5,,,,,,,
-libxml-namespace-perl,libxml-namespace-perl,libxml-namespace-perl,simple support for XML namespaces,,,1,1,,,,Section=perl; Version=0.02-6,,,,,,,
-libxml-sax-perl,libxml-sax-perl,libxml-sax-perl,Perl module for using and building Perl SAX2 XML processors,,,1,1,,,,Section=perl; Version=1.02+dfsg-4,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-librdf-trine-node-literal-xml-perl,librdf-trine-node-literal-xml-perl,librdf-trine-node-literal-xml-perl,RDF Node class for XML Literals,,,1,1,,,,Section=perl; Version=0.16-4,,,,,,,
-libxml-libxml-perl,libxml-libxml-perl,libxml-libxml-perl,Perl interface to the libxml2 library,,,1,1,,,,Section=perl; Version=2.0207+dfsg+really+2.0134-5+b2,,,,,,,
-perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
-perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-perl-dbdabi-94,perl-dbdabi-94,perl-dbdabi-94,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
-libmoo-perl,libmoo-perl,libmoo-perl,Minimalist Object Orientation library (with Moose compatibility),,,1,1,,,,Section=perl; Version=2.005005-1,,,,,,,
-libmoox-handlesvia-perl,libmoox-handlesvia-perl,libmoox-handlesvia-perl,Moose Native Traits-like behavior for Moo,,,1,1,,,,Section=perl; Version=0.001009-2,,,,,,,
-libtry-tiny-perl,libtry-tiny-perl,libtry-tiny-perl,module providing minimalistic try/catch,,,1,1,,,,Section=perl; Version=0.32-1,,,,,,,
-libtype-tiny-perl,libtype-tiny-perl,libtype-tiny-perl,"tiny, yet Moo(se)-compatible type constraint",,,1,1,,,,Section=perl; Version=2.004000-2,,,,,,,
-libjson-xs-perl,libjson-xs-perl,libjson-xs-perl,module for manipulating JSON-formatted data (C/XS-accelerated),,,1,1,,,,Section=perl; Version=4.030-2+b5,,,,,,,
-libipc-shareable-perl,libipc-shareable-perl,libipc-shareable-perl,module to access IPC shared memory segments through perl,,,1,1,,,,Section=perl; Version=1.13-1,,,,,,,
-liblog-dispatch-perl,liblog-dispatch-perl,liblog-dispatch-perl,message dispatcher to multiple Log::Dispatch::* objects,,,1,1,,,,Section=perl; Version=2.71-1,,,,,,,
-libclass-load-perl,libclass-load-perl,libclass-load-perl,module for loading modules by name,,,1,1,,,,Section=perl; Version=0.25-2,,,,,,,
-libclass-load-xs-perl,libclass-load-xs-perl,libclass-load-xs-perl,XS implementation of parts of Class::Load,,,1,1,,,,Section=perl; Version=0.10-2+b4,,,,,,,
-libdata-optlist-perl,libdata-optlist-perl,libdata-optlist-perl,module to parse and validate simple name/value option pairs,,,1,1,,,,Section=perl; Version=0.114-1,,,,,,,
-libdevel-globaldestruction-perl,libdevel-globaldestruction-perl,libdevel-globaldestruction-perl,module to expose the flag that marks global destruction,,,1,1,,,,Section=perl; Version=0.14-4,,,,,,,
-libdevel-overloadinfo-perl,libdevel-overloadinfo-perl,libdevel-overloadinfo-perl,module to introspect overloaded operators,,,1,1,,,,Section=perl; Version=0.007-1,,,,,,,
-libdevel-stacktrace-perl,libdevel-stacktrace-perl,libdevel-stacktrace-perl,Perl module containing stack trace and related objects,,,1,1,,,,Section=perl; Version=2.0500-1,,,,,,,
-libeval-closure-perl,libeval-closure-perl,libeval-closure-perl,Perl module to safely and cleanly create closures via string eval,,,1,1,,,,Section=perl; Version=0.14-3,,,,,,,
-libmodule-runtime-conflicts-perl,libmodule-runtime-conflicts-perl,libmodule-runtime-conflicts-perl,module to provide information on conflicts for Module::Runtime,,,1,1,,,,Section=perl; Version=0.003-2,,,,,,,
-libmodule-runtime-perl,libmodule-runtime-perl,libmodule-runtime-perl,Perl module for runtime module handling,,,1,1,,,,Section=perl; Version=0.018-1,,,,,,,
-libmro-compat-perl,libmro-compat-perl,libmro-compat-perl,mro::* interface compatibility for Perls < 5.9.5,,,1,1,,,,Section=perl; Version=0.15-2,,,,,,,
-libpackage-deprecationmanager-perl,libpackage-deprecationmanager-perl,libpackage-deprecationmanager-perl,module for managing deprecation warnings for Perl distributions,,,1,1,,,,Section=perl; Version=0.18-1,,,,,,,
-libpackage-stash-perl,libpackage-stash-perl,libpackage-stash-perl,module providing routines for manipulating stashes,,,1,1,,,,Section=perl; Version=0.40-1,,,,,,,
-libpackage-stash-xs-perl,libpackage-stash-xs-perl,libpackage-stash-xs-perl,Perl module providing routines for manipulating stashes (XS version),,,1,1,,,,Section=perl; Version=0.30-1+b4,,,,,,,
-libparams-util-perl,libparams-util-perl,libparams-util-perl,Perl extension for simple stand-alone param checking functions,,,1,1,,,,Section=perl; Version=1.102-3+b1,,,,,,,
-libscalar-list-utils-perl,libscalar-list-utils-perl,libscalar-list-utils-perl,modules providing common scalar and list utility subroutines,,,1,1,,,,Section=perl; Version=1:1.63-1+b4,,,,,,,
-libsub-exporter-perl,libsub-exporter-perl,libsub-exporter-perl,sophisticated exporter for custom-built routines,,,1,1,,,,Section=perl; Version=0.990-1,,,,,,,
-libdevel-partialdump-perl,libdevel-partialdump-perl,libdevel-partialdump-perl,Perl module to dump subroutine parameters concisely,,,1,1,,,,Section=perl; Version=0.20-2,,,,,,,
-libossp-uuid16,libossp-uuid16,libossp-uuid16,OSSP uuid ISO-C and C++ - shared library,,,1,1,,,,Section=libs; Version=1.6.4-1,,,,,,,
-libencode-perl,libencode-perl,libencode-perl,module providing interfaces between Perl's strings and the system,,,1,1,,,,Section=perl; Version=3.21-1+b2,,,,,,,
-libtext-aligner-perl,libtext-aligner-perl,libtext-aligner-perl,Justify strings to various alignment styles,,,1,1,,,,Section=perl; Version=0.16-3,,,,,,,
-ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
-libencode-locale-perl,libencode-locale-perl,libencode-locale-perl,utility to determine the locale encoding,,,1,1,,,,Section=perl; Version=1.05-3,,,,,,,
-libfile-listing-perl,libfile-listing-perl,libfile-listing-perl,module to parse directory listings,,,1,1,,,,Section=perl; Version=6.16-1,,,,,,,
-libhtml-parser-perl,libhtml-parser-perl,libhtml-parser-perl,collection of modules that parse HTML text documents,,,1,1,,,,Section=perl; Version=3.83-1+b2,,,,,,,
-libhtml-tagset-perl,libhtml-tagset-perl,libhtml-tagset-perl,data tables pertaining to HTML,,,1,1,,,,Section=perl; Version=3.24-1,,,,,,,
-libhtml-tree-perl,libhtml-tree-perl,libhtml-tree-perl,Perl module to represent and create HTML syntax trees,,,1,1,,,,Section=perl; Version=5.07-3,,,,,,,
-libhttp-cookies-perl,libhttp-cookies-perl,libhttp-cookies-perl,HTTP cookie jars,,,1,1,,,,Section=perl; Version=6.11-1,,,,,,,
-libhttp-date-perl,libhttp-date-perl,libhttp-date-perl,module of date conversion routines,,,1,1,,,,Section=perl; Version=6.06-1,,,,,,,
-libhttp-message-perl,libhttp-message-perl,libhttp-message-perl,perl interface to HTTP style messages,,,1,1,,,,Section=perl; Version=7.00-2,,,,,,,
-libhttp-negotiate-perl,libhttp-negotiate-perl,libhttp-negotiate-perl,implementation of content negotiation,,,1,1,,,,Section=perl; Version=6.01-2,,,,,,,
-liblwp-mediatypes-perl,liblwp-mediatypes-perl,liblwp-mediatypes-perl,module to guess media type for a file or a URL,,,1,1,,,,Section=perl; Version=6.04-2,,,,,,,
-liblwp-protocol-https-perl,liblwp-protocol-https-perl,liblwp-protocol-https-perl,HTTPS driver for LWP::UserAgent,,,1,1,,,,Section=perl; Version=6.14-1,,,,,,,
-libnet-http-perl,libnet-http-perl,libnet-http-perl,module providing low-level HTTP connection client,,,1,1,,,,Section=perl; Version=6.23-1,,,,,,,
-libwww-robotrules-perl,libwww-robotrules-perl,libwww-robotrules-perl,database of robots.txt-derived permissions,,,1,1,,,,Section=perl; Version=6.02-1,,,,,,,
-netbase,netbase,netbase,Basic TCP/IP networking system,,,1,1,,,,Section=admin; Version=6.5,,,,,,,
-libdata-dump-perl,libdata-dump-perl,libdata-dump-perl,Perl module to help dump data structures,,,1,1,,,,Section=perl; Version=1.25-1,,,,,,,
-libhtml-form-perl,libhtml-form-perl,libhtml-form-perl,module that represents an HTML form element,,,1,1,,,,Section=perl; Version=6.12-1,,,,,,,
-libhtml-format-perl,libhtml-format-perl,libhtml-format-perl,module for transforming HTML into various formats,,,1,1,,,,Section=perl; Version=2.16-2,,,,,,,
-libhttp-daemon-perl,libhttp-daemon-perl,libhttp-daemon-perl,simple http server class,,,1,1,,,,Section=perl; Version=6.16-1,,,,,,,
-libmailtools-perl,libmailtools-perl,libmailtools-perl,modules to manipulate email in perl programs,,,1,1,,,,Section=perl; Version=2.22-1,,,,,,,
-sgml-base,sgml-base,sgml-base,SGML infrastructure and SGML catalog file support,,,1,1,,,,Section=text; Version=1.31+nmu1,,,,,,,
-libxml-namespacefactory-perl,libxml-namespacefactory-perl,libxml-namespacefactory-perl,simple factory objects for SAX namespaced names,,,1,1,,,,Section=perl; Version=1.02-3,,,,,,,
-libxml-namespacesupport-perl,libxml-namespacesupport-perl,libxml-namespacesupport-perl,Perl module for supporting simple generic namespaces,,,1,1,,,,Section=perl; Version=1.12-2,,,,,,,
-libxml-sax-base-perl,libxml-sax-base-perl,libxml-sax-base-perl,base class for SAX drivers and filters,,,1,1,,,,Section=perl; Version=1.09-3,,,,,,,
-ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
-libxml-sax-expat-perl,libxml-sax-expat-perl,libxml-sax-expat-perl,Perl module for a SAX2 driver for Expat (XML::Parser),,,1,1,,,,Section=perl; Version=0.51-2,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-,,,,,,,,,,,,libalgorithm-combinatorics-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcache-lru-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbd-sqlite3-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbi-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbix-connector-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liberror-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libiri-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjson-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblog-log4perl-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmoose-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmoosex-arrayref-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libossp-uuid-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libset-scalar-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtext-csv-xs-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtext-table-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liburi-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwww-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-commonns-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-namespace-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-sax-perl,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,librdf-trine-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librdf-trine-node-literal-xml-perl,librdf-trine-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libxml-libxml-perl,librdf-trine-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl,libalgorithm-combinatorics-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libalgorithm-combinatorics-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libalgorithm-combinatorics-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libcache-lru-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libdbd-sqlite3-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl-dbdabi-94,libdbd-sqlite3-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libdbd-sqlite3-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libdbd-sqlite3-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsqlite3-0,libdbd-sqlite3-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libdbi-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libdbi-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libdbi-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdbix-connector-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbi-perl,libdbix-connector-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,liberror-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libiri-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmoo-perl,libiri-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmoox-handlesvia-perl,libiri-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtry-tiny-perl,libiri-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtype-tiny-perl,libiri-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libjson-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjson-xs-perl,libjson-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl:any,liblog-log4perl-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libipc-shareable-perl,liblog-log4perl-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,liblog-dispatch-perl,liblog-log4perl-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-load-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-load-xs-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdata-optlist-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-globaldestruction-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-overloadinfo-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-stacktrace-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libeval-closure-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-runtime-conflicts-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-runtime-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmro-compat-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-deprecationmanager-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-xs-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libparams-util-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libscalar-list-utils-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-exporter-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtry-tiny-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-partialdump-perl,libmoose-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libmoose-perl,libmoosex-arrayref-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libmoosex-arrayref-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libossp-uuid-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libossp-uuid16,libossp-uuid-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libossp-uuid-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libossp-uuid-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libset-scalar-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libtext-csv-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libtext-csv-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libtext-csv-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libencode-perl,libtext-csv-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libtext-table-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtext-aligner-perl,libtext-table-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,liburi-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libencode-perl,liburi-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libscalar-list-utils-perl,liburi-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ca-certificates,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libencode-locale-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfile-listing-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhtml-parser-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhtml-tagset-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhtml-tree-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhttp-cookies-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhttp-date-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhttp-message-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhttp-negotiate-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblwp-mediatypes-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblwp-protocol-https-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnet-http-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtry-tiny-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liburi-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwww-robotrules-perl,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,netbase,libwww-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdata-dump-perl,libwww-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libhtml-form-perl,libwww-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libhtml-format-perl,libwww-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libhttp-daemon-perl,libwww-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libmailtools-perl,libwww-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl:any,libxml-commonns-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,sgml-base,libxml-commonns-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-namespacefactory-perl,libxml-commonns-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libxml-namespace-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libxml-sax-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-namespacesupport-perl,libxml-sax-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-sax-base-perl,libxml-sax-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,libxml-sax-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwww-perl,libxml-sax-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libxml-sax-expat-perl,libxml-sax-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl:any,librdf-trine-node-literal-xml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librdf-trine-perl,librdf-trine-node-literal-xml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-libxml-perl,librdf-trine-node-literal-xml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liberror-perl,librdf-trine-node-literal-xml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,librdf-trine-node-literal-xml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libxml-libxml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libxml-libxml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxml-libxml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,libxml-libxml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-namespacesupport-perl,libxml-libxml-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml-sax-perl,libxml-libxml-perl,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"librdf-trine-perl","librdf-trine-perl","librdf-trine-perl","RDF Framework for Perl","","","1","1","","","","Section=perl; Version=1.019-4","","","","","","","",""
+"libalgorithm-combinatorics-perl","libalgorithm-combinatorics-perl","libalgorithm-combinatorics-perl","module for the efficient generation of combinatorial sequences","","","1","1","","","","Section=perl; Version=0.27-3+b4","","","","","","","",""
+"libcache-lru-perl","libcache-lru-perl","libcache-lru-perl","simple, fast implementation of LRU cache","","","1","1","","","","Section=perl; Version=0.04-4","","","","","","","",""
+"libdbd-sqlite3-perl","libdbd-sqlite3-perl","libdbd-sqlite3-perl","Perl DBI driver with a self-contained RDBMS","","","1","1","","","","Section=perl; Version=1.76-1","","","","","","","",""
+"libdbi-perl","libdbi-perl","libdbi-perl","Perl Database Interface (DBI)","","","1","1","","","","Section=perl; Version=1.647-1","","","","","","","",""
+"libdbix-connector-perl","libdbix-connector-perl","libdbix-connector-perl","fast and safe DBI connection and transaction management","","","1","1","","","","Section=perl; Version=0.60-1","","","","","","","",""
+"liberror-perl","liberror-perl","liberror-perl","Perl module for error/exception handling in an OO-ish way","","","1","1","","","","Section=perl; Version=0.17030-1","","","","","","","",""
+"libiri-perl","libiri-perl","libiri-perl","Handle Internationalized Resource Identifiers in Perl","","","1","1","","","","Section=perl; Version=0.013-1","","","","","","","",""
+"libjson-perl","libjson-perl","libjson-perl","module for manipulating JSON-formatted data","","","1","1","","","","Section=perl; Version=4.10000-1","","","","","","","",""
+"liblog-log4perl-perl","liblog-log4perl-perl","liblog-log4perl-perl","Perl port of the widely popular log4j logging package","","","1","1","","","","Section=perl; Version=1.57-1","","","","","","","",""
+"libmoose-perl","libmoose-perl","libmoose-perl","modern Perl object system framework","","","1","1","","","","Section=perl; Version=2.2207-1+b3","","","","","","","",""
+"libmoosex-arrayref-perl","libmoosex-arrayref-perl","libmoosex-arrayref-perl","blessed arrayrefs with Moose","","","1","1","","","","Section=perl; Version=0.005-4","","","","","","","",""
+"libossp-uuid-perl","libossp-uuid-perl","libossp-uuid-perl","perl OSSP::UUID - OSSP uuid Perl Binding","","","1","1","","","","Section=perl; Version=1.6.4-1","","","","","","","",""
+"libset-scalar-perl","libset-scalar-perl","libset-scalar-perl","Perl interface for operations on finite sets","","","1","1","","","","Section=perl; Version=1.29-3","","","","","","","",""
+"libtext-csv-xs-perl","libtext-csv-xs-perl","libtext-csv-xs-perl","Perl C/XS module to process Comma-Separated Value files","","","1","1","","","","Section=perl; Version=1.60-1","","","","","","","",""
+"libtext-table-perl","libtext-table-perl","libtext-table-perl","Create tables that adapt to alignment requirements","","","1","1","","","","Section=perl; Version=1.132-1+b1","","","","","","","",""
+"liburi-perl","liburi-perl","liburi-perl","module to manipulate and access URI strings","","","1","1","","","","Section=perl; Version=5.30-1","","","","","","","",""
+"libwww-perl","libwww-perl","libwww-perl","simple and consistent interface to the world-wide web","","","1","1","","","","Section=perl; Version=6.78-1","","","","","","","",""
+"libxml-commonns-perl","libxml-commonns-perl","libxml-commonns-perl","list of commonly used XML namespaces","","","1","1","","","","Section=perl; Version=0.06-5","","","","","","","",""
+"libxml-namespace-perl","libxml-namespace-perl","libxml-namespace-perl","simple support for XML namespaces","","","1","1","","","","Section=perl; Version=0.02-6","","","","","","","",""
+"libxml-sax-perl","libxml-sax-perl","libxml-sax-perl","Perl module for using and building Perl SAX2 XML processors","","","1","1","","","","Section=perl; Version=1.02+dfsg-4","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"librdf-trine-node-literal-xml-perl","librdf-trine-node-literal-xml-perl","librdf-trine-node-literal-xml-perl","RDF Node class for XML Literals","","","1","1","","","","Section=perl; Version=0.16-4","","","","","","","",""
+"libxml-libxml-perl","libxml-libxml-perl","libxml-libxml-perl","Perl interface to the libxml2 library","","","1","1","","","","Section=perl; Version=2.0207+dfsg+really+2.0134-5+b2","","","","","","","",""
+"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","","","",""
+"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"perl-dbdabi-94","perl-dbdabi-94","perl-dbdabi-94","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","","","",""
+"libmoo-perl","libmoo-perl","libmoo-perl","Minimalist Object Orientation library (with Moose compatibility)","","","1","1","","","","Section=perl; Version=2.005005-1","","","","","","","",""
+"libmoox-handlesvia-perl","libmoox-handlesvia-perl","libmoox-handlesvia-perl","Moose Native Traits-like behavior for Moo","","","1","1","","","","Section=perl; Version=0.001009-2","","","","","","","",""
+"libtry-tiny-perl","libtry-tiny-perl","libtry-tiny-perl","module providing minimalistic try/catch","","","1","1","","","","Section=perl; Version=0.32-1","","","","","","","",""
+"libtype-tiny-perl","libtype-tiny-perl","libtype-tiny-perl","tiny, yet Moo(se)-compatible type constraint","","","1","1","","","","Section=perl; Version=2.004000-2","","","","","","","",""
+"libjson-xs-perl","libjson-xs-perl","libjson-xs-perl","module for manipulating JSON-formatted data (C/XS-accelerated)","","","1","1","","","","Section=perl; Version=4.030-2+b5","","","","","","","",""
+"libipc-shareable-perl","libipc-shareable-perl","libipc-shareable-perl","module to access IPC shared memory segments through perl","","","1","1","","","","Section=perl; Version=1.13-1","","","","","","","",""
+"liblog-dispatch-perl","liblog-dispatch-perl","liblog-dispatch-perl","message dispatcher to multiple Log::Dispatch::* objects","","","1","1","","","","Section=perl; Version=2.71-1","","","","","","","",""
+"libclass-load-perl","libclass-load-perl","libclass-load-perl","module for loading modules by name","","","1","1","","","","Section=perl; Version=0.25-2","","","","","","","",""
+"libclass-load-xs-perl","libclass-load-xs-perl","libclass-load-xs-perl","XS implementation of parts of Class::Load","","","1","1","","","","Section=perl; Version=0.10-2+b4","","","","","","","",""
+"libdata-optlist-perl","libdata-optlist-perl","libdata-optlist-perl","module to parse and validate simple name/value option pairs","","","1","1","","","","Section=perl; Version=0.114-1","","","","","","","",""
+"libdevel-globaldestruction-perl","libdevel-globaldestruction-perl","libdevel-globaldestruction-perl","module to expose the flag that marks global destruction","","","1","1","","","","Section=perl; Version=0.14-4","","","","","","","",""
+"libdevel-overloadinfo-perl","libdevel-overloadinfo-perl","libdevel-overloadinfo-perl","module to introspect overloaded operators","","","1","1","","","","Section=perl; Version=0.007-1","","","","","","","",""
+"libdevel-stacktrace-perl","libdevel-stacktrace-perl","libdevel-stacktrace-perl","Perl module containing stack trace and related objects","","","1","1","","","","Section=perl; Version=2.0500-1","","","","","","","",""
+"libeval-closure-perl","libeval-closure-perl","libeval-closure-perl","Perl module to safely and cleanly create closures via string eval","","","1","1","","","","Section=perl; Version=0.14-3","","","","","","","",""
+"libmodule-runtime-conflicts-perl","libmodule-runtime-conflicts-perl","libmodule-runtime-conflicts-perl","module to provide information on conflicts for Module::Runtime","","","1","1","","","","Section=perl; Version=0.003-2","","","","","","","",""
+"libmodule-runtime-perl","libmodule-runtime-perl","libmodule-runtime-perl","Perl module for runtime module handling","","","1","1","","","","Section=perl; Version=0.018-1","","","","","","","",""
+"libmro-compat-perl","libmro-compat-perl","libmro-compat-perl","mro::* interface compatibility for Perls < 5.9.5","","","1","1","","","","Section=perl; Version=0.15-2","","","","","","","",""
+"libpackage-deprecationmanager-perl","libpackage-deprecationmanager-perl","libpackage-deprecationmanager-perl","module for managing deprecation warnings for Perl distributions","","","1","1","","","","Section=perl; Version=0.18-1","","","","","","","",""
+"libpackage-stash-perl","libpackage-stash-perl","libpackage-stash-perl","module providing routines for manipulating stashes","","","1","1","","","","Section=perl; Version=0.40-1","","","","","","","",""
+"libpackage-stash-xs-perl","libpackage-stash-xs-perl","libpackage-stash-xs-perl","Perl module providing routines for manipulating stashes (XS version)","","","1","1","","","","Section=perl; Version=0.30-1+b4","","","","","","","",""
+"libparams-util-perl","libparams-util-perl","libparams-util-perl","Perl extension for simple stand-alone param checking functions","","","1","1","","","","Section=perl; Version=1.102-3+b1","","","","","","","",""
+"libscalar-list-utils-perl","libscalar-list-utils-perl","libscalar-list-utils-perl","modules providing common scalar and list utility subroutines","","","1","1","","","","Section=perl; Version=1:1.63-1+b4","","","","","","","",""
+"libsub-exporter-perl","libsub-exporter-perl","libsub-exporter-perl","sophisticated exporter for custom-built routines","","","1","1","","","","Section=perl; Version=0.990-1","","","","","","","",""
+"libdevel-partialdump-perl","libdevel-partialdump-perl","libdevel-partialdump-perl","Perl module to dump subroutine parameters concisely","","","1","1","","","","Section=perl; Version=0.20-2","","","","","","","",""
+"libossp-uuid16","libossp-uuid16","libossp-uuid16","OSSP uuid ISO-C and C++ - shared library","","","1","1","","","","Section=libs; Version=1.6.4-1","","","","","","","",""
+"libencode-perl","libencode-perl","libencode-perl","module providing interfaces between Perl's strings and the system","","","1","1","","","","Section=perl; Version=3.21-1+b2","","","","","","","",""
+"libtext-aligner-perl","libtext-aligner-perl","libtext-aligner-perl","Justify strings to various alignment styles","","","1","1","","","","Section=perl; Version=0.16-3","","","","","","","",""
+"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","","","",""
+"libencode-locale-perl","libencode-locale-perl","libencode-locale-perl","utility to determine the locale encoding","","","1","1","","","","Section=perl; Version=1.05-3","","","","","","","",""
+"libfile-listing-perl","libfile-listing-perl","libfile-listing-perl","module to parse directory listings","","","1","1","","","","Section=perl; Version=6.16-1","","","","","","","",""
+"libhtml-parser-perl","libhtml-parser-perl","libhtml-parser-perl","collection of modules that parse HTML text documents","","","1","1","","","","Section=perl; Version=3.83-1+b2","","","","","","","",""
+"libhtml-tagset-perl","libhtml-tagset-perl","libhtml-tagset-perl","data tables pertaining to HTML","","","1","1","","","","Section=perl; Version=3.24-1","","","","","","","",""
+"libhtml-tree-perl","libhtml-tree-perl","libhtml-tree-perl","Perl module to represent and create HTML syntax trees","","","1","1","","","","Section=perl; Version=5.07-3","","","","","","","",""
+"libhttp-cookies-perl","libhttp-cookies-perl","libhttp-cookies-perl","HTTP cookie jars","","","1","1","","","","Section=perl; Version=6.11-1","","","","","","","",""
+"libhttp-date-perl","libhttp-date-perl","libhttp-date-perl","module of date conversion routines","","","1","1","","","","Section=perl; Version=6.06-1","","","","","","","",""
+"libhttp-message-perl","libhttp-message-perl","libhttp-message-perl","perl interface to HTTP style messages","","","1","1","","","","Section=perl; Version=7.00-2","","","","","","","",""
+"libhttp-negotiate-perl","libhttp-negotiate-perl","libhttp-negotiate-perl","implementation of content negotiation","","","1","1","","","","Section=perl; Version=6.01-2","","","","","","","",""
+"liblwp-mediatypes-perl","liblwp-mediatypes-perl","liblwp-mediatypes-perl","module to guess media type for a file or a URL","","","1","1","","","","Section=perl; Version=6.04-2","","","","","","","",""
+"liblwp-protocol-https-perl","liblwp-protocol-https-perl","liblwp-protocol-https-perl","HTTPS driver for LWP::UserAgent","","","1","1","","","","Section=perl; Version=6.14-1","","","","","","","",""
+"libnet-http-perl","libnet-http-perl","libnet-http-perl","module providing low-level HTTP connection client","","","1","1","","","","Section=perl; Version=6.23-1","","","","","","","",""
+"libwww-robotrules-perl","libwww-robotrules-perl","libwww-robotrules-perl","database of robots.txt-derived permissions","","","1","1","","","","Section=perl; Version=6.02-1","","","","","","","",""
+"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","","","",""
+"libdata-dump-perl","libdata-dump-perl","libdata-dump-perl","Perl module to help dump data structures","","","1","1","","","","Section=perl; Version=1.25-1","","","","","","","",""
+"libhtml-form-perl","libhtml-form-perl","libhtml-form-perl","module that represents an HTML form element","","","1","1","","","","Section=perl; Version=6.12-1","","","","","","","",""
+"libhtml-format-perl","libhtml-format-perl","libhtml-format-perl","module for transforming HTML into various formats","","","1","1","","","","Section=perl; Version=2.16-2","","","","","","","",""
+"libhttp-daemon-perl","libhttp-daemon-perl","libhttp-daemon-perl","simple http server class","","","1","1","","","","Section=perl; Version=6.16-1","","","","","","","",""
+"libmailtools-perl","libmailtools-perl","libmailtools-perl","modules to manipulate email in perl programs","","","1","1","","","","Section=perl; Version=2.22-1","","","","","","","",""
+"sgml-base","sgml-base","sgml-base","SGML infrastructure and SGML catalog file support","","","1","1","","","","Section=text; Version=1.31+nmu1","","","","","","","",""
+"libxml-namespacefactory-perl","libxml-namespacefactory-perl","libxml-namespacefactory-perl","simple factory objects for SAX namespaced names","","","1","1","","","","Section=perl; Version=1.02-3","","","","","","","",""
+"libxml-namespacesupport-perl","libxml-namespacesupport-perl","libxml-namespacesupport-perl","Perl module for supporting simple generic namespaces","","","1","1","","","","Section=perl; Version=1.12-2","","","","","","","",""
+"libxml-sax-base-perl","libxml-sax-base-perl","libxml-sax-base-perl","base class for SAX drivers and filters","","","1","1","","","","Section=perl; Version=1.09-3","","","","","","","",""
+"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","","","",""
+"libxml-sax-expat-perl","libxml-sax-expat-perl","libxml-sax-expat-perl","Perl module for a SAX2 driver for Expat (XML::Parser)","","","1","1","","","","Section=perl; Version=0.51-2","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"","","","","","","","","","","","","librdf-trine-perl","libalgorithm-combinatorics-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libcache-lru-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libdbd-sqlite3-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libdbi-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libdbix-connector-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","liberror-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libiri-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libjson-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","liblog-log4perl-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libmoose-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libmoosex-arrayref-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libossp-uuid-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libset-scalar-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libtext-csv-xs-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libtext-table-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","liburi-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libwww-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libxml-commonns-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libxml-namespace-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libxml-sax-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","librdf-trine-node-literal-xml-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-perl","libxml-libxml-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libalgorithm-combinatorics-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libalgorithm-combinatorics-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libalgorithm-combinatorics-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcache-lru-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbd-sqlite3-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbd-sqlite3-perl","perl-dbdabi-94","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbd-sqlite3-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbd-sqlite3-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbd-sqlite3-perl","libsqlite3-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbi-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbi-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbi-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbix-connector-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbix-connector-perl","libdbi-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liberror-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libiri-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libiri-perl","libmoo-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libiri-perl","libmoox-handlesvia-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libiri-perl","libtry-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libiri-perl","libtype-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjson-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjson-perl","libjson-xs-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","liblog-log4perl-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog-log4perl-perl","libipc-shareable-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","liblog-log4perl-perl","liblog-dispatch-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libclass-load-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libclass-load-xs-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdata-optlist-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-globaldestruction-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-overloadinfo-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-stacktrace-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libeval-closure-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libmodule-runtime-conflicts-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libmodule-runtime-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libmro-compat-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libpackage-deprecationmanager-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libpackage-stash-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libpackage-stash-xs-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libparams-util-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libsub-exporter-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libtry-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-partialdump-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libmoosex-arrayref-perl","libmoose-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoosex-arrayref-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libossp-uuid-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libossp-uuid-perl","libossp-uuid16","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libossp-uuid-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libossp-uuid-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libset-scalar-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtext-csv-xs-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtext-csv-xs-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtext-csv-xs-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtext-csv-xs-perl","libencode-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtext-table-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtext-table-perl","libtext-aligner-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liburi-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liburi-perl","libencode-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liburi-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","ca-certificates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libencode-locale-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libfile-listing-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhtml-parser-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhtml-tagset-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhtml-tree-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhttp-cookies-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhttp-date-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhttp-message-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhttp-negotiate-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","liblwp-mediatypes-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","liblwp-protocol-https-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libnet-http-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libtry-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","liburi-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libwww-robotrules-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","netbase","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libdata-dump-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhtml-form-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhtml-format-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libhttp-daemon-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libwww-perl","libmailtools-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libxml-commonns-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-commonns-perl","sgml-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-commonns-perl","libxml-namespacefactory-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-namespace-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-sax-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-sax-perl","libxml-namespacesupport-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-sax-perl","libxml-sax-base-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-sax-perl","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-sax-perl","libwww-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libxml-sax-perl","libxml-sax-expat-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-node-literal-xml-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-node-literal-xml-perl","librdf-trine-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-node-literal-xml-perl","libxml-libxml-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-node-literal-xml-perl","liberror-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librdf-trine-node-literal-xml-perl","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-libxml-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-libxml-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-libxml-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-libxml-perl","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-libxml-perl","libxml-namespacesupport-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml-libxml-perl","libxml-sax-perl","Depends","#333","1","Depends","arrow","{}"

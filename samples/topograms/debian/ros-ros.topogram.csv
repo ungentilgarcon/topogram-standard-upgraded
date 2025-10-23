@@ -1,29 +1,29 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libroslib-dev,libroslib-dev,libroslib-dev,development files for roslib (Robot OS),,,1,1,,,,Section=libdevel; Version=1.15.8-7,,,,,,,
-libboost-thread-dev,libboost-thread-dev,libboost-thread-dev,portable C++ multi-threading (default version),,,1,1,,,,Section=libdevel; Version=1.83.0.2+b2,,,,,,,
-libroslib0d,libroslib0d,libroslib0d,library for roslib (Robot OS),,,1,1,,,,Section=libs; Version=1.15.8-7,,,,,,,
-librospack-dev,librospack-dev,librospack-dev,Robot OS package information library header files,,,1,1,,,,Section=libdevel; Version=2.6.2-10+b2,,,,,,,
-ros-environment,ros-environment,ros-environment,Robot OS environment hooks,,,1,1,,,,Section=devel; Version=1.3.2-4,,,,,,,
-libboost-thread1.83-dev,libboost-thread1.83-dev,libboost-thread1.83-dev,portable C++ multi-threading,,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-librospack0d,librospack0d,librospack0d,Robot OS package information library,,,1,1,,,,Section=libs; Version=2.6.2-10+b2,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libboost-filesystem-dev,libboost-filesystem-dev,libboost-filesystem-dev,"filesystem operations (portable paths, iteration over directories, etc) in C++ (default version)",,,1,1,,,,Section=libdevel; Version=1.83.0.2+b2,,,,,,,
-libboost-program-options-dev,libboost-program-options-dev,libboost-program-options-dev,program options library for C++ (default version),,,1,1,,,,Section=libdevel; Version=1.83.0.2+b2,,,,,,,
-libboost-system-dev,libboost-system-dev,libboost-system-dev,Operating system (e.g. diagnostics support) library (default version),,,1,1,,,,Section=libdevel; Version=1.83.0.2+b2,,,,,,,
-libtinyxml2-dev,libtinyxml2-dev,libtinyxml2-dev,TinyXML2 library - header and static library,,,1,1,,,,Section=libdevel; Version=11.0.0+dfsg-1+b1,,,,,,,
-,,,,,,,,,,,,libboost-thread-dev,libroslib-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libroslib0d,libroslib-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librospack-dev,libroslib-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ros-environment,libroslib-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83-dev,libboost-thread-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libroslib0d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libroslib0d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librospack0d,libroslib0d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libroslib0d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-filesystem-dev,librospack-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-program-options-dev,librospack-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-system-dev,librospack-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librospack0d,librospack-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtinyxml2-dev,librospack-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libroslib-dev","libroslib-dev","libroslib-dev","development files for roslib (Robot OS)","","","1","1","","","","Section=libdevel; Version=1.15.8-7","","","","","","","",""
+"libboost-thread-dev","libboost-thread-dev","libboost-thread-dev","portable C++ multi-threading (default version)","","","1","1","","","","Section=libdevel; Version=1.83.0.2+b2","","","","","","","",""
+"libroslib0d","libroslib0d","libroslib0d","library for roslib (Robot OS)","","","1","1","","","","Section=libs; Version=1.15.8-7","","","","","","","",""
+"librospack-dev","librospack-dev","librospack-dev","Robot OS package information library header files","","","1","1","","","","Section=libdevel; Version=2.6.2-10+b2","","","","","","","",""
+"ros-environment","ros-environment","ros-environment","Robot OS environment hooks","","","1","1","","","","Section=devel; Version=1.3.2-4","","","","","","","",""
+"libboost-thread1.83-dev","libboost-thread1.83-dev","libboost-thread1.83-dev","portable C++ multi-threading","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"librospack0d","librospack0d","librospack0d","Robot OS package information library","","","1","1","","","","Section=libs; Version=2.6.2-10+b2","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libboost-filesystem-dev","libboost-filesystem-dev","libboost-filesystem-dev","filesystem operations (portable paths, iteration over directories, etc) in C++ (default version)","","","1","1","","","","Section=libdevel; Version=1.83.0.2+b2","","","","","","","",""
+"libboost-program-options-dev","libboost-program-options-dev","libboost-program-options-dev","program options library for C++ (default version)","","","1","1","","","","Section=libdevel; Version=1.83.0.2+b2","","","","","","","",""
+"libboost-system-dev","libboost-system-dev","libboost-system-dev","Operating system (e.g. diagnostics support) library (default version)","","","1","1","","","","Section=libdevel; Version=1.83.0.2+b2","","","","","","","",""
+"libtinyxml2-dev","libtinyxml2-dev","libtinyxml2-dev","TinyXML2 library - header and static library","","","1","1","","","","Section=libdevel; Version=11.0.0+dfsg-1+b1","","","","","","","",""
+"","","","","","","","","","","","","libroslib-dev","libboost-thread-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libroslib-dev","libroslib0d","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libroslib-dev","librospack-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libroslib-dev","ros-environment","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libboost-thread-dev","libboost-thread1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libroslib0d","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libroslib0d","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libroslib0d","librospack0d","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libroslib0d","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librospack-dev","libboost-filesystem-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librospack-dev","libboost-program-options-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librospack-dev","libboost-system-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librospack-dev","librospack0d","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","librospack-dev","libtinyxml2-dev","Depends","#333","1","Depends","arrow","{}"

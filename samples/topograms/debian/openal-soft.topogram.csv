@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libopenal-data","libopenal-data","libopenal-data","Software implementation of the OpenAL audio API (data files)","","","1","1","","","","Section=libs; Version=1:1.24.2-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libopenal-data","libopenal-data","libopenal-data","Software implementation of the OpenAL audio API (data files)","","","1","1","","","","Section=libs; Version=1:1.24.2-1","","","","","","","",""

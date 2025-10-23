@@ -1,48 +1,48 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gnuplot,gnuplot,gnuplot,Command-line driven interactive plotting program.,,,1,1,,,,Section=math; Version=6.0.2+dfsg1-1,,,,,,,
-gnuplot-qt,gnuplot-qt,gnuplot-qt,Command-line driven interactive plotting program. QT-package,,,1,1,,,,Section=math; Version=6.0.2+dfsg1-1,,,,,,,
-gnuplot-data,gnuplot-data,gnuplot-data,Command-line driven interactive plotting program. Data-files,,,1,1,,,,Section=doc; Version=6.0.2+dfsg1-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libedit2,libedit2,libedit2,BSD editline and history libraries,,,1,1,,,,Section=libs; Version=3.1-20250104-1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libgd3,libgd3,libgd3,GD Graphics Library,,,1,1,,,,Section=libs; Version=2.3.3-13,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-liblua5.4-0,liblua5.4-0,liblua5.4-0,Shared library for the Lua interpreter version 5.4,,,1,1,,,,Section=libs; Version=5.4.7-1+b2,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libqt5core5t64,libqt5core5t64,libqt5core5t64,Qt 5 core module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5gui5t64,libqt5gui5t64,libqt5gui5t64,Qt 5 GUI module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5network5t64,libqt5network5t64,libqt5network5t64,Qt 5 network module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5printsupport5t64,libqt5printsupport5t64,libqt5printsupport5t64,Qt 5 print support module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5svg5,libqt5svg5,libqt5svg5,Qt 5 SVG module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
-libqt5widgets5t64,libqt5widgets5t64,libqt5widgets5t64,Qt 5 widgets module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libwebp7,libwebp7,libwebp7,Lossy compression of digital photographic images (shared library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libwebpmux3,libwebpmux3,libwebpmux3,Lossy compression of digital photographic images (libwebpmux library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libwxbase3.2-1t64,libwxbase3.2-1t64,libwxbase3.2-1t64,wxBase library (runtime) - non-GUI support classes of wxWidgets toolkit,,,1,1,,,,Section=libs; Version=3.2.8+dfsg-2,,,,,,,
-libwxgtk3.2-1t64,libwxgtk3.2-1t64,libwxgtk3.2-1t64,wxWidgets Cross-platform C++ GUI toolkit (GTK 3 runtime),,,1,1,,,,Section=libs; Version=3.2.8+dfsg-2,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-,,,,,,,,,,,,gnuplot-qt,gnuplot,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gnuplot-data,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libedit2,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgd3,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblua5.4-0,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5network5t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5printsupport5t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5svg5,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpmux3,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwxbase3.2-1t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwxgtk3.2-1t64,gnuplot-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,gnuplot-qt,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gnuplot","gnuplot","gnuplot","Command-line driven interactive plotting program.","","","1","1","","","","Section=math; Version=6.0.2+dfsg1-1","","","","","","","",""
+"gnuplot-qt","gnuplot-qt","gnuplot-qt","Command-line driven interactive plotting program. QT-package","","","1","1","","","","Section=math; Version=6.0.2+dfsg1-1","","","","","","","",""
+"gnuplot-data","gnuplot-data","gnuplot-data","Command-line driven interactive plotting program. Data-files","","","1","1","","","","Section=doc; Version=6.0.2+dfsg1-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libedit2","libedit2","libedit2","BSD editline and history libraries","","","1","1","","","","Section=libs; Version=3.1-20250104-1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libgd3","libgd3","libgd3","GD Graphics Library","","","1","1","","","","Section=libs; Version=2.3.3-13","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"liblua5.4-0","liblua5.4-0","liblua5.4-0","Shared library for the Lua interpreter version 5.4","","","1","1","","","","Section=libs; Version=5.4.7-1+b2","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libqt5core5t64","libqt5core5t64","libqt5core5t64","Qt 5 core module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5gui5t64","libqt5gui5t64","libqt5gui5t64","Qt 5 GUI module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5network5t64","libqt5network5t64","libqt5network5t64","Qt 5 network module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5printsupport5t64","libqt5printsupport5t64","libqt5printsupport5t64","Qt 5 print support module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5svg5","libqt5svg5","libqt5svg5","Qt 5 SVG module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","","","",""
+"libqt5widgets5t64","libqt5widgets5t64","libqt5widgets5t64","Qt 5 widgets module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libwebp7","libwebp7","libwebp7","Lossy compression of digital photographic images (shared library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libwebpmux3","libwebpmux3","libwebpmux3","Lossy compression of digital photographic images (libwebpmux library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libwxbase3.2-1t64","libwxbase3.2-1t64","libwxbase3.2-1t64","wxBase library (runtime) - non-GUI support classes of wxWidgets toolkit","","","1","1","","","","Section=libs; Version=3.2.8+dfsg-2","","","","","","","",""
+"libwxgtk3.2-1t64","libwxgtk3.2-1t64","libwxgtk3.2-1t64","wxWidgets Cross-platform C++ GUI toolkit (GTK 3 runtime)","","","1","1","","","","Section=libs; Version=3.2.8+dfsg-2","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"","","","","","","","","","","","","gnuplot","gnuplot-qt","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","gnuplot-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libedit2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libgd3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","liblua5.4-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libqt5network5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libqt5printsupport5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libqt5svg5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libwebpmux3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libwxbase3.2-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libwxgtk3.2-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuplot-qt","libx11-6","Depends","#333","1","Depends","arrow","{}"

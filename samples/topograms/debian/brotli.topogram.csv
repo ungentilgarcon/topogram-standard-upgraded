@@ -1,11 +1,11 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-brotli,brotli,brotli,lossless compression algorithm and format (command line utility),,,1,1,,,,Section=utils; Version=1.1.0-2+b7,,,,,,,
-libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,libbrotli1,brotli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,brotli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libbrotli1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"brotli","brotli","brotli","lossless compression algorithm and format (command line utility)","","","1","1","","","","Section=utils; Version=1.1.0-2+b7","","","","","","","",""
+"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","brotli","libbrotli1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","brotli","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbrotli1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"

@@ -1,10 +1,10 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gnat,gnat,gnat,GNU Ada compiler,,,1,1,,,,Section=devel; Version=14.1,,,,,,,
-gnat-14,gnat-14,gnat-14,GNU Ada compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-gnat-14-x86-64-linux-gnu,gnat-14-x86-64-linux-gnu,gnat-14-x86-64-linux-gnu,GNU Ada compiler for the x86_64-linux-gnu architecture,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-gcc-14,gcc-14,gcc-14,GNU C compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-,,,,,,,,,,,,gnat-14,gnat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gnat-14-x86-64-linux-gnu,gnat-14,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,gnat-14,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14,gnat-14,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gnat","gnat","gnat","GNU Ada compiler","","","1","1","","","","Section=devel; Version=14.1","","","","","","","",""
+"gnat-14","gnat-14","gnat-14","GNU Ada compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"gnat-14-x86-64-linux-gnu","gnat-14-x86-64-linux-gnu","gnat-14-x86-64-linux-gnu","GNU Ada compiler for the x86_64-linux-gnu architecture","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"gcc-14","gcc-14","gcc-14","GNU C compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"","","","","","","","","","","","","gnat","gnat-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnat-14","gnat-14-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnat-14","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnat-14","gcc-14","Depends","#333","1","Depends","arrow","{}"

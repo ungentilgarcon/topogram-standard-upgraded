@@ -1,110 +1,110 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libopenmpi-dev,libopenmpi-dev,libopenmpi-dev,high performance message passing library -- header files,,,1,1,,,,Section=libdevel; Version=5.0.7-1,,,,,,,
-gfortran-14,gfortran-14,gfortran-14,GNU Fortran compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-libopenmpi40,libopenmpi40,libopenmpi40,high performance message passing library -- shared library,,,1,1,,,,Section=libs; Version=5.0.7-1,,,,,,,
-openmpi-common,openmpi-common,openmpi-common,high performance message passing library -- common files,,,1,1,,,,Section=net; Version=5.0.7-1,,,,,,,
-libibverbs-dev,libibverbs-dev,libibverbs-dev,Development files for the libibverbs library,,,1,1,,,,Section=libdevel; Version=56.1-1,,,,,,,
-libhwloc-dev,libhwloc-dev,libhwloc-dev,Hierarchical view of the machine - static libs and headers,,,1,1,,,,Section=libdevel; Version=2.12.0-4,,,,,,,
-libevent-dev,libevent-dev,libevent-dev,Asynchronous event notification library (development files),,,1,1,,,,Section=libdevel; Version=2.1.12-stable-10+b1,,,,,,,
-libpmix-dev,libpmix-dev,libpmix-dev,Development files for the PMI Exascale library,,,1,1,,,,Section=libdevel; Version=5.0.7-1,,,,,,,
-libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
-libjs-jquery-ui,libjs-jquery-ui,libjs-jquery-ui,JavaScript UI library for dynamic web applications,,,1,1,,,,Section=javascript; Version=1.13.2+dfsg-1,,,,,,,
-zlib1g-dev,zlib1g-dev,zlib1g-dev,compression library - development,,,1,1,,,,Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-openmpi-bin,openmpi-bin,openmpi-bin,high performance message passing library -- binaries,,,1,1,,,,Section=net; Version=5.0.7-1,,,,,,,
-libcoarrays-openmpi-dev,libcoarrays-openmpi-dev,libcoarrays-openmpi-dev,Co-Array Fortran libraries  - development files (OpenMPI),,,1,1,,,,Section=libdevel; Version=2.10.2+ds-4,,,,,,,
-gfortran-14-x86-64-linux-gnu,gfortran-14-x86-64-linux-gnu,gfortran-14-x86-64-linux-gnu,GNU Fortran compiler for the x86_64-linux-gnu architecture,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-gcc-14,gcc-14,gcc-14,GNU C compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libevent-core-2.1-7t64,libevent-core-2.1-7t64,libevent-core-2.1-7t64,Asynchronous event notification library (core),,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-libevent-pthreads-2.1-7t64,libevent-pthreads-2.1-7t64,libevent-pthreads-2.1-7t64,Asynchronous event notification library (pthreads),,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-libfabric1,libfabric1,libfabric1,libfabric communication library,,,1,1,,,,Section=libs; Version=2.1.0-1.1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libhwloc15,libhwloc15,libhwloc15,Hierarchical view of the machine - shared libs,,,1,1,,,,Section=libs; Version=2.12.0-4,,,,,,,
-libnl-3-200,libnl-3-200,libnl-3-200,library for dealing with netlink sockets,,,1,1,,,,Section=libs; Version=3.7.0-2,,,,,,,
-libpmix2t64,libpmix2t64,libpmix2t64,Process Management Interface (Exascale) library,,,1,1,,,,Section=libs; Version=5.0.7-1,,,,,,,
-libpsm2-2,libpsm2-2,libpsm2-2,Intel PSM2 library,,,1,1,,,,Section=libs; Version=11.2.185-2.1,,,,,,,
-libucx0,libucx0,libucx0,Unified Communication X libraries,,,1,1,,,,Section=libs; Version=1.18.1+ds-2+b1,,,,,,,
-libhwloc-plugins,libhwloc-plugins,libhwloc-plugins,Hierarchical view of the machine - plugins,,,1,1,,,,Section=libs; Version=2.12.0-4,,,,,,,
-libpmix2,libpmix2,libpmix2,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-ibverbs-providers,ibverbs-providers,ibverbs-providers,User space provider drivers for libibverbs,,,1,1,,,,Section=net; Version=56.1-1,,,,,,,
-libibverbs1,libibverbs1,libibverbs1,Library for direct userspace use of RDMA (InfiniBand/iWARP),,,1,1,,,,Section=libs; Version=56.1-1,,,,,,,
-libnl-3-dev,libnl-3-dev,libnl-3-dev,development library and headers for libnl-3,,,1,1,,,,Section=libdevel; Version=3.7.0-2,,,,,,,
-libnl-route-3-dev,libnl-route-3-dev,libnl-route-3-dev,development library and headers for libnl-route-3,,,1,1,,,,Section=libdevel; Version=3.7.0-2,,,,,,,
-libnuma-dev,libnuma-dev,libnuma-dev,Development files for libnuma,,,1,1,,,,Section=libdevel; Version=2.0.19-1,,,,,,,
-libltdl-dev,libltdl-dev,libltdl-dev,System independent dlopen wrapper for GNU libtool (headers),,,1,1,,,,Section=libdevel; Version=2.5.4-4,,,,,,,
-libevent-2.1-7t64,libevent-2.1-7t64,libevent-2.1-7t64,Asynchronous event notification library,,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-libevent-extra-2.1-7t64,libevent-extra-2.1-7t64,libevent-extra-2.1-7t64,Asynchronous event notification library (extra),,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-libevent-openssl-2.1-7t64,libevent-openssl-2.1-7t64,libevent-openssl-2.1-7t64,Asynchronous event notification library (openssl),,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-javascript-common,javascript-common,javascript-common,Base support for JavaScript library packages,,,1,1,,,,Section=javascript; Version=12+nmu1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-openssh-client,openssh-client,openssh-client,"secure shell (SSH) client, for secure access to remote machines",,,1,1,,,,Section=net; Version=1:10.0p1-7,,,,,,,
-libgfortran5,libgfortran5,libgfortran5,Runtime library for GNU Fortran applications,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-gfortran,gfortran,gfortran,GNU Fortran 95 compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-libcaf-openmpi-3t64,libcaf-openmpi-3t64,libcaf-openmpi-3t64,Co-Array Fortran libraries  (OpenMPI),,,1,1,,,,Section=libs; Version=2.10.2+ds-4,,,,,,,
-libcoarrays-dev,libcoarrays-dev,libcoarrays-dev,Co-Array Fortran libraries,,,1,1,,,,Section=libdevel; Version=2.10.2+ds-4,,,,,,,
-,,,,,,,,,,,,gfortran-14,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenmpi40,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openmpi-common,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libibverbs-dev,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc-dev,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-dev,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix-dev,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery-ui,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g-dev,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openmpi-bin,libopenmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcoarrays-openmpi-dev,libopenmpi-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gfortran-14-x86-64-linux-gnu,gfortran-14,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,gfortran-14,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14,gfortran-14,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-core-2.1-7t64,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-pthreads-2.1-7t64,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfabric1,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc15,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnl-3-200,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix2t64,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpsm2-2,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libucx0,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc-plugins,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix2,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ibverbs-providers,libibverbs-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libibverbs1,libibverbs-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnl-3-dev,libibverbs-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnl-route-3-dev,libibverbs-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc15,libhwloc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnuma-dev,libhwloc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libltdl-dev,libhwloc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-2.1-7t64,libevent-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-core-2.1-7t64,libevent-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-extra-2.1-7t64,libevent-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-pthreads-2.1-7t64,libevent-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-openssl-2.1-7t64,libevent-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix2t64,libpmix-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-dev,libpmix-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc-dev,libpmix-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g-dev,libpmix-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,libpmix-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,javascript-common,libjs-jquery,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libjs-jquery,libjs-jquery-ui,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,javascript-common,libjs-jquery-ui,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,zlib1g,zlib1g-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,zlib1g-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-core-2.1-7t64,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc15,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenmpi40,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix2t64,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openmpi-common,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openssh-client,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgfortran5,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenmpi40,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gfortran,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openmpi-bin,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcaf-openmpi-3t64,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcoarrays-dev,libcoarrays-openmpi-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libopenmpi-dev","libopenmpi-dev","libopenmpi-dev","high performance message passing library -- header files","","","1","1","","","","Section=libdevel; Version=5.0.7-1","","","","","","","",""
+"gfortran-14","gfortran-14","gfortran-14","GNU Fortran compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"libopenmpi40","libopenmpi40","libopenmpi40","high performance message passing library -- shared library","","","1","1","","","","Section=libs; Version=5.0.7-1","","","","","","","",""
+"openmpi-common","openmpi-common","openmpi-common","high performance message passing library -- common files","","","1","1","","","","Section=net; Version=5.0.7-1","","","","","","","",""
+"libibverbs-dev","libibverbs-dev","libibverbs-dev","Development files for the libibverbs library","","","1","1","","","","Section=libdevel; Version=56.1-1","","","","","","","",""
+"libhwloc-dev","libhwloc-dev","libhwloc-dev","Hierarchical view of the machine - static libs and headers","","","1","1","","","","Section=libdevel; Version=2.12.0-4","","","","","","","",""
+"libevent-dev","libevent-dev","libevent-dev","Asynchronous event notification library (development files)","","","1","1","","","","Section=libdevel; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libpmix-dev","libpmix-dev","libpmix-dev","Development files for the PMI Exascale library","","","1","1","","","","Section=libdevel; Version=5.0.7-1","","","","","","","",""
+"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","","","",""
+"libjs-jquery-ui","libjs-jquery-ui","libjs-jquery-ui","JavaScript UI library for dynamic web applications","","","1","1","","","","Section=javascript; Version=1.13.2+dfsg-1","","","","","","","",""
+"zlib1g-dev","zlib1g-dev","zlib1g-dev","compression library - development","","","1","1","","","","Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"openmpi-bin","openmpi-bin","openmpi-bin","high performance message passing library -- binaries","","","1","1","","","","Section=net; Version=5.0.7-1","","","","","","","",""
+"libcoarrays-openmpi-dev","libcoarrays-openmpi-dev","libcoarrays-openmpi-dev","Co-Array Fortran libraries  - development files (OpenMPI)","","","1","1","","","","Section=libdevel; Version=2.10.2+ds-4","","","","","","","",""
+"gfortran-14-x86-64-linux-gnu","gfortran-14-x86-64-linux-gnu","gfortran-14-x86-64-linux-gnu","GNU Fortran compiler for the x86_64-linux-gnu architecture","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"gcc-14","gcc-14","gcc-14","GNU C compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libevent-core-2.1-7t64","libevent-core-2.1-7t64","libevent-core-2.1-7t64","Asynchronous event notification library (core)","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libevent-pthreads-2.1-7t64","libevent-pthreads-2.1-7t64","libevent-pthreads-2.1-7t64","Asynchronous event notification library (pthreads)","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libfabric1","libfabric1","libfabric1","libfabric communication library","","","1","1","","","","Section=libs; Version=2.1.0-1.1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libhwloc15","libhwloc15","libhwloc15","Hierarchical view of the machine - shared libs","","","1","1","","","","Section=libs; Version=2.12.0-4","","","","","","","",""
+"libnl-3-200","libnl-3-200","libnl-3-200","library for dealing with netlink sockets","","","1","1","","","","Section=libs; Version=3.7.0-2","","","","","","","",""
+"libpmix2t64","libpmix2t64","libpmix2t64","Process Management Interface (Exascale) library","","","1","1","","","","Section=libs; Version=5.0.7-1","","","","","","","",""
+"libpsm2-2","libpsm2-2","libpsm2-2","Intel PSM2 library","","","1","1","","","","Section=libs; Version=11.2.185-2.1","","","","","","","",""
+"libucx0","libucx0","libucx0","Unified Communication X libraries","","","1","1","","","","Section=libs; Version=1.18.1+ds-2+b1","","","","","","","",""
+"libhwloc-plugins","libhwloc-plugins","libhwloc-plugins","Hierarchical view of the machine - plugins","","","1","1","","","","Section=libs; Version=2.12.0-4","","","","","","","",""
+"libpmix2","libpmix2","libpmix2","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"ibverbs-providers","ibverbs-providers","ibverbs-providers","User space provider drivers for libibverbs","","","1","1","","","","Section=net; Version=56.1-1","","","","","","","",""
+"libibverbs1","libibverbs1","libibverbs1","Library for direct userspace use of RDMA (InfiniBand/iWARP)","","","1","1","","","","Section=libs; Version=56.1-1","","","","","","","",""
+"libnl-3-dev","libnl-3-dev","libnl-3-dev","development library and headers for libnl-3","","","1","1","","","","Section=libdevel; Version=3.7.0-2","","","","","","","",""
+"libnl-route-3-dev","libnl-route-3-dev","libnl-route-3-dev","development library and headers for libnl-route-3","","","1","1","","","","Section=libdevel; Version=3.7.0-2","","","","","","","",""
+"libnuma-dev","libnuma-dev","libnuma-dev","Development files for libnuma","","","1","1","","","","Section=libdevel; Version=2.0.19-1","","","","","","","",""
+"libltdl-dev","libltdl-dev","libltdl-dev","System independent dlopen wrapper for GNU libtool (headers)","","","1","1","","","","Section=libdevel; Version=2.5.4-4","","","","","","","",""
+"libevent-2.1-7t64","libevent-2.1-7t64","libevent-2.1-7t64","Asynchronous event notification library","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libevent-extra-2.1-7t64","libevent-extra-2.1-7t64","libevent-extra-2.1-7t64","Asynchronous event notification library (extra)","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libevent-openssl-2.1-7t64","libevent-openssl-2.1-7t64","libevent-openssl-2.1-7t64","Asynchronous event notification library (openssl)","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"openssh-client","openssh-client","openssh-client","secure shell (SSH) client, for secure access to remote machines","","","1","1","","","","Section=net; Version=1:10.0p1-7","","","","","","","",""
+"libgfortran5","libgfortran5","libgfortran5","Runtime library for GNU Fortran applications","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"gfortran","gfortran","gfortran","GNU Fortran 95 compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"libcaf-openmpi-3t64","libcaf-openmpi-3t64","libcaf-openmpi-3t64","Co-Array Fortran libraries  (OpenMPI)","","","1","1","","","","Section=libs; Version=2.10.2+ds-4","","","","","","","",""
+"libcoarrays-dev","libcoarrays-dev","libcoarrays-dev","Co-Array Fortran libraries","","","1","1","","","","Section=libdevel; Version=2.10.2+ds-4","","","","","","","",""
+"","","","","","","","","","","","","libopenmpi-dev","gfortran-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libopenmpi40","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","openmpi-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libibverbs-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libhwloc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libevent-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libpmix-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libjs-jquery-ui","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","zlib1g-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","openmpi-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi-dev","libcoarrays-openmpi-dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gfortran-14","gfortran-14-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gfortran-14","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gfortran-14","gcc-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libevent-core-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libevent-pthreads-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libfabric1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libhwloc15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libnl-3-200","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libpmix2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libpsm2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libucx0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libhwloc-plugins","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libpmix2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libibverbs-dev","ibverbs-providers","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libibverbs-dev","libibverbs1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libibverbs-dev","libnl-3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libibverbs-dev","libnl-route-3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libhwloc-dev","libhwloc15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libhwloc-dev","libnuma-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libhwloc-dev","libltdl-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libevent-dev","libevent-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libevent-dev","libevent-core-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libevent-dev","libevent-extra-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libevent-dev","libevent-pthreads-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libevent-dev","libevent-openssl-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpmix-dev","libpmix2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpmix-dev","libevent-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpmix-dev","libhwloc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpmix-dev","zlib1g-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpmix-dev","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery-ui","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery-ui","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","zlib1g-dev","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libevent-core-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libhwloc15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libopenmpi40","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libpmix2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","openmpi-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","openssh-client","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","libgfortran5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","libopenmpi40","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","gfortran","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","openmpi-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","libcaf-openmpi-3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoarrays-openmpi-dev","libcoarrays-dev","Depends","#333","1","Depends","arrow","{}"

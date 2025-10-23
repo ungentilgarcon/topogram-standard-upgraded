@@ -1,78 +1,78 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gir1.2-vte-2.91,gir1.2-vte-2.91,gir1.2-vte-2.91,GObject introspection data for the VTE library (GTK 3 version),,,1,1,,,,Section=introspection; Version=0.80.1-1,,,,,,,
-gir1.2-cairo-1.0,gir1.2-cairo-1.0,gir1.2-cairo-1.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-gdk-3.0,gir1.2-gdk-3.0,gir1.2-gdk-3.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-gtk-3.0,gir1.2-gtk-3.0,gir1.2-gtk-3.0,GTK graphical user interface library -- gir bindings,,,1,1,,,,Section=introspection; Version=3.24.49-3,,,,,,,
-gir1.2-pango-1.0,gir1.2-pango-1.0,gir1.2-pango-1.0,Layout and rendering of internationalized text - gir bindings,,,1,1,,,,Section=introspection; Version=1.56.3-1,,,,,,,
-libvte-2.91-0,libvte-2.91-0,libvte-2.91-0,Terminal emulator widget for GTK 3 - runtime files,,,1,1,,,,Section=libs; Version=0.80.1-1,,,,,,,
-gir1.2-atk-1.0,gir1.2-atk-1.0,gir1.2-atk-1.0,ATK accessibility toolkit (GObject introspection),,,1,1,,,,Section=introspection; Version=2.56.2-1,,,,,,,
-gir1.2-gdkpixbuf-2.0,gir1.2-gdkpixbuf-2.0,gir1.2-gdkpixbuf-2.0,GDK Pixbuf library - GObject-Introspection,,,1,1,,,,Section=introspection; Version=2.42.12+dfsg-4,,,,,,,
-gir1.2-gio-2.0,gir1.2-gio-2.0,gir1.2-gio-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-xlib-2.0,gir1.2-xlib-2.0,gir1.2-xlib-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libgtk-3-0t64,libgtk-3-0t64,libgtk-3-0t64,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=3.24.49-3,,,,,,,
-libgtk-3-common,libgtk-3-common,libgtk-3-common,common files for the GTK graphical user interface library,,,1,1,,,,Section=misc; Version=3.24.49-3,,,,,,,
-gir1.2-fontconfig-2.0,gir1.2-fontconfig-2.0,gir1.2-fontconfig-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-freetype2-2.0,gir1.2-freetype2-2.0,gir1.2-freetype2-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-harfbuzz-0.0,gir1.2-harfbuzz-0.0,gir1.2-harfbuzz-0.0,OpenType text shaping engine (GObject introspection data),,,1,1,,,,Section=introspection; Version=10.2.0-1+b1,,,,,,,
-gir1.2-xft-2.0,gir1.2-xft-2.0,gir1.2-xft-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangoft2-1.0-0,libpangoft2-1.0-0,libpangoft2-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangoxft-1.0-0,libpangoxft-1.0-0,libpangoxft-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libvte-2.91-common,libvte-2.91-common,libvte-2.91-common,Terminal emulator widget for GTK 3 - common files,,,1,1,,,,Section=libs; Version=0.80.1-1,,,,,,,
-libatk1.0-0t64,libatk1.0-0t64,libatk1.0-0t64,ATK accessibility toolkit,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcairo-gobject2,libcairo-gobject2,libcairo-gobject2,Cairo 2D vector graphics library (GObject library),,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libfribidi0,libfribidi0,libfribidi0,Free Implementation of the Unicode BiDi algorithm,,,1,1,,,,Section=libs; Version=1.0.16-1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-liblz4-1,liblz4-1,liblz4-1,Fast LZ compression algorithm library - runtime,,,1,1,,,,Section=libs; Version=1.10.0-4,,,,,,,
-libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-,,,,,,,,,,,,gir1.2-cairo-1.0,gir1.2-vte-2.91,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gdk-3.0,gir1.2-vte-2.91,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gtk-3.0,gir1.2-vte-2.91,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-pango-1.0,gir1.2-vte-2.91,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvte-2.91-0,gir1.2-vte-2.91,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-atk-1.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-cairo-1.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gdkpixbuf-2.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gio-2.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-pango-1.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-xlib-2.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-common,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-cairo-1.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-fontconfig-2.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-freetype2-2.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gio-2.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-harfbuzz-0.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-xft-2.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-xlib-2.0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangoft2-1.0-0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangoxft-1.0-0,gir1.2-pango-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvte-2.91-common,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libatk1.0-0t64,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo-gobject2,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfribidi0,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnutls30t64,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblz4-1,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libvte-2.91-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,libvte-2.91-0,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gir1.2-vte-2.91","gir1.2-vte-2.91","gir1.2-vte-2.91","GObject introspection data for the VTE library (GTK 3 version)","","","1","1","","","","Section=introspection; Version=0.80.1-1","","","","","","","",""
+"gir1.2-cairo-1.0","gir1.2-cairo-1.0","gir1.2-cairo-1.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-gdk-3.0","gir1.2-gdk-3.0","gir1.2-gdk-3.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-gtk-3.0","gir1.2-gtk-3.0","gir1.2-gtk-3.0","GTK graphical user interface library -- gir bindings","","","1","1","","","","Section=introspection; Version=3.24.49-3","","","","","","","",""
+"gir1.2-pango-1.0","gir1.2-pango-1.0","gir1.2-pango-1.0","Layout and rendering of internationalized text - gir bindings","","","1","1","","","","Section=introspection; Version=1.56.3-1","","","","","","","",""
+"libvte-2.91-0","libvte-2.91-0","libvte-2.91-0","Terminal emulator widget for GTK 3 - runtime files","","","1","1","","","","Section=libs; Version=0.80.1-1","","","","","","","",""
+"gir1.2-atk-1.0","gir1.2-atk-1.0","gir1.2-atk-1.0","ATK accessibility toolkit (GObject introspection)","","","1","1","","","","Section=introspection; Version=2.56.2-1","","","","","","","",""
+"gir1.2-gdkpixbuf-2.0","gir1.2-gdkpixbuf-2.0","gir1.2-gdkpixbuf-2.0","GDK Pixbuf library - GObject-Introspection","","","1","1","","","","Section=introspection; Version=2.42.12+dfsg-4","","","","","","","",""
+"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-xlib-2.0","gir1.2-xlib-2.0","gir1.2-xlib-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libgtk-3-0t64","libgtk-3-0t64","libgtk-3-0t64","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=3.24.49-3","","","","","","","",""
+"libgtk-3-common","libgtk-3-common","libgtk-3-common","common files for the GTK graphical user interface library","","","1","1","","","","Section=misc; Version=3.24.49-3","","","","","","","",""
+"gir1.2-fontconfig-2.0","gir1.2-fontconfig-2.0","gir1.2-fontconfig-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-freetype2-2.0","gir1.2-freetype2-2.0","gir1.2-freetype2-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-harfbuzz-0.0","gir1.2-harfbuzz-0.0","gir1.2-harfbuzz-0.0","OpenType text shaping engine (GObject introspection data)","","","1","1","","","","Section=introspection; Version=10.2.0-1+b1","","","","","","","",""
+"gir1.2-xft-2.0","gir1.2-xft-2.0","gir1.2-xft-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangoft2-1.0-0","libpangoft2-1.0-0","libpangoft2-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangoxft-1.0-0","libpangoxft-1.0-0","libpangoxft-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libvte-2.91-common","libvte-2.91-common","libvte-2.91-common","Terminal emulator widget for GTK 3 - common files","","","1","1","","","","Section=libs; Version=0.80.1-1","","","","","","","",""
+"libatk1.0-0t64","libatk1.0-0t64","libatk1.0-0t64","ATK accessibility toolkit","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcairo-gobject2","libcairo-gobject2","libcairo-gobject2","Cairo 2D vector graphics library (GObject library)","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libfribidi0","libfribidi0","libfribidi0","Free Implementation of the Unicode BiDi algorithm","","","1","1","","","","Section=libs; Version=1.0.16-1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"liblz4-1","liblz4-1","liblz4-1","Fast LZ compression algorithm library - runtime","","","1","1","","","","Section=libs; Version=1.10.0-4","","","","","","","",""
+"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"","","","","","","","","","","","","gir1.2-vte-2.91","gir1.2-cairo-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-vte-2.91","gir1.2-gdk-3.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-vte-2.91","gir1.2-gtk-3.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-vte-2.91","gir1.2-pango-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-vte-2.91","libvte-2.91-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-atk-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-cairo-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-gdkpixbuf-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-gio-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-pango-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-xlib-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-gtk-3.0","libgtk-3-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-cairo-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-fontconfig-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-freetype2-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-gio-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-gobject-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-harfbuzz-0.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-xft-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","gir1.2-xlib-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","libpangoft2-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-pango-1.0","libpangoxft-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libvte-2.91-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libatk1.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libcairo-gobject2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libfribidi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libgnutls30t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","liblz4-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvte-2.91-0","libsystemd0","Depends","#333","1","Depends","arrow","{}"

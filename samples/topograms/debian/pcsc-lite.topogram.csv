@@ -1,11 +1,11 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libpcsclite-dev,libpcsclite-dev,libpcsclite-dev,Middleware to access a smart card using PC/SC (development files),,,1,1,,,,Section=libdevel; Version=2.3.3-1,,,,,,,
-libpcsclite1,libpcsclite1,libpcsclite1,Middleware to access a smart card using PC/SC (library),,,1,1,,,,Section=libs; Version=2.3.3-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,libpcsclite1,libpcsclite-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpcsclite-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpcsclite1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libpcsclite-dev","libpcsclite-dev","libpcsclite-dev","Middleware to access a smart card using PC/SC (development files)","","","1","1","","","","Section=libdevel; Version=2.3.3-1","","","","","","","",""
+"libpcsclite1","libpcsclite1","libpcsclite1","Middleware to access a smart card using PC/SC (library)","","","1","1","","","","Section=libs; Version=2.3.3-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","libpcsclite-dev","libpcsclite1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpcsclite-dev","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpcsclite1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"

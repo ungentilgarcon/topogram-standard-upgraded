@@ -1,72 +1,72 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libmaven3-core-java,libmaven3-core-java,libmaven3-core-java,Core libraries for Maven 3,,,1,1,,,,Section=java; Version=3.9.9-1,,,,,,,
-libatinject-jsr330-api-java,libatinject-jsr330-api-java,libatinject-jsr330-api-java,Java API for JSR-330 Dependency Injection,,,1,1,,,,Section=java; Version=1.0+ds1-6,,,,,,,
-libcommons-cli-java,libcommons-cli-java,libcommons-cli-java,Command line arguments and options parsing library,,,1,1,,,,Section=java; Version=1.6.0-1,,,,,,,
-libgeronimo-annotation-1.3-spec-java,libgeronimo-annotation-1.3-spec-java,libgeronimo-annotation-1.3-spec-java,Apache Geronimo Common Annotations 1.3 API,,,1,1,,,,Section=java; Version=1.3-1,,,,,,,
-libguava-java,libguava-java,libguava-java,Suite of Google common libraries for Java,,,1,1,,,,Section=java; Version=32.0.1-1,,,,,,,
-libguice-java,libguice-java,libguice-java,lightweight dependency injection framework for Java 5 and above,,,1,1,,,,Section=java; Version=5.1.0-1,,,,,,,
-libmaven-parent-java,libmaven-parent-java,libmaven-parent-java,Maven metadata for Apache Maven itself,,,1,1,,,,Section=java; Version=43-2,,,,,,,
-libmaven-resolver-java,libmaven-resolver-java,libmaven-resolver-java,Library to handle Java artifact repositories,,,1,1,,,,Section=java; Version=1.9.22-1,,,,,,,
-libmaven-shared-utils-java,libmaven-shared-utils-java,libmaven-shared-utils-java,Replacement for plexus-utils in Maven,,,1,1,,,,Section=java; Version=3.4.2-1,,,,,,,
-libplexus-cipher-java,libplexus-cipher-java,libplexus-cipher-java,Plexus Cipher Component used by Maven,,,1,1,,,,Section=java; Version=2.0-1,,,,,,,
-libplexus-classworlds-java,libplexus-classworlds-java,libplexus-classworlds-java,Class loading utilities for the Plexus framework,,,1,1,,,,Section=java; Version=2.7.0-1,,,,,,,
-libplexus-component-annotations-java,libplexus-component-annotations-java,libplexus-component-annotations-java,Plexus Component Annotations,,,1,1,,,,Section=java; Version=2.1.1-1,,,,,,,
-libplexus-interpolation-java,libplexus-interpolation-java,libplexus-interpolation-java,Plexus Interpolation API,,,1,1,,,,Section=java; Version=1.27-1,,,,,,,
-libplexus-sec-dispatcher-java,libplexus-sec-dispatcher-java,libplexus-sec-dispatcher-java,Plexus Security Dispatcher Component used by Maven,,,1,1,,,,Section=java; Version=2.0-3,,,,,,,
-libplexus-utils2-java,libplexus-utils2-java,libplexus-utils2-java,utilities for the Plexus framework,,,1,1,,,,Section=java; Version=3.4.2-1,,,,,,,
-libsisu-inject-java,libsisu-inject-java,libsisu-inject-java,Dependency Injection container for Java,,,1,1,,,,Section=java; Version=0.3.5-1,,,,,,,
-libsisu-plexus-java,libsisu-plexus-java,libsisu-plexus-java,Plexus adapter for the Sisu dependency injection container,,,1,1,,,,Section=java; Version=0.3.5-1,,,,,,,
-libslf4j-java,libslf4j-java,libslf4j-java,Simple Logging Facade for Java,,,1,1,,,,Section=java; Version=1.7.32-2,,,,,,,
-libwagon-provider-api-java,libwagon-provider-api-java,libwagon-provider-api-java,Artifact transport abstraction used in Maven (Provider API),,,1,1,,,,Section=java; Version=3.5.3-2,,,,,,,
-liberror-prone-java,liberror-prone-java,liberror-prone-java,Catch common Java mistakes as compile-time errors,,,1,1,,,,Section=java; Version=2.18.0-1,,,,,,,
-libjsr305-java,libjsr305-java,libjsr305-java,Java library that provides annotations for software defect detection,,,1,1,,,,Section=java; Version=0.1~+svn49-12,,,,,,,
-libaopalliance-java,libaopalliance-java,libaopalliance-java,library for interoperability for Java AOP implementations,,,1,1,,,,Section=java; Version=20070526-7,,,,,,,
-libapache-pom-java,libapache-pom-java,libapache-pom-java,Maven metadata for all Apache Software projects,,,1,1,,,,Section=java; Version=33-2,,,,,,,
-libcommons-lang3-java,libcommons-lang3-java,libcommons-lang3-java,Apache Commons Lang utility classes,,,1,1,,,,Section=java; Version=3.17.0-1,,,,,,,
-libcommons-io-java,libcommons-io-java,libcommons-io-java,Common useful IO related classes,,,1,1,,,,Section=java; Version=2.19.0-1,,,,,,,
-libjansi-java,libjansi-java,libjansi-java,Java library for generating and interpreting ANSI escape sequences,,,1,1,,,,Section=java; Version=2.4.1-2,,,,,,,
-libcdi-api-java,libcdi-api-java,libcdi-api-java,Contexts and Dependency Injection for Java EE,,,1,1,,,,Section=java; Version=1.2-4,,,,,,,
-,,,,,,,,,,,,libatinject-jsr330-api-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcommons-cli-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgeronimo-annotation-1.3-spec-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libguava-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libguice-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmaven-parent-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmaven-resolver-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmaven-shared-utils-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-cipher-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-classworlds-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-component-annotations-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-interpolation-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-sec-dispatcher-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-utils2-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsisu-inject-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsisu-plexus-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libslf4j-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwagon-provider-api-java,libmaven3-core-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libatinject-jsr330-api-java,libguava-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liberror-prone-java,libguava-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjsr305-java,libguava-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaopalliance-java,libguice-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libatinject-jsr330-api-java,libguice-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libguava-java,libguice-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjsr305-java,libguice-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libapache-pom-java,libmaven-parent-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcommons-lang3-java,libmaven-resolver-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwagon-provider-api-java,libmaven-resolver-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcommons-io-java,libmaven-shared-utils-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libslf4j-java,libmaven-shared-utils-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjansi-java,libmaven-shared-utils-java,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libatinject-jsr330-api-java,libplexus-cipher-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libatinject-jsr330-api-java,libplexus-sec-dispatcher-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-cipher-java,libplexus-sec-dispatcher-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-utils2-java,libplexus-sec-dispatcher-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcdi-api-java,libsisu-inject-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libslf4j-java,libsisu-inject-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcdi-api-java,libsisu-plexus-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgeronimo-annotation-1.3-spec-java,libsisu-plexus-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-classworlds-java,libsisu-plexus-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-component-annotations-java,libsisu-plexus-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-utils2-java,libsisu-plexus-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsisu-inject-java,libsisu-plexus-java,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplexus-utils2-java,libwagon-provider-api-java,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libmaven3-core-java","libmaven3-core-java","libmaven3-core-java","Core libraries for Maven 3","","","1","1","","","","Section=java; Version=3.9.9-1","","","","","","","",""
+"libatinject-jsr330-api-java","libatinject-jsr330-api-java","libatinject-jsr330-api-java","Java API for JSR-330 Dependency Injection","","","1","1","","","","Section=java; Version=1.0+ds1-6","","","","","","","",""
+"libcommons-cli-java","libcommons-cli-java","libcommons-cli-java","Command line arguments and options parsing library","","","1","1","","","","Section=java; Version=1.6.0-1","","","","","","","",""
+"libgeronimo-annotation-1.3-spec-java","libgeronimo-annotation-1.3-spec-java","libgeronimo-annotation-1.3-spec-java","Apache Geronimo Common Annotations 1.3 API","","","1","1","","","","Section=java; Version=1.3-1","","","","","","","",""
+"libguava-java","libguava-java","libguava-java","Suite of Google common libraries for Java","","","1","1","","","","Section=java; Version=32.0.1-1","","","","","","","",""
+"libguice-java","libguice-java","libguice-java","lightweight dependency injection framework for Java 5 and above","","","1","1","","","","Section=java; Version=5.1.0-1","","","","","","","",""
+"libmaven-parent-java","libmaven-parent-java","libmaven-parent-java","Maven metadata for Apache Maven itself","","","1","1","","","","Section=java; Version=43-2","","","","","","","",""
+"libmaven-resolver-java","libmaven-resolver-java","libmaven-resolver-java","Library to handle Java artifact repositories","","","1","1","","","","Section=java; Version=1.9.22-1","","","","","","","",""
+"libmaven-shared-utils-java","libmaven-shared-utils-java","libmaven-shared-utils-java","Replacement for plexus-utils in Maven","","","1","1","","","","Section=java; Version=3.4.2-1","","","","","","","",""
+"libplexus-cipher-java","libplexus-cipher-java","libplexus-cipher-java","Plexus Cipher Component used by Maven","","","1","1","","","","Section=java; Version=2.0-1","","","","","","","",""
+"libplexus-classworlds-java","libplexus-classworlds-java","libplexus-classworlds-java","Class loading utilities for the Plexus framework","","","1","1","","","","Section=java; Version=2.7.0-1","","","","","","","",""
+"libplexus-component-annotations-java","libplexus-component-annotations-java","libplexus-component-annotations-java","Plexus Component Annotations","","","1","1","","","","Section=java; Version=2.1.1-1","","","","","","","",""
+"libplexus-interpolation-java","libplexus-interpolation-java","libplexus-interpolation-java","Plexus Interpolation API","","","1","1","","","","Section=java; Version=1.27-1","","","","","","","",""
+"libplexus-sec-dispatcher-java","libplexus-sec-dispatcher-java","libplexus-sec-dispatcher-java","Plexus Security Dispatcher Component used by Maven","","","1","1","","","","Section=java; Version=2.0-3","","","","","","","",""
+"libplexus-utils2-java","libplexus-utils2-java","libplexus-utils2-java","utilities for the Plexus framework","","","1","1","","","","Section=java; Version=3.4.2-1","","","","","","","",""
+"libsisu-inject-java","libsisu-inject-java","libsisu-inject-java","Dependency Injection container for Java","","","1","1","","","","Section=java; Version=0.3.5-1","","","","","","","",""
+"libsisu-plexus-java","libsisu-plexus-java","libsisu-plexus-java","Plexus adapter for the Sisu dependency injection container","","","1","1","","","","Section=java; Version=0.3.5-1","","","","","","","",""
+"libslf4j-java","libslf4j-java","libslf4j-java","Simple Logging Facade for Java","","","1","1","","","","Section=java; Version=1.7.32-2","","","","","","","",""
+"libwagon-provider-api-java","libwagon-provider-api-java","libwagon-provider-api-java","Artifact transport abstraction used in Maven (Provider API)","","","1","1","","","","Section=java; Version=3.5.3-2","","","","","","","",""
+"liberror-prone-java","liberror-prone-java","liberror-prone-java","Catch common Java mistakes as compile-time errors","","","1","1","","","","Section=java; Version=2.18.0-1","","","","","","","",""
+"libjsr305-java","libjsr305-java","libjsr305-java","Java library that provides annotations for software defect detection","","","1","1","","","","Section=java; Version=0.1~+svn49-12","","","","","","","",""
+"libaopalliance-java","libaopalliance-java","libaopalliance-java","library for interoperability for Java AOP implementations","","","1","1","","","","Section=java; Version=20070526-7","","","","","","","",""
+"libapache-pom-java","libapache-pom-java","libapache-pom-java","Maven metadata for all Apache Software projects","","","1","1","","","","Section=java; Version=33-2","","","","","","","",""
+"libcommons-lang3-java","libcommons-lang3-java","libcommons-lang3-java","Apache Commons Lang utility classes","","","1","1","","","","Section=java; Version=3.17.0-1","","","","","","","",""
+"libcommons-io-java","libcommons-io-java","libcommons-io-java","Common useful IO related classes","","","1","1","","","","Section=java; Version=2.19.0-1","","","","","","","",""
+"libjansi-java","libjansi-java","libjansi-java","Java library for generating and interpreting ANSI escape sequences","","","1","1","","","","Section=java; Version=2.4.1-2","","","","","","","",""
+"libcdi-api-java","libcdi-api-java","libcdi-api-java","Contexts and Dependency Injection for Java EE","","","1","1","","","","Section=java; Version=1.2-4","","","","","","","",""
+"","","","","","","","","","","","","libmaven3-core-java","libatinject-jsr330-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libcommons-cli-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libgeronimo-annotation-1.3-spec-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libguava-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libguice-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libmaven-parent-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libmaven-resolver-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libmaven-shared-utils-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libplexus-cipher-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libplexus-classworlds-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libplexus-component-annotations-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libplexus-interpolation-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libplexus-sec-dispatcher-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libplexus-utils2-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libsisu-inject-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libsisu-plexus-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libslf4j-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven3-core-java","libwagon-provider-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libguava-java","libatinject-jsr330-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libguava-java","liberror-prone-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libguava-java","libjsr305-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libguice-java","libaopalliance-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libguice-java","libatinject-jsr330-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libguice-java","libguava-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libguice-java","libjsr305-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven-parent-java","libapache-pom-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven-resolver-java","libcommons-lang3-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven-resolver-java","libwagon-provider-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven-shared-utils-java","libcommons-io-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven-shared-utils-java","libslf4j-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmaven-shared-utils-java","libjansi-java","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libplexus-cipher-java","libatinject-jsr330-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libplexus-sec-dispatcher-java","libatinject-jsr330-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libplexus-sec-dispatcher-java","libplexus-cipher-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libplexus-sec-dispatcher-java","libplexus-utils2-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-inject-java","libcdi-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-inject-java","libslf4j-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-plexus-java","libcdi-api-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-plexus-java","libgeronimo-annotation-1.3-spec-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-plexus-java","libplexus-classworlds-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-plexus-java","libplexus-component-annotations-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-plexus-java","libplexus-utils2-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsisu-plexus-java","libsisu-inject-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwagon-provider-api-java","libplexus-utils2-java","Depends","#333","1","Depends","arrow","{}"

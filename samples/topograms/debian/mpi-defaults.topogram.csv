@@ -1,18 +1,18 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-mpi-default-bin,mpi-default-bin,mpi-default-bin,Standard MPI runtime programs (metapackage),,,1,1,,,,Section=libdevel; Version=1.18,,,,,,,
-openmpi-bin,openmpi-bin,openmpi-bin,high performance message passing library -- binaries,,,1,1,,,,Section=net; Version=5.0.7-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libevent-core-2.1-7t64,libevent-core-2.1-7t64,libevent-core-2.1-7t64,Asynchronous event notification library (core),,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-libhwloc15,libhwloc15,libhwloc15,Hierarchical view of the machine - shared libs,,,1,1,,,,Section=libs; Version=2.12.0-4,,,,,,,
-libopenmpi40,libopenmpi40,libopenmpi40,high performance message passing library -- shared library,,,1,1,,,,Section=libs; Version=5.0.7-1,,,,,,,
-libpmix2t64,libpmix2t64,libpmix2t64,Process Management Interface (Exascale) library,,,1,1,,,,Section=libs; Version=5.0.7-1,,,,,,,
-openmpi-common,openmpi-common,openmpi-common,high performance message passing library -- common files,,,1,1,,,,Section=net; Version=5.0.7-1,,,,,,,
-openssh-client,openssh-client,openssh-client,"secure shell (SSH) client, for secure access to remote machines",,,1,1,,,,Section=net; Version=1:10.0p1-7,,,,,,,
-,,,,,,,,,,,,openmpi-bin,mpi-default-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-core-2.1-7t64,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc15,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenmpi40,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix2t64,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openmpi-common,openmpi-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openssh-client,openmpi-bin,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"mpi-default-bin","mpi-default-bin","mpi-default-bin","Standard MPI runtime programs (metapackage)","","","1","1","","","","Section=libdevel; Version=1.18","","","","","","","",""
+"openmpi-bin","openmpi-bin","openmpi-bin","high performance message passing library -- binaries","","","1","1","","","","Section=net; Version=5.0.7-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libevent-core-2.1-7t64","libevent-core-2.1-7t64","libevent-core-2.1-7t64","Asynchronous event notification library (core)","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libhwloc15","libhwloc15","libhwloc15","Hierarchical view of the machine - shared libs","","","1","1","","","","Section=libs; Version=2.12.0-4","","","","","","","",""
+"libopenmpi40","libopenmpi40","libopenmpi40","high performance message passing library -- shared library","","","1","1","","","","Section=libs; Version=5.0.7-1","","","","","","","",""
+"libpmix2t64","libpmix2t64","libpmix2t64","Process Management Interface (Exascale) library","","","1","1","","","","Section=libs; Version=5.0.7-1","","","","","","","",""
+"openmpi-common","openmpi-common","openmpi-common","high performance message passing library -- common files","","","1","1","","","","Section=net; Version=5.0.7-1","","","","","","","",""
+"openssh-client","openssh-client","openssh-client","secure shell (SSH) client, for secure access to remote machines","","","1","1","","","","Section=net; Version=1:10.0p1-7","","","","","","","",""
+"","","","","","","","","","","","","mpi-default-bin","openmpi-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libevent-core-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libhwloc15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libopenmpi40","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","libpmix2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","openmpi-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openmpi-bin","openssh-client","Depends","#333","1","Depends","arrow","{}"

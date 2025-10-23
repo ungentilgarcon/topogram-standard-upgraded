@@ -1,33 +1,33 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-liblog4cxx-dev,liblog4cxx-dev,liblog4cxx-dev,Logging library for C++ (development files),,,1,1,,,,Section=libdevel; Version=1.4.0-1,,,,,,,
-libapr1-dev,libapr1-dev,libapr1-dev,Apache Portable Runtime Library - Development Headers,,,1,1,,,,Section=libdevel; Version=1.7.5-1,,,,,,,
-libaprutil1-dev,libaprutil1-dev,libaprutil1-dev,Apache Portable Runtime Utility Library - Development Headers,,,1,1,,,,Section=libdevel; Version=1.6.3-3+b1,,,,,,,
-liblog4cxx15,liblog4cxx15,liblog4cxx15,Logging library for C++,,,1,1,,,,Section=libs; Version=1.4.0-1,,,,,,,
-libapr1t64,libapr1t64,libapr1t64,Apache Portable Runtime Library,,,1,1,,,,Section=libs; Version=1.7.5-1,,,,,,,
-uuid-dev,uuid-dev,uuid-dev,Universally Unique ID library - headers and static libraries,,,1,1,,,,Section=libdevel; Version=2.41-5,,,,,,,
-libsctp-dev,libsctp-dev,libsctp-dev,user-space access to Linux kernel SCTP - development files,,,1,1,,,,Section=libdevel; Version=1.0.21+dfsg-1,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libaprutil1t64,libaprutil1t64,libaprutil1t64,Apache Portable Runtime Utility Library,,,1,1,,,,Section=libs; Version=1.6.3-3+b1,,,,,,,
-libldap2-dev,libldap2-dev,libldap2-dev,transitional package for libldap-dev,,,1,1,,,,Section=libdevel; Version=2.6.10+dfsg-1,,,,,,,
-libexpat1-dev,libexpat1-dev,libexpat1-dev,XML parsing C library - development kit,,,1,1,,,,Section=libdevel; Version=2.7.1-2,,,,,,,
-libaprutil1-dbd-sqlite3,libaprutil1-dbd-sqlite3,libaprutil1-dbd-sqlite3,Apache Portable Runtime Utility Library - SQLite3 Driver,,,1,1,,,,Section=libs; Version=1.6.3-3+b1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-,,,,,,,,,,,,libapr1-dev,liblog4cxx-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaprutil1-dev,liblog4cxx-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblog4cxx15,liblog4cxx-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libapr1t64,libapr1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,uuid-dev,libapr1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsctp-dev,libapr1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,libapr1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaprutil1t64,libaprutil1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libldap2-dev,libaprutil1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1-dev,libaprutil1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libapr1-dev,libaprutil1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libapr1t64,liblog4cxx15,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaprutil1-dbd-sqlite3,liblog4cxx15,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaprutil1t64,liblog4cxx15,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,liblog4cxx15,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,liblog4cxx15,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,liblog4cxx15,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"liblog4cxx-dev","liblog4cxx-dev","liblog4cxx-dev","Logging library for C++ (development files)","","","1","1","","","","Section=libdevel; Version=1.4.0-1","","","","","","","",""
+"libapr1-dev","libapr1-dev","libapr1-dev","Apache Portable Runtime Library - Development Headers","","","1","1","","","","Section=libdevel; Version=1.7.5-1","","","","","","","",""
+"libaprutil1-dev","libaprutil1-dev","libaprutil1-dev","Apache Portable Runtime Utility Library - Development Headers","","","1","1","","","","Section=libdevel; Version=1.6.3-3+b1","","","","","","","",""
+"liblog4cxx15","liblog4cxx15","liblog4cxx15","Logging library for C++","","","1","1","","","","Section=libs; Version=1.4.0-1","","","","","","","",""
+"libapr1t64","libapr1t64","libapr1t64","Apache Portable Runtime Library","","","1","1","","","","Section=libs; Version=1.7.5-1","","","","","","","",""
+"uuid-dev","uuid-dev","uuid-dev","Universally Unique ID library - headers and static libraries","","","1","1","","","","Section=libdevel; Version=2.41-5","","","","","","","",""
+"libsctp-dev","libsctp-dev","libsctp-dev","user-space access to Linux kernel SCTP - development files","","","1","1","","","","Section=libdevel; Version=1.0.21+dfsg-1","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libaprutil1t64","libaprutil1t64","libaprutil1t64","Apache Portable Runtime Utility Library","","","1","1","","","","Section=libs; Version=1.6.3-3+b1","","","","","","","",""
+"libldap2-dev","libldap2-dev","libldap2-dev","transitional package for libldap-dev","","","1","1","","","","Section=libdevel; Version=2.6.10+dfsg-1","","","","","","","",""
+"libexpat1-dev","libexpat1-dev","libexpat1-dev","XML parsing C library - development kit","","","1","1","","","","Section=libdevel; Version=2.7.1-2","","","","","","","",""
+"libaprutil1-dbd-sqlite3","libaprutil1-dbd-sqlite3","libaprutil1-dbd-sqlite3","Apache Portable Runtime Utility Library - SQLite3 Driver","","","1","1","","","","Section=libs; Version=1.6.3-3+b1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"","","","","","","","","","","","","liblog4cxx-dev","libapr1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx-dev","libaprutil1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx-dev","liblog4cxx15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapr1-dev","libapr1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapr1-dev","uuid-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapr1-dev","libsctp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapr1-dev","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaprutil1-dev","libaprutil1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaprutil1-dev","libldap2-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaprutil1-dev","libexpat1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaprutil1-dev","libapr1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx15","libapr1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx15","libaprutil1-dbd-sqlite3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx15","libaprutil1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx15","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx15","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblog4cxx15","libstdc++6","Depends","#333","1","Depends","arrow","{}"

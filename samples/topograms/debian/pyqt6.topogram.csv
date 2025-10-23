@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"pyqt6-dev","pyqt6-dev","pyqt6-dev","development files for PyQt6","","","1","1","","","","Section=python; Version=6.9.0-2","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"pyqt6-dev","pyqt6-dev","pyqt6-dev","development files for PyQt6","","","1","1","","","","Section=python; Version=6.9.0-2","","","","","","","",""

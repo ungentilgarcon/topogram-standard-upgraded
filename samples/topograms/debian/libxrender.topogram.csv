@@ -1,24 +1,24 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libxrender-dev,libxrender-dev,libxrender-dev,X Rendering Extension client library (development files),,,1,1,,,,Section=libdevel; Version=1:0.9.12-1,,,,,,,
-libxrender1,libxrender1,libxrender1,X Rendering Extension client library,,,1,1,,,,Section=libs; Version=1:0.9.12-1,,,,,,,
-libx11-dev,libx11-dev,libx11-dev,X11 client-side library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.8.12-1,,,,,,,
-x11proto-dev,x11proto-dev,x11proto-dev,X11 extension protocols and auxiliary headers,,,1,1,,,,Section=x11; Version=2024.1-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxau-dev,libxau-dev,libxau-dev,X11 authorisation library (development headers),,,1,1,,,,Section=libdevel; Version=1:1.0.11-1,,,,,,,
-libxdmcp-dev,libxdmcp-dev,libxdmcp-dev,X11 authorisation library (development headers),,,1,1,,,,Section=libdevel; Version=1:1.1.5-1,,,,,,,
-xtrans-dev,xtrans-dev,xtrans-dev,X transport library (development files),,,1,1,,,,Section=x11; Version=1.4.0-1,,,,,,,
-libxcb1-dev,libxcb1-dev,libxcb1-dev,"X C Binding, development files",,,1,1,,,,Section=libdevel; Version=1.17.0-2+b1,,,,,,,
-xorg-sgml-doctools,xorg-sgml-doctools,xorg-sgml-doctools,Common tools for building X.Org SGML documentation,,,1,1,,,,Section=x11; Version=1:1.11-1.1,,,,,,,
-,,,,,,,,,,,,libxrender1,libxrender-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-dev,libxrender-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,x11proto-dev,libxrender-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxrender1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libxrender1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libx11-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxau-dev,libx11-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxdmcp-dev,libx11-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,x11proto-dev,libx11-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xtrans-dev,libx11-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb1-dev,libx11-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xorg-sgml-doctools,x11proto-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libxrender-dev","libxrender-dev","libxrender-dev","X Rendering Extension client library (development files)","","","1","1","","","","Section=libdevel; Version=1:0.9.12-1","","","","","","","",""
+"libxrender1","libxrender1","libxrender1","X Rendering Extension client library","","","1","1","","","","Section=libs; Version=1:0.9.12-1","","","","","","","",""
+"libx11-dev","libx11-dev","libx11-dev","X11 client-side library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.8.12-1","","","","","","","",""
+"x11proto-dev","x11proto-dev","x11proto-dev","X11 extension protocols and auxiliary headers","","","1","1","","","","Section=x11; Version=2024.1-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxau-dev","libxau-dev","libxau-dev","X11 authorisation library (development headers)","","","1","1","","","","Section=libdevel; Version=1:1.0.11-1","","","","","","","",""
+"libxdmcp-dev","libxdmcp-dev","libxdmcp-dev","X11 authorisation library (development headers)","","","1","1","","","","Section=libdevel; Version=1:1.1.5-1","","","","","","","",""
+"xtrans-dev","xtrans-dev","xtrans-dev","X transport library (development files)","","","1","1","","","","Section=x11; Version=1.4.0-1","","","","","","","",""
+"libxcb1-dev","libxcb1-dev","libxcb1-dev","X C Binding, development files","","","1","1","","","","Section=libdevel; Version=1.17.0-2+b1","","","","","","","",""
+"xorg-sgml-doctools","xorg-sgml-doctools","xorg-sgml-doctools","Common tools for building X.Org SGML documentation","","","1","1","","","","Section=x11; Version=1:1.11-1.1","","","","","","","",""
+"","","","","","","","","","","","","libxrender-dev","libxrender1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxrender-dev","libx11-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxrender-dev","x11proto-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxrender1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxrender1","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-dev","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-dev","libxau-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-dev","libxdmcp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-dev","x11proto-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-dev","xtrans-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-dev","libxcb1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","x11proto-dev","xorg-sgml-doctools","Depends","#333","1","Depends","arrow","{}"

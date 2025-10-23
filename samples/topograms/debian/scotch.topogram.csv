@@ -1,41 +1,41 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libptscotch-7.0,libptscotch-7.0,libptscotch-7.0,"MPI programs and libraries for graph, mesh and hypergraph partitioning",,,1,1,,,,Section=libs; Version=7.0.7-1,,,,,,,
-libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-libopenmpi40,libopenmpi40,libopenmpi40,high performance message passing library -- shared library,,,1,1,,,,Section=libs; Version=5.0.7-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libevent-core-2.1-7t64,libevent-core-2.1-7t64,libevent-core-2.1-7t64,Asynchronous event notification library (core),,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-libevent-pthreads-2.1-7t64,libevent-pthreads-2.1-7t64,libevent-pthreads-2.1-7t64,Asynchronous event notification library (pthreads),,,1,1,,,,Section=libs; Version=2.1.12-stable-10+b1,,,,,,,
-libfabric1,libfabric1,libfabric1,libfabric communication library,,,1,1,,,,Section=libs; Version=2.1.0-1.1,,,,,,,
-libhwloc15,libhwloc15,libhwloc15,Hierarchical view of the machine - shared libs,,,1,1,,,,Section=libs; Version=2.12.0-4,,,,,,,
-libnl-3-200,libnl-3-200,libnl-3-200,library for dealing with netlink sockets,,,1,1,,,,Section=libs; Version=3.7.0-2,,,,,,,
-libpmix2t64,libpmix2t64,libpmix2t64,Process Management Interface (Exascale) library,,,1,1,,,,Section=libs; Version=5.0.7-1,,,,,,,
-libpsm2-2,libpsm2-2,libpsm2-2,Intel PSM2 library,,,1,1,,,,Section=libs; Version=11.2.185-2.1,,,,,,,
-libucx0,libucx0,libucx0,Unified Communication X libraries,,,1,1,,,,Section=libs; Version=1.18.1+ds-2+b1,,,,,,,
-libhwloc-plugins,libhwloc-plugins,libhwloc-plugins,Hierarchical view of the machine - plugins,,,1,1,,,,Section=libs; Version=2.12.0-4,,,,,,,
-libpmix2,libpmix2,libpmix2,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-,,,,,,,,,,,,libbz2-1.0,libptscotch-7.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libptscotch-7.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,libptscotch-7.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenmpi40,libptscotch-7.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libptscotch-7.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libbz2-1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,liblzma5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-core-2.1-7t64,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libevent-pthreads-2.1-7t64,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfabric1,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc15,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnl-3-200,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix2t64,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpsm2-2,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libucx0,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhwloc-plugins,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpmix2,libopenmpi40,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,zlib1g,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libptscotch-7.0","libptscotch-7.0","libptscotch-7.0","MPI programs and libraries for graph, mesh and hypergraph partitioning","","","1","1","","","","Section=libs; Version=7.0.7-1","","","","","","","",""
+"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"libopenmpi40","libopenmpi40","libopenmpi40","high performance message passing library -- shared library","","","1","1","","","","Section=libs; Version=5.0.7-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libevent-core-2.1-7t64","libevent-core-2.1-7t64","libevent-core-2.1-7t64","Asynchronous event notification library (core)","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libevent-pthreads-2.1-7t64","libevent-pthreads-2.1-7t64","libevent-pthreads-2.1-7t64","Asynchronous event notification library (pthreads)","","","1","1","","","","Section=libs; Version=2.1.12-stable-10+b1","","","","","","","",""
+"libfabric1","libfabric1","libfabric1","libfabric communication library","","","1","1","","","","Section=libs; Version=2.1.0-1.1","","","","","","","",""
+"libhwloc15","libhwloc15","libhwloc15","Hierarchical view of the machine - shared libs","","","1","1","","","","Section=libs; Version=2.12.0-4","","","","","","","",""
+"libnl-3-200","libnl-3-200","libnl-3-200","library for dealing with netlink sockets","","","1","1","","","","Section=libs; Version=3.7.0-2","","","","","","","",""
+"libpmix2t64","libpmix2t64","libpmix2t64","Process Management Interface (Exascale) library","","","1","1","","","","Section=libs; Version=5.0.7-1","","","","","","","",""
+"libpsm2-2","libpsm2-2","libpsm2-2","Intel PSM2 library","","","1","1","","","","Section=libs; Version=11.2.185-2.1","","","","","","","",""
+"libucx0","libucx0","libucx0","Unified Communication X libraries","","","1","1","","","","Section=libs; Version=1.18.1+ds-2+b1","","","","","","","",""
+"libhwloc-plugins","libhwloc-plugins","libhwloc-plugins","Hierarchical view of the machine - plugins","","","1","1","","","","Section=libs; Version=2.12.0-4","","","","","","","",""
+"libpmix2","libpmix2","libpmix2","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","libptscotch-7.0","libbz2-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libptscotch-7.0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libptscotch-7.0","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libptscotch-7.0","libopenmpi40","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libptscotch-7.0","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbz2-1.0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","liblzma5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libevent-core-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libevent-pthreads-2.1-7t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libfabric1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libhwloc15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libnl-3-200","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libpmix2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libpsm2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libucx0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libhwloc-plugins","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenmpi40","libpmix2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g","libc6","Depends","#333","1","Depends","arrow","{}"

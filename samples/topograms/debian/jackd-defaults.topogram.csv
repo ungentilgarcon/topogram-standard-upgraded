@@ -1,38 +1,38 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-jackd,jackd,jackd,JACK Audio Connection Kit (default server package),,,1,1,,,,Section=sound; Version=5+nmu1,,,,,,,
-jackd2,jackd2,jackd2,JACK Audio Connection Kit (server and example clients),,,1,1,,,,Section=sound; Version=1.9.22~dfsg-4,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-libjack-jackd2-0,libjack-jackd2-0,libjack-jackd2-0,JACK Audio Connection Kit (libraries),,,1,1,,,,Section=libs; Version=1.9.22~dfsg-4,,,,,,,
-python3-dbus,python3-dbus,python3-dbus,simple interprocess messaging system (Python 3 interface),,,1,1,,,,Section=python; Version=1.4.0-1,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
-libexpat1,libexpat1,libexpat1,XML parsing C library - runtime library,,,1,1,,,,Section=libs; Version=2.7.1-2,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libopus0,libopus0,libopus0,Opus codec runtime library,,,1,1,,,,Section=libs; Version=1.5.2-2,,,,,,,
-libsamplerate0,libsamplerate0,libsamplerate0,Audio sample rate conversion library,,,1,1,,,,Section=libs; Version=0.2.2-4+b2,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-jack-example-tools,jack-example-tools,jack-example-tools,JACK Audio Connection Kit (example clients),,,1,1,,,,Section=sound; Version=4-4,,,,,,,
-jackd2-firewire,jackd2-firewire,jackd2-firewire,JACK Audio Connection Kit (FFADO backend),,,1,1,,,,Section=sound; Version=1.9.22~dfsg-4,,,,,,,
-libpam-modules,libpam-modules,libpam-modules,Pluggable Authentication Modules for PAM,,,1,1,,,,Section=admin; Version=1.7.0-5,,,,,,,
-qjackctl,qjackctl,qjackctl,User interface for controlling the JACK sound server,,,1,1,,,,Section=sound; Version=1.0.4-1,,,,,,,
-,,,,,,,,,,,,jackd2,jackd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjack-jackd2-0,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-dbus,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopus0,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsamplerate0,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,jackd2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,jack-example-tools,jackd2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,jackd2-firewire,jackd2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libpam-modules,jackd2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qjackctl,jackd2,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"jackd","jackd","jackd","JACK Audio Connection Kit (default server package)","","","1","1","","","","Section=sound; Version=5+nmu1","","","","","","","",""
+"jackd2","jackd2","jackd2","JACK Audio Connection Kit (server and example clients)","","","1","1","","","","Section=sound; Version=1.9.22~dfsg-4","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"libjack-jackd2-0","libjack-jackd2-0","libjack-jackd2-0","JACK Audio Connection Kit (libraries)","","","1","1","","","","Section=libs; Version=1.9.22~dfsg-4","","","","","","","",""
+"python3-dbus","python3-dbus","python3-dbus","simple interprocess messaging system (Python 3 interface)","","","1","1","","","","Section=python; Version=1.4.0-1","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","","","",""
+"libexpat1","libexpat1","libexpat1","XML parsing C library - runtime library","","","1","1","","","","Section=libs; Version=2.7.1-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libopus0","libopus0","libopus0","Opus codec runtime library","","","1","1","","","","Section=libs; Version=1.5.2-2","","","","","","","",""
+"libsamplerate0","libsamplerate0","libsamplerate0","Audio sample rate conversion library","","","1","1","","","","Section=libs; Version=0.2.2-4+b2","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"jack-example-tools","jack-example-tools","jack-example-tools","JACK Audio Connection Kit (example clients)","","","1","1","","","","Section=sound; Version=4-4","","","","","","","",""
+"jackd2-firewire","jackd2-firewire","jackd2-firewire","JACK Audio Connection Kit (FFADO backend)","","","1","1","","","","Section=sound; Version=1.9.22~dfsg-4","","","","","","","",""
+"libpam-modules","libpam-modules","libpam-modules","Pluggable Authentication Modules for PAM","","","1","1","","","","Section=admin; Version=1.7.0-5","","","","","","","",""
+"qjackctl","qjackctl","qjackctl","User interface for controlling the JACK sound server","","","1","1","","","","Section=sound; Version=1.0.4-1","","","","","","","",""
+"","","","","","","","","","","","","jackd","jackd2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libjack-jackd2-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","python3-dbus","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libexpat1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libopus0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libsamplerate0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libsystemd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","jackd2","jack-example-tools","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","jackd2","jackd2-firewire","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","jackd2","libpam-modules","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","jackd2","qjackctl","Recommends","#333","1","Recommends","arrow","{}"

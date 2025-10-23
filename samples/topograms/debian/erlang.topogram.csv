@@ -1,88 +1,88 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-erlang,erlang,erlang,"Concurrent, real-time, distributed functional language",,,1,1,,,,Section=interpreters; Version=1:27.3.4.1+dfsg-1,,,,,,,
-erlang-base:any,erlang-base:any,erlang-base:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-dev:any,erlang-dev:any,erlang-dev:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-asn1:any,erlang-asn1:any,erlang-asn1:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-common-test:any,erlang-common-test:any,erlang-common-test:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-crypto:any,erlang-crypto:any,erlang-crypto:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-debugger:any,erlang-debugger:any,erlang-debugger:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-dialyzer:any,erlang-dialyzer:any,erlang-dialyzer:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-diameter:any,erlang-diameter:any,erlang-diameter:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-edoc:any,erlang-edoc:any,erlang-edoc:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-eldap:any,erlang-eldap:any,erlang-eldap:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-et:any,erlang-et:any,erlang-et:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-eunit:any,erlang-eunit:any,erlang-eunit:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-ftp:any,erlang-ftp:any,erlang-ftp:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-inets:any,erlang-inets:any,erlang-inets:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-megaco:any,erlang-megaco:any,erlang-megaco:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-mnesia:any,erlang-mnesia:any,erlang-mnesia:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-observer:any,erlang-observer:any,erlang-observer:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-odbc:any,erlang-odbc:any,erlang-odbc:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-os-mon:any,erlang-os-mon:any,erlang-os-mon:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-parsetools:any,erlang-parsetools:any,erlang-parsetools:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-public-key:any,erlang-public-key:any,erlang-public-key:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-reltool:any,erlang-reltool:any,erlang-reltool:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-runtime-tools:any,erlang-runtime-tools:any,erlang-runtime-tools:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-snmp:any,erlang-snmp:any,erlang-snmp:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-ssh:any,erlang-ssh:any,erlang-ssh:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-ssl:any,erlang-ssl:any,erlang-ssl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-syntax-tools:any,erlang-syntax-tools:any,erlang-syntax-tools:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-tftp:any,erlang-tftp:any,erlang-tftp:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-tools:any,erlang-tools:any,erlang-tools:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-wx:any,erlang-wx:any,erlang-wx:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-xmerl:any,erlang-xmerl:any,erlang-xmerl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-erlang-jinterface,erlang-jinterface,erlang-jinterface,Java communication tool to Erlang,,,1,1,,,,Section=interpreters; Version=1:27.3.4.1+dfsg-1,,,,,,,
-erlang-mode,erlang-mode,erlang-mode,Erlang major editing mode for Emacs,,,1,1,,,,Section=interpreters; Version=1:27.3.4.1+dfsg-1,,,,,,,
-erlang-src,erlang-src,erlang-src,Erlang/OTP applications sources,,,1,1,,,,Section=interpreters; Version=1:27.3.4.1+dfsg-1,,,,,,,
-erlang-examples,erlang-examples,erlang-examples,Erlang/OTP application examples,,,1,1,,,,Section=interpreters; Version=1:27.3.4.1+dfsg-1,,,,,,,
-default-jre-headless,default-jre-headless,default-jre-headless,Standard Java or Java compatible Runtime (headless),,,1,1,,,,Section=java; Version=2:1.21-76,,,,,,,
-emacsen-common,emacsen-common,emacsen-common,Common facilities for all emacsen,,,1,1,,,,Section=editors; Version=3.0.8,,,,,,,
-,,,,,,,,,,,,erlang-base:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-dev:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-asn1:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-common-test:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-crypto:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-debugger:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-dialyzer:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-diameter:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-edoc:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-eldap:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-et:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-eunit:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-ftp:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-inets:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-megaco:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-mnesia:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-observer:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-odbc:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-os-mon:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-parsetools:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-public-key:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-reltool:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-runtime-tools:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-snmp:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-ssh:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-ssl:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-syntax-tools:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-tftp:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-tools:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-wx:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-xmerl:any,erlang,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-jinterface,erlang,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-mode,erlang,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-src,erlang,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-examples,erlang,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,default-jre-headless,erlang-jinterface,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,emacsen-common,erlang-mode,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-base:any,erlang-src,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-base:any,erlang-src,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-base:any,erlang-examples,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-base:any,erlang-examples,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,erlang-crypto:any,erlang-examples,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-inets:any,erlang-examples,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-megaco:any,erlang-examples,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-public-key:any,erlang-examples,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-snmp:any,erlang-examples,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-ssh:any,erlang-examples,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-ssl:any,erlang-examples,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,erlang-syntax-tools:any,erlang-examples,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"erlang","erlang","erlang","Concurrent, real-time, distributed functional language","","","1","1","","","","Section=interpreters; Version=1:27.3.4.1+dfsg-1","","","","","","","",""
+"erlang-base:any","erlang-base:any","erlang-base:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-dev:any","erlang-dev:any","erlang-dev:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-asn1:any","erlang-asn1:any","erlang-asn1:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-common-test:any","erlang-common-test:any","erlang-common-test:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-crypto:any","erlang-crypto:any","erlang-crypto:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-debugger:any","erlang-debugger:any","erlang-debugger:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-dialyzer:any","erlang-dialyzer:any","erlang-dialyzer:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-diameter:any","erlang-diameter:any","erlang-diameter:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-edoc:any","erlang-edoc:any","erlang-edoc:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-eldap:any","erlang-eldap:any","erlang-eldap:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-et:any","erlang-et:any","erlang-et:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-eunit:any","erlang-eunit:any","erlang-eunit:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-ftp:any","erlang-ftp:any","erlang-ftp:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-inets:any","erlang-inets:any","erlang-inets:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-megaco:any","erlang-megaco:any","erlang-megaco:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-mnesia:any","erlang-mnesia:any","erlang-mnesia:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-observer:any","erlang-observer:any","erlang-observer:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-odbc:any","erlang-odbc:any","erlang-odbc:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-os-mon:any","erlang-os-mon:any","erlang-os-mon:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-parsetools:any","erlang-parsetools:any","erlang-parsetools:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-public-key:any","erlang-public-key:any","erlang-public-key:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-reltool:any","erlang-reltool:any","erlang-reltool:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-runtime-tools:any","erlang-runtime-tools:any","erlang-runtime-tools:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-snmp:any","erlang-snmp:any","erlang-snmp:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-ssh:any","erlang-ssh:any","erlang-ssh:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-ssl:any","erlang-ssl:any","erlang-ssl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-syntax-tools:any","erlang-syntax-tools:any","erlang-syntax-tools:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-tftp:any","erlang-tftp:any","erlang-tftp:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-tools:any","erlang-tools:any","erlang-tools:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-wx:any","erlang-wx:any","erlang-wx:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-xmerl:any","erlang-xmerl:any","erlang-xmerl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"erlang-jinterface","erlang-jinterface","erlang-jinterface","Java communication tool to Erlang","","","1","1","","","","Section=interpreters; Version=1:27.3.4.1+dfsg-1","","","","","","","",""
+"erlang-mode","erlang-mode","erlang-mode","Erlang major editing mode for Emacs","","","1","1","","","","Section=interpreters; Version=1:27.3.4.1+dfsg-1","","","","","","","",""
+"erlang-src","erlang-src","erlang-src","Erlang/OTP applications sources","","","1","1","","","","Section=interpreters; Version=1:27.3.4.1+dfsg-1","","","","","","","",""
+"erlang-examples","erlang-examples","erlang-examples","Erlang/OTP application examples","","","1","1","","","","Section=interpreters; Version=1:27.3.4.1+dfsg-1","","","","","","","",""
+"default-jre-headless","default-jre-headless","default-jre-headless","Standard Java or Java compatible Runtime (headless)","","","1","1","","","","Section=java; Version=2:1.21-76","","","","","","","",""
+"emacsen-common","emacsen-common","emacsen-common","Common facilities for all emacsen","","","1","1","","","","Section=editors; Version=3.0.8","","","","","","","",""
+"","","","","","","","","","","","","erlang","erlang-base:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-dev:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-asn1:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-common-test:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-crypto:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-debugger:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-dialyzer:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-diameter:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-edoc:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-eldap:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-et:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-eunit:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-ftp:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-inets:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-megaco:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-mnesia:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-observer:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-odbc:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-os-mon:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-parsetools:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-public-key:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-reltool:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-runtime-tools:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-snmp:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-ssh:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-ssl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-syntax-tools:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-tftp:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-tools:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-wx:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-xmerl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-jinterface","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-mode","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-src","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang","erlang-examples","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-jinterface","default-jre-headless","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang-mode","emacsen-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang-src","erlang-base:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang-src","erlang-base:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-base:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-base:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-crypto:any","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-inets:any","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-megaco:any","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-public-key:any","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-snmp:any","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-ssh:any","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-ssl:any","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","erlang-examples","erlang-syntax-tools:any","Recommends","#333","1","Recommends","arrow","{}"

@@ -1,12 +1,12 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-freeglut3-dev,freeglut3-dev,freeglut3-dev,transitional package,,,1,1,,,,Section=libdevel; Version=3.4.0-4,,,,,,,
-libglut-dev,libglut-dev,libglut-dev,OpenGL Utility Toolkit development files,,,1,1,,,,Section=libdevel; Version=3.4.0-4,,,,,,,
-libglut3.12,libglut3.12,libglut3.12,OpenGL Utility Toolkit,,,1,1,,,,Section=libs; Version=3.4.0-4,,,,,,,
-libglu1-mesa-dev,libglu1-mesa-dev,libglu1-mesa-dev,Mesa OpenGL utility library -- development files,,,1,1,,,,Section=libdevel; Version=9.0.2-1.1+b3,,,,,,,
-libxext-dev,libxext-dev,libxext-dev,X11 miscellaneous extensions library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.3.4-1+b3,,,,,,,
-libxt-dev,libxt-dev,libxt-dev,X11 toolkit intrinsics library (development headers),,,1,1,,,,Section=libdevel; Version=1:1.2.1-1.2+b2,,,,,,,
-,,,,,,,,,,,,libglut-dev,freeglut3-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglut3.12,libglut-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglu1-mesa-dev,libglut-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext-dev,libglut-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxt-dev,libglut-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"freeglut3-dev","freeglut3-dev","freeglut3-dev","transitional package","","","1","1","","","","Section=libdevel; Version=3.4.0-4","","","","","","","",""
+"libglut-dev","libglut-dev","libglut-dev","OpenGL Utility Toolkit development files","","","1","1","","","","Section=libdevel; Version=3.4.0-4","","","","","","","",""
+"libglut3.12","libglut3.12","libglut3.12","OpenGL Utility Toolkit","","","1","1","","","","Section=libs; Version=3.4.0-4","","","","","","","",""
+"libglu1-mesa-dev","libglu1-mesa-dev","libglu1-mesa-dev","Mesa OpenGL utility library -- development files","","","1","1","","","","Section=libdevel; Version=9.0.2-1.1+b3","","","","","","","",""
+"libxext-dev","libxext-dev","libxext-dev","X11 miscellaneous extensions library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.3.4-1+b3","","","","","","","",""
+"libxt-dev","libxt-dev","libxt-dev","X11 toolkit intrinsics library (development headers)","","","1","1","","","","Section=libdevel; Version=1:1.2.1-1.2+b2","","","","","","","",""
+"","","","","","","","","","","","","freeglut3-dev","libglut-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglut-dev","libglut3.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglut-dev","libglu1-mesa-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglut-dev","libxext-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglut-dev","libxt-dev","Depends","#333","1","Depends","arrow","{}"

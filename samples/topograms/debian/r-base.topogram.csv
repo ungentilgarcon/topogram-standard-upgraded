@@ -1,108 +1,108 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-r-base,r-base,r-base,GNU R statistical computation and graphics system,,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
-r-base-core,r-base-core,r-base-core,GNU R core of statistical computation and graphics system,,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
-r-recommended,r-recommended,r-recommended,GNU R collection of recommended packages [metapackage],,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
-r-base-html,r-base-html,r-base-html,GNU R html docs for statistical computing system functions,,,1,1,,,,Section=doc; Version=4.5.0-3,,,,,,,
-r-doc-html,r-doc-html,r-doc-html,GNU R html manuals for statistical computing system,,,1,1,,,,Section=doc; Version=4.5.0-3,,,,,,,
-zip,zip,zip,Archiver for .zip files,,,1,1,,,,Section=utils; Version=3.0-15,,,,,,,
-unzip,unzip,unzip,De-archiver for .zip files,,,1,1,,,,Section=utils; Version=6.0-29,,,,,,,
-libpaper-utils,libpaper-utils,libpaper-utils,Paper sizes catalogue (utilities),,,1,1,,,,Section=utils; Version=2.2.5-0.3+b2,,,,,,,
-xdg-utils,xdg-utils,xdg-utils,desktop integration utilities from freedesktop.org,,,1,1,,,,Section=utils; Version=1.2.1-2,,,,,,,
-libblas3,libblas3,libblas3,"Basic Linear Algebra Reference implementations, shared library",,,1,1,,,,Section=libs; Version=3.12.1-6,,,,,,,
-libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
-libdeflate0,libdeflate0,libdeflate0,"fast, whole-buffer DEFLATE-based compression and decompression",,,1,1,,,,Section=libs; Version=1.23-2,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libgomp1,libgomp1,libgomp1,GCC OpenMP (GOMP) support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
-liblapack3,liblapack3,liblapack3,Library of linear algebra routines 3 - shared version,,,1,1,,,,Section=libs; Version=3.12.1-6,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
-libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
-libtcl8.6,libtcl8.6,libtcl8.6,Tcl (the Tool Command Language) v8.6 - run-time library files,,,1,1,,,,Section=libs; Version=8.6.16+dfsg-1,,,,,,,
-libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
-libtirpc3t64,libtirpc3t64,libtirpc3t64,transport-independent RPC library,,,1,1,,,,Section=libs; Version=1.3.6+ds-1,,,,,,,
-libtk8.6,libtk8.6,libtk8.6,Tk toolkit for Tcl and X11 v8.6 - run-time files,,,1,1,,,,Section=libs; Version=8.6.16-1,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxt6t64,libxt6t64,libxt6t64,X11 toolkit intrinsics library,,,1,1,,,,Section=libs; Version=1:1.2.1-1.2+b2,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
-ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
-r-base-dev,r-base-dev,r-base-dev,GNU R installation of auxiliary GNU R packages,,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
-r-cran-boot,r-cran-boot,r-cran-boot,GNU R package for bootstrapping functions from Davison and Hinkley,,,1,1,,,,Section=gnu-r; Version=1.3-31-1,,,,,,,
-r-cran-cluster,r-cran-cluster,r-cran-cluster,GNU R package for cluster analysis by Rousseeuw et al,,,1,1,,,,Section=gnu-r; Version=2.1.8.1-1,,,,,,,
-r-cran-foreign,r-cran-foreign,r-cran-foreign,GNU R package to read/write data from other stat. systems,,,1,1,,,,Section=gnu-r; Version=0.8.90-1,,,,,,,
-r-cran-kernsmooth,r-cran-kernsmooth,r-cran-kernsmooth,GNU R package for kernel smoothing and density estimation,,,1,1,,,,Section=gnu-r; Version=2.23-26-1,,,,,,,
-r-cran-lattice,r-cran-lattice,r-cran-lattice,GNU R package for 'Trellis' graphics,,,1,1,,,,Section=gnu-r; Version=0.22-7-1,,,,,,,
-r-cran-mgcv,r-cran-mgcv,r-cran-mgcv,GNU R package for multiple parameter smoothing estimation,,,1,1,,,,Section=gnu-r; Version=1.9-3-1,,,,,,,
-r-cran-nlme,r-cran-nlme,r-cran-nlme,GNU R package for (non-)linear mixed effects models,,,1,1,,,,Section=gnu-r; Version=3.1.168-1,,,,,,,
-r-cran-rpart,r-cran-rpart,r-cran-rpart,GNU R package for recursive partitioning and regression trees,,,1,1,,,,Section=gnu-r; Version=4.1.24-1,,,,,,,
-r-cran-survival,r-cran-survival,r-cran-survival,GNU R package for survival analysis,,,1,1,,,,Section=gnu-r; Version=3.8-3-1,,,,,,,
-r-cran-mass,r-cran-mass,r-cran-mass,GNU R package of Venables and Ripley's MASS,,,1,1,,,,Section=gnu-r; Version=7.3-65-1,,,,,,,
-r-cran-class,r-cran-class,r-cran-class,GNU R package for classification,,,1,1,,,,Section=gnu-r; Version=7.3-23-1,,,,,,,
-r-cran-nnet,r-cran-nnet,r-cran-nnet,GNU R package for feed-forward neural networks,,,1,1,,,,Section=gnu-r; Version=7.3-20-1,,,,,,,
-r-cran-spatial,r-cran-spatial,r-cran-spatial,GNU R package for spatial statistics,,,1,1,,,,Section=gnu-r; Version=7.3-18-1,,,,,,,
-r-cran-codetools,r-cran-codetools,r-cran-codetools,GNU R package providing code analysis tools,,,1,1,,,,Section=gnu-r; Version=0.2-20-1,,,,,,,
-r-cran-matrix,r-cran-matrix,r-cran-matrix,GNU R package of classes for dense and sparse matrices,,,1,1,,,,Section=gnu-r; Version=1.7-3-1,,,,,,,
-,,,,,,,,,,,,r-base-core,r-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-recommended,r-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-base-html,r-base,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-doc-html,r-base,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,zip,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,unzip,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpaper-utils,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xdg-utils,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libblas3,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbz2-1.0,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcurl4t64,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdeflate0,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgomp1,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblapack3,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libreadline8t64,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtcl8.6,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtiff6,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtirpc3t64,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtk8.6,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxt6t64,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ca-certificates,r-base-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-recommended,r-base-core,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-base-dev,r-base-core,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-doc-html,r-base-core,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-base-core,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-boot,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cluster,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-foreign,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-kernsmooth,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lattice,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-mgcv,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-nlme,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rpart,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-survival,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-mass,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-class,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-nnet,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-spatial,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-codetools,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-matrix,r-recommended,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-base-core,r-base-html,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"r-base","r-base","r-base","GNU R statistical computation and graphics system","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","","","",""
+"r-base-core","r-base-core","r-base-core","GNU R core of statistical computation and graphics system","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","","","",""
+"r-recommended","r-recommended","r-recommended","GNU R collection of recommended packages [metapackage]","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","","","",""
+"r-base-html","r-base-html","r-base-html","GNU R html docs for statistical computing system functions","","","1","1","","","","Section=doc; Version=4.5.0-3","","","","","","","",""
+"r-doc-html","r-doc-html","r-doc-html","GNU R html manuals for statistical computing system","","","1","1","","","","Section=doc; Version=4.5.0-3","","","","","","","",""
+"zip","zip","zip","Archiver for .zip files","","","1","1","","","","Section=utils; Version=3.0-15","","","","","","","",""
+"unzip","unzip","unzip","De-archiver for .zip files","","","1","1","","","","Section=utils; Version=6.0-29","","","","","","","",""
+"libpaper-utils","libpaper-utils","libpaper-utils","Paper sizes catalogue (utilities)","","","1","1","","","","Section=utils; Version=2.2.5-0.3+b2","","","","","","","",""
+"xdg-utils","xdg-utils","xdg-utils","desktop integration utilities from freedesktop.org","","","1","1","","","","Section=utils; Version=1.2.1-2","","","","","","","",""
+"libblas3","libblas3","libblas3","Basic Linear Algebra Reference implementations, shared library","","","1","1","","","","Section=libs; Version=3.12.1-6","","","","","","","",""
+"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","","","",""
+"libdeflate0","libdeflate0","libdeflate0","fast, whole-buffer DEFLATE-based compression and decompression","","","1","1","","","","Section=libs; Version=1.23-2","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgomp1","libgomp1","libgomp1","GCC OpenMP (GOMP) support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","","","",""
+"liblapack3","liblapack3","liblapack3","Library of linear algebra routines 3 - shared version","","","1","1","","","","Section=libs; Version=3.12.1-6","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","","","",""
+"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","","","",""
+"libtcl8.6","libtcl8.6","libtcl8.6","Tcl (the Tool Command Language) v8.6 - run-time library files","","","1","1","","","","Section=libs; Version=8.6.16+dfsg-1","","","","","","","",""
+"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","","","",""
+"libtirpc3t64","libtirpc3t64","libtirpc3t64","transport-independent RPC library","","","1","1","","","","Section=libs; Version=1.3.6+ds-1","","","","","","","",""
+"libtk8.6","libtk8.6","libtk8.6","Tk toolkit for Tcl and X11 v8.6 - run-time files","","","1","1","","","","Section=libs; Version=8.6.16-1","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxt6t64","libxt6t64","libxt6t64","X11 toolkit intrinsics library","","","1","1","","","","Section=libs; Version=1:1.2.1-1.2+b2","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","","","",""
+"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","","","",""
+"r-base-dev","r-base-dev","r-base-dev","GNU R installation of auxiliary GNU R packages","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","","","",""
+"r-cran-boot","r-cran-boot","r-cran-boot","GNU R package for bootstrapping functions from Davison and Hinkley","","","1","1","","","","Section=gnu-r; Version=1.3-31-1","","","","","","","",""
+"r-cran-cluster","r-cran-cluster","r-cran-cluster","GNU R package for cluster analysis by Rousseeuw et al","","","1","1","","","","Section=gnu-r; Version=2.1.8.1-1","","","","","","","",""
+"r-cran-foreign","r-cran-foreign","r-cran-foreign","GNU R package to read/write data from other stat. systems","","","1","1","","","","Section=gnu-r; Version=0.8.90-1","","","","","","","",""
+"r-cran-kernsmooth","r-cran-kernsmooth","r-cran-kernsmooth","GNU R package for kernel smoothing and density estimation","","","1","1","","","","Section=gnu-r; Version=2.23-26-1","","","","","","","",""
+"r-cran-lattice","r-cran-lattice","r-cran-lattice","GNU R package for 'Trellis' graphics","","","1","1","","","","Section=gnu-r; Version=0.22-7-1","","","","","","","",""
+"r-cran-mgcv","r-cran-mgcv","r-cran-mgcv","GNU R package for multiple parameter smoothing estimation","","","1","1","","","","Section=gnu-r; Version=1.9-3-1","","","","","","","",""
+"r-cran-nlme","r-cran-nlme","r-cran-nlme","GNU R package for (non-)linear mixed effects models","","","1","1","","","","Section=gnu-r; Version=3.1.168-1","","","","","","","",""
+"r-cran-rpart","r-cran-rpart","r-cran-rpart","GNU R package for recursive partitioning and regression trees","","","1","1","","","","Section=gnu-r; Version=4.1.24-1","","","","","","","",""
+"r-cran-survival","r-cran-survival","r-cran-survival","GNU R package for survival analysis","","","1","1","","","","Section=gnu-r; Version=3.8-3-1","","","","","","","",""
+"r-cran-mass","r-cran-mass","r-cran-mass","GNU R package of Venables and Ripley's MASS","","","1","1","","","","Section=gnu-r; Version=7.3-65-1","","","","","","","",""
+"r-cran-class","r-cran-class","r-cran-class","GNU R package for classification","","","1","1","","","","Section=gnu-r; Version=7.3-23-1","","","","","","","",""
+"r-cran-nnet","r-cran-nnet","r-cran-nnet","GNU R package for feed-forward neural networks","","","1","1","","","","Section=gnu-r; Version=7.3-20-1","","","","","","","",""
+"r-cran-spatial","r-cran-spatial","r-cran-spatial","GNU R package for spatial statistics","","","1","1","","","","Section=gnu-r; Version=7.3-18-1","","","","","","","",""
+"r-cran-codetools","r-cran-codetools","r-cran-codetools","GNU R package providing code analysis tools","","","1","1","","","","Section=gnu-r; Version=0.2-20-1","","","","","","","",""
+"r-cran-matrix","r-cran-matrix","r-cran-matrix","GNU R package of classes for dense and sparse matrices","","","1","1","","","","Section=gnu-r; Version=1.7-3-1","","","","","","","",""
+"","","","","","","","","","","","","r-base","r-base-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base","r-recommended","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base","r-base-html","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-base","r-doc-html","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","zip","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","unzip","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libpaper-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","xdg-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libblas3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libbz2-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libcurl4t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libdeflate0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libgomp1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","liblapack3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libreadline8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libtcl8.6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libtiff6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libtirpc3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libtk8.6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libxt6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","ca-certificates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","r-recommended","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","r-base-dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-base-core","r-doc-html","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-base-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-boot","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-cluster","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-foreign","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-kernsmooth","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-lattice","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-mgcv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-nlme","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-rpart","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-survival","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-mass","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-class","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-nnet","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-spatial","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-codetools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-recommended","r-cran-matrix","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-base-html","r-base-core","Depends","#333","1","Depends","arrow","{}"

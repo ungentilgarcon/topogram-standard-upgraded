@@ -1,22 +1,22 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-docutils-common,docutils-common,docutils-common,text processing system for reStructuredText - common data,,,1,1,,,,Section=python; Version=0.21.2+dfsg-2,,,,,,,
-sgml-base,sgml-base,sgml-base,SGML infrastructure and SGML catalog file support,,,1,1,,,,Section=text; Version=1.31+nmu1,,,,,,,
-xml-core,xml-core,xml-core,XML infrastructure and XML catalog file support,,,1,1,,,,Section=text; Version=0.19,,,,,,,
-python3-docutils,python3-docutils,python3-docutils,text processing system for reStructuredText (implemented in Python 3),,,1,1,,,,Section=python; Version=0.21.2+dfsg-2,,,,,,,
-sed,sed,sed,GNU stream editor for filtering/transforming text,,,1,1,,,,Section=utils; Version=4.9-2,,,,,,,
-python3-roman,python3-roman,python3-roman,module for generating/analyzing Roman numerals for Python 3,,,1,1,,,,Section=python; Version=5.0-1,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libpaper-utils,libpaper-utils,libpaper-utils,Paper sizes catalogue (utilities),,,1,1,,,,Section=utils; Version=2.2.5-0.3+b2,,,,,,,
-python3-pil,python3-pil,python3-pil,Python Imaging Library (Python3),,,1,1,,,,Section=python; Version=11.1.0-5+b1,,,,,,,
-python3-pygments,python3-pygments,python3-pygments,syntax highlighting package written in Python 3,,,1,1,,,,Section=python; Version=2.18.0+dfsg-2,,,,,,,
-,,,,,,,,,,,,sgml-base,docutils-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xml-core,docutils-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-docutils,docutils-common,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,sed,xml-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,sgml-base,xml-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,docutils-common,python3-docutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-roman,python3-docutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-docutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpaper-utils,python3-docutils,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pil,python3-docutils,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pygments,python3-docutils,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"docutils-common","docutils-common","docutils-common","text processing system for reStructuredText - common data","","","1","1","","","","Section=python; Version=0.21.2+dfsg-2","","","","","","","",""
+"sgml-base","sgml-base","sgml-base","SGML infrastructure and SGML catalog file support","","","1","1","","","","Section=text; Version=1.31+nmu1","","","","","","","",""
+"xml-core","xml-core","xml-core","XML infrastructure and XML catalog file support","","","1","1","","","","Section=text; Version=0.19","","","","","","","",""
+"python3-docutils","python3-docutils","python3-docutils","text processing system for reStructuredText (implemented in Python 3)","","","1","1","","","","Section=python; Version=0.21.2+dfsg-2","","","","","","","",""
+"sed","sed","sed","GNU stream editor for filtering/transforming text","","","1","1","","","","Section=utils; Version=4.9-2","","","","","","","",""
+"python3-roman","python3-roman","python3-roman","module for generating/analyzing Roman numerals for Python 3","","","1","1","","","","Section=python; Version=5.0-1","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libpaper-utils","libpaper-utils","libpaper-utils","Paper sizes catalogue (utilities)","","","1","1","","","","Section=utils; Version=2.2.5-0.3+b2","","","","","","","",""
+"python3-pil","python3-pil","python3-pil","Python Imaging Library (Python3)","","","1","1","","","","Section=python; Version=11.1.0-5+b1","","","","","","","",""
+"python3-pygments","python3-pygments","python3-pygments","syntax highlighting package written in Python 3","","","1","1","","","","Section=python; Version=2.18.0+dfsg-2","","","","","","","",""
+"","","","","","","","","","","","","docutils-common","sgml-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","docutils-common","xml-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","docutils-common","python3-docutils","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","xml-core","sed","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xml-core","sgml-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-docutils","docutils-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-docutils","python3-roman","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-docutils","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-docutils","libpaper-utils","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-docutils","python3-pil","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-docutils","python3-pygments","Recommends","#333","1","Recommends","arrow","{}"

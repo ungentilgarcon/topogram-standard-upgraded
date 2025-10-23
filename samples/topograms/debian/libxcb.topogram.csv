@@ -1,15 +1,15 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libxcb-composite0,libxcb-composite0,libxcb-composite0,"X C Binding, composite extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libxau6,libxau6,libxau6,X11 authorisation library,,,1,1,,,,Section=libs; Version=1:1.0.11-1,,,,,,,
-libxdmcp6,libxdmcp6,libxdmcp6,X11 Display Manager Control Protocol library,,,1,1,,,,Section=libs; Version=1:1.1.5-1,,,,,,,
-,,,,,,,,,,,,libc6,libxcb-composite0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb1,libxcb-composite0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libxcb1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxau6,libxcb1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxdmcp6,libxcb1,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libxcb-composite0","libxcb-composite0","libxcb-composite0","X C Binding, composite extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libxau6","libxau6","libxau6","X11 authorisation library","","","1","1","","","","Section=libs; Version=1:1.0.11-1","","","","","","","",""
+"libxdmcp6","libxdmcp6","libxdmcp6","X11 Display Manager Control Protocol library","","","1","1","","","","Section=libs; Version=1:1.1.5-1","","","","","","","",""
+"","","","","","","","","","","","","libxcb-composite0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxcb-composite0","libxcb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libxcb1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxcb1","libxau6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxcb1","libxdmcp6","Depends","#333","1","Depends","arrow","{}"

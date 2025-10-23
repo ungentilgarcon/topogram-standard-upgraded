@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","","","",""

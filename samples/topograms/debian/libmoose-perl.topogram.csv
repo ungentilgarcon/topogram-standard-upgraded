@@ -1,123 +1,123 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libmoose-perl,libmoose-perl,libmoose-perl,modern Perl object system framework,,,1,1,,,,Section=perl; Version=2.2207-1+b3,,,,,,,
-perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
-perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libclass-load-perl,libclass-load-perl,libclass-load-perl,module for loading modules by name,,,1,1,,,,Section=perl; Version=0.25-2,,,,,,,
-libclass-load-xs-perl,libclass-load-xs-perl,libclass-load-xs-perl,XS implementation of parts of Class::Load,,,1,1,,,,Section=perl; Version=0.10-2+b4,,,,,,,
-libdata-optlist-perl,libdata-optlist-perl,libdata-optlist-perl,module to parse and validate simple name/value option pairs,,,1,1,,,,Section=perl; Version=0.114-1,,,,,,,
-libdevel-globaldestruction-perl,libdevel-globaldestruction-perl,libdevel-globaldestruction-perl,module to expose the flag that marks global destruction,,,1,1,,,,Section=perl; Version=0.14-4,,,,,,,
-libdevel-overloadinfo-perl,libdevel-overloadinfo-perl,libdevel-overloadinfo-perl,module to introspect overloaded operators,,,1,1,,,,Section=perl; Version=0.007-1,,,,,,,
-libdevel-stacktrace-perl,libdevel-stacktrace-perl,libdevel-stacktrace-perl,Perl module containing stack trace and related objects,,,1,1,,,,Section=perl; Version=2.0500-1,,,,,,,
-libeval-closure-perl,libeval-closure-perl,libeval-closure-perl,Perl module to safely and cleanly create closures via string eval,,,1,1,,,,Section=perl; Version=0.14-3,,,,,,,
-libmodule-runtime-conflicts-perl,libmodule-runtime-conflicts-perl,libmodule-runtime-conflicts-perl,module to provide information on conflicts for Module::Runtime,,,1,1,,,,Section=perl; Version=0.003-2,,,,,,,
-libmodule-runtime-perl,libmodule-runtime-perl,libmodule-runtime-perl,Perl module for runtime module handling,,,1,1,,,,Section=perl; Version=0.018-1,,,,,,,
-libmro-compat-perl,libmro-compat-perl,libmro-compat-perl,mro::* interface compatibility for Perls < 5.9.5,,,1,1,,,,Section=perl; Version=0.15-2,,,,,,,
-libpackage-deprecationmanager-perl,libpackage-deprecationmanager-perl,libpackage-deprecationmanager-perl,module for managing deprecation warnings for Perl distributions,,,1,1,,,,Section=perl; Version=0.18-1,,,,,,,
-libpackage-stash-perl,libpackage-stash-perl,libpackage-stash-perl,module providing routines for manipulating stashes,,,1,1,,,,Section=perl; Version=0.40-1,,,,,,,
-libpackage-stash-xs-perl,libpackage-stash-xs-perl,libpackage-stash-xs-perl,Perl module providing routines for manipulating stashes (XS version),,,1,1,,,,Section=perl; Version=0.30-1+b4,,,,,,,
-libparams-util-perl,libparams-util-perl,libparams-util-perl,Perl extension for simple stand-alone param checking functions,,,1,1,,,,Section=perl; Version=1.102-3+b1,,,,,,,
-libscalar-list-utils-perl,libscalar-list-utils-perl,libscalar-list-utils-perl,modules providing common scalar and list utility subroutines,,,1,1,,,,Section=perl; Version=1:1.63-1+b4,,,,,,,
-libsub-exporter-perl,libsub-exporter-perl,libsub-exporter-perl,sophisticated exporter for custom-built routines,,,1,1,,,,Section=perl; Version=0.990-1,,,,,,,
-libtry-tiny-perl,libtry-tiny-perl,libtry-tiny-perl,module providing minimalistic try/catch,,,1,1,,,,Section=perl; Version=0.32-1,,,,,,,
-libdevel-partialdump-perl,libdevel-partialdump-perl,libdevel-partialdump-perl,Perl module to dump subroutine parameters concisely,,,1,1,,,,Section=perl; Version=0.20-2,,,,,,,
-perl-base,perl-base,perl-base,minimal Perl system,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
-perl-modules-5.40,perl-modules-5.40,perl-modules-5.40,Core Perl modules,,,1,1,,,,Section=libs; Version=5.40.1-6,,,,,,,
-libperl5.40,libperl5.40,libperl5.40,shared Perl library,,,1,1,,,,Section=libs; Version=5.40.1-6,,,,,,,
-netbase,netbase,netbase,Basic TCP/IP networking system,,,1,1,,,,Section=admin; Version=6.5,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libmodule-implementation-perl,libmodule-implementation-perl,libmodule-implementation-perl,module for loading one of several alternate implementations of a module,,,1,1,,,,Section=perl; Version=0.09-2,,,,,,,
-libsub-install-perl,libsub-install-perl,libsub-install-perl,module for installing subroutines into packages easily,,,1,1,,,,Section=perl; Version=0.929-1,,,,,,,
-libsub-exporter-progressive-perl,libsub-exporter-progressive-perl,libsub-exporter-progressive-perl,module for using Sub::Exporter only if needed,,,1,1,,,,Section=perl; Version=0.001013-3,,,,,,,
-libdevel-lexalias-perl,libdevel-lexalias-perl,libdevel-lexalias-perl,Perl module that provides alias lexical variables,,,1,1,,,,Section=perl; Version=0.05-3+b4,,,,,,,
-libdist-checkconflicts-perl,libdist-checkconflicts-perl,libdist-checkconflicts-perl,module for declaring version conflicts for a distribution,,,1,1,,,,Section=perl; Version=0.11-2,,,,,,,
-libparams-classify-perl,libparams-classify-perl,libparams-classify-perl,Perl module for argument type classification,,,1,1,,,,Section=perl; Version=0.015-2+b4,,,,,,,
-libclass-c3-perl,libclass-c3-perl,libclass-c3-perl,pragma for using the C3 method resolution order,,,1,1,,,,Section=perl; Version=0.35-2,,,,,,,
-libclass-c3-xs-perl,libclass-c3-xs-perl,libclass-c3-xs-perl,Perl module to accelerate Class::C3,,,1,1,,,,Section=perl; Version=0.15-1+b6,,,,,,,
-libclass-tiny-perl,libclass-tiny-perl,libclass-tiny-perl,minimalist class construction module for Perl,,,1,1,,,,Section=perl; Version=1.008-2,,,,,,,
-libnamespace-clean-perl,libnamespace-clean-perl,libnamespace-clean-perl,module for keeping imports and functions out of the current namespace,,,1,1,,,,Section=perl; Version=0.27-2,,,,,,,
-,,,,,,,,,,,,perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-load-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-load-xs-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdata-optlist-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-globaldestruction-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-overloadinfo-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-stacktrace-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libeval-closure-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-runtime-conflicts-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-runtime-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmro-compat-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-deprecationmanager-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-xs-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libparams-util-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libscalar-list-utils-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-exporter-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtry-tiny-perl,libmoose-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-partialdump-perl,libmoose-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl-base,perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl-modules-5.40,perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libperl5.40,perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,netbase,perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl:any,libclass-load-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdata-optlist-perl,libclass-load-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-implementation-perl,libclass-load-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-runtime-perl,libclass-load-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-perl,libclass-load-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtry-tiny-perl,libclass-load-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libclass-load-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libclass-load-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libclass-load-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-load-perl,libclass-load-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdata-optlist-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libparams-util-perl,libdata-optlist-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-install-perl,libdata-optlist-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdevel-globaldestruction-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-exporter-progressive-perl,libdevel-globaldestruction-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdevel-overloadinfo-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmro-compat-perl,libdevel-overloadinfo-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-perl,libdevel-overloadinfo-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdevel-stacktrace-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libeval-closure-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-exporter-perl,libeval-closure-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdevel-lexalias-perl,libeval-closure-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl:any,libmodule-runtime-conflicts-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdist-checkconflicts-perl,libmodule-runtime-conflicts-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-runtime-perl,libmodule-runtime-conflicts-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libmodule-runtime-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libparams-classify-perl,libmodule-runtime-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libmro-compat-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-c3-perl,libmro-compat-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-c3-xs-perl,libmro-compat-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl:any,libpackage-deprecationmanager-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-perl,libpackage-deprecationmanager-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libparams-util-perl,libpackage-deprecationmanager-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libscalar-list-utils-perl,libpackage-deprecationmanager-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-install-perl,libpackage-deprecationmanager-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libpackage-stash-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-implementation-perl,libpackage-stash-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libscalar-list-utils-perl,libpackage-stash-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-xs-perl,libpackage-stash-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl,libpackage-stash-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libpackage-stash-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpackage-stash-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libparams-util-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libparams-util-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libparams-util-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libsub-exporter-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdata-optlist-perl,libsub-exporter-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-install-perl,libsub-exporter-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libtry-tiny-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdevel-partialdump-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-tiny-perl,libdevel-partialdump-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnamespace-clean-perl,libdevel-partialdump-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-exporter-perl,libdevel-partialdump-perl,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libmoose-perl","libmoose-perl","libmoose-perl","modern Perl object system framework","","","1","1","","","","Section=perl; Version=2.2207-1+b3","","","","","","","",""
+"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","","","",""
+"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libclass-load-perl","libclass-load-perl","libclass-load-perl","module for loading modules by name","","","1","1","","","","Section=perl; Version=0.25-2","","","","","","","",""
+"libclass-load-xs-perl","libclass-load-xs-perl","libclass-load-xs-perl","XS implementation of parts of Class::Load","","","1","1","","","","Section=perl; Version=0.10-2+b4","","","","","","","",""
+"libdata-optlist-perl","libdata-optlist-perl","libdata-optlist-perl","module to parse and validate simple name/value option pairs","","","1","1","","","","Section=perl; Version=0.114-1","","","","","","","",""
+"libdevel-globaldestruction-perl","libdevel-globaldestruction-perl","libdevel-globaldestruction-perl","module to expose the flag that marks global destruction","","","1","1","","","","Section=perl; Version=0.14-4","","","","","","","",""
+"libdevel-overloadinfo-perl","libdevel-overloadinfo-perl","libdevel-overloadinfo-perl","module to introspect overloaded operators","","","1","1","","","","Section=perl; Version=0.007-1","","","","","","","",""
+"libdevel-stacktrace-perl","libdevel-stacktrace-perl","libdevel-stacktrace-perl","Perl module containing stack trace and related objects","","","1","1","","","","Section=perl; Version=2.0500-1","","","","","","","",""
+"libeval-closure-perl","libeval-closure-perl","libeval-closure-perl","Perl module to safely and cleanly create closures via string eval","","","1","1","","","","Section=perl; Version=0.14-3","","","","","","","",""
+"libmodule-runtime-conflicts-perl","libmodule-runtime-conflicts-perl","libmodule-runtime-conflicts-perl","module to provide information on conflicts for Module::Runtime","","","1","1","","","","Section=perl; Version=0.003-2","","","","","","","",""
+"libmodule-runtime-perl","libmodule-runtime-perl","libmodule-runtime-perl","Perl module for runtime module handling","","","1","1","","","","Section=perl; Version=0.018-1","","","","","","","",""
+"libmro-compat-perl","libmro-compat-perl","libmro-compat-perl","mro::* interface compatibility for Perls < 5.9.5","","","1","1","","","","Section=perl; Version=0.15-2","","","","","","","",""
+"libpackage-deprecationmanager-perl","libpackage-deprecationmanager-perl","libpackage-deprecationmanager-perl","module for managing deprecation warnings for Perl distributions","","","1","1","","","","Section=perl; Version=0.18-1","","","","","","","",""
+"libpackage-stash-perl","libpackage-stash-perl","libpackage-stash-perl","module providing routines for manipulating stashes","","","1","1","","","","Section=perl; Version=0.40-1","","","","","","","",""
+"libpackage-stash-xs-perl","libpackage-stash-xs-perl","libpackage-stash-xs-perl","Perl module providing routines for manipulating stashes (XS version)","","","1","1","","","","Section=perl; Version=0.30-1+b4","","","","","","","",""
+"libparams-util-perl","libparams-util-perl","libparams-util-perl","Perl extension for simple stand-alone param checking functions","","","1","1","","","","Section=perl; Version=1.102-3+b1","","","","","","","",""
+"libscalar-list-utils-perl","libscalar-list-utils-perl","libscalar-list-utils-perl","modules providing common scalar and list utility subroutines","","","1","1","","","","Section=perl; Version=1:1.63-1+b4","","","","","","","",""
+"libsub-exporter-perl","libsub-exporter-perl","libsub-exporter-perl","sophisticated exporter for custom-built routines","","","1","1","","","","Section=perl; Version=0.990-1","","","","","","","",""
+"libtry-tiny-perl","libtry-tiny-perl","libtry-tiny-perl","module providing minimalistic try/catch","","","1","1","","","","Section=perl; Version=0.32-1","","","","","","","",""
+"libdevel-partialdump-perl","libdevel-partialdump-perl","libdevel-partialdump-perl","Perl module to dump subroutine parameters concisely","","","1","1","","","","Section=perl; Version=0.20-2","","","","","","","",""
+"perl-base","perl-base","perl-base","minimal Perl system","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","","","",""
+"perl-modules-5.40","perl-modules-5.40","perl-modules-5.40","Core Perl modules","","","1","1","","","","Section=libs; Version=5.40.1-6","","","","","","","",""
+"libperl5.40","libperl5.40","libperl5.40","shared Perl library","","","1","1","","","","Section=libs; Version=5.40.1-6","","","","","","","",""
+"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libmodule-implementation-perl","libmodule-implementation-perl","libmodule-implementation-perl","module for loading one of several alternate implementations of a module","","","1","1","","","","Section=perl; Version=0.09-2","","","","","","","",""
+"libsub-install-perl","libsub-install-perl","libsub-install-perl","module for installing subroutines into packages easily","","","1","1","","","","Section=perl; Version=0.929-1","","","","","","","",""
+"libsub-exporter-progressive-perl","libsub-exporter-progressive-perl","libsub-exporter-progressive-perl","module for using Sub::Exporter only if needed","","","1","1","","","","Section=perl; Version=0.001013-3","","","","","","","",""
+"libdevel-lexalias-perl","libdevel-lexalias-perl","libdevel-lexalias-perl","Perl module that provides alias lexical variables","","","1","1","","","","Section=perl; Version=0.05-3+b4","","","","","","","",""
+"libdist-checkconflicts-perl","libdist-checkconflicts-perl","libdist-checkconflicts-perl","module for declaring version conflicts for a distribution","","","1","1","","","","Section=perl; Version=0.11-2","","","","","","","",""
+"libparams-classify-perl","libparams-classify-perl","libparams-classify-perl","Perl module for argument type classification","","","1","1","","","","Section=perl; Version=0.015-2+b4","","","","","","","",""
+"libclass-c3-perl","libclass-c3-perl","libclass-c3-perl","pragma for using the C3 method resolution order","","","1","1","","","","Section=perl; Version=0.35-2","","","","","","","",""
+"libclass-c3-xs-perl","libclass-c3-xs-perl","libclass-c3-xs-perl","Perl module to accelerate Class::C3","","","1","1","","","","Section=perl; Version=0.15-1+b6","","","","","","","",""
+"libclass-tiny-perl","libclass-tiny-perl","libclass-tiny-perl","minimalist class construction module for Perl","","","1","1","","","","Section=perl; Version=1.008-2","","","","","","","",""
+"libnamespace-clean-perl","libnamespace-clean-perl","libnamespace-clean-perl","module for keeping imports and functions out of the current namespace","","","1","1","","","","Section=perl; Version=0.27-2","","","","","","","",""
+"","","","","","","","","","","","","libmoose-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libclass-load-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libclass-load-xs-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdata-optlist-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-globaldestruction-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-overloadinfo-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-stacktrace-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libeval-closure-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libmodule-runtime-conflicts-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libmodule-runtime-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libmro-compat-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libpackage-deprecationmanager-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libpackage-stash-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libpackage-stash-xs-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libparams-util-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libsub-exporter-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libtry-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmoose-perl","libdevel-partialdump-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","perl","perl-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","perl","perl-modules-5.40","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","perl","libperl5.40","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","perl","netbase","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-perl","libdata-optlist-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-perl","libmodule-implementation-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-perl","libmodule-runtime-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-perl","libpackage-stash-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-perl","libtry-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-xs-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-xs-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-xs-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libclass-load-xs-perl","libclass-load-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdata-optlist-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdata-optlist-perl","libparams-util-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdata-optlist-perl","libsub-install-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-globaldestruction-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-globaldestruction-perl","libsub-exporter-progressive-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-overloadinfo-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-overloadinfo-perl","libmro-compat-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-overloadinfo-perl","libpackage-stash-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-stacktrace-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libeval-closure-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libeval-closure-perl","libsub-exporter-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libeval-closure-perl","libdevel-lexalias-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libmodule-runtime-conflicts-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmodule-runtime-conflicts-perl","libdist-checkconflicts-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmodule-runtime-conflicts-perl","libmodule-runtime-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmodule-runtime-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmodule-runtime-perl","libparams-classify-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmro-compat-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmro-compat-perl","libclass-c3-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmro-compat-perl","libclass-c3-xs-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libpackage-deprecationmanager-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-deprecationmanager-perl","libpackage-stash-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-deprecationmanager-perl","libparams-util-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-deprecationmanager-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-deprecationmanager-perl","libsub-install-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-stash-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-stash-perl","libmodule-implementation-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-stash-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-stash-perl","libpackage-stash-xs-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libpackage-stash-xs-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-stash-xs-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpackage-stash-xs-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libparams-util-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libparams-util-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libparams-util-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libscalar-list-utils-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libscalar-list-utils-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libscalar-list-utils-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsub-exporter-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsub-exporter-perl","libdata-optlist-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsub-exporter-perl","libsub-install-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtry-tiny-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-partialdump-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-partialdump-perl","libclass-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-partialdump-perl","libnamespace-clean-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdevel-partialdump-perl","libsub-exporter-perl","Depends","#333","1","Depends","arrow","{}"

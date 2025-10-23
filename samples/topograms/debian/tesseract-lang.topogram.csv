@@ -1,36 +1,36 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-tesseract-ocr-afr,tesseract-ocr-afr,tesseract-ocr-afr,tesseract-ocr language files for Afrikaans,,,1,1,,,,Section=graphics; Version=1:4.1.0-2,,,,,,,
-tesseract-ocr,tesseract-ocr,tesseract-ocr,Tesseract command line OCR tool,,,1,1,,,,Section=graphics; Version=5.5.0-1+b1,,,,,,,
-libarchive13t64,libarchive13t64,libarchive13t64,Multi-format archive and compression library (shared library),,,1,1,,,,Section=libs; Version=3.7.4-4,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
-libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-libleptonica6,libleptonica6,libleptonica6,image processing library,,,1,1,,,,Section=libs; Version=1.84.1-4,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libtesseract5,libtesseract5,libtesseract5,Tesseract OCR library,,,1,1,,,,Section=libs; Version=5.5.0-1+b1,,,,,,,
-tesseract-ocr-eng,tesseract-ocr-eng,tesseract-ocr-eng,tesseract-ocr language files for English,,,1,1,,,,Section=graphics; Version=1:4.1.0-2,,,,,,,
-tesseract-ocr-osd,tesseract-ocr-osd,tesseract-ocr-osd,tesseract-ocr language files for script and orientation,,,1,1,,,,Section=graphics; Version=1:4.1.0-2,,,,,,,
-,,,,,,,,,,,,tesseract-ocr,tesseract-ocr-afr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libarchive13t64,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcurl4t64,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libharfbuzz0b,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libleptonica6,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtesseract5,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tesseract-ocr-eng,tesseract-ocr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tesseract-ocr-osd,tesseract-ocr,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"tesseract-ocr-afr","tesseract-ocr-afr","tesseract-ocr-afr","tesseract-ocr language files for Afrikaans","","","1","1","","","","Section=graphics; Version=1:4.1.0-2","","","","","","","",""
+"tesseract-ocr","tesseract-ocr","tesseract-ocr","Tesseract command line OCR tool","","","1","1","","","","Section=graphics; Version=5.5.0-1+b1","","","","","","","",""
+"libarchive13t64","libarchive13t64","libarchive13t64","Multi-format archive and compression library (shared library)","","","1","1","","","","Section=libs; Version=3.7.4-4","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","","","",""
+"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"libleptonica6","libleptonica6","libleptonica6","image processing library","","","1","1","","","","Section=libs; Version=1.84.1-4","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libtesseract5","libtesseract5","libtesseract5","Tesseract OCR library","","","1","1","","","","Section=libs; Version=5.5.0-1+b1","","","","","","","",""
+"tesseract-ocr-eng","tesseract-ocr-eng","tesseract-ocr-eng","tesseract-ocr language files for English","","","1","1","","","","Section=graphics; Version=1:4.1.0-2","","","","","","","",""
+"tesseract-ocr-osd","tesseract-ocr-osd","tesseract-ocr-osd","tesseract-ocr language files for script and orientation","","","1","1","","","","Section=graphics; Version=1:4.1.0-2","","","","","","","",""
+"","","","","","","","","","","","","tesseract-ocr-afr","tesseract-ocr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libarchive13t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libcurl4t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libharfbuzz0b","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libleptonica6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","libtesseract5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","tesseract-ocr-eng","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tesseract-ocr","tesseract-ocr-osd","Depends","#333","1","Depends","arrow","{}"

@@ -1,14 +1,14 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-fp-compiler,fp-compiler,fp-compiler,Free Pascal - compiler dependency package,,,1,1,,,,Section=devel; Version=3.2.2+dfsg-46,,,,,,,
-fp-compiler-3.2.2,fp-compiler-3.2.2,fp-compiler-3.2.2,Free Pascal - compiler,,,1,1,,,,Section=devel; Version=3.2.2+dfsg-46,,,,,,,
-binutils,binutils,binutils,"GNU assembler, linker and binary utilities",,,1,1,,,,Section=devel; Version=2.44-3,,,,,,,
-fp-units-rtl-3.2.2,fp-units-rtl-3.2.2,fp-units-rtl-3.2.2,Free Pascal - runtime libraries,,,1,1,,,,Section=devel; Version=3.2.2+dfsg-46,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-fp-utils-3.2.2,fp-utils-3.2.2,fp-utils-3.2.2,Free Pascal - utilities,,,1,1,,,,Section=devel; Version=3.2.2+dfsg-46,,,,,,,
-,,,,,,,,,,,,fp-compiler-3.2.2,fp-compiler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,binutils,fp-compiler-3.2.2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fp-units-rtl-3.2.2,fp-compiler-3.2.2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,fp-compiler-3.2.2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,fp-compiler-3.2.2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fp-utils-3.2.2,fp-compiler-3.2.2,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"fp-compiler","fp-compiler","fp-compiler","Free Pascal - compiler dependency package","","","1","1","","","","Section=devel; Version=3.2.2+dfsg-46","","","","","","","",""
+"fp-compiler-3.2.2","fp-compiler-3.2.2","fp-compiler-3.2.2","Free Pascal - compiler","","","1","1","","","","Section=devel; Version=3.2.2+dfsg-46","","","","","","","",""
+"binutils","binutils","binutils","GNU assembler, linker and binary utilities","","","1","1","","","","Section=devel; Version=2.44-3","","","","","","","",""
+"fp-units-rtl-3.2.2","fp-units-rtl-3.2.2","fp-units-rtl-3.2.2","Free Pascal - runtime libraries","","","1","1","","","","Section=devel; Version=3.2.2+dfsg-46","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"fp-utils-3.2.2","fp-utils-3.2.2","fp-utils-3.2.2","Free Pascal - utilities","","","1","1","","","","Section=devel; Version=3.2.2+dfsg-46","","","","","","","",""
+"","","","","","","","","","","","","fp-compiler","fp-compiler-3.2.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fp-compiler-3.2.2","binutils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fp-compiler-3.2.2","fp-units-rtl-3.2.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fp-compiler-3.2.2","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fp-compiler-3.2.2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fp-compiler-3.2.2","fp-utils-3.2.2","Recommends","#333","1","Recommends","arrow","{}"

@@ -1,563 +1,563 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libkf6purpose-bin,libkf6purpose-bin,libkf6purpose-bin,"abstraction to provide and leverage actions of a specific kind, runtime",,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-qml6-module-org-kde-bluezqt,qml6-module-org-kde-bluezqt,qml6-module-org-kde-bluezqt,QML wrapper for bluez,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-qml6-module-org-kde-kcmutils,qml6-module-org-kde-kcmutils,qml6-module-org-kde-kcmutils,Extra APIs to write KConfig modules,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-qml6-module-org-kde-kirigami,qml6-module-org-kde-kirigami,qml6-module-org-kde-kirigami,set of QtQuick components targeted for mobile use (QML module),,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-qml6-module-org-kde-prison,qml6-module-org-kde-prison,qml6-module-org-kde-prison,barcode API for Qt,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-qml6-module-qtquick,qml6-module-qtquick,qml6-module-qtquick,Qt 6 Quick QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-controls,qml6-module-qtquick-controls,qml6-module-qtquick-controls,Qt 6 Quick Controls QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-dialogs,qml6-module-qtquick-dialogs,qml6-module-qtquick-dialogs,Qt 6 Quick Dialogs QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-layouts,qml6-module-qtquick-layouts,qml6-module-qtquick-layouts,Qt 6 Quick Layouts QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-sso-onlineaccounts,qml6-module-sso-onlineaccounts,qml6-module-sso-onlineaccounts,Expose the Online Accounts API to Qt6 QML applications,,,1,1,,,,Section=libs; Version=0.7+git20231028.05e79eb-6,,,,,,,
-kio6,kio6,kio6,resource and network access abstraction,,,1,1,,,,Section=libs; Version=6.13.0-6,,,,,,,
-libaccounts-qt6-1,libaccounts-qt6-1,libaccounts-qt6-1,Accounts database access Qt version - Qt6 shared library,,,1,1,,,,Section=libs; Version=1.17-4+b1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libkaccounts6-2,libkaccounts6-2,libkaccounts6-2,integration library for Accounts-SSO and SignOn-SSO,,,1,1,,,,Section=libs; Version=4:25.04.0-1,,,,,,,
-libkf6coreaddons6,libkf6coreaddons6,libkf6coreaddons6,KDE Frameworks 6 addons to QtCore,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6i18n6,libkf6i18n6,libkf6i18n6,Advanced internationalization framework,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6kiocore6,libkf6kiocore6,libkf6kiocore6,resource and network access abstraction (KIO core library),,,1,1,,,,Section=libs; Version=6.13.0-6,,,,,,,
-libkf6kiogui6,libkf6kiogui6,libkf6kiogui6,resource and network access abstraction (KIO gui library),,,1,1,,,,Section=libs; Version=6.13.0-6,,,,,,,
-libkf6kiowidgets6,libkf6kiowidgets6,libkf6kiowidgets6,resource and network access abstraction (KIO widgets library),,,1,1,,,,Section=libs; Version=6.13.0-6,,,,,,,
-libkf6notifications6,libkf6notifications6,libkf6notifications6,Framework for desktop notifications library,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6purpose6,libkf6purpose6,libkf6purpose6,library for abstractions to get the developer's purposes fulfilled,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6purposewidgets6,libkf6purposewidgets6,libkf6purposewidgets6,library for abstractions to get the developer's purposes fulfilled,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6service-bin,libkf6service-bin,libkf6service-bin,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6service6,libkf6service6,libkf6service6,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libqt6core6t64,libqt6core6t64,libqt6core6t64,Qt 6 core module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6dbus6,libqt6dbus6,libqt6dbus6,Qt 6 D-Bus module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6gui6,libqt6gui6,libqt6gui6,Qt 6 GUI module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6network6,libqt6network6,libqt6network6,Qt 6 network module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6widgets6,libqt6widgets6,libqt6widgets6,Qt 6 widgets module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-qml6-module-org-kde-kdeconnect,qml6-module-org-kde-kdeconnect,qml6-module-org-kde-kdeconnect,QML module wrapping KDE Connect functionality,,,1,1,,,,Section=kde; Version=25.04.2-1,,,,,,,
-qml6-module-org-kde-purpose,qml6-module-org-kde-purpose,qml6-module-org-kde-purpose,"abstraction to provide and leverage actions of a specific kind, qml bindings",,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-qml6-module-qtcore,qml6-module-qtcore,qml6-module-qtcore,Qt 6 QML Core QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-libkf6bluezqt6,libkf6bluezqt6,libkf6bluezqt6,Qt wrapper for bluez,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libqt6qml6,libqt6qml6,libqt6qml6,Qt 6 QML library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-org-kde-config,qml6-module-org-kde-config,qml6-module-org-kde-config,QML module for kconfig,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-qml6-module-qtquick-templates,qml6-module-qtquick-templates,qml6-module-qtquick-templates,Qt 6 Quick Templates QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-window,qml6-module-qtquick-window,qml6-module-qtquick-window,Qt 6 Quick Window QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-libkf6configcore6,libkf6configcore6,libkf6configcore6,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6itemviews6,libkf6itemviews6,libkf6itemviews6,Qt library with additional widgets for ItemModels,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6kcmutilscore6,libkf6kcmutilscore6,libkf6kcmutilscore6,Extra APIs to write KConfig modules,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6kcmutilsquick6,libkf6kcmutilsquick6,libkf6kcmutilsquick6,Extra APIs to write KConfig modules,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libqt6quick6,libqt6quick6,libqt6quick6,Qt 6 Quick library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qt6-declarative-private-abi,qt6-declarative-private-abi,qt6-declarative-private-abi,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libkirigami6,libkirigami6,libkirigami6,set of QtQuick components targeted for mobile use,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkirigamidelegates6,libkirigamidelegates6,libkirigamidelegates6,set of QtQuick components targeted for mobile use,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkirigamiplatform6,libkirigamiplatform6,libkirigamiplatform6,set of QtQuick components targeted for mobile use,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-qml6-module-qtqml,qml6-module-qtqml,qml6-module-qtqml,Qt 6 QtQml QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-shapes,qml6-module-qtquick-shapes,qml6-module-qtquick-shapes,Qt 6 Quick Shapes QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-libkirigamidialogs6,libkirigamidialogs6,libkirigamidialogs6,set of QtQuick components targeted for mobile use,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkirigamilayouts6,libkirigamilayouts6,libkirigamilayouts6,set of QtQuick components targeted for mobile use,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkirigamiprimitives6,libkirigamiprimitives6,libkirigamiprimitives6,set of QtQuick components targeted for mobile use,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkirigamiprivate6,libkirigamiprivate6,libkirigamiprivate6,set of QtQuick components targeted for mobile use,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-qml6-module-qtmultimedia,qml6-module-qtmultimedia,qml6-module-qtmultimedia,Qt 6 Multimedia QML module,,,1,1,,,,Section=libs; Version=6.8.2-8,,,,,,,
-libkf6prison6,libkf6prison6,libkf6prison6,barcode API for Qt,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6prisonscanner6,libkf6prisonscanner6,libkf6prisonscanner6,barcode API for Qt - barcode scanner,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libqt6quickcontrols2-6,libqt6quickcontrols2-6,libqt6quickcontrols2-6,Qt 6 Quick Controls 2 library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qt6-base-private-abi,qt6-base-private-abi,qt6-base-private-abi,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-qml6-module-qt-labs-folderlistmodel,qml6-module-qt-labs-folderlistmodel,qml6-module-qt-labs-folderlistmodel,Qt 6 FolderListModel QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-libqt6quicktemplates2-6,libqt6quicktemplates2-6,libqt6quicktemplates2-6,Qt 6 Quick Templates 2 library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-libsignon-qt6-1,libsignon-qt6-1,libsignon-qt6-1,Single Sign On framework - Qt6 shared libraries,,,1,1,,,,Section=libs; Version=8.61+git20231015.c8ad982-7,,,,,,,
-qml6-module-qtqml-models,qml6-module-qtqml-models,qml6-module-qtqml-models,Qt 6 QtQml Models QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtqml-workerscript,qml6-module-qtqml-workerscript,qml6-module-qtqml-workerscript,Qt 6 QtQml Workerscript QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-kded6,kded6,kded6,Extensible daemon for providing session services,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-kwallet6,kwallet6,kwallet6,safe desktop-wide storage for passwords - kwalletd daemon,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
-libkf6archive6,libkf6archive6,libkf6archive6,Qt 6 addon providing access to numerous types of archives,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6authcore6,libkf6authcore6,libkf6authcore6,Abstraction to system policy and authentication features,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6crash6,libkf6crash6,libkf6crash6,Support for application crash analysis and bug report from apps,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6dbusaddons6,libkf6dbusaddons6,libkf6dbusaddons6,class library for qtdbus,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6doctools6,libkf6doctools6,libkf6doctools6,Tools to generate documentation in various formats from DocBook,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6solid6,libkf6solid6,libkf6solid6,Qt library to query and control hardware,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6wallet6,libkf6wallet6,libkf6wallet6,safe desktop-wide storage for passwords - shared library,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6widgetsaddons6,libkf6widgetsaddons6,libkf6widgetsaddons6,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6windowsystem6,libkf6windowsystem6,libkf6windowsystem6,Convenience access to certain properties and features of the window manager,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libqt6xml6,libqt6xml6,libqt6xml6,Qt 6 XML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-libxslt1.1,libxslt1.1,libxslt1.1,XSLT 1.0 processing library - runtime library,,,1,1,,,,Section=libs; Version=1.1.35-1.2+deb13u1,,,,,,,
-switcheroo-control,switcheroo-control,switcheroo-control,D-Bus service to check the availability of dual-GPU,,,1,1,,,,Section=gnome; Version=2.6-3,,,,,,,
-systemsettings,systemsettings,systemsettings,System Settings interface,,,1,1,,,,Section=kde; Version=4:6.3.4-2,,,,,,,
-libaccounts-glib0,libaccounts-glib0,libaccounts-glib0,Accounts database access - shared library,,,1,1,,,,Section=libs; Version=1.27-1+b1,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-kaccounts-providers,kaccounts-providers,kaccounts-providers,KDE providers for accounts sign-on,,,1,1,,,,Section=kde; Version=4:25.04.0-1,,,,,,,
-libkf6coreaddons-data,libkf6coreaddons-data,libkf6coreaddons-data,KDE Frameworks 6 addons to QtCore - data files,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
-libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-libkf6i18n-data,libkf6i18n-data,libkf6i18n-data,Advanced internationalization framework (architecture-independent data),,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libmount1,libmount1,libmount1,device mounting library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
-libkf6colorscheme6,libkf6colorscheme6,libkf6colorscheme6,Classes to read and interact with KColorScheme,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6completion6,libkf6completion6,libkf6completion6,Widgets with advanced auto-completion features,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6guiaddons6,libkf6guiaddons6,libkf6guiaddons6,utilities for graphical user interfaces,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6iconthemes6,libkf6iconthemes6,libkf6iconthemes6,Support for icon themes,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6iconwidgets6,libkf6iconwidgets6,libkf6iconwidgets6,Support for icon widgets,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6jobwidgets6,libkf6jobwidgets6,libkf6jobwidgets6,widgets for tracking KJob instances,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6notifications-data,libkf6notifications-data,libkf6notifications-data,Framework for desktop notifications data,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libcanberra0,libcanberra0,libcanberra0,simple abstract interface for playing event sounds,,,1,1,,,,Section=libs; Version=0.30-18,,,,,,,
-libkf6purpose-data,libkf6purpose-data,libkf6purpose-data,"abstraction to provide and leverage actions of a specific kind, translations",,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6i18nqml6,libkf6i18nqml6,libkf6i18nqml6,Advanced internationalization framework (QML bindings),,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6service-data,libkf6service-data,libkf6service-data,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libb2-1,libb2-1,libb2-1,BLAKE2 family of hash functions,,,1,1,,,,Section=libs; Version=0.98.1-1.1+b2,,,,,,,
-libdouble-conversion3,libdouble-conversion3,libdouble-conversion3,routines to convert IEEE floats to and from strings,,,1,1,,,,Section=libs; Version=3.3.1-1,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-libpcre2-16-0,libpcre2-16-0,libpcre2-16-0,New Perl Compatible Regular Expression Library - 16 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-qt6-translations-l10n,qt6-translations-l10n,qt6-translations-l10n,translations for Qt 6,,,1,1,,,,Section=localization; Version=6.8.2-2,,,,,,,
-libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
-fontconfig,fontconfig,fontconfig,generic font configuration library - support binaries,,,1,1,,,,Section=fonts; Version=2.15.0-2.3,,,,,,,
-libdrm2,libdrm2,libdrm2,Userspace interface to kernel DRM services -- runtime,,,1,1,,,,Section=libs; Version=2.4.124-2,,,,,,,
-libegl1,libegl1,libegl1,Vendor neutral GL dispatch library -- EGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-libglx0,libglx0,libglx0,Vendor neutral GL dispatch library -- GLX support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
-libice6,libice6,libice6,X11 Inter-Client Exchange library,,,1,1,,,,Section=libs; Version=2:1.1.1-1,,,,,,,
-libinput10,libinput10,libinput10,input device management and event handling library - shared library,,,1,1,,,,Section=libs; Version=1.28.1-1,,,,,,,
-libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
-libmd4c0,libmd4c0,libmd4c0,Markdown for C,,,1,1,,,,Section=libs; Version=0.5.2-2+b1,,,,,,,
-libmtdev1t64,libmtdev1t64,libmtdev1t64,Multitouch Protocol Translation Library - shared library,,,1,1,,,,Section=libs; Version=1.1.7-1,,,,,,,
-libopengl0,libopengl0,libopengl0,Vendor neutral GL dispatch library -- OpenGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
-libsm6,libsm6,libsm6,X11 Session Management library,,,1,1,,,,Section=libs; Version=2:1.2.6-1,,,,,,,
-libts0t64,libts0t64,libts0t64,touch screen library,,,1,1,,,,Section=libs; Version=1.22-1.1+b1,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libx11-xcb1,libx11-xcb1,libx11-xcb1,Xlib/XCB interface library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxcb-cursor0,libxcb-cursor0,libxcb-cursor0,utility libraries for X C Binding -- cursor,,,1,1,,,,Section=libs; Version=0.1.5-1,,,,,,,
-libxcb-glx0,libxcb-glx0,libxcb-glx0,"X C Binding, glx extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-icccm4,libxcb-icccm4,libxcb-icccm4,utility libraries for X C Binding -- icccm,,,1,1,,,,Section=libs; Version=0.4.2-1,,,,,,,
-libxcb-image0,libxcb-image0,libxcb-image0,utility libraries for X C Binding -- image,,,1,1,,,,Section=libs; Version=0.4.0-2+b2,,,,,,,
-libxcb-keysyms1,libxcb-keysyms1,libxcb-keysyms1,utility libraries for X C Binding -- keysyms,,,1,1,,,,Section=libs; Version=0.4.1-1,,,,,,,
-libxcb-randr0,libxcb-randr0,libxcb-randr0,"X C Binding, randr extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-render-util0,libxcb-render-util0,libxcb-render-util0,utility libraries for X C Binding -- render-util,,,1,1,,,,Section=libs; Version=0.3.10-1,,,,,,,
-libxcb-render0,libxcb-render0,libxcb-render0,"X C Binding, render extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-shape0,libxcb-shape0,libxcb-shape0,"X C Binding, shape extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-shm0,libxcb-shm0,libxcb-shm0,"X C Binding, shm extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-sync1,libxcb-sync1,libxcb-sync1,"X C Binding, sync extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-xfixes0,libxcb-xfixes0,libxcb-xfixes0,"X C Binding, xfixes extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-xinput0,libxcb-xinput0,libxcb-xinput0,"X C Binding, xinput extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-xkb1,libxcb-xkb1,libxcb-xkb1,"X C Binding, XKEYBOARD extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxkbcommon-x11-0,libxkbcommon-x11-0,libxkbcommon-x11-0,library to create keymaps with the XKB X11 protocol,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
-libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
-qt6-gtk-platformtheme,qt6-gtk-platformtheme,qt6-gtk-platformtheme,Qt 6 GTK+ 3 platform theme,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-qt6-qpa-plugins,qt6-qpa-plugins,qt6-qpa-plugins,Qt 6 QPA plugins,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-qt6-svg-plugins,qt6-svg-plugins,qt6-svg-plugins,Qt 6 SVG library plugins,,,1,1,,,,Section=libs; Version=6.8.2-3,,,,,,,
-qt6-wayland,qt6-wayland,qt6-wayland,Qt 6 Wayland platform plugin,,,1,1,,,,Section=libs; Version=6.8.2-4,,,,,,,
-libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
-libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
-libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
-libproxy1v5,libproxy1v5,libproxy1v5,automatic proxy configuration management library (shared),,,1,1,,,,Section=libs; Version=0.5.9-1,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-kdeconnect-libs,kdeconnect-libs,kdeconnect-libs,KDE Connect internal libs,,,1,1,,,,Section=kde; Version=25.04.2-1,,,,,,,
-libqt6waylandclient6,libqt6waylandclient6,libqt6waylandclient6,Qt 6 Wayland Client library,,,1,1,,,,Section=libs; Version=6.8.2-4,,,,,,,
-libwayland-client0,libwayland-client0,libwayland-client0,wayland compositor infrastructure - client library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-kdeconnect,kdeconnect,kdeconnect,connect smartphones to your desktop devices,,,1,1,,,,Section=kde; Version=25.04.2-1,,,,,,,
-,,,,,,,,,,,,qml6-module-org-kde-bluezqt,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-kcmutils,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-kirigami,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-prison,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-controls,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-dialogs,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-layouts,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-sso-onlineaccounts,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kio6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaccounts-qt6-1,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkaccounts6-2,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiocore6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiogui6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiowidgets6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6notifications6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6purpose6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6purposewidgets6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-bin,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6purpose-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-kdeconnect,libkf6purpose-bin,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qml6-module-org-kde-purpose,libkf6purpose-bin,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qml6-module-qtcore,qml6-module-org-kde-bluezqt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-org-kde-bluezqt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6bluezqt6,qml6-module-org-kde-bluezqt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-org-kde-bluezqt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-org-kde-bluezqt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-org-kde-bluezqt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-config,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-kirigami,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtcore,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-controls,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-layouts,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-templates,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-window,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6itemviews6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kcmutilscore6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kcmutilsquick6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiogui6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-bin,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quick6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-declarative-private-abi,qml6-module-org-kde-kcmutils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkirigami6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkirigamidelegates6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkirigamiplatform6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtqml,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-controls,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-layouts,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-shapes,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-templates,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkirigamidialogs6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkirigamilayouts6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkirigamiprimitives6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkirigamiprivate6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-org-kde-kirigami,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtmultimedia,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6prison6,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6prisonscanner6,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quick6,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-org-kde-prison,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtqml,qml6-module-qtquick,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-qtquick,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-qtquick,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-qtquick,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quick6,qml6-module-qtquick,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-qtquick,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-templates,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-shapes,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-window,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quickcontrols2-6,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-declarative-private-abi,qml6-module-qtquick-controls,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qt-labs-folderlistmodel,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-controls,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-layouts,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-templates,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quick6,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quicktemplates2-6,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-declarative-private-abi,qml6-module-qtquick-dialogs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quick6,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-declarative-private-abi,qml6-module-qtquick-layouts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaccounts-qt6-1,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsignon-qt6-1,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtqml-models,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtqml-workerscript,qml6-module-sso-onlineaccounts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kded6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kwallet6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libacl1,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6archive6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6authcore6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6crash6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6dbusaddons6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6doctools6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiocore6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiogui6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-bin,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6solid6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6wallet6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6widgetsaddons6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6windowsystem6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6xml6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxslt1.1,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,kio6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,switcheroo-control,kio6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,systemsettings,kio6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libaccounts-glib0,libaccounts-qt6-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libaccounts-qt6-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libaccounts-qt6-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libaccounts-qt6-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6xml6,libaccounts-qt6-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libaccounts-qt6-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libaccounts-qt6-1,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsignon-qt6-1,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkaccounts6-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kaccounts-providers,libkaccounts6-2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libkf6coreaddons-data,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,shared-mime-info,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libudev1,libkf6coreaddons6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n-data,libkf6i18n6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6i18n6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6i18n6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,libkf6i18n6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6i18n6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libacl1,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6authcore6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6crash6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-bin,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmount1,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6xml6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6kiocore6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiocore6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-bin,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6solid6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6windowsystem6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6kiogui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6colorscheme6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6completion6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6guiaddons6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6iconthemes6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6iconwidgets6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6jobwidgets6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiocore6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6kiogui6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-bin,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6widgetsaddons6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,libkf6kiowidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6notifications-data,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcanberra0,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6notifications6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6purpose-data,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6purpose6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-purpose,libkf6purpose6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libkf6purpose-data,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18nqml6,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6purpose6,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6purposewidgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6service-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6service-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,libkf6service-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service6,libkf6service-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6service-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-data,libkf6service6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkf6service6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,libkf6service6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6service6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6service6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6xml6,libkf6service6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6service6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6service-bin,libkf6service6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,shared-mime-info,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libb2-1,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdouble-conversion3,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-16-0,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libqt6core6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-translations-l10n,libqt6core6t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libqt6dbus6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,libqt6dbus6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libqt6dbus6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libqt6dbus6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,libqt6dbus6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fontconfig,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdrm2,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libegl1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglx0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libharfbuzz0b,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libice6,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libinput10,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmd4c0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmtdev1t64,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopengl0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsm6,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libts0t64,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libudev1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-xcb1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-cursor0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-glx0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-icccm4,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-image0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-keysyms1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-randr0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-render-util0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-render0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-shape0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-shm0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-sync1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-xfixes0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-xinput0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-xkb1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb1,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon-x11-0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon0,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libqt6gui6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-gtk-platformtheme,libqt6gui6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qt6-qpa-plugins,libqt6gui6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qt6-svg-plugins,libqt6gui6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qt6-wayland,libqt6gui6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libssl3t64,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbrotli1,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgssapi-krb5-2,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libproxy1v5,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libqt6network6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libqt6widgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libqt6widgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libqt6widgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libqt6widgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-private-abi,libqt6widgets6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtqml,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-controls,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kdeconnect-libs,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6waylandclient6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-client0,qml6-module-org-kde-kdeconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kdeconnect,qml6-module-org-kde-kdeconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qml6-module-org-kde-kirigami,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtcore,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-controls,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-layouts,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6purpose-bin,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6purpose6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,qml6-module-org-kde-purpose,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kdeconnect,qml6-module-org-kde-purpose,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkf6purpose-bin","libkf6purpose-bin","libkf6purpose-bin","abstraction to provide and leverage actions of a specific kind, runtime","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"qml6-module-org-kde-bluezqt","qml6-module-org-kde-bluezqt","qml6-module-org-kde-bluezqt","QML wrapper for bluez","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"qml6-module-org-kde-kcmutils","qml6-module-org-kde-kcmutils","qml6-module-org-kde-kcmutils","Extra APIs to write KConfig modules","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"qml6-module-org-kde-kirigami","qml6-module-org-kde-kirigami","qml6-module-org-kde-kirigami","set of QtQuick components targeted for mobile use (QML module)","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"qml6-module-org-kde-prison","qml6-module-org-kde-prison","qml6-module-org-kde-prison","barcode API for Qt","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"qml6-module-qtquick","qml6-module-qtquick","qml6-module-qtquick","Qt 6 Quick QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-controls","qml6-module-qtquick-controls","qml6-module-qtquick-controls","Qt 6 Quick Controls QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-dialogs","qml6-module-qtquick-dialogs","qml6-module-qtquick-dialogs","Qt 6 Quick Dialogs QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-layouts","qml6-module-qtquick-layouts","qml6-module-qtquick-layouts","Qt 6 Quick Layouts QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-sso-onlineaccounts","qml6-module-sso-onlineaccounts","qml6-module-sso-onlineaccounts","Expose the Online Accounts API to Qt6 QML applications","","","1","1","","","","Section=libs; Version=0.7+git20231028.05e79eb-6","","","","","","","",""
+"kio6","kio6","kio6","resource and network access abstraction","","","1","1","","","","Section=libs; Version=6.13.0-6","","","","","","","",""
+"libaccounts-qt6-1","libaccounts-qt6-1","libaccounts-qt6-1","Accounts database access Qt version - Qt6 shared library","","","1","1","","","","Section=libs; Version=1.17-4+b1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libkaccounts6-2","libkaccounts6-2","libkaccounts6-2","integration library for Accounts-SSO and SignOn-SSO","","","1","1","","","","Section=libs; Version=4:25.04.0-1","","","","","","","",""
+"libkf6coreaddons6","libkf6coreaddons6","libkf6coreaddons6","KDE Frameworks 6 addons to QtCore","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6i18n6","libkf6i18n6","libkf6i18n6","Advanced internationalization framework","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6kiocore6","libkf6kiocore6","libkf6kiocore6","resource and network access abstraction (KIO core library)","","","1","1","","","","Section=libs; Version=6.13.0-6","","","","","","","",""
+"libkf6kiogui6","libkf6kiogui6","libkf6kiogui6","resource and network access abstraction (KIO gui library)","","","1","1","","","","Section=libs; Version=6.13.0-6","","","","","","","",""
+"libkf6kiowidgets6","libkf6kiowidgets6","libkf6kiowidgets6","resource and network access abstraction (KIO widgets library)","","","1","1","","","","Section=libs; Version=6.13.0-6","","","","","","","",""
+"libkf6notifications6","libkf6notifications6","libkf6notifications6","Framework for desktop notifications library","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6purpose6","libkf6purpose6","libkf6purpose6","library for abstractions to get the developer's purposes fulfilled","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6purposewidgets6","libkf6purposewidgets6","libkf6purposewidgets6","library for abstractions to get the developer's purposes fulfilled","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6service-bin","libkf6service-bin","libkf6service-bin","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6service6","libkf6service6","libkf6service6","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libqt6core6t64","libqt6core6t64","libqt6core6t64","Qt 6 core module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6dbus6","libqt6dbus6","libqt6dbus6","Qt 6 D-Bus module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6gui6","libqt6gui6","libqt6gui6","Qt 6 GUI module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6network6","libqt6network6","libqt6network6","Qt 6 network module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6widgets6","libqt6widgets6","libqt6widgets6","Qt 6 widgets module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"qml6-module-org-kde-kdeconnect","qml6-module-org-kde-kdeconnect","qml6-module-org-kde-kdeconnect","QML module wrapping KDE Connect functionality","","","1","1","","","","Section=kde; Version=25.04.2-1","","","","","","","",""
+"qml6-module-org-kde-purpose","qml6-module-org-kde-purpose","qml6-module-org-kde-purpose","abstraction to provide and leverage actions of a specific kind, qml bindings","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"qml6-module-qtcore","qml6-module-qtcore","qml6-module-qtcore","Qt 6 QML Core QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"libkf6bluezqt6","libkf6bluezqt6","libkf6bluezqt6","Qt wrapper for bluez","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libqt6qml6","libqt6qml6","libqt6qml6","Qt 6 QML library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-org-kde-config","qml6-module-org-kde-config","qml6-module-org-kde-config","QML module for kconfig","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"qml6-module-qtquick-templates","qml6-module-qtquick-templates","qml6-module-qtquick-templates","Qt 6 Quick Templates QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-window","qml6-module-qtquick-window","qml6-module-qtquick-window","Qt 6 Quick Window QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"libkf6configcore6","libkf6configcore6","libkf6configcore6","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6itemviews6","libkf6itemviews6","libkf6itemviews6","Qt library with additional widgets for ItemModels","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6kcmutilscore6","libkf6kcmutilscore6","libkf6kcmutilscore6","Extra APIs to write KConfig modules","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6kcmutilsquick6","libkf6kcmutilsquick6","libkf6kcmutilsquick6","Extra APIs to write KConfig modules","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libqt6quick6","libqt6quick6","libqt6quick6","Qt 6 Quick library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qt6-declarative-private-abi","qt6-declarative-private-abi","qt6-declarative-private-abi","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libkirigami6","libkirigami6","libkirigami6","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkirigamidelegates6","libkirigamidelegates6","libkirigamidelegates6","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkirigamiplatform6","libkirigamiplatform6","libkirigamiplatform6","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"qml6-module-qtqml","qml6-module-qtqml","qml6-module-qtqml","Qt 6 QtQml QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-shapes","qml6-module-qtquick-shapes","qml6-module-qtquick-shapes","Qt 6 Quick Shapes QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"libkirigamidialogs6","libkirigamidialogs6","libkirigamidialogs6","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkirigamilayouts6","libkirigamilayouts6","libkirigamilayouts6","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkirigamiprimitives6","libkirigamiprimitives6","libkirigamiprimitives6","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkirigamiprivate6","libkirigamiprivate6","libkirigamiprivate6","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"qml6-module-qtmultimedia","qml6-module-qtmultimedia","qml6-module-qtmultimedia","Qt 6 Multimedia QML module","","","1","1","","","","Section=libs; Version=6.8.2-8","","","","","","","",""
+"libkf6prison6","libkf6prison6","libkf6prison6","barcode API for Qt","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6prisonscanner6","libkf6prisonscanner6","libkf6prisonscanner6","barcode API for Qt - barcode scanner","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libqt6quickcontrols2-6","libqt6quickcontrols2-6","libqt6quickcontrols2-6","Qt 6 Quick Controls 2 library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qt6-base-private-abi","qt6-base-private-abi","qt6-base-private-abi","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"qml6-module-qt-labs-folderlistmodel","qml6-module-qt-labs-folderlistmodel","qml6-module-qt-labs-folderlistmodel","Qt 6 FolderListModel QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"libqt6quicktemplates2-6","libqt6quicktemplates2-6","libqt6quicktemplates2-6","Qt 6 Quick Templates 2 library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"libsignon-qt6-1","libsignon-qt6-1","libsignon-qt6-1","Single Sign On framework - Qt6 shared libraries","","","1","1","","","","Section=libs; Version=8.61+git20231015.c8ad982-7","","","","","","","",""
+"qml6-module-qtqml-models","qml6-module-qtqml-models","qml6-module-qtqml-models","Qt 6 QtQml Models QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtqml-workerscript","qml6-module-qtqml-workerscript","qml6-module-qtqml-workerscript","Qt 6 QtQml Workerscript QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"kded6","kded6","kded6","Extensible daemon for providing session services","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"kwallet6","kwallet6","kwallet6","safe desktop-wide storage for passwords - kwalletd daemon","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","","","",""
+"libkf6archive6","libkf6archive6","libkf6archive6","Qt 6 addon providing access to numerous types of archives","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6authcore6","libkf6authcore6","libkf6authcore6","Abstraction to system policy and authentication features","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6crash6","libkf6crash6","libkf6crash6","Support for application crash analysis and bug report from apps","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6dbusaddons6","libkf6dbusaddons6","libkf6dbusaddons6","class library for qtdbus","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6doctools6","libkf6doctools6","libkf6doctools6","Tools to generate documentation in various formats from DocBook","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6solid6","libkf6solid6","libkf6solid6","Qt library to query and control hardware","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6wallet6","libkf6wallet6","libkf6wallet6","safe desktop-wide storage for passwords - shared library","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6widgetsaddons6","libkf6widgetsaddons6","libkf6widgetsaddons6","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6windowsystem6","libkf6windowsystem6","libkf6windowsystem6","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libqt6xml6","libqt6xml6","libqt6xml6","Qt 6 XML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"libxslt1.1","libxslt1.1","libxslt1.1","XSLT 1.0 processing library - runtime library","","","1","1","","","","Section=libs; Version=1.1.35-1.2+deb13u1","","","","","","","",""
+"switcheroo-control","switcheroo-control","switcheroo-control","D-Bus service to check the availability of dual-GPU","","","1","1","","","","Section=gnome; Version=2.6-3","","","","","","","",""
+"systemsettings","systemsettings","systemsettings","System Settings interface","","","1","1","","","","Section=kde; Version=4:6.3.4-2","","","","","","","",""
+"libaccounts-glib0","libaccounts-glib0","libaccounts-glib0","Accounts database access - shared library","","","1","1","","","","Section=libs; Version=1.27-1+b1","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"kaccounts-providers","kaccounts-providers","kaccounts-providers","KDE providers for accounts sign-on","","","1","1","","","","Section=kde; Version=4:25.04.0-1","","","","","","","",""
+"libkf6coreaddons-data","libkf6coreaddons-data","libkf6coreaddons-data","KDE Frameworks 6 addons to QtCore - data files","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","","","",""
+"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"libkf6i18n-data","libkf6i18n-data","libkf6i18n-data","Advanced internationalization framework (architecture-independent data)","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libmount1","libmount1","libmount1","device mounting library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","","","",""
+"libkf6colorscheme6","libkf6colorscheme6","libkf6colorscheme6","Classes to read and interact with KColorScheme","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6completion6","libkf6completion6","libkf6completion6","Widgets with advanced auto-completion features","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6guiaddons6","libkf6guiaddons6","libkf6guiaddons6","utilities for graphical user interfaces","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6iconthemes6","libkf6iconthemes6","libkf6iconthemes6","Support for icon themes","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6iconwidgets6","libkf6iconwidgets6","libkf6iconwidgets6","Support for icon widgets","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6jobwidgets6","libkf6jobwidgets6","libkf6jobwidgets6","widgets for tracking KJob instances","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6notifications-data","libkf6notifications-data","libkf6notifications-data","Framework for desktop notifications data","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libcanberra0","libcanberra0","libcanberra0","simple abstract interface for playing event sounds","","","1","1","","","","Section=libs; Version=0.30-18","","","","","","","",""
+"libkf6purpose-data","libkf6purpose-data","libkf6purpose-data","abstraction to provide and leverage actions of a specific kind, translations","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6i18nqml6","libkf6i18nqml6","libkf6i18nqml6","Advanced internationalization framework (QML bindings)","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6service-data","libkf6service-data","libkf6service-data","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libb2-1","libb2-1","libb2-1","BLAKE2 family of hash functions","","","1","1","","","","Section=libs; Version=0.98.1-1.1+b2","","","","","","","",""
+"libdouble-conversion3","libdouble-conversion3","libdouble-conversion3","routines to convert IEEE floats to and from strings","","","1","1","","","","Section=libs; Version=3.3.1-1","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"libpcre2-16-0","libpcre2-16-0","libpcre2-16-0","New Perl Compatible Regular Expression Library - 16 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"qt6-translations-l10n","qt6-translations-l10n","qt6-translations-l10n","translations for Qt 6","","","1","1","","","","Section=localization; Version=6.8.2-2","","","","","","","",""
+"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","","","",""
+"fontconfig","fontconfig","fontconfig","generic font configuration library - support binaries","","","1","1","","","","Section=fonts; Version=2.15.0-2.3","","","","","","","",""
+"libdrm2","libdrm2","libdrm2","Userspace interface to kernel DRM services -- runtime","","","1","1","","","","Section=libs; Version=2.4.124-2","","","","","","","",""
+"libegl1","libegl1","libegl1","Vendor neutral GL dispatch library -- EGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"libglx0","libglx0","libglx0","Vendor neutral GL dispatch library -- GLX support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","","","",""
+"libice6","libice6","libice6","X11 Inter-Client Exchange library","","","1","1","","","","Section=libs; Version=2:1.1.1-1","","","","","","","",""
+"libinput10","libinput10","libinput10","input device management and event handling library - shared library","","","1","1","","","","Section=libs; Version=1.28.1-1","","","","","","","",""
+"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","","","",""
+"libmd4c0","libmd4c0","libmd4c0","Markdown for C","","","1","1","","","","Section=libs; Version=0.5.2-2+b1","","","","","","","",""
+"libmtdev1t64","libmtdev1t64","libmtdev1t64","Multitouch Protocol Translation Library - shared library","","","1","1","","","","Section=libs; Version=1.1.7-1","","","","","","","",""
+"libopengl0","libopengl0","libopengl0","Vendor neutral GL dispatch library -- OpenGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","","","",""
+"libsm6","libsm6","libsm6","X11 Session Management library","","","1","1","","","","Section=libs; Version=2:1.2.6-1","","","","","","","",""
+"libts0t64","libts0t64","libts0t64","touch screen library","","","1","1","","","","Section=libs; Version=1.22-1.1+b1","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libx11-xcb1","libx11-xcb1","libx11-xcb1","Xlib/XCB interface library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxcb-cursor0","libxcb-cursor0","libxcb-cursor0","utility libraries for X C Binding -- cursor","","","1","1","","","","Section=libs; Version=0.1.5-1","","","","","","","",""
+"libxcb-glx0","libxcb-glx0","libxcb-glx0","X C Binding, glx extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-icccm4","libxcb-icccm4","libxcb-icccm4","utility libraries for X C Binding -- icccm","","","1","1","","","","Section=libs; Version=0.4.2-1","","","","","","","",""
+"libxcb-image0","libxcb-image0","libxcb-image0","utility libraries for X C Binding -- image","","","1","1","","","","Section=libs; Version=0.4.0-2+b2","","","","","","","",""
+"libxcb-keysyms1","libxcb-keysyms1","libxcb-keysyms1","utility libraries for X C Binding -- keysyms","","","1","1","","","","Section=libs; Version=0.4.1-1","","","","","","","",""
+"libxcb-randr0","libxcb-randr0","libxcb-randr0","X C Binding, randr extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-render-util0","libxcb-render-util0","libxcb-render-util0","utility libraries for X C Binding -- render-util","","","1","1","","","","Section=libs; Version=0.3.10-1","","","","","","","",""
+"libxcb-render0","libxcb-render0","libxcb-render0","X C Binding, render extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-shape0","libxcb-shape0","libxcb-shape0","X C Binding, shape extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-shm0","libxcb-shm0","libxcb-shm0","X C Binding, shm extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-sync1","libxcb-sync1","libxcb-sync1","X C Binding, sync extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-xfixes0","libxcb-xfixes0","libxcb-xfixes0","X C Binding, xfixes extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-xinput0","libxcb-xinput0","libxcb-xinput0","X C Binding, xinput extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-xkb1","libxcb-xkb1","libxcb-xkb1","X C Binding, XKEYBOARD extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxkbcommon-x11-0","libxkbcommon-x11-0","libxkbcommon-x11-0","library to create keymaps with the XKB X11 protocol","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","","","",""
+"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","","","",""
+"qt6-gtk-platformtheme","qt6-gtk-platformtheme","qt6-gtk-platformtheme","Qt 6 GTK+ 3 platform theme","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"qt6-qpa-plugins","qt6-qpa-plugins","qt6-qpa-plugins","Qt 6 QPA plugins","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"qt6-svg-plugins","qt6-svg-plugins","qt6-svg-plugins","Qt 6 SVG library plugins","","","1","1","","","","Section=libs; Version=6.8.2-3","","","","","","","",""
+"qt6-wayland","qt6-wayland","qt6-wayland","Qt 6 Wayland platform plugin","","","1","1","","","","Section=libs; Version=6.8.2-4","","","","","","","",""
+"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","","","",""
+"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","","","",""
+"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","","","",""
+"libproxy1v5","libproxy1v5","libproxy1v5","automatic proxy configuration management library (shared)","","","1","1","","","","Section=libs; Version=0.5.9-1","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"kdeconnect-libs","kdeconnect-libs","kdeconnect-libs","KDE Connect internal libs","","","1","1","","","","Section=kde; Version=25.04.2-1","","","","","","","",""
+"libqt6waylandclient6","libqt6waylandclient6","libqt6waylandclient6","Qt 6 Wayland Client library","","","1","1","","","","Section=libs; Version=6.8.2-4","","","","","","","",""
+"libwayland-client0","libwayland-client0","libwayland-client0","wayland compositor infrastructure - client library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"kdeconnect","kdeconnect","kdeconnect","connect smartphones to your desktop devices","","","1","1","","","","Section=kde; Version=25.04.2-1","","","","","","","",""
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-org-kde-bluezqt","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-org-kde-kcmutils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-org-kde-kirigami","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-org-kde-prison","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-qtquick-controls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-qtquick-dialogs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-qtquick-layouts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-sso-onlineaccounts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","kio6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libaccounts-qt6-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkaccounts6-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6kiocore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6kiogui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6kiowidgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6notifications6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6purpose6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6purposewidgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6service-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libkf6service6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-org-kde-kdeconnect","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose-bin","qml6-module-org-kde-purpose","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-bluezqt","qml6-module-qtcore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-bluezqt","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-bluezqt","libkf6bluezqt6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-bluezqt","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-bluezqt","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-bluezqt","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-org-kde-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-org-kde-kirigami","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-qtcore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-qtquick-controls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-qtquick-layouts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-qtquick-templates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qml6-module-qtquick-window","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libkf6itemviews6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libkf6kcmutilscore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libkf6kcmutilsquick6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libkf6kiogui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libkf6service-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libkf6service6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libqt6quick6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kcmutils","qt6-declarative-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libkirigami6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libkirigamidelegates6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libkirigamiplatform6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","qml6-module-qtqml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","qml6-module-qtquick-controls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","qml6-module-qtquick-layouts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","qml6-module-qtquick-shapes","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","qml6-module-qtquick-templates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libkirigamidialogs6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libkirigamilayouts6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libkirigamiprimitives6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libkirigamiprivate6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kirigami","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","qml6-module-qtmultimedia","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libkf6prison6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libkf6prisonscanner6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libqt6quick6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-prison","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick","qml6-module-qtqml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick","libqt6quick6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","qml6-module-qtquick-templates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","qml6-module-qtquick-shapes","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","qml6-module-qtquick-window","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","libqt6quickcontrols2-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-controls","qt6-declarative-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","qml6-module-qt-labs-folderlistmodel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","qml6-module-qtquick-controls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","qml6-module-qtquick-layouts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","qml6-module-qtquick-templates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","libqt6quick6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","libqt6quicktemplates2-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-dialogs","qt6-declarative-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","libqt6quick6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-qtquick-layouts","qt6-declarative-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","libaccounts-qt6-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","libsignon-qt6-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","qml6-module-qtqml-models","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-sso-onlineaccounts","qml6-module-qtqml-workerscript","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","kded6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","kwallet6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libacl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6archive6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6authcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6crash6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6dbusaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6doctools6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6kiocore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6kiogui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6service-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6service6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6solid6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6wallet6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6widgetsaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libkf6windowsystem6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libqt6xml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","libxslt1.1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","kio6","switcheroo-control","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","kio6","systemsettings","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libaccounts-qt6-1","libaccounts-glib0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaccounts-qt6-1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaccounts-qt6-1","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaccounts-qt6-1","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaccounts-qt6-1","libqt6xml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaccounts-qt6-1","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libaccounts-qt6-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libsignon-qt6-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkaccounts6-2","kaccounts-providers","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","libkf6coreaddons-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","shared-mime-info","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons6","libudev1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6i18n6","libkf6i18n-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6i18n6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6i18n6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6i18n6","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6i18n6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libacl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libkf6authcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libkf6crash6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libkf6service-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libkf6service6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libmount1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libqt6xml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiocore6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6kiocore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6service-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6service6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6solid6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libkf6windowsystem6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiogui6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6colorscheme6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6completion6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6guiaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6iconthemes6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6iconwidgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6jobwidgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6kiocore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6kiogui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6service-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6service6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libkf6widgetsaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6kiowidgets6","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libkf6notifications-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libcanberra0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6notifications6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libkf6purpose-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purpose6","qml6-module-org-kde-purpose","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libkf6purpose-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libkf6i18nqml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libkf6purpose6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6purposewidgets6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service-bin","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service-bin","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service-bin","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service-bin","libkf6service6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service-bin","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libkf6service-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libqt6xml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6service6","libkf6service-bin","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","shared-mime-info","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libb2-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libdouble-conversion3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libpcre2-16-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6core6t64","qt6-translations-l10n","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libqt6dbus6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6dbus6","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6dbus6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6dbus6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6dbus6","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","fontconfig","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libdrm2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libegl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libglx0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libharfbuzz0b","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libice6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libinput10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libmd4c0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libmtdev1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libopengl0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libsm6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libts0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libudev1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libx11-xcb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-cursor0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-glx0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-icccm4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-image0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-keysyms1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-randr0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-render-util0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-render0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-shape0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-shm0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-sync1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-xfixes0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-xinput0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb-xkb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxcb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxkbcommon-x11-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","libxkbcommon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","qt6-gtk-platformtheme","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","qt6-qpa-plugins","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","qt6-svg-plugins","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libqt6gui6","qt6-wayland","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libbrotli1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libgssapi-krb5-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libproxy1v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6network6","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6widgets6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6widgets6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6widgets6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6widgets6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt6widgets6","qt6-base-private-abi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","qml6-module-qtqml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","qml6-module-qtquick-controls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","kdeconnect-libs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libqt6waylandclient6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","libwayland-client0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-kdeconnect","kdeconnect","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","qml6-module-org-kde-kirigami","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","qml6-module-qtcore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","qml6-module-qtquick-controls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","qml6-module-qtquick-layouts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libkf6purpose-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libkf6purpose6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qml6-module-org-kde-purpose","kdeconnect","Recommends","#333","1","Recommends","arrow","{}"

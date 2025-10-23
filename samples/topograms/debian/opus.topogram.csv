@@ -1,6 +1,6 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libopus-dev,libopus-dev,libopus-dev,Opus codec library development files,,,1,1,,,,Section=libdevel; Version=1.5.2-2,,,,,,,
-libopus0,libopus0,libopus0,Opus codec runtime library,,,1,1,,,,Section=libs; Version=1.5.2-2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,libopus0,libopus-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libopus0,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libopus-dev","libopus-dev","libopus-dev","Opus codec library development files","","","1","1","","","","Section=libdevel; Version=1.5.2-2","","","","","","","",""
+"libopus0","libopus0","libopus0","Opus codec runtime library","","","1","1","","","","Section=libs; Version=1.5.2-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libopus-dev","libopus0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopus0","libc6","Depends","#333","1","Depends","arrow","{}"

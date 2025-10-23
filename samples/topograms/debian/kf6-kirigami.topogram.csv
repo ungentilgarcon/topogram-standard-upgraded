@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libkirigami-data","libkirigami-data","libkirigami-data","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkirigami-data","libkirigami-data","libkirigami-data","set of QtQuick components targeted for mobile use","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""

@@ -1,9 +1,9 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libmodule-pluggable-perl,libmodule-pluggable-perl,libmodule-pluggable-perl,module for giving  modules the ability to have plugins,,,1,1,,,,Section=perl; Version=5.2-5,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libmodule-runtime-perl,libmodule-runtime-perl,libmodule-runtime-perl,Perl module for runtime module handling,,,1,1,,,,Section=perl; Version=0.018-1,,,,,,,
-libparams-classify-perl,libparams-classify-perl,libparams-classify-perl,Perl module for argument type classification,,,1,1,,,,Section=perl; Version=0.015-2+b4,,,,,,,
-,,,,,,,,,,,,perl:any,libmodule-pluggable-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-runtime-perl,libmodule-pluggable-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,perl:any,libmodule-runtime-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libparams-classify-perl,libmodule-runtime-perl,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libmodule-pluggable-perl","libmodule-pluggable-perl","libmodule-pluggable-perl","module for giving  modules the ability to have plugins","","","1","1","","","","Section=perl; Version=5.2-5","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libmodule-runtime-perl","libmodule-runtime-perl","libmodule-runtime-perl","Perl module for runtime module handling","","","1","1","","","","Section=perl; Version=0.018-1","","","","","","","",""
+"libparams-classify-perl","libparams-classify-perl","libparams-classify-perl","Perl module for argument type classification","","","1","1","","","","Section=perl; Version=0.015-2+b4","","","","","","","",""
+"","","","","","","","","","","","","libmodule-pluggable-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmodule-pluggable-perl","libmodule-runtime-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libmodule-runtime-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmodule-runtime-perl","libparams-classify-perl","Depends","#333","1","Depends","arrow","{}"

@@ -1,54 +1,54 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libabsl-dev,libabsl-dev,libabsl-dev,extensions to the C++ standard library (development files),,,1,1,,,,Section=libdevel; Version=20240722.0-4,,,,,,,
-libabsl20240722,libabsl20240722,libabsl20240722,extensions to the C++ standard library,,,1,1,,,,Section=libs; Version=20240722.0-4,,,,,,,
-cmake,cmake,cmake,"cross-platform, open-source make system",,,1,1,,,,Section=devel; Version=3.31.6-2,,,,,,,
-g++,g++,g++,GNU C++ compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-libgmock-dev,libgmock-dev,libgmock-dev,Google's framework for writing C++ tests,,,1,1,,,,Section=libdevel; Version=1.16.0-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-cmake-data,cmake-data,cmake-data,"CMake data files (modules, templates and documentation)",,,1,1,,,,Section=devel; Version=3.31.6-2,,,,,,,
-procps,procps,procps,/proc file system utilities,,,1,1,,,,Section=admin; Version=2:4.0.4-9,,,,,,,
-libarchive13t64,libarchive13t64,libarchive13t64,Multi-format archive and compression library (shared library),,,1,1,,,,Section=libs; Version=3.7.4-4,,,,,,,
-libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
-libexpat1,libexpat1,libexpat1,XML parsing C library - runtime library,,,1,1,,,,Section=libs; Version=2.7.1-2,,,,,,,
-libjsoncpp26,libjsoncpp26,libjsoncpp26,library for reading and writing JSON for C++,,,1,1,,,,Section=libs; Version=1.9.6-3,,,,,,,
-librhash1,librhash1,librhash1,shared library for hash functions computing,,,1,1,,,,Section=libs; Version=1.4.5-1,,,,,,,
-libuv1t64,libuv1t64,libuv1t64,asynchronous event notification library - runtime library,,,1,1,,,,Section=libs; Version=1.50.0-2,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-gcc,gcc,gcc,GNU C compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-make,make,make,utility for directing compilation,,,1,1,,,,Section=devel; Version=4.4.1-2,,,,,,,
-cpp,cpp,cpp,GNU C preprocessor (cpp),,,1,1,,,,Section=interpreters; Version=4:14.2.0-1,,,,,,,
-cpp-x86-64-linux-gnu,cpp-x86-64-linux-gnu,cpp-x86-64-linux-gnu,GNU C preprocessor (cpp) for the amd64 architecture,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-g++-14,g++-14,g++-14,GNU C++ compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-g++-x86-64-linux-gnu,g++-x86-64-linux-gnu,g++-x86-64-linux-gnu,GNU C++ compiler for the amd64 architecture,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-gcc-14,gcc-14,gcc-14,GNU C compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-libgtest-dev,libgtest-dev,libgtest-dev,Google's framework for writing C++ tests,,,1,1,,,,Section=libdevel; Version=1.16.0-1,,,,,,,
-,,,,,,,,,,,,libabsl20240722,libabsl-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cmake,libabsl-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,g++,libabsl-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libgmock-dev,libabsl-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libabsl20240722,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libabsl20240722,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libabsl20240722,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cmake-data,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,procps,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libarchive13t64,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcurl4t64,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjsoncpp26,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librhash1,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuv1t64,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,cmake,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc,cmake,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,make,cmake,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,cpp,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cpp-x86-64-linux-gnu,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,g++-14,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,g++-x86-64-linux-gnu,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtest-dev,libgmock-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libabsl-dev","libabsl-dev","libabsl-dev","extensions to the C++ standard library (development files)","","","1","1","","","","Section=libdevel; Version=20240722.0-4","","","","","","","",""
+"libabsl20240722","libabsl20240722","libabsl20240722","extensions to the C++ standard library","","","1","1","","","","Section=libs; Version=20240722.0-4","","","","","","","",""
+"cmake","cmake","cmake","cross-platform, open-source make system","","","1","1","","","","Section=devel; Version=3.31.6-2","","","","","","","",""
+"g++","g++","g++","GNU C++ compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"libgmock-dev","libgmock-dev","libgmock-dev","Google's framework for writing C++ tests","","","1","1","","","","Section=libdevel; Version=1.16.0-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"cmake-data","cmake-data","cmake-data","CMake data files (modules, templates and documentation)","","","1","1","","","","Section=devel; Version=3.31.6-2","","","","","","","",""
+"procps","procps","procps","/proc file system utilities","","","1","1","","","","Section=admin; Version=2:4.0.4-9","","","","","","","",""
+"libarchive13t64","libarchive13t64","libarchive13t64","Multi-format archive and compression library (shared library)","","","1","1","","","","Section=libs; Version=3.7.4-4","","","","","","","",""
+"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","","","",""
+"libexpat1","libexpat1","libexpat1","XML parsing C library - runtime library","","","1","1","","","","Section=libs; Version=2.7.1-2","","","","","","","",""
+"libjsoncpp26","libjsoncpp26","libjsoncpp26","library for reading and writing JSON for C++","","","1","1","","","","Section=libs; Version=1.9.6-3","","","","","","","",""
+"librhash1","librhash1","librhash1","shared library for hash functions computing","","","1","1","","","","Section=libs; Version=1.4.5-1","","","","","","","",""
+"libuv1t64","libuv1t64","libuv1t64","asynchronous event notification library - runtime library","","","1","1","","","","Section=libs; Version=1.50.0-2","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"gcc","gcc","gcc","GNU C compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"make","make","make","utility for directing compilation","","","1","1","","","","Section=devel; Version=4.4.1-2","","","","","","","",""
+"cpp","cpp","cpp","GNU C preprocessor (cpp)","","","1","1","","","","Section=interpreters; Version=4:14.2.0-1","","","","","","","",""
+"cpp-x86-64-linux-gnu","cpp-x86-64-linux-gnu","cpp-x86-64-linux-gnu","GNU C preprocessor (cpp) for the amd64 architecture","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"g++-14","g++-14","g++-14","GNU C++ compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"g++-x86-64-linux-gnu","g++-x86-64-linux-gnu","g++-x86-64-linux-gnu","GNU C++ compiler for the amd64 architecture","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"gcc-14","gcc-14","gcc-14","GNU C compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"libgtest-dev","libgtest-dev","libgtest-dev","Google's framework for writing C++ tests","","","1","1","","","","Section=libdevel; Version=1.16.0-1","","","","","","","",""
+"","","","","","","","","","","","","libabsl-dev","libabsl20240722","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libabsl-dev","cmake","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libabsl-dev","g++","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libabsl-dev","libgmock-dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libabsl20240722","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libabsl20240722","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libabsl20240722","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","cmake-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","procps","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libarchive13t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libcurl4t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libexpat1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libjsoncpp26","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","librhash1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","libuv1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cmake","gcc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cmake","make","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","g++","cpp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","cpp-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","gcc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","g++-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","g++-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","gcc-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgmock-dev","libgtest-dev","Depends","#333","1","Depends","arrow","{}"

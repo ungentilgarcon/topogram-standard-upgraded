@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libkf6bookmarks-data","libkf6bookmarks-data","libkf6bookmarks-data","Qt library with support for bookmarks and the XBEL format","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkf6bookmarks-data","libkf6bookmarks-data","libkf6bookmarks-data","Qt library with support for bookmarks and the XBEL format","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""

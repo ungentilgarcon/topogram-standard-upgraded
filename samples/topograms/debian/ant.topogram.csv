@@ -1,11 +1,11 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-ant,ant,ant,Java based build tool like make,,,1,1,,,,Section=java; Version=1.10.15-1,,,,,,,
-default-jre-headless,default-jre-headless,default-jre-headless,Standard Java or Java compatible Runtime (headless),,,1,1,,,,Section=java; Version=2:1.21-76,,,,,,,
-ant-optional,ant-optional,ant-optional,Java based build tool like make - optional libraries,,,1,1,,,,Section=java; Version=1.10.15-1,,,,,,,
-openjdk-21-jre-headless,openjdk-21-jre-headless,openjdk-21-jre-headless,"OpenJDK Java runtime, using Hotspot JIT (headless)",,,1,1,,,,Section=java; Version=21.0.8+9-1,,,,,,,
-java-common,java-common,java-common,Base package for Java runtimes,,,1,1,,,,Section=java; Version=0.76,,,,,,,
-,,,,,,,,,,,,default-jre-headless,ant,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ant-optional,ant,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,openjdk-21-jre-headless,default-jre-headless,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,java-common,default-jre-headless,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ant,ant-optional,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"ant","ant","ant","Java based build tool like make","","","1","1","","","","Section=java; Version=1.10.15-1","","","","","","","",""
+"default-jre-headless","default-jre-headless","default-jre-headless","Standard Java or Java compatible Runtime (headless)","","","1","1","","","","Section=java; Version=2:1.21-76","","","","","","","",""
+"ant-optional","ant-optional","ant-optional","Java based build tool like make - optional libraries","","","1","1","","","","Section=java; Version=1.10.15-1","","","","","","","",""
+"openjdk-21-jre-headless","openjdk-21-jre-headless","openjdk-21-jre-headless","OpenJDK Java runtime, using Hotspot JIT (headless)","","","1","1","","","","Section=java; Version=21.0.8+9-1","","","","","","","",""
+"java-common","java-common","java-common","Base package for Java runtimes","","","1","1","","","","Section=java; Version=0.76","","","","","","","",""
+"","","","","","","","","","","","","ant","default-jre-headless","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ant","ant-optional","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","default-jre-headless","openjdk-21-jre-headless","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","default-jre-headless","java-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ant-optional","ant","Depends","#333","1","Depends","arrow","{}"

@@ -1,67 +1,67 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libarchive-dev,libarchive-dev,libarchive-dev,Multi-format archive and compression library (development files),,,1,1,,,,Section=libdevel; Version=3.7.4-4,,,,,,,
-libacl1-dev,libacl1-dev,libacl1-dev,access control list - static libraries and headers,,,1,1,,,,Section=libdevel; Version=2.3.2-2+b1,,,,,,,
-libarchive13t64,libarchive13t64,libarchive13t64,Multi-format archive and compression library (shared library),,,1,1,,,,Section=libs; Version=3.7.4-4,,,,,,,
-libbz2-dev,libbz2-dev,libbz2-dev,high-quality block-sorting file compressor library - development,,,1,1,,,,Section=libdevel; Version=1.0.8-6,,,,,,,
-libext2fs-dev,libext2fs-dev,libext2fs-dev,ext2/ext3/ext4 file system libraries - headers and static libraries,,,1,1,,,,Section=libdevel; Version=1.47.2-3+b3,,,,,,,
-liblz4-dev,liblz4-dev,liblz4-dev,Fast LZ compression algorithm library - development files,,,1,1,,,,Section=libdevel; Version=1.10.0-4,,,,,,,
-liblzma-dev,liblzma-dev,liblzma-dev,XZ-format compression library - development files,,,1,1,,,,Section=libdevel; Version=5.8.1-1,,,,,,,
-libxml2-dev,libxml2-dev,libxml2-dev,GNOME XML library - development files,,,1,1,,,,Section=libdevel; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-libzstd-dev,libzstd-dev,libzstd-dev,fast lossless compression algorithm -- development files,,,1,1,,,,Section=libdevel; Version=1.5.7+dfsg-1,,,,,,,
-nettle-dev,nettle-dev,nettle-dev,low level cryptographic library (development files),,,1,1,,,,Section=libdevel; Version=3.10.1-1,,,,,,,
-zlib1g-dev,zlib1g-dev,zlib1g-dev,compression library - development,,,1,1,,,,Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
-libattr1-dev,libattr1-dev,libattr1-dev,extended attributes handling - static libraries and headers,,,1,1,,,,Section=libdevel; Version=1:2.5.2-3,,,,,,,
-libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-liblz4-1,liblz4-1,liblz4-1,Fast LZ compression algorithm library - runtime,,,1,1,,,,Section=libs; Version=1.10.0-4,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-libnettle8t64,libnettle8t64,libnettle8t64,low level cryptographic library (symmetric and one-way cryptos),,,1,1,,,,Section=libs; Version=3.10.1-1,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-bzip2-doc,bzip2-doc,bzip2-doc,high-quality block-sorting file compressor - documentation,,,1,1,,,,Section=doc; Version=1.0.8-6,,,,,,,
-comerr-dev,comerr-dev,comerr-dev,common error description library - headers and static libraries,,,1,1,,,,Section=libdevel; Version=2.1-1.47.2-3+b3,,,,,,,
-libext2fs2t64,libext2fs2t64,libext2fs2t64,ext2/ext3/ext4 file system libraries,,,1,1,,,,Section=libs; Version=1.47.2-3+b3,,,,,,,
-libxxhash-dev,libxxhash-dev,libxxhash-dev,header files and a static library for libxxhash,,,1,1,,,,Section=libdevel; Version=0.8.3-2,,,,,,,
-libhogweed6t64,libhogweed6t64,libhogweed6t64,low level cryptographic library (public-key cryptos),,,1,1,,,,Section=libs; Version=3.10.1-1,,,,,,,
-libgmp-dev,libgmp-dev,libgmp-dev,Multiprecision arithmetic library developers tools,,,1,1,,,,Section=libdevel; Version=2:6.3.0+dfsg-3,,,,,,,
-,,,,,,,,,,,,libacl1-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libarchive13t64,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbz2-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libext2fs-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblz4-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,nettle-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g-dev,libarchive-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,libacl1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libacl1,libacl1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libattr1-dev,libacl1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libacl1,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbz2-1.0,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblz4-1,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnettle8t64,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libarchive13t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbz2-1.0,libbz2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,libbz2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,bzip2-doc,libbz2-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6-dev,libext2fs-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,comerr-dev,libext2fs-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libext2fs2t64,libext2fs-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblz4-1,liblz4-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxxhash-dev,liblz4-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,liblzma-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,libxml2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libzstd-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnettle8t64,nettle-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhogweed6t64,nettle-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp-dev,nettle-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,zlib1g-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,zlib1g-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libarchive-dev","libarchive-dev","libarchive-dev","Multi-format archive and compression library (development files)","","","1","1","","","","Section=libdevel; Version=3.7.4-4","","","","","","","",""
+"libacl1-dev","libacl1-dev","libacl1-dev","access control list - static libraries and headers","","","1","1","","","","Section=libdevel; Version=2.3.2-2+b1","","","","","","","",""
+"libarchive13t64","libarchive13t64","libarchive13t64","Multi-format archive and compression library (shared library)","","","1","1","","","","Section=libs; Version=3.7.4-4","","","","","","","",""
+"libbz2-dev","libbz2-dev","libbz2-dev","high-quality block-sorting file compressor library - development","","","1","1","","","","Section=libdevel; Version=1.0.8-6","","","","","","","",""
+"libext2fs-dev","libext2fs-dev","libext2fs-dev","ext2/ext3/ext4 file system libraries - headers and static libraries","","","1","1","","","","Section=libdevel; Version=1.47.2-3+b3","","","","","","","",""
+"liblz4-dev","liblz4-dev","liblz4-dev","Fast LZ compression algorithm library - development files","","","1","1","","","","Section=libdevel; Version=1.10.0-4","","","","","","","",""
+"liblzma-dev","liblzma-dev","liblzma-dev","XZ-format compression library - development files","","","1","1","","","","Section=libdevel; Version=5.8.1-1","","","","","","","",""
+"libxml2-dev","libxml2-dev","libxml2-dev","GNOME XML library - development files","","","1","1","","","","Section=libdevel; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"libzstd-dev","libzstd-dev","libzstd-dev","fast lossless compression algorithm -- development files","","","1","1","","","","Section=libdevel; Version=1.5.7+dfsg-1","","","","","","","",""
+"nettle-dev","nettle-dev","nettle-dev","low level cryptographic library (development files)","","","1","1","","","","Section=libdevel; Version=3.10.1-1","","","","","","","",""
+"zlib1g-dev","zlib1g-dev","zlib1g-dev","compression library - development","","","1","1","","","","Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","","","",""
+"libattr1-dev","libattr1-dev","libattr1-dev","extended attributes handling - static libraries and headers","","","1","1","","","","Section=libdevel; Version=1:2.5.2-3","","","","","","","",""
+"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"liblz4-1","liblz4-1","liblz4-1","Fast LZ compression algorithm library - runtime","","","1","1","","","","Section=libs; Version=1.10.0-4","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"libnettle8t64","libnettle8t64","libnettle8t64","low level cryptographic library (symmetric and one-way cryptos)","","","1","1","","","","Section=libs; Version=3.10.1-1","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"bzip2-doc","bzip2-doc","bzip2-doc","high-quality block-sorting file compressor - documentation","","","1","1","","","","Section=doc; Version=1.0.8-6","","","","","","","",""
+"comerr-dev","comerr-dev","comerr-dev","common error description library - headers and static libraries","","","1","1","","","","Section=libdevel; Version=2.1-1.47.2-3+b3","","","","","","","",""
+"libext2fs2t64","libext2fs2t64","libext2fs2t64","ext2/ext3/ext4 file system libraries","","","1","1","","","","Section=libs; Version=1.47.2-3+b3","","","","","","","",""
+"libxxhash-dev","libxxhash-dev","libxxhash-dev","header files and a static library for libxxhash","","","1","1","","","","Section=libdevel; Version=0.8.3-2","","","","","","","",""
+"libhogweed6t64","libhogweed6t64","libhogweed6t64","low level cryptographic library (public-key cryptos)","","","1","1","","","","Section=libs; Version=3.10.1-1","","","","","","","",""
+"libgmp-dev","libgmp-dev","libgmp-dev","Multiprecision arithmetic library developers tools","","","1","1","","","","Section=libdevel; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"","","","","","","","","","","","","libarchive-dev","libacl1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","libarchive13t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","libbz2-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","libext2fs-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","liblz4-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","liblzma-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","libxml2-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","libzstd-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","nettle-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive-dev","zlib1g-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libacl1-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libacl1-dev","libacl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libacl1-dev","libattr1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","libacl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","libbz2-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","liblz4-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","libnettle8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarchive13t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbz2-dev","libbz2-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbz2-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbz2-dev","bzip2-doc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libext2fs-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libext2fs-dev","comerr-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libext2fs-dev","libext2fs2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblz4-dev","liblz4-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblz4-dev","libxxhash-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblzma-dev","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml2-dev","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libzstd-dev","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","nettle-dev","libnettle8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","nettle-dev","libhogweed6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","nettle-dev","libgmp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g-dev","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"

@@ -1,11 +1,11 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-liblz4-1,liblz4-1,liblz4-1,Fast LZ compression algorithm library - runtime,,,1,1,,,,Section=libs; Version=1.10.0-4,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libxxhash0,libxxhash0,libxxhash0,shared library for xxhash,,,1,1,,,,Section=libs; Version=0.8.3-2,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,libc6,liblz4-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxxhash0,liblz4-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libxxhash0,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"liblz4-1","liblz4-1","liblz4-1","Fast LZ compression algorithm library - runtime","","","1","1","","","","Section=libs; Version=1.10.0-4","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libxxhash0","libxxhash0","libxxhash0","shared library for xxhash","","","1","1","","","","Section=libs; Version=0.8.3-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","liblz4-1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblz4-1","libxxhash0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libxxhash0","libc6","Depends","#333","1","Depends","arrow","{}"

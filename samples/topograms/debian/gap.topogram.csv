@@ -1,79 +1,79 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gap,gap,gap,"computer algebra system for Groups, Algorithms and Programming",,,1,1,,,,Section=math; Version=4.14.0-3,,,,,,,
-gap-core,gap-core,gap-core,"GAP computer algebra system, core components",,,1,1,,,,Section=math; Version=4.14.0-3,,,,,,,
-gap-libs,gap-libs,gap-libs,"GAP computer algebra system, essential GAP libraries",,,1,1,,,,Section=math; Version=4.14.0-3,,,,,,,
-gap-online-help,gap-online-help,gap-online-help,"GAP computer algebra system, online help",,,1,1,,,,Section=math; Version=4.14.0-3,,,,,,,
-gap-doc,gap-doc,gap-doc,"GAP computer algebra system, documentation",,,1,1,,,,Section=doc; Version=4.14.0-3,,,,,,,
-gap-dev,gap-dev,gap-dev,"GAP computer algebra system, compiler and development files",,,1,1,,,,Section=devel; Version=4.14.0-3,,,,,,,
-gap-transgrp,gap-transgrp,gap-transgrp,GAP TransGrp - Transitive Groups Library,,,1,1,,,,Section=math; Version=3.6.5-2,,,,,,,
-gap-primgrp,gap-primgrp,gap-primgrp,GAP PrimGrp - GAP Primitive Permutation Groups Library,,,1,1,,,,Section=math; Version=3.4.4-1,,,,,,,
-gap-smallgrp,gap-smallgrp,gap-smallgrp,GAP SmallGrp - The GAP Small Groups Library,,,1,1,,,,Section=math; Version=1.5.4-2,,,,,,,
-gap-alnuth,gap-alnuth,gap-alnuth,GAP Alnuth - Algebraic number theory and an interface to PARI/GP,,,1,1,,,,Section=math; Version=3.2.1-2,,,,,,,
-gap-autpgrp,gap-autpgrp,gap-autpgrp,GAP AutPGrp - Computing the Automorphism Group of a p-Group,,,1,1,,,,Section=math; Version=1.11-1,,,,,,,
-gap-character-tables,gap-character-tables,gap-character-tables,GAP Library of character tables,,,1,1,,,,Section=math; Version=1.3.9-2,,,,,,,
-gap-factint,gap-factint,gap-factint,advanced methods for factoring integers for GAP,,,1,1,,,,Section=math; Version=1.6.3+ds-3,,,,,,,
-gap-fga,gap-fga,gap-fga,GAP FGA - Free Group Algorithms,,,1,1,,,,Section=math; Version=1.5.0-1,,,,,,,
-gap-laguna,gap-laguna,gap-laguna,LAGUNA GAP package,,,1,1,,,,Section=math; Version=3.9.7+ds-1,,,,,,,
-gap-polycyclic,gap-polycyclic,gap-polycyclic,GAP Polycyclic - Computation with polycyclic groups,,,1,1,,,,Section=math; Version=2.16-3,,,,,,,
-gap-table-of-marks,gap-table-of-marks,gap-table-of-marks,GAP TomLib - The GAP Library of Tables of Marks,,,1,1,,,,Section=math; Version=1.2.11-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgap9,libgap9,libgap9,"GAP computer algebra system, compiler and development files",,,1,1,,,,Section=libs; Version=4.14.0-3,,,,,,,
-gap-gapdoc,gap-gapdoc,gap-gapdoc,GAPDoc - A Meta Package for GAP Documentation,,,1,1,,,,Section=math; Version=1.6.7-1,,,,,,,
-gcc,gcc,gcc,GNU C compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-libgmp-dev,libgmp-dev,libgmp-dev,Multiprecision arithmetic library developers tools,,,1,1,,,,Section=libdevel; Version=2:6.3.0+dfsg-3,,,,,,,
-libgap-dev,libgap-dev,libgap-dev,"GAP computer algebra system, compiler and development files",,,1,1,,,,Section=libdevel; Version=4.14.0-3,,,,,,,
-pari-gp,pari-gp,pari-gp,PARI/GP Computer Algebra System binaries,,,1,1,,,,Section=math; Version=2.17.2-1,,,,,,,
-gap-atlasrep,gap-atlasrep,gap-atlasrep,GAP AtlasRep - A GAP Interface to the Atlas of Group Representations,,,1,1,,,,Section=math; Version=2.1.9-1,,,,,,,
-gap-io,gap-io,gap-io,low level C library IO bindings for GAP,,,1,1,,,,Section=math; Version=4.9.1+ds-1,,,,,,,
-,,,,,,,,,,,,gap-core,gap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-libs,gap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-online-help,gap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-doc,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-dev,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-transgrp,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-primgrp,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-smallgrp,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-alnuth,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-autpgrp,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-character-tables,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-factint,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-fga,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-laguna,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-polycyclic,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-table-of-marks,gap,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,gap-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgap9,gap-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-libs,gap-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-online-help,gap-core,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-gapdoc,gap-libs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-core,gap-online-help,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-gapdoc,gap-doc,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-core,gap-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc,gap-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp-dev,gap-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgap-dev,gap-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap,gap-transgrp,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-smallgrp,gap-transgrp,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap,gap-primgrp,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap,gap-smallgrp,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-polycyclic,gap-alnuth,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pari-gp,gap-alnuth,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap,gap-alnuth,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap,gap-autpgrp,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-atlasrep,gap-character-tables,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-primgrp,gap-character-tables,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-smallgrp,gap-character-tables,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-transgrp,gap-character-tables,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap,gap-character-tables,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap,gap-factint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-gapdoc,gap-factint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-io,gap-factint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap,gap-fga,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap,gap-laguna,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-gapdoc,gap-laguna,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-smallgrp,gap-laguna,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap-autpgrp,gap-polycyclic,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap,gap-polycyclic,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-alnuth,gap-polycyclic,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gap-atlasrep,gap-table-of-marks,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gap,gap-table-of-marks,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gap","gap","gap","computer algebra system for Groups, Algorithms and Programming","","","1","1","","","","Section=math; Version=4.14.0-3","","","","","","","",""
+"gap-core","gap-core","gap-core","GAP computer algebra system, core components","","","1","1","","","","Section=math; Version=4.14.0-3","","","","","","","",""
+"gap-libs","gap-libs","gap-libs","GAP computer algebra system, essential GAP libraries","","","1","1","","","","Section=math; Version=4.14.0-3","","","","","","","",""
+"gap-online-help","gap-online-help","gap-online-help","GAP computer algebra system, online help","","","1","1","","","","Section=math; Version=4.14.0-3","","","","","","","",""
+"gap-doc","gap-doc","gap-doc","GAP computer algebra system, documentation","","","1","1","","","","Section=doc; Version=4.14.0-3","","","","","","","",""
+"gap-dev","gap-dev","gap-dev","GAP computer algebra system, compiler and development files","","","1","1","","","","Section=devel; Version=4.14.0-3","","","","","","","",""
+"gap-transgrp","gap-transgrp","gap-transgrp","GAP TransGrp - Transitive Groups Library","","","1","1","","","","Section=math; Version=3.6.5-2","","","","","","","",""
+"gap-primgrp","gap-primgrp","gap-primgrp","GAP PrimGrp - GAP Primitive Permutation Groups Library","","","1","1","","","","Section=math; Version=3.4.4-1","","","","","","","",""
+"gap-smallgrp","gap-smallgrp","gap-smallgrp","GAP SmallGrp - The GAP Small Groups Library","","","1","1","","","","Section=math; Version=1.5.4-2","","","","","","","",""
+"gap-alnuth","gap-alnuth","gap-alnuth","GAP Alnuth - Algebraic number theory and an interface to PARI/GP","","","1","1","","","","Section=math; Version=3.2.1-2","","","","","","","",""
+"gap-autpgrp","gap-autpgrp","gap-autpgrp","GAP AutPGrp - Computing the Automorphism Group of a p-Group","","","1","1","","","","Section=math; Version=1.11-1","","","","","","","",""
+"gap-character-tables","gap-character-tables","gap-character-tables","GAP Library of character tables","","","1","1","","","","Section=math; Version=1.3.9-2","","","","","","","",""
+"gap-factint","gap-factint","gap-factint","advanced methods for factoring integers for GAP","","","1","1","","","","Section=math; Version=1.6.3+ds-3","","","","","","","",""
+"gap-fga","gap-fga","gap-fga","GAP FGA - Free Group Algorithms","","","1","1","","","","Section=math; Version=1.5.0-1","","","","","","","",""
+"gap-laguna","gap-laguna","gap-laguna","LAGUNA GAP package","","","1","1","","","","Section=math; Version=3.9.7+ds-1","","","","","","","",""
+"gap-polycyclic","gap-polycyclic","gap-polycyclic","GAP Polycyclic - Computation with polycyclic groups","","","1","1","","","","Section=math; Version=2.16-3","","","","","","","",""
+"gap-table-of-marks","gap-table-of-marks","gap-table-of-marks","GAP TomLib - The GAP Library of Tables of Marks","","","1","1","","","","Section=math; Version=1.2.11-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgap9","libgap9","libgap9","GAP computer algebra system, compiler and development files","","","1","1","","","","Section=libs; Version=4.14.0-3","","","","","","","",""
+"gap-gapdoc","gap-gapdoc","gap-gapdoc","GAPDoc - A Meta Package for GAP Documentation","","","1","1","","","","Section=math; Version=1.6.7-1","","","","","","","",""
+"gcc","gcc","gcc","GNU C compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"libgmp-dev","libgmp-dev","libgmp-dev","Multiprecision arithmetic library developers tools","","","1","1","","","","Section=libdevel; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"libgap-dev","libgap-dev","libgap-dev","GAP computer algebra system, compiler and development files","","","1","1","","","","Section=libdevel; Version=4.14.0-3","","","","","","","",""
+"pari-gp","pari-gp","pari-gp","PARI/GP Computer Algebra System binaries","","","1","1","","","","Section=math; Version=2.17.2-1","","","","","","","",""
+"gap-atlasrep","gap-atlasrep","gap-atlasrep","GAP AtlasRep - A GAP Interface to the Atlas of Group Representations","","","1","1","","","","Section=math; Version=2.1.9-1","","","","","","","",""
+"gap-io","gap-io","gap-io","low level C library IO bindings for GAP","","","1","1","","","","Section=math; Version=4.9.1+ds-1","","","","","","","",""
+"","","","","","","","","","","","","gap","gap-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-libs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-online-help","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-doc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-transgrp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-primgrp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-smallgrp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-alnuth","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-autpgrp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-character-tables","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-factint","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-fga","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-laguna","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-polycyclic","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap","gap-table-of-marks","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-core","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-core","libgap9","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-core","gap-libs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-core","gap-online-help","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-libs","gap-gapdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-online-help","gap-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-doc","gap-gapdoc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-dev","gap-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-dev","gcc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-dev","libgmp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-dev","libgap-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-transgrp","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-transgrp","gap-smallgrp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-primgrp","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-smallgrp","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-alnuth","gap-polycyclic","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-alnuth","pari-gp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-alnuth","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-autpgrp","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-character-tables","gap-atlasrep","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-character-tables","gap-primgrp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-character-tables","gap-smallgrp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-character-tables","gap-transgrp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-character-tables","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-factint","gap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-factint","gap-gapdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-factint","gap-io","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-fga","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-laguna","gap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-laguna","gap-gapdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-laguna","gap-smallgrp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-polycyclic","gap-autpgrp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-polycyclic","gap","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-polycyclic","gap-alnuth","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gap-table-of-marks","gap-atlasrep","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gap-table-of-marks","gap","Recommends","#333","1","Recommends","arrow","{}"

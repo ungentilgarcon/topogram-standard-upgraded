@@ -1,14 +1,14 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-golang-golang-x-net-dev,golang-golang-x-net-dev,golang-golang-x-net-dev,Supplementary Go networking libraries,,,1,1,,,,Section=golang; Version=1:0.27.0-2,,,,,,,
-golang-golang-x-crypto-dev,golang-golang-x-crypto-dev,golang-golang-x-crypto-dev,Supplementary Go cryptography libraries,,,1,1,,,,Section=golang; Version=1:0.25.0-1,,,,,,,
-golang-golang-x-sys-dev,golang-golang-x-sys-dev,golang-golang-x-sys-dev,Low-level interaction with the operating system,,,1,1,,,,Section=golang; Version=0.22.0-1,,,,,,,
-golang-golang-x-term-dev,golang-golang-x-term-dev,golang-golang-x-term-dev,Go terminal and console support (library),,,1,1,,,,Section=golang; Version=0.22.0-1,,,,,,,
-golang-golang-x-text-dev,golang-golang-x-text-dev,golang-golang-x-text-dev,Supplementary Go text-related libraries,,,1,1,,,,Section=golang; Version=0.22.0-1,,,,,,,
-,,,,,,,,,,,,golang-golang-x-crypto-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-sys-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-term-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-text-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-sys-dev,golang-golang-x-crypto-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-term-dev,golang-golang-x-crypto-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-text-dev,golang-golang-x-crypto-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-sys-dev,golang-golang-x-term-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-golang-x-net-dev","golang-golang-x-net-dev","golang-golang-x-net-dev","Supplementary Go networking libraries","","","1","1","","","","Section=golang; Version=1:0.27.0-2","","","","","","","",""
+"golang-golang-x-crypto-dev","golang-golang-x-crypto-dev","golang-golang-x-crypto-dev","Supplementary Go cryptography libraries","","","1","1","","","","Section=golang; Version=1:0.25.0-1","","","","","","","",""
+"golang-golang-x-sys-dev","golang-golang-x-sys-dev","golang-golang-x-sys-dev","Low-level interaction with the operating system","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""
+"golang-golang-x-term-dev","golang-golang-x-term-dev","golang-golang-x-term-dev","Go terminal and console support (library)","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""
+"golang-golang-x-text-dev","golang-golang-x-text-dev","golang-golang-x-text-dev","Supplementary Go text-related libraries","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-crypto-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-sys-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-term-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-text-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-crypto-dev","golang-golang-x-sys-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-crypto-dev","golang-golang-x-term-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-crypto-dev","golang-golang-x-text-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-term-dev","golang-golang-x-sys-dev","Depends","#333","1","Depends","arrow","{}"

@@ -1,4 +1,4 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-golang-github-sirupsen-logrus-dev,golang-github-sirupsen-logrus-dev,golang-github-sirupsen-logrus-dev,Logrus: a logging library for Go,,,1,1,,,,Section=golang; Version=1.9.0-1,,,,,,,
-golang-golang-x-sys-dev,golang-golang-x-sys-dev,golang-golang-x-sys-dev,Low-level interaction with the operating system,,,1,1,,,,Section=golang; Version=0.22.0-1,,,,,,,
-,,,,,,,,,,,,golang-golang-x-sys-dev,golang-github-sirupsen-logrus-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-github-sirupsen-logrus-dev","golang-github-sirupsen-logrus-dev","golang-github-sirupsen-logrus-dev","Logrus: a logging library for Go","","","1","1","","","","Section=golang; Version=1.9.0-1","","","","","","","",""
+"golang-golang-x-sys-dev","golang-golang-x-sys-dev","golang-golang-x-sys-dev","Low-level interaction with the operating system","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""
+"","","","","","","","","","","","","golang-github-sirupsen-logrus-dev","golang-golang-x-sys-dev","Depends","#333","1","Depends","arrow","{}"

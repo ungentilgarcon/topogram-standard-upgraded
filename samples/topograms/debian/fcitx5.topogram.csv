@@ -1,153 +1,153 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-fcitx5,fcitx5,fcitx5,Fcitx Input Method Framework v5,,,1,1,,,,Section=utils; Version=5.1.12-2,,,,,,,
-fcitx5-data,fcitx5-data,fcitx5-data,Fcitx Input Method Framework v5 (common data files),,,1,1,,,,Section=utils; Version=5.1.12-2,,,,,,,
-fcitx5-modules,fcitx5-modules,fcitx5-modules,Fcitx Input Method Framework v5 (core modules),,,1,1,,,,Section=utils; Version=5.1.12-2,,,,,,,
-libfcitx5config6,libfcitx5config6,libfcitx5config6,Fcitx Input Method Framework v5 (config library),,,1,1,,,,Section=libs; Version=5.1.12-2,,,,,,,
-libfcitx5core7,libfcitx5core7,libfcitx5core7,Fcitx Input Method Framework v5 (core library),,,1,1,,,,Section=libs; Version=5.1.12-2,,,,,,,
-libfcitx5utils2,libfcitx5utils2,libfcitx5utils2,Fcitx Input Method Framework v5 (utils library),,,1,1,,,,Section=libs; Version=5.1.12-2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libexpat1,libexpat1,libexpat1,XML parsing C library - runtime library,,,1,1,,,,Section=libs; Version=2.7.1-2,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libjson-c5,libjson-c5,libjson-c5,JSON manipulation library - shared library,,,1,1,,,,Section=libs; Version=0.18+ds-1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
-fcitx5-config-qt,fcitx5-config-qt,fcitx5-config-qt,configuration tool for Fcitx5 (Qt version),,,1,1,,,,Section=kde; Version=5.1.8-1,,,,,,,
-fcitx5-frontend-all,fcitx5-frontend-all,fcitx5-frontend-all,Fcitx Input Method Framework v5 (Frontend IM Module metapackage),,,1,1,,,,Section=metapackages; Version=5.1.12-2,,,,,,,
-im-config,im-config,im-config,Input method configuration framework,,,1,1,,,,Section=x11; Version=0.57-2,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libenchant-2-2,libenchant-2-2,libenchant-2-2,Wrapper library for various spell checker engines (runtime libs),,,1,1,,,,Section=libs; Version=2.8.2+dfsg1-3,,,,,,,
-libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,GDK Pixbuf library,,,1,1,,,,Section=libs; Version=2.42.12+dfsg-4,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libuuid1,libuuid1,libuuid1,Universally Unique ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
-libwayland-client0,libwayland-client0,libwayland-client0,wayland compositor infrastructure - client library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libwayland-cursor0,libwayland-cursor0,libwayland-cursor0,wayland compositor infrastructure - cursor library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libxcb-ewmh2,libxcb-ewmh2,libxcb-ewmh2,utility libraries for X C Binding -- ewmh,,,1,1,,,,Section=libs; Version=0.4.2-1,,,,,,,
-libxcb-icccm4,libxcb-icccm4,libxcb-icccm4,utility libraries for X C Binding -- icccm,,,1,1,,,,Section=libs; Version=0.4.2-1,,,,,,,
-libxcb-imdkit1,libxcb-imdkit1,libxcb-imdkit1,XIM protocol implementation in XCB,,,1,1,,,,Section=libs; Version=1.0.9-1+b1,,,,,,,
-libxcb-keysyms1,libxcb-keysyms1,libxcb-keysyms1,utility libraries for X C Binding -- keysyms,,,1,1,,,,Section=libs; Version=0.4.1-1,,,,,,,
-libxcb-randr0,libxcb-randr0,libxcb-randr0,"X C Binding, randr extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-util1,libxcb-util1,libxcb-util1,"utility libraries for X C Binding -- atom, aux and event",,,1,1,,,,Section=libs; Version=0.4.1-1,,,,,,,
-libxcb-xfixes0,libxcb-xfixes0,libxcb-xfixes0,"X C Binding, xfixes extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-xinerama0,libxcb-xinerama0,libxcb-xinerama0,"X C Binding, xinerama extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-xkb1,libxcb-xkb1,libxcb-xkb1,"X C Binding, XKEYBOARD extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxkbcommon-x11-0,libxkbcommon-x11-0,libxkbcommon-x11-0,library to create keymaps with the XKB X11 protocol,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
-libxkbfile1,libxkbfile1,libxkbfile1,X11 keyboard file manipulation library,,,1,1,,,,Section=libs; Version=1:1.1.0-1+b4,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-xkb-data,xkb-data,xkb-data,X Keyboard Extension (XKB) configuration data,,,1,1,,,,Section=x11; Version=2.42-1,,,,,,,
-libfcitx5-qt6-1,libfcitx5-qt6-1,libfcitx5-qt6-1,Qt6 library and IM module for fcitx5,,,1,1,,,,Section=libs; Version=5.1.9-1+b1,,,,,,,
-libkf6dbusaddons6,libkf6dbusaddons6,libkf6dbusaddons6,class library for qtdbus,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6itemviews6,libkf6itemviews6,libkf6itemviews6,Qt library with additional widgets for ItemModels,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6widgetsaddons6,libkf6widgetsaddons6,libkf6widgetsaddons6,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6windowsystem6,libkf6windowsystem6,libkf6windowsystem6,Convenience access to certain properties and features of the window manager,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libqt6core6t64,libqt6core6t64,libqt6core6t64,Qt 6 core module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6dbus6,libqt6dbus6,libqt6dbus6,Qt 6 D-Bus module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6gui6,libqt6gui6,libqt6gui6,Qt 6 GUI module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6widgets6,libqt6widgets6,libqt6widgets6,Qt 6 widgets module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libime-bin,libime-bin,libime-bin,Generic Input Method Implementation (tools),,,1,1,,,,Section=utils; Version=1.1.10+dict20250327-1,,,,,,,
-fcitx5-frontend-gtk3,fcitx5-frontend-gtk3,fcitx5-frontend-gtk3,GTK3 IM Module for fcitx5,,,1,1,,,,Section=utils; Version=5.1.3-3,,,,,,,
-fcitx5-frontend-gtk4,fcitx5-frontend-gtk4,fcitx5-frontend-gtk4,GTK4 IM Module for fcitx5,,,1,1,,,,Section=utils; Version=5.1.3-3,,,,,,,
-fcitx5-frontend-qt5,fcitx5-frontend-qt5,fcitx5-frontend-qt5,Qt5 IM module for fcitx5,,,1,1,,,,Section=libs; Version=5.1.9-1+b1,,,,,,,
-fcitx5-frontend-qt6,fcitx5-frontend-qt6,fcitx5-frontend-qt6,Qt6 IM module for fcitx5,,,1,1,,,,Section=libs; Version=5.1.9-1+b1,,,,,,,
-gettext-base,gettext-base,gettext-base,GNU Internationalization utilities for the base system,,,1,1,,,,Section=utils; Version=0.23.1-2,,,,,,,
-x11-common,x11-common,x11-common,X Window System (X.Org) infrastructure,,,1,1,,,,Section=x11; Version=1:7.7+24,,,,,,,
-zenity,zenity,zenity,Display graphical dialog boxes from shell scripts,,,1,1,,,,Section=gnome; Version=4.1.90-1,,,,,,,
-,,,,,,,,,,,,fcitx5-data,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fcitx5-modules,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5config6,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5core7,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5utils2,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjson-c5,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon0,fcitx5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fcitx5-config-qt,fcitx5,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fcitx5-frontend-all,fcitx5,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,im-config,fcitx5,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fcitx5-data,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libenchant-2-2,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5config6,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5core7,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5utils2,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuuid1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-client0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-cursor0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-ewmh2,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-icccm4,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-imdkit1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-keysyms1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-randr0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-util1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-xfixes0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-xinerama0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-xkb1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon-x11-0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon0,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbfile1,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,fcitx5-modules,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libfcitx5config6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5utils2,libfcitx5config6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libfcitx5config6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libfcitx5config6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libfcitx5core7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5config6,libfcitx5core7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5utils2,libfcitx5core7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libfcitx5core7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libfcitx5core7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuuid1,libfcitx5core7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon0,libfcitx5core7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libfcitx5utils2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libfcitx5utils2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libfcitx5utils2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,libfcitx5utils2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libjson-c5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xkb-data,libxkbcommon0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxkbcommon0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5-qt6-1,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5config6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfcitx5utils2,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6dbusaddons6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6itemviews6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6widgetsaddons6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6windowsystem6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbfile1,fcitx5-config-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libime-bin,fcitx5-config-qt,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fcitx5-frontend-gtk3,fcitx5-frontend-all,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fcitx5-frontend-gtk4,fcitx5-frontend-all,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fcitx5-frontend-qt5,fcitx5-frontend-all,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fcitx5-frontend-qt6,fcitx5-frontend-all,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gettext-base,im-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,x11-common,im-config,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,zenity,im-config,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"fcitx5","fcitx5","fcitx5","Fcitx Input Method Framework v5","","","1","1","","","","Section=utils; Version=5.1.12-2","","","","","","","",""
+"fcitx5-data","fcitx5-data","fcitx5-data","Fcitx Input Method Framework v5 (common data files)","","","1","1","","","","Section=utils; Version=5.1.12-2","","","","","","","",""
+"fcitx5-modules","fcitx5-modules","fcitx5-modules","Fcitx Input Method Framework v5 (core modules)","","","1","1","","","","Section=utils; Version=5.1.12-2","","","","","","","",""
+"libfcitx5config6","libfcitx5config6","libfcitx5config6","Fcitx Input Method Framework v5 (config library)","","","1","1","","","","Section=libs; Version=5.1.12-2","","","","","","","",""
+"libfcitx5core7","libfcitx5core7","libfcitx5core7","Fcitx Input Method Framework v5 (core library)","","","1","1","","","","Section=libs; Version=5.1.12-2","","","","","","","",""
+"libfcitx5utils2","libfcitx5utils2","libfcitx5utils2","Fcitx Input Method Framework v5 (utils library)","","","1","1","","","","Section=libs; Version=5.1.12-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libexpat1","libexpat1","libexpat1","XML parsing C library - runtime library","","","1","1","","","","Section=libs; Version=2.7.1-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libjson-c5","libjson-c5","libjson-c5","JSON manipulation library - shared library","","","1","1","","","","Section=libs; Version=0.18+ds-1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","","","",""
+"fcitx5-config-qt","fcitx5-config-qt","fcitx5-config-qt","configuration tool for Fcitx5 (Qt version)","","","1","1","","","","Section=kde; Version=5.1.8-1","","","","","","","",""
+"fcitx5-frontend-all","fcitx5-frontend-all","fcitx5-frontend-all","Fcitx Input Method Framework v5 (Frontend IM Module metapackage)","","","1","1","","","","Section=metapackages; Version=5.1.12-2","","","","","","","",""
+"im-config","im-config","im-config","Input method configuration framework","","","1","1","","","","Section=x11; Version=0.57-2","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libenchant-2-2","libenchant-2-2","libenchant-2-2","Wrapper library for various spell checker engines (runtime libs)","","","1","1","","","","Section=libs; Version=2.8.2+dfsg1-3","","","","","","","",""
+"libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","GDK Pixbuf library","","","1","1","","","","Section=libs; Version=2.42.12+dfsg-4","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libuuid1","libuuid1","libuuid1","Universally Unique ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","","","",""
+"libwayland-client0","libwayland-client0","libwayland-client0","wayland compositor infrastructure - client library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libwayland-cursor0","libwayland-cursor0","libwayland-cursor0","wayland compositor infrastructure - cursor library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libxcb-ewmh2","libxcb-ewmh2","libxcb-ewmh2","utility libraries for X C Binding -- ewmh","","","1","1","","","","Section=libs; Version=0.4.2-1","","","","","","","",""
+"libxcb-icccm4","libxcb-icccm4","libxcb-icccm4","utility libraries for X C Binding -- icccm","","","1","1","","","","Section=libs; Version=0.4.2-1","","","","","","","",""
+"libxcb-imdkit1","libxcb-imdkit1","libxcb-imdkit1","XIM protocol implementation in XCB","","","1","1","","","","Section=libs; Version=1.0.9-1+b1","","","","","","","",""
+"libxcb-keysyms1","libxcb-keysyms1","libxcb-keysyms1","utility libraries for X C Binding -- keysyms","","","1","1","","","","Section=libs; Version=0.4.1-1","","","","","","","",""
+"libxcb-randr0","libxcb-randr0","libxcb-randr0","X C Binding, randr extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-util1","libxcb-util1","libxcb-util1","utility libraries for X C Binding -- atom, aux and event","","","1","1","","","","Section=libs; Version=0.4.1-1","","","","","","","",""
+"libxcb-xfixes0","libxcb-xfixes0","libxcb-xfixes0","X C Binding, xfixes extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-xinerama0","libxcb-xinerama0","libxcb-xinerama0","X C Binding, xinerama extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-xkb1","libxcb-xkb1","libxcb-xkb1","X C Binding, XKEYBOARD extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxkbcommon-x11-0","libxkbcommon-x11-0","libxkbcommon-x11-0","library to create keymaps with the XKB X11 protocol","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","","","",""
+"libxkbfile1","libxkbfile1","libxkbfile1","X11 keyboard file manipulation library","","","1","1","","","","Section=libs; Version=1:1.1.0-1+b4","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"xkb-data","xkb-data","xkb-data","X Keyboard Extension (XKB) configuration data","","","1","1","","","","Section=x11; Version=2.42-1","","","","","","","",""
+"libfcitx5-qt6-1","libfcitx5-qt6-1","libfcitx5-qt6-1","Qt6 library and IM module for fcitx5","","","1","1","","","","Section=libs; Version=5.1.9-1+b1","","","","","","","",""
+"libkf6dbusaddons6","libkf6dbusaddons6","libkf6dbusaddons6","class library for qtdbus","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6itemviews6","libkf6itemviews6","libkf6itemviews6","Qt library with additional widgets for ItemModels","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6widgetsaddons6","libkf6widgetsaddons6","libkf6widgetsaddons6","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6windowsystem6","libkf6windowsystem6","libkf6windowsystem6","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libqt6core6t64","libqt6core6t64","libqt6core6t64","Qt 6 core module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6dbus6","libqt6dbus6","libqt6dbus6","Qt 6 D-Bus module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6gui6","libqt6gui6","libqt6gui6","Qt 6 GUI module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6widgets6","libqt6widgets6","libqt6widgets6","Qt 6 widgets module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libime-bin","libime-bin","libime-bin","Generic Input Method Implementation (tools)","","","1","1","","","","Section=utils; Version=1.1.10+dict20250327-1","","","","","","","",""
+"fcitx5-frontend-gtk3","fcitx5-frontend-gtk3","fcitx5-frontend-gtk3","GTK3 IM Module for fcitx5","","","1","1","","","","Section=utils; Version=5.1.3-3","","","","","","","",""
+"fcitx5-frontend-gtk4","fcitx5-frontend-gtk4","fcitx5-frontend-gtk4","GTK4 IM Module for fcitx5","","","1","1","","","","Section=utils; Version=5.1.3-3","","","","","","","",""
+"fcitx5-frontend-qt5","fcitx5-frontend-qt5","fcitx5-frontend-qt5","Qt5 IM module for fcitx5","","","1","1","","","","Section=libs; Version=5.1.9-1+b1","","","","","","","",""
+"fcitx5-frontend-qt6","fcitx5-frontend-qt6","fcitx5-frontend-qt6","Qt6 IM module for fcitx5","","","1","1","","","","Section=libs; Version=5.1.9-1+b1","","","","","","","",""
+"gettext-base","gettext-base","gettext-base","GNU Internationalization utilities for the base system","","","1","1","","","","Section=utils; Version=0.23.1-2","","","","","","","",""
+"x11-common","x11-common","x11-common","X Window System (X.Org) infrastructure","","","1","1","","","","Section=x11; Version=1:7.7+24","","","","","","","",""
+"zenity","zenity","zenity","Display graphical dialog boxes from shell scripts","","","1","1","","","","Section=gnome; Version=4.1.90-1","","","","","","","",""
+"","","","","","","","","","","","","fcitx5","fcitx5-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","fcitx5-modules","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libfcitx5config6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libfcitx5core7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libfcitx5utils2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libexpat1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libjson-c5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","libxkbcommon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","fcitx5-config-qt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","fcitx5-frontend-all","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","fcitx5","im-config","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","fcitx5-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libenchant-2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libfcitx5config6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libfcitx5core7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libfcitx5utils2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libuuid1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libwayland-client0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libwayland-cursor0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-ewmh2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-icccm4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-imdkit1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-keysyms1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-randr0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-util1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-xfixes0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-xinerama0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb-xkb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxcb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxkbcommon-x11-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxkbcommon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","libxkbfile1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-modules","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5config6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5config6","libfcitx5utils2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5config6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5config6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5core7","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5core7","libfcitx5config6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5core7","libfcitx5utils2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5core7","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5core7","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5core7","libuuid1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5core7","libxkbcommon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5utils2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5utils2","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5utils2","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfcitx5utils2","libsystemd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjson-c5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxkbcommon0","xkb-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxkbcommon0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libfcitx5-qt6-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libfcitx5config6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libfcitx5utils2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libkf6dbusaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libkf6itemviews6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libkf6widgetsaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libkf6windowsystem6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libxkbfile1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-config-qt","libime-bin","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-frontend-all","fcitx5-frontend-gtk3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-frontend-all","fcitx5-frontend-gtk4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-frontend-all","fcitx5-frontend-qt5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fcitx5-frontend-all","fcitx5-frontend-qt6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","im-config","gettext-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","im-config","x11-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","im-config","zenity","Recommends","#333","1","Recommends","arrow","{}"

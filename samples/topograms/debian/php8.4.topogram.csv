@@ -1,128 +1,128 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libapache2-mod-php8.4,libapache2-mod-php8.4,libapache2-mod-php8.4,"server-side, HTML-embedded scripting language (Apache 2 module)",,,1,1,,,,Section=httpd; Version=8.4.11-1,,,,,,,
-media-types,media-types,media-types,List of standard media types and their usual file extension,,,1,1,,,,Section=net; Version=13.0.0,,,,,,,
-php8.4-cli,php8.4-cli,php8.4-cli,command-line interpreter for the PHP scripting language,,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
-php8.4-common,php8.4-common,php8.4-common,"documentation, examples and common module for PHP",,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
-php8.4-opcache,php8.4-opcache,php8.4-opcache,Zend OpCache module for PHP,,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
-tzdata,tzdata,tzdata,time zone and daylight-saving time data,,,1,1,,,,Section=localization; Version=2025b-4+deb13u1,,,,,,,
-ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
-apache2-api-20120211,apache2-api-20120211,apache2-api-20120211,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-apache2-bin,apache2-bin,apache2-bin,Apache HTTP Server (modules and other binary files),,,1,1,,,,Section=httpd; Version=2.4.65-2,,,,,,,
-libargon2-1,libargon2-1,libargon2-1,memory-hard hashing function - runtime library,,,1,1,,,,Section=libs; Version=0~20190702+dfsg-4+b2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libsodium23,libsodium23,libsodium23,"Network communication, cryptography and signaturing library",,,1,1,,,,Section=libs; Version=1.0.18-1+b2,,,,,,,
-libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-apache2,apache2,apache2,Apache HTTP Server,,,1,1,,,,Section=httpd; Version=2.4.65-2,,,,,,,
-libedit2,libedit2,libedit2,BSD editline and history libraries,,,1,1,,,,Section=libs; Version=3.1-20250104-1,,,,,,,
-php8.4-readline,php8.4-readline,php8.4-readline,readline module for PHP,,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
-php-common,php-common,php-common,Common files for PHP packages,,,1,1,,,,Section=php; Version=2:96,,,,,,,
-libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-libtext-wrapi18n-perl,libtext-wrapi18n-perl,libtext-wrapi18n-perl,internationalized substitute of Text::Wrap,,,1,1,,,,Section=perl; Version=0.06-10,,,,,,,
-procps,procps,procps,/proc file system utilities,,,1,1,,,,Section=admin; Version=2:4.0.4-9,,,,,,,
-sensible-utils,sensible-utils,sensible-utils,Utilities for sensible alternative selection,,,1,1,,,,Section=utils; Version=0.0.25,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libapr1t64,libapr1t64,libapr1t64,Apache Portable Runtime Library,,,1,1,,,,Section=libs; Version=1.7.5-1,,,,,,,
-libaprutil1-dbd-sqlite3,libaprutil1-dbd-sqlite3,libaprutil1-dbd-sqlite3,Apache Portable Runtime Utility Library - SQLite3 Driver,,,1,1,,,,Section=libs; Version=1.6.3-3+b1,,,,,,,
-libaprutil1-ldap,libaprutil1-ldap,libaprutil1-ldap,Apache Portable Runtime Utility Library - LDAP Driver,,,1,1,,,,Section=libs; Version=1.6.3-3+b1,,,,,,,
-libaprutil1t64,libaprutil1t64,libaprutil1t64,Apache Portable Runtime Utility Library,,,1,1,,,,Section=libs; Version=1.6.3-3+b1,,,,,,,
-libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
-libcrypt1,libcrypt1,libcrypt1,libcrypt shared library,,,1,1,,,,Section=libs; Version=1:4.4.38-1,,,,,,,
-libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
-libjansson4,libjansson4,libjansson4,"C library for encoding, decoding and manipulating JSON data",,,1,1,,,,Section=libs; Version=2.14-2+b3,,,,,,,
-libldap2,libldap2,libldap2,OpenLDAP libraries,,,1,1,,,,Section=libs; Version=2.6.10+dfsg-1,,,,,,,
-liblua5.4-0,liblua5.4-0,liblua5.4-0,Shared library for the Lua interpreter version 5.4,,,1,1,,,,Section=libs; Version=5.4.7-1+b2,,,,,,,
-libnghttp2-14,libnghttp2-14,libnghttp2-14,library implementing HTTP/2 protocol (shared library),,,1,1,,,,Section=libs; Version=1.64.0-1.1,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-openssl-provider-legacy,openssl-provider-legacy,openssl-provider-legacy,Secure Sockets Layer toolkit - cryptographic utility,,,1,1,,,,Section=utils; Version=3.5.1-1,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-apache2-data,apache2-data,apache2-data,Apache HTTP Server (common files),,,1,1,,,,Section=httpd; Version=2.4.65-2,,,,,,,
-apache2-utils,apache2-utils,apache2-utils,Apache HTTP Server (utility programs for web servers),,,1,1,,,,Section=httpd; Version=2.4.65-2,,,,,,,
-ssl-cert,ssl-cert,ssl-cert,simple debconf wrapper for OpenSSL,,,1,1,,,,Section=utils; Version=1.1.3,,,,,,,
-,,,,,,,,,,,,media-types,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-cli,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-common,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-opcache,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tzdata,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apache2-api-20120211,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apache2-bin,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libargon2-1,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsodium23,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apache2,libapache2-mod-php8.4,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libedit2,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,media-types,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-common,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-opcache,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-readline,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tzdata,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libargon2-1,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsodium23,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,php8.4-cli,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php8.4-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,php8.4-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,php8.4-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libffi8,php8.4-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,php8.4-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php8.4-opcache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,php8.4-opcache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-common,php8.4-opcache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,php8.4-opcache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,php8.4-opcache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,tzdata,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,ucf,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtext-wrapi18n-perl,ucf,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,procps,ucf,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,sensible-utils,ucf,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libapr1t64,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaprutil1-dbd-sqlite3,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaprutil1-ldap,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaprutil1t64,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbrotli1,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcrypt1,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcurl4t64,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjansson4,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libldap2,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblua5.4-0,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnghttp2-14,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,apache2-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libargon2-1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libpcre2-8-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libsodium23,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libssl3t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libssl3t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libssl3t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openssl-provider-legacy,libssl3t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,libxml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libxml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,zlib1g,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apache2-bin,apache2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apache2-data,apache2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apache2-utils,apache2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,media-types,apache2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,procps,apache2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,apache2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ssl-cert,apache2,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libapache2-mod-php8.4","libapache2-mod-php8.4","libapache2-mod-php8.4","server-side, HTML-embedded scripting language (Apache 2 module)","","","1","1","","","","Section=httpd; Version=8.4.11-1","","","","","","","",""
+"media-types","media-types","media-types","List of standard media types and their usual file extension","","","1","1","","","","Section=net; Version=13.0.0","","","","","","","",""
+"php8.4-cli","php8.4-cli","php8.4-cli","command-line interpreter for the PHP scripting language","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","","","",""
+"php8.4-common","php8.4-common","php8.4-common","documentation, examples and common module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","","","",""
+"php8.4-opcache","php8.4-opcache","php8.4-opcache","Zend OpCache module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","","","",""
+"tzdata","tzdata","tzdata","time zone and daylight-saving time data","","","1","1","","","","Section=localization; Version=2025b-4+deb13u1","","","","","","","",""
+"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","","","",""
+"apache2-api-20120211","apache2-api-20120211","apache2-api-20120211","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"apache2-bin","apache2-bin","apache2-bin","Apache HTTP Server (modules and other binary files)","","","1","1","","","","Section=httpd; Version=2.4.65-2","","","","","","","",""
+"libargon2-1","libargon2-1","libargon2-1","memory-hard hashing function - runtime library","","","1","1","","","","Section=libs; Version=0~20190702+dfsg-4+b2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libsodium23","libsodium23","libsodium23","Network communication, cryptography and signaturing library","","","1","1","","","","Section=libs; Version=1.0.18-1+b2","","","","","","","",""
+"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"apache2","apache2","apache2","Apache HTTP Server","","","1","1","","","","Section=httpd; Version=2.4.65-2","","","","","","","",""
+"libedit2","libedit2","libedit2","BSD editline and history libraries","","","1","1","","","","Section=libs; Version=3.1-20250104-1","","","","","","","",""
+"php8.4-readline","php8.4-readline","php8.4-readline","readline module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","","","",""
+"php-common","php-common","php-common","Common files for PHP packages","","","1","1","","","","Section=php; Version=2:96","","","","","","","",""
+"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"libtext-wrapi18n-perl","libtext-wrapi18n-perl","libtext-wrapi18n-perl","internationalized substitute of Text::Wrap","","","1","1","","","","Section=perl; Version=0.06-10","","","","","","","",""
+"procps","procps","procps","/proc file system utilities","","","1","1","","","","Section=admin; Version=2:4.0.4-9","","","","","","","",""
+"sensible-utils","sensible-utils","sensible-utils","Utilities for sensible alternative selection","","","1","1","","","","Section=utils; Version=0.0.25","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libapr1t64","libapr1t64","libapr1t64","Apache Portable Runtime Library","","","1","1","","","","Section=libs; Version=1.7.5-1","","","","","","","",""
+"libaprutil1-dbd-sqlite3","libaprutil1-dbd-sqlite3","libaprutil1-dbd-sqlite3","Apache Portable Runtime Utility Library - SQLite3 Driver","","","1","1","","","","Section=libs; Version=1.6.3-3+b1","","","","","","","",""
+"libaprutil1-ldap","libaprutil1-ldap","libaprutil1-ldap","Apache Portable Runtime Utility Library - LDAP Driver","","","1","1","","","","Section=libs; Version=1.6.3-3+b1","","","","","","","",""
+"libaprutil1t64","libaprutil1t64","libaprutil1t64","Apache Portable Runtime Utility Library","","","1","1","","","","Section=libs; Version=1.6.3-3+b1","","","","","","","",""
+"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","","","",""
+"libcrypt1","libcrypt1","libcrypt1","libcrypt shared library","","","1","1","","","","Section=libs; Version=1:4.4.38-1","","","","","","","",""
+"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","","","",""
+"libjansson4","libjansson4","libjansson4","C library for encoding, decoding and manipulating JSON data","","","1","1","","","","Section=libs; Version=2.14-2+b3","","","","","","","",""
+"libldap2","libldap2","libldap2","OpenLDAP libraries","","","1","1","","","","Section=libs; Version=2.6.10+dfsg-1","","","","","","","",""
+"liblua5.4-0","liblua5.4-0","liblua5.4-0","Shared library for the Lua interpreter version 5.4","","","1","1","","","","Section=libs; Version=5.4.7-1+b2","","","","","","","",""
+"libnghttp2-14","libnghttp2-14","libnghttp2-14","library implementing HTTP/2 protocol (shared library)","","","1","1","","","","Section=libs; Version=1.64.0-1.1","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"openssl-provider-legacy","openssl-provider-legacy","openssl-provider-legacy","Secure Sockets Layer toolkit - cryptographic utility","","","1","1","","","","Section=utils; Version=3.5.1-1","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"apache2-data","apache2-data","apache2-data","Apache HTTP Server (common files)","","","1","1","","","","Section=httpd; Version=2.4.65-2","","","","","","","",""
+"apache2-utils","apache2-utils","apache2-utils","Apache HTTP Server (utility programs for web servers)","","","1","1","","","","Section=httpd; Version=2.4.65-2","","","","","","","",""
+"ssl-cert","ssl-cert","ssl-cert","simple debconf wrapper for OpenSSL","","","1","1","","","","Section=utils; Version=1.1.3","","","","","","","",""
+"","","","","","","","","","","","","libapache2-mod-php8.4","media-types","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","php8.4-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","php8.4-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","php8.4-opcache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","tzdata","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","apache2-api-20120211","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","apache2-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","libargon2-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","libsodium23","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libapache2-mod-php8.4","apache2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","libedit2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","media-types","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","php8.4-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","php8.4-opcache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","php8.4-readline","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","tzdata","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","libargon2-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","libsodium23","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-cli","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-common","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-common","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-common","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-common","libffi8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-common","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-opcache","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-opcache","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-opcache","php8.4-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-opcache","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php8.4-opcache","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tzdata","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ucf","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ucf","libtext-wrapi18n-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ucf","procps","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ucf","sensible-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libapr1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libaprutil1-dbd-sqlite3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libaprutil1-ldap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libaprutil1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libbrotli1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libcrypt1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libcurl4t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libjansson4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libldap2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","liblua5.4-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libnghttp2-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2-bin","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libargon2-1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libpcre2-8-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsodium23","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libssl3t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libssl3t64","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libssl3t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libssl3t64","openssl-provider-legacy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml2","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxml2","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2","apache2-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2","apache2-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2","apache2-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2","media-types","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2","procps","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apache2","ssl-cert","Recommends","#333","1","Recommends","arrow","{}"

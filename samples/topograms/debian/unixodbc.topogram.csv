@@ -1,14 +1,14 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libodbc2,libodbc2,libodbc2,ODBC Driver Manager library for Unix,,,1,1,,,,Section=libs; Version=2.3.12-2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libltdl7,libltdl7,libltdl7,System independent dlopen wrapper for GNU libtool,,,1,1,,,,Section=libs; Version=2.5.4-4,,,,,,,
-libodbccr2,libodbccr2,libodbccr2,ODBC Cursor library for Unix,,,1,1,,,,Section=libs; Version=2.3.12-2,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,libc6,libodbc2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libltdl7,libodbc2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libodbccr2,libodbc2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libltdl7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libodbccr2,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libodbc2","libodbc2","libodbc2","ODBC Driver Manager library for Unix","","","1","1","","","","Section=libs; Version=2.3.12-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libltdl7","libltdl7","libltdl7","System independent dlopen wrapper for GNU libtool","","","1","1","","","","Section=libs; Version=2.5.4-4","","","","","","","",""
+"libodbccr2","libodbccr2","libodbccr2","ODBC Cursor library for Unix","","","1","1","","","","Section=libs; Version=2.3.12-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","libodbc2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libodbc2","libltdl7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libodbc2","libodbccr2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libltdl7","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libodbccr2","libc6","Depends","#333","1","Depends","arrow","{}"

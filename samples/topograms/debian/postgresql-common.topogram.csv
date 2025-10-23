@@ -1,59 +1,59 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-postgresql,postgresql,postgresql,object-relational SQL database (supported version),,,1,1,,,,Section=database; Version=17+278,,,,,,,
-postgresql-17,postgresql-17,postgresql-17,The World's Most Advanced Open Source Relational Database,,,1,1,,,,Section=database; Version=17.6-0+deb13u1,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-locales,locales,locales,GNU C Library: National Language (locale) data [support],,,1,1,,,,Section=localization; Version=2.41-12,,,,,,,
-postgresql-client-17,postgresql-client-17,postgresql-client-17,front-end programs for PostgreSQL 17,,,1,1,,,,Section=database; Version=17.6-0+deb13u1,,,,,,,
-postgresql-common,postgresql-common,postgresql-common,PostgreSQL database-cluster manager,,,1,1,,,,Section=database; Version=278,,,,,,,
-ssl-cert,ssl-cert,ssl-cert,simple debconf wrapper for OpenSSL,,,1,1,,,,Section=utils; Version=1.1.3,,,,,,,
-tzdata,tzdata,tzdata,time zone and daylight-saving time data,,,1,1,,,,Section=localization; Version=2025b-4+deb13u1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-libldap2,libldap2,libldap2,OpenLDAP libraries,,,1,1,,,,Section=libs; Version=2.6.10+dfsg-1,,,,,,,
-libllvm19,libllvm19,libllvm19,"Modular compiler and toolchain technologies, runtime library",,,1,1,,,,Section=libs; Version=1:19.1.7-3+b1,,,,,,,
-liblz4-1,liblz4-1,liblz4-1,Fast LZ compression algorithm library - runtime,,,1,1,,,,Section=libs; Version=1.10.0-4,,,,,,,
-libpam0g,libpam0g,libpam0g,Pluggable Authentication Modules library,,,1,1,,,,Section=libs; Version=1.7.0-5,,,,,,,
-libpq5,libpq5,libpq5,PostgreSQL C client library,,,1,1,,,,Section=libs; Version=17.6-0+deb13u1,,,,,,,
-libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
-libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-libuuid1,libuuid1,libuuid1,Universally Unique ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-libxslt1.1,libxslt1.1,libxslt1.1,XSLT 1.0 processing library - runtime library,,,1,1,,,,Section=libs; Version=1.1.35-1.2+deb13u1,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-sysstat,sysstat,sysstat,system performance tools for Linux,,,1,1,,,,Section=admin; Version=12.7.5-2,,,,,,,
-apt,apt,apt,commandline package manager,,,1,1,,,,Section=admin; Version=3.0.3,,,,,,,
-debconf-i18n,debconf-i18n,debconf-i18n,full internationalization support for debconf,,,1,1,,,,Section=localization; Version=1.5.91,,,,,,,
-,,,,,,,,,,,,postgresql-17,postgresql,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,postgresql,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,locales,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,postgresql-client-17,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,postgresql-common,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ssl-cert,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tzdata,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgssapi-krb5-2,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libldap2,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libllvm19,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblz4-1,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpam0g,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpq5,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libselinux1,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuuid1,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxslt1.1,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,postgresql-17,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,sysstat,postgresql-17,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,apt,debconf,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,debconf-i18n,debconf,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"postgresql","postgresql","postgresql","object-relational SQL database (supported version)","","","1","1","","","","Section=database; Version=17+278","","","","","","","",""
+"postgresql-17","postgresql-17","postgresql-17","The World's Most Advanced Open Source Relational Database","","","1","1","","","","Section=database; Version=17.6-0+deb13u1","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"locales","locales","locales","GNU C Library: National Language (locale) data [support]","","","1","1","","","","Section=localization; Version=2.41-12","","","","","","","",""
+"postgresql-client-17","postgresql-client-17","postgresql-client-17","front-end programs for PostgreSQL 17","","","1","1","","","","Section=database; Version=17.6-0+deb13u1","","","","","","","",""
+"postgresql-common","postgresql-common","postgresql-common","PostgreSQL database-cluster manager","","","1","1","","","","Section=database; Version=278","","","","","","","",""
+"ssl-cert","ssl-cert","ssl-cert","simple debconf wrapper for OpenSSL","","","1","1","","","","Section=utils; Version=1.1.3","","","","","","","",""
+"tzdata","tzdata","tzdata","time zone and daylight-saving time data","","","1","1","","","","Section=localization; Version=2025b-4+deb13u1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"libldap2","libldap2","libldap2","OpenLDAP libraries","","","1","1","","","","Section=libs; Version=2.6.10+dfsg-1","","","","","","","",""
+"libllvm19","libllvm19","libllvm19","Modular compiler and toolchain technologies, runtime library","","","1","1","","","","Section=libs; Version=1:19.1.7-3+b1","","","","","","","",""
+"liblz4-1","liblz4-1","liblz4-1","Fast LZ compression algorithm library - runtime","","","1","1","","","","Section=libs; Version=1.10.0-4","","","","","","","",""
+"libpam0g","libpam0g","libpam0g","Pluggable Authentication Modules library","","","1","1","","","","Section=libs; Version=1.7.0-5","","","","","","","",""
+"libpq5","libpq5","libpq5","PostgreSQL C client library","","","1","1","","","","Section=libs; Version=17.6-0+deb13u1","","","","","","","",""
+"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","","","",""
+"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"libuuid1","libuuid1","libuuid1","Universally Unique ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"libxslt1.1","libxslt1.1","libxslt1.1","XSLT 1.0 processing library - runtime library","","","1","1","","","","Section=libs; Version=1.1.35-1.2+deb13u1","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"sysstat","sysstat","sysstat","system performance tools for Linux","","","1","1","","","","Section=admin; Version=12.7.5-2","","","","","","","",""
+"apt","apt","apt","commandline package manager","","","1","1","","","","Section=admin; Version=3.0.3","","","","","","","",""
+"debconf-i18n","debconf-i18n","debconf-i18n","full internationalization support for debconf","","","1","1","","","","Section=localization; Version=1.5.91","","","","","","","",""
+"","","","","","","","","","","","","postgresql","postgresql-17","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","locales","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","postgresql-client-17","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","postgresql-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","ssl-cert","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","tzdata","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libgssapi-krb5-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libldap2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libllvm19","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","liblz4-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libpam0g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libpq5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libselinux1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libsystemd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libuuid1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libxslt1.1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","postgresql-17","sysstat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","debconf","apt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","debconf","debconf-i18n","Recommends","#333","1","Recommends","arrow","{}"

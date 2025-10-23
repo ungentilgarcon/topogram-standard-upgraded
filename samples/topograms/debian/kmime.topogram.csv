@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libkmime-data","libkmime-data","libkmime-data","Arch independent data for library for handling MIME data","","","1","1","","","","Section=libs; Version=24.12.3-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkmime-data","libkmime-data","libkmime-data","Arch independent data for library for handling MIME data","","","1","1","","","","Section=libs; Version=24.12.3-1","","","","","","","",""

@@ -1,65 +1,65 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-build-essential,build-essential,build-essential,Informational list of build-essential packages,,,1,1,,,,Section=devel; Version=12.12,,,,,,,
-libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-gcc,gcc,gcc,GNU C compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-g++,g++,g++,GNU C++ compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-make,make,make,utility for directing compilation,,,1,1,,,,Section=devel; Version=4.4.1-2,,,,,,,
-dpkg-dev,dpkg-dev,dpkg-dev,Debian package development tools,,,1,1,,,,Section=utils; Version=1.22.21,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libc-dev-bin,libc-dev-bin,libc-dev-bin,GNU C Library: Development binaries,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-linux-libc-dev,linux-libc-dev,linux-libc-dev,Linux support headers for userspace development,,,1,1,,,,Section=devel; Version=6.12.43-1,,,,,,,
-libcrypt-dev,libcrypt-dev,libcrypt-dev,libcrypt development files,,,1,1,,,,Section=libdevel; Version=1:4.4.38-1,,,,,,,
-rpcsvc-proto,rpcsvc-proto,rpcsvc-proto,RPC protocol compiler and definitions,,,1,1,,,,Section=libs; Version=1.4.3-1,,,,,,,
-cpp,cpp,cpp,GNU C preprocessor (cpp),,,1,1,,,,Section=interpreters; Version=4:14.2.0-1,,,,,,,
-cpp-x86-64-linux-gnu,cpp-x86-64-linux-gnu,cpp-x86-64-linux-gnu,GNU C preprocessor (cpp) for the amd64 architecture,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-gcc-14,gcc-14,gcc-14,GNU C compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-gcc-x86-64-linux-gnu,gcc-x86-64-linux-gnu,gcc-x86-64-linux-gnu,GNU C compiler for the amd64 architecture,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-g++-14,g++-14,g++-14,GNU C++ compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
-g++-x86-64-linux-gnu,g++-x86-64-linux-gnu,g++-x86-64-linux-gnu,GNU C++ compiler for the amd64 architecture,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libdpkg-perl,libdpkg-perl,libdpkg-perl,Dpkg perl modules,,,1,1,,,,Section=perl; Version=1.22.21,,,,,,,
-tar,tar,tar,GNU version of the tar archiving utility,,,1,1,,,,Section=utils; Version=1.35+dfsg-3.1,,,,,,,
-bzip2,bzip2,bzip2,high-quality block-sorting file compressor - utilities,,,1,1,,,,Section=utils; Version=1.0.8-6,,,,,,,
-xz-utils,xz-utils,xz-utils,XZ-format compression utilities,,,1,1,,,,Section=utils; Version=5.8.1-1,,,,,,,
-patch,patch,patch,Apply a diff file to an original,,,1,1,,,,Section=vcs; Version=2.8-2,,,,,,,
-binutils,binutils,binutils,"GNU assembler, linker and binary utilities",,,1,1,,,,Section=devel; Version=2.44-3,,,,,,,
-fakeroot,fakeroot,fakeroot,tool for simulating superuser privileges,,,1,1,,,,Section=utils; Version=1.37.1.1-1,,,,,,,
-sq,sq,sq,OpenPGP command-line tool from Sequoia,,,1,1,,,,Section=utils; Version=1.3.1-2+b1,,,,,,,
-sqv,sqv,sqv,OpenPGP signature verification program from Sequoia,,,1,1,,,,Section=utils; Version=1.3.0-3,,,,,,,
-libalgorithm-merge-perl,libalgorithm-merge-perl,libalgorithm-merge-perl,Perl module for three-way merge of textual data,,,1,1,,,,Section=perl; Version=0.08-5,,,,,,,
-,,,,,,,,,,,,libc6-dev,build-essential,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc,build-essential,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,g++,build-essential,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,make,build-essential,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dpkg-dev,build-essential,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc-dev-bin,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,linux-libc-dev,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcrypt-dev,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,rpcsvc-proto,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cpp,gcc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cpp-x86-64-linux-gnu,gcc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14,gcc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-x86-64-linux-gnu,gcc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,gcc,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,cpp,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cpp-x86-64-linux-gnu,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,g++-14,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,g++-x86-64-linux-gnu,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14,g++,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,make,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdpkg-perl,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tar,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,bzip2,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xz-utils,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,patch,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,make,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,binutils,dpkg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,build-essential,dpkg-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gcc,dpkg-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fakeroot,dpkg-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,sq,dpkg-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,sqv,dpkg-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libalgorithm-merge-perl,dpkg-dev,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"build-essential","build-essential","build-essential","Informational list of build-essential packages","","","1","1","","","","Section=devel; Version=12.12","","","","","","","",""
+"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"gcc","gcc","gcc","GNU C compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"g++","g++","g++","GNU C++ compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"make","make","make","utility for directing compilation","","","1","1","","","","Section=devel; Version=4.4.1-2","","","","","","","",""
+"dpkg-dev","dpkg-dev","dpkg-dev","Debian package development tools","","","1","1","","","","Section=utils; Version=1.22.21","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libc-dev-bin","libc-dev-bin","libc-dev-bin","GNU C Library: Development binaries","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"linux-libc-dev","linux-libc-dev","linux-libc-dev","Linux support headers for userspace development","","","1","1","","","","Section=devel; Version=6.12.43-1","","","","","","","",""
+"libcrypt-dev","libcrypt-dev","libcrypt-dev","libcrypt development files","","","1","1","","","","Section=libdevel; Version=1:4.4.38-1","","","","","","","",""
+"rpcsvc-proto","rpcsvc-proto","rpcsvc-proto","RPC protocol compiler and definitions","","","1","1","","","","Section=libs; Version=1.4.3-1","","","","","","","",""
+"cpp","cpp","cpp","GNU C preprocessor (cpp)","","","1","1","","","","Section=interpreters; Version=4:14.2.0-1","","","","","","","",""
+"cpp-x86-64-linux-gnu","cpp-x86-64-linux-gnu","cpp-x86-64-linux-gnu","GNU C preprocessor (cpp) for the amd64 architecture","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"gcc-14","gcc-14","gcc-14","GNU C compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"gcc-x86-64-linux-gnu","gcc-x86-64-linux-gnu","gcc-x86-64-linux-gnu","GNU C compiler for the amd64 architecture","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"g++-14","g++-14","g++-14","GNU C++ compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","","","",""
+"g++-x86-64-linux-gnu","g++-x86-64-linux-gnu","g++-x86-64-linux-gnu","GNU C++ compiler for the amd64 architecture","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libdpkg-perl","libdpkg-perl","libdpkg-perl","Dpkg perl modules","","","1","1","","","","Section=perl; Version=1.22.21","","","","","","","",""
+"tar","tar","tar","GNU version of the tar archiving utility","","","1","1","","","","Section=utils; Version=1.35+dfsg-3.1","","","","","","","",""
+"bzip2","bzip2","bzip2","high-quality block-sorting file compressor - utilities","","","1","1","","","","Section=utils; Version=1.0.8-6","","","","","","","",""
+"xz-utils","xz-utils","xz-utils","XZ-format compression utilities","","","1","1","","","","Section=utils; Version=5.8.1-1","","","","","","","",""
+"patch","patch","patch","Apply a diff file to an original","","","1","1","","","","Section=vcs; Version=2.8-2","","","","","","","",""
+"binutils","binutils","binutils","GNU assembler, linker and binary utilities","","","1","1","","","","Section=devel; Version=2.44-3","","","","","","","",""
+"fakeroot","fakeroot","fakeroot","tool for simulating superuser privileges","","","1","1","","","","Section=utils; Version=1.37.1.1-1","","","","","","","",""
+"sq","sq","sq","OpenPGP command-line tool from Sequoia","","","1","1","","","","Section=utils; Version=1.3.1-2+b1","","","","","","","",""
+"sqv","sqv","sqv","OpenPGP signature verification program from Sequoia","","","1","1","","","","Section=utils; Version=1.3.0-3","","","","","","","",""
+"libalgorithm-merge-perl","libalgorithm-merge-perl","libalgorithm-merge-perl","Perl module for three-way merge of textual data","","","1","1","","","","Section=perl; Version=0.08-5","","","","","","","",""
+"","","","","","","","","","","","","build-essential","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","build-essential","gcc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","build-essential","g++","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","build-essential","make","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","build-essential","dpkg-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","libc-dev-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","linux-libc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","libcrypt-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","rpcsvc-proto","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcc","cpp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcc","cpp-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcc","gcc-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcc","gcc-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcc","libc6-dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","g++","cpp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","cpp-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","gcc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","g++-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","g++-x86-64-linux-gnu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","g++","gcc-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","make","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","libdpkg-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","tar","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","bzip2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","xz-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","patch","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","make","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","binutils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","build-essential","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","gcc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","fakeroot","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","sq","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","sqv","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","dpkg-dev","libalgorithm-merge-perl","Recommends","#333","1","Recommends","arrow","{}"

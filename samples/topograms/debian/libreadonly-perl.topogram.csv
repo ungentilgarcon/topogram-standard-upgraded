@@ -1,4 +1,4 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libreadonly-perl,libreadonly-perl,libreadonly-perl,"facility for creating read-only scalars, arrays and hashes",,,1,1,,,,Section=perl; Version=2.050-3,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-,,,,,,,,,,,,perl:any,libreadonly-perl,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libreadonly-perl","libreadonly-perl","libreadonly-perl","facility for creating read-only scalars, arrays and hashes","","","1","1","","","","Section=perl; Version=2.050-3","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","libreadonly-perl","perl:any","Depends","#333","1","Depends","arrow","{}"

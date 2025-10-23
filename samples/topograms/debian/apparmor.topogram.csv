@@ -1,15 +1,15 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-apparmor,apparmor,apparmor,user-space parser utility for AppArmor,,,1,1,,,,Section=admin; Version=4.1.0-1,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-apt,apt,apt,commandline package manager,,,1,1,,,,Section=admin; Version=3.0.3,,,,,,,
-debconf-i18n,debconf-i18n,debconf-i18n,full internationalization support for debconf,,,1,1,,,,Section=localization; Version=1.5.91,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,debconf,apparmor,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,apparmor,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,apparmor,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apt,debconf,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,debconf-i18n,debconf,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"apparmor","apparmor","apparmor","user-space parser utility for AppArmor","","","1","1","","","","Section=admin; Version=4.1.0-1","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"apt","apt","apt","commandline package manager","","","1","1","","","","Section=admin; Version=3.0.3","","","","","","","",""
+"debconf-i18n","debconf-i18n","debconf-i18n","full internationalization support for debconf","","","1","1","","","","Section=localization; Version=1.5.91","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","apparmor","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apparmor","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","apparmor","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debconf","apt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","debconf","debconf-i18n","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"

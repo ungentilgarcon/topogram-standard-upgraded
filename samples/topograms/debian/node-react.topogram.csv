@@ -1,80 +1,80 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-node-eslint-plugin-react-hooks,node-eslint-plugin-react-hooks,node-eslint-plugin-react-hooks,node-react plugin for eslint,,,1,1,,,,Section=javascript; Version=4.5.0~18.2.0+dfsg+~cs88.72.123-1,,,,,,,
-eslint,eslint,eslint,AST-based pattern checker for JavaScript,,,1,1,,,,Section=javascript; Version=6.4.0~dfsg+~6.1.9-12,,,,,,,
-node-ajv,node-ajv,node-ajv,another JSON Schema Validator,,,1,1,,,,Section=javascript; Version=8.12.0~ds+~2.1.1-5,,,,,,,
-node-concat-stream,node-concat-stream,node-concat-stream,writable stream that concatenates strings,,,1,1,,,,Section=javascript; Version=2.0.0+~2.0.0-2,,,,,,,
-node-debug,node-debug,node-debug,small debugging utility for Node.js,,,1,1,,,,Section=javascript; Version=4.3.4+~cs4.1.7-1,,,,,,,
-node-doctrine,node-doctrine,node-doctrine,JSDoc parser,,,1,1,,,,Section=javascript; Version=3.0.0-4,,,,,,,
-node-eslint-visitor-keys,node-eslint-visitor-keys,node-eslint-visitor-keys,Constants and utilities about visitor keys to traverse AST,,,1,1,,,,Section=javascript; Version=3.3.0+~1.0.0-1,,,,,,,
-node-eslint-scope,node-eslint-scope,node-eslint-scope,ECMAScript scope analyzer for ESLint,,,1,1,,,,Section=javascript; Version=7.1.1+~3.7.4-1,,,,,,,
-node-espree,node-espree,node-espree,Esprima-compatible JavaScript parser built on Acorn,,,1,1,,,,Section=javascript; Version=9.4.1~dfsg-2,,,,,,,
-node-esquery,node-esquery,node-esquery,query library for ECMAScript AST using CSS-like queries,,,1,1,,,,Section=javascript; Version=1.4.2~ds-1,,,,,,,
-node-estraverse,node-estraverse,node-estraverse,ECMAScript JS AST traversal functions,,,1,1,,,,Section=javascript; Version=5.3.0+ds+~5.1.1-1,,,,,,,
-node-eslint-utils,node-eslint-utils,node-eslint-utils,utilities for ESLint plugins,,,1,1,,,,Section=javascript; Version=3.0.0-3,,,,,,,
-node-esutils,node-esutils,node-esutils,utility box for ECMAScript language tools,,,1,1,,,,Section=javascript; Version=2.0.3+~2.0.0-1,,,,,,,
-node-file-entry-cache,node-file-entry-cache,node-file-entry-cache,Node.js library implementing a simple cache for file metadata,,,1,1,,,,Section=javascript; Version=6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1,,,,,,,
-node-functional-red-black-tree,node-functional-red-black-tree,node-functional-red-black-tree,fully persistent balanced binary search tree - Node.js library,,,1,1,,,,Section=javascript; Version=1.0.1+20181105-7,,,,,,,
-node-glob-parent,node-glob-parent,node-glob-parent,Extract the non-magic parent path from a glob string,,,1,1,,,,Section=javascript; Version=6.0.2+~5.1.1-2,,,,,,,
-node-globals,node-globals,node-globals,Global identifiers from different JavaScript environments,,,1,1,,,,Section=javascript; Version=13.23.0-1,,,,,,,
-node-import-fresh,node-import-fresh,node-import-fresh,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-node-imurmurhash,node-imurmurhash,node-imurmurhash,incremental implementation of MurmurHash3 hashing algorithm,,,1,1,,,,Section=javascript; Version=0.1.4+dfsg+~0.1.1-2,,,,,,,
-node-ignore,node-ignore,node-ignore,manager and filter for .gitignore rules - Node.js library,,,1,1,,,,Section=javascript; Version=5.2.1-1,,,,,,,
-node-is-glob,node-is-glob,node-is-glob,Node module to return true if a string is a glob or extglob,,,1,1,,,,Section=javascript; Version=4.0.3-2,,,,,,,
-node-json-stable-stringify,node-json-stable-stringify,node-json-stable-stringify,deterministic JSON.stringify(),,,1,1,,,,Section=javascript; Version=1.0.2+repack1+~cs1.0.34-2,,,,,,,
-node-levn,node-levn,node-levn,Light ECMAScript (JavaScript) Value Notation,,,1,1,,,,Section=javascript; Version=0.4.1+dfsg-2,,,,,,,
-node-lodash,node-lodash,node-lodash,Lo-dash is a Node.js utility library,,,1,1,,,,Section=javascript; Version=4.17.21+dfsg+~cs8.31.198.20210220-9,,,,,,,
-node-memfs,node-memfs,node-memfs,In-memory filesystem with Node's API,,,1,1,,,,Section=javascript; Version=3.4.12+~cs1.0.3-1,,,,,,,
-node-mkdirp,node-mkdirp,node-mkdirp,Recursively create directories - Node.js module,,,1,1,,,,Section=javascript; Version=2.1.6+~cs5.2.1-2,,,,,,,
-node-optionator,node-optionator,node-optionator,option parsing and help generation,,,1,1,,,,Section=javascript; Version=0.9.1+dfsg+~cs1.2.3-1,,,,,,,
-node-progress,node-progress,node-progress,Flexible ascii progress bar,,,1,1,,,,Section=javascript; Version=2.0.3-2,,,,,,,
-node-regenerate-unicode-properties,node-regenerate-unicode-properties,node-regenerate-unicode-properties,Unicode properties and values as Regenerate sets for Node.js,,,1,1,,,,Section=javascript; Version=10.1.0+ds-1,,,,,,,
-node-regexpp,node-regexpp,node-regexpp,regular expression parser for ECMAScript - Node.js library,,,1,1,,,,Section=javascript; Version=3.2.0-5,,,,,,,
-node-semver,node-semver,node-semver,Semantic Versioning for Node.js,,,1,1,,,,Section=javascript; Version=7.6.1+~7.5.8-2,,,,,,,
-node-strip-json-comments,node-strip-json-comments,node-strip-json-comments,Node.js module to strip comments from JSON,,,1,1,,,,Section=javascript; Version=4.0.0-4,,,,,,,
-node-types-estree,node-types-estree,node-types-estree,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-node-types-json-schema,node-types-json-schema,node-types-json-schema,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-node-v8-compile-cache,node-v8-compile-cache,node-v8-compile-cache,Leverage v8 compile cache to speedup loading of Node.js modules,,,1,1,,,,Section=javascript; Version=2.4.0-2,,,,,,,
-nodejs:any,nodejs:any,nodejs:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-node-chalk,node-chalk,node-chalk,Terminal string styling for Node.js,,,1,1,,,,Section=javascript; Version=5.3.0-1,,,,,,,
-node-js-yaml,node-js-yaml,node-js-yaml,YAML 1.2 parser and serializer,,,1,1,,,,Section=javascript; Version=4.1.0+dfsg+~4.0.5-7,,,,,,,
-node-strip-ansi,node-strip-ansi,node-strip-ansi,Strip ANSI escape codes,,,1,1,,,,Section=javascript; Version=6.0.1-2,,,,,,,
-node-text-table,node-text-table,node-text-table,borderless text tables with alignment,,,1,1,,,,Section=javascript; Version=0.2.0-4,,,,,,,
-,,,,,,,,,,,,eslint,node-eslint-plugin-react-hooks,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-ajv,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-concat-stream,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-debug,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-doctrine,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-eslint-visitor-keys,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-eslint-scope,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-espree,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-esquery,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-estraverse,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-eslint-utils,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-esutils,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-file-entry-cache,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-functional-red-black-tree,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-glob-parent,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-globals,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-import-fresh,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-imurmurhash,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-ignore,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-is-glob,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-json-stable-stringify,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-levn,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-lodash,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-memfs,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-mkdirp,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-optionator,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-progress,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-regenerate-unicode-properties,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-regexpp,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-semver,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-strip-json-comments,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-types-estree,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-types-json-schema,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-v8-compile-cache,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,nodejs:any,eslint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-chalk,eslint,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,node-js-yaml,eslint,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,node-strip-ansi,eslint,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,node-text-table,eslint,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"node-eslint-plugin-react-hooks","node-eslint-plugin-react-hooks","node-eslint-plugin-react-hooks","node-react plugin for eslint","","","1","1","","","","Section=javascript; Version=4.5.0~18.2.0+dfsg+~cs88.72.123-1","","","","","","","",""
+"eslint","eslint","eslint","AST-based pattern checker for JavaScript","","","1","1","","","","Section=javascript; Version=6.4.0~dfsg+~6.1.9-12","","","","","","","",""
+"node-ajv","node-ajv","node-ajv","another JSON Schema Validator","","","1","1","","","","Section=javascript; Version=8.12.0~ds+~2.1.1-5","","","","","","","",""
+"node-concat-stream","node-concat-stream","node-concat-stream","writable stream that concatenates strings","","","1","1","","","","Section=javascript; Version=2.0.0+~2.0.0-2","","","","","","","",""
+"node-debug","node-debug","node-debug","small debugging utility for Node.js","","","1","1","","","","Section=javascript; Version=4.3.4+~cs4.1.7-1","","","","","","","",""
+"node-doctrine","node-doctrine","node-doctrine","JSDoc parser","","","1","1","","","","Section=javascript; Version=3.0.0-4","","","","","","","",""
+"node-eslint-visitor-keys","node-eslint-visitor-keys","node-eslint-visitor-keys","Constants and utilities about visitor keys to traverse AST","","","1","1","","","","Section=javascript; Version=3.3.0+~1.0.0-1","","","","","","","",""
+"node-eslint-scope","node-eslint-scope","node-eslint-scope","ECMAScript scope analyzer for ESLint","","","1","1","","","","Section=javascript; Version=7.1.1+~3.7.4-1","","","","","","","",""
+"node-espree","node-espree","node-espree","Esprima-compatible JavaScript parser built on Acorn","","","1","1","","","","Section=javascript; Version=9.4.1~dfsg-2","","","","","","","",""
+"node-esquery","node-esquery","node-esquery","query library for ECMAScript AST using CSS-like queries","","","1","1","","","","Section=javascript; Version=1.4.2~ds-1","","","","","","","",""
+"node-estraverse","node-estraverse","node-estraverse","ECMAScript JS AST traversal functions","","","1","1","","","","Section=javascript; Version=5.3.0+ds+~5.1.1-1","","","","","","","",""
+"node-eslint-utils","node-eslint-utils","node-eslint-utils","utilities for ESLint plugins","","","1","1","","","","Section=javascript; Version=3.0.0-3","","","","","","","",""
+"node-esutils","node-esutils","node-esutils","utility box for ECMAScript language tools","","","1","1","","","","Section=javascript; Version=2.0.3+~2.0.0-1","","","","","","","",""
+"node-file-entry-cache","node-file-entry-cache","node-file-entry-cache","Node.js library implementing a simple cache for file metadata","","","1","1","","","","Section=javascript; Version=6.0.1+~3.0.4+~2.0.0+~1.0.0+~2.0.1-1","","","","","","","",""
+"node-functional-red-black-tree","node-functional-red-black-tree","node-functional-red-black-tree","fully persistent balanced binary search tree - Node.js library","","","1","1","","","","Section=javascript; Version=1.0.1+20181105-7","","","","","","","",""
+"node-glob-parent","node-glob-parent","node-glob-parent","Extract the non-magic parent path from a glob string","","","1","1","","","","Section=javascript; Version=6.0.2+~5.1.1-2","","","","","","","",""
+"node-globals","node-globals","node-globals","Global identifiers from different JavaScript environments","","","1","1","","","","Section=javascript; Version=13.23.0-1","","","","","","","",""
+"node-import-fresh","node-import-fresh","node-import-fresh","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"node-imurmurhash","node-imurmurhash","node-imurmurhash","incremental implementation of MurmurHash3 hashing algorithm","","","1","1","","","","Section=javascript; Version=0.1.4+dfsg+~0.1.1-2","","","","","","","",""
+"node-ignore","node-ignore","node-ignore","manager and filter for .gitignore rules - Node.js library","","","1","1","","","","Section=javascript; Version=5.2.1-1","","","","","","","",""
+"node-is-glob","node-is-glob","node-is-glob","Node module to return true if a string is a glob or extglob","","","1","1","","","","Section=javascript; Version=4.0.3-2","","","","","","","",""
+"node-json-stable-stringify","node-json-stable-stringify","node-json-stable-stringify","deterministic JSON.stringify()","","","1","1","","","","Section=javascript; Version=1.0.2+repack1+~cs1.0.34-2","","","","","","","",""
+"node-levn","node-levn","node-levn","Light ECMAScript (JavaScript) Value Notation","","","1","1","","","","Section=javascript; Version=0.4.1+dfsg-2","","","","","","","",""
+"node-lodash","node-lodash","node-lodash","Lo-dash is a Node.js utility library","","","1","1","","","","Section=javascript; Version=4.17.21+dfsg+~cs8.31.198.20210220-9","","","","","","","",""
+"node-memfs","node-memfs","node-memfs","In-memory filesystem with Node's API","","","1","1","","","","Section=javascript; Version=3.4.12+~cs1.0.3-1","","","","","","","",""
+"node-mkdirp","node-mkdirp","node-mkdirp","Recursively create directories - Node.js module","","","1","1","","","","Section=javascript; Version=2.1.6+~cs5.2.1-2","","","","","","","",""
+"node-optionator","node-optionator","node-optionator","option parsing and help generation","","","1","1","","","","Section=javascript; Version=0.9.1+dfsg+~cs1.2.3-1","","","","","","","",""
+"node-progress","node-progress","node-progress","Flexible ascii progress bar","","","1","1","","","","Section=javascript; Version=2.0.3-2","","","","","","","",""
+"node-regenerate-unicode-properties","node-regenerate-unicode-properties","node-regenerate-unicode-properties","Unicode properties and values as Regenerate sets for Node.js","","","1","1","","","","Section=javascript; Version=10.1.0+ds-1","","","","","","","",""
+"node-regexpp","node-regexpp","node-regexpp","regular expression parser for ECMAScript - Node.js library","","","1","1","","","","Section=javascript; Version=3.2.0-5","","","","","","","",""
+"node-semver","node-semver","node-semver","Semantic Versioning for Node.js","","","1","1","","","","Section=javascript; Version=7.6.1+~7.5.8-2","","","","","","","",""
+"node-strip-json-comments","node-strip-json-comments","node-strip-json-comments","Node.js module to strip comments from JSON","","","1","1","","","","Section=javascript; Version=4.0.0-4","","","","","","","",""
+"node-types-estree","node-types-estree","node-types-estree","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"node-types-json-schema","node-types-json-schema","node-types-json-schema","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"node-v8-compile-cache","node-v8-compile-cache","node-v8-compile-cache","Leverage v8 compile cache to speedup loading of Node.js modules","","","1","1","","","","Section=javascript; Version=2.4.0-2","","","","","","","",""
+"nodejs:any","nodejs:any","nodejs:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"node-chalk","node-chalk","node-chalk","Terminal string styling for Node.js","","","1","1","","","","Section=javascript; Version=5.3.0-1","","","","","","","",""
+"node-js-yaml","node-js-yaml","node-js-yaml","YAML 1.2 parser and serializer","","","1","1","","","","Section=javascript; Version=4.1.0+dfsg+~4.0.5-7","","","","","","","",""
+"node-strip-ansi","node-strip-ansi","node-strip-ansi","Strip ANSI escape codes","","","1","1","","","","Section=javascript; Version=6.0.1-2","","","","","","","",""
+"node-text-table","node-text-table","node-text-table","borderless text tables with alignment","","","1","1","","","","Section=javascript; Version=0.2.0-4","","","","","","","",""
+"","","","","","","","","","","","","node-eslint-plugin-react-hooks","eslint","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-ajv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-concat-stream","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-debug","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-doctrine","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-eslint-visitor-keys","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-eslint-scope","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-espree","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-esquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-estraverse","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-eslint-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-esutils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-file-entry-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-functional-red-black-tree","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-glob-parent","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-globals","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-import-fresh","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-imurmurhash","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-ignore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-is-glob","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-json-stable-stringify","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-levn","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-lodash","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-memfs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-mkdirp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-optionator","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-progress","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-regenerate-unicode-properties","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-regexpp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-semver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-strip-json-comments","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-types-estree","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-types-json-schema","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-v8-compile-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","nodejs:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-chalk","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-js-yaml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-strip-ansi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","eslint","node-text-table","Recommends","#333","1","Recommends","arrow","{}"

@@ -1,19 +1,19 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libghc-network-dev,libghc-network-dev,libghc-network-dev,Haskell low-level network library,,,1,1,,,,Section=haskell; Version=3.1.4.0-2+b1,,,,,,,
-libghc-base-dev-4.18.2.1-8e81e,libghc-base-dev-4.18.2.1-8e81e,libghc-base-dev-4.18.2.1-8e81e,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libghc-bytestring-dev-0.11.5.3-7048d,libghc-bytestring-dev-0.11.5.3-7048d,libghc-bytestring-dev-0.11.5.3-7048d,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libghc-deepseq-dev-1.4.8.1-9013f,libghc-deepseq-dev-1.4.8.1-9013f,libghc-deepseq-dev-1.4.8.1-9013f,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libghc-directory-dev-1.3.8.5-98ebe,libghc-directory-dev-1.3.8.5-98ebe,libghc-directory-dev-1.3.8.5-98ebe,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,libghc-base-dev-4.18.2.1-8e81e,libghc-network-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libghc-bytestring-dev-0.11.5.3-7048d,libghc-network-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libghc-deepseq-dev-1.4.8.1-9013f,libghc-network-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libghc-directory-dev-1.3.8.5-98ebe,libghc-network-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libghc-network-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,libghc-network-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libgmp10,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libghc-network-dev","libghc-network-dev","libghc-network-dev","Haskell low-level network library","","","1","1","","","","Section=haskell; Version=3.1.4.0-2+b1","","","","","","","",""
+"libghc-base-dev-4.18.2.1-8e81e","libghc-base-dev-4.18.2.1-8e81e","libghc-base-dev-4.18.2.1-8e81e","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libghc-bytestring-dev-0.11.5.3-7048d","libghc-bytestring-dev-0.11.5.3-7048d","libghc-bytestring-dev-0.11.5.3-7048d","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libghc-deepseq-dev-1.4.8.1-9013f","libghc-deepseq-dev-1.4.8.1-9013f","libghc-deepseq-dev-1.4.8.1-9013f","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libghc-directory-dev-1.3.8.5-98ebe","libghc-directory-dev-1.3.8.5-98ebe","libghc-directory-dev-1.3.8.5-98ebe","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","libghc-network-dev","libghc-base-dev-4.18.2.1-8e81e","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libghc-network-dev","libghc-bytestring-dev-0.11.5.3-7048d","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libghc-network-dev","libghc-deepseq-dev-1.4.8.1-9013f","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libghc-network-dev","libghc-directory-dev-1.3.8.5-98ebe","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libghc-network-dev","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libghc-network-dev","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgmp10","libc6","Depends","#333","1","Depends","arrow","{}"

@@ -1,463 +1,463 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-php-symfony,php-symfony,php-symfony,set of reusable components and framework for web projects,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-asset,php-symfony-asset,php-symfony-asset,manage asset URLs,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-asset-mapper,php-symfony-asset-mapper,php-symfony-asset-mapper,maps directories of asset and makes them available in a public directory,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-browser-kit,php-symfony-browser-kit,php-symfony-browser-kit,simulate the behavior of a web browser,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-cache,php-symfony-cache,php-symfony-cache,"provides extended PSR-6, PSR-16 (and tags) implementations",,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-clock,php-symfony-clock,php-symfony-clock,Decouples applications from the system clock,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-config,php-symfony-config,php-symfony-config,load configurations from different data sources,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-console,php-symfony-console,php-symfony-console,run tasks from the command line,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-css-selector,php-symfony-css-selector,php-symfony-css-selector,convert CSS selectors to XPath expressions,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-dependency-injection,php-symfony-dependency-injection,php-symfony-dependency-injection,standardize and centralize construction of objects,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-debug-bundle,php-symfony-debug-bundle,php-symfony-debug-bundle,debugging tools for the Symfony framework,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-doctrine-bridge,php-symfony-doctrine-bridge,php-symfony-doctrine-bridge,integration for Doctrine with Symfony Components,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-dom-crawler,php-symfony-dom-crawler,php-symfony-dom-crawler,ease DOM navigation for HTML and XML documents,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-dotenv,php-symfony-dotenv,php-symfony-dotenv,.env files parser to make environment variables accessible,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-error-handler,php-symfony-error-handler,php-symfony-error-handler,manage errors and ease debugging,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-event-dispatcher,php-symfony-event-dispatcher,php-symfony-event-dispatcher,dispatch events and listen to them,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-expression-language,php-symfony-expression-language,php-symfony-expression-language,compile and evaluate expressions,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-filesystem,php-symfony-filesystem,php-symfony-filesystem,basic filesystem utilities,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-finder,php-symfony-finder,php-symfony-finder,find files and directories,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-form,php-symfony-form,php-symfony-form,create HTML forms and process request data,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-framework-bundle,php-symfony-framework-bundle,php-symfony-framework-bundle,"basic, robust and flexible MVC framework",,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-http-client,php-symfony-http-client,php-symfony-http-client,methods to fetch HTTP resources synchronously or asynchronously,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-http-foundation,php-symfony-http-foundation,php-symfony-http-foundation,object-oriented layer for the HTTP specification,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-http-kernel,php-symfony-http-kernel,php-symfony-http-kernel,building blocks for flexible and fast HTTP-based frameworks,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-intl,php-symfony-intl,php-symfony-intl,limited replacement layer for the PHP extension intl,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-ldap,php-symfony-ldap,php-symfony-ldap,abstraction layer for the PHP LDAP module,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-lock,php-symfony-lock,php-symfony-lock,create and manage locks,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-mailer,php-symfony-mailer,php-symfony-mailer,help sending emails,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-messenger,php-symfony-messenger,php-symfony-messenger,send and receive messages,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-mime,php-symfony-mime,php-symfony-mime,library to manipulate MIME messages,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-monolog-bridge,php-symfony-monolog-bridge,php-symfony-monolog-bridge,integration for Monolog with Symfony Components,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-notifier,php-symfony-notifier,php-symfony-notifier,"Sends notifications via one or more channels (email, SMS, ...)",,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-options-resolver,php-symfony-options-resolver,php-symfony-options-resolver,configure objects with option arrays,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-password-hasher,php-symfony-password-hasher,php-symfony-password-hasher,password hashing utilities - Symfony Component,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-process,php-symfony-process,php-symfony-process,execute commands in sub-processes,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-property-access,php-symfony-property-access,php-symfony-property-access,read from and write to an object or array,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-property-info,php-symfony-property-info,php-symfony-property-info,extract information about properties of PHP classes,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-proxy-manager-bridge,php-symfony-proxy-manager-bridge,php-symfony-proxy-manager-bridge,integration for ProxyManager with Symfony Components,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-rate-limiter,php-symfony-rate-limiter,php-symfony-rate-limiter,rate limit input and output in applications,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-remote-event,php-symfony-remote-event,php-symfony-remote-event,Eases handling remote events,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-routing,php-symfony-routing,php-symfony-routing,associate a request with code that generates a response,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-scheduler,php-symfony-scheduler,php-symfony-scheduler,Provides scheduling through Symfony Messenger,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-security-bundle,php-symfony-security-bundle,php-symfony-security-bundle,configurable security system for the Symfony framework,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-security-core,php-symfony-security-core,php-symfony-security-core,infrastructure for authorization systems - common features,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-security-csrf,php-symfony-security-csrf,php-symfony-security-csrf,infrastructure for authorization systems - CSRF protection,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-security-http,php-symfony-security-http,php-symfony-security-http,infrastructure for authorization systems - HTTP integration,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-semaphore,php-symfony-semaphore,php-symfony-semaphore,provide exclusive access to a shared resource,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-serializer,php-symfony-serializer,php-symfony-serializer,convert PHP objects into specific formats and vice versa,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-stopwatch,php-symfony-stopwatch,php-symfony-stopwatch,profile PHP code,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-string,php-symfony-string,php-symfony-string,object-oriented API to work with strings,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-templating,php-symfony-templating,php-symfony-templating,tools needed to build a template system,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-translation,php-symfony-translation,php-symfony-translation,tools to internationalize an application,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-twig-bridge,php-symfony-twig-bridge,php-symfony-twig-bridge,integration for Twig with Symfony Components,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-twig-bundle,php-symfony-twig-bundle,php-symfony-twig-bundle,configurable integration of Twig with the Symfony framework,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-uid,php-symfony-uid,php-symfony-uid,object-oriented API to generate and represent UIDs,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-validator,php-symfony-validator,php-symfony-validator,tools to validate values,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-var-dumper,php-symfony-var-dumper,php-symfony-var-dumper,mechanisms for walking through any arbitrary PHP variable,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-var-exporter,php-symfony-var-exporter,php-symfony-var-exporter,export serializable PHP data structure to plain PHP code,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-web-link,php-symfony-web-link,php-symfony-web-link,manage links between resources,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-web-profiler-bundle,php-symfony-web-profiler-bundle,php-symfony-web-profiler-bundle,collect requests information for analysis and debugging,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-webhook,php-symfony-webhook,php-symfony-webhook,Eases sending and consuming webhooks,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-workflow,php-symfony-workflow,php-symfony-workflow,manage a workflow or finite state machine,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-symfony-yaml,php-symfony-yaml,php-symfony-yaml,convert YAML to PHP arrays and the other way around,,,1,1,,,,Section=php; Version=6.4.21+dfsg-2,,,,,,,
-php-common,php-common,php-common,Common files for PHP packages,,,1,1,,,,Section=php; Version=2:96,,,,,,,
-php-composer-semver,php-composer-semver,php-composer-semver,"utilities, version constraint parsing and validation",,,1,1,,,,Section=php; Version=3.4.3-2,,,,,,,
-php-xml,php-xml,php-xml,"DOM, SimpleXML, WDDX, XML, and XSL module for PHP [default]",,,1,1,,,,Section=php; Version=2:8.4+96,,,,,,,
-php-friendsofphp-proxy-manager-lts,php-friendsofphp-proxy-manager-lts,php-friendsofphp-proxy-manager-lts,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-php-doctrine-event-manager,php-doctrine-event-manager,php-doctrine-event-manager,Doctrine Event Manager component,,,1,1,,,,Section=php; Version=2.0.1-2,,,,,,,
-php-doctrine-persistence,php-doctrine-persistence,php-doctrine-persistence,Doctrine Persistence abstractions,,,1,1,,,,Section=php; Version=4.0.0-6,,,,,,,
-php-twig,php-twig,php-twig,"Flexible, fast, and secure template engine for PHP",,,1,1,,,,Section=php; Version=3.20.0-2,,,,,,,
-php-psr-cache,php-psr-cache,php-psr-cache,Common interface for caching libraries,,,1,1,,,,Section=php; Version=3.0.0-4,,,,,,,
-php-psr-clock,php-psr-clock,php-psr-clock,Common interface for reading the clock,,,1,1,,,,Section=php; Version=1.0.0-2,,,,,,,
-php-psr-container,php-psr-container,php-psr-container,Common Container Interface (PHP FIG PSR-11),,,1,1,,,,Section=php; Version=1.1.2-1,,,,,,,
-php-psr-event-dispatcher,php-psr-event-dispatcher,php-psr-event-dispatcher,Standard interfaces for event handling,,,1,1,,,,Section=php; Version=1.0.0-2,,,,,,,
-php-psr-http-message,php-psr-http-message,php-psr-http-message,Common interface for HTTP messages,,,1,1,,,,Section=php; Version=1.1-2,,,,,,,
-php-psr-link,php-psr-link,php-psr-link,Common interfaces for HTTP links,,,1,1,,,,Section=php; Version=2.0.1-3,,,,,,,
-php-psr-log,php-psr-log,php-psr-log,common interface for logging libraries,,,1,1,,,,Section=php; Version=3.0.2-2,,,,,,,
-php-symfony-contracts,php-symfony-contracts,php-symfony-contracts,A set of abstractions extracted out of the Symfony components,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
-php-intl,php-intl,php-intl,Internationalisation module for PHP [default],,,1,1,,,,Section=php; Version=2:8.4+96,,,,,,,
-php-mbstring,php-mbstring,php-mbstring,MBSTRING module for PHP [default],,,1,1,,,,Section=php; Version=2:8.4+96,,,,,,,
-php-uuid,php-uuid,php-uuid,PHP UUID extension,,,1,1,,,,Section=php; Version=1.2.1-2,,,,,,,
-php-symfony-deprecation-contracts,php-symfony-deprecation-contracts,php-symfony-deprecation-contracts,A generic function and convention to trigger deprecation notices,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
-php-symfony-cache-contracts,php-symfony-cache-contracts,php-symfony-cache-contracts,Generic abstractions related to caching,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
-php-symfony-service-contracts,php-symfony-service-contracts,php-symfony-service-contracts,Generic abstractions related to writing services,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
-php-masterminds-html5,php-masterminds-html5,php-masterminds-html5,An HTML5 parser and serializer,,,1,1,,,,Section=php; Version=2.9.0+dfsg-5,,,,,,,
-php-cli,php-cli,php-cli,command-line interpreter for the PHP scripting language (default),,,1,1,,,,Section=php; Version=2:8.4+96,,,,,,,
-php-symfony-event-dispatcher-contracts,php-symfony-event-dispatcher-contracts,php-symfony-event-dispatcher-contracts,Generic abstractions related to dispatching event,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
-php-symfony-http-client-contracts,php-symfony-http-client-contracts,php-symfony-http-client-contracts,Generic abstractions related to HTTP clients,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
-php-ldap,php-ldap,php-ldap,LDAP module for PHP [default],,,1,1,,,,Section=php; Version=2:8.4+96,,,,,,,
-php-email-validator,php-email-validator,php-email-validator,A library for validating emails against several RFCs,,,1,1,,,,Section=php; Version=4.0.4-1,,,,,,,
-php-monolog,php-monolog,php-monolog,send logs to various destination and web services,,,1,1,,,,Section=php; Version=3.9.0-1,,,,,,,
-php-symfony-translation-contracts,php-symfony-translation-contracts,php-symfony-translation-contracts,Generic abstractions related to translation,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
-fonts-jetbrains-mono-web,fonts-jetbrains-mono-web,fonts-jetbrains-mono-web,free and open-source typeface for developers (WOFF2),,,1,1,,,,Section=fonts; Version=2.304+ds-5,,,,,,,
-psmisc,psmisc,psmisc,utilities that use the proc file system,,,1,1,,,,Section=admin; Version=23.7-2,,,,,,,
-php8.4-xml,php8.4-xml,php8.4-xml,"DOM, SimpleXML, XML, and XSL module for PHP",,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
-php8.4-intl,php8.4-intl,php8.4-intl,Internationalisation module for PHP,,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
-php8.4-mbstring,php8.4-mbstring,php8.4-mbstring,MBSTRING module for PHP,,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
-ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
-php8.4-uuid,php8.4-uuid,php8.4-uuid,PHP UUID extension,,,1,1,,,,Section=php; Version=1.2.1-2,,,,,,,
-,,,,,,,,,,,,php-symfony-asset,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-asset-mapper,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-browser-kit,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-cache,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-clock,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-config,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-console,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-css-selector,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dependency-injection,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-debug-bundle,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-doctrine-bridge,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dom-crawler,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dotenv,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-error-handler,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-expression-language,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-filesystem,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-finder,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-form,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-framework-bundle,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-client,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-foundation,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-intl,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-ldap,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-lock,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-mailer,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-messenger,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-mime,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-monolog-bridge,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-notifier,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-options-resolver,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-password-hasher,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-process,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-property-access,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-property-info,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-proxy-manager-bridge,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-rate-limiter,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-remote-event,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-routing,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-scheduler,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-bundle,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-core,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-csrf,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-http,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-semaphore,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-serializer,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-stopwatch,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-string,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-templating,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-translation,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-twig-bridge,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-twig-bundle,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-uid,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-validator,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-var-dumper,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-var-exporter,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-web-link,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-web-profiler-bundle,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-webhook,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-workflow,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-yaml,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-composer-semver,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-composer-semver,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-xml,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-friendsofphp-proxy-manager-lts,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-friendsofphp-proxy-manager-lts,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-doctrine-event-manager,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-doctrine-persistence,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-twig,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-cache,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-clock,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-clock,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-container,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-event-dispatcher,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-event-dispatcher,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-http-message,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-link,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-contracts,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-intl,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-uuid,php-symfony,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-asset,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-asset-mapper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-composer-semver,php-symfony-asset-mapper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-composer-semver,php-symfony-asset-mapper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-asset-mapper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-filesystem,php-symfony-asset-mapper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-client,php-symfony-asset-mapper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-browser-kit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dom-crawler,php-symfony-browser-kit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-cache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-cache,php-symfony-cache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-cache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-cache-contracts,php-symfony-cache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-cache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-var-exporter,php-symfony-cache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-clock,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-clock,php-symfony-clock,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-clock,php-symfony-clock,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-filesystem,php-symfony-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-console,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-console,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-console,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-console,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-string,php-symfony-console,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-css-selector,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-dependency-injection,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-container,php-symfony-dependency-injection,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-dependency-injection,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-dependency-injection,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-var-exporter,php-symfony-dependency-injection,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-debug-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-xml,php-symfony-debug-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dependency-injection,php-symfony-debug-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-debug-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-twig-bridge,php-symfony-debug-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-var-dumper,php-symfony-debug-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-doctrine-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-doctrine-event-manager,php-symfony-doctrine-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-doctrine-persistence,php-symfony-doctrine-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-doctrine-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-doctrine-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-doctrine-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-dom-crawler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-dom-crawler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-masterminds-html5,php-symfony-dom-crawler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-masterminds-html5,php-symfony-dom-crawler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-dotenv,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-cli,php-symfony-error-handler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-error-handler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-error-handler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-var-dumper,php-symfony-error-handler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-event-dispatcher,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher-contracts,php-symfony-event-dispatcher,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-expression-language,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-expression-language,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-cache,php-symfony-expression-language,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-expression-language,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-filesystem,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-filesystem,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-finder,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-options-resolver,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-intl,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-property-access,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-form,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-xml,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-cache,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-config,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dependency-injection,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-error-handler,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-foundation,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-filesystem,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-finder,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-routing,php-symfony-framework-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-http-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-http-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-http-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-client-contracts,php-symfony-http-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-http-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-http-foundation,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-http-foundation,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-http-foundation,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-http-kernel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-http-kernel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-error-handler,php-symfony-http-kernel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher,php-symfony-http-kernel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-foundation,php-symfony-http-kernel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-http-kernel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-intl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-ldap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-ldap,php-symfony-ldap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-ldap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-options-resolver,php-symfony-ldap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-lock,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-lock,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-lock,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-email-validator,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-event-dispatcher,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-event-dispatcher,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-mime,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-mailer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-messenger,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-messenger,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-clock,php-symfony-messenger,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-messenger,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-mime,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-mime,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-intl,php-symfony-mime,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-mime,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-monolog-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-monolog,php-symfony-monolog-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-monolog-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-monolog-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-monolog-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-notifier,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-notifier,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-options-resolver,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-options-resolver,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-password-hasher,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-process,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-property-access,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-property-access,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-property-info,php-symfony-property-access,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-property-info,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-string,php-symfony-property-info,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-proxy-manager-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-friendsofphp-proxy-manager-lts,php-symfony-proxy-manager-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-friendsofphp-proxy-manager-lts,php-symfony-proxy-manager-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dependency-injection,php-symfony-proxy-manager-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-proxy-manager-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-rate-limiter,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-rate-limiter,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-options-resolver,php-symfony-rate-limiter,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-remote-event,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-messenger,php-symfony-remote-event,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-routing,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-routing,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-scheduler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-clock,php-symfony-scheduler,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-xml,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-clock,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-config,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dependency-injection,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-foundation,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-password-hasher,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-core,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-csrf,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-http,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-security-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-security-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-security-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher-contracts,php-symfony-security-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-security-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-password-hasher,php-symfony-security-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-security-csrf,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-core,php-symfony-security-csrf,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-foundation,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-property-access,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-security-core,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-security-http,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-semaphore,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-log,php-symfony-semaphore,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-serializer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-serializer,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-stopwatch,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-stopwatch,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-string,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-intl,php-symfony-string,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-string,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-templating,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-templating,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-translation,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-translation,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-translation,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-translation-contracts,php-symfony-translation,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-twig-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-twig-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-translation-contracts,php-symfony-twig-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-twig,php-symfony-twig-bridge,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-config,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-dependency-injection,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-twig-bridge,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-twig-bridge,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-foundation,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-twig,php-symfony-twig-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-uid,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-uuid,php-symfony-uid,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-validator,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-validator,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-validator,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-translation-contracts,php-symfony-validator,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-cli,php-symfony-var-dumper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-var-dumper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-var-dumper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-symfony-var-dumper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-var-exporter,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-var-exporter,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-web-link,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-link,php-symfony-web-link,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-jetbrains-mono-web,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-config,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-framework-bundle,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-routing,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-twig-bundle,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-twig,php-symfony-web-profiler-bundle,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-webhook,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-foundation,php-symfony-webhook,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-kernel,php-symfony-webhook,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-messenger,php-symfony-webhook,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-remote-event,php-symfony-webhook,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-workflow,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-workflow,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-cli,php-symfony-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,psmisc,php-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-composer-semver,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-xml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-xml,php-xml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-doctrine-event-manager,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-doctrine-persistence,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-doctrine-event-manager,php-doctrine-persistence,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-cache,php-doctrine-persistence,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-twig,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-twig,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-mbstring,php-twig,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-psr-cache,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-psr-clock,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-psr-container,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-psr-event-dispatcher,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-psr-http-message,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-psr-link,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-psr-log,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-cache-contracts,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-deprecation-contracts,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-event-dispatcher-contracts,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-http-client-contracts,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-service-contracts,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-symfony-translation-contracts,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-cache,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-cache,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-container,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-event-dispatcher,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-psr-event-dispatcher,php-symfony-contracts,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-intl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-intl,php-intl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php-common,php-mbstring,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-mbstring,php-mbstring,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,php-uuid,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,php8.4-uuid,php-uuid,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"php-symfony","php-symfony","php-symfony","set of reusable components and framework for web projects","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-asset","php-symfony-asset","php-symfony-asset","manage asset URLs","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-asset-mapper","php-symfony-asset-mapper","php-symfony-asset-mapper","maps directories of asset and makes them available in a public directory","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-browser-kit","php-symfony-browser-kit","php-symfony-browser-kit","simulate the behavior of a web browser","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-cache","php-symfony-cache","php-symfony-cache","provides extended PSR-6, PSR-16 (and tags) implementations","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-clock","php-symfony-clock","php-symfony-clock","Decouples applications from the system clock","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-config","php-symfony-config","php-symfony-config","load configurations from different data sources","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-console","php-symfony-console","php-symfony-console","run tasks from the command line","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-css-selector","php-symfony-css-selector","php-symfony-css-selector","convert CSS selectors to XPath expressions","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-dependency-injection","php-symfony-dependency-injection","php-symfony-dependency-injection","standardize and centralize construction of objects","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-debug-bundle","php-symfony-debug-bundle","php-symfony-debug-bundle","debugging tools for the Symfony framework","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-doctrine-bridge","php-symfony-doctrine-bridge","php-symfony-doctrine-bridge","integration for Doctrine with Symfony Components","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-dom-crawler","php-symfony-dom-crawler","php-symfony-dom-crawler","ease DOM navigation for HTML and XML documents","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-dotenv","php-symfony-dotenv","php-symfony-dotenv",".env files parser to make environment variables accessible","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-error-handler","php-symfony-error-handler","php-symfony-error-handler","manage errors and ease debugging","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-event-dispatcher","php-symfony-event-dispatcher","php-symfony-event-dispatcher","dispatch events and listen to them","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-expression-language","php-symfony-expression-language","php-symfony-expression-language","compile and evaluate expressions","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-filesystem","php-symfony-filesystem","php-symfony-filesystem","basic filesystem utilities","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-finder","php-symfony-finder","php-symfony-finder","find files and directories","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-form","php-symfony-form","php-symfony-form","create HTML forms and process request data","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-framework-bundle","php-symfony-framework-bundle","php-symfony-framework-bundle","basic, robust and flexible MVC framework","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-http-client","php-symfony-http-client","php-symfony-http-client","methods to fetch HTTP resources synchronously or asynchronously","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-http-foundation","php-symfony-http-foundation","php-symfony-http-foundation","object-oriented layer for the HTTP specification","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-http-kernel","php-symfony-http-kernel","php-symfony-http-kernel","building blocks for flexible and fast HTTP-based frameworks","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-intl","php-symfony-intl","php-symfony-intl","limited replacement layer for the PHP extension intl","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-ldap","php-symfony-ldap","php-symfony-ldap","abstraction layer for the PHP LDAP module","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-lock","php-symfony-lock","php-symfony-lock","create and manage locks","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-mailer","php-symfony-mailer","php-symfony-mailer","help sending emails","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-messenger","php-symfony-messenger","php-symfony-messenger","send and receive messages","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-mime","php-symfony-mime","php-symfony-mime","library to manipulate MIME messages","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-monolog-bridge","php-symfony-monolog-bridge","php-symfony-monolog-bridge","integration for Monolog with Symfony Components","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-notifier","php-symfony-notifier","php-symfony-notifier","Sends notifications via one or more channels (email, SMS, ...)","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-options-resolver","php-symfony-options-resolver","php-symfony-options-resolver","configure objects with option arrays","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-password-hasher","php-symfony-password-hasher","php-symfony-password-hasher","password hashing utilities - Symfony Component","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-process","php-symfony-process","php-symfony-process","execute commands in sub-processes","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-property-access","php-symfony-property-access","php-symfony-property-access","read from and write to an object or array","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-property-info","php-symfony-property-info","php-symfony-property-info","extract information about properties of PHP classes","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-proxy-manager-bridge","php-symfony-proxy-manager-bridge","php-symfony-proxy-manager-bridge","integration for ProxyManager with Symfony Components","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-rate-limiter","php-symfony-rate-limiter","php-symfony-rate-limiter","rate limit input and output in applications","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-remote-event","php-symfony-remote-event","php-symfony-remote-event","Eases handling remote events","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-routing","php-symfony-routing","php-symfony-routing","associate a request with code that generates a response","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-scheduler","php-symfony-scheduler","php-symfony-scheduler","Provides scheduling through Symfony Messenger","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-security-bundle","php-symfony-security-bundle","php-symfony-security-bundle","configurable security system for the Symfony framework","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-security-core","php-symfony-security-core","php-symfony-security-core","infrastructure for authorization systems - common features","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-security-csrf","php-symfony-security-csrf","php-symfony-security-csrf","infrastructure for authorization systems - CSRF protection","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-security-http","php-symfony-security-http","php-symfony-security-http","infrastructure for authorization systems - HTTP integration","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-semaphore","php-symfony-semaphore","php-symfony-semaphore","provide exclusive access to a shared resource","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-serializer","php-symfony-serializer","php-symfony-serializer","convert PHP objects into specific formats and vice versa","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-stopwatch","php-symfony-stopwatch","php-symfony-stopwatch","profile PHP code","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-string","php-symfony-string","php-symfony-string","object-oriented API to work with strings","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-templating","php-symfony-templating","php-symfony-templating","tools needed to build a template system","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-translation","php-symfony-translation","php-symfony-translation","tools to internationalize an application","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-twig-bridge","php-symfony-twig-bridge","php-symfony-twig-bridge","integration for Twig with Symfony Components","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-twig-bundle","php-symfony-twig-bundle","php-symfony-twig-bundle","configurable integration of Twig with the Symfony framework","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-uid","php-symfony-uid","php-symfony-uid","object-oriented API to generate and represent UIDs","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-validator","php-symfony-validator","php-symfony-validator","tools to validate values","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-var-dumper","php-symfony-var-dumper","php-symfony-var-dumper","mechanisms for walking through any arbitrary PHP variable","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-var-exporter","php-symfony-var-exporter","php-symfony-var-exporter","export serializable PHP data structure to plain PHP code","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-web-link","php-symfony-web-link","php-symfony-web-link","manage links between resources","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-web-profiler-bundle","php-symfony-web-profiler-bundle","php-symfony-web-profiler-bundle","collect requests information for analysis and debugging","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-webhook","php-symfony-webhook","php-symfony-webhook","Eases sending and consuming webhooks","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-workflow","php-symfony-workflow","php-symfony-workflow","manage a workflow or finite state machine","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-symfony-yaml","php-symfony-yaml","php-symfony-yaml","convert YAML to PHP arrays and the other way around","","","1","1","","","","Section=php; Version=6.4.21+dfsg-2","","","","","","","",""
+"php-common","php-common","php-common","Common files for PHP packages","","","1","1","","","","Section=php; Version=2:96","","","","","","","",""
+"php-composer-semver","php-composer-semver","php-composer-semver","utilities, version constraint parsing and validation","","","1","1","","","","Section=php; Version=3.4.3-2","","","","","","","",""
+"php-xml","php-xml","php-xml","DOM, SimpleXML, WDDX, XML, and XSL module for PHP [default]","","","1","1","","","","Section=php; Version=2:8.4+96","","","","","","","",""
+"php-friendsofphp-proxy-manager-lts","php-friendsofphp-proxy-manager-lts","php-friendsofphp-proxy-manager-lts","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"php-doctrine-event-manager","php-doctrine-event-manager","php-doctrine-event-manager","Doctrine Event Manager component","","","1","1","","","","Section=php; Version=2.0.1-2","","","","","","","",""
+"php-doctrine-persistence","php-doctrine-persistence","php-doctrine-persistence","Doctrine Persistence abstractions","","","1","1","","","","Section=php; Version=4.0.0-6","","","","","","","",""
+"php-twig","php-twig","php-twig","Flexible, fast, and secure template engine for PHP","","","1","1","","","","Section=php; Version=3.20.0-2","","","","","","","",""
+"php-psr-cache","php-psr-cache","php-psr-cache","Common interface for caching libraries","","","1","1","","","","Section=php; Version=3.0.0-4","","","","","","","",""
+"php-psr-clock","php-psr-clock","php-psr-clock","Common interface for reading the clock","","","1","1","","","","Section=php; Version=1.0.0-2","","","","","","","",""
+"php-psr-container","php-psr-container","php-psr-container","Common Container Interface (PHP FIG PSR-11)","","","1","1","","","","Section=php; Version=1.1.2-1","","","","","","","",""
+"php-psr-event-dispatcher","php-psr-event-dispatcher","php-psr-event-dispatcher","Standard interfaces for event handling","","","1","1","","","","Section=php; Version=1.0.0-2","","","","","","","",""
+"php-psr-http-message","php-psr-http-message","php-psr-http-message","Common interface for HTTP messages","","","1","1","","","","Section=php; Version=1.1-2","","","","","","","",""
+"php-psr-link","php-psr-link","php-psr-link","Common interfaces for HTTP links","","","1","1","","","","Section=php; Version=2.0.1-3","","","","","","","",""
+"php-psr-log","php-psr-log","php-psr-log","common interface for logging libraries","","","1","1","","","","Section=php; Version=3.0.2-2","","","","","","","",""
+"php-symfony-contracts","php-symfony-contracts","php-symfony-contracts","A set of abstractions extracted out of the Symfony components","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","","","",""
+"php-intl","php-intl","php-intl","Internationalisation module for PHP [default]","","","1","1","","","","Section=php; Version=2:8.4+96","","","","","","","",""
+"php-mbstring","php-mbstring","php-mbstring","MBSTRING module for PHP [default]","","","1","1","","","","Section=php; Version=2:8.4+96","","","","","","","",""
+"php-uuid","php-uuid","php-uuid","PHP UUID extension","","","1","1","","","","Section=php; Version=1.2.1-2","","","","","","","",""
+"php-symfony-deprecation-contracts","php-symfony-deprecation-contracts","php-symfony-deprecation-contracts","A generic function and convention to trigger deprecation notices","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","","","",""
+"php-symfony-cache-contracts","php-symfony-cache-contracts","php-symfony-cache-contracts","Generic abstractions related to caching","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","","","",""
+"php-symfony-service-contracts","php-symfony-service-contracts","php-symfony-service-contracts","Generic abstractions related to writing services","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","","","",""
+"php-masterminds-html5","php-masterminds-html5","php-masterminds-html5","An HTML5 parser and serializer","","","1","1","","","","Section=php; Version=2.9.0+dfsg-5","","","","","","","",""
+"php-cli","php-cli","php-cli","command-line interpreter for the PHP scripting language (default)","","","1","1","","","","Section=php; Version=2:8.4+96","","","","","","","",""
+"php-symfony-event-dispatcher-contracts","php-symfony-event-dispatcher-contracts","php-symfony-event-dispatcher-contracts","Generic abstractions related to dispatching event","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","","","",""
+"php-symfony-http-client-contracts","php-symfony-http-client-contracts","php-symfony-http-client-contracts","Generic abstractions related to HTTP clients","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","","","",""
+"php-ldap","php-ldap","php-ldap","LDAP module for PHP [default]","","","1","1","","","","Section=php; Version=2:8.4+96","","","","","","","",""
+"php-email-validator","php-email-validator","php-email-validator","A library for validating emails against several RFCs","","","1","1","","","","Section=php; Version=4.0.4-1","","","","","","","",""
+"php-monolog","php-monolog","php-monolog","send logs to various destination and web services","","","1","1","","","","Section=php; Version=3.9.0-1","","","","","","","",""
+"php-symfony-translation-contracts","php-symfony-translation-contracts","php-symfony-translation-contracts","Generic abstractions related to translation","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","","","",""
+"fonts-jetbrains-mono-web","fonts-jetbrains-mono-web","fonts-jetbrains-mono-web","free and open-source typeface for developers (WOFF2)","","","1","1","","","","Section=fonts; Version=2.304+ds-5","","","","","","","",""
+"psmisc","psmisc","psmisc","utilities that use the proc file system","","","1","1","","","","Section=admin; Version=23.7-2","","","","","","","",""
+"php8.4-xml","php8.4-xml","php8.4-xml","DOM, SimpleXML, XML, and XSL module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","","","",""
+"php8.4-intl","php8.4-intl","php8.4-intl","Internationalisation module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","","","",""
+"php8.4-mbstring","php8.4-mbstring","php8.4-mbstring","MBSTRING module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","","","",""
+"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","","","",""
+"php8.4-uuid","php8.4-uuid","php8.4-uuid","PHP UUID extension","","","1","1","","","","Section=php; Version=1.2.1-2","","","","","","","",""
+"","","","","","","","","","","","","php-symfony","php-symfony-asset","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-asset-mapper","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-browser-kit","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-console","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-css-selector","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-dependency-injection","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-debug-bundle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-doctrine-bridge","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-dom-crawler","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-dotenv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-error-handler","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-expression-language","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-filesystem","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-finder","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-form","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-framework-bundle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-http-client","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-http-foundation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-intl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-ldap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-lock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-mailer","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-messenger","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-mime","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-monolog-bridge","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-notifier","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-options-resolver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-password-hasher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-process","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-property-access","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-property-info","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-proxy-manager-bridge","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-rate-limiter","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-remote-event","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-routing","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-scheduler","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-security-bundle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-security-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-security-csrf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-security-http","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-semaphore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-serializer","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-stopwatch","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-string","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-templating","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-translation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-twig-bridge","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-twig-bundle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-uid","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-validator","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-var-dumper","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-var-exporter","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-web-link","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-web-profiler-bundle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-webhook","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-workflow","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-yaml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-composer-semver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-composer-semver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-xml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-friendsofphp-proxy-manager-lts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-friendsofphp-proxy-manager-lts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-doctrine-event-manager","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-doctrine-persistence","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-twig","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-container","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-http-message","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-link","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-symfony-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-intl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony","php-uuid","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-asset","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-asset-mapper","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-asset-mapper","php-composer-semver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-asset-mapper","php-composer-semver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-asset-mapper","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-asset-mapper","php-symfony-filesystem","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-asset-mapper","php-symfony-http-client","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-browser-kit","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-browser-kit","php-symfony-dom-crawler","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-cache","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-cache","php-psr-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-cache","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-cache","php-symfony-cache-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-cache","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-cache","php-symfony-var-exporter","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-clock","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-clock","php-psr-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-clock","php-psr-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-config","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-config","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-config","php-symfony-filesystem","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-console","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-console","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-console","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-console","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-console","php-symfony-string","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-css-selector","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dependency-injection","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dependency-injection","php-psr-container","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dependency-injection","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dependency-injection","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dependency-injection","php-symfony-var-exporter","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-debug-bundle","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-debug-bundle","php-xml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-debug-bundle","php-symfony-dependency-injection","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-debug-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-debug-bundle","php-symfony-twig-bridge","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-debug-bundle","php-symfony-var-dumper","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-doctrine-bridge","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-doctrine-bridge","php-doctrine-event-manager","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-doctrine-bridge","php-doctrine-persistence","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-doctrine-bridge","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-doctrine-bridge","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-doctrine-bridge","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dom-crawler","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dom-crawler","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dom-crawler","php-masterminds-html5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dom-crawler","php-masterminds-html5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-dotenv","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-error-handler","php-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-error-handler","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-error-handler","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-error-handler","php-symfony-var-dumper","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-event-dispatcher","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-event-dispatcher","php-symfony-event-dispatcher-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-expression-language","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-expression-language","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-expression-language","php-symfony-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-expression-language","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-filesystem","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-filesystem","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-finder","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-symfony-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-symfony-options-resolver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-intl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-symfony-property-access","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-form","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-xml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-dependency-injection","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-error-handler","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-http-foundation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-filesystem","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-finder","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-framework-bundle","php-symfony-routing","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-client","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-client","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-client","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-client","php-symfony-http-client-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-client","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-foundation","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-foundation","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-foundation","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-kernel","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-kernel","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-kernel","php-symfony-error-handler","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-kernel","php-symfony-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-kernel","php-symfony-http-foundation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-http-kernel","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-intl","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-ldap","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-ldap","php-ldap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-ldap","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-ldap","php-symfony-options-resolver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-lock","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-lock","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-lock","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-email-validator","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-psr-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-psr-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-symfony-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-symfony-mime","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mailer","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-messenger","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-messenger","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-messenger","php-symfony-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-messenger","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mime","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mime","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mime","php-intl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-mime","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-monolog-bridge","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-monolog-bridge","php-monolog","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-monolog-bridge","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-monolog-bridge","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-monolog-bridge","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-notifier","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-notifier","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-options-resolver","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-options-resolver","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-password-hasher","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-process","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-property-access","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-property-access","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-property-access","php-symfony-property-info","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-property-info","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-property-info","php-symfony-string","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-proxy-manager-bridge","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-proxy-manager-bridge","php-friendsofphp-proxy-manager-lts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-proxy-manager-bridge","php-friendsofphp-proxy-manager-lts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-proxy-manager-bridge","php-symfony-dependency-injection","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-proxy-manager-bridge","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-rate-limiter","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-rate-limiter","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-rate-limiter","php-symfony-options-resolver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-remote-event","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-remote-event","php-symfony-messenger","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-routing","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-routing","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-scheduler","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-scheduler","php-symfony-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-xml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-clock","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-dependency-injection","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-http-foundation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-password-hasher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-security-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-security-csrf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-security-http","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-bundle","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-core","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-core","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-core","php-symfony-event-dispatcher-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-core","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-core","php-symfony-password-hasher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-csrf","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-csrf","php-symfony-security-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-symfony-http-foundation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-symfony-property-access","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-symfony-security-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-security-http","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-semaphore","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-semaphore","php-psr-log","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-serializer","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-serializer","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-stopwatch","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-stopwatch","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-string","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-string","php-intl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-string","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-templating","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-templating","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-translation","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-translation","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-translation","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-translation","php-symfony-translation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bridge","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bridge","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bridge","php-symfony-translation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bridge","php-twig","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-symfony-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-symfony-dependency-injection","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-symfony-twig-bridge","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-symfony-twig-bridge","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-symfony-http-foundation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-twig-bundle","php-twig","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-uid","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-uid","php-uuid","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-validator","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-validator","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-validator","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-validator","php-symfony-translation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-var-dumper","php-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-var-dumper","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-var-dumper","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-var-dumper","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-var-exporter","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-var-exporter","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-link","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-link","php-psr-link","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","fonts-jetbrains-mono-web","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","php-symfony-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","php-symfony-framework-bundle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","php-symfony-routing","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","php-symfony-twig-bundle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-web-profiler-bundle","php-twig","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-webhook","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-webhook","php-symfony-http-foundation","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-webhook","php-symfony-http-kernel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-webhook","php-symfony-messenger","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-webhook","php-symfony-remote-event","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-workflow","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-workflow","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-yaml","php-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-yaml","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-yaml","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-common","psmisc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-composer-semver","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-xml","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-xml","php8.4-xml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-doctrine-event-manager","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-doctrine-persistence","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-doctrine-persistence","php-doctrine-event-manager","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-doctrine-persistence","php-psr-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-twig","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-twig","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-twig","php-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-psr-cache","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-psr-clock","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-psr-container","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-psr-event-dispatcher","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-psr-http-message","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-psr-link","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-psr-log","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-symfony-cache-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-symfony-deprecation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-symfony-event-dispatcher-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-symfony-http-client-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-symfony-service-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-symfony-translation-contracts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-psr-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-psr-cache","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-psr-container","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-psr-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-symfony-contracts","php-psr-event-dispatcher","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-intl","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-intl","php8.4-intl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-mbstring","php-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-mbstring","php8.4-mbstring","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-uuid","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","php-uuid","php8.4-uuid","Depends","#333","1","Depends","arrow","{}"

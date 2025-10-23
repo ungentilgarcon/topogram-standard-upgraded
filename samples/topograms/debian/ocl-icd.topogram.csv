@@ -1,4 +1,4 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-ocl-icd-dev,ocl-icd-dev,ocl-icd-dev,Development files to build an OpenCL ICD,,,1,1,,,,Section=libdevel; Version=2.3.3-1,,,,,,,
-opencl-c-headers,opencl-c-headers,opencl-c-headers,OpenCL (Open Computing Language) C header files,,,1,1,,,,Section=libdevel; Version=3.0~2024.10.24-2,,,,,,,
-,,,,,,,,,,,,opencl-c-headers,ocl-icd-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"ocl-icd-dev","ocl-icd-dev","ocl-icd-dev","Development files to build an OpenCL ICD","","","1","1","","","","Section=libdevel; Version=2.3.3-1","","","","","","","",""
+"opencl-c-headers","opencl-c-headers","opencl-c-headers","OpenCL (Open Computing Language) C header files","","","1","1","","","","Section=libdevel; Version=3.0~2024.10.24-2","","","","","","","",""
+"","","","","","","","","","","","","ocl-icd-dev","opencl-c-headers","Depends","#333","1","Depends","arrow","{}"

@@ -1,14 +1,14 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
-openssl,openssl,openssl,Secure Sockets Layer toolkit - cryptographic utility,,,1,1,,,,Section=utils; Version=3.5.1-1,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
-apt,apt,apt,commandline package manager,,,1,1,,,,Section=admin; Version=3.0.3,,,,,,,
-debconf-i18n,debconf-i18n,debconf-i18n,full internationalization support for debconf,,,1,1,,,,Section=localization; Version=1.5.91,,,,,,,
-,,,,,,,,,,,,openssl,ca-certificates,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,ca-certificates,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,openssl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,openssl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apt,debconf,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,debconf-i18n,debconf,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","","","",""
+"openssl","openssl","openssl","Secure Sockets Layer toolkit - cryptographic utility","","","1","1","","","","Section=utils; Version=3.5.1-1","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","","","",""
+"apt","apt","apt","commandline package manager","","","1","1","","","","Section=admin; Version=3.0.3","","","","","","","",""
+"debconf-i18n","debconf-i18n","debconf-i18n","full internationalization support for debconf","","","1","1","","","","Section=localization; Version=1.5.91","","","","","","","",""
+"","","","","","","","","","","","","ca-certificates","openssl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ca-certificates","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openssl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","openssl","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debconf","apt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","debconf","debconf-i18n","Recommends","#333","1","Recommends","arrow","{}"

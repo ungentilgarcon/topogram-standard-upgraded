@@ -1,748 +1,748 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gnuradio,gnuradio,gnuradio,GNU Radio Software Radio Toolkit,,,1,1,,,,Section=comm; Version=3.10.12.0-1,,,,,,,
-gnome-terminal,gnome-terminal,gnome-terminal,GNOME terminal emulator application,,,1,1,,,,Section=gnome; Version=3.56.2-2,,,,,,,
-libjs-mathjax,libjs-mathjax,libjs-mathjax,JavaScript display engine for LaTeX and MathML,,,1,1,,,,Section=javascript; Version=2.7.9+dfsg-1,,,,,,,
-libvolk-bin,libvolk-bin,libvolk-bin,vector optimized runtime tools,,,1,1,,,,Section=libs; Version=3.2.0-2,,,,,,,
-python3-click,python3-click,python3-click,Command-Line Interface Creation Kit - Python 3.x,,,1,1,,,,Section=python; Version=8.2.0+0.really.8.1.8-1,,,,,,,
-python3-click-plugins,python3-click-plugins,python3-click-plugins,Click extension to register external CLI commands (Python 3),,,1,1,,,,Section=python; Version=1.1.1-5,,,,,,,
-python3-gi,python3-gi,python3-gi,Python 3 bindings for gobject-introspection libraries,,,1,1,,,,Section=python; Version=3.50.0-4+b1,,,,,,,
-python3-gi-cairo,python3-gi-cairo,python3-gi-cairo,Python 3 Cairo bindings for the GObject library,,,1,1,,,,Section=python; Version=3.50.0-4+b1,,,,,,,
-python3-jsonschema,python3-jsonschema,python3-jsonschema,An(other) implementation of JSON Schema,,,1,1,,,,Section=python; Version=4.19.2-6,,,,,,,
-python3-lxml,python3-lxml,python3-lxml,pythonic binding for the libxml2 and libxslt libraries,,,1,1,,,,Section=python; Version=5.4.0-1,,,,,,,
-python3-mako,python3-mako,python3-mako,fast and lightweight templating for the Python 3 platform,,,1,1,,,,Section=python; Version=1.3.9-1,,,,,,,
-python3-numpy,python3-numpy,python3-numpy,Python library for numerical computations (Python 3),,,1,1,,,,Section=python; Version=1:2.2.4+ds-1,,,,,,,
-python3-opengl,python3-opengl,python3-opengl,Python bindings to OpenGL (Python 3),,,1,1,,,,Section=python; Version=3.1.9+dfsg-2,,,,,,,
-python3-packaging,python3-packaging,python3-packaging,core utilities for python3 packages,,,1,1,,,,Section=python; Version=25.0-1,,,,,,,
-python3-pygccxml,python3-pygccxml,python3-pygccxml,specialized XML reader reads the output from gccxml - python3 lib,,,1,1,,,,Section=python; Version=3.0.2-1,,,,,,,
-python3-pyqt5,python3-pyqt5,python3-pyqt5,Python 3 bindings for Qt5,,,1,1,,,,Section=python; Version=5.15.11+dfsg-2,,,,,,,
-python3-pyqtgraph,python3-pyqtgraph,python3-pyqtgraph,Scientific Graphics and GUI Library for Python 3,,,1,1,,,,Section=python; Version=0.13.7-5,,,,,,,
-python3-schema,python3-schema,python3-schema,simple data validation library (Python 3),,,1,1,,,,Section=python; Version=0.7.7-1,,,,,,,
-python3-thrift,python3-thrift,python3-thrift,Python 3 library for Thrift,,,1,1,,,,Section=python; Version=0.19.0-4+b1,,,,,,,
-python3-yaml,python3-yaml,python3-yaml,YAML parser and emitter for Python3,,,1,1,,,,Section=python; Version=6.0.2-1+b2,,,,,,,
-python3-zmq,python3-zmq,python3-zmq,Python3 bindings for 0MQ library,,,1,1,,,,Section=python; Version=26.4.0-1,,,,,,,
-python3,python3,python3,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
-python3-numpy2-abi0,python3-numpy2-abi0,python3-numpy2-abi0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libboost-program-options1.83.0,libboost-program-options1.83.0,libboost-program-options1.83.0,program options library for C++,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libfmt10,libfmt10,libfmt10,fast type-safe C++ formatting library -- library,,,1,1,,,,Section=libs; Version=10.1.1+ds1-4,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
-libgnuradio-analog3.10.12,libgnuradio-analog3.10.12,libgnuradio-analog3.10.12,gnuradio analog functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-audio3.10.12,libgnuradio-audio3.10.12,libgnuradio-audio3.10.12,gnuradio audio functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-blocks3.10.12,libgnuradio-blocks3.10.12,libgnuradio-blocks3.10.12,gnuradio blocks functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-channels3.10.12,libgnuradio-channels3.10.12,libgnuradio-channels3.10.12,gnuradio channels functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-digital3.10.12,libgnuradio-digital3.10.12,libgnuradio-digital3.10.12,gnuradio digital communications functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-dtv3.10.12,libgnuradio-dtv3.10.12,libgnuradio-dtv3.10.12,gnuradio digital TV signal processing blocks,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-fec3.10.12,libgnuradio-fec3.10.12,libgnuradio-fec3.10.12,gnuradio forward error correction support,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-fft3.10.12,libgnuradio-fft3.10.12,libgnuradio-fft3.10.12,gnuradio fast Fourier transform functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-filter3.10.12,libgnuradio-filter3.10.12,libgnuradio-filter3.10.12,gnuradio filter functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-iio3.10.12,libgnuradio-iio3.10.12,libgnuradio-iio3.10.12,IIO blocks for GnuRadio,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-network3.10.12,libgnuradio-network3.10.12,libgnuradio-network3.10.12,gnuradio network library,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-pdu3.10.12,libgnuradio-pdu3.10.12,libgnuradio-pdu3.10.12,gnuradio streaming protocol library,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-pmt3.10.12,libgnuradio-pmt3.10.12,libgnuradio-pmt3.10.12,gnuradio pmt container library,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-qtgui3.10.12,libgnuradio-qtgui3.10.12,libgnuradio-qtgui3.10.12,gnuradio Qt graphical user interface functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-runtime3.10.12,libgnuradio-runtime3.10.12,libgnuradio-runtime3.10.12,gnuradio core runtime,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-soapy3.10.12,libgnuradio-soapy3.10.12,libgnuradio-soapy3.10.12,gnuradio SoapySDR support,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-trellis3.10.12,libgnuradio-trellis3.10.12,libgnuradio-trellis3.10.12,gnuradio trellis modulation functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-uhd3.10.12,libgnuradio-uhd3.10.12,libgnuradio-uhd3.10.12,gnuradio universal hardware driver functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-video-sdl3.10.12,libgnuradio-video-sdl3.10.12,libgnuradio-video-sdl3.10.12,gnuradio video functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-vocoder3.10.12,libgnuradio-vocoder3.10.12,libgnuradio-vocoder3.10.12,gnuradio vocoder functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-wavelet3.10.12,libgnuradio-wavelet3.10.12,libgnuradio-wavelet3.10.12,gnuradio wavelet functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libgnuradio-zeromq3.10.12,libgnuradio-zeromq3.10.12,libgnuradio-zeromq3.10.12,gnuradio zeromq functions,,,1,1,,,,Section=libs; Version=3.10.12.0-1,,,,,,,
-libqt5core5t64,libqt5core5t64,libqt5core5t64,Qt 5 core module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5widgets5t64,libqt5widgets5t64,libqt5widgets5t64,Qt 5 widgets module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libsoapysdr0.8,libsoapysdr0.8,libsoapysdr0.8,software defined radio interface library,,,1,1,,,,Section=libs; Version=0.8.1-5+b2,,,,,,,
-libspdlog1.15-fmt10,libspdlog1.15-fmt10,libspdlog1.15-fmt10,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libuhd4.8.0,libuhd4.8.0,libuhd4.8.0,universal hardware driver for Ettus Research products - library,,,1,1,,,,Section=libs; Version=4.8.0.0+ds1-2,,,,,,,
-libvolk3.2,libvolk3.2,libvolk3.2,vector optimized functions,,,1,1,,,,Section=libs; Version=3.2.0-2,,,,,,,
-gnuradio-dev,gnuradio-dev,gnuradio-dev,GNU Software Defined Radio toolkit development,,,1,1,,,,Section=libdevel; Version=3.10.12.0-1,,,,,,,
-python3-matplotlib,python3-matplotlib,python3-matplotlib,Python based plotting system in a style similar to Matlab,,,1,1,,,,Section=python; Version=3.10.1+dfsg1-4,,,,,,,
-python3-networkx,python3-networkx,python3-networkx,"tool to create, manipulate and study complex networks (Python3)",,,1,1,,,,Section=python; Version=3.2.1-5,,,,,,,
-python3-pyqt5.qwt,python3-pyqt5.qwt,python3-pyqt5.qwt,Python version of the Qwt6 technical widget library (Python3),,,1,1,,,,Section=python; Version=1.02.02-2+b9,,,,,,,
-python3-scipy,python3-scipy,python3-scipy,scientific tools for Python 3,,,1,1,,,,Section=python; Version=1.15.3-1,,,,,,,
-soapysdr-tools,soapysdr-tools,soapysdr-tools,software defined radio interface library tools,,,1,1,,,,Section=hamradio; Version=0.8.1-5+b2,,,,,,,
-default-dbus-session-bus,default-dbus-session-bus,default-dbus-session-bus,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gnome-terminal-data,gnome-terminal-data,gnome-terminal-data,Data files for the GNOME terminal emulator,,,1,1,,,,Section=gnome; Version=3.56.2-2,,,,,,,
-gsettings-desktop-schemas,gsettings-desktop-schemas,gsettings-desktop-schemas,GSettings desktop-wide schemas,,,1,1,,,,Section=gnome; Version=48.0-1,,,,,,,
-dconf-gsettings-backend,dconf-gsettings-backend,dconf-gsettings-backend,simple configuration storage system - GSettings back-end,,,1,1,,,,Section=libs; Version=0.40.0-5,,,,,,,
-libatk1.0-0t64,libatk1.0-0t64,libatk1.0-0t64,ATK accessibility toolkit,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libgtk-3-0t64,libgtk-3-0t64,libgtk-3-0t64,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=3.24.49-3,,,,,,,
-libhandy-1-0,libhandy-1-0,libhandy-1-0,Library with GTK widgets for mobile phones,,,1,1,,,,Section=libs; Version=1.8.3-2,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libuuid1,libuuid1,libuuid1,Universally Unique ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
-libvte-2.91-0,libvte-2.91-0,libvte-2.91-0,Terminal emulator widget for GTK 3 - runtime files,,,1,1,,,,Section=libs; Version=0.80.1-1,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-gvfs,gvfs,gvfs,userspace virtual filesystem - GIO module,,,1,1,,,,Section=libs; Version=1.57.2-2,,,,,,,
-nautilus-extension-gnome-terminal,nautilus-extension-gnome-terminal,nautilus-extension-gnome-terminal,GNOME terminal emulator application - Nautilus extension,,,1,1,,,,Section=gnome; Version=3.56.2-2,,,,,,,
-yelp,yelp,yelp,Help browser for GNOME,,,1,1,,,,Section=gnome; Version=42.2-4,,,,,,,
-fonts-mathjax,fonts-mathjax,fonts-mathjax,JavaScript display engine for LaTeX and MathML (fonts),,,1,1,,,,Section=fonts; Version=2.7.9+dfsg-1,,,,,,,
-gir1.2-glib-2.0,gir1.2-glib-2.0,gir1.2-glib-2.0,"Introspection data for GLib, GObject, Gio and GModule",,,1,1,,,,Section=introspection; Version=2.84.4-3~deb13u1,,,,,,,
-gir1.2-girepository-2.0,gir1.2-girepository-2.0,gir1.2-girepository-2.0,Introspection data for GIRepository library,,,1,1,,,,Section=introspection; Version=1.84.0-1,,,,,,,
-libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
-libgirepository-1.0-1,libgirepository-1.0-1,libgirepository-1.0-1,Library for handling GObject introspection data (runtime library),,,1,1,,,,Section=libs; Version=1.84.0-1,,,,,,,
-libgirepository-1.0-1-with-libffi8,libgirepository-1.0-1-with-libffi8,libgirepository-1.0-1-with-libffi8,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3-cairo,python3-cairo,python3-cairo,Python3 bindings for the Cairo vector graphics library,,,1,1,,,,Section=python; Version=1.27.0-2,,,,,,,
-libcairo-gobject2,libcairo-gobject2,libcairo-gobject2,Cairo 2D vector graphics library (GObject library),,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-python3-attr,python3-attr,python3-attr,Attributes without boilerplate (Python 3),,,1,1,,,,Section=python; Version=25.3.0-1,,,,,,,
-python3-jsonschema-specifications,python3-jsonschema-specifications,python3-jsonschema-specifications,"JSON Schema meta-schemas and vocabularies, exposed as a Registry",,,1,1,,,,Section=python; Version=2023.12.1-2,,,,,,,
-python3-referencing,python3-referencing,python3-referencing,Implementation-agnostic implementation of JSON reference resolution,,,1,1,,,,Section=python; Version=0.36.2-1,,,,,,,
-python3-rpds-py,python3-rpds-py,python3-rpds-py,Python bindings to Rust's persistent data structures (rpds),,,1,1,,,,Section=python; Version=0.21.0-2+b1,,,,,,,
-python3-fqdn,python3-fqdn,python3-fqdn,Python library to validate fully qualified domain names (FQDNs),,,1,1,,,,Section=python; Version=1.5.1-2,,,,,,,
-python3-idna,python3-idna,python3-idna,Python IDNA2008 (RFC 5891) handling (Python 3),,,1,1,,,,Section=python; Version=3.10-1,,,,,,,
-python3-isoduration,python3-isoduration,python3-isoduration,Operations with ISO 8601 durations (Python 3 package),,,1,1,,,,Section=python; Version=20.11.0+git20211126.ae0bd61-2,,,,,,,
-python3-json-pointer,python3-json-pointer,python3-json-pointer,resolve JSON pointers - Python 3.x,,,1,1,,,,Section=python; Version=2.4-3,,,,,,,
-python3-rfc3339-validator,python3-rfc3339-validator,python3-rfc3339-validator,RFC 3339 validator (Python library),,,1,1,,,,Section=python; Version=0.1.4-2,,,,,,,
-python3-rfc3986-validator,python3-rfc3986-validator,python3-rfc3986-validator,RFC 3986 validator (Python library),,,1,1,,,,Section=python; Version=0.1.1-2,,,,,,,
-python3-rfc3987,python3-rfc3987,python3-rfc3987,Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987),,,1,1,,,,Section=python; Version=1.3.8-3,,,,,,,
-python3-uritemplate,python3-uritemplate,python3-uritemplate,implementation of RFC6570 - Python 3.x,,,1,1,,,,Section=python; Version=4.1.1-3,,,,,,,
-python3-webcolors,python3-webcolors,python3-webcolors,python3 library of color names and value formats,,,1,1,,,,Section=python; Version=1.13-1,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-libxslt1.1,libxslt1.1,libxslt1.1,XSLT 1.0 processing library - runtime library,,,1,1,,,,Section=libs; Version=1.1.35-1.2+deb13u1,,,,,,,
-python3-bs4,python3-bs4,python3-bs4,error-tolerant HTML parser for Python 3,,,1,1,,,,Section=python; Version=4.13.4-2,,,,,,,
-python3-cssselect,python3-cssselect,python3-cssselect,cssselect parses CSS3 Selectors and translates them to XPath 1.0,,,1,1,,,,Section=python; Version=1.3.0-1,,,,,,,
-python3-html5lib,python3-html5lib,python3-html5lib,HTML parser/tokenizer based on the WHATWG HTML5 specification,,,1,1,,,,Section=python; Version=1.2-2,,,,,,,
-python3-markupsafe,python3-markupsafe,python3-markupsafe,HTML/XHTML/XML string library,,,1,1,,,,Section=python; Version=2.1.5-1+b3,,,,,,,
-python3-numpy-dev,python3-numpy-dev,python3-numpy-dev,Python library for numerical computations (Python 3 headers),,,1,1,,,,Section=python; Version=1:2.2.4+ds-1,,,,,,,
-libblas3,libblas3,libblas3,"Basic Linear Algebra Reference implementations, shared library",,,1,1,,,,Section=libs; Version=3.12.1-6,,,,,,,
-liblapack3,liblapack3,liblapack3,Library of linear algebra routines 3 - shared version,,,1,1,,,,Section=libs; Version=3.12.1-6,,,,,,,
-libegl1,libegl1,libegl1,Vendor neutral GL dispatch library -- EGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libglu1-mesa,libglu1-mesa,libglu1-mesa,Mesa OpenGL utility library (GLU),,,1,1,,,,Section=libs; Version=9.0.2-1.1+b3,,,,,,,
-libglut3.12,libglut3.12,libglut3.12,OpenGL Utility Toolkit,,,1,1,,,,Section=libs; Version=3.4.0-4,,,,,,,
-libglut-dev,libglut-dev,libglut-dev,OpenGL Utility Toolkit development files,,,1,1,,,,Section=libdevel; Version=3.4.0-4,,,,,,,
-castxml,castxml,castxml,C-family abstract syntax tree XML output tool,,,1,1,,,,Section=devel; Version=0.6.11-1,,,,,,,
-python3-importlib-metadata,python3-importlib-metadata,python3-importlib-metadata,library to access the metadata for a Python package - Python 3.x,,,1,1,,,,Section=python; Version=8.7.0-1,,,,,,,
-python3-pyqt5.sip,python3-pyqt5.sip,python3-pyqt5.sip,runtime module for Python extensions using SIP,,,1,1,,,,Section=python; Version=12.17.0-1+b1,,,,,,,
-libpython3.13,libpython3.13,libpython3.13,Shared Python runtime library (version 3.13),,,1,1,,,,Section=libs; Version=3.13.5-2,,,,,,,
-libqt5dbus5t64,libqt5dbus5t64,libqt5dbus5t64,Qt 5 D-Bus module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5designer5,libqt5designer5,libqt5designer5,Qt 5 designer module,,,1,1,,,,Section=libs; Version=5.15.15-6,,,,,,,
-libqt5gui5t64,libqt5gui5t64,libqt5gui5t64,Qt 5 GUI module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5help5,libqt5help5,libqt5help5,Qt 5 help module,,,1,1,,,,Section=libs; Version=5.15.15-6,,,,,,,
-libqt5network5t64,libqt5network5t64,libqt5network5t64,Qt 5 network module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5printsupport5t64,libqt5printsupport5t64,libqt5printsupport5t64,Qt 5 print support module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5test5t64,libqt5test5t64,libqt5test5t64,Qt 5 test module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5xml5t64,libqt5xml5t64,libqt5xml5t64,Qt 5 XML module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-qtbase-abi-5-15-15,qtbase-abi-5-15-15,qtbase-abi-5-15-15,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-pyqt5-dev-tools,pyqt5-dev-tools,pyqt5-dev-tools,Development tools for PyQt5,,,1,1,,,,Section=python; Version=5.15.11+dfsg-2,,,,,,,
-pyqt6-dev-tools,pyqt6-dev-tools,pyqt6-dev-tools,development tools for PyQt6,,,1,1,,,,Section=python; Version=6.9.0-2,,,,,,,
-qtbase5-dev-tools,qtbase5-dev-tools,qtbase5-dev-tools,Qt 5 base development programs,,,1,1,,,,Section=devel; Version=5.15.15+dfsg-6,,,,,,,
-qt6-base-dev-tools,qt6-base-dev-tools,qt6-base-dev-tools,Qt 6 base development programs,,,1,1,,,,Section=devel; Version=6.8.2+dfsg-9,,,,,,,
-python3-pyqt5.qtopengl,python3-pyqt5.qtopengl,python3-pyqt5.qtopengl,Python 3 bindings for Qt5's OpenGL module,,,1,1,,,,Section=python; Version=5.15.11+dfsg-2,,,,,,,
-python3-contextlib2,python3-contextlib2,python3-contextlib2,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3-six,python3-six,python3-six,Python 2 and 3 compatibility library,,,1,1,,,,Section=python; Version=1.17.0-1,,,,,,,
-libyaml-0-2,libyaml-0-2,libyaml-0-2,Fast YAML 1.1 parser and emitter library,,,1,1,,,,Section=libs; Version=0.2.5-2,,,,,,,
-python3-cffi-backend-api-min,python3-cffi-backend-api-min,python3-cffi-backend-api-min,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3-cffi-backend-api-max,python3-cffi-backend-api-max,python3-cffi-backend-api-max,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libzmq5,libzmq5,libzmq5,lightweight messaging kernel (shared library),,,1,1,,,,Section=libs; Version=4.3.5-1+b3,,,,,,,
-python3.13,python3.13,python3.13,Interactive high-level object-oriented language (version 3.13),,,1,1,,,,Section=python; Version=3.13.5-2,,,,,,,
-libpython3-stdlib,libpython3-stdlib,libpython3-stdlib,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libboost-thread1.83.0,libboost-thread1.83.0,libboost-thread1.83.0,portable C++ multi-threading,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libjack-jackd2-0,libjack-jackd2-0,libjack-jackd2-0,JACK Audio Connection Kit (libraries),,,1,1,,,,Section=libs; Version=1.9.22~dfsg-4,,,,,,,
-libportaudio2,libportaudio2,libportaudio2,Portable audio I/O - shared library,,,1,1,,,,Section=libs; Version=19.6.0-1.2+b3,,,,,,,
-libsndfile1,libsndfile1,libsndfile1,Library for reading/writing audio files,,,1,1,,,,Section=libs; Version=1.2.2-2+b1,,,,,,,
-libgsl28,libgsl28,libgsl28,GNU Scientific Library (GSL) -- library package,,,1,1,,,,Section=libs; Version=2.8+dfsg-5,,,,,,,
-libfftw3-single3,libfftw3-single3,libfftw3-single3,Library for computing Fast Fourier Transforms - Single precision,,,1,1,,,,Section=libs; Version=3.3.10-2+b1,,,,,,,
-libad9361-0,libad9361-0,libad9361-0,Library of functions specific to the Analog Devices AD9361,,,1,1,,,,Section=libs; Version=0.3-2+b2,,,,,,,
-libiio0,libiio0,libiio0,Library for interfacing with IIO devices,,,1,1,,,,Section=libs; Version=0.26-2,,,,,,,
-libqwt-qt5-6,libqwt-qt5-6,libqwt-qt5-6,"Qt widgets library for technical applications (runtime, qt5)",,,1,1,,,,Section=libs; Version=6.1.4-2+b1,,,,,,,
-libthrift-0.19.0t64,libthrift-0.19.0t64,libthrift-0.19.0t64,Thrift C++ library,,,1,1,,,,Section=libs; Version=0.19.0-4+b1,,,,,,,
-libunwind8,libunwind8,libunwind8,library to determine the call-chain of a program - runtime,,,1,1,,,,Section=libs; Version=1.8.1-0.1,,,,,,,
-libsdl1.2debian,libsdl1.2debian,libsdl1.2debian,SDL 1.2 binary compatibility library wrapping SDL 2.0,,,1,1,,,,Section=libs; Version=1.2.68-3,,,,,,,
-libcodec2-1.2,libcodec2-1.2,libcodec2-1.2,Codec2 runtime library,,,1,1,,,,Section=libs; Version=1.2.0-3,,,,,,,
-libgsm1,libgsm1,libgsm1,Shared libraries for GSM speech compressor,,,1,1,,,,Section=libs; Version=1.0.22-1+b2,,,,,,,
-shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
-libdouble-conversion3,libdouble-conversion3,libdouble-conversion3,routines to convert IEEE floats to and from strings,,,1,1,,,,Section=libs; Version=3.3.1-1,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-libpcre2-16-0,libpcre2-16-0,libpcre2-16-0,New Perl Compatible Regular Expression Library - 16 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-qttranslations5-l10n,qttranslations5-l10n,qttranslations5-l10n,translations for Qt 5,,,1,1,,,,Section=localization; Version=5.15.15-2,,,,,,,
-soapysdr0.8-module-all,soapysdr0.8-module-all,soapysdr0.8-module-all,All device support for SoapySDR (metapackage),,,1,1,,,,Section=hamradio; Version=0.8.1-5+b2,,,,,,,
-libboost-chrono1.83.0t64,libboost-chrono1.83.0t64,libboost-chrono1.83.0t64,"C++ representation of time duration, time point, and clocks",,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libboost-filesystem1.83.0,libboost-filesystem1.83.0,libboost-filesystem1.83.0,"filesystem operations (portable paths, iteration over directories, etc) in C++",,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libboost-serialization1.83.0,libboost-serialization1.83.0,libboost-serialization1.83.0,serialization library for C++,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libusb-1.0-0,libusb-1.0-0,libusb-1.0-0,userspace USB programming library,,,1,1,,,,Section=libs; Version=2:1.0.28-1,,,,,,,
-liborc-0.4-0t64,liborc-0.4-0t64,liborc-0.4-0t64,Library of Optimized Inner Loops Runtime Compiler,,,1,1,,,,Section=libs; Version=1:0.4.41-1,,,,,,,
-libboost-date-time1.83-dev,libboost-date-time1.83-dev,libboost-date-time1.83-dev,set of date-time libraries based on generic programming concepts,,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libboost-filesystem1.83-dev,libboost-filesystem1.83-dev,libboost-filesystem1.83-dev,"filesystem operations (portable paths, iteration over directories, etc) in C++",,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libboost-program-options1.83-dev,libboost-program-options1.83-dev,libboost-program-options1.83-dev,program options library for C++,,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libboost-regex1.83-dev,libboost-regex1.83-dev,libboost-regex1.83-dev,regular expression library for C++,,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libboost-system1.83-dev,libboost-system1.83-dev,libboost-system1.83-dev,Operating system (e.g. diagnostics support) library,,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libboost-test1.83-dev,libboost-test1.83-dev,libboost-test1.83-dev,components for writing and executing test suites,,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libboost-thread1.83-dev,libboost-thread1.83-dev,libboost-thread1.83-dev,portable C++ multi-threading,,,1,1,,,,Section=libdevel; Version=1.83.0-4.2,,,,,,,
-libcppunit-dev,libcppunit-dev,libcppunit-dev,Unit Testing Library for C++ - development library,,,1,1,,,,Section=libdevel; Version=1.15.1-4+b2,,,,,,,
-libfftw3-dev,libfftw3-dev,libfftw3-dev,Library for computing Fast Fourier Transforms - development,,,1,1,,,,Section=libdevel; Version=3.3.10-2+b1,,,,,,,
-libgmp-dev,libgmp-dev,libgmp-dev,Multiprecision arithmetic library developers tools,,,1,1,,,,Section=libdevel; Version=2:6.3.0+dfsg-3,,,,,,,
-libgsm1-dev,libgsm1-dev,libgsm1-dev,Development libraries for a GSM speech compressor,,,1,1,,,,Section=libdevel; Version=1.0.22-1+b2,,,,,,,
-libspdlog-dev,libspdlog-dev,libspdlog-dev,"Very fast, header only or compiled, C++ logging library",,,1,1,,,,Section=libdevel; Version=1:1.15.2+ds-2,,,,,,,
-libthrift-dev,libthrift-dev,libthrift-dev,Thrift C++ library (development headers),,,1,1,,,,Section=libdevel; Version=0.19.0-4+b1,,,,,,,
-libvolk-dev,libvolk-dev,libvolk-dev,vector optimized function headers,,,1,1,,,,Section=libdevel; Version=3.2.0-2,,,,,,,
-pkgconf,pkgconf,pkgconf,manage compile and link flags for libraries,,,1,1,,,,Section=devel; Version=1.8.1-4,,,,,,,
-pybind11-dev,pybind11-dev,pybind11-dev,seamless operability between C++11 and Python,,,1,1,,,,Section=libdevel; Version=2.13.6-2,,,,,,,
-python3-dev,python3-dev,python3-dev,header files and a static library for Python (default),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
-libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
-libjs-jquery-ui,libjs-jquery-ui,libjs-jquery-ui,JavaScript UI library for dynamic web applications,,,1,1,,,,Section=javascript; Version=1.13.2+dfsg-1,,,,,,,
-python-matplotlib-data,python-matplotlib-data,python-matplotlib-data,Python based plotting system (data package),,,1,1,,,,Section=python; Version=3.10.1+dfsg1-4,,,,,,,
-python3-dateutil,python3-dateutil,python3-dateutil,powerful extensions to the standard Python 3 datetime module,,,1,1,,,,Section=python; Version=2.9.0-4,,,,,,,
-python3-pil.imagetk,python3-pil.imagetk,python3-pil.imagetk,Python Imaging Library - ImageTk Module (Python3),,,1,1,,,,Section=python; Version=11.1.0-5+b1,,,,,,,
-python3-pyparsing,python3-pyparsing,python3-pyparsing,alternative to creating and executing simple grammars - Python 3.x,,,1,1,,,,Section=python; Version=3.1.2-1,,,,,,,
-python3-contourpy,python3-contourpy,python3-contourpy,Python library for calculating contours of 2D quadrilateral grids,,,1,1,,,,Section=python; Version=1.3.1-1+b1,,,,,,,
-python3-cycler,python3-cycler,python3-cycler,composable kwarg iterator (Python 3),,,1,1,,,,Section=python; Version=0.12.1-1,,,,,,,
-python3-fonttools,python3-fonttools,python3-fonttools,Converts OpenType and TrueType fonts to and from XML (Python 3 Library),,,1,1,,,,Section=python; Version=4.57.0-1,,,,,,,
-python3-kiwisolver,python3-kiwisolver,python3-kiwisolver,fast implementation of the Cassowary constraint solver - Python 3.X,,,1,1,,,,Section=python; Version=1.4.7-3+b1,,,,,,,
-python3-pil,python3-pil,python3-pil,Python Imaging Library (Python3),,,1,1,,,,Section=python; Version=11.1.0-5+b1,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-libqhull-r8.0,libqhull-r8.0,libqhull-r8.0,calculate convex hulls and related structures (reentrant shared library),,,1,1,,,,Section=libs; Version=2020.2-6+b2,,,,,,,
-python3-tk,python3-tk,python3-tk,Tkinter - Writing Tk applications with Python 3.x,,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
-python3-pkg-resources,python3-pkg-resources,python3-pkg-resources,Package Discovery and Resource Access using pkg_resources,,,1,1,,,,Section=python; Version=78.1.1-0.1,,,,,,,
-python3-gdal,python3-gdal,python3-gdal,Python 3 bindings to the Geospatial Data Abstraction Library,,,1,1,,,,Section=python; Version=3.10.3+dfsg-1,,,,,,,
-python3-pydot,python3-pydot,python3-pydot,Python interface to Graphviz's dot,,,1,1,,,,Section=python; Version=2.0.0-3,,,,,,,
-python3-pygraphviz,python3-pygraphviz,python3-pygraphviz,Python interface to the Graphviz graph layout and visualization package (Python 3),,,1,1,,,,Section=python; Version=1.14-1+b2,,,,,,,
-python3-decorator,python3-decorator,python3-decorator,simplify usage of Python decorators by programmers,,,1,1,,,,Section=python; Version=5.2.1-2,,,,,,,
-libgfortran5,libgfortran5,libgfortran5,Runtime library for GNU Fortran applications,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-g++,g++,g++,GNU C++ compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
-python3-pooch,python3-pooch,python3-pooch,Tools to manage Python library's data files,,,1,1,,,,Section=python; Version=1.8.2-1,,,,,,,
-,,,,,,,,,,,,gnome-terminal,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-mathjax,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk-bin,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-click,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-click-plugins,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-gi,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-gi-cairo,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-jsonschema,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-lxml,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-mako,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-opengl,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-packaging,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pygccxml,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqt5,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqtgraph,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-schema,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-thrift,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-yaml,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-zmq,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy2-abi0,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-program-options1.83.0,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-analog3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-audio3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-blocks3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-channels3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-digital3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-dtv3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-fec3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-fft3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-filter3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-iio3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-network3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pdu3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-qtgui3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-soapy3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-trellis3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-uhd3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-video-sdl3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-vocoder3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-wavelet3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-zeromq3.10.12,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsoapysdr0.8,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuhd4.8.0,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,gnuradio,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gnuradio-dev,gnuradio,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-matplotlib,gnuradio,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-networkx,gnuradio,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pygccxml,gnuradio,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pyqt5.qwt,gnuradio,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-scipy,gnuradio,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,soapysdr-tools,gnuradio,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,default-dbus-session-bus,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gnome-terminal-data,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gnome-terminal-data,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gsettings-desktop-schemas,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dconf-gsettings-backend,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libatk1.0-0t64,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libhandy-1-0,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuuid1,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvte-2.91-0,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,gnome-terminal,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gvfs,gnome-terminal,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,nautilus-extension-gnome-terminal,gnome-terminal,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,yelp,gnome-terminal,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fonts-mathjax,libjs-mathjax,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,libvolk-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libvolk-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libvolk-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libvolk-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libvolk-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-click,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-click,python3-click-plugins,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-click-plugins,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-glib-2.0,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-girepository-2.0,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libffi8,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgirepository-1.0-1,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgirepository-1.0-1-with-libffi8,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,python3-gi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-cairo,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-gi,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo-gobject2,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,python3-gi-cairo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-attr,python3-jsonschema,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-jsonschema-specifications,python3-jsonschema,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-referencing,python3-jsonschema,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-rpds-py,python3-jsonschema,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-jsonschema,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-fqdn,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-idna,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-isoduration,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-json-pointer,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-rfc3339-validator,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-rfc3986-validator,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-rfc3987,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-uritemplate,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-webcolors,python3-jsonschema,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3,python3-lxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-lxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-lxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-lxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,python3-lxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxslt1.1,python3-lxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-bs4,python3-lxml,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-cssselect,python3-lxml,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-html5lib,python3-lxml,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-markupsafe,python3-mako,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-mako,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy-dev,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libblas3,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblapack3,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,python3-numpy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libegl1,python3-opengl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgl1,python3-opengl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglu1-mesa,python3-opengl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglut3.12,python3-opengl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-opengl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglut-dev,python3-opengl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3:any,python3-packaging,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,castxml,python3-pygccxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-importlib-metadata,python3-pygccxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-pygccxml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqt5.sip,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqt5.sip,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpython3.13,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5dbus5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5designer5,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5help5,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5network5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5printsupport5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5test5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5xml5t64,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qtbase-abi-5-15-15,python3-pyqt5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqt5,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-scipy,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pyqt5-dev-tools,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pyqt6-dev-tools,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qtbase5-dev-tools,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-dev-tools,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-pyqtgraph,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-matplotlib,python3-pyqtgraph,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-opengl,python3-pyqtgraph,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pyqt5.qtopengl,python3-pyqtgraph,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-contextlib2,python3-schema,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-schema,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-thrift,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,python3-thrift,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,python3-thrift,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-thrift,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-thrift,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-six,python3-thrift,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-thrift,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libyaml-0-2,python3-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-zmq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-zmq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-cffi-backend-api-min,python3-zmq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-cffi-backend-api-max,python3-zmq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-zmq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-zmq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzmq5,python3-zmq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3.13,python3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpython3-stdlib,python3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libboost-program-options1.83.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libboost-program-options1.83.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libboost-program-options1.83.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libfmt10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libfmt10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libfmt10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgmp10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-blocks3.10.12,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-fft3.10.12,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-analog3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83.0,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjack-jackd2-0,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libportaudio2,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-audio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83.0,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsndfile1,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-blocks3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-analog3.10.12,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-blocks3.10.12,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-filter3.10.12,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-channels3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-analog3.10.12,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-blocks3.10.12,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-filter3.10.12,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-digital3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-fec3.10.12,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-fft3.10.12,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-filter3.10.12,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-dtv3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-blocks3.10.12,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsl28,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-fec3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfftw3-single3,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-fft3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-fft3.10.12,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-filter3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libad9361-0,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83.0,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libiio0,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-iio3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83.0,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-network3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-pdu3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-pdu3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-pdu3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-pdu3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-pdu3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-pdu3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-pdu3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-pmt3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-pmt3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-pmt3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-pmt3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-fft3.10.12,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-filter3.10.12,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqwt-qt5-6,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-qtgui3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-program-options1.83.0,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83.0,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libthrift-0.19.0t64,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libunwind8,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-runtime3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsoapysdr0.8,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-soapy3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-trellis3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-trellis3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-trellis3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-trellis3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-trellis3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-trellis3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-trellis3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83.0,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuhd4.8.0,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk3.2,libgnuradio-uhd3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl1.2debian,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-video-sdl3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcodec2-1.2,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsm1,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-vocoder3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-wavelet3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-wavelet3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-wavelet3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-wavelet3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsl28,libgnuradio-wavelet3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-wavelet3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfmt10,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-pmt3.10.12,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnuradio-runtime3.10.12,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog1.15-fmt10,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzmq5,libgnuradio-zeromq3.10.12,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,shared-mime-info,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdouble-conversion3,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-16-0,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libqt5core5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qttranslations5-l10n,libqt5core5t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libqt5widgets5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,libqt5widgets5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,libqt5widgets5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libqt5widgets5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5widgets5t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libsoapysdr0.8,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libsoapysdr0.8,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libsoapysdr0.8,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,soapysdr0.8-module-all,libsoapysdr0.8,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-chrono1.83.0t64,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-filesystem1.83.0,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-serialization1.83.0,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83.0,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpython3.13,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libusb-1.0-0,libuhd4.8.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libvolk3.2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liborc-0.4-0t64,libvolk3.2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk-bin,libvolk3.2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gnuradio,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-date-time1.83-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-filesystem1.83-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-program-options1.83-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-regex1.83-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-system1.83-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-test1.83-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-thread1.83-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcppunit-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfftw3-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsm1-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspdlog-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libthrift-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvolk-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pkgconf,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pybind11-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-dev,gnuradio-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery-ui,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python-matplotlib-data,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-dateutil,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pil.imagetk,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyparsing,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-contourpy,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-cycler,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-fonttools,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-kiwisolver,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-packaging,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pil,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqhull-r8.0,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,python3-matplotlib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-tk,python3-matplotlib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pkg-resources,python3-networkx,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-networkx,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-gdal,python3-networkx,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-matplotlib,python3-networkx,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-numpy,python3-networkx,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pydot,python3-networkx,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pygraphviz,python3-networkx,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-scipy,python3-networkx,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-yaml,python3-networkx,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqwt-qt5-6,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqt5,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqt5.sip,python3-pyqt5.qwt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-decorator,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy2-abi0,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libblas3,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgfortran5,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblapack3,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,python3-scipy,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,g++,python3-scipy,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pil,python3-scipy,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pooch,python3-scipy,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-yaml,python3-scipy,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,soapysdr-tools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,soapysdr-tools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsoapysdr0.8,soapysdr-tools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,soapysdr-tools,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gnuradio","gnuradio","gnuradio","GNU Radio Software Radio Toolkit","","","1","1","","","","Section=comm; Version=3.10.12.0-1","","","","","","","",""
+"gnome-terminal","gnome-terminal","gnome-terminal","GNOME terminal emulator application","","","1","1","","","","Section=gnome; Version=3.56.2-2","","","","","","","",""
+"libjs-mathjax","libjs-mathjax","libjs-mathjax","JavaScript display engine for LaTeX and MathML","","","1","1","","","","Section=javascript; Version=2.7.9+dfsg-1","","","","","","","",""
+"libvolk-bin","libvolk-bin","libvolk-bin","vector optimized runtime tools","","","1","1","","","","Section=libs; Version=3.2.0-2","","","","","","","",""
+"python3-click","python3-click","python3-click","Command-Line Interface Creation Kit - Python 3.x","","","1","1","","","","Section=python; Version=8.2.0+0.really.8.1.8-1","","","","","","","",""
+"python3-click-plugins","python3-click-plugins","python3-click-plugins","Click extension to register external CLI commands (Python 3)","","","1","1","","","","Section=python; Version=1.1.1-5","","","","","","","",""
+"python3-gi","python3-gi","python3-gi","Python 3 bindings for gobject-introspection libraries","","","1","1","","","","Section=python; Version=3.50.0-4+b1","","","","","","","",""
+"python3-gi-cairo","python3-gi-cairo","python3-gi-cairo","Python 3 Cairo bindings for the GObject library","","","1","1","","","","Section=python; Version=3.50.0-4+b1","","","","","","","",""
+"python3-jsonschema","python3-jsonschema","python3-jsonschema","An(other) implementation of JSON Schema","","","1","1","","","","Section=python; Version=4.19.2-6","","","","","","","",""
+"python3-lxml","python3-lxml","python3-lxml","pythonic binding for the libxml2 and libxslt libraries","","","1","1","","","","Section=python; Version=5.4.0-1","","","","","","","",""
+"python3-mako","python3-mako","python3-mako","fast and lightweight templating for the Python 3 platform","","","1","1","","","","Section=python; Version=1.3.9-1","","","","","","","",""
+"python3-numpy","python3-numpy","python3-numpy","Python library for numerical computations (Python 3)","","","1","1","","","","Section=python; Version=1:2.2.4+ds-1","","","","","","","",""
+"python3-opengl","python3-opengl","python3-opengl","Python bindings to OpenGL (Python 3)","","","1","1","","","","Section=python; Version=3.1.9+dfsg-2","","","","","","","",""
+"python3-packaging","python3-packaging","python3-packaging","core utilities for python3 packages","","","1","1","","","","Section=python; Version=25.0-1","","","","","","","",""
+"python3-pygccxml","python3-pygccxml","python3-pygccxml","specialized XML reader reads the output from gccxml - python3 lib","","","1","1","","","","Section=python; Version=3.0.2-1","","","","","","","",""
+"python3-pyqt5","python3-pyqt5","python3-pyqt5","Python 3 bindings for Qt5","","","1","1","","","","Section=python; Version=5.15.11+dfsg-2","","","","","","","",""
+"python3-pyqtgraph","python3-pyqtgraph","python3-pyqtgraph","Scientific Graphics and GUI Library for Python 3","","","1","1","","","","Section=python; Version=0.13.7-5","","","","","","","",""
+"python3-schema","python3-schema","python3-schema","simple data validation library (Python 3)","","","1","1","","","","Section=python; Version=0.7.7-1","","","","","","","",""
+"python3-thrift","python3-thrift","python3-thrift","Python 3 library for Thrift","","","1","1","","","","Section=python; Version=0.19.0-4+b1","","","","","","","",""
+"python3-yaml","python3-yaml","python3-yaml","YAML parser and emitter for Python3","","","1","1","","","","Section=python; Version=6.0.2-1+b2","","","","","","","",""
+"python3-zmq","python3-zmq","python3-zmq","Python3 bindings for 0MQ library","","","1","1","","","","Section=python; Version=26.4.0-1","","","","","","","",""
+"python3","python3","python3","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","","","",""
+"python3-numpy2-abi0","python3-numpy2-abi0","python3-numpy2-abi0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libboost-program-options1.83.0","libboost-program-options1.83.0","libboost-program-options1.83.0","program options library for C++","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libfmt10","libfmt10","libfmt10","fast type-safe C++ formatting library -- library","","","1","1","","","","Section=libs; Version=10.1.1+ds1-4","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"libgnuradio-analog3.10.12","libgnuradio-analog3.10.12","libgnuradio-analog3.10.12","gnuradio analog functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-audio3.10.12","libgnuradio-audio3.10.12","libgnuradio-audio3.10.12","gnuradio audio functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-blocks3.10.12","libgnuradio-blocks3.10.12","libgnuradio-blocks3.10.12","gnuradio blocks functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-channels3.10.12","libgnuradio-channels3.10.12","libgnuradio-channels3.10.12","gnuradio channels functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-digital3.10.12","libgnuradio-digital3.10.12","libgnuradio-digital3.10.12","gnuradio digital communications functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-dtv3.10.12","libgnuradio-dtv3.10.12","libgnuradio-dtv3.10.12","gnuradio digital TV signal processing blocks","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-fec3.10.12","libgnuradio-fec3.10.12","libgnuradio-fec3.10.12","gnuradio forward error correction support","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-fft3.10.12","libgnuradio-fft3.10.12","libgnuradio-fft3.10.12","gnuradio fast Fourier transform functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-filter3.10.12","libgnuradio-filter3.10.12","libgnuradio-filter3.10.12","gnuradio filter functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-iio3.10.12","libgnuradio-iio3.10.12","libgnuradio-iio3.10.12","IIO blocks for GnuRadio","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-network3.10.12","libgnuradio-network3.10.12","libgnuradio-network3.10.12","gnuradio network library","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-pdu3.10.12","libgnuradio-pdu3.10.12","libgnuradio-pdu3.10.12","gnuradio streaming protocol library","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-pmt3.10.12","libgnuradio-pmt3.10.12","libgnuradio-pmt3.10.12","gnuradio pmt container library","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-qtgui3.10.12","libgnuradio-qtgui3.10.12","libgnuradio-qtgui3.10.12","gnuradio Qt graphical user interface functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-runtime3.10.12","libgnuradio-runtime3.10.12","libgnuradio-runtime3.10.12","gnuradio core runtime","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-soapy3.10.12","libgnuradio-soapy3.10.12","libgnuradio-soapy3.10.12","gnuradio SoapySDR support","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-trellis3.10.12","libgnuradio-trellis3.10.12","libgnuradio-trellis3.10.12","gnuradio trellis modulation functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-uhd3.10.12","libgnuradio-uhd3.10.12","libgnuradio-uhd3.10.12","gnuradio universal hardware driver functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-video-sdl3.10.12","libgnuradio-video-sdl3.10.12","libgnuradio-video-sdl3.10.12","gnuradio video functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-vocoder3.10.12","libgnuradio-vocoder3.10.12","libgnuradio-vocoder3.10.12","gnuradio vocoder functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-wavelet3.10.12","libgnuradio-wavelet3.10.12","libgnuradio-wavelet3.10.12","gnuradio wavelet functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libgnuradio-zeromq3.10.12","libgnuradio-zeromq3.10.12","libgnuradio-zeromq3.10.12","gnuradio zeromq functions","","","1","1","","","","Section=libs; Version=3.10.12.0-1","","","","","","","",""
+"libqt5core5t64","libqt5core5t64","libqt5core5t64","Qt 5 core module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5widgets5t64","libqt5widgets5t64","libqt5widgets5t64","Qt 5 widgets module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libsoapysdr0.8","libsoapysdr0.8","libsoapysdr0.8","software defined radio interface library","","","1","1","","","","Section=libs; Version=0.8.1-5+b2","","","","","","","",""
+"libspdlog1.15-fmt10","libspdlog1.15-fmt10","libspdlog1.15-fmt10","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libuhd4.8.0","libuhd4.8.0","libuhd4.8.0","universal hardware driver for Ettus Research products - library","","","1","1","","","","Section=libs; Version=4.8.0.0+ds1-2","","","","","","","",""
+"libvolk3.2","libvolk3.2","libvolk3.2","vector optimized functions","","","1","1","","","","Section=libs; Version=3.2.0-2","","","","","","","",""
+"gnuradio-dev","gnuradio-dev","gnuradio-dev","GNU Software Defined Radio toolkit development","","","1","1","","","","Section=libdevel; Version=3.10.12.0-1","","","","","","","",""
+"python3-matplotlib","python3-matplotlib","python3-matplotlib","Python based plotting system in a style similar to Matlab","","","1","1","","","","Section=python; Version=3.10.1+dfsg1-4","","","","","","","",""
+"python3-networkx","python3-networkx","python3-networkx","tool to create, manipulate and study complex networks (Python3)","","","1","1","","","","Section=python; Version=3.2.1-5","","","","","","","",""
+"python3-pyqt5.qwt","python3-pyqt5.qwt","python3-pyqt5.qwt","Python version of the Qwt6 technical widget library (Python3)","","","1","1","","","","Section=python; Version=1.02.02-2+b9","","","","","","","",""
+"python3-scipy","python3-scipy","python3-scipy","scientific tools for Python 3","","","1","1","","","","Section=python; Version=1.15.3-1","","","","","","","",""
+"soapysdr-tools","soapysdr-tools","soapysdr-tools","software defined radio interface library tools","","","1","1","","","","Section=hamradio; Version=0.8.1-5+b2","","","","","","","",""
+"default-dbus-session-bus","default-dbus-session-bus","default-dbus-session-bus","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gnome-terminal-data","gnome-terminal-data","gnome-terminal-data","Data files for the GNOME terminal emulator","","","1","1","","","","Section=gnome; Version=3.56.2-2","","","","","","","",""
+"gsettings-desktop-schemas","gsettings-desktop-schemas","gsettings-desktop-schemas","GSettings desktop-wide schemas","","","1","1","","","","Section=gnome; Version=48.0-1","","","","","","","",""
+"dconf-gsettings-backend","dconf-gsettings-backend","dconf-gsettings-backend","simple configuration storage system - GSettings back-end","","","1","1","","","","Section=libs; Version=0.40.0-5","","","","","","","",""
+"libatk1.0-0t64","libatk1.0-0t64","libatk1.0-0t64","ATK accessibility toolkit","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgtk-3-0t64","libgtk-3-0t64","libgtk-3-0t64","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=3.24.49-3","","","","","","","",""
+"libhandy-1-0","libhandy-1-0","libhandy-1-0","Library with GTK widgets for mobile phones","","","1","1","","","","Section=libs; Version=1.8.3-2","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libuuid1","libuuid1","libuuid1","Universally Unique ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","","","",""
+"libvte-2.91-0","libvte-2.91-0","libvte-2.91-0","Terminal emulator widget for GTK 3 - runtime files","","","1","1","","","","Section=libs; Version=0.80.1-1","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"gvfs","gvfs","gvfs","userspace virtual filesystem - GIO module","","","1","1","","","","Section=libs; Version=1.57.2-2","","","","","","","",""
+"nautilus-extension-gnome-terminal","nautilus-extension-gnome-terminal","nautilus-extension-gnome-terminal","GNOME terminal emulator application - Nautilus extension","","","1","1","","","","Section=gnome; Version=3.56.2-2","","","","","","","",""
+"yelp","yelp","yelp","Help browser for GNOME","","","1","1","","","","Section=gnome; Version=42.2-4","","","","","","","",""
+"fonts-mathjax","fonts-mathjax","fonts-mathjax","JavaScript display engine for LaTeX and MathML (fonts)","","","1","1","","","","Section=fonts; Version=2.7.9+dfsg-1","","","","","","","",""
+"gir1.2-glib-2.0","gir1.2-glib-2.0","gir1.2-glib-2.0","Introspection data for GLib, GObject, Gio and GModule","","","1","1","","","","Section=introspection; Version=2.84.4-3~deb13u1","","","","","","","",""
+"gir1.2-girepository-2.0","gir1.2-girepository-2.0","gir1.2-girepository-2.0","Introspection data for GIRepository library","","","1","1","","","","Section=introspection; Version=1.84.0-1","","","","","","","",""
+"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","","","",""
+"libgirepository-1.0-1","libgirepository-1.0-1","libgirepository-1.0-1","Library for handling GObject introspection data (runtime library)","","","1","1","","","","Section=libs; Version=1.84.0-1","","","","","","","",""
+"libgirepository-1.0-1-with-libffi8","libgirepository-1.0-1-with-libffi8","libgirepository-1.0-1-with-libffi8","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3-cairo","python3-cairo","python3-cairo","Python3 bindings for the Cairo vector graphics library","","","1","1","","","","Section=python; Version=1.27.0-2","","","","","","","",""
+"libcairo-gobject2","libcairo-gobject2","libcairo-gobject2","Cairo 2D vector graphics library (GObject library)","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"python3-attr","python3-attr","python3-attr","Attributes without boilerplate (Python 3)","","","1","1","","","","Section=python; Version=25.3.0-1","","","","","","","",""
+"python3-jsonschema-specifications","python3-jsonschema-specifications","python3-jsonschema-specifications","JSON Schema meta-schemas and vocabularies, exposed as a Registry","","","1","1","","","","Section=python; Version=2023.12.1-2","","","","","","","",""
+"python3-referencing","python3-referencing","python3-referencing","Implementation-agnostic implementation of JSON reference resolution","","","1","1","","","","Section=python; Version=0.36.2-1","","","","","","","",""
+"python3-rpds-py","python3-rpds-py","python3-rpds-py","Python bindings to Rust's persistent data structures (rpds)","","","1","1","","","","Section=python; Version=0.21.0-2+b1","","","","","","","",""
+"python3-fqdn","python3-fqdn","python3-fqdn","Python library to validate fully qualified domain names (FQDNs)","","","1","1","","","","Section=python; Version=1.5.1-2","","","","","","","",""
+"python3-idna","python3-idna","python3-idna","Python IDNA2008 (RFC 5891) handling (Python 3)","","","1","1","","","","Section=python; Version=3.10-1","","","","","","","",""
+"python3-isoduration","python3-isoduration","python3-isoduration","Operations with ISO 8601 durations (Python 3 package)","","","1","1","","","","Section=python; Version=20.11.0+git20211126.ae0bd61-2","","","","","","","",""
+"python3-json-pointer","python3-json-pointer","python3-json-pointer","resolve JSON pointers - Python 3.x","","","1","1","","","","Section=python; Version=2.4-3","","","","","","","",""
+"python3-rfc3339-validator","python3-rfc3339-validator","python3-rfc3339-validator","RFC 3339 validator (Python library)","","","1","1","","","","Section=python; Version=0.1.4-2","","","","","","","",""
+"python3-rfc3986-validator","python3-rfc3986-validator","python3-rfc3986-validator","RFC 3986 validator (Python library)","","","1","1","","","","Section=python; Version=0.1.1-2","","","","","","","",""
+"python3-rfc3987","python3-rfc3987","python3-rfc3987","Parsing and validation of URIs (RFC 3986) and IRIs (RFC 3987)","","","1","1","","","","Section=python; Version=1.3.8-3","","","","","","","",""
+"python3-uritemplate","python3-uritemplate","python3-uritemplate","implementation of RFC6570 - Python 3.x","","","1","1","","","","Section=python; Version=4.1.1-3","","","","","","","",""
+"python3-webcolors","python3-webcolors","python3-webcolors","python3 library of color names and value formats","","","1","1","","","","Section=python; Version=1.13-1","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"libxslt1.1","libxslt1.1","libxslt1.1","XSLT 1.0 processing library - runtime library","","","1","1","","","","Section=libs; Version=1.1.35-1.2+deb13u1","","","","","","","",""
+"python3-bs4","python3-bs4","python3-bs4","error-tolerant HTML parser for Python 3","","","1","1","","","","Section=python; Version=4.13.4-2","","","","","","","",""
+"python3-cssselect","python3-cssselect","python3-cssselect","cssselect parses CSS3 Selectors and translates them to XPath 1.0","","","1","1","","","","Section=python; Version=1.3.0-1","","","","","","","",""
+"python3-html5lib","python3-html5lib","python3-html5lib","HTML parser/tokenizer based on the WHATWG HTML5 specification","","","1","1","","","","Section=python; Version=1.2-2","","","","","","","",""
+"python3-markupsafe","python3-markupsafe","python3-markupsafe","HTML/XHTML/XML string library","","","1","1","","","","Section=python; Version=2.1.5-1+b3","","","","","","","",""
+"python3-numpy-dev","python3-numpy-dev","python3-numpy-dev","Python library for numerical computations (Python 3 headers)","","","1","1","","","","Section=python; Version=1:2.2.4+ds-1","","","","","","","",""
+"libblas3","libblas3","libblas3","Basic Linear Algebra Reference implementations, shared library","","","1","1","","","","Section=libs; Version=3.12.1-6","","","","","","","",""
+"liblapack3","liblapack3","liblapack3","Library of linear algebra routines 3 - shared version","","","1","1","","","","Section=libs; Version=3.12.1-6","","","","","","","",""
+"libegl1","libegl1","libegl1","Vendor neutral GL dispatch library -- EGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libglu1-mesa","libglu1-mesa","libglu1-mesa","Mesa OpenGL utility library (GLU)","","","1","1","","","","Section=libs; Version=9.0.2-1.1+b3","","","","","","","",""
+"libglut3.12","libglut3.12","libglut3.12","OpenGL Utility Toolkit","","","1","1","","","","Section=libs; Version=3.4.0-4","","","","","","","",""
+"libglut-dev","libglut-dev","libglut-dev","OpenGL Utility Toolkit development files","","","1","1","","","","Section=libdevel; Version=3.4.0-4","","","","","","","",""
+"castxml","castxml","castxml","C-family abstract syntax tree XML output tool","","","1","1","","","","Section=devel; Version=0.6.11-1","","","","","","","",""
+"python3-importlib-metadata","python3-importlib-metadata","python3-importlib-metadata","library to access the metadata for a Python package - Python 3.x","","","1","1","","","","Section=python; Version=8.7.0-1","","","","","","","",""
+"python3-pyqt5.sip","python3-pyqt5.sip","python3-pyqt5.sip","runtime module for Python extensions using SIP","","","1","1","","","","Section=python; Version=12.17.0-1+b1","","","","","","","",""
+"libpython3.13","libpython3.13","libpython3.13","Shared Python runtime library (version 3.13)","","","1","1","","","","Section=libs; Version=3.13.5-2","","","","","","","",""
+"libqt5dbus5t64","libqt5dbus5t64","libqt5dbus5t64","Qt 5 D-Bus module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5designer5","libqt5designer5","libqt5designer5","Qt 5 designer module","","","1","1","","","","Section=libs; Version=5.15.15-6","","","","","","","",""
+"libqt5gui5t64","libqt5gui5t64","libqt5gui5t64","Qt 5 GUI module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5help5","libqt5help5","libqt5help5","Qt 5 help module","","","1","1","","","","Section=libs; Version=5.15.15-6","","","","","","","",""
+"libqt5network5t64","libqt5network5t64","libqt5network5t64","Qt 5 network module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5printsupport5t64","libqt5printsupport5t64","libqt5printsupport5t64","Qt 5 print support module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5test5t64","libqt5test5t64","libqt5test5t64","Qt 5 test module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5xml5t64","libqt5xml5t64","libqt5xml5t64","Qt 5 XML module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"qtbase-abi-5-15-15","qtbase-abi-5-15-15","qtbase-abi-5-15-15","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"pyqt5-dev-tools","pyqt5-dev-tools","pyqt5-dev-tools","Development tools for PyQt5","","","1","1","","","","Section=python; Version=5.15.11+dfsg-2","","","","","","","",""
+"pyqt6-dev-tools","pyqt6-dev-tools","pyqt6-dev-tools","development tools for PyQt6","","","1","1","","","","Section=python; Version=6.9.0-2","","","","","","","",""
+"qtbase5-dev-tools","qtbase5-dev-tools","qtbase5-dev-tools","Qt 5 base development programs","","","1","1","","","","Section=devel; Version=5.15.15+dfsg-6","","","","","","","",""
+"qt6-base-dev-tools","qt6-base-dev-tools","qt6-base-dev-tools","Qt 6 base development programs","","","1","1","","","","Section=devel; Version=6.8.2+dfsg-9","","","","","","","",""
+"python3-pyqt5.qtopengl","python3-pyqt5.qtopengl","python3-pyqt5.qtopengl","Python 3 bindings for Qt5's OpenGL module","","","1","1","","","","Section=python; Version=5.15.11+dfsg-2","","","","","","","",""
+"python3-contextlib2","python3-contextlib2","python3-contextlib2","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3-six","python3-six","python3-six","Python 2 and 3 compatibility library","","","1","1","","","","Section=python; Version=1.17.0-1","","","","","","","",""
+"libyaml-0-2","libyaml-0-2","libyaml-0-2","Fast YAML 1.1 parser and emitter library","","","1","1","","","","Section=libs; Version=0.2.5-2","","","","","","","",""
+"python3-cffi-backend-api-min","python3-cffi-backend-api-min","python3-cffi-backend-api-min","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3-cffi-backend-api-max","python3-cffi-backend-api-max","python3-cffi-backend-api-max","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libzmq5","libzmq5","libzmq5","lightweight messaging kernel (shared library)","","","1","1","","","","Section=libs; Version=4.3.5-1+b3","","","","","","","",""
+"python3.13","python3.13","python3.13","Interactive high-level object-oriented language (version 3.13)","","","1","1","","","","Section=python; Version=3.13.5-2","","","","","","","",""
+"libpython3-stdlib","libpython3-stdlib","libpython3-stdlib","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libboost-thread1.83.0","libboost-thread1.83.0","libboost-thread1.83.0","portable C++ multi-threading","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libjack-jackd2-0","libjack-jackd2-0","libjack-jackd2-0","JACK Audio Connection Kit (libraries)","","","1","1","","","","Section=libs; Version=1.9.22~dfsg-4","","","","","","","",""
+"libportaudio2","libportaudio2","libportaudio2","Portable audio I/O - shared library","","","1","1","","","","Section=libs; Version=19.6.0-1.2+b3","","","","","","","",""
+"libsndfile1","libsndfile1","libsndfile1","Library for reading/writing audio files","","","1","1","","","","Section=libs; Version=1.2.2-2+b1","","","","","","","",""
+"libgsl28","libgsl28","libgsl28","GNU Scientific Library (GSL) -- library package","","","1","1","","","","Section=libs; Version=2.8+dfsg-5","","","","","","","",""
+"libfftw3-single3","libfftw3-single3","libfftw3-single3","Library for computing Fast Fourier Transforms - Single precision","","","1","1","","","","Section=libs; Version=3.3.10-2+b1","","","","","","","",""
+"libad9361-0","libad9361-0","libad9361-0","Library of functions specific to the Analog Devices AD9361","","","1","1","","","","Section=libs; Version=0.3-2+b2","","","","","","","",""
+"libiio0","libiio0","libiio0","Library for interfacing with IIO devices","","","1","1","","","","Section=libs; Version=0.26-2","","","","","","","",""
+"libqwt-qt5-6","libqwt-qt5-6","libqwt-qt5-6","Qt widgets library for technical applications (runtime, qt5)","","","1","1","","","","Section=libs; Version=6.1.4-2+b1","","","","","","","",""
+"libthrift-0.19.0t64","libthrift-0.19.0t64","libthrift-0.19.0t64","Thrift C++ library","","","1","1","","","","Section=libs; Version=0.19.0-4+b1","","","","","","","",""
+"libunwind8","libunwind8","libunwind8","library to determine the call-chain of a program - runtime","","","1","1","","","","Section=libs; Version=1.8.1-0.1","","","","","","","",""
+"libsdl1.2debian","libsdl1.2debian","libsdl1.2debian","SDL 1.2 binary compatibility library wrapping SDL 2.0","","","1","1","","","","Section=libs; Version=1.2.68-3","","","","","","","",""
+"libcodec2-1.2","libcodec2-1.2","libcodec2-1.2","Codec2 runtime library","","","1","1","","","","Section=libs; Version=1.2.0-3","","","","","","","",""
+"libgsm1","libgsm1","libgsm1","Shared libraries for GSM speech compressor","","","1","1","","","","Section=libs; Version=1.0.22-1+b2","","","","","","","",""
+"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","","","",""
+"libdouble-conversion3","libdouble-conversion3","libdouble-conversion3","routines to convert IEEE floats to and from strings","","","1","1","","","","Section=libs; Version=3.3.1-1","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"libpcre2-16-0","libpcre2-16-0","libpcre2-16-0","New Perl Compatible Regular Expression Library - 16 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"qttranslations5-l10n","qttranslations5-l10n","qttranslations5-l10n","translations for Qt 5","","","1","1","","","","Section=localization; Version=5.15.15-2","","","","","","","",""
+"soapysdr0.8-module-all","soapysdr0.8-module-all","soapysdr0.8-module-all","All device support for SoapySDR (metapackage)","","","1","1","","","","Section=hamradio; Version=0.8.1-5+b2","","","","","","","",""
+"libboost-chrono1.83.0t64","libboost-chrono1.83.0t64","libboost-chrono1.83.0t64","C++ representation of time duration, time point, and clocks","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libboost-filesystem1.83.0","libboost-filesystem1.83.0","libboost-filesystem1.83.0","filesystem operations (portable paths, iteration over directories, etc) in C++","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libboost-serialization1.83.0","libboost-serialization1.83.0","libboost-serialization1.83.0","serialization library for C++","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libusb-1.0-0","libusb-1.0-0","libusb-1.0-0","userspace USB programming library","","","1","1","","","","Section=libs; Version=2:1.0.28-1","","","","","","","",""
+"liborc-0.4-0t64","liborc-0.4-0t64","liborc-0.4-0t64","Library of Optimized Inner Loops Runtime Compiler","","","1","1","","","","Section=libs; Version=1:0.4.41-1","","","","","","","",""
+"libboost-date-time1.83-dev","libboost-date-time1.83-dev","libboost-date-time1.83-dev","set of date-time libraries based on generic programming concepts","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libboost-filesystem1.83-dev","libboost-filesystem1.83-dev","libboost-filesystem1.83-dev","filesystem operations (portable paths, iteration over directories, etc) in C++","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libboost-program-options1.83-dev","libboost-program-options1.83-dev","libboost-program-options1.83-dev","program options library for C++","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libboost-regex1.83-dev","libboost-regex1.83-dev","libboost-regex1.83-dev","regular expression library for C++","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libboost-system1.83-dev","libboost-system1.83-dev","libboost-system1.83-dev","Operating system (e.g. diagnostics support) library","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libboost-test1.83-dev","libboost-test1.83-dev","libboost-test1.83-dev","components for writing and executing test suites","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libboost-thread1.83-dev","libboost-thread1.83-dev","libboost-thread1.83-dev","portable C++ multi-threading","","","1","1","","","","Section=libdevel; Version=1.83.0-4.2","","","","","","","",""
+"libcppunit-dev","libcppunit-dev","libcppunit-dev","Unit Testing Library for C++ - development library","","","1","1","","","","Section=libdevel; Version=1.15.1-4+b2","","","","","","","",""
+"libfftw3-dev","libfftw3-dev","libfftw3-dev","Library for computing Fast Fourier Transforms - development","","","1","1","","","","Section=libdevel; Version=3.3.10-2+b1","","","","","","","",""
+"libgmp-dev","libgmp-dev","libgmp-dev","Multiprecision arithmetic library developers tools","","","1","1","","","","Section=libdevel; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"libgsm1-dev","libgsm1-dev","libgsm1-dev","Development libraries for a GSM speech compressor","","","1","1","","","","Section=libdevel; Version=1.0.22-1+b2","","","","","","","",""
+"libspdlog-dev","libspdlog-dev","libspdlog-dev","Very fast, header only or compiled, C++ logging library","","","1","1","","","","Section=libdevel; Version=1:1.15.2+ds-2","","","","","","","",""
+"libthrift-dev","libthrift-dev","libthrift-dev","Thrift C++ library (development headers)","","","1","1","","","","Section=libdevel; Version=0.19.0-4+b1","","","","","","","",""
+"libvolk-dev","libvolk-dev","libvolk-dev","vector optimized function headers","","","1","1","","","","Section=libdevel; Version=3.2.0-2","","","","","","","",""
+"pkgconf","pkgconf","pkgconf","manage compile and link flags for libraries","","","1","1","","","","Section=devel; Version=1.8.1-4","","","","","","","",""
+"pybind11-dev","pybind11-dev","pybind11-dev","seamless operability between C++11 and Python","","","1","1","","","","Section=libdevel; Version=2.13.6-2","","","","","","","",""
+"python3-dev","python3-dev","python3-dev","header files and a static library for Python (default)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","","","",""
+"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","","","",""
+"libjs-jquery-ui","libjs-jquery-ui","libjs-jquery-ui","JavaScript UI library for dynamic web applications","","","1","1","","","","Section=javascript; Version=1.13.2+dfsg-1","","","","","","","",""
+"python-matplotlib-data","python-matplotlib-data","python-matplotlib-data","Python based plotting system (data package)","","","1","1","","","","Section=python; Version=3.10.1+dfsg1-4","","","","","","","",""
+"python3-dateutil","python3-dateutil","python3-dateutil","powerful extensions to the standard Python 3 datetime module","","","1","1","","","","Section=python; Version=2.9.0-4","","","","","","","",""
+"python3-pil.imagetk","python3-pil.imagetk","python3-pil.imagetk","Python Imaging Library - ImageTk Module (Python3)","","","1","1","","","","Section=python; Version=11.1.0-5+b1","","","","","","","",""
+"python3-pyparsing","python3-pyparsing","python3-pyparsing","alternative to creating and executing simple grammars - Python 3.x","","","1","1","","","","Section=python; Version=3.1.2-1","","","","","","","",""
+"python3-contourpy","python3-contourpy","python3-contourpy","Python library for calculating contours of 2D quadrilateral grids","","","1","1","","","","Section=python; Version=1.3.1-1+b1","","","","","","","",""
+"python3-cycler","python3-cycler","python3-cycler","composable kwarg iterator (Python 3)","","","1","1","","","","Section=python; Version=0.12.1-1","","","","","","","",""
+"python3-fonttools","python3-fonttools","python3-fonttools","Converts OpenType and TrueType fonts to and from XML (Python 3 Library)","","","1","1","","","","Section=python; Version=4.57.0-1","","","","","","","",""
+"python3-kiwisolver","python3-kiwisolver","python3-kiwisolver","fast implementation of the Cassowary constraint solver - Python 3.X","","","1","1","","","","Section=python; Version=1.4.7-3+b1","","","","","","","",""
+"python3-pil","python3-pil","python3-pil","Python Imaging Library (Python3)","","","1","1","","","","Section=python; Version=11.1.0-5+b1","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"libqhull-r8.0","libqhull-r8.0","libqhull-r8.0","calculate convex hulls and related structures (reentrant shared library)","","","1","1","","","","Section=libs; Version=2020.2-6+b2","","","","","","","",""
+"python3-tk","python3-tk","python3-tk","Tkinter - Writing Tk applications with Python 3.x","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","","","",""
+"python3-pkg-resources","python3-pkg-resources","python3-pkg-resources","Package Discovery and Resource Access using pkg_resources","","","1","1","","","","Section=python; Version=78.1.1-0.1","","","","","","","",""
+"python3-gdal","python3-gdal","python3-gdal","Python 3 bindings to the Geospatial Data Abstraction Library","","","1","1","","","","Section=python; Version=3.10.3+dfsg-1","","","","","","","",""
+"python3-pydot","python3-pydot","python3-pydot","Python interface to Graphviz's dot","","","1","1","","","","Section=python; Version=2.0.0-3","","","","","","","",""
+"python3-pygraphviz","python3-pygraphviz","python3-pygraphviz","Python interface to the Graphviz graph layout and visualization package (Python 3)","","","1","1","","","","Section=python; Version=1.14-1+b2","","","","","","","",""
+"python3-decorator","python3-decorator","python3-decorator","simplify usage of Python decorators by programmers","","","1","1","","","","Section=python; Version=5.2.1-2","","","","","","","",""
+"libgfortran5","libgfortran5","libgfortran5","Runtime library for GNU Fortran applications","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"g++","g++","g++","GNU C++ compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","","","",""
+"python3-pooch","python3-pooch","python3-pooch","Tools to manage Python library's data files","","","1","1","","","","Section=python; Version=1.8.2-1","","","","","","","",""
+"","","","","","","","","","","","","gnuradio","gnome-terminal","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libjs-mathjax","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libvolk-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-click","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-click-plugins","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-gi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-gi-cairo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-jsonschema","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-lxml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-mako","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-numpy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-opengl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-packaging","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-pygccxml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-pyqt5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-pyqtgraph","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-schema","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-thrift","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-yaml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-zmq","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-numpy2-abi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libboost-program-options1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-analog3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-audio3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-blocks3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-channels3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-digital3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-dtv3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-fec3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-fft3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-filter3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-iio3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-network3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-pdu3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-qtgui3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-soapy3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-trellis3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-uhd3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-video-sdl3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-vocoder3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-wavelet3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libgnuradio-zeromq3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libsoapysdr0.8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libuhd4.8.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","gnuradio-dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-matplotlib","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-networkx","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-pygccxml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-pyqt5.qwt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","python3-scipy","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnuradio","soapysdr-tools","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","default-dbus-session-bus","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","gnome-terminal-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","gnome-terminal-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","gsettings-desktop-schemas","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","dconf-gsettings-backend","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libatk1.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libhandy-1-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libuuid1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libvte-2.91-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","gvfs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","nautilus-extension-gnome-terminal","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnome-terminal","yelp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-mathjax","fonts-mathjax","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk-bin","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk-bin","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk-bin","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk-bin","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk-bin","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-click","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-click-plugins","python3-click","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-click-plugins","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","gir1.2-glib-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","gir1.2-girepository-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","libffi8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","libgirepository-1.0-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","libgirepository-1.0-1-with-libffi8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","python3-cairo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","python3-gi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","libcairo-gobject2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-gi-cairo","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-attr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-jsonschema-specifications","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-referencing","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-rpds-py","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-fqdn","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-idna","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-isoduration","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-json-pointer","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-rfc3339-validator","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-rfc3986-validator","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-rfc3987","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-uritemplate","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-jsonschema","python3-webcolors","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","libxslt1.1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","python3-bs4","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","python3-cssselect","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-lxml","python3-html5lib","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-mako","python3-markupsafe","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-mako","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","python3-numpy-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","libblas3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","liblapack3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-numpy","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-opengl","libegl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-opengl","libgl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-opengl","libglu1-mesa","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-opengl","libglut3.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-opengl","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-opengl","libglut-dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-packaging","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pygccxml","castxml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pygccxml","python3-importlib-metadata","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pygccxml","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","python3-pyqt5.sip","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","python3-pyqt5.sip","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libpython3.13","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5dbus5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5designer5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5help5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5network5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5printsupport5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5test5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libqt5xml5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5","qtbase-abi-5-15-15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","python3-pyqt5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","python3-scipy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","pyqt5-dev-tools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","pyqt6-dev-tools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","qtbase5-dev-tools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","qt6-base-dev-tools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","python3-numpy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","python3-matplotlib","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","python3-opengl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqtgraph","python3-pyqt5.qtopengl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-schema","python3-contextlib2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-schema","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-thrift","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-thrift","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-thrift","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-thrift","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-thrift","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-thrift","python3-six","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-thrift","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-yaml","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-yaml","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-yaml","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-yaml","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-yaml","libyaml-0-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-zmq","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-zmq","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-zmq","python3-cffi-backend-api-min","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-zmq","python3-cffi-backend-api-max","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-zmq","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-zmq","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-zmq","libzmq5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3","python3.13","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3","libpython3-stdlib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libboost-program-options1.83.0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libboost-program-options1.83.0","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libboost-program-options1.83.0","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libfmt10","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfmt10","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfmt10","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgmp10","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libgnuradio-blocks3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libgnuradio-fft3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-analog3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libboost-thread1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libjack-jackd2-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libportaudio2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-audio3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libboost-thread1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libsndfile1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-blocks3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libgnuradio-analog3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libgnuradio-blocks3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libgnuradio-filter3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-channels3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libgnuradio-analog3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libgnuradio-blocks3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libgnuradio-filter3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-digital3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libgnuradio-fec3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libgnuradio-fft3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libgnuradio-filter3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-dtv3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libgnuradio-blocks3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libgsl28","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fec3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libfftw3-single3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-fft3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libgnuradio-fft3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-filter3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libad9361-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libboost-thread1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libiio0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-iio3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libboost-thread1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-network3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pdu3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pdu3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pdu3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pdu3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pdu3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pdu3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pdu3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pmt3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pmt3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pmt3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-pmt3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libgnuradio-fft3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libgnuradio-filter3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libqwt-qt5-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-qtgui3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libboost-program-options1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libboost-thread1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libthrift-0.19.0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libunwind8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-runtime3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libsoapysdr0.8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-soapy3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-trellis3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-trellis3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-trellis3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-trellis3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-trellis3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-trellis3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-trellis3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libboost-thread1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libuhd4.8.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-uhd3.10.12","libvolk3.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libsdl1.2debian","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-video-sdl3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libcodec2-1.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libgsm1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-vocoder3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-wavelet3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-wavelet3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-wavelet3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-wavelet3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-wavelet3.10.12","libgsl28","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-wavelet3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libfmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libgnuradio-pmt3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libgnuradio-runtime3.10.12","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libspdlog1.15-fmt10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgnuradio-zeromq3.10.12","libzmq5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","shared-mime-info","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libdouble-conversion3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libpcre2-16-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5core5t64","qttranslations5-l10n","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libqt5widgets5t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5widgets5t64","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5widgets5t64","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5widgets5t64","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libqt5widgets5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsoapysdr0.8","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsoapysdr0.8","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsoapysdr0.8","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsoapysdr0.8","soapysdr0.8-module-all","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libboost-chrono1.83.0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libboost-filesystem1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libboost-serialization1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libboost-thread1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libpython3.13","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libuhd4.8.0","libusb-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk3.2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk3.2","liborc-0.4-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvolk3.2","libvolk-bin","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","gnuradio","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libboost-date-time1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libboost-filesystem1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libboost-program-options1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libboost-regex1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libboost-system1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libboost-test1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libboost-thread1.83-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libcppunit-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libfftw3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libgmp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libgsm1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libspdlog-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libthrift-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","libvolk-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","pkgconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","pybind11-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnuradio-dev","python3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","libjs-jquery-ui","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python-matplotlib-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-dateutil","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-pil.imagetk","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-pyparsing","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-contourpy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-cycler","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-fonttools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-kiwisolver","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-numpy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-packaging","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-pil","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","libqhull-r8.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-matplotlib","python3-tk","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-pkg-resources","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-gdal","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-matplotlib","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-numpy","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-pydot","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-pygraphviz","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-scipy","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-networkx","python3-yaml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","libqwt-qt5-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","python3-pyqt5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-pyqt5.qwt","python3-pyqt5.sip","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3-decorator","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3-numpy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3-numpy2-abi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","libblas3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","libgfortran5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","liblapack3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","g++","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3-pil","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3-pooch","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-scipy","python3-yaml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","soapysdr-tools","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","soapysdr-tools","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","soapysdr-tools","libsoapysdr0.8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","soapysdr-tools","libstdc++6","Depends","#333","1","Depends","arrow","{}"

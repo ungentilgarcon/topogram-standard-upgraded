@@ -1,24 +1,24 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libedit-dev,libedit-dev,libedit-dev,BSD editline and history libraries (development files),,,1,1,,,,Section=libdevel; Version=3.1-20250104-1,,,,,,,
-libedit2,libedit2,libedit2,BSD editline and history libraries,,,1,1,,,,Section=libs; Version=3.1-20250104-1,,,,,,,
-libbsd-dev,libbsd-dev,libbsd-dev,utility functions from BSD systems - development files,,,1,1,,,,Section=libdevel; Version=0.12.2-2,,,,,,,
-libncurses-dev,libncurses-dev,libncurses-dev,developer's libraries for ncurses,,,1,1,,,,Section=libdevel; Version=6.5+20250216-2,,,,,,,
-libbsd0,libbsd0,libbsd0,utility functions from BSD systems - shared library,,,1,1,,,,Section=libs; Version=0.12.2-2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-libmd-dev,libmd-dev,libmd-dev,message digest functions from BSD systems - development files,,,1,1,,,,Section=libdevel; Version=1.1.0-2+b1,,,,,,,
-libncurses6,libncurses6,libncurses6,shared libraries for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-libncursesw6,libncursesw6,libncursesw6,shared libraries for terminal handling (wide character support),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,libedit2,libedit-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbsd-dev,libedit-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libncurses-dev,libedit-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbsd0,libedit2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libedit2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtinfo6,libedit2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbsd0,libbsd-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmd-dev,libbsd-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtinfo6,libncurses-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libncurses6,libncurses-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libncursesw6,libncurses-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,libncurses-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libedit-dev","libedit-dev","libedit-dev","BSD editline and history libraries (development files)","","","1","1","","","","Section=libdevel; Version=3.1-20250104-1","","","","","","","",""
+"libedit2","libedit2","libedit2","BSD editline and history libraries","","","1","1","","","","Section=libs; Version=3.1-20250104-1","","","","","","","",""
+"libbsd-dev","libbsd-dev","libbsd-dev","utility functions from BSD systems - development files","","","1","1","","","","Section=libdevel; Version=0.12.2-2","","","","","","","",""
+"libncurses-dev","libncurses-dev","libncurses-dev","developer's libraries for ncurses","","","1","1","","","","Section=libdevel; Version=6.5+20250216-2","","","","","","","",""
+"libbsd0","libbsd0","libbsd0","utility functions from BSD systems - shared library","","","1","1","","","","Section=libs; Version=0.12.2-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"libmd-dev","libmd-dev","libmd-dev","message digest functions from BSD systems - development files","","","1","1","","","","Section=libdevel; Version=1.1.0-2+b1","","","","","","","",""
+"libncurses6","libncurses6","libncurses6","shared libraries for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"libncursesw6","libncursesw6","libncursesw6","shared libraries for terminal handling (wide character support)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libedit-dev","libedit2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libedit-dev","libbsd-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libedit-dev","libncurses-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libedit2","libbsd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libedit2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libedit2","libtinfo6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbsd-dev","libbsd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbsd-dev","libmd-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libncurses-dev","libtinfo6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libncurses-dev","libncurses6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libncurses-dev","libncursesw6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libncurses-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"

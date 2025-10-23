@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libkf6parts-data","libkf6parts-data","libkf6parts-data","Document centric plugin system","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkf6parts-data","libkf6parts-data","libkf6parts-data","Document centric plugin system","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""

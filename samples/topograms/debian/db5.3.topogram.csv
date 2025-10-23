@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"db5.3-doc","db5.3-doc","db5.3-doc","Berkeley v5.3 Database Documentation [html]","","","1","1","","","","Section=doc; Version=5.3.28+dfsg2-9","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"db5.3-doc","db5.3-doc","db5.3-doc","Berkeley v5.3 Database Documentation [html]","","","1","1","","","","Section=doc; Version=5.3.28+dfsg2-9","","","","","","","",""

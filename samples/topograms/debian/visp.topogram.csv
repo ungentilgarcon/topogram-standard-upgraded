@@ -1,61 +1,61 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libvisp-ar-dev,libvisp-ar-dev,libvisp-ar-dev,development files for libvisp-ar,,,1,1,,,,Section=libdevel; Version=3.6.0-5,,,,,,,
-libvisp-core-dev,libvisp-core-dev,libvisp-core-dev,development files for libvisp-core,,,1,1,,,,Section=libdevel; Version=3.6.0-5,,,,,,,
-libvisp-io-dev,libvisp-io-dev,libvisp-io-dev,development files for libvisp-io,,,1,1,,,,Section=libdevel; Version=3.6.0-5,,,,,,,
-libvisp-ar3.6t64,libvisp-ar3.6t64,libvisp-ar3.6t64,visual servoing platform ar library,,,1,1,,,,Section=libs; Version=3.6.0-5,,,,,,,
-libcoin-dev,libcoin-dev,libcoin-dev,high-level 3D graphics devkit with Open Inventor and VRML97 support,,,1,1,,,,Section=libdevel; Version=4.0.3+ds-2,,,,,,,
-libvisp-core3.6t64,libvisp-core3.6t64,libvisp-core3.6t64,visual servoing platform core library,,,1,1,,,,Section=libs; Version=3.6.0-5,,,,,,,
-libeigen3-dev,libeigen3-dev,libeigen3-dev,lightweight C++ template library for linear algebra,,,1,1,,,,Section=libdevel; Version=3.4.0-5,,,,,,,
-libgsl-dev,libgsl-dev,libgsl-dev,GNU Scientific Library (GSL) -- development package,,,1,1,,,,Section=libdevel; Version=2.8+dfsg-5,,,,,,,
-liblapack-dev,liblapack-dev,liblapack-dev,Library of linear algebra routines 3 - static version,,,1,1,,,,Section=libdevel; Version=3.12.1-6,,,,,,,
-libopencv-dev,libopencv-dev,libopencv-dev,development files for opencv,,,1,1,,,,Section=libdevel; Version=4.10.0+dfsg-5,,,,,,,
-libxml2-dev,libxml2-dev,libxml2-dev,GNOME XML library - development files,,,1,1,,,,Section=libdevel; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-nlohmann-json3-dev,nlohmann-json3-dev,nlohmann-json3-dev,JSON for Modern C++,,,1,1,,,,Section=libdevel; Version=3.11.3-2.1,,,,,,,
-libvisp-io3.6t64,libvisp-io3.6t64,libvisp-io3.6t64,visual servoing platform io library,,,1,1,,,,Section=libs; Version=3.6.0-5,,,,,,,
-libjpeg-dev,libjpeg-dev,libjpeg-dev,Development files for the JPEG library [dummy package],,,1,1,,,,Section=libdevel; Version=1:2.1.5-4,,,,,,,
-libpng-dev,libpng-dev,libpng-dev,PNG library - development (version 1.6),,,1,1,,,,Section=libdevel; Version=1.6.48-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libcoin80t64,libcoin80t64,libcoin80t64,high-level 3D graphics kit implementing the Open Inventor API,,,1,1,,,,Section=libs; Version=4.0.3+ds-2,,,,,,,
-libgl-dev,libgl-dev,libgl-dev,Vendor neutral GL dispatch library -- GL development files,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libopengl-dev,libopengl-dev,libopengl-dev,Vendor neutral GL dispatch library -- OpenGL development files,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libglew-dev,libglew-dev,libglew-dev,OpenGL Extension Wrangler - development environment,,,1,1,,,,Section=libdevel; Version=2.2.0-4+b2,,,,,,,
-libx11-dev,libx11-dev,libx11-dev,X11 client-side library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.8.12-1,,,,,,,
-libxext-dev,libxext-dev,libxext-dev,X11 miscellaneous extensions library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.3.4-1+b3,,,,,,,
-libxi-dev,libxi-dev,libxi-dev,X11 Input extension library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.8.2-1,,,,,,,
-libxmu-dev,libxmu-dev,libxmu-dev,X11 miscellaneous utility library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.1.3-3+b4,,,,,,,
-libxpm-dev,libxpm-dev,libxpm-dev,X11 pixmap library (development headers),,,1,1,,,,Section=libdevel; Version=1:3.5.17-1+b3,,,,,,,
-libxt-dev,libxt-dev,libxt-dev,X11 toolkit intrinsics library (development headers),,,1,1,,,,Section=libdevel; Version=1:1.2.1-1.2+b2,,,,,,,
-,,,,,,,,,,,,libvisp-core-dev,libvisp-ar-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisp-io-dev,libvisp-ar-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisp-ar3.6t64,libvisp-ar-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcoin-dev,libvisp-ar-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisp-core3.6t64,libvisp-core-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libeigen3-dev,libvisp-core-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsl-dev,libvisp-core-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblapack-dev,libvisp-core-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopencv-dev,libvisp-core-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2-dev,libvisp-core-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,nlohmann-json3-dev,libvisp-core-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisp-core-dev,libvisp-io-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisp-io3.6t64,libvisp-io-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg-dev,libvisp-io-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopencv-dev,libvisp-io-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng-dev,libvisp-io-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,nlohmann-json3-dev,libvisp-io-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libvisp-ar3.6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libvisp-ar3.6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libvisp-ar3.6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisp-core3.6t64,libvisp-ar3.6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisp-io3.6t64,libvisp-ar3.6t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcoin80t64,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgl-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopengl-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglew-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxi-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxmu-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxpm-dev,libcoin-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxt-dev,libcoin-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libvisp-ar-dev","libvisp-ar-dev","libvisp-ar-dev","development files for libvisp-ar","","","1","1","","","","Section=libdevel; Version=3.6.0-5","","","","","","","",""
+"libvisp-core-dev","libvisp-core-dev","libvisp-core-dev","development files for libvisp-core","","","1","1","","","","Section=libdevel; Version=3.6.0-5","","","","","","","",""
+"libvisp-io-dev","libvisp-io-dev","libvisp-io-dev","development files for libvisp-io","","","1","1","","","","Section=libdevel; Version=3.6.0-5","","","","","","","",""
+"libvisp-ar3.6t64","libvisp-ar3.6t64","libvisp-ar3.6t64","visual servoing platform ar library","","","1","1","","","","Section=libs; Version=3.6.0-5","","","","","","","",""
+"libcoin-dev","libcoin-dev","libcoin-dev","high-level 3D graphics devkit with Open Inventor and VRML97 support","","","1","1","","","","Section=libdevel; Version=4.0.3+ds-2","","","","","","","",""
+"libvisp-core3.6t64","libvisp-core3.6t64","libvisp-core3.6t64","visual servoing platform core library","","","1","1","","","","Section=libs; Version=3.6.0-5","","","","","","","",""
+"libeigen3-dev","libeigen3-dev","libeigen3-dev","lightweight C++ template library for linear algebra","","","1","1","","","","Section=libdevel; Version=3.4.0-5","","","","","","","",""
+"libgsl-dev","libgsl-dev","libgsl-dev","GNU Scientific Library (GSL) -- development package","","","1","1","","","","Section=libdevel; Version=2.8+dfsg-5","","","","","","","",""
+"liblapack-dev","liblapack-dev","liblapack-dev","Library of linear algebra routines 3 - static version","","","1","1","","","","Section=libdevel; Version=3.12.1-6","","","","","","","",""
+"libopencv-dev","libopencv-dev","libopencv-dev","development files for opencv","","","1","1","","","","Section=libdevel; Version=4.10.0+dfsg-5","","","","","","","",""
+"libxml2-dev","libxml2-dev","libxml2-dev","GNOME XML library - development files","","","1","1","","","","Section=libdevel; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"nlohmann-json3-dev","nlohmann-json3-dev","nlohmann-json3-dev","JSON for Modern C++","","","1","1","","","","Section=libdevel; Version=3.11.3-2.1","","","","","","","",""
+"libvisp-io3.6t64","libvisp-io3.6t64","libvisp-io3.6t64","visual servoing platform io library","","","1","1","","","","Section=libs; Version=3.6.0-5","","","","","","","",""
+"libjpeg-dev","libjpeg-dev","libjpeg-dev","Development files for the JPEG library [dummy package]","","","1","1","","","","Section=libdevel; Version=1:2.1.5-4","","","","","","","",""
+"libpng-dev","libpng-dev","libpng-dev","PNG library - development (version 1.6)","","","1","1","","","","Section=libdevel; Version=1.6.48-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libcoin80t64","libcoin80t64","libcoin80t64","high-level 3D graphics kit implementing the Open Inventor API","","","1","1","","","","Section=libs; Version=4.0.3+ds-2","","","","","","","",""
+"libgl-dev","libgl-dev","libgl-dev","Vendor neutral GL dispatch library -- GL development files","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libopengl-dev","libopengl-dev","libopengl-dev","Vendor neutral GL dispatch library -- OpenGL development files","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libglew-dev","libglew-dev","libglew-dev","OpenGL Extension Wrangler - development environment","","","1","1","","","","Section=libdevel; Version=2.2.0-4+b2","","","","","","","",""
+"libx11-dev","libx11-dev","libx11-dev","X11 client-side library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.8.12-1","","","","","","","",""
+"libxext-dev","libxext-dev","libxext-dev","X11 miscellaneous extensions library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.3.4-1+b3","","","","","","","",""
+"libxi-dev","libxi-dev","libxi-dev","X11 Input extension library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.8.2-1","","","","","","","",""
+"libxmu-dev","libxmu-dev","libxmu-dev","X11 miscellaneous utility library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.1.3-3+b4","","","","","","","",""
+"libxpm-dev","libxpm-dev","libxpm-dev","X11 pixmap library (development headers)","","","1","1","","","","Section=libdevel; Version=1:3.5.17-1+b3","","","","","","","",""
+"libxt-dev","libxt-dev","libxt-dev","X11 toolkit intrinsics library (development headers)","","","1","1","","","","Section=libdevel; Version=1:1.2.1-1.2+b2","","","","","","","",""
+"","","","","","","","","","","","","libvisp-ar-dev","libvisp-core-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar-dev","libvisp-io-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar-dev","libvisp-ar3.6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar-dev","libcoin-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-core-dev","libvisp-core3.6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-core-dev","libeigen3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-core-dev","libgsl-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-core-dev","liblapack-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-core-dev","libopencv-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-core-dev","libxml2-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-core-dev","nlohmann-json3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-io-dev","libvisp-core-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-io-dev","libvisp-io3.6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-io-dev","libjpeg-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-io-dev","libopencv-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-io-dev","libpng-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-io-dev","nlohmann-json3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar3.6t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar3.6t64","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar3.6t64","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar3.6t64","libvisp-core3.6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvisp-ar3.6t64","libvisp-io3.6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libcoin80t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libgl-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libopengl-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libglew-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libx11-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libxext-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libxi-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libxmu-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libxpm-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcoin-dev","libxt-dev","Depends","#333","1","Depends","arrow","{}"

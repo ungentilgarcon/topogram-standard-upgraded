@@ -1,565 +1,565 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-r-cran-rmarkdown,r-cran-rmarkdown,r-cran-rmarkdown,convert R markdown documents into a variety of formats,,,1,1,,,,Section=gnu-r; Version=2.29+dfsg-1,,,,,,,
-r-api-4.0,r-api-4.0,r-api-4.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-r-cran-bslib,r-cran-bslib,r-cran-bslib,custom 'bootstrap' 'Sass' themes for GNU R shiny and rmarkdown,,,1,1,,,,Section=gnu-r; Version=0.9.0+dfsg-3,,,,,,,
-r-cran-evaluate,r-cran-evaluate,r-cran-evaluate,GNU R parsing and evaluation tools,,,1,1,,,,Section=gnu-r; Version=1.0.3-1,,,,,,,
-r-cran-fontawesome,r-cran-fontawesome,r-cran-fontawesome,GNU R support of 'Font Awesome' Icons,,,1,1,,,,Section=gnu-r; Version=0.5.3-1,,,,,,,
-r-cran-htmltools,r-cran-htmltools,r-cran-htmltools,GNU R tools for HTML,,,1,1,,,,Section=gnu-r; Version=0.5.8.1-1,,,,,,,
-r-cran-jquerylib,r-cran-jquerylib,r-cran-jquerylib,obtain 'jQuery' as an HTML dependency object in GNU R,,,1,1,,,,Section=gnu-r; Version=0.1.4+dfsg-4,,,,,,,
-r-cran-knitr,r-cran-knitr,r-cran-knitr,GNU R package for dynamic report generation using Literate Programming,,,1,1,,,,Section=gnu-r; Version=1.50+dfsg-1,,,,,,,
-r-cran-tinytex,r-cran-tinytex,r-cran-tinytex,GNU R helper to compile LaTeX documents,,,1,1,,,,Section=gnu-r; Version=0.56-1,,,,,,,
-r-cran-xfun,r-cran-xfun,r-cran-xfun,miscellaneous GNU R functions by 'Yihui Xie',,,1,1,,,,Section=gnu-r; Version=0.51+dfsg-1,,,,,,,
-r-cran-yaml,r-cran-yaml,r-cran-yaml,Methods to convert R data to YAML and back,,,1,1,,,,Section=gnu-r; Version=2.3.10-1,,,,,,,
-libjs-bootstrap,libjs-bootstrap,libjs-bootstrap,"HTML, CSS and JS framework",,,1,1,,,,Section=javascript; Version=3.4.1+dfsg-6,,,,,,,
-libjs-highlight.js,libjs-highlight.js,libjs-highlight.js,JavaScript library for syntax highlighting,,,1,1,,,,Section=javascript; Version=9.18.5+dfsg1-2,,,,,,,
-libjs-jquery-ui,libjs-jquery-ui,libjs-jquery-ui,JavaScript UI library for dynamic web applications,,,1,1,,,,Section=javascript; Version=1.13.2+dfsg-1,,,,,,,
-libjs-modernizr,libjs-modernizr,libjs-modernizr,JavaScript library to detect HTML5 and CSS3 features in the user's browser,,,1,1,,,,Section=javascript; Version=3.13.0-0.1,,,,,,,
-libjs-prettify,libjs-prettify,libjs-prettify,syntax highlighting of source code snippets in an html page,,,1,1,,,,Section=javascript; Version=2015.12.04+dfsg-1.1,,,,,,,
-fonts-font-awesome,fonts-font-awesome,fonts-font-awesome,iconic font designed for use with Twitter Bootstrap,,,1,1,,,,Section=fonts; Version=5.0.10+really4.7.0~dfsg-4.1,,,,,,,
-pandoc,pandoc,pandoc,general markup converter,,,1,1,,,,Section=text; Version=3.1.11.1+ds-2,,,,,,,
-r-cran-shiny,r-cran-shiny,r-cran-shiny,GNU R web application framework,,,1,1,,,,Section=gnu-r; Version=1.10.0+dfsg-2,,,,,,,
-node-html5shiv,node-html5shiv,node-html5shiv,enable use of HTML5 sectioning elements in legacy browser,,,1,1,,,,Section=javascript; Version=3.7.3+dfsg-5,,,,,,,
-r-cran-digest,r-cran-digest,r-cran-digest,GNU R package for 'hash digest' of R data structures,,,1,1,,,,Section=gnu-r; Version=0.6.37-1,,,,,,,
-r-cran-dygraphs,r-cran-dygraphs,r-cran-dygraphs,GNU R interface to 'Dygraphs' interactive time series charting library,,,1,1,,,,Section=gnu-r; Version=1.1.1.6+dfsg-4,,,,,,,
-r-cran-fs,r-cran-fs,r-cran-fs,GNU R cross-platform file system operations,,,1,1,,,,Section=gnu-r; Version=1.6.5+dfsg-1,,,,,,,
-r-cran-rsconnect,r-cran-rsconnect,r-cran-rsconnect,GNU R deployment interface for markdown and Shiny applications,,,1,1,,,,Section=gnu-r; Version=1.3.4-1,,,,,,,
-r-cran-downlit,r-cran-downlit,r-cran-downlit,GNU R syntax highlighting and automatic linking,,,1,1,,,,Section=gnu-r; Version=0.4.4-1,,,,,,,
-r-cran-sass,r-cran-sass,r-cran-sass,GNU R Syntactically Awesome Style Sheets ('Sass'),,,1,1,,,,Section=gnu-r; Version=0.4.9+dfsg-1,,,,,,,
-r-cran-testthat,r-cran-testthat,r-cran-testthat,GNU R testsuite,,,1,1,,,,Section=gnu-r; Version=3.2.3-1,,,,,,,
-r-cran-tibble,r-cran-tibble,r-cran-tibble,GNU R Simple Data Frames,,,1,1,,,,Section=gnu-r; Version=3.2.1+dfsg-3,,,,,,,
-r-cran-vctrs,r-cran-vctrs,r-cran-vctrs,GNU R vector helpers,,,1,1,,,,Section=gnu-r; Version=0.6.5-1,,,,,,,
-r-cran-withr,r-cran-withr,r-cran-withr,GNU R package to run code 'With' temporarily modified global state,,,1,1,,,,Section=gnu-r; Version=3.0.2+dfsg-1,,,,,,,
-r-cran-xml2,r-cran-xml2,r-cran-xml2,GNU R XML parser,,,1,1,,,,Section=gnu-r; Version=1.3.8-1,,,,,,,
-r-cran-base64enc,r-cran-base64enc,r-cran-base64enc,GNU R package that provides tools for base64 encoding,,,1,1,,,,Section=gnu-r; Version=0.1-3-3,,,,,,,
-r-cran-cachem,r-cran-cachem,r-cran-cachem,cache GNU R objects with automatic pruning,,,1,1,,,,Section=gnu-r; Version=1.1.0-1,,,,,,,
-r-cran-fastmap,r-cran-fastmap,r-cran-fastmap,GNU R fast implementation of a key-value store,,,1,1,,,,Section=gnu-r; Version=1.2.0-1,,,,,,,
-r-cran-jsonlite,r-cran-jsonlite,r-cran-jsonlite,"Robust, High Performance JSON Parser and Generator for R",,,1,1,,,,Section=gnu-r; Version=1.9.1+dfsg-1,,,,,,,
-r-cran-lifecycle,r-cran-lifecycle,r-cran-lifecycle,manage the life cycle of your GNU R package functions,,,1,1,,,,Section=gnu-r; Version=1.0.4+dfsg-1,,,,,,,
-r-cran-memoise,r-cran-memoise,r-cran-memoise,Memoise functions,,,1,1,,,,Section=gnu-r; Version=2.0.1-1,,,,,,,
-r-cran-mime,r-cran-mime,r-cran-mime,R package which maps filenames to MIME Types,,,1,1,,,,Section=gnu-r; Version=0.12-2,,,,,,,
-r-cran-rlang,r-cran-rlang,r-cran-rlang,Functions for Base Types and Core R and 'Tidyverse' Features,,,1,1,,,,Section=gnu-r; Version=1.1.5-3,,,,,,,
-node-bootstrap-sass,node-bootstrap-sass,node-bootstrap-sass,Sass-powered version of Bootstrap 3,,,1,1,,,,Section=javascript; Version=3.4.3-2,,,,,,,
-libjs-bootstrap4,libjs-bootstrap4,libjs-bootstrap4,"HTML, CSS and JS framework",,,1,1,,,,Section=javascript; Version=4.6.2+dfsg-1,,,,,,,
-r-cran-curl,r-cran-curl,r-cran-curl,GNU R modern and flexible web client for R,,,1,1,,,,Section=gnu-r; Version=6.2.1+dfsg-1,,,,,,,
-r-cran-future,r-cran-future,r-cran-future,R package: A Future API for R,,,1,1,,,,Section=gnu-r; Version=1.34.0+dfsg-1,,,,,,,
-r-cran-ggplot2,r-cran-ggplot2,r-cran-ggplot2,implementation of the Grammar of Graphics,,,1,1,,,,Section=gnu-r; Version=3.5.1+dfsg-1,,,,,,,
-r-cran-magrittr,r-cran-magrittr,r-cran-magrittr,GNU R forward-pipe operator,,,1,1,,,,Section=gnu-r; Version=2.0.3-1,,,,,,,
-r-cran-rappdirs,r-cran-rappdirs,r-cran-rappdirs,GNU R application directories,,,1,1,,,,Section=gnu-r; Version=0.3.3-1,,,,,,,
-r-cran-thematic,r-cran-thematic,r-cran-thematic,unified and automatic theming for GNU R,,,1,1,,,,Section=gnu-r; Version=0.1.6-1,,,,,,,
-r-cran-callr,r-cran-callr,r-cran-callr,Call GNU R from GNU R,,,1,1,,,,Section=gnu-r; Version=3.7.6-1,,,,,,,
-r-cran-covr,r-cran-covr,r-cran-covr,test coverage for GNU R packages,,,1,1,,,,Section=gnu-r; Version=3.6.4+dfsg-1,,,,,,,
-r-cran-lattice,r-cran-lattice,r-cran-lattice,GNU R package for 'Trellis' graphics,,,1,1,,,,Section=gnu-r; Version=0.22-7-1,,,,,,,
-r-cran-pkgload,r-cran-pkgload,r-cran-pkgload,simulate GNU R package installation and attach,,,1,1,,,,Section=gnu-r; Version=1.4.0-1,,,,,,,
-r-cran-dplyr,r-cran-dplyr,r-cran-dplyr,GNU R grammar of data manipulation,,,1,1,,,,Section=gnu-r; Version=1.1.4-4,,,,,,,
-r-cran-rsvg,r-cran-rsvg,r-cran-rsvg,"GNU R render SVG images into PDF, PNG, PostScript, or bitmap arrays",,,1,1,,,,Section=gnu-r; Version=2.6.1-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-r-cran-cairo,r-cran-cairo,r-cran-cairo,GNU R graphics device using cairo graphics library,,,1,1,,,,Section=gnu-r; Version=1.6-2-1,,,,,,,
-r-cran-markdown,r-cran-markdown,r-cran-markdown,GNU R package providing R bindings to the Sundown Markdown rendering library,,,1,1,,,,Section=gnu-r; Version=1.13-1,,,,,,,
-r-cran-ragg,r-cran-ragg,r-cran-ragg,GNU R graphic devices based on AGG,,,1,1,,,,Section=gnu-r; Version=1.3.3-1,,,,,,,
-r-base-core,r-base-core,r-base-core,GNU R core of statistical computation and graphics system,,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
-libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
-r-cran-highr,r-cran-highr,r-cran-highr,Syntax Highlighting for R Source Code,,,1,1,,,,Section=gnu-r; Version=0.11+dfsg-1,,,,,,,
-libjs-mathjax,libjs-mathjax,libjs-mathjax,JavaScript display engine for LaTeX and MathML,,,1,1,,,,Section=javascript; Version=2.7.9+dfsg-1,,,,,,,
-libjs-jquery-datatables,libjs-jquery-datatables,libjs-jquery-datatables,jQuery plug-in that makes nice tables from different data sources,,,1,1,,,,Section=javascript; Version=1.11.5+dfsg-2,,,,,,,
-libjs-normalize.css,libjs-normalize.css,libjs-normalize.css,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-r-cran-codetools,r-cran-codetools,r-cran-codetools,GNU R package providing code analysis tools,,,1,1,,,,Section=gnu-r; Version=0.2-20-1,,,,,,,
-r-cran-dbi,r-cran-dbi,r-cran-dbi,GNU R package providing a generic database interface,,,1,1,,,,Section=gnu-r; Version=1.2.3-1,,,,,,,
-r-cran-formatr,r-cran-formatr,r-cran-formatr,Format R code automatically,,,1,1,,,,Section=gnu-r; Version=1.14-2,,,,,,,
-r-cran-gridsvg,r-cran-gridsvg,r-cran-gridsvg,GNU R export 'grid' graphics as SVG,,,1,1,,,,Section=gnu-r; Version=1.7-5-1,,,,,,,
-r-cran-htmlwidgets,r-cran-htmlwidgets,r-cran-htmlwidgets,GNU R HTML Widgets,,,1,1,,,,Section=gnu-r; Version=1.6.4+dfsg-1,,,,,,,
-r-cran-jpeg,r-cran-jpeg,r-cran-jpeg,Read and write JPEG images,,,1,1,,,,Section=gnu-r; Version=0.1-10-1,,,,,,,
-r-cran-magick,r-cran-magick,r-cran-magick,advanced graphics and image-processing in GNU R,,,1,1,,,,Section=gnu-r; Version=2.8.5+dfsg-1+b1,,,,,,,
-r-cran-png,r-cran-png,r-cran-png,GNU R package to read and write PNG images,,,1,1,,,,Section=gnu-r; Version=0.1-8-1+b1,,,,,,,
-r-cran-reticulate,r-cran-reticulate,r-cran-reticulate,"R interface to Python modules, classes, and functions",,,1,1,,,,Section=gnu-r; Version=1.41.0.1+dfsg-1,,,,,,,
-r-cran-rgl,r-cran-rgl,r-cran-rgl,GNU R package for three-dimensional visualisation using OpenGL,,,1,1,,,,Section=gnu-r; Version=1.3.18-1,,,,,,,
-r-cran-testit,r-cran-testit,r-cran-testit,simple package for testing GNU R packages,,,1,1,,,,Section=gnu-r; Version=0.13-1,,,,,,,
-r-cran-tikzdevice,r-cran-tikzdevice,r-cran-tikzdevice,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-r-cran-webshot,r-cran-webshot,r-cran-webshot,GNU R take screenshots of web pages,,,1,1,,,,Section=gnu-r; Version=0.5.5-1,,,,,,,
-r-cran-rstudioapi,r-cran-rstudioapi,r-cran-rstudioapi,GNU R package for access to the RStudio API,,,1,1,,,,Section=gnu-r; Version=0.17.1-1,,,,,,,
-r-cran-svglite,r-cran-svglite,r-cran-svglite,GNU R 'SVG' graphics device,,,1,1,,,,Section=gnu-r; Version=2.1.3-2,,,,,,,
-node-highlight.js,node-highlight.js,node-highlight.js,JavaScript library for syntax highlighting - NodeJS,,,1,1,,,,Section=javascript; Version=9.18.5+dfsg1-2,,,,,,,
-r-cran-commonmark,r-cran-commonmark,r-cran-commonmark,high performance CommonMark and Github markdown rendering in R,,,1,1,,,,Section=gnu-r; Version=1.9.5-1,,,,,,,
-r-cran-remotes,r-cran-remotes,r-cran-remotes,"R Package Installation from Remote Repositories, Including 'GitHub'",,,1,1,,,,Section=gnu-r; Version=2.5.0+dfsg-1,,,,,,,
-r-cran-renv,r-cran-renv,r-cran-renv,GNU R project environments,,,1,1,,,,Section=gnu-r; Version=1.1.2-1,,,,,,,
-r-cran-runit,r-cran-runit,r-cran-runit,GNU R package providing unit testing framework,,,1,1,,,,Section=gnu-r; Version=0.4.33-1,,,,,,,
-fonts-glyphicons-halflings,fonts-glyphicons-halflings,fonts-glyphicons-halflings,icons made for smaller graphic,,,1,1,,,,Section=javascript; Version=1.009~3.4.1+dfsg-6,,,,,,,
-javascript-common,javascript-common,javascript-common,Base support for JavaScript library packages,,,1,1,,,,Section=javascript; Version=12+nmu1,,,,,,,
-pandoc-data,pandoc-data,pandoc-data,Conversion between markup formats,,,1,1,,,,Section=text; Version=3.1.11.1-3,,,,,,,
-libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
-libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
-liblua5.4-0,liblua5.4-0,liblua5.4-0,Shared library for the Lua interpreter version 5.4,,,1,1,,,,Section=libs; Version=5.4.7-1+b2,,,,,,,
-libnuma1,libnuma1,libnuma1,Libraries for controlling NUMA policy,,,1,1,,,,Section=libs; Version=2.0.19-1,,,,,,,
-libyaml-0-2,libyaml-0-2,libyaml-0-2,Fast YAML 1.1 parser and emitter library,,,1,1,,,,Section=libs; Version=0.2.5-2,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-r-cran-httpuv,r-cran-httpuv,r-cran-httpuv,GNU R package of HTTP and WebSocket Server Library,,,1,1,,,,Section=gnu-r; Version=1.6.15+dfsg-1,,,,,,,
-r-cran-xtable,r-cran-xtable,r-cran-xtable,GNU R coerce data to LaTeX and HTML tables,,,1,1,,,,Section=gnu-r; Version=1:1.8-4-2,,,,,,,
-r-cran-r6,r-cran-r6,r-cran-r6,R classes with reference semantics,,,1,1,,,,Section=gnu-r; Version=2.6.1-1,,,,,,,
-r-cran-sourcetools,r-cran-sourcetools,r-cran-sourcetools,"tools for reading, tokenizing and parsing R code",,,1,1,,,,Section=gnu-r; Version=0.1.7-1-1,,,,,,,
-r-cran-later,r-cran-later,r-cran-later,GNU R utilities for delaying function execution,,,1,1,,,,Section=gnu-r; Version=1.4.1+dfsg-1,,,,,,,
-r-cran-promises,r-cran-promises,r-cran-promises,GNU R abstractions for promise-based asynchronous programming,,,1,1,,,,Section=gnu-r; Version=1.3.2+dfsg-1,,,,,,,
-r-cran-crayon,r-cran-crayon,r-cran-crayon,GNU R colored terminal output,,,1,1,,,,Section=gnu-r; Version=1.5.3-1,,,,,,,
-r-cran-glue,r-cran-glue,r-cran-glue,GNU R interpreted string literals,,,1,1,,,,Section=gnu-r; Version=1.8.0-1,,,,,,,
-libjs-json,libjs-json,libjs-json,JSON encoders/decoders implemented in JavaScript,,,1,1,,,,Section=javascript; Version=0~20221030+~1.0.8-1,,,,,,,
-libjs-es5-shim,libjs-es5-shim,libjs-es5-shim,ECMAScript 5 compatibility shims for old JavaScript engines (library),,,1,1,,,,Section=javascript; Version=4.6.7-2,,,,,,,
-libjs-twitter-bootstrap-datepicker,libjs-twitter-bootstrap-datepicker,libjs-twitter-bootstrap-datepicker,add datepicker picker to field or to any other element,,,1,1,,,,Section=javascript; Version=1.3.1+dfsg1-4.1,,,,,,,
-libjs-jquery-selectize.js,libjs-jquery-selectize.js,libjs-jquery-selectize.js,Extensible jQuery-based custom select UI control,,,1,1,,,,Section=javascript; Version=0.12.6+dfsg-1.1,,,,,,,
-libjs-d3,libjs-d3,libjs-d3,JavaScript visualization library for HTML and SVG,,,1,1,,,,Section=javascript; Version=3.5.17-4,,,,,,,
-r-cran-dt,r-cran-dt,r-cran-dt,GNU R wrapper of the JavaScript library 'DataTables',,,1,1,,,,Section=gnu-r; Version=0.33+dfsg-1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-r-cran-zoo,r-cran-zoo,r-cran-zoo,GNU R package for totally ordered indexed observations,,,1,1,,,,Section=gnu-r; Version=1.8-14-1,,,,,,,
-r-cran-xts,r-cran-xts,r-cran-xts,GNU R package for time series analysis -- xts,,,1,1,,,,Section=gnu-r; Version=0.14.1-1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libuv1t64,libuv1t64,libuv1t64,asynchronous event notification library - runtime library,,,1,1,,,,Section=libs; Version=1.50.0-2,,,,,,,
-r-cran-pillar,r-cran-pillar,r-cran-pillar,GNU R coloured formatting for columns,,,1,1,,,,Section=gnu-r; Version=1.10.1+dfsg-1,,,,,,,
-r-cran-spelling,r-cran-spelling,r-cran-spelling,tools for spell checking in GNU R,,,1,1,,,,Section=gnu-r; Version=2.3.1-1,,,,,,,
-r-cran-cli,r-cran-cli,r-cran-cli,GNU R helpers for developing command line interfaces,,,1,1,,,,Section=gnu-r; Version=3.6.4-1,,,,,,,
-r-cran-openssl,r-cran-openssl,r-cran-openssl,"GNU R toolkit for encryption, signatures and certificates based on OpenSSL",,,1,1,,,,Section=gnu-r; Version=2.3.2+dfsg-1,,,,,,,
-r-cran-pki,r-cran-pki,r-cran-pki,public key infrastucture for R based on the X.509 standard,,,1,1,,,,Section=gnu-r; Version=0.1-14-1,,,,,,,
-r-cran-packrat,r-cran-packrat,r-cran-packrat,GNU R dependency management system for R package dependencies,,,1,1,,,,Section=gnu-r; Version=0.9.2-1,,,,,,,
-r-bioc-biobase,r-bioc-biobase,r-bioc-biobase,base functions for Bioconductor,,,1,1,,,,Section=gnu-r; Version=2.66.0-2,,,,,,,
-r-cran-biocmanager,r-cran-biocmanager,r-cran-biocmanager,access the Bioconductor project package repository,,,1,1,,,,Section=gnu-r; Version=1.30.25+dfsg-1,,,,,,,
-r-cran-foreign,r-cran-foreign,r-cran-foreign,GNU R package to read/write data from other stat. systems,,,1,1,,,,Section=gnu-r; Version=0.8.90-1,,,,,,,
-r-cran-mass,r-cran-mass,r-cran-mass,GNU R package of Venables and Ripley's MASS,,,1,1,,,,Section=gnu-r; Version=7.3-65-1,,,,,,,
-r-cran-plumber,r-cran-plumber,r-cran-plumber,API Generator for GNU R,,,1,1,,,,Section=gnu-r; Version=1.3.0+ds-1,,,,,,,
-r-cran-rcurl,r-cran-rcurl,r-cran-rcurl,GNU R General network (HTTP/FTP/...) client interface,,,1,1,,,,Section=gnu-r; Version=1.98-1.16+dfsg-1,,,,,,,
-r-cran-webfakes,r-cran-webfakes,r-cran-webfakes,fake Web Apps for HTTP testing of GNU R packages,,,1,1,,,,Section=gnu-r; Version=1.3.2-1,,,,,,,
-r-cran-brio,r-cran-brio,r-cran-brio,basic R input output,,,1,1,,,,Section=gnu-r; Version=1.1.5-1,,,,,,,
-r-cran-desc,r-cran-desc,r-cran-desc,GNU R manipulation of DESCRIPTION files,,,1,1,,,,Section=gnu-r; Version=1.4.3-1,,,,,,,
-r-cran-fansi,r-cran-fansi,r-cran-fansi,GNU R ANSI control sequence aware string functions,,,1,1,,,,Section=gnu-r; Version=1.0.6-2,,,,,,,
-r-cran-praise,r-cran-praise,r-cran-praise,GNU R praise users,,,1,1,,,,Section=gnu-r; Version=1.0.0-4,,,,,,,
-r-cran-processx,r-cran-processx,r-cran-processx,GNU R execute and control system processes,,,1,1,,,,Section=gnu-r; Version=3.8.6-1,,,,,,,
-r-cran-ps,r-cran-ps,r-cran-ps,"GNU R list, query, manipulate system processes",,,1,1,,,,Section=gnu-r; Version=1.9.0-1,,,,,,,
-r-cran-waldo,r-cran-waldo,r-cran-waldo,find differences between R objects,,,1,1,,,,Section=gnu-r; Version=0.6.1-2,,,,,,,
-r-cran-usethis,r-cran-usethis,r-cran-usethis,Automate Package and Project Setup,,,1,1,,,,Section=gnu-r; Version=3.1.0-1,,,,,,,
-r-cran-pkgconfig,r-cran-pkgconfig,r-cran-pkgconfig,Private Configuration for 'R' Packages,,,1,1,,,,Section=gnu-r; Version=2.0.3-2,,,,,,,
-r-cran-bench,r-cran-bench,r-cran-bench,High Precision Timing of R Expressions,,,1,1,,,,Section=gnu-r; Version=1.1.4-1,,,,,,,
-r-cran-bit64,r-cran-bit64,r-cran-bit64,A S3 Class for Vectors of 64bit Integers,,,1,1,,,,Section=gnu-r; Version=4.6.0-1-4,,,,,,,
-r-cran-blob,r-cran-blob,r-cran-blob,GNU R S3 Class for Representing Vectors of Binary Data ('BLOBS'),,,1,1,,,,Section=gnu-r; Version=1.2.4-1,,,,,,,
-r-cran-diagrammer,r-cran-diagrammer,r-cran-diagrammer,Graph/Network Visualization,,,1,1,,,,Section=gnu-r; Version=1.0.11+ds-2,,,,,,,
-r-cran-formattable,r-cran-formattable,r-cran-formattable,GNU R create 'formattable' data structures,,,1,1,,,,Section=gnu-r; Version=0.2.1+dfsg-1,,,,,,,
-r-cran-here,r-cran-here,r-cran-here,GNU R simpler way to find files,,,1,1,,,,Section=gnu-r; Version=1.0.1-2,,,,,,,
-r-cran-hms,r-cran-hms,r-cran-hms,GNU R pretty time of day,,,1,1,,,,Section=gnu-r; Version=1.1.3-1,,,,,,,
-r-cran-lubridate,r-cran-lubridate,r-cran-lubridate,simplifies dealing with dates in R,,,1,1,,,,Section=gnu-r; Version=1.9.4+dfsg-1,,,,,,,
-r-cran-pkgbuild,r-cran-pkgbuild,r-cran-pkgbuild,find tools needed to build GNU R packages,,,1,1,,,,Section=gnu-r; Version=1.4.6-1,,,,,,,
-r-cran-purrr,r-cran-purrr,r-cran-purrr,GNU R functional programming tools,,,1,1,,,,Section=gnu-r; Version=1.0.4-1,,,,,,,
-r-cran-stringi,r-cran-stringi,r-cran-stringi,GNU R character string processing facilities,,,1,1,,,,Section=gnu-r; Version=1.8.4-1+b1,,,,,,,
-r-cran-tidyr,r-cran-tidyr,r-cran-tidyr,GNU R package to easily tidy data,,,1,1,,,,Section=gnu-r; Version=1.3.1-1,,,,,,,
-r-cran-generics,r-cran-generics,r-cran-generics,GNU R common S3 generics not provided by base R methods,,,1,1,,,,Section=gnu-r; Version=0.1.3-1,,,,,,,
-r-cran-pkgdown,r-cran-pkgdown,r-cran-pkgdown,make static HTML documentation for a GNU R package,,,1,1,,,,Section=gnu-r; Version=2.1.1-2,,,,,,,
-r-cran-zeallot,r-cran-zeallot,r-cran-zeallot,"GNU R multiple, unpacking, and destructuring assignment",,,1,1,,,,Section=gnu-r; Version=0.1.0-3,,,,,,,
-r-cran-rsqlite,r-cran-rsqlite,r-cran-rsqlite,Database Interface R driver for SQLite,,,1,1,,,,Section=gnu-r; Version=2.3.9-1,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-r-cran-httr,r-cran-httr,r-cran-httr,GNU R tools for working with URLs and HTTP,,,1,1,,,,Section=gnu-r; Version=1.4.7+dfsg-1,,,,,,,
-r-cran-mockery,r-cran-mockery,r-cran-mockery,mocking library for GNU R,,,1,1,,,,Section=gnu-r; Version=0.4.4+dfsg-1,,,,,,,
-r-cran-xslt,r-cran-xslt,r-cran-xslt,extensible style-sheet language transformations for GNU R,,,1,1,,,,Section=gnu-r; Version=1.5.1-1,,,,,,,
-,,,,,,,,,,,,r-api-4.0,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-bslib,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-evaluate,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fontawesome,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-jquerylib,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-tinytex,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-xfun,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-yaml,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-bootstrap,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-highlight.js,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery-ui,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-modernizr,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-prettify,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-font-awesome,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pandoc,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-shiny,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-html5shiv,r-cran-rmarkdown,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-digest,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-dygraphs,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-fs,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rsconnect,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-downlit,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-sass,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-shiny,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tibble,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-vctrs,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-xml2,r-cran-rmarkdown,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-base64enc,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cachem,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fastmap,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-jquerylib,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-jsonlite,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lifecycle,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-memoise,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-mime,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-sass,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-bootstrap-sass,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-bootstrap4,r-cran-bslib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-curl,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-fontawesome,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-future,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-ggplot2,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-magrittr,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rappdirs,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-shiny,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-thematic,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-yaml,r-cran-bslib,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-evaluate,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-callr,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-ggplot2,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-lattice,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-pkgload,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-evaluate,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-fontawesome,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-fontawesome,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-fontawesome,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-fontawesome,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-dplyr,r-cran-fontawesome,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-fontawesome,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-fontawesome,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rsvg,r-cran-fontawesome,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-htmltools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-base64enc,r-cran-htmltools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-digest,r-cran-htmltools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fastmap,r-cran-htmltools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-htmltools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-htmltools,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cairo,r-cran-htmltools,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-markdown,r-cran-htmltools,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-ragg,r-cran-htmltools,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-shiny,r-cran-htmltools,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-htmltools,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-htmltools,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-base-core,r-cran-jquerylib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-jquerylib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-jquerylib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,r-cran-jquerylib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-evaluate,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-highr,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-xfun,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-yaml,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-mathjax,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-highlight.js,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-bootstrap,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery-datatables,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-normalize.css,r-cran-knitr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-bslib,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-codetools,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-dbi,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-digest,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-formatr,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-gridsvg,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-htmlwidgets,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-jpeg,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-magick,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-markdown,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-png,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-ragg,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-reticulate,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rgl,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-sass,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testit,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tibble,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tikzdevice,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tinytex,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-webshot,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rstudioapi,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-svglite,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,node-highlight.js,r-cran-knitr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-tinytex,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-xfun,r-cran-tinytex,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-testit,r-cran-tinytex,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rstudioapi,r-cran-tinytex,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-xfun,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-xfun,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-testit,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-codetools,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rstudioapi,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tinytex,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-mime,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-commonmark,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-remotes,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-renv,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-curl,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-xml2,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-jsonlite,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-magick,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-yaml,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-xfun,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-runit,r-cran-yaml,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fonts-glyphicons-halflings,libjs-bootstrap,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,javascript-common,libjs-highlight.js,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libjs-jquery,libjs-jquery-ui,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,javascript-common,libjs-jquery-ui,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,javascript-common,libjs-modernizr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,pandoc-data,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pandoc-data,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libffi8,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblua5.4-0,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnuma1,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libyaml-0-2,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,pandoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-httpuv,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-mime,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-jsonlite,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-xtable,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fontawesome,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-r6,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-sourcetools,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-later,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-promises,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-crayon,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fastmap,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-commonmark,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-glue,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-bslib,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cachem,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lifecycle,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-bootstrap,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-json,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery-datatables,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-es5-shim,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery-ui,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-highlight.js,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-twitter-bootstrap-datepicker,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery-selectize.js,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-d3,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-normalize.css,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-font-awesome,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-html5shiv,r-cran-shiny,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-dt,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-cairo,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-markdown,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-ggplot2,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-magrittr,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-yaml,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-future,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-dygraphs,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-ragg,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-sass,r-cran-shiny,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,r-cran-digest,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,r-cran-digest,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-digest,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-base-core,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-magrittr,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmlwidgets,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-zoo,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-xts,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,r-cran-dygraphs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-dygraphs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-fs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-fs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,r-cran-fs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,r-cran-fs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuv1t64,r-cran-fs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-crayon,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-pillar,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-spelling,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tibble,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-vctrs,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-fs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cli,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-curl,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-digest,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-jsonlite,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lifecycle,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-openssl,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-pki,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-packrat,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-renv,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rstudioapi,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-yaml,r-cran-rsconnect,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-bioc-biobase,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-biocmanager,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-foreign,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-mass,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-plumber,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rcurl,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-reticulate,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-shiny,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-webfakes,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-rsconnect,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-brio,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-desc,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-digest,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-evaluate,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fansi,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-memoise,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-vctrs,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-yaml,r-cran-downlit,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-jsonlite,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-mass,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-pkgload,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-xml2,r-cran-downlit,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fs,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-r6,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rappdirs,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,r-cran-sass,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-sass,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-sass,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-sass,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-sass,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-shiny,r-cran-sass,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-curl,r-cran-sass,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-brio,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-callr,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cli,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-desc,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-digest,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-evaluate,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-jsonlite,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lifecycle,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-magrittr,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-pkgload,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-praise,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-processx,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-ps,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-r6,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-waldo,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,r-cran-testthat,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-curl,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rstudioapi,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-shiny,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-usethis,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-vctrs,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-xml2,r-cran-testthat,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-fansi,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lifecycle,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-magrittr,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-pillar,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-pkgconfig,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-vctrs,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-tibble,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-bench,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-bit64,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-blob,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-brio,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-callr,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-cli,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-crayon,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-diagrammer,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-dplyr,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-evaluate,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-formattable,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-ggplot2,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-here,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-hms,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-htmltools,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-lubridate,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-pkgbuild,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-pkgload,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-purrr,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-stringi,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tidyr,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-tibble,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-vctrs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cli,r-cran-vctrs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-glue,r-cran-vctrs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lifecycle,r-cran-vctrs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-vctrs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-vctrs,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-bit64,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-crayon,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-dplyr,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-generics,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-pillar,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-pkgdown,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-tibble,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-waldo,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-withr,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-xml2,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-zeallot,r-cran-vctrs,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-withr,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-callr,r-cran-withr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-dbi,r-cran-withr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-withr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-withr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-withr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rsqlite,r-cran-withr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-withr,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-cli,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-rlang,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,node-html5shiv,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-jquery,r-cran-xml2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-covr,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-curl,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-httr,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-knitr,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-magrittr,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-mockery,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-rmarkdown,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-testthat,r-cran-xml2,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,r-cran-xslt,r-cran-xml2,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"r-cran-rmarkdown","r-cran-rmarkdown","r-cran-rmarkdown","convert R markdown documents into a variety of formats","","","1","1","","","","Section=gnu-r; Version=2.29+dfsg-1","","","","","","","",""
+"r-api-4.0","r-api-4.0","r-api-4.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"r-cran-bslib","r-cran-bslib","r-cran-bslib","custom 'bootstrap' 'Sass' themes for GNU R shiny and rmarkdown","","","1","1","","","","Section=gnu-r; Version=0.9.0+dfsg-3","","","","","","","",""
+"r-cran-evaluate","r-cran-evaluate","r-cran-evaluate","GNU R parsing and evaluation tools","","","1","1","","","","Section=gnu-r; Version=1.0.3-1","","","","","","","",""
+"r-cran-fontawesome","r-cran-fontawesome","r-cran-fontawesome","GNU R support of 'Font Awesome' Icons","","","1","1","","","","Section=gnu-r; Version=0.5.3-1","","","","","","","",""
+"r-cran-htmltools","r-cran-htmltools","r-cran-htmltools","GNU R tools for HTML","","","1","1","","","","Section=gnu-r; Version=0.5.8.1-1","","","","","","","",""
+"r-cran-jquerylib","r-cran-jquerylib","r-cran-jquerylib","obtain 'jQuery' as an HTML dependency object in GNU R","","","1","1","","","","Section=gnu-r; Version=0.1.4+dfsg-4","","","","","","","",""
+"r-cran-knitr","r-cran-knitr","r-cran-knitr","GNU R package for dynamic report generation using Literate Programming","","","1","1","","","","Section=gnu-r; Version=1.50+dfsg-1","","","","","","","",""
+"r-cran-tinytex","r-cran-tinytex","r-cran-tinytex","GNU R helper to compile LaTeX documents","","","1","1","","","","Section=gnu-r; Version=0.56-1","","","","","","","",""
+"r-cran-xfun","r-cran-xfun","r-cran-xfun","miscellaneous GNU R functions by 'Yihui Xie'","","","1","1","","","","Section=gnu-r; Version=0.51+dfsg-1","","","","","","","",""
+"r-cran-yaml","r-cran-yaml","r-cran-yaml","Methods to convert R data to YAML and back","","","1","1","","","","Section=gnu-r; Version=2.3.10-1","","","","","","","",""
+"libjs-bootstrap","libjs-bootstrap","libjs-bootstrap","HTML, CSS and JS framework","","","1","1","","","","Section=javascript; Version=3.4.1+dfsg-6","","","","","","","",""
+"libjs-highlight.js","libjs-highlight.js","libjs-highlight.js","JavaScript library for syntax highlighting","","","1","1","","","","Section=javascript; Version=9.18.5+dfsg1-2","","","","","","","",""
+"libjs-jquery-ui","libjs-jquery-ui","libjs-jquery-ui","JavaScript UI library for dynamic web applications","","","1","1","","","","Section=javascript; Version=1.13.2+dfsg-1","","","","","","","",""
+"libjs-modernizr","libjs-modernizr","libjs-modernizr","JavaScript library to detect HTML5 and CSS3 features in the user's browser","","","1","1","","","","Section=javascript; Version=3.13.0-0.1","","","","","","","",""
+"libjs-prettify","libjs-prettify","libjs-prettify","syntax highlighting of source code snippets in an html page","","","1","1","","","","Section=javascript; Version=2015.12.04+dfsg-1.1","","","","","","","",""
+"fonts-font-awesome","fonts-font-awesome","fonts-font-awesome","iconic font designed for use with Twitter Bootstrap","","","1","1","","","","Section=fonts; Version=5.0.10+really4.7.0~dfsg-4.1","","","","","","","",""
+"pandoc","pandoc","pandoc","general markup converter","","","1","1","","","","Section=text; Version=3.1.11.1+ds-2","","","","","","","",""
+"r-cran-shiny","r-cran-shiny","r-cran-shiny","GNU R web application framework","","","1","1","","","","Section=gnu-r; Version=1.10.0+dfsg-2","","","","","","","",""
+"node-html5shiv","node-html5shiv","node-html5shiv","enable use of HTML5 sectioning elements in legacy browser","","","1","1","","","","Section=javascript; Version=3.7.3+dfsg-5","","","","","","","",""
+"r-cran-digest","r-cran-digest","r-cran-digest","GNU R package for 'hash digest' of R data structures","","","1","1","","","","Section=gnu-r; Version=0.6.37-1","","","","","","","",""
+"r-cran-dygraphs","r-cran-dygraphs","r-cran-dygraphs","GNU R interface to 'Dygraphs' interactive time series charting library","","","1","1","","","","Section=gnu-r; Version=1.1.1.6+dfsg-4","","","","","","","",""
+"r-cran-fs","r-cran-fs","r-cran-fs","GNU R cross-platform file system operations","","","1","1","","","","Section=gnu-r; Version=1.6.5+dfsg-1","","","","","","","",""
+"r-cran-rsconnect","r-cran-rsconnect","r-cran-rsconnect","GNU R deployment interface for markdown and Shiny applications","","","1","1","","","","Section=gnu-r; Version=1.3.4-1","","","","","","","",""
+"r-cran-downlit","r-cran-downlit","r-cran-downlit","GNU R syntax highlighting and automatic linking","","","1","1","","","","Section=gnu-r; Version=0.4.4-1","","","","","","","",""
+"r-cran-sass","r-cran-sass","r-cran-sass","GNU R Syntactically Awesome Style Sheets ('Sass')","","","1","1","","","","Section=gnu-r; Version=0.4.9+dfsg-1","","","","","","","",""
+"r-cran-testthat","r-cran-testthat","r-cran-testthat","GNU R testsuite","","","1","1","","","","Section=gnu-r; Version=3.2.3-1","","","","","","","",""
+"r-cran-tibble","r-cran-tibble","r-cran-tibble","GNU R Simple Data Frames","","","1","1","","","","Section=gnu-r; Version=3.2.1+dfsg-3","","","","","","","",""
+"r-cran-vctrs","r-cran-vctrs","r-cran-vctrs","GNU R vector helpers","","","1","1","","","","Section=gnu-r; Version=0.6.5-1","","","","","","","",""
+"r-cran-withr","r-cran-withr","r-cran-withr","GNU R package to run code 'With' temporarily modified global state","","","1","1","","","","Section=gnu-r; Version=3.0.2+dfsg-1","","","","","","","",""
+"r-cran-xml2","r-cran-xml2","r-cran-xml2","GNU R XML parser","","","1","1","","","","Section=gnu-r; Version=1.3.8-1","","","","","","","",""
+"r-cran-base64enc","r-cran-base64enc","r-cran-base64enc","GNU R package that provides tools for base64 encoding","","","1","1","","","","Section=gnu-r; Version=0.1-3-3","","","","","","","",""
+"r-cran-cachem","r-cran-cachem","r-cran-cachem","cache GNU R objects with automatic pruning","","","1","1","","","","Section=gnu-r; Version=1.1.0-1","","","","","","","",""
+"r-cran-fastmap","r-cran-fastmap","r-cran-fastmap","GNU R fast implementation of a key-value store","","","1","1","","","","Section=gnu-r; Version=1.2.0-1","","","","","","","",""
+"r-cran-jsonlite","r-cran-jsonlite","r-cran-jsonlite","Robust, High Performance JSON Parser and Generator for R","","","1","1","","","","Section=gnu-r; Version=1.9.1+dfsg-1","","","","","","","",""
+"r-cran-lifecycle","r-cran-lifecycle","r-cran-lifecycle","manage the life cycle of your GNU R package functions","","","1","1","","","","Section=gnu-r; Version=1.0.4+dfsg-1","","","","","","","",""
+"r-cran-memoise","r-cran-memoise","r-cran-memoise","Memoise functions","","","1","1","","","","Section=gnu-r; Version=2.0.1-1","","","","","","","",""
+"r-cran-mime","r-cran-mime","r-cran-mime","R package which maps filenames to MIME Types","","","1","1","","","","Section=gnu-r; Version=0.12-2","","","","","","","",""
+"r-cran-rlang","r-cran-rlang","r-cran-rlang","Functions for Base Types and Core R and 'Tidyverse' Features","","","1","1","","","","Section=gnu-r; Version=1.1.5-3","","","","","","","",""
+"node-bootstrap-sass","node-bootstrap-sass","node-bootstrap-sass","Sass-powered version of Bootstrap 3","","","1","1","","","","Section=javascript; Version=3.4.3-2","","","","","","","",""
+"libjs-bootstrap4","libjs-bootstrap4","libjs-bootstrap4","HTML, CSS and JS framework","","","1","1","","","","Section=javascript; Version=4.6.2+dfsg-1","","","","","","","",""
+"r-cran-curl","r-cran-curl","r-cran-curl","GNU R modern and flexible web client for R","","","1","1","","","","Section=gnu-r; Version=6.2.1+dfsg-1","","","","","","","",""
+"r-cran-future","r-cran-future","r-cran-future","R package: A Future API for R","","","1","1","","","","Section=gnu-r; Version=1.34.0+dfsg-1","","","","","","","",""
+"r-cran-ggplot2","r-cran-ggplot2","r-cran-ggplot2","implementation of the Grammar of Graphics","","","1","1","","","","Section=gnu-r; Version=3.5.1+dfsg-1","","","","","","","",""
+"r-cran-magrittr","r-cran-magrittr","r-cran-magrittr","GNU R forward-pipe operator","","","1","1","","","","Section=gnu-r; Version=2.0.3-1","","","","","","","",""
+"r-cran-rappdirs","r-cran-rappdirs","r-cran-rappdirs","GNU R application directories","","","1","1","","","","Section=gnu-r; Version=0.3.3-1","","","","","","","",""
+"r-cran-thematic","r-cran-thematic","r-cran-thematic","unified and automatic theming for GNU R","","","1","1","","","","Section=gnu-r; Version=0.1.6-1","","","","","","","",""
+"r-cran-callr","r-cran-callr","r-cran-callr","Call GNU R from GNU R","","","1","1","","","","Section=gnu-r; Version=3.7.6-1","","","","","","","",""
+"r-cran-covr","r-cran-covr","r-cran-covr","test coverage for GNU R packages","","","1","1","","","","Section=gnu-r; Version=3.6.4+dfsg-1","","","","","","","",""
+"r-cran-lattice","r-cran-lattice","r-cran-lattice","GNU R package for 'Trellis' graphics","","","1","1","","","","Section=gnu-r; Version=0.22-7-1","","","","","","","",""
+"r-cran-pkgload","r-cran-pkgload","r-cran-pkgload","simulate GNU R package installation and attach","","","1","1","","","","Section=gnu-r; Version=1.4.0-1","","","","","","","",""
+"r-cran-dplyr","r-cran-dplyr","r-cran-dplyr","GNU R grammar of data manipulation","","","1","1","","","","Section=gnu-r; Version=1.1.4-4","","","","","","","",""
+"r-cran-rsvg","r-cran-rsvg","r-cran-rsvg","GNU R render SVG images into PDF, PNG, PostScript, or bitmap arrays","","","1","1","","","","Section=gnu-r; Version=2.6.1-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"r-cran-cairo","r-cran-cairo","r-cran-cairo","GNU R graphics device using cairo graphics library","","","1","1","","","","Section=gnu-r; Version=1.6-2-1","","","","","","","",""
+"r-cran-markdown","r-cran-markdown","r-cran-markdown","GNU R package providing R bindings to the Sundown Markdown rendering library","","","1","1","","","","Section=gnu-r; Version=1.13-1","","","","","","","",""
+"r-cran-ragg","r-cran-ragg","r-cran-ragg","GNU R graphic devices based on AGG","","","1","1","","","","Section=gnu-r; Version=1.3.3-1","","","","","","","",""
+"r-base-core","r-base-core","r-base-core","GNU R core of statistical computation and graphics system","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","","","",""
+"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","","","",""
+"r-cran-highr","r-cran-highr","r-cran-highr","Syntax Highlighting for R Source Code","","","1","1","","","","Section=gnu-r; Version=0.11+dfsg-1","","","","","","","",""
+"libjs-mathjax","libjs-mathjax","libjs-mathjax","JavaScript display engine for LaTeX and MathML","","","1","1","","","","Section=javascript; Version=2.7.9+dfsg-1","","","","","","","",""
+"libjs-jquery-datatables","libjs-jquery-datatables","libjs-jquery-datatables","jQuery plug-in that makes nice tables from different data sources","","","1","1","","","","Section=javascript; Version=1.11.5+dfsg-2","","","","","","","",""
+"libjs-normalize.css","libjs-normalize.css","libjs-normalize.css","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"r-cran-codetools","r-cran-codetools","r-cran-codetools","GNU R package providing code analysis tools","","","1","1","","","","Section=gnu-r; Version=0.2-20-1","","","","","","","",""
+"r-cran-dbi","r-cran-dbi","r-cran-dbi","GNU R package providing a generic database interface","","","1","1","","","","Section=gnu-r; Version=1.2.3-1","","","","","","","",""
+"r-cran-formatr","r-cran-formatr","r-cran-formatr","Format R code automatically","","","1","1","","","","Section=gnu-r; Version=1.14-2","","","","","","","",""
+"r-cran-gridsvg","r-cran-gridsvg","r-cran-gridsvg","GNU R export 'grid' graphics as SVG","","","1","1","","","","Section=gnu-r; Version=1.7-5-1","","","","","","","",""
+"r-cran-htmlwidgets","r-cran-htmlwidgets","r-cran-htmlwidgets","GNU R HTML Widgets","","","1","1","","","","Section=gnu-r; Version=1.6.4+dfsg-1","","","","","","","",""
+"r-cran-jpeg","r-cran-jpeg","r-cran-jpeg","Read and write JPEG images","","","1","1","","","","Section=gnu-r; Version=0.1-10-1","","","","","","","",""
+"r-cran-magick","r-cran-magick","r-cran-magick","advanced graphics and image-processing in GNU R","","","1","1","","","","Section=gnu-r; Version=2.8.5+dfsg-1+b1","","","","","","","",""
+"r-cran-png","r-cran-png","r-cran-png","GNU R package to read and write PNG images","","","1","1","","","","Section=gnu-r; Version=0.1-8-1+b1","","","","","","","",""
+"r-cran-reticulate","r-cran-reticulate","r-cran-reticulate","R interface to Python modules, classes, and functions","","","1","1","","","","Section=gnu-r; Version=1.41.0.1+dfsg-1","","","","","","","",""
+"r-cran-rgl","r-cran-rgl","r-cran-rgl","GNU R package for three-dimensional visualisation using OpenGL","","","1","1","","","","Section=gnu-r; Version=1.3.18-1","","","","","","","",""
+"r-cran-testit","r-cran-testit","r-cran-testit","simple package for testing GNU R packages","","","1","1","","","","Section=gnu-r; Version=0.13-1","","","","","","","",""
+"r-cran-tikzdevice","r-cran-tikzdevice","r-cran-tikzdevice","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"r-cran-webshot","r-cran-webshot","r-cran-webshot","GNU R take screenshots of web pages","","","1","1","","","","Section=gnu-r; Version=0.5.5-1","","","","","","","",""
+"r-cran-rstudioapi","r-cran-rstudioapi","r-cran-rstudioapi","GNU R package for access to the RStudio API","","","1","1","","","","Section=gnu-r; Version=0.17.1-1","","","","","","","",""
+"r-cran-svglite","r-cran-svglite","r-cran-svglite","GNU R 'SVG' graphics device","","","1","1","","","","Section=gnu-r; Version=2.1.3-2","","","","","","","",""
+"node-highlight.js","node-highlight.js","node-highlight.js","JavaScript library for syntax highlighting - NodeJS","","","1","1","","","","Section=javascript; Version=9.18.5+dfsg1-2","","","","","","","",""
+"r-cran-commonmark","r-cran-commonmark","r-cran-commonmark","high performance CommonMark and Github markdown rendering in R","","","1","1","","","","Section=gnu-r; Version=1.9.5-1","","","","","","","",""
+"r-cran-remotes","r-cran-remotes","r-cran-remotes","R Package Installation from Remote Repositories, Including 'GitHub'","","","1","1","","","","Section=gnu-r; Version=2.5.0+dfsg-1","","","","","","","",""
+"r-cran-renv","r-cran-renv","r-cran-renv","GNU R project environments","","","1","1","","","","Section=gnu-r; Version=1.1.2-1","","","","","","","",""
+"r-cran-runit","r-cran-runit","r-cran-runit","GNU R package providing unit testing framework","","","1","1","","","","Section=gnu-r; Version=0.4.33-1","","","","","","","",""
+"fonts-glyphicons-halflings","fonts-glyphicons-halflings","fonts-glyphicons-halflings","icons made for smaller graphic","","","1","1","","","","Section=javascript; Version=1.009~3.4.1+dfsg-6","","","","","","","",""
+"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","","","",""
+"pandoc-data","pandoc-data","pandoc-data","Conversion between markup formats","","","1","1","","","","Section=text; Version=3.1.11.1-3","","","","","","","",""
+"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"liblua5.4-0","liblua5.4-0","liblua5.4-0","Shared library for the Lua interpreter version 5.4","","","1","1","","","","Section=libs; Version=5.4.7-1+b2","","","","","","","",""
+"libnuma1","libnuma1","libnuma1","Libraries for controlling NUMA policy","","","1","1","","","","Section=libs; Version=2.0.19-1","","","","","","","",""
+"libyaml-0-2","libyaml-0-2","libyaml-0-2","Fast YAML 1.1 parser and emitter library","","","1","1","","","","Section=libs; Version=0.2.5-2","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"r-cran-httpuv","r-cran-httpuv","r-cran-httpuv","GNU R package of HTTP and WebSocket Server Library","","","1","1","","","","Section=gnu-r; Version=1.6.15+dfsg-1","","","","","","","",""
+"r-cran-xtable","r-cran-xtable","r-cran-xtable","GNU R coerce data to LaTeX and HTML tables","","","1","1","","","","Section=gnu-r; Version=1:1.8-4-2","","","","","","","",""
+"r-cran-r6","r-cran-r6","r-cran-r6","R classes with reference semantics","","","1","1","","","","Section=gnu-r; Version=2.6.1-1","","","","","","","",""
+"r-cran-sourcetools","r-cran-sourcetools","r-cran-sourcetools","tools for reading, tokenizing and parsing R code","","","1","1","","","","Section=gnu-r; Version=0.1.7-1-1","","","","","","","",""
+"r-cran-later","r-cran-later","r-cran-later","GNU R utilities for delaying function execution","","","1","1","","","","Section=gnu-r; Version=1.4.1+dfsg-1","","","","","","","",""
+"r-cran-promises","r-cran-promises","r-cran-promises","GNU R abstractions for promise-based asynchronous programming","","","1","1","","","","Section=gnu-r; Version=1.3.2+dfsg-1","","","","","","","",""
+"r-cran-crayon","r-cran-crayon","r-cran-crayon","GNU R colored terminal output","","","1","1","","","","Section=gnu-r; Version=1.5.3-1","","","","","","","",""
+"r-cran-glue","r-cran-glue","r-cran-glue","GNU R interpreted string literals","","","1","1","","","","Section=gnu-r; Version=1.8.0-1","","","","","","","",""
+"libjs-json","libjs-json","libjs-json","JSON encoders/decoders implemented in JavaScript","","","1","1","","","","Section=javascript; Version=0~20221030+~1.0.8-1","","","","","","","",""
+"libjs-es5-shim","libjs-es5-shim","libjs-es5-shim","ECMAScript 5 compatibility shims for old JavaScript engines (library)","","","1","1","","","","Section=javascript; Version=4.6.7-2","","","","","","","",""
+"libjs-twitter-bootstrap-datepicker","libjs-twitter-bootstrap-datepicker","libjs-twitter-bootstrap-datepicker","add datepicker picker to field or to any other element","","","1","1","","","","Section=javascript; Version=1.3.1+dfsg1-4.1","","","","","","","",""
+"libjs-jquery-selectize.js","libjs-jquery-selectize.js","libjs-jquery-selectize.js","Extensible jQuery-based custom select UI control","","","1","1","","","","Section=javascript; Version=0.12.6+dfsg-1.1","","","","","","","",""
+"libjs-d3","libjs-d3","libjs-d3","JavaScript visualization library for HTML and SVG","","","1","1","","","","Section=javascript; Version=3.5.17-4","","","","","","","",""
+"r-cran-dt","r-cran-dt","r-cran-dt","GNU R wrapper of the JavaScript library 'DataTables'","","","1","1","","","","Section=gnu-r; Version=0.33+dfsg-1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"r-cran-zoo","r-cran-zoo","r-cran-zoo","GNU R package for totally ordered indexed observations","","","1","1","","","","Section=gnu-r; Version=1.8-14-1","","","","","","","",""
+"r-cran-xts","r-cran-xts","r-cran-xts","GNU R package for time series analysis -- xts","","","1","1","","","","Section=gnu-r; Version=0.14.1-1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libuv1t64","libuv1t64","libuv1t64","asynchronous event notification library - runtime library","","","1","1","","","","Section=libs; Version=1.50.0-2","","","","","","","",""
+"r-cran-pillar","r-cran-pillar","r-cran-pillar","GNU R coloured formatting for columns","","","1","1","","","","Section=gnu-r; Version=1.10.1+dfsg-1","","","","","","","",""
+"r-cran-spelling","r-cran-spelling","r-cran-spelling","tools for spell checking in GNU R","","","1","1","","","","Section=gnu-r; Version=2.3.1-1","","","","","","","",""
+"r-cran-cli","r-cran-cli","r-cran-cli","GNU R helpers for developing command line interfaces","","","1","1","","","","Section=gnu-r; Version=3.6.4-1","","","","","","","",""
+"r-cran-openssl","r-cran-openssl","r-cran-openssl","GNU R toolkit for encryption, signatures and certificates based on OpenSSL","","","1","1","","","","Section=gnu-r; Version=2.3.2+dfsg-1","","","","","","","",""
+"r-cran-pki","r-cran-pki","r-cran-pki","public key infrastucture for R based on the X.509 standard","","","1","1","","","","Section=gnu-r; Version=0.1-14-1","","","","","","","",""
+"r-cran-packrat","r-cran-packrat","r-cran-packrat","GNU R dependency management system for R package dependencies","","","1","1","","","","Section=gnu-r; Version=0.9.2-1","","","","","","","",""
+"r-bioc-biobase","r-bioc-biobase","r-bioc-biobase","base functions for Bioconductor","","","1","1","","","","Section=gnu-r; Version=2.66.0-2","","","","","","","",""
+"r-cran-biocmanager","r-cran-biocmanager","r-cran-biocmanager","access the Bioconductor project package repository","","","1","1","","","","Section=gnu-r; Version=1.30.25+dfsg-1","","","","","","","",""
+"r-cran-foreign","r-cran-foreign","r-cran-foreign","GNU R package to read/write data from other stat. systems","","","1","1","","","","Section=gnu-r; Version=0.8.90-1","","","","","","","",""
+"r-cran-mass","r-cran-mass","r-cran-mass","GNU R package of Venables and Ripley's MASS","","","1","1","","","","Section=gnu-r; Version=7.3-65-1","","","","","","","",""
+"r-cran-plumber","r-cran-plumber","r-cran-plumber","API Generator for GNU R","","","1","1","","","","Section=gnu-r; Version=1.3.0+ds-1","","","","","","","",""
+"r-cran-rcurl","r-cran-rcurl","r-cran-rcurl","GNU R General network (HTTP/FTP/...) client interface","","","1","1","","","","Section=gnu-r; Version=1.98-1.16+dfsg-1","","","","","","","",""
+"r-cran-webfakes","r-cran-webfakes","r-cran-webfakes","fake Web Apps for HTTP testing of GNU R packages","","","1","1","","","","Section=gnu-r; Version=1.3.2-1","","","","","","","",""
+"r-cran-brio","r-cran-brio","r-cran-brio","basic R input output","","","1","1","","","","Section=gnu-r; Version=1.1.5-1","","","","","","","",""
+"r-cran-desc","r-cran-desc","r-cran-desc","GNU R manipulation of DESCRIPTION files","","","1","1","","","","Section=gnu-r; Version=1.4.3-1","","","","","","","",""
+"r-cran-fansi","r-cran-fansi","r-cran-fansi","GNU R ANSI control sequence aware string functions","","","1","1","","","","Section=gnu-r; Version=1.0.6-2","","","","","","","",""
+"r-cran-praise","r-cran-praise","r-cran-praise","GNU R praise users","","","1","1","","","","Section=gnu-r; Version=1.0.0-4","","","","","","","",""
+"r-cran-processx","r-cran-processx","r-cran-processx","GNU R execute and control system processes","","","1","1","","","","Section=gnu-r; Version=3.8.6-1","","","","","","","",""
+"r-cran-ps","r-cran-ps","r-cran-ps","GNU R list, query, manipulate system processes","","","1","1","","","","Section=gnu-r; Version=1.9.0-1","","","","","","","",""
+"r-cran-waldo","r-cran-waldo","r-cran-waldo","find differences between R objects","","","1","1","","","","Section=gnu-r; Version=0.6.1-2","","","","","","","",""
+"r-cran-usethis","r-cran-usethis","r-cran-usethis","Automate Package and Project Setup","","","1","1","","","","Section=gnu-r; Version=3.1.0-1","","","","","","","",""
+"r-cran-pkgconfig","r-cran-pkgconfig","r-cran-pkgconfig","Private Configuration for 'R' Packages","","","1","1","","","","Section=gnu-r; Version=2.0.3-2","","","","","","","",""
+"r-cran-bench","r-cran-bench","r-cran-bench","High Precision Timing of R Expressions","","","1","1","","","","Section=gnu-r; Version=1.1.4-1","","","","","","","",""
+"r-cran-bit64","r-cran-bit64","r-cran-bit64","A S3 Class for Vectors of 64bit Integers","","","1","1","","","","Section=gnu-r; Version=4.6.0-1-4","","","","","","","",""
+"r-cran-blob","r-cran-blob","r-cran-blob","GNU R S3 Class for Representing Vectors of Binary Data ('BLOBS')","","","1","1","","","","Section=gnu-r; Version=1.2.4-1","","","","","","","",""
+"r-cran-diagrammer","r-cran-diagrammer","r-cran-diagrammer","Graph/Network Visualization","","","1","1","","","","Section=gnu-r; Version=1.0.11+ds-2","","","","","","","",""
+"r-cran-formattable","r-cran-formattable","r-cran-formattable","GNU R create 'formattable' data structures","","","1","1","","","","Section=gnu-r; Version=0.2.1+dfsg-1","","","","","","","",""
+"r-cran-here","r-cran-here","r-cran-here","GNU R simpler way to find files","","","1","1","","","","Section=gnu-r; Version=1.0.1-2","","","","","","","",""
+"r-cran-hms","r-cran-hms","r-cran-hms","GNU R pretty time of day","","","1","1","","","","Section=gnu-r; Version=1.1.3-1","","","","","","","",""
+"r-cran-lubridate","r-cran-lubridate","r-cran-lubridate","simplifies dealing with dates in R","","","1","1","","","","Section=gnu-r; Version=1.9.4+dfsg-1","","","","","","","",""
+"r-cran-pkgbuild","r-cran-pkgbuild","r-cran-pkgbuild","find tools needed to build GNU R packages","","","1","1","","","","Section=gnu-r; Version=1.4.6-1","","","","","","","",""
+"r-cran-purrr","r-cran-purrr","r-cran-purrr","GNU R functional programming tools","","","1","1","","","","Section=gnu-r; Version=1.0.4-1","","","","","","","",""
+"r-cran-stringi","r-cran-stringi","r-cran-stringi","GNU R character string processing facilities","","","1","1","","","","Section=gnu-r; Version=1.8.4-1+b1","","","","","","","",""
+"r-cran-tidyr","r-cran-tidyr","r-cran-tidyr","GNU R package to easily tidy data","","","1","1","","","","Section=gnu-r; Version=1.3.1-1","","","","","","","",""
+"r-cran-generics","r-cran-generics","r-cran-generics","GNU R common S3 generics not provided by base R methods","","","1","1","","","","Section=gnu-r; Version=0.1.3-1","","","","","","","",""
+"r-cran-pkgdown","r-cran-pkgdown","r-cran-pkgdown","make static HTML documentation for a GNU R package","","","1","1","","","","Section=gnu-r; Version=2.1.1-2","","","","","","","",""
+"r-cran-zeallot","r-cran-zeallot","r-cran-zeallot","GNU R multiple, unpacking, and destructuring assignment","","","1","1","","","","Section=gnu-r; Version=0.1.0-3","","","","","","","",""
+"r-cran-rsqlite","r-cran-rsqlite","r-cran-rsqlite","Database Interface R driver for SQLite","","","1","1","","","","Section=gnu-r; Version=2.3.9-1","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"r-cran-httr","r-cran-httr","r-cran-httr","GNU R tools for working with URLs and HTTP","","","1","1","","","","Section=gnu-r; Version=1.4.7+dfsg-1","","","","","","","",""
+"r-cran-mockery","r-cran-mockery","r-cran-mockery","mocking library for GNU R","","","1","1","","","","Section=gnu-r; Version=0.4.4+dfsg-1","","","","","","","",""
+"r-cran-xslt","r-cran-xslt","r-cran-xslt","extensible style-sheet language transformations for GNU R","","","1","1","","","","Section=gnu-r; Version=1.5.1-1","","","","","","","",""
+"","","","","","","","","","","","","r-cran-rmarkdown","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-bslib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-evaluate","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-fontawesome","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-htmltools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-jquerylib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-knitr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-tinytex","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-xfun","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-yaml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","libjs-bootstrap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","libjs-highlight.js","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","libjs-jquery-ui","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","libjs-modernizr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","libjs-prettify","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","fonts-font-awesome","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","pandoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-shiny","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","node-html5shiv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-digest","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-dygraphs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-fs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-rsconnect","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-downlit","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-sass","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-shiny","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-tibble","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-vctrs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rmarkdown","r-cran-xml2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-base64enc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-cachem","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-fastmap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-htmltools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-jquerylib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-jsonlite","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-lifecycle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-memoise","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-mime","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-sass","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","node-bootstrap-sass","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","libjs-bootstrap4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-curl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-fontawesome","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-future","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-ggplot2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-magrittr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-rappdirs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-shiny","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-thematic","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-bslib","r-cran-yaml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-callr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-ggplot2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-lattice","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-pkgload","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-rlang","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-evaluate","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-cran-htmltools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-cran-dplyr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fontawesome","r-cran-rsvg","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-base64enc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-digest","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-fastmap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-cairo","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-markdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-ragg","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-shiny","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-htmltools","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-jquerylib","r-base-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-jquerylib","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-jquerylib","r-cran-htmltools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-jquerylib","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-evaluate","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-highr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-xfun","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-yaml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","libjs-mathjax","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","libjs-highlight.js","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","libjs-bootstrap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","libjs-jquery-datatables","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","libjs-normalize.css","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-bslib","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-codetools","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-dbi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-digest","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-formatr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-gridsvg","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-htmlwidgets","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-jpeg","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-magick","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-markdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-png","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-ragg","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-reticulate","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-rgl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-rlang","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-sass","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-testit","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-tibble","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-tikzdevice","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-tinytex","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-webshot","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-rstudioapi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","r-cran-svglite","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-knitr","node-highlight.js","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tinytex","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tinytex","r-cran-xfun","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tinytex","r-cran-testit","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tinytex","r-cran-rstudioapi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-testit","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-codetools","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-rstudioapi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-tinytex","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-mime","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-commonmark","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-remotes","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-renv","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-curl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-xml2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-jsonlite","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-magick","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-yaml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xfun","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-yaml","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-yaml","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-yaml","r-cran-runit","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-bootstrap","fonts-glyphicons-halflings","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-highlight.js","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery-ui","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery-ui","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-modernizr","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","pandoc","pandoc-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","pandoc-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","libffi8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","liblua5.4-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","libnuma1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","libyaml-0-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pandoc","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-httpuv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-mime","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-jsonlite","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-xtable","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-fontawesome","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-htmltools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-r6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-sourcetools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-later","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-promises","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-crayon","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-fastmap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-withr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-commonmark","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-glue","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-bslib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-cachem","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-lifecycle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-bootstrap","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-json","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-jquery-datatables","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-es5-shim","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-jquery-ui","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-highlight.js","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-twitter-bootstrap-datepicker","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-jquery-selectize.js","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-d3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","libjs-normalize.css","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","fonts-font-awesome","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","node-html5shiv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-dt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-cairo","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-markdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-ggplot2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-magrittr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-yaml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-future","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-dygraphs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-ragg","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-shiny","r-cran-sass","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-digest","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-digest","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-digest","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-base-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-cran-magrittr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-cran-htmlwidgets","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-cran-htmltools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-cran-zoo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-cran-xts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-dygraphs","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","libuv1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-crayon","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-pillar","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-spelling","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-tibble","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-vctrs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-fs","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-curl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-digest","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-jsonlite","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-lifecycle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-openssl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-pki","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-packrat","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-renv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-rstudioapi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-yaml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-bioc-biobase","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-biocmanager","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-foreign","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-mass","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-plumber","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-rcurl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-reticulate","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-shiny","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-webfakes","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-rsconnect","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-brio","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-desc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-digest","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-evaluate","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-fansi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-memoise","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-vctrs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-withr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-yaml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-htmltools","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-jsonlite","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-mass","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-pkgload","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-downlit","r-cran-xml2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-fs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-htmltools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-r6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-rappdirs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-shiny","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-sass","r-cran-curl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-brio","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-callr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-desc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-digest","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-evaluate","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-jsonlite","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-lifecycle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-magrittr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-pkgload","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-praise","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-processx","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-ps","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-r6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-waldo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-withr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-curl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-rstudioapi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-shiny","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-usethis","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-vctrs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-testthat","r-cran-xml2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-fansi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-lifecycle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-magrittr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-pillar","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-pkgconfig","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-vctrs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-bench","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-bit64","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-blob","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-brio","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-callr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-cli","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-crayon","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-diagrammer","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-dplyr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-evaluate","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-formattable","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-ggplot2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-here","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-hms","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-htmltools","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-lubridate","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-pkgbuild","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-pkgload","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-purrr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-stringi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-tidyr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-tibble","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-glue","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-lifecycle","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-bit64","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-crayon","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-dplyr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-generics","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-pillar","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-pkgdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-tibble","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-waldo","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-withr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-xml2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-vctrs","r-cran-zeallot","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-cran-callr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-cran-dbi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-cran-rlang","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-cran-rsqlite","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-withr","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-cli","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-rlang","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","node-html5shiv","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-covr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-curl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-httr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-knitr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-magrittr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-mockery","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-rmarkdown","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-testthat","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","r-cran-xml2","r-cran-xslt","Recommends","#333","1","Recommends","arrow","{}"

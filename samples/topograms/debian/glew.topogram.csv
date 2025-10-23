@@ -1,25 +1,25 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-glew-utils,glew-utils,glew-utils,OpenGL Extension Wrangler - utilities,,,1,1,,,,Section=utils; Version=2.2.0-4+b2,,,,,,,
-libglew2.2,libglew2.2,libglew2.2,OpenGL Extension Wrangler - runtime environment,,,1,1,,,,Section=libs; Version=2.2.0-4+b2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libglvnd0,libglvnd0,libglvnd0,Vendor neutral GL dispatch library,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libglx0,libglx0,libglx0,Vendor neutral GL dispatch library -- GLX support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libx11-data,libx11-data,libx11-data,X11 client-side library,,,1,1,,,,Section=x11; Version=2:1.8.12-1,,,,,,,
-,,,,,,,,,,,,libglew2.2,glew-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,glew-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgl1,glew-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,glew-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgl1,libglew2.2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libgl1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglvnd0,libgl1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglx0,libgl1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libx11-6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb1,libx11-6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-data,libx11-6,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"glew-utils","glew-utils","glew-utils","OpenGL Extension Wrangler - utilities","","","1","1","","","","Section=utils; Version=2.2.0-4+b2","","","","","","","",""
+"libglew2.2","libglew2.2","libglew2.2","OpenGL Extension Wrangler - runtime environment","","","1","1","","","","Section=libs; Version=2.2.0-4+b2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libglvnd0","libglvnd0","libglvnd0","Vendor neutral GL dispatch library","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libglx0","libglx0","libglx0","Vendor neutral GL dispatch library -- GLX support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libx11-data","libx11-data","libx11-data","X11 client-side library","","","1","1","","","","Section=x11; Version=2:1.8.12-1","","","","","","","",""
+"","","","","","","","","","","","","glew-utils","libglew2.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","glew-utils","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","glew-utils","libgl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","glew-utils","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglew2.2","libgl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgl1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgl1","libglvnd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgl1","libglx0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-6","libxcb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-6","libx11-data","Depends","#333","1","Depends","arrow","{}"

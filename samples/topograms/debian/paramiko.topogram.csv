@@ -1,10 +1,10 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-paramiko-doc,paramiko-doc,paramiko-doc,Make ssh v2 connections with Python (Documentation),,,1,1,,,,Section=doc; Version=3.5.1-3,,,,,,,
-libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
-libjs-underscore,libjs-underscore,libjs-underscore,JavaScript's functional programming helper library,,,1,1,,,,Section=javascript; Version=1.13.4~dfsg+~1.11.4-3,,,,,,,
-javascript-common,javascript-common,javascript-common,Base support for JavaScript library packages,,,1,1,,,,Section=javascript; Version=12+nmu1,,,,,,,
-,,,,,,,,,,,,libjs-jquery,paramiko-doc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-underscore,paramiko-doc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,javascript-common,libjs-jquery,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,javascript-common,libjs-underscore,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libjs-jquery,libjs-underscore,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"paramiko-doc","paramiko-doc","paramiko-doc","Make ssh v2 connections with Python (Documentation)","","","1","1","","","","Section=doc; Version=3.5.1-3","","","","","","","",""
+"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","","","",""
+"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","","","",""
+"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","","","",""
+"","","","","","","","","","","","","paramiko-doc","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","paramiko-doc","libjs-underscore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-underscore","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-underscore","libjs-jquery","Recommends","#333","1","Recommends","arrow","{}"

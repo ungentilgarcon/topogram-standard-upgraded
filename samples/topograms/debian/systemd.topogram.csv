@@ -1,11 +1,11 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libnss-myhostname,libnss-myhostname,libnss-myhostname,nss module providing fallback resolution for the current hostname,,,1,1,,,,Section=admin; Version=257.8-1~deb13u1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcap2,libcap2,libcap2,POSIX 1003.1e capabilities (library),,,1,1,,,,Section=libs; Version=1:2.75-10+b1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,libc6,libnss-myhostname,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcap2,libnss-myhostname,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libcap2,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libnss-myhostname","libnss-myhostname","libnss-myhostname","nss module providing fallback resolution for the current hostname","","","1","1","","","","Section=admin; Version=257.8-1~deb13u1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcap2","libcap2","libcap2","POSIX 1003.1e capabilities (library)","","","1","1","","","","Section=libs; Version=1:2.75-10+b1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","libnss-myhostname","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnss-myhostname","libcap2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libcap2","libc6","Depends","#333","1","Depends","arrow","{}"

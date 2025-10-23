@@ -1,82 +1,82 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-golang-google-grpc-dev,golang-google-grpc-dev,golang-google-grpc-dev,implementation of gRPC in Go,,,1,1,,,,Section=golang; Version=1.64.0-7,,,,,,,
-golang-github-google-cel-go-dev,golang-github-google-cel-go-dev,golang-github-google-cel-go-dev,Common Expression Language (go runtime),,,1,1,,,,Section=golang; Version=0.18.2+ds-5,,,,,,,
-golang-github-google-go-cmp-dev,golang-github-google-go-cmp-dev,golang-github-google-go-cmp-dev,Package for comparing Go values in tests,,,1,1,,,,Section=golang; Version=0.6.0-1,,,,,,,
-golang-github-google-uuid-dev,golang-github-google-uuid-dev,golang-github-google-uuid-dev,generates and inspects UUIDs based on RFC 4122,,,1,1,,,,Section=golang; Version=1.6.0-1,,,,,,,
-golang-glog-dev,golang-glog-dev,golang-glog-dev,Leveled execution logs for Go,,,1,1,,,,Section=golang; Version=1.2.4-1,,,,,,,
-golang-go.opencensus-dev,golang-go.opencensus-dev,golang-go.opencensus-dev,Stats collection and distributed tracing framework,,,1,1,,,,Section=golang; Version=0.24.0-2,,,,,,,
-golang-golang-x-net-dev,golang-golang-x-net-dev,golang-golang-x-net-dev,Supplementary Go networking libraries,,,1,1,,,,Section=golang; Version=1:0.27.0-2,,,,,,,
-golang-golang-x-oauth2-dev,golang-golang-x-oauth2-dev,golang-golang-x-oauth2-dev,make OAuth2 authorized and authenticated HTTP requests,,,1,1,,,,Section=golang; Version=0.27.0-1,,,,,,,
-golang-golang-x-oauth2-google-dev,golang-golang-x-oauth2-google-dev,golang-golang-x-oauth2-google-dev,Google APIs support for OAuth2,,,1,1,,,,Section=golang; Version=0.27.0-1,,,,,,,
-golang-golang-x-sync-dev,golang-golang-x-sync-dev,golang-golang-x-sync-dev,Supplemental Go synchronization libraries,,,1,1,,,,Section=golang; Version=0.7.0-1,,,,,,,
-golang-golang-x-sys-dev,golang-golang-x-sys-dev,golang-golang-x-sys-dev,Low-level interaction with the operating system,,,1,1,,,,Section=golang; Version=0.22.0-1,,,,,,,
-golang-google-cloud-dev,golang-google-cloud-dev,golang-google-cloud-dev,Google Cloud Platform APIs,,,1,1,,,,Section=golang; Version=0.56.0-6,,,,,,,
-golang-google-genproto-dev,golang-google-genproto-dev,golang-google-genproto-dev,Generated Go packages for common protocol buffer types,,,1,1,,,,Section=golang; Version=0.0~git20210726.e7812ac-4,,,,,,,
-golang-google-protobuf-dev,golang-google-protobuf-dev,golang-google-protobuf-dev,Go support for protocol buffers (APIv2),,,1,1,,,,Section=golang; Version=1.36.5-1,,,,,,,
-golang-github-antlr-antlr4-dev,golang-github-antlr-antlr4-dev,golang-github-antlr-antlr4-dev,runtime library for ANTLR 4,,,1,1,,,,Section=golang; Version=4.11.1+ds-2,,,,,,,
-golang-github-golang-protobuf-1-5-dev,golang-github-golang-protobuf-1-5-dev,golang-github-golang-protobuf-1-5-dev,Go support for protocol buffers (version v1.5.x),,,1,1,,,,Section=golang; Version=1.5.4-1,,,,,,,
-golang-github-stoewer-go-strcase-dev,golang-github-stoewer-go-strcase-dev,golang-github-stoewer-go-strcase-dev,go library for converting between naming formats,,,1,1,,,,Section=golang; Version=1.2.0-4,,,,,,,
-golang-golang-x-text-dev,golang-golang-x-text-dev,golang-golang-x-text-dev,Supplementary Go text-related libraries,,,1,1,,,,Section=golang; Version=0.22.0-1,,,,,,,
-golang-github-golang-groupcache-dev,golang-github-golang-groupcache-dev,golang-github-golang-groupcache-dev,"caching and cache-filling library, a replacement for memcached",,,1,1,,,,Section=golang; Version=0.0~git20210331.41bb18b-1,,,,,,,
-golang-github-stretchr-testify-dev,golang-github-stretchr-testify-dev,golang-github-stretchr-testify-dev,sacred extension to the standard Go testing package,,,1,1,,,,Section=golang; Version=1.10.0-1,,,,,,,
-golang-golang-x-crypto-dev,golang-golang-x-crypto-dev,golang-golang-x-crypto-dev,Supplementary Go cryptography libraries,,,1,1,,,,Section=golang; Version=1:0.25.0-1,,,,,,,
-golang-golang-x-term-dev,golang-golang-x-term-dev,golang-golang-x-term-dev,Go terminal and console support (library),,,1,1,,,,Section=golang; Version=0.22.0-1,,,,,,,
-golang-google-cloud-compute-metadata-dev,golang-google-cloud-compute-metadata-dev,golang-google-cloud-compute-metadata-dev,Google Cloud Platform APIs (only cloud/compute/metadata),,,1,1,,,,Section=golang; Version=0.56.0-6,,,,,,,
-golang-github-golang-mock-dev,golang-github-golang-mock-dev,golang-github-golang-mock-dev,mocking framework for the Go programming language,,,1,1,,,,Section=golang; Version=1.6.0-2,,,,,,,
-golang-github-google-btree-dev,golang-github-google-btree-dev,golang-github-google-btree-dev,BTree implementation for Go,,,1,1,,,,Section=golang; Version=1.0.1-1,,,,,,,
-golang-github-google-martian-dev,golang-github-google-martian-dev,golang-github-google-martian-dev,Martian is a library for building custom HTTP/S proxies,,,1,1,,,,Section=golang; Version=3.3.2-3,,,,,,,
-golang-github-google-pprof-dev,golang-github-google-pprof-dev,golang-github-google-pprof-dev,pprof is a tool for visualization and analysis of profiling data,,,1,1,,,,Section=golang; Version=0.0~git20211008.947d60d-1,,,,,,,
-golang-github-googleapis-gax-go-dev,golang-github-googleapis-gax-go-dev,golang-github-googleapis-gax-go-dev,Google API Extensions for Go,,,1,1,,,,Section=golang; Version=2.14.1-1,,,,,,,
-golang-golang-x-time-dev,golang-golang-x-time-dev,golang-golang-x-time-dev,Go supplementary time packages,,,1,1,,,,Section=golang; Version=0.5.0-1,,,,,,,
-golang-google-api-dev,golang-google-api-dev,golang-google-api-dev,Google APIs Client Library,,,1,1,,,,Section=golang; Version=0.61.0-6,,,,,,,
-golang-rsc-binaryregexp-dev,golang-rsc-binaryregexp-dev,golang-rsc-binaryregexp-dev,Go regexp for binary/latin-1 data,,,1,1,,,,Section=golang; Version=0.2.0-3,,,,,,,
-,,,,,,,,,,,,golang-github-google-cel-go-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-go-cmp-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-uuid-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-glog-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-go.opencensus-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-net-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-oauth2-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-oauth2-google-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-sync-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-sys-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-cloud-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-genproto-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-protobuf-dev,golang-google-grpc-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-antlr-antlr4-dev,golang-github-google-cel-go-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-golang-protobuf-1-5-dev,golang-github-google-cel-go-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-stoewer-go-strcase-dev,golang-github-google-cel-go-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-text-dev,golang-github-google-cel-go-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-genproto-dev,golang-github-google-cel-go-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-go-cmp-dev,golang-glog-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-go-cmp-dev,golang-go.opencensus-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-golang-groupcache-dev,golang-go.opencensus-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-stretchr-testify-dev,golang-go.opencensus-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-net-dev,golang-go.opencensus-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-grpc-dev,golang-go.opencensus-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-golang-protobuf-1-5-dev,golang-go.opencensus-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-crypto-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-sys-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-term-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-text-dev,golang-golang-x-net-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-oauth2-dev,golang-golang-x-oauth2-google-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-cloud-compute-metadata-dev,golang-golang-x-oauth2-google-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-golang-mock-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-golang-protobuf-1-5-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-btree-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-go-cmp-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-martian-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-google-pprof-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-googleapis-gax-go-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-go.opencensus-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-net-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-oauth2-google-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-golang-x-time-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-api-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-cloud-compute-metadata-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-genproto-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-grpc-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-rsc-binaryregexp-dev,golang-google-cloud-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-github-golang-protobuf-1-5-dev,golang-google-genproto-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-grpc-dev,golang-google-genproto-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,golang-google-protobuf-dev,golang-google-genproto-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-google-grpc-dev","golang-google-grpc-dev","golang-google-grpc-dev","implementation of gRPC in Go","","","1","1","","","","Section=golang; Version=1.64.0-7","","","","","","","",""
+"golang-github-google-cel-go-dev","golang-github-google-cel-go-dev","golang-github-google-cel-go-dev","Common Expression Language (go runtime)","","","1","1","","","","Section=golang; Version=0.18.2+ds-5","","","","","","","",""
+"golang-github-google-go-cmp-dev","golang-github-google-go-cmp-dev","golang-github-google-go-cmp-dev","Package for comparing Go values in tests","","","1","1","","","","Section=golang; Version=0.6.0-1","","","","","","","",""
+"golang-github-google-uuid-dev","golang-github-google-uuid-dev","golang-github-google-uuid-dev","generates and inspects UUIDs based on RFC 4122","","","1","1","","","","Section=golang; Version=1.6.0-1","","","","","","","",""
+"golang-glog-dev","golang-glog-dev","golang-glog-dev","Leveled execution logs for Go","","","1","1","","","","Section=golang; Version=1.2.4-1","","","","","","","",""
+"golang-go.opencensus-dev","golang-go.opencensus-dev","golang-go.opencensus-dev","Stats collection and distributed tracing framework","","","1","1","","","","Section=golang; Version=0.24.0-2","","","","","","","",""
+"golang-golang-x-net-dev","golang-golang-x-net-dev","golang-golang-x-net-dev","Supplementary Go networking libraries","","","1","1","","","","Section=golang; Version=1:0.27.0-2","","","","","","","",""
+"golang-golang-x-oauth2-dev","golang-golang-x-oauth2-dev","golang-golang-x-oauth2-dev","make OAuth2 authorized and authenticated HTTP requests","","","1","1","","","","Section=golang; Version=0.27.0-1","","","","","","","",""
+"golang-golang-x-oauth2-google-dev","golang-golang-x-oauth2-google-dev","golang-golang-x-oauth2-google-dev","Google APIs support for OAuth2","","","1","1","","","","Section=golang; Version=0.27.0-1","","","","","","","",""
+"golang-golang-x-sync-dev","golang-golang-x-sync-dev","golang-golang-x-sync-dev","Supplemental Go synchronization libraries","","","1","1","","","","Section=golang; Version=0.7.0-1","","","","","","","",""
+"golang-golang-x-sys-dev","golang-golang-x-sys-dev","golang-golang-x-sys-dev","Low-level interaction with the operating system","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""
+"golang-google-cloud-dev","golang-google-cloud-dev","golang-google-cloud-dev","Google Cloud Platform APIs","","","1","1","","","","Section=golang; Version=0.56.0-6","","","","","","","",""
+"golang-google-genproto-dev","golang-google-genproto-dev","golang-google-genproto-dev","Generated Go packages for common protocol buffer types","","","1","1","","","","Section=golang; Version=0.0~git20210726.e7812ac-4","","","","","","","",""
+"golang-google-protobuf-dev","golang-google-protobuf-dev","golang-google-protobuf-dev","Go support for protocol buffers (APIv2)","","","1","1","","","","Section=golang; Version=1.36.5-1","","","","","","","",""
+"golang-github-antlr-antlr4-dev","golang-github-antlr-antlr4-dev","golang-github-antlr-antlr4-dev","runtime library for ANTLR 4","","","1","1","","","","Section=golang; Version=4.11.1+ds-2","","","","","","","",""
+"golang-github-golang-protobuf-1-5-dev","golang-github-golang-protobuf-1-5-dev","golang-github-golang-protobuf-1-5-dev","Go support for protocol buffers (version v1.5.x)","","","1","1","","","","Section=golang; Version=1.5.4-1","","","","","","","",""
+"golang-github-stoewer-go-strcase-dev","golang-github-stoewer-go-strcase-dev","golang-github-stoewer-go-strcase-dev","go library for converting between naming formats","","","1","1","","","","Section=golang; Version=1.2.0-4","","","","","","","",""
+"golang-golang-x-text-dev","golang-golang-x-text-dev","golang-golang-x-text-dev","Supplementary Go text-related libraries","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""
+"golang-github-golang-groupcache-dev","golang-github-golang-groupcache-dev","golang-github-golang-groupcache-dev","caching and cache-filling library, a replacement for memcached","","","1","1","","","","Section=golang; Version=0.0~git20210331.41bb18b-1","","","","","","","",""
+"golang-github-stretchr-testify-dev","golang-github-stretchr-testify-dev","golang-github-stretchr-testify-dev","sacred extension to the standard Go testing package","","","1","1","","","","Section=golang; Version=1.10.0-1","","","","","","","",""
+"golang-golang-x-crypto-dev","golang-golang-x-crypto-dev","golang-golang-x-crypto-dev","Supplementary Go cryptography libraries","","","1","1","","","","Section=golang; Version=1:0.25.0-1","","","","","","","",""
+"golang-golang-x-term-dev","golang-golang-x-term-dev","golang-golang-x-term-dev","Go terminal and console support (library)","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""
+"golang-google-cloud-compute-metadata-dev","golang-google-cloud-compute-metadata-dev","golang-google-cloud-compute-metadata-dev","Google Cloud Platform APIs (only cloud/compute/metadata)","","","1","1","","","","Section=golang; Version=0.56.0-6","","","","","","","",""
+"golang-github-golang-mock-dev","golang-github-golang-mock-dev","golang-github-golang-mock-dev","mocking framework for the Go programming language","","","1","1","","","","Section=golang; Version=1.6.0-2","","","","","","","",""
+"golang-github-google-btree-dev","golang-github-google-btree-dev","golang-github-google-btree-dev","BTree implementation for Go","","","1","1","","","","Section=golang; Version=1.0.1-1","","","","","","","",""
+"golang-github-google-martian-dev","golang-github-google-martian-dev","golang-github-google-martian-dev","Martian is a library for building custom HTTP/S proxies","","","1","1","","","","Section=golang; Version=3.3.2-3","","","","","","","",""
+"golang-github-google-pprof-dev","golang-github-google-pprof-dev","golang-github-google-pprof-dev","pprof is a tool for visualization and analysis of profiling data","","","1","1","","","","Section=golang; Version=0.0~git20211008.947d60d-1","","","","","","","",""
+"golang-github-googleapis-gax-go-dev","golang-github-googleapis-gax-go-dev","golang-github-googleapis-gax-go-dev","Google API Extensions for Go","","","1","1","","","","Section=golang; Version=2.14.1-1","","","","","","","",""
+"golang-golang-x-time-dev","golang-golang-x-time-dev","golang-golang-x-time-dev","Go supplementary time packages","","","1","1","","","","Section=golang; Version=0.5.0-1","","","","","","","",""
+"golang-google-api-dev","golang-google-api-dev","golang-google-api-dev","Google APIs Client Library","","","1","1","","","","Section=golang; Version=0.61.0-6","","","","","","","",""
+"golang-rsc-binaryregexp-dev","golang-rsc-binaryregexp-dev","golang-rsc-binaryregexp-dev","Go regexp for binary/latin-1 data","","","1","1","","","","Section=golang; Version=0.2.0-3","","","","","","","",""
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-github-google-cel-go-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-github-google-go-cmp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-github-google-uuid-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-glog-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-go.opencensus-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-golang-x-net-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-golang-x-oauth2-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-golang-x-oauth2-google-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-golang-x-sync-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-golang-x-sys-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-google-cloud-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-google-genproto-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-grpc-dev","golang-google-protobuf-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-github-google-cel-go-dev","golang-github-antlr-antlr4-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-github-google-cel-go-dev","golang-github-golang-protobuf-1-5-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-github-google-cel-go-dev","golang-github-stoewer-go-strcase-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-github-google-cel-go-dev","golang-golang-x-text-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-github-google-cel-go-dev","golang-google-genproto-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-glog-dev","golang-github-google-go-cmp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-go.opencensus-dev","golang-github-google-go-cmp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-go.opencensus-dev","golang-github-golang-groupcache-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-go.opencensus-dev","golang-github-stretchr-testify-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-go.opencensus-dev","golang-golang-x-net-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-go.opencensus-dev","golang-google-grpc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-go.opencensus-dev","golang-github-golang-protobuf-1-5-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-crypto-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-sys-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-term-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-net-dev","golang-golang-x-text-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-oauth2-google-dev","golang-golang-x-oauth2-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-golang-x-oauth2-google-dev","golang-google-cloud-compute-metadata-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-github-golang-mock-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-github-golang-protobuf-1-5-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-github-google-btree-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-github-google-go-cmp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-github-google-martian-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-github-google-pprof-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-github-googleapis-gax-go-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-go.opencensus-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-golang-x-net-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-golang-x-oauth2-google-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-golang-x-time-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-google-api-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-google-cloud-compute-metadata-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-google-genproto-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-google-grpc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-cloud-dev","golang-rsc-binaryregexp-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-genproto-dev","golang-github-golang-protobuf-1-5-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-genproto-dev","golang-google-grpc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","golang-google-genproto-dev","golang-google-protobuf-dev","Depends","#333","1","Depends","arrow","{}"

@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"glibc-doc","glibc-doc","glibc-doc","GNU C Library: Documentation","","","1","1","","","","Section=doc; Version=2.41-12","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"glibc-doc","glibc-doc","glibc-doc","GNU C Library: Documentation","","","1","1","","","","Section=doc; Version=2.41-12","","","","","","","",""

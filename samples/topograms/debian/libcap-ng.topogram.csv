@@ -1,6 +1,6 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libcap-ng-dev,libcap-ng-dev,libcap-ng-dev,Development and header files for libcap-ng,,,1,1,,,,Section=libdevel; Version=0.8.5-4+b1,,,,,,,
-libcap-ng0,libcap-ng0,libcap-ng0,alternate POSIX capabilities library,,,1,1,,,,Section=libs; Version=0.8.5-4+b1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,libcap-ng0,libcap-ng-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libcap-ng0,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libcap-ng-dev","libcap-ng-dev","libcap-ng-dev","Development and header files for libcap-ng","","","1","1","","","","Section=libdevel; Version=0.8.5-4+b1","","","","","","","",""
+"libcap-ng0","libcap-ng0","libcap-ng0","alternate POSIX capabilities library","","","1","1","","","","Section=libs; Version=0.8.5-4+b1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libcap-ng-dev","libcap-ng0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcap-ng0","libc6","Depends","#333","1","Depends","arrow","{}"

@@ -1,7 +1,7 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-python3-prettytable,python3-prettytable,python3-prettytable,library to represent tabular data in visually appealing ASCII tables (Python3),,,1,1,,,,Section=python; Version=3.15.1-1,,,,,,,
-python3-wcwidth,python3-wcwidth,python3-wcwidth,determine printable width of a string on a terminal,,,1,1,,,,Section=python; Version=0.2.13+dfsg1-1,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-,,,,,,,,,,,,python3-wcwidth,python3-prettytable,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-prettytable,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-wcwidth,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"python3-prettytable","python3-prettytable","python3-prettytable","library to represent tabular data in visually appealing ASCII tables (Python3)","","","1","1","","","","Section=python; Version=3.15.1-1","","","","","","","",""
+"python3-wcwidth","python3-wcwidth","python3-wcwidth","determine printable width of a string on a terminal","","","1","1","","","","Section=python; Version=0.2.13+dfsg1-1","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","python3-prettytable","python3-wcwidth","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-prettytable","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-wcwidth","python3:any","Depends","#333","1","Depends","arrow","{}"

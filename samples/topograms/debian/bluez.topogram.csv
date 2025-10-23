@@ -1,28 +1,28 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-bluetooth,bluetooth,bluetooth,Bluetooth support (metapackage),,,1,1,,,,Section=admin; Version=5.82-1.1,,,,,,,
-bluez,bluez,bluez,Bluetooth tools and daemons,,,1,1,,,,Section=admin; Version=5.82-1.1,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
-libdw1t64,libdw1t64,libdw1t64,library that provides access to the DWARF debug information,,,1,1,,,,Section=libs; Version=0.192-4,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
-libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-init-system-helpers,init-system-helpers,init-system-helpers,helper tools for all init systems,,,1,1,,,,Section=admin; Version=1.69~deb13u1,,,,,,,
-adduser,adduser,adduser,add and remove users and groups,,,1,1,,,,Section=admin; Version=3.152,,,,,,,
-kmod,kmod,kmod,tools for managing Linux kernel modules,,,1,1,,,,Section=admin; Version=34.2-2,,,,,,,
-udev,udev,udev,/dev/ and hotplug management daemon,,,1,1,,,,Section=admin; Version=257.8-1~deb13u1,,,,,,,
-default-dbus-system-bus,default-dbus-system-bus,default-dbus-system-bus,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-,,,,,,,,,,,,bluez,bluetooth,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdw1t64,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libreadline8t64,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libudev1,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,init-system-helpers,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,adduser,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,kmod,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,udev,bluez,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,default-dbus-system-bus,bluez,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"bluetooth","bluetooth","bluetooth","Bluetooth support (metapackage)","","","1","1","","","","Section=admin; Version=5.82-1.1","","","","","","","",""
+"bluez","bluez","bluez","Bluetooth tools and daemons","","","1","1","","","","Section=admin; Version=5.82-1.1","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","","","",""
+"libdw1t64","libdw1t64","libdw1t64","library that provides access to the DWARF debug information","","","1","1","","","","Section=libs; Version=0.192-4","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","","","",""
+"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"init-system-helpers","init-system-helpers","init-system-helpers","helper tools for all init systems","","","1","1","","","","Section=admin; Version=1.69~deb13u1","","","","","","","",""
+"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","","","",""
+"kmod","kmod","kmod","tools for managing Linux kernel modules","","","1","1","","","","Section=admin; Version=34.2-2","","","","","","","",""
+"udev","udev","udev","/dev/ and hotplug management daemon","","","1","1","","","","Section=admin; Version=257.8-1~deb13u1","","","","","","","",""
+"default-dbus-system-bus","default-dbus-system-bus","default-dbus-system-bus","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","bluetooth","bluez","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","libdw1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","libreadline8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","libudev1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","init-system-helpers","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","adduser","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","kmod","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","udev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","bluez","default-dbus-system-bus","Depends","#333","1","Depends","arrow","{}"

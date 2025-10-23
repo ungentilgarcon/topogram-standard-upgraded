@@ -1,6 +1,6 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libkpathsea-dev,libkpathsea-dev,libkpathsea-dev,TeX Live: path search library for TeX (development part),,,1,1,,,,Section=libdevel; Version=2024.20240313.70630+ds-6,,,,,,,
-libkpathsea6,libkpathsea6,libkpathsea6,TeX Live: path search library for TeX (runtime part),,,1,1,,,,Section=libs; Version=2024.20240313.70630+ds-6,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,libkpathsea6,libkpathsea-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libkpathsea6,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkpathsea-dev","libkpathsea-dev","libkpathsea-dev","TeX Live: path search library for TeX (development part)","","","1","1","","","","Section=libdevel; Version=2024.20240313.70630+ds-6","","","","","","","",""
+"libkpathsea6","libkpathsea6","libkpathsea6","TeX Live: path search library for TeX (runtime part)","","","1","1","","","","Section=libs; Version=2024.20240313.70630+ds-6","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libkpathsea-dev","libkpathsea6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkpathsea6","libc6","Depends","#333","1","Depends","arrow","{}"

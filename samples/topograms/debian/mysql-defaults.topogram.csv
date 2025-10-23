@@ -1,6 +1,6 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-default-libmysqlclient-dev,default-libmysqlclient-dev,default-libmysqlclient-dev,MySQL database development files (metapackage),,,1,1,,,,Section=database; Version=1.1.1,,,,,,,
-libmariadb-dev-compat,libmariadb-dev-compat,libmariadb-dev-compat,"MariaDB Connector/C, compatibility symlinks",,,1,1,,,,Section=libdevel; Version=1:11.8.3-0+deb13u1,,,,,,,
-libmariadb-dev,libmariadb-dev,libmariadb-dev,MariaDB database development files,,,1,1,,,,Section=libdevel; Version=1:11.8.3-0+deb13u1,,,,,,,
-,,,,,,,,,,,,libmariadb-dev-compat,default-libmysqlclient-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmariadb-dev,libmariadb-dev-compat,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"default-libmysqlclient-dev","default-libmysqlclient-dev","default-libmysqlclient-dev","MySQL database development files (metapackage)","","","1","1","","","","Section=database; Version=1.1.1","","","","","","","",""
+"libmariadb-dev-compat","libmariadb-dev-compat","libmariadb-dev-compat","MariaDB Connector/C, compatibility symlinks","","","1","1","","","","Section=libdevel; Version=1:11.8.3-0+deb13u1","","","","","","","",""
+"libmariadb-dev","libmariadb-dev","libmariadb-dev","MariaDB database development files","","","1","1","","","","Section=libdevel; Version=1:11.8.3-0+deb13u1","","","","","","","",""
+"","","","","","","","","","","","","default-libmysqlclient-dev","libmariadb-dev-compat","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libmariadb-dev-compat","libmariadb-dev","Depends","#333","1","Depends","arrow","{}"

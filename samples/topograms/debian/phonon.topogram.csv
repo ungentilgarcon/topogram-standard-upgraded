@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libphonon-l10n","libphonon-l10n","libphonon-l10n","multimedia framework from KDE using Qt - localization files","","","1","1","","","","Section=localization; Version=4:4.12.0-5","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libphonon-l10n","libphonon-l10n","libphonon-l10n","multimedia framework from KDE using Qt - localization files","","","1","1","","","","Section=localization; Version=4:4.12.0-5","","","","","","","",""

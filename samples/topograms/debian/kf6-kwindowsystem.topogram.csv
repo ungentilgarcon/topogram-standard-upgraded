@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libkf6windowsystem-data","libkf6windowsystem-data","libkf6windowsystem-data","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkf6windowsystem-data","libkf6windowsystem-data","libkf6windowsystem-data","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""

@@ -1,78 +1,78 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libsdl2-image-2.0-0,libsdl2-image-2.0-0,libsdl2-image-2.0-0,"Image loading library for Simple DirectMedia Layer 2, libraries",,,1,1,,,,Section=libs; Version=2.8.8+dfsg-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
-libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
-libsdl2-2.0-0,libsdl2-2.0-0,libsdl2-2.0-0,Simple DirectMedia Layer,,,1,1,,,,Section=libs; Version=2.32.4+dfsg-1,,,,,,,
-libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
-libwebp7,libwebp7,libwebp7,Lossy compression of digital photographic images (shared library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libwebpdemux2,libwebpdemux2,libwebpdemux2,Lossy compression of digital photographic images (libwebpdemux library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libdecor-0-0,libdecor-0-0,libdecor-0-0,client-side window decoration library,,,1,1,,,,Section=libs; Version=0.2.2-2,,,,,,,
-libdrm2,libdrm2,libdrm2,Userspace interface to kernel DRM services -- runtime,,,1,1,,,,Section=libs; Version=2.4.124-2,,,,,,,
-libgbm1,libgbm1,libgbm1,generic buffer management API -- runtime,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
-libpulse0,libpulse0,libpulse0,PulseAudio client libraries,,,1,1,,,,Section=libs; Version=17.0+dfsg1-2+b1,,,,,,,
-libsamplerate0,libsamplerate0,libsamplerate0,Audio sample rate conversion library,,,1,1,,,,Section=libs; Version=0.2.2-4+b2,,,,,,,
-libwayland-client0,libwayland-client0,libwayland-client0,wayland compositor infrastructure - client library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libwayland-cursor0,libwayland-cursor0,libwayland-cursor0,wayland compositor infrastructure - cursor library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libwayland-egl1,libwayland-egl1,libwayland-egl1,wayland compositor infrastructure - EGL library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxcursor1,libxcursor1,libxcursor1,X cursor management library,,,1,1,,,,Section=libs; Version=1:1.2.3-1,,,,,,,
-libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
-libxfixes3,libxfixes3,libxfixes3,X11 miscellaneous 'fixes' extension library,,,1,1,,,,Section=libs; Version=1:6.0.0-2+b4,,,,,,,
-libxi6,libxi6,libxi6,X11 Input extension library,,,1,1,,,,Section=libs; Version=2:1.8.2-1,,,,,,,
-libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
-libxrandr2,libxrandr2,libxrandr2,X11 RandR extension library,,,1,1,,,,Section=libs; Version=2:1.5.4-1+b3,,,,,,,
-libxss1,libxss1,libxss1,X11 Screen Saver extension library,,,1,1,,,,Section=libs; Version=1:1.2.3-1+b3,,,,,,,
-libdeflate0,libdeflate0,libdeflate0,"fast, whole-buffer DEFLATE-based compression and decompression",,,1,1,,,,Section=libs; Version=1.23-2,,,,,,,
-libjbig0,libjbig0,libjbig0,JBIGkit libraries,,,1,1,,,,Section=libs; Version=2.1-6.1+b2,,,,,,,
-liblerc4,liblerc4,liblerc4,Limited Error Raster Compression library,,,1,1,,,,Section=libs; Version=4.0.0+ds-5,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-libsharpyuv0,libsharpyuv0,libsharpyuv0,Library for sharp RGB to YUV conversion,,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-,,,,,,,,,,,,libc6,libsdl2-image-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,libsdl2-image-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,libsdl2-image-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-2.0-0,libsdl2-image-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtiff6,libsdl2-image-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,libsdl2-image-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpdemux2,libsdl2-image-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libjpeg62-turbo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpng16-16t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libpng16-16t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdecor-0-0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdrm2,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgbm1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpulse0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsamplerate0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-client0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-cursor0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-egl1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcursor1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxfixes3,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxi6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxrandr2,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxss1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdeflate0,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjbig0,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblerc4,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libtiff6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libwebp7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsharpyuv0,libwebp7,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libwebpdemux2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,libwebpdemux2,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libsdl2-image-2.0-0","libsdl2-image-2.0-0","libsdl2-image-2.0-0","Image loading library for Simple DirectMedia Layer 2, libraries","","","1","1","","","","Section=libs; Version=2.8.8+dfsg-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","","","",""
+"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","","","",""
+"libsdl2-2.0-0","libsdl2-2.0-0","libsdl2-2.0-0","Simple DirectMedia Layer","","","1","1","","","","Section=libs; Version=2.32.4+dfsg-1","","","","","","","",""
+"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","","","",""
+"libwebp7","libwebp7","libwebp7","Lossy compression of digital photographic images (shared library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libwebpdemux2","libwebpdemux2","libwebpdemux2","Lossy compression of digital photographic images (libwebpdemux library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libdecor-0-0","libdecor-0-0","libdecor-0-0","client-side window decoration library","","","1","1","","","","Section=libs; Version=0.2.2-2","","","","","","","",""
+"libdrm2","libdrm2","libdrm2","Userspace interface to kernel DRM services -- runtime","","","1","1","","","","Section=libs; Version=2.4.124-2","","","","","","","",""
+"libgbm1","libgbm1","libgbm1","generic buffer management API -- runtime","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","","","",""
+"libpulse0","libpulse0","libpulse0","PulseAudio client libraries","","","1","1","","","","Section=libs; Version=17.0+dfsg1-2+b1","","","","","","","",""
+"libsamplerate0","libsamplerate0","libsamplerate0","Audio sample rate conversion library","","","1","1","","","","Section=libs; Version=0.2.2-4+b2","","","","","","","",""
+"libwayland-client0","libwayland-client0","libwayland-client0","wayland compositor infrastructure - client library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libwayland-cursor0","libwayland-cursor0","libwayland-cursor0","wayland compositor infrastructure - cursor library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libwayland-egl1","libwayland-egl1","libwayland-egl1","wayland compositor infrastructure - EGL library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxcursor1","libxcursor1","libxcursor1","X cursor management library","","","1","1","","","","Section=libs; Version=1:1.2.3-1","","","","","","","",""
+"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","","","",""
+"libxfixes3","libxfixes3","libxfixes3","X11 miscellaneous 'fixes' extension library","","","1","1","","","","Section=libs; Version=1:6.0.0-2+b4","","","","","","","",""
+"libxi6","libxi6","libxi6","X11 Input extension library","","","1","1","","","","Section=libs; Version=2:1.8.2-1","","","","","","","",""
+"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","","","",""
+"libxrandr2","libxrandr2","libxrandr2","X11 RandR extension library","","","1","1","","","","Section=libs; Version=2:1.5.4-1+b3","","","","","","","",""
+"libxss1","libxss1","libxss1","X11 Screen Saver extension library","","","1","1","","","","Section=libs; Version=1:1.2.3-1+b3","","","","","","","",""
+"libdeflate0","libdeflate0","libdeflate0","fast, whole-buffer DEFLATE-based compression and decompression","","","1","1","","","","Section=libs; Version=1.23-2","","","","","","","",""
+"libjbig0","libjbig0","libjbig0","JBIGkit libraries","","","1","1","","","","Section=libs; Version=2.1-6.1+b2","","","","","","","",""
+"liblerc4","liblerc4","liblerc4","Limited Error Raster Compression library","","","1","1","","","","Section=libs; Version=4.0.0+ds-5","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"libsharpyuv0","libsharpyuv0","libsharpyuv0","Library for sharp RGB to YUV conversion","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"","","","","","","","","","","","","libsdl2-image-2.0-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-image-2.0-0","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-image-2.0-0","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-image-2.0-0","libsdl2-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-image-2.0-0","libtiff6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-image-2.0-0","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-image-2.0-0","libwebpdemux2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjpeg62-turbo","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpng16-16t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpng16-16t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libdecor-0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libdrm2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libgbm1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libpulse0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libsamplerate0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libwayland-client0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libwayland-cursor0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libwayland-egl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxcursor1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxext6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxfixes3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxi6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxkbcommon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxrandr2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxss1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","libdeflate0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","libjbig0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","liblerc4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtiff6","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwebp7","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwebp7","libsharpyuv0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwebpdemux2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libwebpdemux2","libwebp7","Depends","#333","1","Depends","arrow","{}"

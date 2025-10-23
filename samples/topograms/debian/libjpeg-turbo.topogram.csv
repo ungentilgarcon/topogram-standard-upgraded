@@ -1,8 +1,8 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libjpeg-dev,libjpeg-dev,libjpeg-dev,Development files for the JPEG library [dummy package],,,1,1,,,,Section=libdevel; Version=1:2.1.5-4,,,,,,,
-libjpeg62-turbo-dev,libjpeg62-turbo-dev,libjpeg62-turbo-dev,Development files for the libjpeg-turbo JPEG library,,,1,1,,,,Section=libdevel; Version=1:2.1.5-4,,,,,,,
-libc-dev,libc-dev,libc-dev,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
-,,,,,,,,,,,,libjpeg62-turbo-dev,libjpeg-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc-dev,libjpeg62-turbo-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,libjpeg62-turbo-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libjpeg-dev","libjpeg-dev","libjpeg-dev","Development files for the JPEG library [dummy package]","","","1","1","","","","Section=libdevel; Version=1:2.1.5-4","","","","","","","",""
+"libjpeg62-turbo-dev","libjpeg62-turbo-dev","libjpeg62-turbo-dev","Development files for the libjpeg-turbo JPEG library","","","1","1","","","","Section=libdevel; Version=1:2.1.5-4","","","","","","","",""
+"libc-dev","libc-dev","libc-dev","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","","","",""
+"","","","","","","","","","","","","libjpeg-dev","libjpeg62-turbo-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjpeg62-turbo-dev","libc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjpeg62-turbo-dev","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"

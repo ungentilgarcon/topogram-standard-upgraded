@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libatinject-jsr330-api-java","libatinject-jsr330-api-java","libatinject-jsr330-api-java","Java API for JSR-330 Dependency Injection","","","1","1","","","","Section=java; Version=1.0+ds1-6","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libatinject-jsr330-api-java","libatinject-jsr330-api-java","libatinject-jsr330-api-java","Java API for JSR-330 Dependency Injection","","","1","1","","","","Section=java; Version=1.0+ds1-6","","","","","","","",""

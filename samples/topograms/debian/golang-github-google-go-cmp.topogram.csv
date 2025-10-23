@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"golang-github-google-go-cmp-dev","golang-github-google-go-cmp-dev","golang-github-google-go-cmp-dev","Package for comparing Go values in tests","","","1","1","","","","Section=golang; Version=0.6.0-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-github-google-go-cmp-dev","golang-github-google-go-cmp-dev","golang-github-google-go-cmp-dev","Package for comparing Go values in tests","","","1","1","","","","Section=golang; Version=0.6.0-1","","","","","","","",""

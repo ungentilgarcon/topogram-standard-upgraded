@@ -1,160 +1,160 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-luanti,luanti,luanti,Multiplayer infinite-world block sandbox,,,1,1,,,,Section=games; Version=5.10.0+dfsg-5,,,,,,,
-luanti-data,luanti-data,luanti-data,Multiplayer infinite-world block sandbox (data files),,,1,1,,,,Section=games; Version=5.10.0+dfsg-5,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
-libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
-libjsoncpp26,libjsoncpp26,libjsoncpp26,library for reading and writing JSON for C++,,,1,1,,,,Section=libs; Version=1.9.6-3,,,,,,,
-libleveldb1d,libleveldb1d,libleveldb1d,fast key-value storage library,,,1,1,,,,Section=libs; Version=1.23-5+b2,,,,,,,
-libluajit-5.1-2,libluajit-5.1-2,libluajit-5.1-2,OpenResty-maintained branch of LuaJIT (shared objects),,,1,1,,,,Section=libs; Version=2.1.0+openresty20250117-2,,,,,,,
-libopenal1,libopenal1,libopenal1,Software implementation of the OpenAL audio API (shared library),,,1,1,,,,Section=libs; Version=1:1.24.2-1,,,,,,,
-libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
-libpq5,libpq5,libpq5,PostgreSQL C client library,,,1,1,,,,Section=libs; Version=17.6-0+deb13u1,,,,,,,
-libprometheus-cpp-core1.0,libprometheus-cpp-core1.0,libprometheus-cpp-core1.0,Prometheus Client Library for Modern C++ (core metrics),,,1,1,,,,Section=libs; Version=1.0.2-2+b3,,,,,,,
-libprometheus-cpp-pull1.0,libprometheus-cpp-pull1.0,libprometheus-cpp-pull1.0,Prometheus Client Library for Modern C++ (pull support),,,1,1,,,,Section=libs; Version=1.0.2-2+b3,,,,,,,
-libspatialindex8,libspatialindex8,libspatialindex8,General framework for developing spatial indices,,,1,1,,,,Section=libs; Version=2.1.0-1,,,,,,,
-libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libvorbisfile3,libvorbisfile3,libvorbisfile3,high-level API for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxi6,libxi6,libxi6,X11 Input extension library,,,1,1,,,,Section=libs; Version=2:1.8.2-1,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-luanti-game-minetest,luanti-game-minetest,luanti-game-minetest,Minetest Game (sub)game for the Luanti engine,,,1,1,,,,Section=games; Version=5.8.0.40.gc7be7c1-3,,,,,,,
-fonts-croscore,fonts-croscore,fonts-croscore,width-compatible fonts for improved on-screen readability,,,1,1,,,,Section=fonts; Version=20201225-2,,,,,,,
-fonts-droid-fallback,fonts-droid-fallback,fonts-droid-fallback,handheld device font with extensive style and language support (fallback),,,1,1,,,,Section=fonts; Version=1:8.1.0r7-1~1.gbp36536b,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
-libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
-libldap2,libldap2,libldap2,OpenLDAP libraries,,,1,1,,,,Section=libs; Version=2.6.10+dfsg-1,,,,,,,
-libnghttp2-14,libnghttp2-14,libnghttp2-14,library implementing HTTP/2 protocol (shared library),,,1,1,,,,Section=libs; Version=1.64.0-1.1,,,,,,,
-libnghttp3-9,libnghttp3-9,libnghttp3-9,HTTP/3 library with QUIC and QPACK (library),,,1,1,,,,Section=libs; Version=1.8.0-1,,,,,,,
-libpsl5t64,libpsl5t64,libpsl5t64,Library for Public Suffix List (shared libraries),,,1,1,,,,Section=libs; Version=0.21.2-1.1+b1,,,,,,,
-librtmp1,librtmp1,librtmp1,toolkit for RTMP streams (shared library),,,1,1,,,,Section=libs; Version=2.4+20151223.gitfa8646d.1-2+b5,,,,,,,
-libssh2-1t64,libssh2-1t64,libssh2-1t64,SSH2 client-side library,,,1,1,,,,Section=libs; Version=1.11.1-1,,,,,,,
-libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
-ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
-libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libglvnd0,libglvnd0,libglvnd0,Vendor neutral GL dispatch library,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libglx0,libglx0,libglx0,Vendor neutral GL dispatch library -- GLX support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libsnappy1v5,libsnappy1v5,libsnappy1v5,fast compression/decompression library,,,1,1,,,,Section=libs; Version=1.2.2-1,,,,,,,
-libluajit-5.1-common,libluajit-5.1-common,libluajit-5.1-common,OpenResty-maintained branch of LuaJIT (common files),,,1,1,,,,Section=interpreters; Version=2.1.0+openresty20250117-2,,,,,,,
-libopenal-data,libopenal-data,libopenal-data,Software implementation of the OpenAL audio API (data files),,,1,1,,,,Section=libs; Version=1:1.24.2-1,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libpulse0,libpulse0,libpulse0,PulseAudio client libraries,,,1,1,,,,Section=libs; Version=17.0+dfsg1-2+b1,,,,,,,
-libcivetweb1,libcivetweb1,libcivetweb1,"embeddable web server with optional CGI, SSL and Lua support (lib)",,,1,1,,,,Section=libs; Version=1.16+dfsg-2+b2,,,,,,,
-libogg0,libogg0,libogg0,Ogg bitstream library,,,1,1,,,,Section=libs; Version=1.3.5-3+b2,,,,,,,
-libvorbis0a,libvorbis0a,libvorbis0a,decoder library for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
-libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libx11-data,libx11-data,libx11-data,X11 client-side library,,,1,1,,,,Section=x11; Version=2:1.8.12-1,,,,,,,
-libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
-,,,,,,,,,,,,luanti-data,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcurl4t64,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgl1,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjsoncpp26,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libleveldb1d,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libluajit-5.1-2,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenal1,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpq5,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libprometheus-cpp-core1.0,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libprometheus-cpp-pull1.0,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspatialindex8,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsqlite3-0,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvorbisfile3,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxi6,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,luanti,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,luanti-game-minetest,luanti,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fonts-croscore,luanti-data,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-droid-fallback,luanti-data,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libbrotli1,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgssapi-krb5-2,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libldap2,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnghttp2-14,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnghttp3-9,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpsl5t64,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librtmp1,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssh2-1t64,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libcurl4t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ca-certificates,libcurl4t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libbrotli1,libfreetype6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbz2-1.0,libfreetype6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libfreetype6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,libfreetype6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libfreetype6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgl1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglvnd0,libgl1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglx0,libgl1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgmp10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libjpeg62-turbo,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libjsoncpp26,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libjsoncpp26,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libjsoncpp26,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libleveldb1d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsnappy1v5,libleveldb1d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libleveldb1d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libluajit-5.1-common,libluajit-5.1-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libluajit-5.1-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libluajit-5.1-2,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenal-data,libopenal1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libopenal1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libopenal1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libopenal1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,libopenal1,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libpulse0,libopenal1,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libpng16-16t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libpng16-16t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpq5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgssapi-krb5-2,libpq5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libldap2,libpq5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,libpq5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ca-certificates,libpq5,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libprometheus-cpp-core1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libprometheus-cpp-core1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libprometheus-cpp-core1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libprometheus-cpp-core1.0,libprometheus-cpp-pull1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libprometheus-cpp-pull1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcivetweb1,libprometheus-cpp-pull1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libprometheus-cpp-pull1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libprometheus-cpp-pull1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libprometheus-cpp-pull1.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libspatialindex8,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libspatialindex8,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libspatialindex8,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libsqlite3-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libvorbisfile3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libogg0,libvorbisfile3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvorbis0a,libvorbisfile3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libx11-6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb1,libx11-6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-data,libx11-6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxi6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libxi6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext6,libxi6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libzstd1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,zlib1g,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,luanti,luanti-game-minetest,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"luanti","luanti","luanti","Multiplayer infinite-world block sandbox","","","1","1","","","","Section=games; Version=5.10.0+dfsg-5","","","","","","","",""
+"luanti-data","luanti-data","luanti-data","Multiplayer infinite-world block sandbox (data files)","","","1","1","","","","Section=games; Version=5.10.0+dfsg-5","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","","","",""
+"libjsoncpp26","libjsoncpp26","libjsoncpp26","library for reading and writing JSON for C++","","","1","1","","","","Section=libs; Version=1.9.6-3","","","","","","","",""
+"libleveldb1d","libleveldb1d","libleveldb1d","fast key-value storage library","","","1","1","","","","Section=libs; Version=1.23-5+b2","","","","","","","",""
+"libluajit-5.1-2","libluajit-5.1-2","libluajit-5.1-2","OpenResty-maintained branch of LuaJIT (shared objects)","","","1","1","","","","Section=libs; Version=2.1.0+openresty20250117-2","","","","","","","",""
+"libopenal1","libopenal1","libopenal1","Software implementation of the OpenAL audio API (shared library)","","","1","1","","","","Section=libs; Version=1:1.24.2-1","","","","","","","",""
+"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","","","",""
+"libpq5","libpq5","libpq5","PostgreSQL C client library","","","1","1","","","","Section=libs; Version=17.6-0+deb13u1","","","","","","","",""
+"libprometheus-cpp-core1.0","libprometheus-cpp-core1.0","libprometheus-cpp-core1.0","Prometheus Client Library for Modern C++ (core metrics)","","","1","1","","","","Section=libs; Version=1.0.2-2+b3","","","","","","","",""
+"libprometheus-cpp-pull1.0","libprometheus-cpp-pull1.0","libprometheus-cpp-pull1.0","Prometheus Client Library for Modern C++ (pull support)","","","1","1","","","","Section=libs; Version=1.0.2-2+b3","","","","","","","",""
+"libspatialindex8","libspatialindex8","libspatialindex8","General framework for developing spatial indices","","","1","1","","","","Section=libs; Version=2.1.0-1","","","","","","","",""
+"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libvorbisfile3","libvorbisfile3","libvorbisfile3","high-level API for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxi6","libxi6","libxi6","X11 Input extension library","","","1","1","","","","Section=libs; Version=2:1.8.2-1","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"luanti-game-minetest","luanti-game-minetest","luanti-game-minetest","Minetest Game (sub)game for the Luanti engine","","","1","1","","","","Section=games; Version=5.8.0.40.gc7be7c1-3","","","","","","","",""
+"fonts-croscore","fonts-croscore","fonts-croscore","width-compatible fonts for improved on-screen readability","","","1","1","","","","Section=fonts; Version=20201225-2","","","","","","","",""
+"fonts-droid-fallback","fonts-droid-fallback","fonts-droid-fallback","handheld device font with extensive style and language support (fallback)","","","1","1","","","","Section=fonts; Version=1:8.1.0r7-1~1.gbp36536b","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","","","",""
+"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","","","",""
+"libldap2","libldap2","libldap2","OpenLDAP libraries","","","1","1","","","","Section=libs; Version=2.6.10+dfsg-1","","","","","","","",""
+"libnghttp2-14","libnghttp2-14","libnghttp2-14","library implementing HTTP/2 protocol (shared library)","","","1","1","","","","Section=libs; Version=1.64.0-1.1","","","","","","","",""
+"libnghttp3-9","libnghttp3-9","libnghttp3-9","HTTP/3 library with QUIC and QPACK (library)","","","1","1","","","","Section=libs; Version=1.8.0-1","","","","","","","",""
+"libpsl5t64","libpsl5t64","libpsl5t64","Library for Public Suffix List (shared libraries)","","","1","1","","","","Section=libs; Version=0.21.2-1.1+b1","","","","","","","",""
+"librtmp1","librtmp1","librtmp1","toolkit for RTMP streams (shared library)","","","1","1","","","","Section=libs; Version=2.4+20151223.gitfa8646d.1-2+b5","","","","","","","",""
+"libssh2-1t64","libssh2-1t64","libssh2-1t64","SSH2 client-side library","","","1","1","","","","Section=libs; Version=1.11.1-1","","","","","","","",""
+"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","","","",""
+"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","","","",""
+"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libglvnd0","libglvnd0","libglvnd0","Vendor neutral GL dispatch library","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libglx0","libglx0","libglx0","Vendor neutral GL dispatch library -- GLX support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libsnappy1v5","libsnappy1v5","libsnappy1v5","fast compression/decompression library","","","1","1","","","","Section=libs; Version=1.2.2-1","","","","","","","",""
+"libluajit-5.1-common","libluajit-5.1-common","libluajit-5.1-common","OpenResty-maintained branch of LuaJIT (common files)","","","1","1","","","","Section=interpreters; Version=2.1.0+openresty20250117-2","","","","","","","",""
+"libopenal-data","libopenal-data","libopenal-data","Software implementation of the OpenAL audio API (data files)","","","1","1","","","","Section=libs; Version=1:1.24.2-1","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libpulse0","libpulse0","libpulse0","PulseAudio client libraries","","","1","1","","","","Section=libs; Version=17.0+dfsg1-2+b1","","","","","","","",""
+"libcivetweb1","libcivetweb1","libcivetweb1","embeddable web server with optional CGI, SSL and Lua support (lib)","","","1","1","","","","Section=libs; Version=1.16+dfsg-2+b2","","","","","","","",""
+"libogg0","libogg0","libogg0","Ogg bitstream library","","","1","1","","","","Section=libs; Version=1.3.5-3+b2","","","","","","","",""
+"libvorbis0a","libvorbis0a","libvorbis0a","decoder library for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","","","",""
+"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libx11-data","libx11-data","libx11-data","X11 client-side library","","","1","1","","","","Section=x11; Version=2:1.8.12-1","","","","","","","",""
+"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","","","",""
+"","","","","","","","","","","","","luanti","luanti-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libcurl4t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libgl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libjsoncpp26","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libleveldb1d","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libluajit-5.1-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libopenal1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libpq5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libprometheus-cpp-core1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libprometheus-cpp-pull1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libspatialindex8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libsqlite3-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libvorbisfile3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libxi6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti","luanti-game-minetest","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","luanti-data","fonts-croscore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti-data","fonts-droid-fallback","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libbrotli1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libgssapi-krb5-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libidn2-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libldap2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libnghttp2-14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libnghttp3-9","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libpsl5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","librtmp1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libssh2-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcurl4t64","ca-certificates","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libfreetype6","libbrotli1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfreetype6","libbz2-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfreetype6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfreetype6","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfreetype6","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgl1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgl1","libglvnd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgl1","libglx0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgmp10","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjpeg62-turbo","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjsoncpp26","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjsoncpp26","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjsoncpp26","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libleveldb1d","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libleveldb1d","libsnappy1v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libleveldb1d","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libluajit-5.1-2","libluajit-5.1-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libluajit-5.1-2","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libluajit-5.1-2","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenal1","libopenal-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenal1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenal1","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenal1","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libopenal1","libasound2t64","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libopenal1","libpulse0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libpng16-16t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpng16-16t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpq5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpq5","libgssapi-krb5-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpq5","libldap2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpq5","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpq5","ca-certificates","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-core1.0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-core1.0","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-core1.0","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-pull1.0","libprometheus-cpp-core1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-pull1.0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-pull1.0","libcivetweb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-pull1.0","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-pull1.0","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libprometheus-cpp-pull1.0","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libspatialindex8","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libspatialindex8","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libspatialindex8","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsqlite3-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvorbisfile3","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvorbisfile3","libogg0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvorbisfile3","libvorbis0a","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-6","libxcb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx11-6","libx11-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxi6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxi6","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxi6","libxext6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libzstd1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","luanti-game-minetest","luanti","Recommends","#333","1","Recommends","arrow","{}"

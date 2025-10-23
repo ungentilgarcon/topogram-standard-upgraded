@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libkf5widgetsaddons-data","libkf5widgetsaddons-data","libkf5widgetsaddons-data","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkf5widgetsaddons-data","libkf5widgetsaddons-data","libkf5widgetsaddons-data","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""

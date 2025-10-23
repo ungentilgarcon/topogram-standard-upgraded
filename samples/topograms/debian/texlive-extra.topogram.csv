@@ -1,107 +1,107 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-texlive-bibtex-extra,texlive-bibtex-extra,texlive-bibtex-extra,TeX Live: BibTeX additional styles,,,1,1,,,,Section=tex; Version=2024.20250309-2,,,,,,,
-tex-common,tex-common,tex-common,common infrastructure for building and installing TeX,,,1,1,,,,Section=tex; Version=6.19,,,,,,,
-libbibtex-parser-perl,libbibtex-parser-perl,libbibtex-parser-perl,pure Perl BibTeX parser,,,1,1,,,,Section=perl; Version=1.05+dfsg-1,,,,,,,
-liblatex-tounicode-perl,liblatex-tounicode-perl,liblatex-tounicode-perl,Convert LaTeX commands to Unicode,,,1,1,,,,Section=perl; Version=0.55-1,,,,,,,
-texlive-base,texlive-base,texlive-base,TeX Live: Essential programs and files,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
-texlive-binaries,texlive-binaries,texlive-binaries,Binaries for TeX Live,,,1,1,,,,Section=tex; Version=2024.20240313.70630+ds-6,,,,,,,
-texlive-latex-base,texlive-latex-base,texlive-latex-base,TeX Live: LaTeX fundamental packages,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
-ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libio-string-perl,libio-string-perl,libio-string-perl,Emulate IO::File interface for in-core strings,,,1,1,,,,Section=perl; Version=1.08-4,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-libpaper-utils,libpaper-utils,libpaper-utils,Paper sizes catalogue (utilities),,,1,1,,,,Section=utils; Version=2.2.5-0.3+b2,,,,,,,
-sensible-utils,sensible-utils,sensible-utils,Utilities for sensible alternative selection,,,1,1,,,,Section=utils; Version=0.0.25,,,,,,,
-xdg-utils,xdg-utils,xdg-utils,desktop integration utilities from freedesktop.org,,,1,1,,,,Section=utils; Version=1.2.1-2,,,,,,,
-lmodern,lmodern,lmodern,scalable PostScript and OpenType fonts based on Computer Modern,,,1,1,,,,Section=fonts; Version=2.005-1,,,,,,,
-libptexenc1,libptexenc1,libptexenc1,TeX Live: pTeX encoding library,,,1,1,,,,Section=libs; Version=2024.20240313.70630+ds-6,,,,,,,
-libkpathsea6,libkpathsea6,libkpathsea6,TeX Live: path search library for TeX (runtime part),,,1,1,,,,Section=libs; Version=2024.20240313.70630+ds-6,,,,,,,
-libsynctex2,libsynctex2,libsynctex2,TeX Live: SyncTeX parser library,,,1,1,,,,Section=libs; Version=2024.20240313.70630+ds-6,,,,,,,
-libtexlua53-5,libtexlua53-5,libtexlua53-5,"TeX Live: Lua 5.3, modified for use with LuaTeX",,,1,1,,,,Section=libs; Version=2024.20240313.70630+ds-6,,,,,,,
-t1utils,t1utils,t1utils,Collection of simple Type 1 font manipulation programs,,,1,1,,,,Section=text; Version=1.41-4,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libgraphite2-3,libgraphite2-3,libgraphite2-3,Font rendering engine for Complex Scripts -- library,,,1,1,,,,Section=libs; Version=1.3.14-2+b1,,,,,,,
-libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-libmpfi0,libmpfi0,libmpfi0,multiple precision floating-point interval computation library -- lib,,,1,1,,,,Section=libs; Version=1.5.4+ds-4,,,,,,,
-libmpfr6,libmpfr6,libmpfr6,multiple precision floating-point computation,,,1,1,,,,Section=libs; Version=4.2.2-1,,,,,,,
-libpaper2,libpaper2,libpaper2,Paper sizes catalogue,,,1,1,,,,Section=libs; Version=2.2.5-0.3+b2,,,,,,,
-libpixman-1-0,libpixman-1-0,libpixman-1-0,pixel-manipulation library for X and cairo,,,1,1,,,,Section=libs; Version=0.44.0-3,,,,,,,
-libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
-libpotrace0,libpotrace0,libpotrace0,library for tracing bitmaps,,,1,1,,,,Section=libs; Version=1.16-2+b2,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libteckit0,libteckit0,libteckit0,Encoding conversion library,,,1,1,,,,Section=libs; Version=2.5.12+ds1-1+b1,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxaw7,libxaw7,libxaw7,X11 Athena Widget library,,,1,1,,,,Section=libs; Version=2:1.0.16-1,,,,,,,
-libxi6,libxi6,libxi6,X11 Input extension library,,,1,1,,,,Section=libs; Version=2:1.8.2-1,,,,,,,
-libxmu6,libxmu6,libxmu6,X11 miscellaneous utility library,,,1,1,,,,Section=libs; Version=2:1.1.3-3+b4,,,,,,,
-libxpm4,libxpm4,libxpm4,X11 pixmap library,,,1,1,,,,Section=libs; Version=1:3.5.17-1+b3,,,,,,,
-libxt6t64,libxt6t64,libxt6t64,X11 toolkit intrinsics library,,,1,1,,,,Section=libs; Version=1:1.2.1-1.2+b2,,,,,,,
-libzzip-0-13t64,libzzip-0-13t64,libzzip-0-13t64,library providing read access on ZIP-archives - library,,,1,1,,,,Section=libs; Version=0.13.78+dfsg.1-0.1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-dvisvgm,dvisvgm,dvisvgm,DVI to SVG converter,,,1,1,,,,Section=tex; Version=3.4.4+ds-1,,,,,,,
-fonts-lmodern,fonts-lmodern,fonts-lmodern,OpenType fonts based on Computer Modern,,,1,1,,,,Section=fonts; Version=2.005-1,,,,,,,
-,,,,,,,,,,,,tex-common,texlive-bibtex-extra,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbibtex-parser-perl,texlive-bibtex-extra,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblatex-tounicode-perl,texlive-bibtex-extra,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,texlive-base,texlive-bibtex-extra,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,texlive-binaries,texlive-bibtex-extra,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,texlive-latex-base,texlive-bibtex-extra,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,tex-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libbibtex-parser-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libio-string-perl,libbibtex-parser-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblatex-tounicode-perl,libbibtex-parser-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,liblatex-tounicode-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,texlive-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tex-common,texlive-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpaper-utils,texlive-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,sensible-utils,texlive-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,texlive-binaries,texlive-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,texlive-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xdg-utils,texlive-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,lmodern,texlive-base,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libptexenc1,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libptexenc1,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkpathsea6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkpathsea6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsynctex2,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsynctex2,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtexlua53-5,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtexlua53-5,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,t1utils,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tex-common,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgraphite2-3,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libharfbuzz0b,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmpfi0,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmpfr6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpaper2,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpixman-1-0,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpotrace0,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libteckit0,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxaw7,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxi6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxmu6,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxpm4,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxt6t64,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzzip-0-13t64,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,texlive-binaries,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,texlive-base,texlive-binaries,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,dvisvgm,texlive-binaries,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,tex-common,texlive-latex-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-lmodern,texlive-latex-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,texlive-base,texlive-latex-base,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,texlive-binaries,texlive-latex-base,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"texlive-bibtex-extra","texlive-bibtex-extra","texlive-bibtex-extra","TeX Live: BibTeX additional styles","","","1","1","","","","Section=tex; Version=2024.20250309-2","","","","","","","",""
+"tex-common","tex-common","tex-common","common infrastructure for building and installing TeX","","","1","1","","","","Section=tex; Version=6.19","","","","","","","",""
+"libbibtex-parser-perl","libbibtex-parser-perl","libbibtex-parser-perl","pure Perl BibTeX parser","","","1","1","","","","Section=perl; Version=1.05+dfsg-1","","","","","","","",""
+"liblatex-tounicode-perl","liblatex-tounicode-perl","liblatex-tounicode-perl","Convert LaTeX commands to Unicode","","","1","1","","","","Section=perl; Version=0.55-1","","","","","","","",""
+"texlive-base","texlive-base","texlive-base","TeX Live: Essential programs and files","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","","","",""
+"texlive-binaries","texlive-binaries","texlive-binaries","Binaries for TeX Live","","","1","1","","","","Section=tex; Version=2024.20240313.70630+ds-6","","","","","","","",""
+"texlive-latex-base","texlive-latex-base","texlive-latex-base","TeX Live: LaTeX fundamental packages","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","","","",""
+"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libio-string-perl","libio-string-perl","libio-string-perl","Emulate IO::File interface for in-core strings","","","1","1","","","","Section=perl; Version=1.08-4","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"libpaper-utils","libpaper-utils","libpaper-utils","Paper sizes catalogue (utilities)","","","1","1","","","","Section=utils; Version=2.2.5-0.3+b2","","","","","","","",""
+"sensible-utils","sensible-utils","sensible-utils","Utilities for sensible alternative selection","","","1","1","","","","Section=utils; Version=0.0.25","","","","","","","",""
+"xdg-utils","xdg-utils","xdg-utils","desktop integration utilities from freedesktop.org","","","1","1","","","","Section=utils; Version=1.2.1-2","","","","","","","",""
+"lmodern","lmodern","lmodern","scalable PostScript and OpenType fonts based on Computer Modern","","","1","1","","","","Section=fonts; Version=2.005-1","","","","","","","",""
+"libptexenc1","libptexenc1","libptexenc1","TeX Live: pTeX encoding library","","","1","1","","","","Section=libs; Version=2024.20240313.70630+ds-6","","","","","","","",""
+"libkpathsea6","libkpathsea6","libkpathsea6","TeX Live: path search library for TeX (runtime part)","","","1","1","","","","Section=libs; Version=2024.20240313.70630+ds-6","","","","","","","",""
+"libsynctex2","libsynctex2","libsynctex2","TeX Live: SyncTeX parser library","","","1","1","","","","Section=libs; Version=2024.20240313.70630+ds-6","","","","","","","",""
+"libtexlua53-5","libtexlua53-5","libtexlua53-5","TeX Live: Lua 5.3, modified for use with LuaTeX","","","1","1","","","","Section=libs; Version=2024.20240313.70630+ds-6","","","","","","","",""
+"t1utils","t1utils","t1utils","Collection of simple Type 1 font manipulation programs","","","1","1","","","","Section=text; Version=1.41-4","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libgraphite2-3","libgraphite2-3","libgraphite2-3","Font rendering engine for Complex Scripts -- library","","","1","1","","","","Section=libs; Version=1.3.14-2+b1","","","","","","","",""
+"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"libmpfi0","libmpfi0","libmpfi0","multiple precision floating-point interval computation library -- lib","","","1","1","","","","Section=libs; Version=1.5.4+ds-4","","","","","","","",""
+"libmpfr6","libmpfr6","libmpfr6","multiple precision floating-point computation","","","1","1","","","","Section=libs; Version=4.2.2-1","","","","","","","",""
+"libpaper2","libpaper2","libpaper2","Paper sizes catalogue","","","1","1","","","","Section=libs; Version=2.2.5-0.3+b2","","","","","","","",""
+"libpixman-1-0","libpixman-1-0","libpixman-1-0","pixel-manipulation library for X and cairo","","","1","1","","","","Section=libs; Version=0.44.0-3","","","","","","","",""
+"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","","","",""
+"libpotrace0","libpotrace0","libpotrace0","library for tracing bitmaps","","","1","1","","","","Section=libs; Version=1.16-2+b2","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libteckit0","libteckit0","libteckit0","Encoding conversion library","","","1","1","","","","Section=libs; Version=2.5.12+ds1-1+b1","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxaw7","libxaw7","libxaw7","X11 Athena Widget library","","","1","1","","","","Section=libs; Version=2:1.0.16-1","","","","","","","",""
+"libxi6","libxi6","libxi6","X11 Input extension library","","","1","1","","","","Section=libs; Version=2:1.8.2-1","","","","","","","",""
+"libxmu6","libxmu6","libxmu6","X11 miscellaneous utility library","","","1","1","","","","Section=libs; Version=2:1.1.3-3+b4","","","","","","","",""
+"libxpm4","libxpm4","libxpm4","X11 pixmap library","","","1","1","","","","Section=libs; Version=1:3.5.17-1+b3","","","","","","","",""
+"libxt6t64","libxt6t64","libxt6t64","X11 toolkit intrinsics library","","","1","1","","","","Section=libs; Version=1:1.2.1-1.2+b2","","","","","","","",""
+"libzzip-0-13t64","libzzip-0-13t64","libzzip-0-13t64","library providing read access on ZIP-archives - library","","","1","1","","","","Section=libs; Version=0.13.78+dfsg.1-0.1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"dvisvgm","dvisvgm","dvisvgm","DVI to SVG converter","","","1","1","","","","Section=tex; Version=3.4.4+ds-1","","","","","","","",""
+"fonts-lmodern","fonts-lmodern","fonts-lmodern","OpenType fonts based on Computer Modern","","","1","1","","","","Section=fonts; Version=2.005-1","","","","","","","",""
+"","","","","","","","","","","","","texlive-bibtex-extra","tex-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-bibtex-extra","libbibtex-parser-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-bibtex-extra","liblatex-tounicode-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-bibtex-extra","texlive-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-bibtex-extra","texlive-binaries","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-bibtex-extra","texlive-latex-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tex-common","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbibtex-parser-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbibtex-parser-perl","libio-string-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libbibtex-parser-perl","liblatex-tounicode-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","liblatex-tounicode-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","tex-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","libpaper-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","sensible-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","texlive-binaries","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","xdg-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-base","lmodern","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libptexenc1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libptexenc1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libkpathsea6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libkpathsea6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libsynctex2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libsynctex2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libtexlua53-5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libtexlua53-5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","t1utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","tex-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libgraphite2-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libharfbuzz0b","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libmpfi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libmpfr6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libpaper2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libpixman-1-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libpotrace0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libteckit0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libxaw7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libxi6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libxmu6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libxpm4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libxt6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","libzzip-0-13t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","texlive-base","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","texlive-binaries","dvisvgm","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","texlive-latex-base","tex-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-latex-base","fonts-lmodern","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-latex-base","texlive-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","texlive-latex-base","texlive-binaries","Depends","#333","1","Depends","arrow","{}"

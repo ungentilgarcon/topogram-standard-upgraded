@@ -1,11 +1,11 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-python3-ruamel.yaml,python3-ruamel.yaml,python3-ruamel.yaml,Roundtrip YAML parser/emitter (Python 3 module),,,1,1,,,,Section=python; Version=0.18.10+ds-1,,,,,,,
-python3-ruamel.yaml.clib,python3-ruamel.yaml.clib,python3-ruamel.yaml.clib,"C version of reader, parser and emitter for ruamel.yaml",,,1,1,,,,Section=python; Version=0.2.12+ds-1+b1,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3,python3,python3,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,python3-ruamel.yaml.clib,python3-ruamel.yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-ruamel.yaml,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-ruamel.yaml.clib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,python3-ruamel.yaml.clib,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,python3-ruamel.yaml.clib,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"python3-ruamel.yaml","python3-ruamel.yaml","python3-ruamel.yaml","Roundtrip YAML parser/emitter (Python 3 module)","","","1","1","","","","Section=python; Version=0.18.10+ds-1","","","","","","","",""
+"python3-ruamel.yaml.clib","python3-ruamel.yaml.clib","python3-ruamel.yaml.clib","C version of reader, parser and emitter for ruamel.yaml","","","1","1","","","","Section=python; Version=0.2.12+ds-1+b1","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3","python3","python3","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","python3-ruamel.yaml","python3-ruamel.yaml.clib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-ruamel.yaml","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-ruamel.yaml.clib","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-ruamel.yaml.clib","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-ruamel.yaml.clib","libc6","Depends","#333","1","Depends","arrow","{}"

@@ -1,31 +1,31 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libxerces-c-dev,libxerces-c-dev,libxerces-c-dev,validating XML parser library for C++ (development files),,,1,1,,,,Section=libdevel; Version=3.2.4+debian-1.3+b2,,,,,,,
-libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-libicu-dev,libicu-dev,libicu-dev,Development files for International Components for Unicode,,,1,1,,,,Section=libdevel; Version=76.1-4,,,,,,,
-libxerces-c3.2t64,libxerces-c3.2t64,libxerces-c3.2t64,validating XML parser library for C++,,,1,1,,,,Section=libs; Version=3.2.4+debian-1.3+b2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libc-dev-bin,libc-dev-bin,libc-dev-bin,GNU C Library: Development binaries,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-linux-libc-dev,linux-libc-dev,linux-libc-dev,Linux support headers for userspace development,,,1,1,,,,Section=devel; Version=6.12.43-1,,,,,,,
-libcrypt-dev,libcrypt-dev,libcrypt-dev,libcrypt development files,,,1,1,,,,Section=libdevel; Version=1:4.4.38-1,,,,,,,
-rpcsvc-proto,rpcsvc-proto,rpcsvc-proto,RPC protocol compiler and definitions,,,1,1,,,,Section=libs; Version=1.4.3-1,,,,,,,
-libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
-icu-devtools,icu-devtools,icu-devtools,Development utilities for International Components for Unicode,,,1,1,,,,Section=libdevel; Version=76.1-4,,,,,,,
-libcurl3t64-gnutls,libcurl3t64-gnutls,libcurl3t64-gnutls,easy-to-use client-side URL transfer library (GnuTLS flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-,,,,,,,,,,,,libc6-dev,libxerces-c-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu-dev,libxerces-c-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxerces-c3.2t64,libxerces-c-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc-dev-bin,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,linux-libc-dev,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcrypt-dev,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,rpcsvc-proto,libc6-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,libicu-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,icu-devtools,libicu-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,libicu-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxerces-c3.2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcurl3t64-gnutls,libxerces-c3.2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libxerces-c3.2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libicu76,libxerces-c3.2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libxerces-c3.2t64,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libxerces-c-dev","libxerces-c-dev","libxerces-c-dev","validating XML parser library for C++ (development files)","","","1","1","","","","Section=libdevel; Version=3.2.4+debian-1.3+b2","","","","","","","",""
+"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"libicu-dev","libicu-dev","libicu-dev","Development files for International Components for Unicode","","","1","1","","","","Section=libdevel; Version=76.1-4","","","","","","","",""
+"libxerces-c3.2t64","libxerces-c3.2t64","libxerces-c3.2t64","validating XML parser library for C++","","","1","1","","","","Section=libs; Version=3.2.4+debian-1.3+b2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libc-dev-bin","libc-dev-bin","libc-dev-bin","GNU C Library: Development binaries","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"linux-libc-dev","linux-libc-dev","linux-libc-dev","Linux support headers for userspace development","","","1","1","","","","Section=devel; Version=6.12.43-1","","","","","","","",""
+"libcrypt-dev","libcrypt-dev","libcrypt-dev","libcrypt development files","","","1","1","","","","Section=libdevel; Version=1:4.4.38-1","","","","","","","",""
+"rpcsvc-proto","rpcsvc-proto","rpcsvc-proto","RPC protocol compiler and definitions","","","1","1","","","","Section=libs; Version=1.4.3-1","","","","","","","",""
+"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","","","",""
+"icu-devtools","icu-devtools","icu-devtools","Development utilities for International Components for Unicode","","","1","1","","","","Section=libdevel; Version=76.1-4","","","","","","","",""
+"libcurl3t64-gnutls","libcurl3t64-gnutls","libcurl3t64-gnutls","easy-to-use client-side URL transfer library (GnuTLS flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"","","","","","","","","","","","","libxerces-c-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxerces-c-dev","libicu-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxerces-c-dev","libxerces-c3.2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","libc-dev-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","linux-libc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","libcrypt-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev","rpcsvc-proto","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libicu-dev","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libicu-dev","icu-devtools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libicu-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxerces-c3.2t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxerces-c3.2t64","libcurl3t64-gnutls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxerces-c3.2t64","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxerces-c3.2t64","libicu76","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxerces-c3.2t64","libstdc++6","Depends","#333","1","Depends","arrow","{}"

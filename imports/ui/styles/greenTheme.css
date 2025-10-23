@@ -146,13 +146,44 @@
 .topogram-page h1 { color: var(--green-900); }
 
 /* Folder header and folder card styles */
-.folder-header { display:flex; align-items:center; gap:12px; cursor:pointer; padding:8px; }
+.folder-item {
+  grid-column: 1 / -1;
+  display: block;
+  background: transparent;
+  border-left: none;
+  box-shadow: none;
+  padding: 0;
+  min-height: unset;
+}
+.folder-header {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  padding: 10px 14px;
+  background: var(--card-bg);
+  border-radius: 12px;
+  border-left: 6px solid var(--green-300);
+  box-shadow: 0 6px 18px rgba(16, 88, 56, 0.04);
+}
 .folder-icon { font-size:22px; display:inline-block; width:28px; text-align:center }
 .folder-meta { display:flex; flex-direction:column }
 .folder-name { font-size:16px }
 .folder-count { color:var(--muted); font-size:13px }
-.folder-contents { margin-top:12px; display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:12px }
-.folder-card { background: white; border-left: 6px solid var(--green-300); padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(16,88,56,0.04) }
+.folder-contents {
+  margin-top: 14px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 260px));
+  gap: 14px 18px;
+  justify-content: flex-start;
+}
+.folder-card {
+  background: white;
+  border-left: 6px solid var(--green-300);
+  padding: 12px;
+  border-radius: 10px;
+  box-shadow: 0 6px 18px rgba(16,88,56,0.04);
+}
 .folder-card .topogram-link { font-size:15px }
 
 /* Debug panel styles */

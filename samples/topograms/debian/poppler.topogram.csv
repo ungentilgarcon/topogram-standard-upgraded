@@ -1,22 +1,22 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gir1.2-poppler-0.18,gir1.2-poppler-0.18,gir1.2-poppler-0.18,GObject introspection data for poppler-glib,,,1,1,,,,Section=introspection; Version=25.03.0-5,,,,,,,
-gir1.2-cairo-1.0,gir1.2-cairo-1.0,gir1.2-cairo-1.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-gio-2.0,gir1.2-gio-2.0,gir1.2-gio-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libpoppler-glib8t64,libpoppler-glib8t64,libpoppler-glib8t64,PDF rendering library (GLib-based shared library),,,1,1,,,,Section=libs; Version=25.03.0-5,,,,,,,
-libpoppler147,libpoppler147,libpoppler147,PDF rendering library,,,1,1,,,,Section=libs; Version=25.03.0-5,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-,,,,,,,,,,,,gir1.2-cairo-1.0,gir1.2-poppler-0.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gio-2.0,gir1.2-poppler-0.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-poppler-0.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler-glib8t64,gir1.2-poppler-0.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler147,libpoppler-glib8t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpoppler-glib8t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,libpoppler-glib8t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,libpoppler-glib8t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libpoppler-glib8t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpoppler-glib8t64,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gir1.2-poppler-0.18","gir1.2-poppler-0.18","gir1.2-poppler-0.18","GObject introspection data for poppler-glib","","","1","1","","","","Section=introspection; Version=25.03.0-5","","","","","","","",""
+"gir1.2-cairo-1.0","gir1.2-cairo-1.0","gir1.2-cairo-1.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libpoppler-glib8t64","libpoppler-glib8t64","libpoppler-glib8t64","PDF rendering library (GLib-based shared library)","","","1","1","","","","Section=libs; Version=25.03.0-5","","","","","","","",""
+"libpoppler147","libpoppler147","libpoppler147","PDF rendering library","","","1","1","","","","Section=libs; Version=25.03.0-5","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"","","","","","","","","","","","","gir1.2-poppler-0.18","gir1.2-cairo-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-poppler-0.18","gir1.2-gio-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-poppler-0.18","gir1.2-gobject-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-poppler-0.18","libpoppler-glib8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoppler-glib8t64","libpoppler147","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoppler-glib8t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoppler-glib8t64","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoppler-glib8t64","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoppler-glib8t64","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoppler-glib8t64","libstdc++6","Depends","#333","1","Depends","arrow","{}"

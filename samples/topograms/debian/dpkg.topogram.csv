@@ -1,4 +1,4 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-dpkg,dpkg,dpkg,Debian package management system,,,1,1,,,,Section=admin; Version=1.22.21,,,,,,,
-tar,tar,tar,GNU version of the tar archiving utility,,,1,1,,,,Section=utils; Version=1.35+dfsg-3.1,,,,,,,
-,,,,,,,,,,,,tar,dpkg,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"dpkg","dpkg","dpkg","Debian package management system","","","1","1","","","","Section=admin; Version=1.22.21","","","","","","","",""
+"tar","tar","tar","GNU version of the tar archiving utility","","","1","1","","","","Section=utils; Version=1.35+dfsg-3.1","","","","","","","",""
+"","","","","","","","","","","","","dpkg","tar","Depends","#333","1","Depends","arrow","{}"

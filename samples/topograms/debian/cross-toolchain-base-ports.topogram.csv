@@ -1,4 +1,4 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libc6-amd64-x32-cross,libc6-amd64-x32-cross,libc6-amd64-x32-cross,GNU C Library: 64bit Shared libraries for AMD64 (for cross-compiling),,,1,1,,,,Section=libs; Version=2.41-11cross1,,,,,,,
-libc6-x32-cross,libc6-x32-cross,libc6-x32-cross,GNU C Library: Shared libraries (for cross-compiling),,,1,1,,,,Section=libs; Version=2.41-11cross1,,,,,,,
-,,,,,,,,,,,,libc6-x32-cross,libc6-amd64-x32-cross,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libc6-amd64-x32-cross","libc6-amd64-x32-cross","libc6-amd64-x32-cross","GNU C Library: 64bit Shared libraries for AMD64 (for cross-compiling)","","","1","1","","","","Section=libs; Version=2.41-11cross1","","","","","","","",""
+"libc6-x32-cross","libc6-x32-cross","libc6-x32-cross","GNU C Library: Shared libraries (for cross-compiling)","","","1","1","","","","Section=libs; Version=2.41-11cross1","","","","","","","",""
+"","","","","","","","","","","","","libc6-amd64-x32-cross","libc6-x32-cross","Depends","#333","1","Depends","arrow","{}"

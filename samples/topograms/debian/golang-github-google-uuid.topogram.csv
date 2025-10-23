@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"golang-github-google-uuid-dev","golang-github-google-uuid-dev","golang-github-google-uuid-dev","generates and inspects UUIDs based on RFC 4122","","","1","1","","","","Section=golang; Version=1.6.0-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-github-google-uuid-dev","golang-github-google-uuid-dev","golang-github-google-uuid-dev","generates and inspects UUIDs based on RFC 4122","","","1","1","","","","Section=golang; Version=1.6.0-1","","","","","","","",""

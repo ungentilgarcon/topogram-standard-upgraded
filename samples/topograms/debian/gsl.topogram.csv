@@ -1,13 +1,13 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gsl-bin,gsl-bin,gsl-bin,GNU Scientific Library (GSL) -- binary package,,,1,1,,,,Section=math; Version=2.8+dfsg-5,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgsl28,libgsl28,libgsl28,GNU Scientific Library (GSL) -- library package,,,1,1,,,,Section=libs; Version=2.8+dfsg-5,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libgslcblas0,libgslcblas0,libgslcblas0,GNU Scientific Library (GSL) -- blas library package,,,1,1,,,,Section=libs; Version=2.8+dfsg-5,,,,,,,
-,,,,,,,,,,,,libc6,gsl-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsl28,gsl-bin,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libgsl28,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgslcblas0,libgsl28,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gsl-bin","gsl-bin","gsl-bin","GNU Scientific Library (GSL) -- binary package","","","1","1","","","","Section=math; Version=2.8+dfsg-5","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgsl28","libgsl28","libgsl28","GNU Scientific Library (GSL) -- library package","","","1","1","","","","Section=libs; Version=2.8+dfsg-5","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libgslcblas0","libgslcblas0","libgslcblas0","GNU Scientific Library (GSL) -- blas library package","","","1","1","","","","Section=libs; Version=2.8+dfsg-5","","","","","","","",""
+"","","","","","","","","","","","","gsl-bin","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gsl-bin","libgsl28","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgsl28","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgsl28","libgslcblas0","Depends","#333","1","Depends","arrow","{}"

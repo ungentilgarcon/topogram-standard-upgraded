@@ -1,31 +1,31 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libnamespace-autoclean-perl,libnamespace-autoclean-perl,libnamespace-autoclean-perl,module to remove imported symbols after compilation,,,1,1,,,,Section=perl; Version=0.31-1,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libb-hooks-endofscope-perl,libb-hooks-endofscope-perl,libb-hooks-endofscope-perl,module for executing code after a scope finished compilation,,,1,1,,,,Section=perl; Version=0.28-2,,,,,,,
-libnamespace-clean-perl,libnamespace-clean-perl,libnamespace-clean-perl,module for keeping imports and functions out of the current namespace,,,1,1,,,,Section=perl; Version=0.27-2,,,,,,,
-libscalar-list-utils-perl,libscalar-list-utils-perl,libscalar-list-utils-perl,modules providing common scalar and list utility subroutines,,,1,1,,,,Section=perl; Version=1:1.63-1+b4,,,,,,,
-libmodule-implementation-perl,libmodule-implementation-perl,libmodule-implementation-perl,module for loading one of several alternate implementations of a module,,,1,1,,,,Section=perl; Version=0.09-2,,,,,,,
-libsub-exporter-progressive-perl,libsub-exporter-progressive-perl,libsub-exporter-progressive-perl,module for using Sub::Exporter only if needed,,,1,1,,,,Section=perl; Version=0.001013-3,,,,,,,
-libvariable-magic-perl,libvariable-magic-perl,libvariable-magic-perl,module to associate user-defined magic to variables from Perl,,,1,1,,,,Section=perl; Version=0.64-1+b1,,,,,,,
-libpackage-stash-perl,libpackage-stash-perl,libpackage-stash-perl,module providing routines for manipulating stashes,,,1,1,,,,Section=perl; Version=0.40-1,,,,,,,
-libsub-identify-perl,libsub-identify-perl,libsub-identify-perl,module to retrieve names of code references,,,1,1,,,,Section=perl; Version=0.14-3+b3,,,,,,,
-libsub-name-perl,libsub-name-perl,libsub-name-perl,module for assigning a new name to referenced sub,,,1,1,,,,Section=perl; Version=0.28-1,,,,,,,
-perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
-perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,perl:any,libnamespace-autoclean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libb-hooks-endofscope-perl,libnamespace-autoclean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnamespace-clean-perl,libnamespace-autoclean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libscalar-list-utils-perl,libnamespace-autoclean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libb-hooks-endofscope-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmodule-implementation-perl,libb-hooks-endofscope-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-exporter-progressive-perl,libb-hooks-endofscope-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvariable-magic-perl,libb-hooks-endofscope-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libb-hooks-endofscope-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackage-stash-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-identify-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-name-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libnamespace-clean-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libnamespace-autoclean-perl","libnamespace-autoclean-perl","libnamespace-autoclean-perl","module to remove imported symbols after compilation","","","1","1","","","","Section=perl; Version=0.31-1","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libb-hooks-endofscope-perl","libb-hooks-endofscope-perl","libb-hooks-endofscope-perl","module for executing code after a scope finished compilation","","","1","1","","","","Section=perl; Version=0.28-2","","","","","","","",""
+"libnamespace-clean-perl","libnamespace-clean-perl","libnamespace-clean-perl","module for keeping imports and functions out of the current namespace","","","1","1","","","","Section=perl; Version=0.27-2","","","","","","","",""
+"libscalar-list-utils-perl","libscalar-list-utils-perl","libscalar-list-utils-perl","modules providing common scalar and list utility subroutines","","","1","1","","","","Section=perl; Version=1:1.63-1+b4","","","","","","","",""
+"libmodule-implementation-perl","libmodule-implementation-perl","libmodule-implementation-perl","module for loading one of several alternate implementations of a module","","","1","1","","","","Section=perl; Version=0.09-2","","","","","","","",""
+"libsub-exporter-progressive-perl","libsub-exporter-progressive-perl","libsub-exporter-progressive-perl","module for using Sub::Exporter only if needed","","","1","1","","","","Section=perl; Version=0.001013-3","","","","","","","",""
+"libvariable-magic-perl","libvariable-magic-perl","libvariable-magic-perl","module to associate user-defined magic to variables from Perl","","","1","1","","","","Section=perl; Version=0.64-1+b1","","","","","","","",""
+"libpackage-stash-perl","libpackage-stash-perl","libpackage-stash-perl","module providing routines for manipulating stashes","","","1","1","","","","Section=perl; Version=0.40-1","","","","","","","",""
+"libsub-identify-perl","libsub-identify-perl","libsub-identify-perl","module to retrieve names of code references","","","1","1","","","","Section=perl; Version=0.14-3+b3","","","","","","","",""
+"libsub-name-perl","libsub-name-perl","libsub-name-perl","module for assigning a new name to referenced sub","","","1","1","","","","Section=perl; Version=0.28-1","","","","","","","",""
+"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","","","",""
+"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libnamespace-autoclean-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-autoclean-perl","libb-hooks-endofscope-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-autoclean-perl","libnamespace-clean-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-autoclean-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libb-hooks-endofscope-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libb-hooks-endofscope-perl","libmodule-implementation-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libb-hooks-endofscope-perl","libsub-exporter-progressive-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libb-hooks-endofscope-perl","libvariable-magic-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-clean-perl","libb-hooks-endofscope-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-clean-perl","libpackage-stash-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-clean-perl","libsub-identify-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-clean-perl","libsub-name-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libnamespace-clean-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libscalar-list-utils-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libscalar-list-utils-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libscalar-list-utils-perl","libc6","Depends","#333","1","Depends","arrow","{}"

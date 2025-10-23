@@ -1,106 +1,106 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-tryton-modules-company,tryton-modules-company,tryton-modules-company,Tryton application platform - company module,,,1,1,,,,Section=python; Version=7.0.2-1,,,,,,,
-python3-sql,python3-sql,python3-sql,Library to write SQL queries (implemented in Python 3),,,1,1,,,,Section=python; Version=1.5.2-2,,,,,,,
-tryton-modules-currency,tryton-modules-currency,tryton-modules-currency,Tryton application platform - currency module,,,1,1,,,,Section=python; Version=7.0.1-3,,,,,,,
-tryton-modules-party,tryton-modules-party,tryton-modules-party,Tryton application platform - party module,,,1,1,,,,Section=python; Version=7.0.6-1,,,,,,,
-tryton-server,tryton-server,tryton-server,Tryton application platform - server,,,1,1,,,,Section=python; Version=7.0.30-1,,,,,,,
-tryton-server-api-7.0,tryton-server-api-7.0,tryton-server-api-7.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libjs-sphinxdoc,libjs-sphinxdoc,libjs-sphinxdoc,JavaScript support for Sphinx documentation,,,1,1,,,,Section=javascript; Version=8.1.3-5,,,,,,,
-python3-tz,python3-tz,python3-tz,transitional package to rename python3-tz,,,1,1,,,,Section=python; Version=2025.2-3,,,,,,,
-python3-dateutil,python3-dateutil,python3-dateutil,powerful extensions to the standard Python 3 datetime module,,,1,1,,,,Section=python; Version=2.9.0-4,,,,,,,
-python3-pycountry,python3-pycountry,python3-pycountry,ISO databases accessible from Python 3,,,1,1,,,,Section=python; Version=24.6.1+ds1-1,,,,,,,
-tryton-proteus,tryton-proteus,tryton-proteus,Tryton application platform - scripting client,,,1,1,,,,Section=python; Version=7.0.1-3,,,,,,,
-python3-stdnum,python3-stdnum,python3-stdnum,Python module to handle standardized numbers and codes (Python3 version),,,1,1,,,,Section=python; Version=1.20-3,,,,,,,
-tryton-modules-country,tryton-modules-country,tryton-modules-country,Tryton application platform - country module,,,1,1,,,,Section=python; Version=7.0.0-4,,,,,,,
-python3-phonenumbers,python3-phonenumbers,python3-phonenumbers,parsing/formatting/validating phone numbers - Python 3,,,1,1,,,,Section=python; Version=8.12.57-4,,,,,,,
-adduser,adduser,adduser,add and remove users and groups,,,1,1,,,,Section=admin; Version=3.152,,,,,,,
-python3-bcrypt,python3-bcrypt,python3-bcrypt,password hashing library for Python 3,,,1,1,,,,Section=python; Version=4.2.0-2.1+b1,,,,,,,
-python3-defusedxml,python3-defusedxml,python3-defusedxml,XML bomb protection for Python stdlib modules (for Python 3),,,1,1,,,,Section=python; Version=0.7.1-3,,,,,,,
-python3-genshi,python3-genshi,python3-genshi,Python XML-based template engine - Python 3.x,,,1,1,,,,Section=python; Version=0.7.9-2+b1,,,,,,,
-python3-lxml,python3-lxml,python3-lxml,pythonic binding for the libxml2 and libxslt libraries,,,1,1,,,,Section=python; Version=5.4.0-1,,,,,,,
-python3-passlib,python3-passlib,python3-passlib,comprehensive password hashing framework,,,1,1,,,,Section=python; Version=1.7.4-6,,,,,,,
-python3-polib,python3-polib,python3-polib,Python 3 library to parse and manage gettext catalogs,,,1,1,,,,Section=python; Version=1.2.0-2,,,,,,,
-python3-relatorio,python3-relatorio,python3-relatorio,Python module to create reports from Python objects (Python3),,,1,1,,,,Section=python; Version=0.11.1-1,,,,,,,
-python3-werkzeug,python3-werkzeug,python3-werkzeug,Collection of utilities for WSGI applications (Python 3.x),,,1,1,,,,Section=python; Version=3.1.3-2,,,,,,,
-ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
-default-mta,default-mta,default-mta,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libreoffice-calc,libreoffice-calc,libreoffice-calc,office productivity suite -- spreadsheet,,,1,1,,,,Section=editors; Version=4:25.2.3-2+deb13u2,,,,,,,
-libreoffice-writer,libreoffice-writer,libreoffice-writer,office productivity suite -- word processor,,,1,1,,,,Section=editors; Version=4:25.2.3-2+deb13u2,,,,,,,
-postgresql,postgresql,postgresql,object-relational SQL database (supported version),,,1,1,,,,Section=database; Version=17+278,,,,,,,
-python3-argon2,python3-argon2,python3-argon2,Argon2 password hashing library - Python 3.x Module,,,1,1,,,,Section=python; Version=21.1.0-3,,,,,,,
-python3-argcomplete,python3-argcomplete,python3-argcomplete,bash/zsh tab completion for argparse (for Python 3),,,1,1,,,,Section=python; Version=3.6.2-1,,,,,,,
-python3-barcode,python3-barcode,python3-barcode,Create standard barcodes with Python,,,1,1,,,,Section=python; Version=0.15.1-2,,,,,,,
-python3-dnspython,python3-dnspython,python3-dnspython,DNS toolkit for Python 3,,,1,1,,,,Section=python; Version=2.7.0-1,,,,,,,
-python3-email-validator,python3-email-validator,python3-email-validator,Robust email address syntax and deliverability validation library (Python 3),,,1,1,,,,Section=python; Version=2.2.0-1,,,,,,,
-python3-gevent,python3-gevent,python3-gevent,gevent is a coroutine-based Python networking library,,,1,1,,,,Section=python; Version=24.11.1-1+b1,,,,,,,
-python3-html2text,python3-html2text,python3-html2text,Python module for converting HTML to Markdown text (Python3 version),,,1,1,,,,Section=python; Version=2025.4.15-1,,,,,,,
-python3-levenshtein,python3-levenshtein,python3-levenshtein,extension for computing string similarities and edit distances (Python 3),,,1,1,,,,Section=python; Version=0.27.1-2,,,,,,,
-python3-pil,python3-pil,python3-pil,Python Imaging Library (Python3),,,1,1,,,,Section=python; Version=11.1.0-5+b1,,,,,,,
-python3-psycopg2,python3-psycopg2,python3-psycopg2,Python 3 module for PostgreSQL,,,1,1,,,,Section=python; Version=2.9.10-1+b1,,,,,,,
-python3-pydot,python3-pydot,python3-pydot,Python interface to Graphviz's dot,,,1,1,,,,Section=python; Version=2.0.0-3,,,,,,,
-python3-qrcode,python3-qrcode,python3-qrcode,QR Code image generator library - Python 3.x,,,1,1,,,,Section=python; Version=8.2-1,,,,,,,
-python3-weasyprint,python3-weasyprint,python3-weasyprint,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-ssl-cert,ssl-cert,ssl-cert,simple debconf wrapper for OpenSSL,,,1,1,,,,Section=utils; Version=1.1.3,,,,,,,
-libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
-libjs-underscore,libjs-underscore,libjs-underscore,JavaScript's functional programming helper library,,,1,1,,,,Section=javascript; Version=1.13.4~dfsg+~1.11.4-3,,,,,,,
-python3-pytz,python3-pytz,python3-pytz,Python3 version of the Olson timezone database,,,1,1,,,,Section=python; Version=2025.2-3,,,,,,,
-,,,,,,,,,,,,python3-sql,tryton-modules-company,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-modules-currency,tryton-modules-company,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-modules-party,tryton-modules-company,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-server,tryton-modules-company,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-server-api-7.0,tryton-modules-company,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,tryton-modules-company,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-sphinxdoc,tryton-modules-company,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-tz,tryton-modules-company,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3:any,python3-sql,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-dateutil,tryton-modules-currency,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-sql,tryton-modules-currency,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-server,tryton-modules-currency,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-server-api-7.0,tryton-modules-currency,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,tryton-modules-currency,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-sphinxdoc,tryton-modules-currency,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pycountry,tryton-modules-currency,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,tryton-proteus,tryton-modules-currency,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-sql,tryton-modules-party,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-stdnum,tryton-modules-party,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-modules-country,tryton-modules-party,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-server,tryton-modules-party,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tryton-server-api-7.0,tryton-modules-party,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,tryton-modules-party,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-sphinxdoc,tryton-modules-party,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-phonenumbers,tryton-modules-party,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,adduser,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-bcrypt,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-dateutil,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-defusedxml,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-genshi,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-lxml,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-passlib,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-polib,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-relatorio,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-sql,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-werkzeug,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ucf,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,tryton-server,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,default-mta,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libreoffice-calc,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libreoffice-writer,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,postgresql,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-argon2,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-argcomplete,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-barcode,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-dnspython,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-email-validator,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-gevent,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-html2text,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-levenshtein,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pil,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-psycopg2,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-pydot,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-qrcode,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-weasyprint,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,ssl-cert,tryton-server,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libjs-jquery,libjs-sphinxdoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-underscore,libjs-sphinxdoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pytz,python3-tz,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"tryton-modules-company","tryton-modules-company","tryton-modules-company","Tryton application platform - company module","","","1","1","","","","Section=python; Version=7.0.2-1","","","","","","","",""
+"python3-sql","python3-sql","python3-sql","Library to write SQL queries (implemented in Python 3)","","","1","1","","","","Section=python; Version=1.5.2-2","","","","","","","",""
+"tryton-modules-currency","tryton-modules-currency","tryton-modules-currency","Tryton application platform - currency module","","","1","1","","","","Section=python; Version=7.0.1-3","","","","","","","",""
+"tryton-modules-party","tryton-modules-party","tryton-modules-party","Tryton application platform - party module","","","1","1","","","","Section=python; Version=7.0.6-1","","","","","","","",""
+"tryton-server","tryton-server","tryton-server","Tryton application platform - server","","","1","1","","","","Section=python; Version=7.0.30-1","","","","","","","",""
+"tryton-server-api-7.0","tryton-server-api-7.0","tryton-server-api-7.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libjs-sphinxdoc","libjs-sphinxdoc","libjs-sphinxdoc","JavaScript support for Sphinx documentation","","","1","1","","","","Section=javascript; Version=8.1.3-5","","","","","","","",""
+"python3-tz","python3-tz","python3-tz","transitional package to rename python3-tz","","","1","1","","","","Section=python; Version=2025.2-3","","","","","","","",""
+"python3-dateutil","python3-dateutil","python3-dateutil","powerful extensions to the standard Python 3 datetime module","","","1","1","","","","Section=python; Version=2.9.0-4","","","","","","","",""
+"python3-pycountry","python3-pycountry","python3-pycountry","ISO databases accessible from Python 3","","","1","1","","","","Section=python; Version=24.6.1+ds1-1","","","","","","","",""
+"tryton-proteus","tryton-proteus","tryton-proteus","Tryton application platform - scripting client","","","1","1","","","","Section=python; Version=7.0.1-3","","","","","","","",""
+"python3-stdnum","python3-stdnum","python3-stdnum","Python module to handle standardized numbers and codes (Python3 version)","","","1","1","","","","Section=python; Version=1.20-3","","","","","","","",""
+"tryton-modules-country","tryton-modules-country","tryton-modules-country","Tryton application platform - country module","","","1","1","","","","Section=python; Version=7.0.0-4","","","","","","","",""
+"python3-phonenumbers","python3-phonenumbers","python3-phonenumbers","parsing/formatting/validating phone numbers - Python 3","","","1","1","","","","Section=python; Version=8.12.57-4","","","","","","","",""
+"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","","","",""
+"python3-bcrypt","python3-bcrypt","python3-bcrypt","password hashing library for Python 3","","","1","1","","","","Section=python; Version=4.2.0-2.1+b1","","","","","","","",""
+"python3-defusedxml","python3-defusedxml","python3-defusedxml","XML bomb protection for Python stdlib modules (for Python 3)","","","1","1","","","","Section=python; Version=0.7.1-3","","","","","","","",""
+"python3-genshi","python3-genshi","python3-genshi","Python XML-based template engine - Python 3.x","","","1","1","","","","Section=python; Version=0.7.9-2+b1","","","","","","","",""
+"python3-lxml","python3-lxml","python3-lxml","pythonic binding for the libxml2 and libxslt libraries","","","1","1","","","","Section=python; Version=5.4.0-1","","","","","","","",""
+"python3-passlib","python3-passlib","python3-passlib","comprehensive password hashing framework","","","1","1","","","","Section=python; Version=1.7.4-6","","","","","","","",""
+"python3-polib","python3-polib","python3-polib","Python 3 library to parse and manage gettext catalogs","","","1","1","","","","Section=python; Version=1.2.0-2","","","","","","","",""
+"python3-relatorio","python3-relatorio","python3-relatorio","Python module to create reports from Python objects (Python3)","","","1","1","","","","Section=python; Version=0.11.1-1","","","","","","","",""
+"python3-werkzeug","python3-werkzeug","python3-werkzeug","Collection of utilities for WSGI applications (Python 3.x)","","","1","1","","","","Section=python; Version=3.1.3-2","","","","","","","",""
+"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","","","",""
+"default-mta","default-mta","default-mta","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libreoffice-calc","libreoffice-calc","libreoffice-calc","office productivity suite -- spreadsheet","","","1","1","","","","Section=editors; Version=4:25.2.3-2+deb13u2","","","","","","","",""
+"libreoffice-writer","libreoffice-writer","libreoffice-writer","office productivity suite -- word processor","","","1","1","","","","Section=editors; Version=4:25.2.3-2+deb13u2","","","","","","","",""
+"postgresql","postgresql","postgresql","object-relational SQL database (supported version)","","","1","1","","","","Section=database; Version=17+278","","","","","","","",""
+"python3-argon2","python3-argon2","python3-argon2","Argon2 password hashing library - Python 3.x Module","","","1","1","","","","Section=python; Version=21.1.0-3","","","","","","","",""
+"python3-argcomplete","python3-argcomplete","python3-argcomplete","bash/zsh tab completion for argparse (for Python 3)","","","1","1","","","","Section=python; Version=3.6.2-1","","","","","","","",""
+"python3-barcode","python3-barcode","python3-barcode","Create standard barcodes with Python","","","1","1","","","","Section=python; Version=0.15.1-2","","","","","","","",""
+"python3-dnspython","python3-dnspython","python3-dnspython","DNS toolkit for Python 3","","","1","1","","","","Section=python; Version=2.7.0-1","","","","","","","",""
+"python3-email-validator","python3-email-validator","python3-email-validator","Robust email address syntax and deliverability validation library (Python 3)","","","1","1","","","","Section=python; Version=2.2.0-1","","","","","","","",""
+"python3-gevent","python3-gevent","python3-gevent","gevent is a coroutine-based Python networking library","","","1","1","","","","Section=python; Version=24.11.1-1+b1","","","","","","","",""
+"python3-html2text","python3-html2text","python3-html2text","Python module for converting HTML to Markdown text (Python3 version)","","","1","1","","","","Section=python; Version=2025.4.15-1","","","","","","","",""
+"python3-levenshtein","python3-levenshtein","python3-levenshtein","extension for computing string similarities and edit distances (Python 3)","","","1","1","","","","Section=python; Version=0.27.1-2","","","","","","","",""
+"python3-pil","python3-pil","python3-pil","Python Imaging Library (Python3)","","","1","1","","","","Section=python; Version=11.1.0-5+b1","","","","","","","",""
+"python3-psycopg2","python3-psycopg2","python3-psycopg2","Python 3 module for PostgreSQL","","","1","1","","","","Section=python; Version=2.9.10-1+b1","","","","","","","",""
+"python3-pydot","python3-pydot","python3-pydot","Python interface to Graphviz's dot","","","1","1","","","","Section=python; Version=2.0.0-3","","","","","","","",""
+"python3-qrcode","python3-qrcode","python3-qrcode","QR Code image generator library - Python 3.x","","","1","1","","","","Section=python; Version=8.2-1","","","","","","","",""
+"python3-weasyprint","python3-weasyprint","python3-weasyprint","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"ssl-cert","ssl-cert","ssl-cert","simple debconf wrapper for OpenSSL","","","1","1","","","","Section=utils; Version=1.1.3","","","","","","","",""
+"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","","","",""
+"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","","","",""
+"python3-pytz","python3-pytz","python3-pytz","Python3 version of the Olson timezone database","","","1","1","","","","Section=python; Version=2025.2-3","","","","","","","",""
+"","","","","","","","","","","","","tryton-modules-company","python3-sql","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-company","tryton-modules-currency","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-company","tryton-modules-party","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-company","tryton-server","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-company","tryton-server-api-7.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-company","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-company","libjs-sphinxdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-company","python3-tz","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-sql","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","python3-dateutil","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","python3-sql","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","tryton-server","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","tryton-server-api-7.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","libjs-sphinxdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","python3-pycountry","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-currency","tryton-proteus","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","python3-sql","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","python3-stdnum","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","tryton-modules-country","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","tryton-server","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","tryton-server-api-7.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","libjs-sphinxdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-modules-party","python3-phonenumbers","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","adduser","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-bcrypt","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-dateutil","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-defusedxml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-genshi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-lxml","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-passlib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-polib","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-relatorio","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-sql","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-werkzeug","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","ucf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","default-mta","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","libreoffice-calc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","libreoffice-writer","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","postgresql","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-argon2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-argcomplete","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-barcode","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-dnspython","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-email-validator","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-gevent","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-html2text","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-levenshtein","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-pil","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-psycopg2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-pydot","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-qrcode","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","python3-weasyprint","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tryton-server","ssl-cert","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-sphinxdoc","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-sphinxdoc","libjs-underscore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-tz","python3-pytz","Depends","#333","1","Depends","arrow","{}"

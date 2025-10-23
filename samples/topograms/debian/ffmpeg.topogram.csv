@@ -1,276 +1,276 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-ffmpeg,ffmpeg,ffmpeg,"Tools for transcoding, streaming and playing of multimedia files",,,1,1,,,,Section=video; Version=7:7.1.1-1+b1,,,,,,,
-libavcodec61,libavcodec61,libavcodec61,FFmpeg library with de/encoders for audio/video codecs - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libavdevice61,libavdevice61,libavdevice61,FFmpeg library for handling input and output devices - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libavfilter10,libavfilter10,libavfilter10,FFmpeg library containing media filters - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libavformat61,libavformat61,libavformat61,FFmpeg library with (de)muxers for multimedia containers - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libavutil59,libavutil59,libavutil59,FFmpeg library with functions for simplifying programming - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libplacebo349,libplacebo349,libplacebo349,GPU-accelerated video/image rendering primitives (shared library),,,1,1,,,,Section=libs; Version=7.349.0-3,,,,,,,
-libpostproc58,libpostproc58,libpostproc58,FFmpeg library for post processing - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libsdl2-2.0-0,libsdl2-2.0-0,libsdl2-2.0-0,Simple DirectMedia Layer,,,1,1,,,,Section=libs; Version=2.32.4+dfsg-1,,,,,,,
-libswresample5,libswresample5,libswresample5,"FFmpeg library for audio resampling, rematrixing etc. - runtime files",,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libswscale8,libswscale8,libswscale8,FFmpeg library for image scaling and various conversions - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
-libaom3,libaom3,libaom3,AV1 Video Codec Library,,,1,1,,,,Section=libs; Version=3.12.1-1,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libcodec2-1.2,libcodec2-1.2,libcodec2-1.2,Codec2 runtime library,,,1,1,,,,Section=libs; Version=1.2.0-3,,,,,,,
-libdav1d7,libdav1d7,libdav1d7,fast and small AV1 video stream decoder (shared library),,,1,1,,,,Section=libs; Version=1.5.1-1,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libgsm1,libgsm1,libgsm1,Shared libraries for GSM speech compressor,,,1,1,,,,Section=libs; Version=1.0.22-1+b2,,,,,,,
-libjxl0.11,libjxl0.11,libjxl0.11,"JPEG XL Image Coding System - ""JXL"" (shared libraries)",,,1,1,,,,Section=libs; Version=0.11.1-4,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-libmp3lame0,libmp3lame0,libmp3lame0,MP3 encoding library,,,1,1,,,,Section=libs; Version=3.100-6+b3,,,,,,,
-libopenjp2-7,libopenjp2-7,libopenjp2-7,JPEG 2000 image compression/decompression library,,,1,1,,,,Section=libs; Version=2.5.3-2.1~deb13u1,,,,,,,
-libopus0,libopus0,libopus0,Opus codec runtime library,,,1,1,,,,Section=libs; Version=1.5.2-2,,,,,,,
-librav1e0.7,librav1e0.7,librav1e0.7,Fastest and safest AV1 encoder - shared library,,,1,1,,,,Section=libs; Version=0.7.1-9+b2,,,,,,,
-librsvg2-2,librsvg2-2,librsvg2-2,SAX-based renderer library for SVG files (runtime),,,1,1,,,,Section=libs; Version=2.60.0+dfsg-1,,,,,,,
-libshine3,libshine3,libshine3,Fixed-point MP3 encoding library - runtime files,,,1,1,,,,Section=libs; Version=3.1.1-2+b2,,,,,,,
-libsnappy1v5,libsnappy1v5,libsnappy1v5,fast compression/decompression library,,,1,1,,,,Section=libs; Version=1.2.2-1,,,,,,,
-libspeex1,libspeex1,libspeex1,Speex codec library (runtime library),,,1,1,,,,Section=libs; Version=1.2.1-3,,,,,,,
-libsvtav1enc2,libsvtav1enc2,libsvtav1enc2,Scalable Video Technology for AV1 (libsvtav1enc shared library),,,1,1,,,,Section=libs; Version=2.3.0+dfsg-1,,,,,,,
-libtheoradec1,libtheoradec1,libtheoradec1,Theora Video Compression Codec (shared library - libtheoradec),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
-libtheoraenc1,libtheoraenc1,libtheoraenc1,Theora Video Compression Codec (shared library - libtheoraenc),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
-libtwolame0,libtwolame0,libtwolame0,MPEG Audio Layer 2 encoding library,,,1,1,,,,Section=libs; Version=0.4.0-2+b2,,,,,,,
-libva2,libva2,libva2,Video Acceleration (VA) API for Linux -- runtime,,,1,1,,,,Section=libs; Version=2.22.0-3,,,,,,,
-libvorbis0a,libvorbis0a,libvorbis0a,decoder library for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
-libvorbisenc2,libvorbisenc2,libvorbisenc2,encoder library for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
-libvpl2,libvpl2,libvpl2,Intel Video Processing Library -- shared library,,,1,1,,,,Section=libs; Version=1:2.14.0-1+b1,,,,,,,
-libvpx9,libvpx9,libvpx9,VP8 and VP9 video codec (shared library),,,1,1,,,,Section=libs; Version=1.15.0-2.1,,,,,,,
-libwebp7,libwebp7,libwebp7,Lossy compression of digital photographic images (shared library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libwebpmux3,libwebpmux3,libwebpmux3,Lossy compression of digital photographic images (libwebpmux library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libx264-164,libx264-164,libx264-164,x264 video coding library,,,1,1,,,,Section=libs; Version=2:0.164.3108+git31e19f9-2+b1,,,,,,,
-libx265-215,libx265-215,libx265-215,H.265/HEVC video stream encoder (shared library),,,1,1,,,,Section=libs; Version=4.1-2,,,,,,,
-libxvidcore4,libxvidcore4,libxvidcore4,Open source MPEG-4 video codec (library),,,1,1,,,,Section=libs; Version=2:1.3.7-1+b2,,,,,,,
-libzvbi0t64,libzvbi0t64,libzvbi0t64,Vertical Blanking Interval decoder (VBI) - runtime files,,,1,1,,,,Section=libs; Version=0.2.44-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libavc1394-0,libavc1394-0,libavc1394-0,control IEEE 1394 audio/video devices,,,1,1,,,,Section=libs; Version=0.5.4-5+b2,,,,,,,
-libcaca0,libcaca0,libcaca0,colour ASCII art library,,,1,1,,,,Section=libs; Version=0.99.beta20-5,,,,,,,
-libcdio-cdda2t64,libcdio-cdda2t64,libcdio-cdda2t64,library to read and control digital audio CDs,,,1,1,,,,Section=libs; Version=10.2+2.0.2-1+b1,,,,,,,
-libcdio-paranoia2t64,libcdio-paranoia2t64,libcdio-paranoia2t64,library to read digital audio CDs with error correction,,,1,1,,,,Section=libs; Version=10.2+2.0.2-1+b1,,,,,,,
-libdc1394-25,libdc1394-25,libdc1394-25,high level programming interface for IEEE 1394 digital cameras,,,1,1,,,,Section=libs; Version=2.2.6-5,,,,,,,
-libdrm2,libdrm2,libdrm2,Userspace interface to kernel DRM services -- runtime,,,1,1,,,,Section=libs; Version=2.4.124-2,,,,,,,
-libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libiec61883-0,libiec61883-0,libiec61883-0,partial implementation of IEC 61883 (shared lib),,,1,1,,,,Section=libs; Version=1.2.0-7,,,,,,,
-libjack-jackd2-0,libjack-jackd2-0,libjack-jackd2-0,JACK Audio Connection Kit (libraries),,,1,1,,,,Section=libs; Version=1.9.22~dfsg-4,,,,,,,
-libopenal1,libopenal1,libopenal1,Software implementation of the OpenAL audio API (shared library),,,1,1,,,,Section=libs; Version=1:1.24.2-1,,,,,,,
-libpulse0,libpulse0,libpulse0,PulseAudio client libraries,,,1,1,,,,Section=libs; Version=17.0+dfsg1-2+b1,,,,,,,
-libraw1394-11,libraw1394-11,libraw1394-11,library for direct access to IEEE 1394 bus (aka FireWire),,,1,1,,,,Section=libs; Version=2.1.2-2+b2,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxcb-shape0,libxcb-shape0,libxcb-shape0,"X C Binding, shape extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-shm0,libxcb-shm0,libxcb-shm0,"X C Binding, shm extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb-xfixes0,libxcb-xfixes0,libxcb-xfixes0,"X C Binding, xfixes extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
-libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
-libxv1,libxv1,libxv1,X11 Video extension library,,,1,1,,,,Section=libs; Version=2:1.0.11-1.1+b3,,,,,,,
-libass9,libass9,libass9,library for SSA/ASS subtitles rendering,,,1,1,,,,Section=libs; Version=1:0.17.3-1+b1,,,,,,,
-libbs2b0,libbs2b0,libbs2b0,Bauer stereophonic-to-binaural DSP library,,,1,1,,,,Section=libs; Version=3.1.0+dfsg-8+b1,,,,,,,
-libflite1,libflite1,libflite1,Small run-time speech synthesis engine - shared libraries,,,1,1,,,,Section=libs; Version=2.2-7,,,,,,,
-libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-libfribidi0,libfribidi0,libfribidi0,Free Implementation of the Unicode BiDi algorithm,,,1,1,,,,Section=libs; Version=1.0.16-1,,,,,,,
-libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
-liblilv-0-0,liblilv-0-0,liblilv-0-0,library for simple use of LV2 plugins,,,1,1,,,,Section=libs; Version=0.24.26-1,,,,,,,
-libmysofa1,libmysofa1,libmysofa1,library to read HRTFs stored in the AES69-2015 SOFA format,,,1,1,,,,Section=libs; Version=1.3.3+dfsg-1,,,,,,,
-libpocketsphinx3,libpocketsphinx3,libpocketsphinx3,Speech recognition tool - front-end library,,,1,1,,,,Section=libs; Version=0.8+5prealpha+1-15+b4,,,,,,,
-librubberband2,librubberband2,librubberband2,audio time-stretching and pitch-shifting library,,,1,1,,,,Section=libs; Version=3.3.0+dfsg-2+b3,,,,,,,
-libsphinxbase3t64,libsphinxbase3t64,libsphinxbase3t64,Speech recognition tool - shared library,,,1,1,,,,Section=libs; Version=0.8+5prealpha+1-21+b1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libvidstab1.1,libvidstab1.1,libvidstab1.1,video stabilization library (shared library),,,1,1,,,,Section=libs; Version=1.1.0-2+b2,,,,,,,
-libzimg2,libzimg2,libzimg2,"scaling, colorspace, depth conversion library (shared library)",,,1,1,,,,Section=libs; Version=3.0.5+ds1-1+b2,,,,,,,
-libzmq5,libzmq5,libzmq5,lightweight messaging kernel (shared library),,,1,1,,,,Section=libs; Version=4.3.5-1+b3,,,,,,,
-ocl-icd-libopencl1,ocl-icd-libopencl1,ocl-icd-libopencl1,Generic OpenCL ICD Loader,,,1,1,,,,Section=libs; Version=2.3.3-1,,,,,,,
-libbluray2,libbluray2,libbluray2,Blu-ray disc playback support library (shared library),,,1,1,,,,Section=libs; Version=1:1.3.4-1+b2,,,,,,,
-libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
-libchromaprint1,libchromaprint1,libchromaprint1,audio fingerprint library,,,1,1,,,,Section=libs; Version=1.5.1-7,,,,,,,
-libdvdnav4,libdvdnav4,libdvdnav4,DVD navigation library,,,1,1,,,,Section=libs; Version=6.1.1-3+b1,,,,,,,
-libdvdread8t64,libdvdread8t64,libdvdread8t64,library for reading DVDs,,,1,1,,,,Section=libs; Version=6.1.3-2,,,,,,,
-libgme0,libgme0,libgme0,Playback library for video game music files - shared library,,,1,1,,,,Section=libs; Version=0.6.3-7+b2,,,,,,,
-libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
-libopenmpt0t64,libopenmpt0t64,libopenmpt0t64,module music library based on OpenMPT -- shared library,,,1,1,,,,Section=libs; Version=0.7.13-1+b1,,,,,,,
-librabbitmq4,librabbitmq4,librabbitmq4,AMQP client library written in C,,,1,1,,,,Section=libs; Version=0.15.0-1,,,,,,,
-librist4,librist4,librist4,Reliable Internet Stream Transport -- shared library,,,1,1,,,,Section=libs; Version=0.2.11+dfsg-1,,,,,,,
-libsrt1.5-gnutls,libsrt1.5-gnutls,libsrt1.5-gnutls,Secure Reliable Transport UDP streaming library (GnuTLS flavour),,,1,1,,,,Section=libs; Version=1.5.4-1,,,,,,,
-libssh-4,libssh-4,libssh-4,tiny C SSH library (OpenSSL flavor),,,1,1,,,,Section=libs; Version=0.11.2-1,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-libva-drm2,libva-drm2,libva-drm2,Video Acceleration (VA) API for Linux -- DRM runtime,,,1,1,,,,Section=libs; Version=2.22.0-3,,,,,,,
-libva-x11-2,libva-x11-2,libva-x11-2,Video Acceleration (VA) API for Linux -- X11 runtime,,,1,1,,,,Section=libs; Version=2.22.0-3,,,,,,,
-libvdpau1,libvdpau1,libvdpau1,Video Decode and Presentation API for Unix (libraries),,,1,1,,,,Section=libs; Version=1.5-3+b1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-liblcms2-2,liblcms2-2,liblcms2-2,Little CMS 2 color management library,,,1,1,,,,Section=libs; Version=2.16-2,,,,,,,
-libvulkan1,libvulkan1,libvulkan1,Vulkan loader library,,,1,1,,,,Section=libs; Version=1.4.309.0-1,,,,,,,
-libdecor-0-0,libdecor-0-0,libdecor-0-0,client-side window decoration library,,,1,1,,,,Section=libs; Version=0.2.2-2,,,,,,,
-libgbm1,libgbm1,libgbm1,generic buffer management API -- runtime,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
-libsamplerate0,libsamplerate0,libsamplerate0,Audio sample rate conversion library,,,1,1,,,,Section=libs; Version=0.2.2-4+b2,,,,,,,
-libwayland-client0,libwayland-client0,libwayland-client0,wayland compositor infrastructure - client library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libwayland-cursor0,libwayland-cursor0,libwayland-cursor0,wayland compositor infrastructure - cursor library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libwayland-egl1,libwayland-egl1,libwayland-egl1,wayland compositor infrastructure - EGL library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
-libxcursor1,libxcursor1,libxcursor1,X cursor management library,,,1,1,,,,Section=libs; Version=1:1.2.3-1,,,,,,,
-libxfixes3,libxfixes3,libxfixes3,X11 miscellaneous 'fixes' extension library,,,1,1,,,,Section=libs; Version=1:6.0.0-2+b4,,,,,,,
-libxi6,libxi6,libxi6,X11 Input extension library,,,1,1,,,,Section=libs; Version=2:1.8.2-1,,,,,,,
-libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
-libxrandr2,libxrandr2,libxrandr2,X11 RandR extension library,,,1,1,,,,Section=libs; Version=2:1.5.4-1+b3,,,,,,,
-libxss1,libxss1,libxss1,X11 Screen Saver extension library,,,1,1,,,,Section=libs; Version=1:1.2.3-1+b3,,,,,,,
-libsoxr0,libsoxr0,libsoxr0,High quality 1D sample-rate conversion library,,,1,1,,,,Section=libs; Version=0.1.3-4+b2,,,,,,,
-,,,,,,,,,,,,libavcodec61,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavdevice61,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavfilter10,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavformat61,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplacebo349,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpostproc58,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-2.0-0,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libswresample5,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libswscale8,ffmpeg,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaom3,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcodec2-1.2,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdav1d7,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsm1,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjxl0.11,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmp3lame0,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenjp2-7,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopus0,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librav1e0.7,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librsvg2-2,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libshine3,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsnappy1v5,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libspeex1,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsvtav1enc2,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libswresample5,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtheoradec1,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtheoraenc1,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtwolame0,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libva2,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvorbis0a,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvorbisenc2,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvpl2,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvpx9,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpmux3,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx264-164,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx265-215,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxvidcore4,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzvbi0t64,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libavcodec61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavc1394-0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavcodec61,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavfilter10,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavformat61,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcaca0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcdio-cdda2t64,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcdio-paranoia2t64,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdc1394-25,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdrm2,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgl1,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libiec61883-0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjack-jackd2-0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenal1,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpulse0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libraw1394-11,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-2.0-0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-shape0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-shm0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb-xfixes0,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcb1,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext6,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxv1,libavdevice61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libass9,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavcodec61,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavformat61,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbs2b0,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libflite1,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfribidi0,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libharfbuzz0b,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblilv-0-0,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmysofa1,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libplacebo349,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocketsphinx3,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpostproc58,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librubberband2,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsphinxbase3t64,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libswresample5,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libswscale8,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libva2,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvidstab1.1,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvpl2,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzimg2,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzmq5,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ocl-icd-libopencl1,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ocl-icd-libopencl1,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libavfilter10,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavcodec61,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbluray2,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbz2-1.0,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libchromaprint1,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdvdnav4,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdvdread8t64,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgme0,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnutls30t64,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenmpt0t64,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librabbitmq4,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librist4,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsrt1.5-gnutls,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssh-4,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzmq5,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libavformat61,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdrm2,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libva-drm2,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libva-x11-2,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libva2,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvdpau1,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvpl2,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ocl-icd-libopencl1,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ocl-icd-libopencl1,libavutil59,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libplacebo349,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libplacebo349,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,libplacebo349,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libplacebo349,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvulkan1,libplacebo349,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,libpostproc58,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpostproc58,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdecor-0-0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdrm2,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgbm1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpulse0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsamplerate0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-client0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-cursor0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwayland-egl1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcursor1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxfixes3,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxi6,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxkbcommon0,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxrandr2,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxss1,libsdl2-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,libswresample5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libswresample5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsoxr0,libswresample5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavutil59,libswscale8,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libswscale8,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"ffmpeg","ffmpeg","ffmpeg","Tools for transcoding, streaming and playing of multimedia files","","","1","1","","","","Section=video; Version=7:7.1.1-1+b1","","","","","","","",""
+"libavcodec61","libavcodec61","libavcodec61","FFmpeg library with de/encoders for audio/video codecs - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libavdevice61","libavdevice61","libavdevice61","FFmpeg library for handling input and output devices - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libavfilter10","libavfilter10","libavfilter10","FFmpeg library containing media filters - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libavformat61","libavformat61","libavformat61","FFmpeg library with (de)muxers for multimedia containers - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libavutil59","libavutil59","libavutil59","FFmpeg library with functions for simplifying programming - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libplacebo349","libplacebo349","libplacebo349","GPU-accelerated video/image rendering primitives (shared library)","","","1","1","","","","Section=libs; Version=7.349.0-3","","","","","","","",""
+"libpostproc58","libpostproc58","libpostproc58","FFmpeg library for post processing - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libsdl2-2.0-0","libsdl2-2.0-0","libsdl2-2.0-0","Simple DirectMedia Layer","","","1","1","","","","Section=libs; Version=2.32.4+dfsg-1","","","","","","","",""
+"libswresample5","libswresample5","libswresample5","FFmpeg library for audio resampling, rematrixing etc. - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libswscale8","libswscale8","libswscale8","FFmpeg library for image scaling and various conversions - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","","","",""
+"libaom3","libaom3","libaom3","AV1 Video Codec Library","","","1","1","","","","Section=libs; Version=3.12.1-1","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libcodec2-1.2","libcodec2-1.2","libcodec2-1.2","Codec2 runtime library","","","1","1","","","","Section=libs; Version=1.2.0-3","","","","","","","",""
+"libdav1d7","libdav1d7","libdav1d7","fast and small AV1 video stream decoder (shared library)","","","1","1","","","","Section=libs; Version=1.5.1-1","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgsm1","libgsm1","libgsm1","Shared libraries for GSM speech compressor","","","1","1","","","","Section=libs; Version=1.0.22-1+b2","","","","","","","",""
+"libjxl0.11","libjxl0.11","libjxl0.11","JPEG XL Image Coding System - ""JXL"" (shared libraries)","","","1","1","","","","Section=libs; Version=0.11.1-4","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"libmp3lame0","libmp3lame0","libmp3lame0","MP3 encoding library","","","1","1","","","","Section=libs; Version=3.100-6+b3","","","","","","","",""
+"libopenjp2-7","libopenjp2-7","libopenjp2-7","JPEG 2000 image compression/decompression library","","","1","1","","","","Section=libs; Version=2.5.3-2.1~deb13u1","","","","","","","",""
+"libopus0","libopus0","libopus0","Opus codec runtime library","","","1","1","","","","Section=libs; Version=1.5.2-2","","","","","","","",""
+"librav1e0.7","librav1e0.7","librav1e0.7","Fastest and safest AV1 encoder - shared library","","","1","1","","","","Section=libs; Version=0.7.1-9+b2","","","","","","","",""
+"librsvg2-2","librsvg2-2","librsvg2-2","SAX-based renderer library for SVG files (runtime)","","","1","1","","","","Section=libs; Version=2.60.0+dfsg-1","","","","","","","",""
+"libshine3","libshine3","libshine3","Fixed-point MP3 encoding library - runtime files","","","1","1","","","","Section=libs; Version=3.1.1-2+b2","","","","","","","",""
+"libsnappy1v5","libsnappy1v5","libsnappy1v5","fast compression/decompression library","","","1","1","","","","Section=libs; Version=1.2.2-1","","","","","","","",""
+"libspeex1","libspeex1","libspeex1","Speex codec library (runtime library)","","","1","1","","","","Section=libs; Version=1.2.1-3","","","","","","","",""
+"libsvtav1enc2","libsvtav1enc2","libsvtav1enc2","Scalable Video Technology for AV1 (libsvtav1enc shared library)","","","1","1","","","","Section=libs; Version=2.3.0+dfsg-1","","","","","","","",""
+"libtheoradec1","libtheoradec1","libtheoradec1","Theora Video Compression Codec (shared library - libtheoradec)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","","","",""
+"libtheoraenc1","libtheoraenc1","libtheoraenc1","Theora Video Compression Codec (shared library - libtheoraenc)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","","","",""
+"libtwolame0","libtwolame0","libtwolame0","MPEG Audio Layer 2 encoding library","","","1","1","","","","Section=libs; Version=0.4.0-2+b2","","","","","","","",""
+"libva2","libva2","libva2","Video Acceleration (VA) API for Linux -- runtime","","","1","1","","","","Section=libs; Version=2.22.0-3","","","","","","","",""
+"libvorbis0a","libvorbis0a","libvorbis0a","decoder library for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","","","",""
+"libvorbisenc2","libvorbisenc2","libvorbisenc2","encoder library for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","","","",""
+"libvpl2","libvpl2","libvpl2","Intel Video Processing Library -- shared library","","","1","1","","","","Section=libs; Version=1:2.14.0-1+b1","","","","","","","",""
+"libvpx9","libvpx9","libvpx9","VP8 and VP9 video codec (shared library)","","","1","1","","","","Section=libs; Version=1.15.0-2.1","","","","","","","",""
+"libwebp7","libwebp7","libwebp7","Lossy compression of digital photographic images (shared library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libwebpmux3","libwebpmux3","libwebpmux3","Lossy compression of digital photographic images (libwebpmux library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libx264-164","libx264-164","libx264-164","x264 video coding library","","","1","1","","","","Section=libs; Version=2:0.164.3108+git31e19f9-2+b1","","","","","","","",""
+"libx265-215","libx265-215","libx265-215","H.265/HEVC video stream encoder (shared library)","","","1","1","","","","Section=libs; Version=4.1-2","","","","","","","",""
+"libxvidcore4","libxvidcore4","libxvidcore4","Open source MPEG-4 video codec (library)","","","1","1","","","","Section=libs; Version=2:1.3.7-1+b2","","","","","","","",""
+"libzvbi0t64","libzvbi0t64","libzvbi0t64","Vertical Blanking Interval decoder (VBI) - runtime files","","","1","1","","","","Section=libs; Version=0.2.44-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libavc1394-0","libavc1394-0","libavc1394-0","control IEEE 1394 audio/video devices","","","1","1","","","","Section=libs; Version=0.5.4-5+b2","","","","","","","",""
+"libcaca0","libcaca0","libcaca0","colour ASCII art library","","","1","1","","","","Section=libs; Version=0.99.beta20-5","","","","","","","",""
+"libcdio-cdda2t64","libcdio-cdda2t64","libcdio-cdda2t64","library to read and control digital audio CDs","","","1","1","","","","Section=libs; Version=10.2+2.0.2-1+b1","","","","","","","",""
+"libcdio-paranoia2t64","libcdio-paranoia2t64","libcdio-paranoia2t64","library to read digital audio CDs with error correction","","","1","1","","","","Section=libs; Version=10.2+2.0.2-1+b1","","","","","","","",""
+"libdc1394-25","libdc1394-25","libdc1394-25","high level programming interface for IEEE 1394 digital cameras","","","1","1","","","","Section=libs; Version=2.2.6-5","","","","","","","",""
+"libdrm2","libdrm2","libdrm2","Userspace interface to kernel DRM services -- runtime","","","1","1","","","","Section=libs; Version=2.4.124-2","","","","","","","",""
+"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libiec61883-0","libiec61883-0","libiec61883-0","partial implementation of IEC 61883 (shared lib)","","","1","1","","","","Section=libs; Version=1.2.0-7","","","","","","","",""
+"libjack-jackd2-0","libjack-jackd2-0","libjack-jackd2-0","JACK Audio Connection Kit (libraries)","","","1","1","","","","Section=libs; Version=1.9.22~dfsg-4","","","","","","","",""
+"libopenal1","libopenal1","libopenal1","Software implementation of the OpenAL audio API (shared library)","","","1","1","","","","Section=libs; Version=1:1.24.2-1","","","","","","","",""
+"libpulse0","libpulse0","libpulse0","PulseAudio client libraries","","","1","1","","","","Section=libs; Version=17.0+dfsg1-2+b1","","","","","","","",""
+"libraw1394-11","libraw1394-11","libraw1394-11","library for direct access to IEEE 1394 bus (aka FireWire)","","","1","1","","","","Section=libs; Version=2.1.2-2+b2","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxcb-shape0","libxcb-shape0","libxcb-shape0","X C Binding, shape extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-shm0","libxcb-shm0","libxcb-shm0","X C Binding, shm extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb-xfixes0","libxcb-xfixes0","libxcb-xfixes0","X C Binding, xfixes extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","","","",""
+"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","","","",""
+"libxv1","libxv1","libxv1","X11 Video extension library","","","1","1","","","","Section=libs; Version=2:1.0.11-1.1+b3","","","","","","","",""
+"libass9","libass9","libass9","library for SSA/ASS subtitles rendering","","","1","1","","","","Section=libs; Version=1:0.17.3-1+b1","","","","","","","",""
+"libbs2b0","libbs2b0","libbs2b0","Bauer stereophonic-to-binaural DSP library","","","1","1","","","","Section=libs; Version=3.1.0+dfsg-8+b1","","","","","","","",""
+"libflite1","libflite1","libflite1","Small run-time speech synthesis engine - shared libraries","","","1","1","","","","Section=libs; Version=2.2-7","","","","","","","",""
+"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"libfribidi0","libfribidi0","libfribidi0","Free Implementation of the Unicode BiDi algorithm","","","1","1","","","","Section=libs; Version=1.0.16-1","","","","","","","",""
+"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","","","",""
+"liblilv-0-0","liblilv-0-0","liblilv-0-0","library for simple use of LV2 plugins","","","1","1","","","","Section=libs; Version=0.24.26-1","","","","","","","",""
+"libmysofa1","libmysofa1","libmysofa1","library to read HRTFs stored in the AES69-2015 SOFA format","","","1","1","","","","Section=libs; Version=1.3.3+dfsg-1","","","","","","","",""
+"libpocketsphinx3","libpocketsphinx3","libpocketsphinx3","Speech recognition tool - front-end library","","","1","1","","","","Section=libs; Version=0.8+5prealpha+1-15+b4","","","","","","","",""
+"librubberband2","librubberband2","librubberband2","audio time-stretching and pitch-shifting library","","","1","1","","","","Section=libs; Version=3.3.0+dfsg-2+b3","","","","","","","",""
+"libsphinxbase3t64","libsphinxbase3t64","libsphinxbase3t64","Speech recognition tool - shared library","","","1","1","","","","Section=libs; Version=0.8+5prealpha+1-21+b1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libvidstab1.1","libvidstab1.1","libvidstab1.1","video stabilization library (shared library)","","","1","1","","","","Section=libs; Version=1.1.0-2+b2","","","","","","","",""
+"libzimg2","libzimg2","libzimg2","scaling, colorspace, depth conversion library (shared library)","","","1","1","","","","Section=libs; Version=3.0.5+ds1-1+b2","","","","","","","",""
+"libzmq5","libzmq5","libzmq5","lightweight messaging kernel (shared library)","","","1","1","","","","Section=libs; Version=4.3.5-1+b3","","","","","","","",""
+"ocl-icd-libopencl1","ocl-icd-libopencl1","ocl-icd-libopencl1","Generic OpenCL ICD Loader","","","1","1","","","","Section=libs; Version=2.3.3-1","","","","","","","",""
+"libbluray2","libbluray2","libbluray2","Blu-ray disc playback support library (shared library)","","","1","1","","","","Section=libs; Version=1:1.3.4-1+b2","","","","","","","",""
+"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","","","",""
+"libchromaprint1","libchromaprint1","libchromaprint1","audio fingerprint library","","","1","1","","","","Section=libs; Version=1.5.1-7","","","","","","","",""
+"libdvdnav4","libdvdnav4","libdvdnav4","DVD navigation library","","","1","1","","","","Section=libs; Version=6.1.1-3+b1","","","","","","","",""
+"libdvdread8t64","libdvdread8t64","libdvdread8t64","library for reading DVDs","","","1","1","","","","Section=libs; Version=6.1.3-2","","","","","","","",""
+"libgme0","libgme0","libgme0","Playback library for video game music files - shared library","","","1","1","","","","Section=libs; Version=0.6.3-7+b2","","","","","","","",""
+"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","","","",""
+"libopenmpt0t64","libopenmpt0t64","libopenmpt0t64","module music library based on OpenMPT -- shared library","","","1","1","","","","Section=libs; Version=0.7.13-1+b1","","","","","","","",""
+"librabbitmq4","librabbitmq4","librabbitmq4","AMQP client library written in C","","","1","1","","","","Section=libs; Version=0.15.0-1","","","","","","","",""
+"librist4","librist4","librist4","Reliable Internet Stream Transport -- shared library","","","1","1","","","","Section=libs; Version=0.2.11+dfsg-1","","","","","","","",""
+"libsrt1.5-gnutls","libsrt1.5-gnutls","libsrt1.5-gnutls","Secure Reliable Transport UDP streaming library (GnuTLS flavour)","","","1","1","","","","Section=libs; Version=1.5.4-1","","","","","","","",""
+"libssh-4","libssh-4","libssh-4","tiny C SSH library (OpenSSL flavor)","","","1","1","","","","Section=libs; Version=0.11.2-1","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"libva-drm2","libva-drm2","libva-drm2","Video Acceleration (VA) API for Linux -- DRM runtime","","","1","1","","","","Section=libs; Version=2.22.0-3","","","","","","","",""
+"libva-x11-2","libva-x11-2","libva-x11-2","Video Acceleration (VA) API for Linux -- X11 runtime","","","1","1","","","","Section=libs; Version=2.22.0-3","","","","","","","",""
+"libvdpau1","libvdpau1","libvdpau1","Video Decode and Presentation API for Unix (libraries)","","","1","1","","","","Section=libs; Version=1.5-3+b1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"liblcms2-2","liblcms2-2","liblcms2-2","Little CMS 2 color management library","","","1","1","","","","Section=libs; Version=2.16-2","","","","","","","",""
+"libvulkan1","libvulkan1","libvulkan1","Vulkan loader library","","","1","1","","","","Section=libs; Version=1.4.309.0-1","","","","","","","",""
+"libdecor-0-0","libdecor-0-0","libdecor-0-0","client-side window decoration library","","","1","1","","","","Section=libs; Version=0.2.2-2","","","","","","","",""
+"libgbm1","libgbm1","libgbm1","generic buffer management API -- runtime","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","","","",""
+"libsamplerate0","libsamplerate0","libsamplerate0","Audio sample rate conversion library","","","1","1","","","","Section=libs; Version=0.2.2-4+b2","","","","","","","",""
+"libwayland-client0","libwayland-client0","libwayland-client0","wayland compositor infrastructure - client library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libwayland-cursor0","libwayland-cursor0","libwayland-cursor0","wayland compositor infrastructure - cursor library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libwayland-egl1","libwayland-egl1","libwayland-egl1","wayland compositor infrastructure - EGL library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","","","",""
+"libxcursor1","libxcursor1","libxcursor1","X cursor management library","","","1","1","","","","Section=libs; Version=1:1.2.3-1","","","","","","","",""
+"libxfixes3","libxfixes3","libxfixes3","X11 miscellaneous 'fixes' extension library","","","1","1","","","","Section=libs; Version=1:6.0.0-2+b4","","","","","","","",""
+"libxi6","libxi6","libxi6","X11 Input extension library","","","1","1","","","","Section=libs; Version=2:1.8.2-1","","","","","","","",""
+"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","","","",""
+"libxrandr2","libxrandr2","libxrandr2","X11 RandR extension library","","","1","1","","","","Section=libs; Version=2:1.5.4-1+b3","","","","","","","",""
+"libxss1","libxss1","libxss1","X11 Screen Saver extension library","","","1","1","","","","Section=libs; Version=1:1.2.3-1+b3","","","","","","","",""
+"libsoxr0","libsoxr0","libsoxr0","High quality 1D sample-rate conversion library","","","1","1","","","","Section=libs; Version=0.1.3-4+b2","","","","","","","",""
+"","","","","","","","","","","","","ffmpeg","libavcodec61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libavdevice61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libavfilter10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libavformat61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libplacebo349","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libpostproc58","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libsdl2-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libswresample5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ffmpeg","libswscale8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libaom3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libcodec2-1.2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libdav1d7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libgsm1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libjxl0.11","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libmp3lame0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libopenjp2-7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libopus0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","librav1e0.7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","librsvg2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libshine3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libsnappy1v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libspeex1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libsvtav1enc2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libswresample5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libtheoradec1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libtheoraenc1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libtwolame0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libva2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libvorbis0a","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libvorbisenc2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libvpl2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libvpx9","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libwebpmux3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libx264-164","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libx265-215","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libxvidcore4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","libzvbi0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavcodec61","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libavc1394-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libavcodec61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libavfilter10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libavformat61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libcaca0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libcdio-cdda2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libcdio-paranoia2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libdc1394-25","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libdrm2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libgl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libiec61883-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libjack-jackd2-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libopenal1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libpulse0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libraw1394-11","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libsdl2-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libxcb-shape0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libxcb-shm0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libxcb-xfixes0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libxcb1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libxext6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavdevice61","libxv1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libass9","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libavcodec61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libavformat61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libbs2b0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libflite1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libfribidi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libharfbuzz0b","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","liblilv-0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libmysofa1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libplacebo349","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libpocketsphinx3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libpostproc58","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","librubberband2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libsphinxbase3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libswresample5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libswscale8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libva2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libvidstab1.1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libvpl2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libzimg2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","libzmq5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","ocl-icd-libopencl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","ocl-icd-libopencl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavfilter10","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libavcodec61","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libbluray2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libbz2-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libchromaprint1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libdvdnav4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libdvdread8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libgme0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libgnutls30t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libopenmpt0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","librabbitmq4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","librist4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libsrt1.5-gnutls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libssh-4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","libzmq5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavformat61","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libdrm2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libva-drm2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libva-x11-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libva2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libvdpau1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libvpl2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","ocl-icd-libopencl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavutil59","ocl-icd-libopencl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libplacebo349","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libplacebo349","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libplacebo349","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libplacebo349","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libplacebo349","libvulkan1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpostproc58","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpostproc58","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libdecor-0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libdrm2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libgbm1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libpulse0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libsamplerate0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libwayland-client0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libwayland-cursor0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libwayland-egl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxcursor1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxext6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxfixes3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxi6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxkbcommon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxrandr2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsdl2-2.0-0","libxss1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libswresample5","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libswresample5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libswresample5","libsoxr0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libswscale8","libavutil59","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libswscale8","libc6","Depends","#333","1","Depends","arrow","{}"

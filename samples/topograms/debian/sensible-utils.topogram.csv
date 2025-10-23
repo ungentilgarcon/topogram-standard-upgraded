@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"sensible-utils","sensible-utils","sensible-utils","Utilities for sensible alternative selection","","","1","1","","","","Section=utils; Version=0.0.25","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"sensible-utils","sensible-utils","sensible-utils","Utilities for sensible alternative selection","","","1","1","","","","Section=utils; Version=0.0.25","","","","","","","",""

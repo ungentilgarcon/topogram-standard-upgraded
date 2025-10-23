@@ -1,6 +1,6 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libc6-dev-mips-cross,libc6-dev-mips-cross,libc6-dev-mips-cross,GNU C Library: Development Libraries and Header Files (for cross-compiling),,,1,1,,,,Section=libdevel; Version=2.40-5cross1,,,,,,,
-libc6-mips-cross,libc6-mips-cross,libc6-mips-cross,GNU C Library: Shared libraries (for cross-compiling),,,1,1,,,,Section=libs; Version=2.40-5cross1,,,,,,,
-linux-libc-dev-mips-cross,linux-libc-dev-mips-cross,linux-libc-dev-mips-cross,Linux Kernel Headers for development (for cross-compiling),,,1,1,,,,Section=devel; Version=6.12.8-1cross1,,,,,,,
-,,,,,,,,,,,,libc6-mips-cross,libc6-dev-mips-cross,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,linux-libc-dev-mips-cross,libc6-dev-mips-cross,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libc6-dev-mips-cross","libc6-dev-mips-cross","libc6-dev-mips-cross","GNU C Library: Development Libraries and Header Files (for cross-compiling)","","","1","1","","","","Section=libdevel; Version=2.40-5cross1","","","","","","","",""
+"libc6-mips-cross","libc6-mips-cross","libc6-mips-cross","GNU C Library: Shared libraries (for cross-compiling)","","","1","1","","","","Section=libs; Version=2.40-5cross1","","","","","","","",""
+"linux-libc-dev-mips-cross","linux-libc-dev-mips-cross","linux-libc-dev-mips-cross","Linux Kernel Headers for development (for cross-compiling)","","","1","1","","","","Section=devel; Version=6.12.8-1cross1","","","","","","","",""
+"","","","","","","","","","","","","libc6-dev-mips-cross","libc6-mips-cross","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6-dev-mips-cross","linux-libc-dev-mips-cross","Depends","#333","1","Depends","arrow","{}"

@@ -1,116 +1,116 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-dh-elpa,dh-elpa,dh-elpa,Debian helper tools for packaging emacs lisp extensions,,,1,1,,,,Section=devel; Version=2.1.9,,,,,,,
-debhelper,debhelper,debhelper,helper programs for debian/rules,,,1,1,,,,Section=devel; Version=13.24.2,,,,,,,
-libdebian-source-perl,libdebian-source-perl,libdebian-source-perl,collection of Perl modules for handling Debian source packages,,,1,1,,,,Section=perl; Version=0.128,,,,,,,
-emacs-nox,emacs-nox,emacs-nox,GNU Emacs editor (without GUI support),,,1,1,,,,Section=editors; Version=1:30.1+1-6,,,,,,,
-libarray-utils-perl,libarray-utils-perl,libarray-utils-perl,collection of small utils for array manipulation,,,1,1,,,,Section=perl; Version=0.5-3,,,,,,,
-libconfig-tiny-perl,libconfig-tiny-perl,libconfig-tiny-perl,Read/Write .ini style files with as little code as possible,,,1,1,,,,Section=perl; Version=2.30-1,,,,,,,
-libfile-find-rule-perl,libfile-find-rule-perl,libfile-find-rule-perl,module to search for files based on rules,,,1,1,,,,Section=perl; Version=0.34-4,,,,,,,
-libdpkg-perl,libdpkg-perl,libdpkg-perl,Dpkg perl modules,,,1,1,,,,Section=perl; Version=1.22.21,,,,,,,
-libtext-glob-perl,libtext-glob-perl,libtext-glob-perl,Perl module for matching globbing patterns against text,,,1,1,,,,Section=perl; Version=0.11-3,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-dh-autoreconf,dh-autoreconf,dh-autoreconf,debhelper add-on to call autoreconf and clean up after the build,,,1,1,,,,Section=devel; Version=20,,,,,,,
-dh-strip-nondeterminism,dh-strip-nondeterminism,dh-strip-nondeterminism,file non-deterministic information stripper — Debhelper add-on,,,1,1,,,,Section=perl; Version=1.14.1-2,,,,,,,
-dpkg-dev,dpkg-dev,dpkg-dev,Debian package development tools,,,1,1,,,,Section=utils; Version=1.22.21,,,,,,,
-autotools-dev,autotools-dev,autotools-dev,"Update infrastructure for config.{guess,sub} files",,,1,1,,,,Section=devel; Version=20240727.1,,,,,,,
-dpkg,dpkg,dpkg,Debian package management system,,,1,1,,,,Section=admin; Version=1.22.21,,,,,,,
-dwz,dwz,dwz,DWARF compression tool,,,1,1,,,,Section=devel; Version=0.15-1+b1,,,,,,,
-file,file,file,"Recognize the type of data in a file using ""magic"" numbers",,,1,1,,,,Section=utils; Version=1:5.46-5,,,,,,,
-libdebhelper-perl,libdebhelper-perl,libdebhelper-perl,debhelper perl modules,,,1,1,,,,Section=perl; Version=13.24.2,,,,,,,
-man-db,man-db,man-db,tools for reading manual pages,,,1,1,,,,Section=doc; Version=2.13.1-1,,,,,,,
-po-debconf,po-debconf,po-debconf,tool for managing templates file translations with gettext,,,1,1,,,,Section=devel; Version=1.0.21+nmu1,,,,,,,
-libapt-pkg-perl,libapt-pkg-perl,libapt-pkg-perl,Perl interface to libapt-pkg,,,1,1,,,,Section=perl; Version=0.1.42,,,,,,,
-libarray-unique-perl,libarray-unique-perl,libarray-unique-perl,Tie-able array that allows only unique values,,,1,1,,,,Section=perl; Version=0.09-1,,,,,,,
-libclass-accessor-perl,libclass-accessor-perl,libclass-accessor-perl,Perl module that automatically generates accessors,,,1,1,,,,Section=perl; Version=0.51-2,,,,,,,
-liblist-moreutils-perl,liblist-moreutils-perl,liblist-moreutils-perl,Perl module with additional list functions not found in List::Util,,,1,1,,,,Section=perl; Version=0.430-2,,,,,,,
-libparse-debcontrol-perl,libparse-debcontrol-perl,libparse-debcontrol-perl,parser for debian control-like files,,,1,1,,,,Section=perl; Version=2.005-6,,,,,,,
-libsub-install-perl,libsub-install-perl,libsub-install-perl,module for installing subroutines into packages easily,,,1,1,,,,Section=perl; Version=0.929-1,,,,,,,
-libtie-ixhash-perl,libtie-ixhash-perl,libtie-ixhash-perl,Perl module to order associative arrays,,,1,1,,,,Section=perl; Version=1.23-4,,,,,,,
-libwww-mechanize-perl,libwww-mechanize-perl,libwww-mechanize-perl,module to automate interaction with websites,,,1,1,,,,Section=perl; Version=2.19-1,,,,,,,
-libwww-perl,libwww-perl,libwww-perl,simple and consistent interface to the world-wide web,,,1,1,,,,Section=perl; Version=6.78-1,,,,,,,
-emacs-bin-common,emacs-bin-common,emacs-bin-common,"GNU Emacs editor's shared, architecture dependent files",,,1,1,,,,Section=editors; Version=1:30.1+1-6,,,,,,,
-emacs-common,emacs-common,emacs-common,"GNU Emacs editor's shared, architecture independent infrastructure",,,1,1,,,,Section=editors; Version=1:30.1+1-6,,,,,,,
-libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libattr1,libattr1,libattr1,extended attribute handling - shared library,,,1,1,,,,Section=libs; Version=1:2.5.2-3,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
-libgccjit0,libgccjit0,libgccjit0,GCC just-in-time compilation (shared library),,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
-libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
-libgpm2,libgpm2,libgpm2,General Purpose Mouse - shared library,,,1,1,,,,Section=libs; Version=1.20.7-11+b2,,,,,,,
-liblcms2-2,liblcms2-2,liblcms2-2,Little CMS 2 color management library,,,1,1,,,,Section=libs; Version=2.16-2,,,,,,,
-libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
-libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
-libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-libtree-sitter0.22,libtree-sitter0.22,libtree-sitter0.22,incremental parsing system for programming tools,,,1,1,,,,Section=libs; Version=0.22.6-6+b1,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libnumber-compare-perl,libnumber-compare-perl,libnumber-compare-perl,module for performing numeric comparisons in Perl,,,1,1,,,,Section=perl; Version=0.03-3,,,,,,,
-libfile-fcntllock-perl,libfile-fcntllock-perl,libfile-fcntllock-perl,Perl module for file locking with fcntl(2),,,1,1,,,,Section=perl; Version=0.22-4+b4,,,,,,,
-liblocale-gettext-perl,liblocale-gettext-perl,liblocale-gettext-perl,module using libc functions for internationalization in Perl,,,1,1,,,,Section=perl; Version=1.07-7+b1,,,,,,,
-bzip2,bzip2,bzip2,high-quality block-sorting file compressor - utilities,,,1,1,,,,Section=utils; Version=1.0.8-6,,,,,,,
-xz-utils,xz-utils,xz-utils,XZ-format compression utilities,,,1,1,,,,Section=utils; Version=5.8.1-1,,,,,,,
-,,,,,,,,,,,,debhelper,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdebian-source-perl,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,emacs-nox,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libarray-utils-perl,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libconfig-tiny-perl,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfile-find-rule-perl,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdpkg-perl,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtext-glob-perl,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,dh-elpa,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dh-autoreconf,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dh-strip-nondeterminism,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dpkg-dev,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,autotools-dev,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dpkg,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dwz,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,file,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdebhelper-perl,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdpkg-perl,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,man-db,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,po-debconf,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,debhelper,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dpkg-dev,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libapt-pkg-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libarray-unique-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclass-accessor-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblist-moreutils-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libparse-debcontrol-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsub-install-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtie-ixhash-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwww-mechanize-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwww-perl,libdebian-source-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,emacs-bin-common,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,emacs-common,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libacl1,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libattr1,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgccjit0,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnutls30t64,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgpm2,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libselinux1,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsqlite3-0,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtinfo6,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtree-sitter0.22,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,emacs-nox,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libarray-utils-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libconfig-tiny-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libfile-find-rule-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnumber-compare-perl,libfile-find-rule-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtext-glob-perl,libfile-find-rule-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libdpkg-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dpkg,libdpkg-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfile-fcntllock-perl,libdpkg-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,liblocale-gettext-perl,libdpkg-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,bzip2,libdpkg-perl,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,xz-utils,libdpkg-perl,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"dh-elpa","dh-elpa","dh-elpa","Debian helper tools for packaging emacs lisp extensions","","","1","1","","","","Section=devel; Version=2.1.9","","","","","","","",""
+"debhelper","debhelper","debhelper","helper programs for debian/rules","","","1","1","","","","Section=devel; Version=13.24.2","","","","","","","",""
+"libdebian-source-perl","libdebian-source-perl","libdebian-source-perl","collection of Perl modules for handling Debian source packages","","","1","1","","","","Section=perl; Version=0.128","","","","","","","",""
+"emacs-nox","emacs-nox","emacs-nox","GNU Emacs editor (without GUI support)","","","1","1","","","","Section=editors; Version=1:30.1+1-6","","","","","","","",""
+"libarray-utils-perl","libarray-utils-perl","libarray-utils-perl","collection of small utils for array manipulation","","","1","1","","","","Section=perl; Version=0.5-3","","","","","","","",""
+"libconfig-tiny-perl","libconfig-tiny-perl","libconfig-tiny-perl","Read/Write .ini style files with as little code as possible","","","1","1","","","","Section=perl; Version=2.30-1","","","","","","","",""
+"libfile-find-rule-perl","libfile-find-rule-perl","libfile-find-rule-perl","module to search for files based on rules","","","1","1","","","","Section=perl; Version=0.34-4","","","","","","","",""
+"libdpkg-perl","libdpkg-perl","libdpkg-perl","Dpkg perl modules","","","1","1","","","","Section=perl; Version=1.22.21","","","","","","","",""
+"libtext-glob-perl","libtext-glob-perl","libtext-glob-perl","Perl module for matching globbing patterns against text","","","1","1","","","","Section=perl; Version=0.11-3","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"dh-autoreconf","dh-autoreconf","dh-autoreconf","debhelper add-on to call autoreconf and clean up after the build","","","1","1","","","","Section=devel; Version=20","","","","","","","",""
+"dh-strip-nondeterminism","dh-strip-nondeterminism","dh-strip-nondeterminism","file non-deterministic information stripper — Debhelper add-on","","","1","1","","","","Section=perl; Version=1.14.1-2","","","","","","","",""
+"dpkg-dev","dpkg-dev","dpkg-dev","Debian package development tools","","","1","1","","","","Section=utils; Version=1.22.21","","","","","","","",""
+"autotools-dev","autotools-dev","autotools-dev","Update infrastructure for config.{guess,sub} files","","","1","1","","","","Section=devel; Version=20240727.1","","","","","","","",""
+"dpkg","dpkg","dpkg","Debian package management system","","","1","1","","","","Section=admin; Version=1.22.21","","","","","","","",""
+"dwz","dwz","dwz","DWARF compression tool","","","1","1","","","","Section=devel; Version=0.15-1+b1","","","","","","","",""
+"file","file","file","Recognize the type of data in a file using ""magic"" numbers","","","1","1","","","","Section=utils; Version=1:5.46-5","","","","","","","",""
+"libdebhelper-perl","libdebhelper-perl","libdebhelper-perl","debhelper perl modules","","","1","1","","","","Section=perl; Version=13.24.2","","","","","","","",""
+"man-db","man-db","man-db","tools for reading manual pages","","","1","1","","","","Section=doc; Version=2.13.1-1","","","","","","","",""
+"po-debconf","po-debconf","po-debconf","tool for managing templates file translations with gettext","","","1","1","","","","Section=devel; Version=1.0.21+nmu1","","","","","","","",""
+"libapt-pkg-perl","libapt-pkg-perl","libapt-pkg-perl","Perl interface to libapt-pkg","","","1","1","","","","Section=perl; Version=0.1.42","","","","","","","",""
+"libarray-unique-perl","libarray-unique-perl","libarray-unique-perl","Tie-able array that allows only unique values","","","1","1","","","","Section=perl; Version=0.09-1","","","","","","","",""
+"libclass-accessor-perl","libclass-accessor-perl","libclass-accessor-perl","Perl module that automatically generates accessors","","","1","1","","","","Section=perl; Version=0.51-2","","","","","","","",""
+"liblist-moreutils-perl","liblist-moreutils-perl","liblist-moreutils-perl","Perl module with additional list functions not found in List::Util","","","1","1","","","","Section=perl; Version=0.430-2","","","","","","","",""
+"libparse-debcontrol-perl","libparse-debcontrol-perl","libparse-debcontrol-perl","parser for debian control-like files","","","1","1","","","","Section=perl; Version=2.005-6","","","","","","","",""
+"libsub-install-perl","libsub-install-perl","libsub-install-perl","module for installing subroutines into packages easily","","","1","1","","","","Section=perl; Version=0.929-1","","","","","","","",""
+"libtie-ixhash-perl","libtie-ixhash-perl","libtie-ixhash-perl","Perl module to order associative arrays","","","1","1","","","","Section=perl; Version=1.23-4","","","","","","","",""
+"libwww-mechanize-perl","libwww-mechanize-perl","libwww-mechanize-perl","module to automate interaction with websites","","","1","1","","","","Section=perl; Version=2.19-1","","","","","","","",""
+"libwww-perl","libwww-perl","libwww-perl","simple and consistent interface to the world-wide web","","","1","1","","","","Section=perl; Version=6.78-1","","","","","","","",""
+"emacs-bin-common","emacs-bin-common","emacs-bin-common","GNU Emacs editor's shared, architecture dependent files","","","1","1","","","","Section=editors; Version=1:30.1+1-6","","","","","","","",""
+"emacs-common","emacs-common","emacs-common","GNU Emacs editor's shared, architecture independent infrastructure","","","1","1","","","","Section=editors; Version=1:30.1+1-6","","","","","","","",""
+"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libattr1","libattr1","libattr1","extended attribute handling - shared library","","","1","1","","","","Section=libs; Version=1:2.5.2-3","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","","","",""
+"libgccjit0","libgccjit0","libgccjit0","GCC just-in-time compilation (shared library)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","","","",""
+"libgpm2","libgpm2","libgpm2","General Purpose Mouse - shared library","","","1","1","","","","Section=libs; Version=1.20.7-11+b2","","","","","","","",""
+"liblcms2-2","liblcms2-2","liblcms2-2","Little CMS 2 color management library","","","1","1","","","","Section=libs; Version=2.16-2","","","","","","","",""
+"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","","","",""
+"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","","","",""
+"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"libtree-sitter0.22","libtree-sitter0.22","libtree-sitter0.22","incremental parsing system for programming tools","","","1","1","","","","Section=libs; Version=0.22.6-6+b1","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libnumber-compare-perl","libnumber-compare-perl","libnumber-compare-perl","module for performing numeric comparisons in Perl","","","1","1","","","","Section=perl; Version=0.03-3","","","","","","","",""
+"libfile-fcntllock-perl","libfile-fcntllock-perl","libfile-fcntllock-perl","Perl module for file locking with fcntl(2)","","","1","1","","","","Section=perl; Version=0.22-4+b4","","","","","","","",""
+"liblocale-gettext-perl","liblocale-gettext-perl","liblocale-gettext-perl","module using libc functions for internationalization in Perl","","","1","1","","","","Section=perl; Version=1.07-7+b1","","","","","","","",""
+"bzip2","bzip2","bzip2","high-quality block-sorting file compressor - utilities","","","1","1","","","","Section=utils; Version=1.0.8-6","","","","","","","",""
+"xz-utils","xz-utils","xz-utils","XZ-format compression utilities","","","1","1","","","","Section=utils; Version=5.8.1-1","","","","","","","",""
+"","","","","","","","","","","","","dh-elpa","debhelper","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","libdebian-source-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","emacs-nox","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","libarray-utils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","libconfig-tiny-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","libfile-find-rule-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","libdpkg-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","libtext-glob-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dh-elpa","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","dh-autoreconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","dh-strip-nondeterminism","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","dpkg-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","autotools-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","dpkg","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","dwz","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","file","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","libdebhelper-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","libdpkg-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","man-db","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","po-debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debhelper","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","dpkg-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libapt-pkg-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libarray-unique-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libclass-accessor-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","liblist-moreutils-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libparse-debcontrol-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libsub-install-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libtie-ixhash-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libwww-mechanize-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdebian-source-perl","libwww-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","emacs-bin-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","emacs-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libacl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libattr1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libgccjit0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libgmp10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libgnutls30t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libgpm2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libselinux1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libsqlite3-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libsystemd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libtinfo6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libtree-sitter0.22","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","emacs-nox","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libarray-utils-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libconfig-tiny-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfile-find-rule-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfile-find-rule-perl","libnumber-compare-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfile-find-rule-perl","libtext-glob-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdpkg-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdpkg-perl","dpkg","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdpkg-perl","libfile-fcntllock-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libdpkg-perl","liblocale-gettext-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libdpkg-perl","bzip2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libdpkg-perl","xz-utils","Recommends","#333","1","Recommends","arrow","{}"

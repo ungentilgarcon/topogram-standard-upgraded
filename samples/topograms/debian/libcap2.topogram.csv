@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"golang-kernel-pub-linux-libs-security-libcap-dev","golang-kernel-pub-linux-libs-security-libcap-dev","golang-kernel-pub-linux-libs-security-libcap-dev","POSIX 1003.1e capabilities (Go library)","","","1","1","","","","Section=libs; Version=1:2.75-10","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-kernel-pub-linux-libs-security-libcap-dev","golang-kernel-pub-linux-libs-security-libcap-dev","golang-kernel-pub-linux-libs-security-libcap-dev","POSIX 1003.1e capabilities (Go library)","","","1","1","","","","Section=libs; Version=1:2.75-10","","","","","","","",""

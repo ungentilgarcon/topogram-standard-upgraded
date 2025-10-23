@@ -1,66 +1,66 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libkf6crash-dev,libkf6crash-dev,libkf6crash-dev,Support for application crash analysis and bug report from apps,,,1,1,,,,Section=libdevel; Version=6.13.0-1,,,,,,,
-libkf6coreaddons-dev,libkf6coreaddons-dev,libkf6coreaddons-dev,KDE Frameworks 6 addons to QtCore - development files,,,1,1,,,,Section=libdevel; Version=6.13.0-1,,,,,,,
-libkf6crash6,libkf6crash6,libkf6crash6,Support for application crash analysis and bug report from apps,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-qt6-base-dev,qt6-base-dev,qt6-base-dev,Qt 6 base development files,,,1,1,,,,Section=libdevel; Version=6.8.2+dfsg-9,,,,,,,
-libkf6crash-doc,libkf6crash-doc,libkf6crash-doc,Support for application crash analysis and bug report from apps (documentation),,,1,1,,,,Section=doc; Version=6.13.0-1,,,,,,,
-libkf6coreaddons6,libkf6coreaddons6,libkf6coreaddons6,KDE Frameworks 6 addons to QtCore,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-qml6-module-org-kde-coreaddons,qml6-module-org-kde-coreaddons,qml6-module-org-kde-coreaddons,KDE Frameworks 6 addons to QtCore (QML module),,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6coreaddons-doc,libkf6coreaddons-doc,libkf6coreaddons-doc,KDE Frameworks 6 addons to QtCore (documentation),,,1,1,,,,Section=doc; Version=6.13.0-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libqt6core6t64,libqt6core6t64,libqt6core6t64,Qt 6 core module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6gui6,libqt6gui6,libqt6gui6,Qt 6 GUI module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libgl-dev,libgl-dev,libgl-dev,Vendor neutral GL dispatch library -- GL development files,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libglx-dev,libglx-dev,libglx-dev,Vendor neutral GL dispatch library -- GLX development files,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libopengl-dev,libopengl-dev,libopengl-dev,Vendor neutral GL dispatch library -- OpenGL development files,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
-libqt6concurrent6,libqt6concurrent6,libqt6concurrent6,Qt 6 concurrent module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6dbus6,libqt6dbus6,libqt6dbus6,Qt 6 D-Bus module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6network6,libqt6network6,libqt6network6,Qt 6 network module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6opengl6,libqt6opengl6,libqt6opengl6,Qt 6 OpenGL module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6openglwidgets6,libqt6openglwidgets6,libqt6openglwidgets6,Qt 6 OpenGL widgets module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6printsupport6,libqt6printsupport6,libqt6printsupport6,Qt 6 print support module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6sql6,libqt6sql6,libqt6sql6,Qt 6 SQL module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6test6,libqt6test6,libqt6test6,Qt 6 test module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6widgets6,libqt6widgets6,libqt6widgets6,Qt 6 widgets module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6xml6,libqt6xml6,libqt6xml6,Qt 6 XML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libvulkan-dev,libvulkan-dev,libvulkan-dev,Vulkan loader library -- development files,,,1,1,,,,Section=libdevel; Version=1.4.309.0-1,,,,,,,
-qmake6,qmake6,qmake6,Qt 6 qmake Makefile generator tool,,,1,1,,,,Section=devel; Version=6.8.2+dfsg-9,,,,,,,
-qt6-base-dev-tools,qt6-base-dev-tools,qt6-base-dev-tools,Qt 6 base development programs,,,1,1,,,,Section=devel; Version=6.8.2+dfsg-9,,,,,,,
-qt6-qpa-plugins,qt6-qpa-plugins,qt6-qpa-plugins,Qt 6 QPA plugins,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-,,,,,,,,,,,,libkf6coreaddons-dev,libkf6crash-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6crash6,libkf6crash-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-dev,libkf6crash-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6crash-doc,libkf6crash-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6coreaddons-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-org-kde-coreaddons,libkf6coreaddons-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-dev,libkf6coreaddons-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons-doc,libkf6coreaddons-dev,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libkf6crash6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libkf6crash6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,libkf6crash6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,libkf6crash6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,libkf6crash6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libkf6crash6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,libkf6crash6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgl-dev,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglx-dev,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopengl-dev,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6concurrent6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6dbus6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6opengl6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6openglwidgets6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6printsupport6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6sql6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6test6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6xml6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvulkan-dev,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qmake6,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-base-dev-tools,qt6-base-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-qpa-plugins,qt6-base-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkf6crash-dev","libkf6crash-dev","libkf6crash-dev","Support for application crash analysis and bug report from apps","","","1","1","","","","Section=libdevel; Version=6.13.0-1","","","","","","","",""
+"libkf6coreaddons-dev","libkf6coreaddons-dev","libkf6coreaddons-dev","KDE Frameworks 6 addons to QtCore - development files","","","1","1","","","","Section=libdevel; Version=6.13.0-1","","","","","","","",""
+"libkf6crash6","libkf6crash6","libkf6crash6","Support for application crash analysis and bug report from apps","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"qt6-base-dev","qt6-base-dev","qt6-base-dev","Qt 6 base development files","","","1","1","","","","Section=libdevel; Version=6.8.2+dfsg-9","","","","","","","",""
+"libkf6crash-doc","libkf6crash-doc","libkf6crash-doc","Support for application crash analysis and bug report from apps (documentation)","","","1","1","","","","Section=doc; Version=6.13.0-1","","","","","","","",""
+"libkf6coreaddons6","libkf6coreaddons6","libkf6coreaddons6","KDE Frameworks 6 addons to QtCore","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"qml6-module-org-kde-coreaddons","qml6-module-org-kde-coreaddons","qml6-module-org-kde-coreaddons","KDE Frameworks 6 addons to QtCore (QML module)","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6coreaddons-doc","libkf6coreaddons-doc","libkf6coreaddons-doc","KDE Frameworks 6 addons to QtCore (documentation)","","","1","1","","","","Section=doc; Version=6.13.0-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libqt6core6t64","libqt6core6t64","libqt6core6t64","Qt 6 core module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6gui6","libqt6gui6","libqt6gui6","Qt 6 GUI module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libgl-dev","libgl-dev","libgl-dev","Vendor neutral GL dispatch library -- GL development files","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libglx-dev","libglx-dev","libglx-dev","Vendor neutral GL dispatch library -- GLX development files","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libopengl-dev","libopengl-dev","libopengl-dev","Vendor neutral GL dispatch library -- OpenGL development files","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","","","",""
+"libqt6concurrent6","libqt6concurrent6","libqt6concurrent6","Qt 6 concurrent module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6dbus6","libqt6dbus6","libqt6dbus6","Qt 6 D-Bus module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6network6","libqt6network6","libqt6network6","Qt 6 network module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6opengl6","libqt6opengl6","libqt6opengl6","Qt 6 OpenGL module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6openglwidgets6","libqt6openglwidgets6","libqt6openglwidgets6","Qt 6 OpenGL widgets module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6printsupport6","libqt6printsupport6","libqt6printsupport6","Qt 6 print support module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6sql6","libqt6sql6","libqt6sql6","Qt 6 SQL module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6test6","libqt6test6","libqt6test6","Qt 6 test module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6widgets6","libqt6widgets6","libqt6widgets6","Qt 6 widgets module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6xml6","libqt6xml6","libqt6xml6","Qt 6 XML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libvulkan-dev","libvulkan-dev","libvulkan-dev","Vulkan loader library -- development files","","","1","1","","","","Section=libdevel; Version=1.4.309.0-1","","","","","","","",""
+"qmake6","qmake6","qmake6","Qt 6 qmake Makefile generator tool","","","1","1","","","","Section=devel; Version=6.8.2+dfsg-9","","","","","","","",""
+"qt6-base-dev-tools","qt6-base-dev-tools","qt6-base-dev-tools","Qt 6 base development programs","","","1","1","","","","Section=devel; Version=6.8.2+dfsg-9","","","","","","","",""
+"qt6-qpa-plugins","qt6-qpa-plugins","qt6-qpa-plugins","Qt 6 QPA plugins","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"","","","","","","","","","","","","libkf6crash-dev","libkf6coreaddons-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash-dev","libkf6crash6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash-dev","qt6-base-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash-dev","libkf6crash-doc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons-dev","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons-dev","qml6-module-org-kde-coreaddons","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons-dev","qt6-base-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6coreaddons-dev","libkf6coreaddons-doc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash6","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash6","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash6","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash6","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libkf6crash6","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libgl-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libglx-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libopengl-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6concurrent6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6dbus6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6opengl6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6openglwidgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6printsupport6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6sql6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6test6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libqt6xml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","libvulkan-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","qmake6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","qt6-base-dev-tools","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","qt6-base-dev","qt6-qpa-plugins","Depends","#333","1","Depends","arrow","{}"

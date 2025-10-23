@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"fonts-mathjax","fonts-mathjax","fonts-mathjax","JavaScript display engine for LaTeX and MathML (fonts)","","","1","1","","","","Section=fonts; Version=2.7.9+dfsg-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"fonts-mathjax","fonts-mathjax","fonts-mathjax","JavaScript display engine for LaTeX and MathML (fonts)","","","1","1","","","","Section=fonts; Version=2.7.9+dfsg-1","","","","","","","",""

@@ -1,13 +1,13 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gir1.2-girepository-3.0,gir1.2-girepository-3.0,gir1.2-girepository-3.0,"Introspection data for GIRepository library, API version 3.0",,,1,1,,,,Section=introspection; Version=2.84.4-3~deb13u1,,,,,,,
-gir1.2-glib-2.0,gir1.2-glib-2.0,gir1.2-glib-2.0,"Introspection data for GLib, GObject, Gio and GModule",,,1,1,,,,Section=introspection; Version=2.84.4-3~deb13u1,,,,,,,
-libgirepository-2.0-0,libgirepository-2.0-0,libgirepository-2.0-0,GLib runtime library for handling GObject introspection data,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
-,,,,,,,,,,,,gir1.2-glib-2.0,gir1.2-girepository-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgirepository-2.0-0,gir1.2-girepository-3.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,gir1.2-glib-2.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgirepository-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libffi8,libgirepository-2.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libgirepository-2.0-0,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gir1.2-girepository-3.0","gir1.2-girepository-3.0","gir1.2-girepository-3.0","Introspection data for GIRepository library, API version 3.0","","","1","1","","","","Section=introspection; Version=2.84.4-3~deb13u1","","","","","","","",""
+"gir1.2-glib-2.0","gir1.2-glib-2.0","gir1.2-glib-2.0","Introspection data for GLib, GObject, Gio and GModule","","","1","1","","","","Section=introspection; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgirepository-2.0-0","libgirepository-2.0-0","libgirepository-2.0-0","GLib runtime library for handling GObject introspection data","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","","","",""
+"","","","","","","","","","","","","gir1.2-girepository-3.0","gir1.2-glib-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-girepository-3.0","libgirepository-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-glib-2.0","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgirepository-2.0-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgirepository-2.0-0","libffi8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgirepository-2.0-0","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"

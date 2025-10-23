@@ -1,10 +1,10 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libtinyxml-dev,libtinyxml-dev,libtinyxml-dev,TinyXml library - header and static library,,,1,1,,,,Section=libdevel; Version=2.6.2-7,,,,,,,
-libtinyxml2.6.2v5,libtinyxml2.6.2v5,libtinyxml2.6.2v5,C++ XML parsing library,,,1,1,,,,Section=libs; Version=2.6.2-7,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-,,,,,,,,,,,,libtinyxml2.6.2v5,libtinyxml-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libtinyxml2.6.2v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libtinyxml2.6.2v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libtinyxml2.6.2v5,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libtinyxml-dev","libtinyxml-dev","libtinyxml-dev","TinyXml library - header and static library","","","1","1","","","","Section=libdevel; Version=2.6.2-7","","","","","","","",""
+"libtinyxml2.6.2v5","libtinyxml2.6.2v5","libtinyxml2.6.2v5","C++ XML parsing library","","","1","1","","","","Section=libs; Version=2.6.2-7","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"","","","","","","","","","","","","libtinyxml-dev","libtinyxml2.6.2v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtinyxml2.6.2v5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtinyxml2.6.2v5","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtinyxml2.6.2v5","libstdc++6","Depends","#333","1","Depends","arrow","{}"

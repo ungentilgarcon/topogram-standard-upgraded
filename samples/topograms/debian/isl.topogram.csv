@@ -1,8 +1,8 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libisl-dev,libisl-dev,libisl-dev,manipulating sets and relations of integer points bounded by linear constraints,,,1,1,,,,Section=libdevel; Version=0.27-1,,,,,,,
-libisl23,libisl23,libisl23,manipulating sets and relations of integer points bounded by linear constraints,,,1,1,,,,Section=libs; Version=0.27-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
-,,,,,,,,,,,,libisl23,libisl-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libisl23,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgmp10,libisl23,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libisl-dev","libisl-dev","libisl-dev","manipulating sets and relations of integer points bounded by linear constraints","","","1","1","","","","Section=libdevel; Version=0.27-1","","","","","","","",""
+"libisl23","libisl23","libisl23","manipulating sets and relations of integer points bounded by linear constraints","","","1","1","","","","Section=libs; Version=0.27-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","","","",""
+"","","","","","","","","","","","","libisl-dev","libisl23","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libisl23","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libisl23","libgmp10","Depends","#333","1","Depends","arrow","{}"

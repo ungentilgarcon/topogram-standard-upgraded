@@ -1,644 +1,644 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-junior-art,junior-art,junior-art,Debian Jr. Art,,,1,1,,,,Section=metapackages; Version=1.32,,,,,,,
-junior-config,junior-config,junior-config,Debian Jr. Project common package,,,1,1,,,,Section=misc; Version=1.32,,,,,,,
-junior-tasks,junior-tasks,junior-tasks,Debian Jr. tasks for tasksel,,,1,1,,,,Section=misc; Version=1.32,,,,,,,
-cheese,cheese,cheese,tool to take pictures and videos from your webcam,,,1,1,,,,Section=gnome; Version=44.1-5,,,,,,,
-gamine,gamine,gamine,Interactive game for young children,,,1,1,,,,Section=games; Version=1.6-2,,,,,,,
-gcompris-qt,gcompris-qt,gcompris-qt,educational games for small children,,,1,1,,,,Section=education; Version=25.0.12-1,,,,,,,
-gimp,gimp,gimp,GNU Image Manipulation Program,,,1,1,,,,Section=graphics; Version=3.0.4-3,,,,,,,
-inkscape,inkscape,inkscape,vector-based drawing program,,,1,1,,,,Section=graphics; Version=1.4-6,,,,,,,
-karbon,karbon,karbon,vector graphics application for the Calligra Suite,,,1,1,,,,Section=graphics; Version=1:25.04.2+dfsg-1,,,,,,,
-krita,krita,krita,pixel-based image manipulation program,,,1,1,,,,Section=graphics; Version=1:5.2.9+dfsg-1+b1,,,,,,,
-mtpaint,mtpaint,mtpaint,painting program to create pixel art and manipulate digital photos,,,1,1,,,,Section=graphics; Version=3.50.11-1,,,,,,,
-mypaint,mypaint,mypaint,paint program for use with graphics tablets,,,1,1,,,,Section=graphics; Version=2.0.1-12,,,,,,,
-pencil2d,pencil2d,pencil2d,Create hand-drawn animation using both bitmap and vector graphics,,,1,1,,,,Section=graphics; Version=0.7.0-1,,,,,,,
-pysiogame,pysiogame,pysiogame,educational activity pack for kids,,,1,1,,,,Section=games; Version=4.20.01-3,,,,,,,
-rgbpaint,rgbpaint,rgbpaint,simple pixel-based painting program,,,1,1,,,,Section=graphics; Version=0.8.7-7,,,,,,,
-simple-scan,simple-scan,simple-scan,Simple Scanning Utility,,,1,1,,,,Section=gnome; Version=46.0-2,,,,,,,
-tupi,tupi,tupi,2D Animation design and authoring tool,,,1,1,,,,Section=graphics; Version=0.2+git08-6,,,,,,,
-tuxpaint,tuxpaint,tuxpaint,Paint program for young children,,,1,1,,,,Section=graphics; Version=1:0.9.34-2+b1,,,,,,,
-xpaint,xpaint,xpaint,simple paint program for X,,,1,1,,,,Section=graphics; Version=2.9.1.4-5,,,,,,,
-adduser,adduser,adduser,add and remove users and groups,,,1,1,,,,Section=admin; Version=3.152,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-menu,menu,menu,generates programs menu for all menu-aware applications,,,1,1,,,,Section=admin; Version=2.1.51,,,,,,,
-blends-common,blends-common,blends-common,Debian Pure Blends common package,,,1,1,,,,Section=misc; Version=0.7.10,,,,,,,
-tasksel,tasksel,tasksel,tool for selecting tasks for installation on Debian systems,,,1,1,,,,Section=admin; Version=3.81,,,,,,,
-cheese-common,cheese-common,cheese-common,Common files for the Cheese tool to take pictures and videos,,,1,1,,,,Section=gnome; Version=44.1-5,,,,,,,
-gnome-video-effects,gnome-video-effects,gnome-video-effects,Collection of GStreamer effects,,,1,1,,,,Section=gnome; Version=0.6.0-3,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcanberra-gtk3-0,libcanberra-gtk3-0,libcanberra-gtk3-0,GTK+ 3.0 helper for playing widget event sounds with libcanberra,,,1,1,,,,Section=libs; Version=0.30-18,,,,,,,
-libcheese-gtk25,libcheese-gtk25,libcheese-gtk25,tool to take pictures and videos from your webcam - widgets,,,1,1,,,,Section=libs; Version=44.1-5,,,,,,,
-libcheese8,libcheese8,libcheese8,tool to take pictures and videos from your webcam - base library,,,1,1,,,,Section=libs; Version=44.1-5,,,,,,,
-libclutter-1.0-0,libclutter-1.0-0,libclutter-1.0-0,Open GL based interactive canvas library,,,1,1,,,,Section=oldlibs; Version=1.26.4+git2779b932+dfsg-7+b2,,,,,,,
-libclutter-gtk-1.0-0,libclutter-gtk-1.0-0,libclutter-gtk-1.0-0,Open GL based interactive canvas library GTK+ widget,,,1,1,,,,Section=oldlibs; Version=1.8.4-6,,,,,,,
-libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,GDK Pixbuf library,,,1,1,,,,Section=libs; Version=2.42.12+dfsg-4,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libgnome-desktop-3-20t64,libgnome-desktop-3-20t64,libgnome-desktop-3-20t64,Utility library for the GNOME desktop - GTK 3 version,,,1,1,,,,Section=libs; Version=44.3-3,,,,,,,
-libgstreamer1.0-0,libgstreamer1.0-0,libgstreamer1.0-0,Core GStreamer libraries and elements,,,1,1,,,,Section=libs; Version=1.26.2-2,,,,,,,
-libgtk-3-0t64,libgtk-3-0t64,libgtk-3-0t64,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=3.24.49-3,,,,,,,
-gvfs,gvfs,gvfs,userspace virtual filesystem - GIO module,,,1,1,,,,Section=libs; Version=1.57.2-2,,,,,,,
-yelp,yelp,yelp,Help browser for GNOME,,,1,1,,,,Section=gnome; Version=42.2-4,,,,,,,
-gamine-data,gamine-data,gamine-data,data files for gamine game,,,1,1,,,,Section=games; Version=1.6-2,,,,,,,
-gstreamer1.0-plugins-good,gstreamer1.0-plugins-good,gstreamer1.0-plugins-good,"GStreamer plugins from the ""good"" set",,,1,1,,,,Section=libs; Version=1.26.2-1,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-gcompris-qt-data,gcompris-qt-data,gcompris-qt-data,data files for gcompris-qt,,,1,1,,,,Section=education; Version=25.0.12-1,,,,,,,
-qml6-module-qtcharts,qml6-module-qtcharts,qml6-module-qtcharts,Qt 6 Charts QML module,,,1,1,,,,Section=libs; Version=6.8.2-2,,,,,,,
-qml6-module-qtmultimedia,qml6-module-qtmultimedia,qml6-module-qtmultimedia,Qt 6 Multimedia QML module,,,1,1,,,,Section=libs; Version=6.8.2-8,,,,,,,
-qml6-module-qtquick,qml6-module-qtquick,qml6-module-qtquick,Qt 6 Quick QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-controls,qml6-module-qtquick-controls,qml6-module-qtquick-controls,Qt 6 Quick Controls QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-effects,qml6-module-qtquick-effects,qml6-module-qtquick-effects,Qt 6 Quick Effects QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-layouts,qml6-module-qtquick-layouts,qml6-module-qtquick-layouts,Qt 6 Quick Layouts QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-particles,qml6-module-qtquick-particles,qml6-module-qtquick-particles,Qt 6 Quick Particle QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-shapes,qml6-module-qtquick-shapes,qml6-module-qtquick-shapes,Qt 6 Quick Shapes QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtquick-window,qml6-module-qtquick-window,qml6-module-qtquick-window,Qt 6 Quick Window QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-qml6-module-qtsensors,qml6-module-qtsensors,qml6-module-qtsensors,Qt 6 Sensors QML module,,,1,1,,,,Section=libs; Version=6.8.2-3,,,,,,,
-qt6-image-formats-plugins,qt6-image-formats-plugins,qt6-image-formats-plugins,Qt 6 Image Formats plugins,,,1,1,,,,Section=libs; Version=6.8.2-4,,,,,,,
-qt6-svg-plugins,qt6-svg-plugins,qt6-svg-plugins,Qt 6 SVG library plugins,,,1,1,,,,Section=libs; Version=6.8.2-3,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libqt6core6t64,libqt6core6t64,libqt6core6t64,Qt 6 core module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6gui6,libqt6gui6,libqt6gui6,Qt 6 GUI module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6multimedia6,libqt6multimedia6,libqt6multimedia6,Qt 6 Multimedia library,,,1,1,,,,Section=libs; Version=6.8.2-8,,,,,,,
-libqt6network6,libqt6network6,libqt6network6,Qt 6 network module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libqt6qml6,libqt6qml6,libqt6qml6,Qt 6 QML library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-libqt6quick6,libqt6quick6,libqt6quick6,Qt 6 Quick library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
-libqt6sensors6,libqt6sensors6,libqt6sensors6,Qt 6 Sensors library,,,1,1,,,,Section=libs; Version=6.8.2-3,,,,,,,
-libqt6widgets6,libqt6widgets6,libqt6widgets6,Qt 6 widgets module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-gimp-data,gimp-data,gimp-data,Data files for GIMP,,,1,1,,,,Section=graphics; Version=3.0.4-3,,,,,,,
-gir1.2-gimp-3.0,gir1.2-gimp-3.0,gir1.2-gimp-3.0,Introspection data for the GIMP library,,,1,1,,,,Section=introspection; Version=3.0.4-3,,,,,,,
-graphviz,graphviz,graphviz,rich set of graph drawing tools,,,1,1,,,,Section=graphics; Version=2.42.4-3,,,,,,,
-libgimp-3.0-0,libgimp-3.0-0,libgimp-3.0-0,Libraries for the GNU Image Manipulation Program,,,1,1,,,,Section=libs; Version=3.0.4-3,,,,,,,
-librsvg2-common,librsvg2-common,librsvg2-common,SAX-based renderer library for SVG files (extra runtime),,,1,1,,,,Section=libs; Version=2.60.0+dfsg-1,,,,,,,
-python3-gi,python3-gi,python3-gi,Python 3 bindings for gobject-introspection libraries,,,1,1,,,,Section=python; Version=3.50.0-4+b1,,,,,,,
-xdg-utils,xdg-utils,xdg-utils,desktop integration utilities from freedesktop.org,,,1,1,,,,Section=utils; Version=1.2.1-2,,,,,,,
-libaa1,libaa1,libaa1,ASCII art library,,,1,1,,,,Section=libs; Version=1.4p5-51.1+b1,,,,,,,
-libappstream-glib8,libappstream-glib8,libappstream-glib8,GNOME library to access AppStream services,,,1,1,,,,Section=libs; Version=0.8.3-1,,,,,,,
-libarchive13t64,libarchive13t64,libarchive13t64,Multi-format archive and compression library (shared library),,,1,1,,,,Section=libs; Version=3.7.4-4,,,,,,,
-libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
-libbabl-0.1-0,libbabl-0.1-0,libbabl-0.1-0,"Dynamic, any to any, pixel format conversion library",,,1,1,,,,Section=libs; Version=1:0.1.114-2,,,,,,,
-libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
-libcfitsio10t64,libcfitsio10t64,libcfitsio10t64,shared library for I/O with FITS format data files,,,1,1,,,,Section=libs; Version=4.6.2-2,,,,,,,
-libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-libgegl-0.4-0t64,libgegl-0.4-0t64,libgegl-0.4-0t64,Generic Graphics Library,,,1,1,,,,Section=libs; Version=1:0.4.62-2,,,,,,,
-libgexiv2-2,libgexiv2-2,libgexiv2-2,GObject-based wrapper around the Exiv2 library,,,1,1,,,,Section=libs; Version=0.14.3-1+b1,,,,,,,
-libgomp1,libgomp1,libgomp1,GCC OpenMP (GOMP) support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libgs10,libgs10,libgs10,interpreter for the PostScript language and for PDF - Library,,,1,1,,,,Section=libs; Version=10.05.1~dfsg-1,,,,,,,
-libgudev-1.0-0,libgudev-1.0-0,libgudev-1.0-0,GObject-based wrapper library for libudev,,,1,1,,,,Section=libs; Version=238-6,,,,,,,
-libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
-libheif1,libheif1,libheif1,HEIF and AVIF file format decoder and encoder - shared library,,,1,1,,,,Section=libs; Version=1.19.8-1,,,,,,,
-libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
-libjson-glib-1.0-0,libjson-glib-1.0-0,libjson-glib-1.0-0,GLib JSON manipulation library,,,1,1,,,,Section=libs; Version=1.10.6+ds-2,,,,,,,
-libjxl0.11,libjxl0.11,libjxl0.11,"JPEG XL Image Coding System - ""JXL"" (shared libraries)",,,1,1,,,,Section=libs; Version=0.11.1-4,,,,,,,
-liblcms2-2,liblcms2-2,liblcms2-2,Little CMS 2 color management library,,,1,1,,,,Section=libs; Version=2.16-2,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-libmypaint-1.5-1,libmypaint-1.5-1,libmypaint-1.5-1,brush library for mypaint,,,1,1,,,,Section=libs; Version=1.6.0-4,,,,,,,
-libopenexr-3-1-30,libopenexr-3-1-30,libopenexr-3-1-30,runtime files for the OpenEXR image library,,,1,1,,,,Section=libs; Version=3.1.13-2,,,,,,,
-libopenjp2-7,libopenjp2-7,libopenjp2-7,JPEG 2000 image compression/decompression library,,,1,1,,,,Section=libs; Version=2.5.3-2.1~deb13u1,,,,,,,
-libpangoft2-1.0-0,libpangoft2-1.0-0,libpangoft2-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
-libpoppler-glib8t64,libpoppler-glib8t64,libpoppler-glib8t64,PDF rendering library (GLib-based shared library),,,1,1,,,,Section=libs; Version=25.03.0-5,,,,,,,
-librsvg2-2,librsvg2-2,librsvg2-2,SAX-based renderer library for SVG files (runtime),,,1,1,,,,Section=libs; Version=2.60.0+dfsg-1,,,,,,,
-libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
-libwebp7,libwebp7,libwebp7,Lossy compression of digital photographic images (shared library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libwebpdemux2,libwebpdemux2,libwebpdemux2,Lossy compression of digital photographic images (libwebpdemux library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libwebpmux3,libwebpmux3,libwebpmux3,Lossy compression of digital photographic images (libwebpmux library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
-libwmf-0.2-7,libwmf-0.2-7,libwmf-0.2-7,Windows metafile conversion library,,,1,1,,,,Section=libs; Version=0.2.13-1.1+b3,,,,,,,
-libwmflite-0.2-7,libwmflite-0.2-7,libwmflite-0.2-7,Windows metafile conversion lite library,,,1,1,,,,Section=libs; Version=0.2.13-1.1+b3,,,,,,,
-libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
-libxcursor1,libxcursor1,libxcursor1,X cursor management library,,,1,1,,,,Section=libs; Version=1:1.2.3-1,,,,,,,
-libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
-libxfixes3,libxfixes3,libxfixes3,X11 miscellaneous 'fixes' extension library,,,1,1,,,,Section=libs; Version=1:6.0.0-2+b4,,,,,,,
-libxmu6,libxmu6,libxmu6,X11 miscellaneous utility library,,,1,1,,,,Section=libs; Version=2:1.1.3-3+b4,,,,,,,
-libxpm4,libxpm4,libxpm4,X11 pixmap library,,,1,1,,,,Section=libs; Version=1:3.5.17-1+b3,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-ghostscript,ghostscript,ghostscript,interpreter for the PostScript language and for PDF,,,1,1,,,,Section=text; Version=10.05.1~dfsg-1,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-lib2geom1.4.0,lib2geom1.4.0,lib2geom1.4.0,robust computational geometry framework -- shared library,,,1,1,,,,Section=libs; Version=1.4-4,,,,,,,
-libatkmm-1.6-1v5,libatkmm-1.6-1v5,libatkmm-1.6-1v5,C++ wrappers for ATK accessibility toolkit (shared libraries),,,1,1,,,,Section=libs; Version=2.28.4-1+b2,,,,,,,
-libboost-filesystem1.83.0,libboost-filesystem1.83.0,libboost-filesystem1.83.0,"filesystem operations (portable paths, iteration over directories, etc) in C++",,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libcairo-gobject2,libcairo-gobject2,libcairo-gobject2,Cairo 2D vector graphics library (GObject library),,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libcairomm-1.0-1v5,libcairomm-1.0-1v5,libcairomm-1.0-1v5,C++ wrappers for Cairo (shared libraries),,,1,1,,,,Section=libs; Version=1.14.5-2+b1,,,,,,,
-libcdr-0.1-1,libcdr-0.1-1,libcdr-0.1-1,library for reading and converting Corel DRAW files,,,1,1,,,,Section=libs; Version=0.1.7-1+b3,,,,,,,
-libepoxy0,libepoxy0,libepoxy0,OpenGL function pointer management library,,,1,1,,,,Section=libs; Version=1.5.10-2,,,,,,,
-libgc1,libgc1,libgc1,conservative garbage collector for C and C++,,,1,1,,,,Section=libs; Version=1:8.2.8-1,,,,,,,
-libglibmm-2.4-1t64,libglibmm-2.4-1t64,libglibmm-2.4-1t64,C++ wrapper for the GLib toolkit (shared libraries),,,1,1,,,,Section=libs; Version=2.66.8-1,,,,,,,
-libgsl28,libgsl28,libgsl28,GNU Scientific Library (GSL) -- library package,,,1,1,,,,Section=libs; Version=2.8+dfsg-5,,,,,,,
-libgspell-1-3,libgspell-1-3,libgspell-1-3,spell-checking library for GTK+ applications,,,1,1,,,,Section=libs; Version=1.14.0-2+b1,,,,,,,
-libgtkmm-3.0-1t64,libgtkmm-3.0-1t64,libgtkmm-3.0-1t64,C++ wrappers for GTK+ (shared libraries),,,1,1,,,,Section=libs; Version=3.24.10-1,,,,,,,
-libgtksourceview-4-0,libgtksourceview-4-0,libgtksourceview-4-0,shared libraries for the GTK+ syntax highlighting widget,,,1,1,,,,Section=libs; Version=4.8.4-6,,,,,,,
-libpangomm-1.4-1v5,libpangomm-1.4-1v5,libpangomm-1.4-1v5,C++ Wrapper for pango (shared libraries),,,1,1,,,,Section=libs; Version=2.46.4-1+b2,,,,,,,
-libpoppler147,libpoppler147,libpoppler147,PDF rendering library,,,1,1,,,,Section=libs; Version=25.03.0-5,,,,,,,
-libpotrace0,libpotrace0,libpotrace0,library for tracing bitmaps,,,1,1,,,,Section=libs; Version=1.16-2+b2,,,,,,,
-libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
-librevenge-0.0-0,librevenge-0.0-0,librevenge-0.0-0,Base Library for writing document interface filters,,,1,1,,,,Section=libs; Version=0.0.5-3+b2,,,,,,,
-libsigc++-2.0-0v5,libsigc++-2.0-0v5,libsigc++-2.0-0v5,type-safe Signal Framework for C++ - runtime,,,1,1,,,,Section=libs; Version=2.12.1-3,,,,,,,
-libvisio-0.1-1,libvisio-0.1-1,libvisio-0.1-1,library for parsing the visio file structure,,,1,1,,,,Section=libs; Version=0.1.7-1+b5,,,,,,,
-libwpg-0.3-3,libwpg-0.3-3,libwpg-0.3-3,WordPerfect graphics import/convert library (shared library),,,1,1,,,,Section=libs; Version=0.3.4-3+b2,,,,,,,
-libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
-libxslt1.1,libxslt1.1,libxslt1.1,XSLT 1.0 processing library - runtime library,,,1,1,,,,Section=libs; Version=1.1.35-1.2+deb13u1,,,,,,,
-aspell,aspell,aspell,GNU Aspell spell-checker,,,1,1,,,,Section=text; Version=0.60.8.1-4,,,,,,,
-fig2dev,fig2dev,fig2dev,Utilities for converting XFig figure files,,,1,1,,,,Section=graphics; Version=1:3.2.9a-4,,,,,,,
-imagemagick,imagemagick,imagemagick,image manipulation programs -- binaries,,,1,1,,,,Section=graphics; Version=8:7.1.1.43+dfsg1-1+deb13u1,,,,,,,
-libimage-magick-perl,libimage-magick-perl,libimage-magick-perl,Perl interface to the ImageMagick graphics routines,,,1,1,,,,Section=perl; Version=8:7.1.1.43+dfsg1-1+deb13u1,,,,,,,
-libwmf-bin,libwmf-bin,libwmf-bin,Windows metafile conversion tools,,,1,1,,,,Section=graphics; Version=0.2.13-1.1+b3,,,,,,,
-python3-cssselect,python3-cssselect,python3-cssselect,cssselect parses CSS3 Selectors and translates them to XPath 1.0,,,1,1,,,,Section=python; Version=1.3.0-1,,,,,,,
-python3-lxml,python3-lxml,python3-lxml,pythonic binding for the libxml2 and libxslt libraries,,,1,1,,,,Section=python; Version=5.4.0-1,,,,,,,
-python3-numpy,python3-numpy,python3-numpy,Python library for numerical computations (Python 3),,,1,1,,,,Section=python; Version=1:2.2.4+ds-1,,,,,,,
-python3-scour,python3-scour,python3-scour,SVG scrubber and optimizer (Python 3 module),,,1,1,,,,Section=python; Version=0.38.2-6,,,,,,,
-calligra-libs,calligra-libs,calligra-libs,common libraries and binaries for the Calligra Suite,,,1,1,,,,Section=libs; Version=1:25.04.2+dfsg-1,,,,,,,
-libkf6archive6,libkf6archive6,libkf6archive6,Qt 6 addon providing access to numerous types of archives,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6completion6,libkf6completion6,libkf6completion6,Widgets with advanced auto-completion features,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6configcore6,libkf6configcore6,libkf6configcore6,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6coreaddons6,libkf6coreaddons6,libkf6coreaddons6,KDE Frameworks 6 addons to QtCore,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6guiaddons6,libkf6guiaddons6,libkf6guiaddons6,utilities for graphical user interfaces,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6i18n6,libkf6i18n6,libkf6i18n6,Advanced internationalization framework,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6iconthemes6,libkf6iconthemes6,libkf6iconthemes6,Support for icon themes,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
-libkf6widgetsaddons6,libkf6widgetsaddons6,libkf6widgetsaddons6,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libkf6xmlgui6,libkf6xmlgui6,libkf6xmlgui6,User configurable main windows,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
-libodfgen-0.1-1,libodfgen-0.1-1,libodfgen-0.1-1,library to generate ODF documents,,,1,1,,,,Section=libs; Version=0.1.8-2+b2,,,,,,,
-libqt6xml6,libqt6xml6,libqt6xml6,Qt 6 XML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
-libwps-0.4-4,libwps-0.4-4,libwps-0.4-4,Works text file format import filter library (shared library),,,1,1,,,,Section=libs; Version=0.4.14-2+b2,,,,,,,
-pstoedit,pstoedit,pstoedit,PostScript and PDF files to editable vector graphics converter,,,1,1,,,,Section=graphics; Version=4.02-1+b1,,,,,,,
-krita-data,krita-data,krita-data,data files for Krita painting program,,,1,1,,,,Section=graphics; Version=1:5.2.9+dfsg-1,,,,,,,
-libqt5sql5-sqlite,libqt5sql5-sqlite,libqt5sql5-sqlite,Qt 5 SQLite 3 database driver,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libexiv2-28,libexiv2-28,libexiv2-28,EXIF/IPTC/XMP metadata manipulation library,,,1,1,,,,Section=libs; Version=0.28.5+dfsg-1,,,,,,,
-libfftw3-double3,libfftw3-double3,libfftw3-double3,Library for computing Fast Fourier Transforms - Double precision,,,1,1,,,,Section=libs; Version=3.3.10-2+b1,,,,,,,
-libfribidi0,libfribidi0,libfribidi0,Free Implementation of the Unicode BiDi algorithm,,,1,1,,,,Section=libs; Version=1.0.16-1,,,,,,,
-libgif7,libgif7,libgif7,library for GIF images (library),,,1,1,,,,Section=libs; Version=5.2.2-1+b1,,,,,,,
-libimath-3-1-29t64,libimath-3-1-29t64,libimath-3-1-29t64,Utility libraries from ASF used by OpenEXR - runtime,,,1,1,,,,Section=libs; Version=3.1.12-1+b3,,,,,,,
-libkf5completion5,libkf5completion5,libkf5completion5,Widgets with advanced auto-completion features.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5configcore5,libkf5configcore5,libkf5configcore5,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5configgui5,libkf5configgui5,libkf5configgui5,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5coreaddons5,libkf5coreaddons5,libkf5coreaddons5,KDE Frameworks 5 addons to QtCore,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5crash5,libkf5crash5,libkf5crash5,Support for application crash analysis and bug report from apps,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5guiaddons5,libkf5guiaddons5,libkf5guiaddons5,additional addons for QtGui,,,1,1,,,,Section=libs; Version=5.116.0-2,,,,,,,
-libkf5i18n5,libkf5i18n5,libkf5i18n5,Advanced internationalization framework.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5itemviews5,libkf5itemviews5,libkf5itemviews5,Qt library with additional widgets for ItemModels,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5kdcraw5,libkf5kdcraw5,libkf5kdcraw5,RAW picture decoding library,,,1,1,,,,Section=libs; Version=25.04.0-1,,,,,,,
-libkf5widgetsaddons5,libkf5widgetsaddons5,libkf5widgetsaddons5,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkf5windowsystem5,libkf5windowsystem5,libkf5windowsystem5,Convenience access to certain properties and features of the window manager,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
-libkseexpr4,libkseexpr4,libkseexpr4,embeddable expression evaluation engine - shared library,,,1,1,,,,Section=libs; Version=4.0.4.0-7,,,,,,,
-libkseexprui4,libkseexprui4,libkseexprui4,embeddable expression evaluation engine - UI shared library,,,1,1,,,,Section=libs; Version=4.0.4.0-7,,,,,,,
-libmlt++7,libmlt++7,libmlt++7,MLT multimedia framework C++ wrapper (runtime),,,1,1,,,,Section=libs; Version=7.30.0-1+b2,,,,,,,
-libmlt7,libmlt7,libmlt7,multimedia framework (runtime),,,1,1,,,,Section=libs; Version=7.30.0-1+b2,,,,,,,
-libpoppler-qt5-1t64,libpoppler-qt5-1t64,libpoppler-qt5-1t64,PDF rendering library (Qt 5 based shared library),,,1,1,,,,Section=libs; Version=25.03.0-5,,,,,,,
-libpython3.13,libpython3.13,libpython3.13,Shared Python runtime library (version 3.13),,,1,1,,,,Section=libs; Version=3.13.5-2,,,,,,,
-libqt5core5t64,libqt5core5t64,libqt5core5t64,Qt 5 core module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5dbus5t64,libqt5dbus5t64,libqt5dbus5t64,Qt 5 D-Bus module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5gui5t64,libqt5gui5t64,libqt5gui5t64,Qt 5 GUI module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5network5t64,libqt5network5t64,libqt5network5t64,Qt 5 network module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5printsupport5t64,libqt5printsupport5t64,libqt5printsupport5t64,Qt 5 print support module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5sql5t64,libqt5sql5t64,libqt5sql5t64,Qt 5 SQL module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5svg5,libqt5svg5,libqt5svg5,Qt 5 SVG module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
-libqt5widgets5t64,libqt5widgets5t64,libqt5widgets5t64,Qt 5 widgets module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libqt5x11extras5,libqt5x11extras5,libqt5x11extras5,Qt 5 X11 extras,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
-libqt5xml5t64,libqt5xml5t64,libqt5xml5t64,Qt 5 XML module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
-libquazip5-1t64,libquazip5-1t64,libquazip5-1t64,C++ wrapper for ZIP/UNZIP,,,1,1,,,,Section=libs; Version=0.9.1-5,,,,,,,
-libturbojpeg0,libturbojpeg0,libturbojpeg0,TurboJPEG runtime library - SIMD optimized,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
-libunibreak6,libunibreak6,libunibreak6,line breaking library for Unicode (shared library),,,1,1,,,,Section=libs; Version=6.1-3,,,,,,,
-qtbase-abi-5-15-15,qtbase-abi-5-15-15,qtbase-abi-5-15-15,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3-pyqt5,python3-pyqt5,python3-pyqt5,Python 3 bindings for Qt5,,,1,1,,,,Section=python; Version=5.15.11+dfsg-2,,,,,,,
-qml-module-qtmultimedia,qml-module-qtmultimedia,qml-module-qtmultimedia,Qt 5 Multimedia QML module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
-gtklp,gtklp,gtklp,printing tool for CUPS on the GNOME Desktop,,,1,1,,,,Section=x11; Version=1.3.4-3+b2,,,,,,,
-gir1.2-gtk-3.0,gir1.2-gtk-3.0,gir1.2-gtk-3.0,GTK graphical user interface library -- gir bindings,,,1,1,,,,Section=introspection; Version=3.24.49-3,,,,,,,
-mypaint-data,mypaint-data,mypaint-data,runtime data files for MyPaint,,,1,1,,,,Section=graphics; Version=2.0.1-12,,,,,,,
-mypaint-brushes,mypaint-brushes,mypaint-brushes,brushes for paint apps,,,1,1,,,,Section=graphics; Version=2.0.2+ds1-2,,,,,,,
-python3-gi-cairo,python3-gi-cairo,python3-gi-cairo,Python 3 Cairo bindings for the GObject library,,,1,1,,,,Section=python; Version=3.50.0-4+b1,,,,,,,
-librsvg2-bin,librsvg2-bin,librsvg2-bin,command-line utility to convert SVG files,,,1,1,,,,Section=graphics; Version=2.60.0+dfsg-1,,,,,,,
-python3,python3,python3,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
-python3-numpy2-abi0,python3-numpy2-abi0,python3-numpy2-abi0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-mypaint-data-extras,mypaint-data-extras,mypaint-data-extras,high resolution backgrounds for mypaint,,,1,1,,,,Section=graphics; Version=2.0.1-12,,,,,,,
-shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
-ffmpeg,ffmpeg,ffmpeg,"Tools for transcoding, streaming and playing of multimedia files",,,1,1,,,,Section=video; Version=7:7.1.1-1+b1,,,,,,,
-libqt5multimedia5,libqt5multimedia5,libqt5multimedia5,Qt 5 Multimedia module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
-fonts-freefont-ttf,fonts-freefont-ttf,fonts-freefont-ttf,"Freefont Serif, Sans and Mono Truetype fonts",,,1,1,,,,Section=fonts; Version=20211204+svn4273-2,,,,,,,
-fonts-kacst-one,fonts-kacst-one,fonts-kacst-one,TrueType font designed for Arabic language,,,1,1,,,,Section=fonts; Version=5.0+svn11846-10,,,,,,,
-python3-pygame,python3-pygame,python3-pygame,SDL bindings for games development (Python 3),,,1,1,,,,Section=python; Version=2.6.1-1+b2,,,,,,,
-libgtk2.0-0t64,libgtk2.0-0t64,libgtk2.0-0t64,GTK graphical user interface library - old version,,,1,1,,,,Section=oldlibs; Version=2.24.33-7,,,,,,,
-default-dbus-session-bus,default-dbus-session-bus,default-dbus-session-bus,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-dconf-gsettings-backend,dconf-gsettings-backend,dconf-gsettings-backend,simple configuration storage system - GSettings back-end,,,1,1,,,,Section=libs; Version=0.40.0-5,,,,,,,
-libadwaita-1-0,libadwaita-1-0,libadwaita-1-0,Library with GTK widgets for mobile phones,,,1,1,,,,Section=libs; Version=1.7.6-1~deb13u1,,,,,,,
-libcolord2,libcolord2,libcolord2,system service to manage device colour profiles -- runtime,,,1,1,,,,Section=libs; Version=1.4.7-3,,,,,,,
-libgtk-4-1,libgtk-4-1,libgtk-4-1,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=4.18.6+ds-2,,,,,,,
-libgusb2,libgusb2,libgusb2,GLib wrapper around libusb1,,,1,1,,,,Section=libs; Version=0.4.9-1+b1,,,,,,,
-libpackagekit-glib2-18,libpackagekit-glib2-18,libpackagekit-glib2-18,Library for accessing PackageKit using GLib,,,1,1,,,,Section=libs; Version=1.3.1-1,,,,,,,
-libsane1,libsane1,libsane1,API library for scanners,,,1,1,,,,Section=libs; Version=1.3.1-3+b1,,,,,,,
-tupi-data,tupi-data,tupi-data,Data files for tupi (2D Animation design and authoring tool),,,1,1,,,,Section=graphics; Version=0.2+git08-6,,,,,,,
-libogg0,libogg0,libogg0,Ogg bitstream library,,,1,1,,,,Section=libs; Version=1.3.5-3+b2,,,,,,,
-libqt5multimediawidgets5,libqt5multimediawidgets5,libqt5multimediawidgets5,Qt 5 Multimedia Widgets module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
-libtheoradec1,libtheoradec1,libtheoradec1,Theora Video Compression Codec (shared library - libtheoradec),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
-libtheoraenc1,libtheoraenc1,libtheoraenc1,Theora Video Compression Codec (shared library - libtheoraenc),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
-libvorbis0a,libvorbis0a,libvorbis0a,decoder library for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
-libvorbisfile3,libvorbisfile3,libvorbisfile3,high-level API for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
-netpbm,netpbm,netpbm,Graphics conversion tools between image formats,,,1,1,,,,Section=graphics; Version=2:11.10.02-1,,,,,,,
-tuxpaint-data,tuxpaint-data,tuxpaint-data,"Data files for Tux Paint, a paint program for children",,,1,1,,,,Section=graphics; Version=1:0.9.34-2,,,,,,,
-tuxpaint-plugins-default,tuxpaint-plugins-default,tuxpaint-plugins-default,Magic tool plugins for Tux Paint,,,1,1,,,,Section=graphics; Version=1:0.9.34-2+b1,,,,,,,
-libimagequant0,libimagequant0,libimagequant0,palette quantization library,,,1,1,,,,Section=libs; Version=2.18.0-1+b2,,,,,,,
-libpaper2,libpaper2,libpaper2,Paper sizes catalogue,,,1,1,,,,Section=libs; Version=2.2.5-0.3+b2,,,,,,,
-libsdl2-2.0-0,libsdl2-2.0-0,libsdl2-2.0-0,Simple DirectMedia Layer,,,1,1,,,,Section=libs; Version=2.32.4+dfsg-1,,,,,,,
-libsdl2-gfx-1.0-0,libsdl2-gfx-1.0-0,libsdl2-gfx-1.0-0,drawing and graphical effects extension for SDL2,,,1,1,,,,Section=libs; Version=1.0.4+dfsg-6,,,,,,,
-libsdl2-image-2.0-0,libsdl2-image-2.0-0,libsdl2-image-2.0-0,"Image loading library for Simple DirectMedia Layer 2, libraries",,,1,1,,,,Section=libs; Version=2.8.8+dfsg-1,,,,,,,
-libsdl2-mixer-2.0-0,libsdl2-mixer-2.0-0,libsdl2-mixer-2.0-0,"Mixer library for Simple DirectMedia Layer 2, libraries",,,1,1,,,,Section=libs; Version=2.8.1+dfsg-2,,,,,,,
-libsdl2-pango4,libsdl2-pango4,libsdl2-pango4,pango extension for sdl2,,,1,1,,,,Section=libs; Version=2.1.5-2,,,,,,,
-libsdl2-ttf-2.0-0,libsdl2-ttf-2.0-0,libsdl2-ttf-2.0-0,"TrueType Font library for Simple DirectMedia Layer 2, libraries",,,1,1,,,,Section=libs; Version=2.24.0+dfsg-2,,,,,,,
-tuxpaint-config,tuxpaint-config,tuxpaint-config,Configuration tool for Tux Paint,,,1,1,,,,Section=graphics; Version=0.17rc1-1+b2,,,,,,,
-libxaw3dxft6t64,libxaw3dxft6t64,libxaw3dxft6t64,An extended version of Xaw3d with support for UTF8,,,1,1,,,,Section=libs; Version=2.9.1.4-5,,,,,,,
-libxft2,libxft2,libxft2,FreeType-based font drawing library for X,,,1,1,,,,Section=libs; Version=2.3.6-1+b4,,,,,,,
-libxt6t64,libxt6t64,libxt6t64,X11 toolkit intrinsics library,,,1,1,,,,Section=libs; Version=1:1.2.1-1.2+b2,,,,,,,
-,,,,,,,,,,,,junior-config,junior-art,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,junior-tasks,junior-art,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cheese,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gamine,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gcompris-qt,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gimp,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,inkscape,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,karbon,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,krita,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,mtpaint,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,mypaint,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,pencil2d,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,pysiogame,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,rgbpaint,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,simple-scan,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,tupi,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,tuxpaint,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,xpaint,junior-art,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,adduser,junior-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,junior-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,menu,junior-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,blends-common,junior-config,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tasksel,junior-tasks,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cheese-common,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gnome-video-effects,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcanberra-gtk3-0,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcheese-gtk25,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcheese8,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclutter-1.0-0,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libclutter-gtk-1.0-0,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnome-desktop-3-20t64,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgstreamer1.0-0,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,cheese,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gvfs,cheese,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,yelp,cheese,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gamine-data,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gstreamer1.0-plugins-good,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgstreamer1.0-0,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,gamine,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcompris-qt-data,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtcharts,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtmultimedia,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-controls,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-effects,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-layouts,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-particles,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-shapes,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtquick-window,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qml6-module-qtsensors,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-image-formats-plugins,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qt6-svg-plugins,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6multimedia6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6network6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6qml6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6quick6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6sensors6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,gcompris-qt,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gimp-data,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gimp-data,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gimp-3.0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,graphviz,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgimp-3.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgimp-3.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librsvg2-common,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-gi,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xdg-utils,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaa1,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libappstream-glib8,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libarchive13t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libasound2t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbabl-0.1-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbz2-1.0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcfitsio10t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgegl-0.4-0t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgexiv2-2,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgomp1,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgs10,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgudev-1.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libharfbuzz0b,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libheif1,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjson-glib-1.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjxl0.11,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmypaint-1.5-1,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenexr-3-1-30,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenjp2-7,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangoft2-1.0-0,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler-glib8t64,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librsvg2-2,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtiff6,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpdemux2,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpmux3,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwmf-0.2-7,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwmflite-0.2-7,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxcursor1,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext6,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxfixes3,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxmu6,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxpm4,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,gimp,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ghostscript,gimp,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,librsvg2-common,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,lib2geom1.4.0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libatkmm-1.6-1v5,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-filesystem1.83.0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo-gobject2,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairomm-1.0-1v5,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcdr-0.1-1,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libepoxy0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgc1,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglibmm-2.4-1t64,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgomp1,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsl28,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgspell-1-3,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtkmm-3.0-1t64,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtksourceview-4-0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libharfbuzz0b,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangoft2-1.0-0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangomm-1.4-1v5,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler-glib8t64,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler147,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpotrace0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libreadline8t64,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librevenge-0.0-0,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsigc++-2.0-0v5,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvisio-0.1-1,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwpg-0.3-3,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxml2,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxslt1.1,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,inkscape,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,aspell,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fig2dev,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,imagemagick,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libimage-magick-perl,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libwmf-bin,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-cssselect,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-lxml,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-numpy,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3-scour,inkscape,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,calligra-libs,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6archive6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6completion6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6configcore6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6coreaddons6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6guiaddons6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6i18n6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6iconthemes6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6widgetsaddons6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf6xmlgui6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libodfgen-0.1-1,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler147,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6core6t64,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6gui6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6widgets6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt6xml6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librevenge-0.0-0,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwpg-0.3-3,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwps-0.4-4,karbon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pstoedit,karbon,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,krita-data,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5sql5-sqlite,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexiv2-28,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfftw3-double3,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfribidi0,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgif7,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgsl28,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libharfbuzz0b,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libheif1,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libimath-3-1-29t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjxl0.11,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5completion5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5configcore5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5configgui5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5coreaddons5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5crash5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5guiaddons5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5i18n5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5itemviews5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5kdcraw5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5widgetsaddons5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkf5windowsystem5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkseexpr4,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libkseexprui4,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmlt++7,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmlt7,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmypaint-1.5-1,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenexr-3-1-30,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libopenjp2-7,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler-qt5-1t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpython3.13,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5dbus5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5network5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5printsupport5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5sql5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5svg5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5x11extras5,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5xml5t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libquazip5-1t64,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtiff6,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libturbojpeg0,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libunibreak6,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpdemux2,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpmux3,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,qtbase-abi-5-15-15,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,krita,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pyqt5,krita,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,qml-module-qtmultimedia,krita,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-3-0t64,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtiff6,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gtklp,mtpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gtk-3.0,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,mypaint-data,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,mypaint-brushes,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-gi,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-gi-cairo,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librsvg2-bin,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-numpy2-abi0,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgomp1,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmypaint-1.5-1,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,mypaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,mypaint-data-extras,mypaint,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,shared-mime-info,mypaint,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,ffmpeg,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5multimedia5,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5network5t64,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5xml5t64,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,pencil2d,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-freefont-ttf,pysiogame,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-kacst-one,pysiogame,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3,pysiogame,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-pygame,pysiogame,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,rgbpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,rgbpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,rgbpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk2.0-0t64,rgbpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,rgbpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,rgbpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,default-dbus-session-bus,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xdg-utils,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dconf-gsettings-backend,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libadwaita-1-0,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcolord2,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgdk-pixbuf-2.0-0,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgtk-4-1,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgusb2,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpackagekit-glib2-18,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsane1,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebp7,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libwebpmux3,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,simple-scan,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tupi-data,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libogg0,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5core5t64,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5gui5t64,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5multimedia5,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5multimediawidgets5,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5network5t64,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5printsupport5t64,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5svg5,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5widgets5t64,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqt5xml5t64,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libquazip5-1t64,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtheoradec1,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtheoraenc1,tupi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvorbis0a,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvorbisfile3,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,netpbm,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tuxpaint-data,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tuxpaint-plugins-default,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfribidi0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libimagequant0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangoft2-1.0-0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpaper2,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,librsvg2-2,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-2.0-0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-gfx-1.0-0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-image-2.0-0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-mixer-2.0-0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-pango4,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-ttf-2.0-0,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,tuxpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tuxpaint-config,tuxpaint,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjpeg62-turbo,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpng16-16t64,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtiff6,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libx11-6,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxaw3dxft6t64,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxext6,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxft2,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxmu6,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxpm4,xpaint,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxt6t64,xpaint,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"junior-art","junior-art","junior-art","Debian Jr. Art","","","1","1","","","","Section=metapackages; Version=1.32","","","","","","","",""
+"junior-config","junior-config","junior-config","Debian Jr. Project common package","","","1","1","","","","Section=misc; Version=1.32","","","","","","","",""
+"junior-tasks","junior-tasks","junior-tasks","Debian Jr. tasks for tasksel","","","1","1","","","","Section=misc; Version=1.32","","","","","","","",""
+"cheese","cheese","cheese","tool to take pictures and videos from your webcam","","","1","1","","","","Section=gnome; Version=44.1-5","","","","","","","",""
+"gamine","gamine","gamine","Interactive game for young children","","","1","1","","","","Section=games; Version=1.6-2","","","","","","","",""
+"gcompris-qt","gcompris-qt","gcompris-qt","educational games for small children","","","1","1","","","","Section=education; Version=25.0.12-1","","","","","","","",""
+"gimp","gimp","gimp","GNU Image Manipulation Program","","","1","1","","","","Section=graphics; Version=3.0.4-3","","","","","","","",""
+"inkscape","inkscape","inkscape","vector-based drawing program","","","1","1","","","","Section=graphics; Version=1.4-6","","","","","","","",""
+"karbon","karbon","karbon","vector graphics application for the Calligra Suite","","","1","1","","","","Section=graphics; Version=1:25.04.2+dfsg-1","","","","","","","",""
+"krita","krita","krita","pixel-based image manipulation program","","","1","1","","","","Section=graphics; Version=1:5.2.9+dfsg-1+b1","","","","","","","",""
+"mtpaint","mtpaint","mtpaint","painting program to create pixel art and manipulate digital photos","","","1","1","","","","Section=graphics; Version=3.50.11-1","","","","","","","",""
+"mypaint","mypaint","mypaint","paint program for use with graphics tablets","","","1","1","","","","Section=graphics; Version=2.0.1-12","","","","","","","",""
+"pencil2d","pencil2d","pencil2d","Create hand-drawn animation using both bitmap and vector graphics","","","1","1","","","","Section=graphics; Version=0.7.0-1","","","","","","","",""
+"pysiogame","pysiogame","pysiogame","educational activity pack for kids","","","1","1","","","","Section=games; Version=4.20.01-3","","","","","","","",""
+"rgbpaint","rgbpaint","rgbpaint","simple pixel-based painting program","","","1","1","","","","Section=graphics; Version=0.8.7-7","","","","","","","",""
+"simple-scan","simple-scan","simple-scan","Simple Scanning Utility","","","1","1","","","","Section=gnome; Version=46.0-2","","","","","","","",""
+"tupi","tupi","tupi","2D Animation design and authoring tool","","","1","1","","","","Section=graphics; Version=0.2+git08-6","","","","","","","",""
+"tuxpaint","tuxpaint","tuxpaint","Paint program for young children","","","1","1","","","","Section=graphics; Version=1:0.9.34-2+b1","","","","","","","",""
+"xpaint","xpaint","xpaint","simple paint program for X","","","1","1","","","","Section=graphics; Version=2.9.1.4-5","","","","","","","",""
+"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"menu","menu","menu","generates programs menu for all menu-aware applications","","","1","1","","","","Section=admin; Version=2.1.51","","","","","","","",""
+"blends-common","blends-common","blends-common","Debian Pure Blends common package","","","1","1","","","","Section=misc; Version=0.7.10","","","","","","","",""
+"tasksel","tasksel","tasksel","tool for selecting tasks for installation on Debian systems","","","1","1","","","","Section=admin; Version=3.81","","","","","","","",""
+"cheese-common","cheese-common","cheese-common","Common files for the Cheese tool to take pictures and videos","","","1","1","","","","Section=gnome; Version=44.1-5","","","","","","","",""
+"gnome-video-effects","gnome-video-effects","gnome-video-effects","Collection of GStreamer effects","","","1","1","","","","Section=gnome; Version=0.6.0-3","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcanberra-gtk3-0","libcanberra-gtk3-0","libcanberra-gtk3-0","GTK+ 3.0 helper for playing widget event sounds with libcanberra","","","1","1","","","","Section=libs; Version=0.30-18","","","","","","","",""
+"libcheese-gtk25","libcheese-gtk25","libcheese-gtk25","tool to take pictures and videos from your webcam - widgets","","","1","1","","","","Section=libs; Version=44.1-5","","","","","","","",""
+"libcheese8","libcheese8","libcheese8","tool to take pictures and videos from your webcam - base library","","","1","1","","","","Section=libs; Version=44.1-5","","","","","","","",""
+"libclutter-1.0-0","libclutter-1.0-0","libclutter-1.0-0","Open GL based interactive canvas library","","","1","1","","","","Section=oldlibs; Version=1.26.4+git2779b932+dfsg-7+b2","","","","","","","",""
+"libclutter-gtk-1.0-0","libclutter-gtk-1.0-0","libclutter-gtk-1.0-0","Open GL based interactive canvas library GTK+ widget","","","1","1","","","","Section=oldlibs; Version=1.8.4-6","","","","","","","",""
+"libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","GDK Pixbuf library","","","1","1","","","","Section=libs; Version=2.42.12+dfsg-4","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgnome-desktop-3-20t64","libgnome-desktop-3-20t64","libgnome-desktop-3-20t64","Utility library for the GNOME desktop - GTK 3 version","","","1","1","","","","Section=libs; Version=44.3-3","","","","","","","",""
+"libgstreamer1.0-0","libgstreamer1.0-0","libgstreamer1.0-0","Core GStreamer libraries and elements","","","1","1","","","","Section=libs; Version=1.26.2-2","","","","","","","",""
+"libgtk-3-0t64","libgtk-3-0t64","libgtk-3-0t64","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=3.24.49-3","","","","","","","",""
+"gvfs","gvfs","gvfs","userspace virtual filesystem - GIO module","","","1","1","","","","Section=libs; Version=1.57.2-2","","","","","","","",""
+"yelp","yelp","yelp","Help browser for GNOME","","","1","1","","","","Section=gnome; Version=42.2-4","","","","","","","",""
+"gamine-data","gamine-data","gamine-data","data files for gamine game","","","1","1","","","","Section=games; Version=1.6-2","","","","","","","",""
+"gstreamer1.0-plugins-good","gstreamer1.0-plugins-good","gstreamer1.0-plugins-good","GStreamer plugins from the ""good"" set","","","1","1","","","","Section=libs; Version=1.26.2-1","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"gcompris-qt-data","gcompris-qt-data","gcompris-qt-data","data files for gcompris-qt","","","1","1","","","","Section=education; Version=25.0.12-1","","","","","","","",""
+"qml6-module-qtcharts","qml6-module-qtcharts","qml6-module-qtcharts","Qt 6 Charts QML module","","","1","1","","","","Section=libs; Version=6.8.2-2","","","","","","","",""
+"qml6-module-qtmultimedia","qml6-module-qtmultimedia","qml6-module-qtmultimedia","Qt 6 Multimedia QML module","","","1","1","","","","Section=libs; Version=6.8.2-8","","","","","","","",""
+"qml6-module-qtquick","qml6-module-qtquick","qml6-module-qtquick","Qt 6 Quick QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-controls","qml6-module-qtquick-controls","qml6-module-qtquick-controls","Qt 6 Quick Controls QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-effects","qml6-module-qtquick-effects","qml6-module-qtquick-effects","Qt 6 Quick Effects QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-layouts","qml6-module-qtquick-layouts","qml6-module-qtquick-layouts","Qt 6 Quick Layouts QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-particles","qml6-module-qtquick-particles","qml6-module-qtquick-particles","Qt 6 Quick Particle QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-shapes","qml6-module-qtquick-shapes","qml6-module-qtquick-shapes","Qt 6 Quick Shapes QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtquick-window","qml6-module-qtquick-window","qml6-module-qtquick-window","Qt 6 Quick Window QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"qml6-module-qtsensors","qml6-module-qtsensors","qml6-module-qtsensors","Qt 6 Sensors QML module","","","1","1","","","","Section=libs; Version=6.8.2-3","","","","","","","",""
+"qt6-image-formats-plugins","qt6-image-formats-plugins","qt6-image-formats-plugins","Qt 6 Image Formats plugins","","","1","1","","","","Section=libs; Version=6.8.2-4","","","","","","","",""
+"qt6-svg-plugins","qt6-svg-plugins","qt6-svg-plugins","Qt 6 SVG library plugins","","","1","1","","","","Section=libs; Version=6.8.2-3","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libqt6core6t64","libqt6core6t64","libqt6core6t64","Qt 6 core module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6gui6","libqt6gui6","libqt6gui6","Qt 6 GUI module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6multimedia6","libqt6multimedia6","libqt6multimedia6","Qt 6 Multimedia library","","","1","1","","","","Section=libs; Version=6.8.2-8","","","","","","","",""
+"libqt6network6","libqt6network6","libqt6network6","Qt 6 network module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libqt6qml6","libqt6qml6","libqt6qml6","Qt 6 QML library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"libqt6quick6","libqt6quick6","libqt6quick6","Qt 6 Quick library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","","","",""
+"libqt6sensors6","libqt6sensors6","libqt6sensors6","Qt 6 Sensors library","","","1","1","","","","Section=libs; Version=6.8.2-3","","","","","","","",""
+"libqt6widgets6","libqt6widgets6","libqt6widgets6","Qt 6 widgets module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"gimp-data","gimp-data","gimp-data","Data files for GIMP","","","1","1","","","","Section=graphics; Version=3.0.4-3","","","","","","","",""
+"gir1.2-gimp-3.0","gir1.2-gimp-3.0","gir1.2-gimp-3.0","Introspection data for the GIMP library","","","1","1","","","","Section=introspection; Version=3.0.4-3","","","","","","","",""
+"graphviz","graphviz","graphviz","rich set of graph drawing tools","","","1","1","","","","Section=graphics; Version=2.42.4-3","","","","","","","",""
+"libgimp-3.0-0","libgimp-3.0-0","libgimp-3.0-0","Libraries for the GNU Image Manipulation Program","","","1","1","","","","Section=libs; Version=3.0.4-3","","","","","","","",""
+"librsvg2-common","librsvg2-common","librsvg2-common","SAX-based renderer library for SVG files (extra runtime)","","","1","1","","","","Section=libs; Version=2.60.0+dfsg-1","","","","","","","",""
+"python3-gi","python3-gi","python3-gi","Python 3 bindings for gobject-introspection libraries","","","1","1","","","","Section=python; Version=3.50.0-4+b1","","","","","","","",""
+"xdg-utils","xdg-utils","xdg-utils","desktop integration utilities from freedesktop.org","","","1","1","","","","Section=utils; Version=1.2.1-2","","","","","","","",""
+"libaa1","libaa1","libaa1","ASCII art library","","","1","1","","","","Section=libs; Version=1.4p5-51.1+b1","","","","","","","",""
+"libappstream-glib8","libappstream-glib8","libappstream-glib8","GNOME library to access AppStream services","","","1","1","","","","Section=libs; Version=0.8.3-1","","","","","","","",""
+"libarchive13t64","libarchive13t64","libarchive13t64","Multi-format archive and compression library (shared library)","","","1","1","","","","Section=libs; Version=3.7.4-4","","","","","","","",""
+"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","","","",""
+"libbabl-0.1-0","libbabl-0.1-0","libbabl-0.1-0","Dynamic, any to any, pixel format conversion library","","","1","1","","","","Section=libs; Version=1:0.1.114-2","","","","","","","",""
+"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","","","",""
+"libcfitsio10t64","libcfitsio10t64","libcfitsio10t64","shared library for I/O with FITS format data files","","","1","1","","","","Section=libs; Version=4.6.2-2","","","","","","","",""
+"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"libgegl-0.4-0t64","libgegl-0.4-0t64","libgegl-0.4-0t64","Generic Graphics Library","","","1","1","","","","Section=libs; Version=1:0.4.62-2","","","","","","","",""
+"libgexiv2-2","libgexiv2-2","libgexiv2-2","GObject-based wrapper around the Exiv2 library","","","1","1","","","","Section=libs; Version=0.14.3-1+b1","","","","","","","",""
+"libgomp1","libgomp1","libgomp1","GCC OpenMP (GOMP) support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libgs10","libgs10","libgs10","interpreter for the PostScript language and for PDF - Library","","","1","1","","","","Section=libs; Version=10.05.1~dfsg-1","","","","","","","",""
+"libgudev-1.0-0","libgudev-1.0-0","libgudev-1.0-0","GObject-based wrapper library for libudev","","","1","1","","","","Section=libs; Version=238-6","","","","","","","",""
+"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","","","",""
+"libheif1","libheif1","libheif1","HEIF and AVIF file format decoder and encoder - shared library","","","1","1","","","","Section=libs; Version=1.19.8-1","","","","","","","",""
+"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","","","",""
+"libjson-glib-1.0-0","libjson-glib-1.0-0","libjson-glib-1.0-0","GLib JSON manipulation library","","","1","1","","","","Section=libs; Version=1.10.6+ds-2","","","","","","","",""
+"libjxl0.11","libjxl0.11","libjxl0.11","JPEG XL Image Coding System - ""JXL"" (shared libraries)","","","1","1","","","","Section=libs; Version=0.11.1-4","","","","","","","",""
+"liblcms2-2","liblcms2-2","liblcms2-2","Little CMS 2 color management library","","","1","1","","","","Section=libs; Version=2.16-2","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"libmypaint-1.5-1","libmypaint-1.5-1","libmypaint-1.5-1","brush library for mypaint","","","1","1","","","","Section=libs; Version=1.6.0-4","","","","","","","",""
+"libopenexr-3-1-30","libopenexr-3-1-30","libopenexr-3-1-30","runtime files for the OpenEXR image library","","","1","1","","","","Section=libs; Version=3.1.13-2","","","","","","","",""
+"libopenjp2-7","libopenjp2-7","libopenjp2-7","JPEG 2000 image compression/decompression library","","","1","1","","","","Section=libs; Version=2.5.3-2.1~deb13u1","","","","","","","",""
+"libpangoft2-1.0-0","libpangoft2-1.0-0","libpangoft2-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","","","",""
+"libpoppler-glib8t64","libpoppler-glib8t64","libpoppler-glib8t64","PDF rendering library (GLib-based shared library)","","","1","1","","","","Section=libs; Version=25.03.0-5","","","","","","","",""
+"librsvg2-2","librsvg2-2","librsvg2-2","SAX-based renderer library for SVG files (runtime)","","","1","1","","","","Section=libs; Version=2.60.0+dfsg-1","","","","","","","",""
+"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","","","",""
+"libwebp7","libwebp7","libwebp7","Lossy compression of digital photographic images (shared library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libwebpdemux2","libwebpdemux2","libwebpdemux2","Lossy compression of digital photographic images (libwebpdemux library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libwebpmux3","libwebpmux3","libwebpmux3","Lossy compression of digital photographic images (libwebpmux library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libwmf-0.2-7","libwmf-0.2-7","libwmf-0.2-7","Windows metafile conversion library","","","1","1","","","","Section=libs; Version=0.2.13-1.1+b3","","","","","","","",""
+"libwmflite-0.2-7","libwmflite-0.2-7","libwmflite-0.2-7","Windows metafile conversion lite library","","","1","1","","","","Section=libs; Version=0.2.13-1.1+b3","","","","","","","",""
+"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","","","",""
+"libxcursor1","libxcursor1","libxcursor1","X cursor management library","","","1","1","","","","Section=libs; Version=1:1.2.3-1","","","","","","","",""
+"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","","","",""
+"libxfixes3","libxfixes3","libxfixes3","X11 miscellaneous 'fixes' extension library","","","1","1","","","","Section=libs; Version=1:6.0.0-2+b4","","","","","","","",""
+"libxmu6","libxmu6","libxmu6","X11 miscellaneous utility library","","","1","1","","","","Section=libs; Version=2:1.1.3-3+b4","","","","","","","",""
+"libxpm4","libxpm4","libxpm4","X11 pixmap library","","","1","1","","","","Section=libs; Version=1:3.5.17-1+b3","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"ghostscript","ghostscript","ghostscript","interpreter for the PostScript language and for PDF","","","1","1","","","","Section=text; Version=10.05.1~dfsg-1","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"lib2geom1.4.0","lib2geom1.4.0","lib2geom1.4.0","robust computational geometry framework -- shared library","","","1","1","","","","Section=libs; Version=1.4-4","","","","","","","",""
+"libatkmm-1.6-1v5","libatkmm-1.6-1v5","libatkmm-1.6-1v5","C++ wrappers for ATK accessibility toolkit (shared libraries)","","","1","1","","","","Section=libs; Version=2.28.4-1+b2","","","","","","","",""
+"libboost-filesystem1.83.0","libboost-filesystem1.83.0","libboost-filesystem1.83.0","filesystem operations (portable paths, iteration over directories, etc) in C++","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libcairo-gobject2","libcairo-gobject2","libcairo-gobject2","Cairo 2D vector graphics library (GObject library)","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libcairomm-1.0-1v5","libcairomm-1.0-1v5","libcairomm-1.0-1v5","C++ wrappers for Cairo (shared libraries)","","","1","1","","","","Section=libs; Version=1.14.5-2+b1","","","","","","","",""
+"libcdr-0.1-1","libcdr-0.1-1","libcdr-0.1-1","library for reading and converting Corel DRAW files","","","1","1","","","","Section=libs; Version=0.1.7-1+b3","","","","","","","",""
+"libepoxy0","libepoxy0","libepoxy0","OpenGL function pointer management library","","","1","1","","","","Section=libs; Version=1.5.10-2","","","","","","","",""
+"libgc1","libgc1","libgc1","conservative garbage collector for C and C++","","","1","1","","","","Section=libs; Version=1:8.2.8-1","","","","","","","",""
+"libglibmm-2.4-1t64","libglibmm-2.4-1t64","libglibmm-2.4-1t64","C++ wrapper for the GLib toolkit (shared libraries)","","","1","1","","","","Section=libs; Version=2.66.8-1","","","","","","","",""
+"libgsl28","libgsl28","libgsl28","GNU Scientific Library (GSL) -- library package","","","1","1","","","","Section=libs; Version=2.8+dfsg-5","","","","","","","",""
+"libgspell-1-3","libgspell-1-3","libgspell-1-3","spell-checking library for GTK+ applications","","","1","1","","","","Section=libs; Version=1.14.0-2+b1","","","","","","","",""
+"libgtkmm-3.0-1t64","libgtkmm-3.0-1t64","libgtkmm-3.0-1t64","C++ wrappers for GTK+ (shared libraries)","","","1","1","","","","Section=libs; Version=3.24.10-1","","","","","","","",""
+"libgtksourceview-4-0","libgtksourceview-4-0","libgtksourceview-4-0","shared libraries for the GTK+ syntax highlighting widget","","","1","1","","","","Section=libs; Version=4.8.4-6","","","","","","","",""
+"libpangomm-1.4-1v5","libpangomm-1.4-1v5","libpangomm-1.4-1v5","C++ Wrapper for pango (shared libraries)","","","1","1","","","","Section=libs; Version=2.46.4-1+b2","","","","","","","",""
+"libpoppler147","libpoppler147","libpoppler147","PDF rendering library","","","1","1","","","","Section=libs; Version=25.03.0-5","","","","","","","",""
+"libpotrace0","libpotrace0","libpotrace0","library for tracing bitmaps","","","1","1","","","","Section=libs; Version=1.16-2+b2","","","","","","","",""
+"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","","","",""
+"librevenge-0.0-0","librevenge-0.0-0","librevenge-0.0-0","Base Library for writing document interface filters","","","1","1","","","","Section=libs; Version=0.0.5-3+b2","","","","","","","",""
+"libsigc++-2.0-0v5","libsigc++-2.0-0v5","libsigc++-2.0-0v5","type-safe Signal Framework for C++ - runtime","","","1","1","","","","Section=libs; Version=2.12.1-3","","","","","","","",""
+"libvisio-0.1-1","libvisio-0.1-1","libvisio-0.1-1","library for parsing the visio file structure","","","1","1","","","","Section=libs; Version=0.1.7-1+b5","","","","","","","",""
+"libwpg-0.3-3","libwpg-0.3-3","libwpg-0.3-3","WordPerfect graphics import/convert library (shared library)","","","1","1","","","","Section=libs; Version=0.3.4-3+b2","","","","","","","",""
+"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","","","",""
+"libxslt1.1","libxslt1.1","libxslt1.1","XSLT 1.0 processing library - runtime library","","","1","1","","","","Section=libs; Version=1.1.35-1.2+deb13u1","","","","","","","",""
+"aspell","aspell","aspell","GNU Aspell spell-checker","","","1","1","","","","Section=text; Version=0.60.8.1-4","","","","","","","",""
+"fig2dev","fig2dev","fig2dev","Utilities for converting XFig figure files","","","1","1","","","","Section=graphics; Version=1:3.2.9a-4","","","","","","","",""
+"imagemagick","imagemagick","imagemagick","image manipulation programs -- binaries","","","1","1","","","","Section=graphics; Version=8:7.1.1.43+dfsg1-1+deb13u1","","","","","","","",""
+"libimage-magick-perl","libimage-magick-perl","libimage-magick-perl","Perl interface to the ImageMagick graphics routines","","","1","1","","","","Section=perl; Version=8:7.1.1.43+dfsg1-1+deb13u1","","","","","","","",""
+"libwmf-bin","libwmf-bin","libwmf-bin","Windows metafile conversion tools","","","1","1","","","","Section=graphics; Version=0.2.13-1.1+b3","","","","","","","",""
+"python3-cssselect","python3-cssselect","python3-cssselect","cssselect parses CSS3 Selectors and translates them to XPath 1.0","","","1","1","","","","Section=python; Version=1.3.0-1","","","","","","","",""
+"python3-lxml","python3-lxml","python3-lxml","pythonic binding for the libxml2 and libxslt libraries","","","1","1","","","","Section=python; Version=5.4.0-1","","","","","","","",""
+"python3-numpy","python3-numpy","python3-numpy","Python library for numerical computations (Python 3)","","","1","1","","","","Section=python; Version=1:2.2.4+ds-1","","","","","","","",""
+"python3-scour","python3-scour","python3-scour","SVG scrubber and optimizer (Python 3 module)","","","1","1","","","","Section=python; Version=0.38.2-6","","","","","","","",""
+"calligra-libs","calligra-libs","calligra-libs","common libraries and binaries for the Calligra Suite","","","1","1","","","","Section=libs; Version=1:25.04.2+dfsg-1","","","","","","","",""
+"libkf6archive6","libkf6archive6","libkf6archive6","Qt 6 addon providing access to numerous types of archives","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6completion6","libkf6completion6","libkf6completion6","Widgets with advanced auto-completion features","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6configcore6","libkf6configcore6","libkf6configcore6","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6coreaddons6","libkf6coreaddons6","libkf6coreaddons6","KDE Frameworks 6 addons to QtCore","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6guiaddons6","libkf6guiaddons6","libkf6guiaddons6","utilities for graphical user interfaces","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6i18n6","libkf6i18n6","libkf6i18n6","Advanced internationalization framework","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6iconthemes6","libkf6iconthemes6","libkf6iconthemes6","Support for icon themes","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","","","",""
+"libkf6widgetsaddons6","libkf6widgetsaddons6","libkf6widgetsaddons6","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libkf6xmlgui6","libkf6xmlgui6","libkf6xmlgui6","User configurable main windows","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
+"libodfgen-0.1-1","libodfgen-0.1-1","libodfgen-0.1-1","library to generate ODF documents","","","1","1","","","","Section=libs; Version=0.1.8-2+b2","","","","","","","",""
+"libqt6xml6","libqt6xml6","libqt6xml6","Qt 6 XML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","","","",""
+"libwps-0.4-4","libwps-0.4-4","libwps-0.4-4","Works text file format import filter library (shared library)","","","1","1","","","","Section=libs; Version=0.4.14-2+b2","","","","","","","",""
+"pstoedit","pstoedit","pstoedit","PostScript and PDF files to editable vector graphics converter","","","1","1","","","","Section=graphics; Version=4.02-1+b1","","","","","","","",""
+"krita-data","krita-data","krita-data","data files for Krita painting program","","","1","1","","","","Section=graphics; Version=1:5.2.9+dfsg-1","","","","","","","",""
+"libqt5sql5-sqlite","libqt5sql5-sqlite","libqt5sql5-sqlite","Qt 5 SQLite 3 database driver","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libexiv2-28","libexiv2-28","libexiv2-28","EXIF/IPTC/XMP metadata manipulation library","","","1","1","","","","Section=libs; Version=0.28.5+dfsg-1","","","","","","","",""
+"libfftw3-double3","libfftw3-double3","libfftw3-double3","Library for computing Fast Fourier Transforms - Double precision","","","1","1","","","","Section=libs; Version=3.3.10-2+b1","","","","","","","",""
+"libfribidi0","libfribidi0","libfribidi0","Free Implementation of the Unicode BiDi algorithm","","","1","1","","","","Section=libs; Version=1.0.16-1","","","","","","","",""
+"libgif7","libgif7","libgif7","library for GIF images (library)","","","1","1","","","","Section=libs; Version=5.2.2-1+b1","","","","","","","",""
+"libimath-3-1-29t64","libimath-3-1-29t64","libimath-3-1-29t64","Utility libraries from ASF used by OpenEXR - runtime","","","1","1","","","","Section=libs; Version=3.1.12-1+b3","","","","","","","",""
+"libkf5completion5","libkf5completion5","libkf5completion5","Widgets with advanced auto-completion features.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5configcore5","libkf5configcore5","libkf5configcore5","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5configgui5","libkf5configgui5","libkf5configgui5","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5coreaddons5","libkf5coreaddons5","libkf5coreaddons5","KDE Frameworks 5 addons to QtCore","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5crash5","libkf5crash5","libkf5crash5","Support for application crash analysis and bug report from apps","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5guiaddons5","libkf5guiaddons5","libkf5guiaddons5","additional addons for QtGui","","","1","1","","","","Section=libs; Version=5.116.0-2","","","","","","","",""
+"libkf5i18n5","libkf5i18n5","libkf5i18n5","Advanced internationalization framework.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5itemviews5","libkf5itemviews5","libkf5itemviews5","Qt library with additional widgets for ItemModels","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5kdcraw5","libkf5kdcraw5","libkf5kdcraw5","RAW picture decoding library","","","1","1","","","","Section=libs; Version=25.04.0-1","","","","","","","",""
+"libkf5widgetsaddons5","libkf5widgetsaddons5","libkf5widgetsaddons5","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkf5windowsystem5","libkf5windowsystem5","libkf5windowsystem5","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","","","",""
+"libkseexpr4","libkseexpr4","libkseexpr4","embeddable expression evaluation engine - shared library","","","1","1","","","","Section=libs; Version=4.0.4.0-7","","","","","","","",""
+"libkseexprui4","libkseexprui4","libkseexprui4","embeddable expression evaluation engine - UI shared library","","","1","1","","","","Section=libs; Version=4.0.4.0-7","","","","","","","",""
+"libmlt++7","libmlt++7","libmlt++7","MLT multimedia framework C++ wrapper (runtime)","","","1","1","","","","Section=libs; Version=7.30.0-1+b2","","","","","","","",""
+"libmlt7","libmlt7","libmlt7","multimedia framework (runtime)","","","1","1","","","","Section=libs; Version=7.30.0-1+b2","","","","","","","",""
+"libpoppler-qt5-1t64","libpoppler-qt5-1t64","libpoppler-qt5-1t64","PDF rendering library (Qt 5 based shared library)","","","1","1","","","","Section=libs; Version=25.03.0-5","","","","","","","",""
+"libpython3.13","libpython3.13","libpython3.13","Shared Python runtime library (version 3.13)","","","1","1","","","","Section=libs; Version=3.13.5-2","","","","","","","",""
+"libqt5core5t64","libqt5core5t64","libqt5core5t64","Qt 5 core module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5dbus5t64","libqt5dbus5t64","libqt5dbus5t64","Qt 5 D-Bus module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5gui5t64","libqt5gui5t64","libqt5gui5t64","Qt 5 GUI module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5network5t64","libqt5network5t64","libqt5network5t64","Qt 5 network module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5printsupport5t64","libqt5printsupport5t64","libqt5printsupport5t64","Qt 5 print support module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5sql5t64","libqt5sql5t64","libqt5sql5t64","Qt 5 SQL module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5svg5","libqt5svg5","libqt5svg5","Qt 5 SVG module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","","","",""
+"libqt5widgets5t64","libqt5widgets5t64","libqt5widgets5t64","Qt 5 widgets module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libqt5x11extras5","libqt5x11extras5","libqt5x11extras5","Qt 5 X11 extras","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","","","",""
+"libqt5xml5t64","libqt5xml5t64","libqt5xml5t64","Qt 5 XML module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","","","",""
+"libquazip5-1t64","libquazip5-1t64","libquazip5-1t64","C++ wrapper for ZIP/UNZIP","","","1","1","","","","Section=libs; Version=0.9.1-5","","","","","","","",""
+"libturbojpeg0","libturbojpeg0","libturbojpeg0","TurboJPEG runtime library - SIMD optimized","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","","","",""
+"libunibreak6","libunibreak6","libunibreak6","line breaking library for Unicode (shared library)","","","1","1","","","","Section=libs; Version=6.1-3","","","","","","","",""
+"qtbase-abi-5-15-15","qtbase-abi-5-15-15","qtbase-abi-5-15-15","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3-pyqt5","python3-pyqt5","python3-pyqt5","Python 3 bindings for Qt5","","","1","1","","","","Section=python; Version=5.15.11+dfsg-2","","","","","","","",""
+"qml-module-qtmultimedia","qml-module-qtmultimedia","qml-module-qtmultimedia","Qt 5 Multimedia QML module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","","","",""
+"gtklp","gtklp","gtklp","printing tool for CUPS on the GNOME Desktop","","","1","1","","","","Section=x11; Version=1.3.4-3+b2","","","","","","","",""
+"gir1.2-gtk-3.0","gir1.2-gtk-3.0","gir1.2-gtk-3.0","GTK graphical user interface library -- gir bindings","","","1","1","","","","Section=introspection; Version=3.24.49-3","","","","","","","",""
+"mypaint-data","mypaint-data","mypaint-data","runtime data files for MyPaint","","","1","1","","","","Section=graphics; Version=2.0.1-12","","","","","","","",""
+"mypaint-brushes","mypaint-brushes","mypaint-brushes","brushes for paint apps","","","1","1","","","","Section=graphics; Version=2.0.2+ds1-2","","","","","","","",""
+"python3-gi-cairo","python3-gi-cairo","python3-gi-cairo","Python 3 Cairo bindings for the GObject library","","","1","1","","","","Section=python; Version=3.50.0-4+b1","","","","","","","",""
+"librsvg2-bin","librsvg2-bin","librsvg2-bin","command-line utility to convert SVG files","","","1","1","","","","Section=graphics; Version=2.60.0+dfsg-1","","","","","","","",""
+"python3","python3","python3","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","","","",""
+"python3-numpy2-abi0","python3-numpy2-abi0","python3-numpy2-abi0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"mypaint-data-extras","mypaint-data-extras","mypaint-data-extras","high resolution backgrounds for mypaint","","","1","1","","","","Section=graphics; Version=2.0.1-12","","","","","","","",""
+"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","","","",""
+"ffmpeg","ffmpeg","ffmpeg","Tools for transcoding, streaming and playing of multimedia files","","","1","1","","","","Section=video; Version=7:7.1.1-1+b1","","","","","","","",""
+"libqt5multimedia5","libqt5multimedia5","libqt5multimedia5","Qt 5 Multimedia module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","","","",""
+"fonts-freefont-ttf","fonts-freefont-ttf","fonts-freefont-ttf","Freefont Serif, Sans and Mono Truetype fonts","","","1","1","","","","Section=fonts; Version=20211204+svn4273-2","","","","","","","",""
+"fonts-kacst-one","fonts-kacst-one","fonts-kacst-one","TrueType font designed for Arabic language","","","1","1","","","","Section=fonts; Version=5.0+svn11846-10","","","","","","","",""
+"python3-pygame","python3-pygame","python3-pygame","SDL bindings for games development (Python 3)","","","1","1","","","","Section=python; Version=2.6.1-1+b2","","","","","","","",""
+"libgtk2.0-0t64","libgtk2.0-0t64","libgtk2.0-0t64","GTK graphical user interface library - old version","","","1","1","","","","Section=oldlibs; Version=2.24.33-7","","","","","","","",""
+"default-dbus-session-bus","default-dbus-session-bus","default-dbus-session-bus","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"dconf-gsettings-backend","dconf-gsettings-backend","dconf-gsettings-backend","simple configuration storage system - GSettings back-end","","","1","1","","","","Section=libs; Version=0.40.0-5","","","","","","","",""
+"libadwaita-1-0","libadwaita-1-0","libadwaita-1-0","Library with GTK widgets for mobile phones","","","1","1","","","","Section=libs; Version=1.7.6-1~deb13u1","","","","","","","",""
+"libcolord2","libcolord2","libcolord2","system service to manage device colour profiles -- runtime","","","1","1","","","","Section=libs; Version=1.4.7-3","","","","","","","",""
+"libgtk-4-1","libgtk-4-1","libgtk-4-1","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=4.18.6+ds-2","","","","","","","",""
+"libgusb2","libgusb2","libgusb2","GLib wrapper around libusb1","","","1","1","","","","Section=libs; Version=0.4.9-1+b1","","","","","","","",""
+"libpackagekit-glib2-18","libpackagekit-glib2-18","libpackagekit-glib2-18","Library for accessing PackageKit using GLib","","","1","1","","","","Section=libs; Version=1.3.1-1","","","","","","","",""
+"libsane1","libsane1","libsane1","API library for scanners","","","1","1","","","","Section=libs; Version=1.3.1-3+b1","","","","","","","",""
+"tupi-data","tupi-data","tupi-data","Data files for tupi (2D Animation design and authoring tool)","","","1","1","","","","Section=graphics; Version=0.2+git08-6","","","","","","","",""
+"libogg0","libogg0","libogg0","Ogg bitstream library","","","1","1","","","","Section=libs; Version=1.3.5-3+b2","","","","","","","",""
+"libqt5multimediawidgets5","libqt5multimediawidgets5","libqt5multimediawidgets5","Qt 5 Multimedia Widgets module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","","","",""
+"libtheoradec1","libtheoradec1","libtheoradec1","Theora Video Compression Codec (shared library - libtheoradec)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","","","",""
+"libtheoraenc1","libtheoraenc1","libtheoraenc1","Theora Video Compression Codec (shared library - libtheoraenc)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","","","",""
+"libvorbis0a","libvorbis0a","libvorbis0a","decoder library for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","","","",""
+"libvorbisfile3","libvorbisfile3","libvorbisfile3","high-level API for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","","","",""
+"netpbm","netpbm","netpbm","Graphics conversion tools between image formats","","","1","1","","","","Section=graphics; Version=2:11.10.02-1","","","","","","","",""
+"tuxpaint-data","tuxpaint-data","tuxpaint-data","Data files for Tux Paint, a paint program for children","","","1","1","","","","Section=graphics; Version=1:0.9.34-2","","","","","","","",""
+"tuxpaint-plugins-default","tuxpaint-plugins-default","tuxpaint-plugins-default","Magic tool plugins for Tux Paint","","","1","1","","","","Section=graphics; Version=1:0.9.34-2+b1","","","","","","","",""
+"libimagequant0","libimagequant0","libimagequant0","palette quantization library","","","1","1","","","","Section=libs; Version=2.18.0-1+b2","","","","","","","",""
+"libpaper2","libpaper2","libpaper2","Paper sizes catalogue","","","1","1","","","","Section=libs; Version=2.2.5-0.3+b2","","","","","","","",""
+"libsdl2-2.0-0","libsdl2-2.0-0","libsdl2-2.0-0","Simple DirectMedia Layer","","","1","1","","","","Section=libs; Version=2.32.4+dfsg-1","","","","","","","",""
+"libsdl2-gfx-1.0-0","libsdl2-gfx-1.0-0","libsdl2-gfx-1.0-0","drawing and graphical effects extension for SDL2","","","1","1","","","","Section=libs; Version=1.0.4+dfsg-6","","","","","","","",""
+"libsdl2-image-2.0-0","libsdl2-image-2.0-0","libsdl2-image-2.0-0","Image loading library for Simple DirectMedia Layer 2, libraries","","","1","1","","","","Section=libs; Version=2.8.8+dfsg-1","","","","","","","",""
+"libsdl2-mixer-2.0-0","libsdl2-mixer-2.0-0","libsdl2-mixer-2.0-0","Mixer library for Simple DirectMedia Layer 2, libraries","","","1","1","","","","Section=libs; Version=2.8.1+dfsg-2","","","","","","","",""
+"libsdl2-pango4","libsdl2-pango4","libsdl2-pango4","pango extension for sdl2","","","1","1","","","","Section=libs; Version=2.1.5-2","","","","","","","",""
+"libsdl2-ttf-2.0-0","libsdl2-ttf-2.0-0","libsdl2-ttf-2.0-0","TrueType Font library for Simple DirectMedia Layer 2, libraries","","","1","1","","","","Section=libs; Version=2.24.0+dfsg-2","","","","","","","",""
+"tuxpaint-config","tuxpaint-config","tuxpaint-config","Configuration tool for Tux Paint","","","1","1","","","","Section=graphics; Version=0.17rc1-1+b2","","","","","","","",""
+"libxaw3dxft6t64","libxaw3dxft6t64","libxaw3dxft6t64","An extended version of Xaw3d with support for UTF8","","","1","1","","","","Section=libs; Version=2.9.1.4-5","","","","","","","",""
+"libxft2","libxft2","libxft2","FreeType-based font drawing library for X","","","1","1","","","","Section=libs; Version=2.3.6-1+b4","","","","","","","",""
+"libxt6t64","libxt6t64","libxt6t64","X11 toolkit intrinsics library","","","1","1","","","","Section=libs; Version=1:1.2.1-1.2+b2","","","","","","","",""
+"","","","","","","","","","","","","junior-art","junior-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","junior-art","junior-tasks","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","junior-art","cheese","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","gamine","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","gcompris-qt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","gimp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","inkscape","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","karbon","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","krita","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","mtpaint","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","mypaint","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","pencil2d","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","pysiogame","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","rgbpaint","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","simple-scan","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","tupi","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","tuxpaint","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-art","xpaint","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","junior-config","adduser","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","junior-config","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","junior-config","menu","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","junior-config","blends-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","junior-tasks","tasksel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","cheese-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","gnome-video-effects","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libcanberra-gtk3-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libcheese-gtk25","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libcheese8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libclutter-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libclutter-gtk-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libgnome-desktop-3-20t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libgstreamer1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cheese","gvfs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cheese","yelp","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","gamine","gamine-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","gstreamer1.0-plugins-good","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libgstreamer1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gamine","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","gcompris-qt-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtcharts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtmultimedia","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtquick","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtquick-controls","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtquick-effects","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtquick-layouts","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtquick-particles","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtquick-shapes","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtquick-window","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qml6-module-qtsensors","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qt6-image-formats-plugins","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","qt6-svg-plugins","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6multimedia6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6network6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6qml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6quick6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6sensors6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gcompris-qt","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","gimp-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","gimp-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","gir1.2-gimp-3.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","graphviz","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgimp-3.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgimp-3.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","librsvg2-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","python3-gi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","xdg-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libaa1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libappstream-glib8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libarchive13t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libasound2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libbabl-0.1-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libbz2-1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libcfitsio10t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgegl-0.4-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgexiv2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgomp1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgs10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libgudev-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libharfbuzz0b","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libheif1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libjson-glib-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libjxl0.11","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libmypaint-1.5-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libopenexr-3-1-30","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libopenjp2-7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libpangoft2-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libpoppler-glib8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","librsvg2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libtiff6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libwebpdemux2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libwebpmux3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libwmf-0.2-7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libwmflite-0.2-7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libxcursor1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libxext6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libxfixes3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libxmu6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","libxpm4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gimp","ghostscript","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","librsvg2-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","lib2geom1.4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libatkmm-1.6-1v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libboost-filesystem1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libcairo-gobject2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libcairomm-1.0-1v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libcdr-0.1-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libepoxy0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgc1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libglibmm-2.4-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgomp1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgsl28","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgspell-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgtkmm-3.0-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libgtksourceview-4-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libharfbuzz0b","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpangoft2-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpangomm-1.4-1v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpoppler-glib8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpoppler147","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libpotrace0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libreadline8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","librevenge-0.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libsigc++-2.0-0v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libvisio-0.1-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libwpg-0.3-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libxml2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libxslt1.1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","inkscape","aspell","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","fig2dev","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","imagemagick","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libimage-magick-perl","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","libwmf-bin","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","python3-cssselect","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","python3-lxml","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","python3-numpy","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","inkscape","python3-scour","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","karbon","calligra-libs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6archive6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6completion6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6configcore6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6coreaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6guiaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6i18n6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6iconthemes6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6widgetsaddons6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libkf6xmlgui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libodfgen-0.1-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libpoppler147","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libqt6core6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libqt6gui6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libqt6widgets6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libqt6xml6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","librevenge-0.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libwpg-0.3-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","libwps-0.4-4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","karbon","pstoedit","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","krita","krita-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5sql5-sqlite","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libexiv2-28","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libfftw3-double3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libfribidi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libgif7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libgsl28","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libharfbuzz0b","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libheif1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libimath-3-1-29t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libjxl0.11","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5completion5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5configcore5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5configgui5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5coreaddons5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5crash5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5guiaddons5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5i18n5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5itemviews5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5kdcraw5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5widgetsaddons5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkf5windowsystem5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkseexpr4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libkseexprui4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libmlt++7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libmlt7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libmypaint-1.5-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libopenexr-3-1-30","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libopenjp2-7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libpoppler-qt5-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libpython3.13","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5dbus5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5network5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5printsupport5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5sql5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5svg5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5x11extras5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libqt5xml5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libquazip5-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libtiff6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libturbojpeg0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libunibreak6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libwebpdemux2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libwebpmux3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","qtbase-abi-5-15-15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","krita","python3-pyqt5","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","krita","qml-module-qtmultimedia","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libgtk-3-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libtiff6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mtpaint","gtklp","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","gir1.2-gtk-3.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","mypaint-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","mypaint-brushes","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","python3-gi","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","python3-gi-cairo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","python3-numpy","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","librsvg2-bin","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","python3-numpy2-abi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","libgomp1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","libmypaint-1.5-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","mypaint","mypaint-data-extras","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","mypaint","shared-mime-info","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","ffmpeg","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libqt5multimedia5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libqt5network5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libqt5xml5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pencil2d","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pysiogame","fonts-freefont-ttf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pysiogame","fonts-kacst-one","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pysiogame","python3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pysiogame","python3-pygame","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","rgbpaint","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","rgbpaint","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","rgbpaint","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","rgbpaint","libgtk2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","rgbpaint","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","rgbpaint","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","default-dbus-session-bus","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","xdg-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","dconf-gsettings-backend","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libadwaita-1-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libcolord2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libgtk-4-1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libgusb2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libpackagekit-glib2-18","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libsane1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libwebp7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","libwebpmux3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","simple-scan","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","tupi-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libogg0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5core5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5gui5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5multimedia5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5multimediawidgets5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5network5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5printsupport5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5svg5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5widgets5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libqt5xml5t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libquazip5-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libtheoradec1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tupi","libtheoraenc1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libvorbis0a","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libvorbisfile3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","netpbm","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","tuxpaint-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","tuxpaint-plugins-default","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libfribidi0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libimagequant0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libpangoft2-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libpaper2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","librsvg2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libsdl2-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libsdl2-gfx-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libsdl2-image-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libsdl2-mixer-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libsdl2-pango4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","libsdl2-ttf-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tuxpaint","tuxpaint-config","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libjpeg62-turbo","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libpng16-16t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libtiff6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libx11-6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libxaw3dxft6t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libxext6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libxft2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libxmu6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libxpm4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","xpaint","libxt6t64","Depends","#333","1","Depends","arrow","{}"

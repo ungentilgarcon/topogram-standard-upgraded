@@ -1,29 +1,29 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-python-petsc4py-doc,python-petsc4py-doc,python-petsc4py-doc,Python bindings for PETSc libraries: documentation and examples,,,1,1,,,,Section=doc; Version=3.22.4-1,,,,,,,
-libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
-libjs-sphinxdoc,libjs-sphinxdoc,libjs-sphinxdoc,JavaScript support for Sphinx documentation,,,1,1,,,,Section=javascript; Version=8.1.3-5,,,,,,,
-sphinx-common,sphinx-common,sphinx-common,documentation generator for Python projects - common data,,,1,1,,,,Section=python; Version=8.1.3-5,,,,,,,
-python3-petsc4py,python3-petsc4py,python3-petsc4py,Python 3 bindings for PETSc libraries,,,1,1,,,,Section=python; Version=3.22.4-1,,,,,,,
-javascript-common,javascript-common,javascript-common,Base support for JavaScript library packages,,,1,1,,,,Section=javascript; Version=12+nmu1,,,,,,,
-libjs-underscore,libjs-underscore,libjs-underscore,JavaScript's functional programming helper library,,,1,1,,,,Section=javascript; Version=1.13.4~dfsg+~1.11.4-3,,,,,,,
-libjson-perl,libjson-perl,libjson-perl,module for manipulating JSON-formatted data,,,1,1,,,,Section=perl; Version=4.10000-1,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3-sphinx,python3-sphinx,python3-sphinx,documentation generator for Python projects,,,1,1,,,,Section=python; Version=8.1.3-5,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-python3-petsc4py-real,python3-petsc4py-real,python3-petsc4py-real,Python 3 bindings for PETSc libraries (real numbers),,,1,1,,,,Section=python; Version=3.22.4-1,,,,,,,
-libpetsc-real-dev,libpetsc-real-dev,libpetsc-real-dev,Virtual package depending on latest PETSc development package,,,1,1,,,,Section=libdevel; Version=3.22.5+dfsg1-2,,,,,,,
-,,,,,,,,,,,,libjs-jquery,python-petsc4py-doc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-sphinxdoc,python-petsc4py-doc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,sphinx-common,python-petsc4py-doc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-petsc4py,python-petsc4py-doc,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,javascript-common,libjs-jquery,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libjs-jquery,libjs-sphinxdoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-underscore,libjs-sphinxdoc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjs-sphinxdoc,sphinx-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjson-perl,sphinx-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,sphinx-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-sphinx,sphinx-common,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,python3:any,python3-petsc4py,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3-petsc4py-real,python3-petsc4py,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python-petsc4py-doc,python3-petsc4py,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpetsc-real-dev,python3-petsc4py,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"python-petsc4py-doc","python-petsc4py-doc","python-petsc4py-doc","Python bindings for PETSc libraries: documentation and examples","","","1","1","","","","Section=doc; Version=3.22.4-1","","","","","","","",""
+"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","","","",""
+"libjs-sphinxdoc","libjs-sphinxdoc","libjs-sphinxdoc","JavaScript support for Sphinx documentation","","","1","1","","","","Section=javascript; Version=8.1.3-5","","","","","","","",""
+"sphinx-common","sphinx-common","sphinx-common","documentation generator for Python projects - common data","","","1","1","","","","Section=python; Version=8.1.3-5","","","","","","","",""
+"python3-petsc4py","python3-petsc4py","python3-petsc4py","Python 3 bindings for PETSc libraries","","","1","1","","","","Section=python; Version=3.22.4-1","","","","","","","",""
+"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","","","",""
+"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","","","",""
+"libjson-perl","libjson-perl","libjson-perl","module for manipulating JSON-formatted data","","","1","1","","","","Section=perl; Version=4.10000-1","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3-sphinx","python3-sphinx","python3-sphinx","documentation generator for Python projects","","","1","1","","","","Section=python; Version=8.1.3-5","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"python3-petsc4py-real","python3-petsc4py-real","python3-petsc4py-real","Python 3 bindings for PETSc libraries (real numbers)","","","1","1","","","","Section=python; Version=3.22.4-1","","","","","","","",""
+"libpetsc-real-dev","libpetsc-real-dev","libpetsc-real-dev","Virtual package depending on latest PETSc development package","","","1","1","","","","Section=libdevel; Version=3.22.5+dfsg1-2","","","","","","","",""
+"","","","","","","","","","","","","python-petsc4py-doc","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python-petsc4py-doc","libjs-sphinxdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python-petsc4py-doc","sphinx-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python-petsc4py-doc","python3-petsc4py","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-sphinxdoc","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-sphinxdoc","libjs-underscore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","sphinx-common","libjs-sphinxdoc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","sphinx-common","libjson-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","sphinx-common","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","sphinx-common","python3-sphinx","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","python3-petsc4py","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-petsc4py","python3-petsc4py-real","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-petsc4py","python-petsc4py-doc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-petsc4py","libpetsc-real-dev","Recommends","#333","1","Recommends","arrow","{}"

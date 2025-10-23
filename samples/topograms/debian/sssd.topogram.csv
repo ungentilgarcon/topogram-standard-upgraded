@@ -1,8 +1,8 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libipa-hbac-dev,libipa-hbac-dev,libipa-hbac-dev,FreeIPA HBAC Evaluator library -- development files,,,1,1,,,,Section=libdevel; Version=2.10.1-2+b1,,,,,,,
-libipa-hbac0t64,libipa-hbac0t64,libipa-hbac0t64,FreeIPA HBAC Evaluator library,,,1,1,,,,Section=libs; Version=2.10.1-2+b1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libunistring5,libunistring5,libunistring5,Unicode string library for C,,,1,1,,,,Section=libs; Version=1.3-2,,,,,,,
-,,,,,,,,,,,,libipa-hbac0t64,libipa-hbac-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libipa-hbac0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libunistring5,libipa-hbac0t64,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libipa-hbac-dev","libipa-hbac-dev","libipa-hbac-dev","FreeIPA HBAC Evaluator library -- development files","","","1","1","","","","Section=libdevel; Version=2.10.1-2+b1","","","","","","","",""
+"libipa-hbac0t64","libipa-hbac0t64","libipa-hbac0t64","FreeIPA HBAC Evaluator library","","","1","1","","","","Section=libs; Version=2.10.1-2+b1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libunistring5","libunistring5","libunistring5","Unicode string library for C","","","1","1","","","","Section=libs; Version=1.3-2","","","","","","","",""
+"","","","","","","","","","","","","libipa-hbac-dev","libipa-hbac0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libipa-hbac0t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libipa-hbac0t64","libunistring5","Depends","#333","1","Depends","arrow","{}"

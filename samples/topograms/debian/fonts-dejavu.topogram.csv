@@ -1,10 +1,10 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-fonts-dejavu,fonts-dejavu,fonts-dejavu,"metapackage to pull in fonts-dejavu-core, -mono and -extra",,,1,1,,,,Section=fonts; Version=2.37-8,,,,,,,
-fonts-dejavu-core,fonts-dejavu-core,fonts-dejavu-core,Vera font family derivate with additional characters,,,1,1,,,,Section=fonts; Version=2.37-8,,,,,,,
-fonts-dejavu-mono,fonts-dejavu-mono,fonts-dejavu-mono,Vera font family derivate with additional characters,,,1,1,,,,Section=fonts; Version=2.37-8,,,,,,,
-fonts-dejavu-extra,fonts-dejavu-extra,fonts-dejavu-extra,Vera font family derivate with additional characters (extra variants),,,1,1,,,,Section=fonts; Version=2.37-8,,,,,,,
-,,,,,,,,,,,,fonts-dejavu-core,fonts-dejavu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-dejavu-mono,fonts-dejavu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-dejavu-extra,fonts-dejavu,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-dejavu-mono,fonts-dejavu-core,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-dejavu-core,fonts-dejavu-extra,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"fonts-dejavu","fonts-dejavu","fonts-dejavu","metapackage to pull in fonts-dejavu-core, -mono and -extra","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","","","",""
+"fonts-dejavu-core","fonts-dejavu-core","fonts-dejavu-core","Vera font family derivate with additional characters","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","","","",""
+"fonts-dejavu-mono","fonts-dejavu-mono","fonts-dejavu-mono","Vera font family derivate with additional characters","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","","","",""
+"fonts-dejavu-extra","fonts-dejavu-extra","fonts-dejavu-extra","Vera font family derivate with additional characters (extra variants)","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","","","",""
+"","","","","","","","","","","","","fonts-dejavu","fonts-dejavu-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fonts-dejavu","fonts-dejavu-mono","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fonts-dejavu","fonts-dejavu-extra","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fonts-dejavu-core","fonts-dejavu-mono","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","fonts-dejavu-extra","fonts-dejavu-core","Depends","#333","1","Depends","arrow","{}"

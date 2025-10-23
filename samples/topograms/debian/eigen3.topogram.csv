@@ -1,6 +1,6 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libeigen3-dev,libeigen3-dev,libeigen3-dev,lightweight C++ template library for linear algebra,,,1,1,,,,Section=libdevel; Version=3.4.0-5,,,,,,,
-pkg-config,pkg-config,pkg-config,manage compile and link flags for libraries (transitional package),,,1,1,,,,Section=devel; Version=1.8.1-4,,,,,,,
-pkgconf,pkgconf,pkgconf,manage compile and link flags for libraries,,,1,1,,,,Section=devel; Version=1.8.1-4,,,,,,,
-,,,,,,,,,,,,pkg-config,libeigen3-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,pkgconf,pkg-config,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libeigen3-dev","libeigen3-dev","libeigen3-dev","lightweight C++ template library for linear algebra","","","1","1","","","","Section=libdevel; Version=3.4.0-5","","","","","","","",""
+"pkg-config","pkg-config","pkg-config","manage compile and link flags for libraries (transitional package)","","","1","1","","","","Section=devel; Version=1.8.1-4","","","","","","","",""
+"pkgconf","pkgconf","pkgconf","manage compile and link flags for libraries","","","1","1","","","","Section=devel; Version=1.8.1-4","","","","","","","",""
+"","","","","","","","","","","","","libeigen3-dev","pkg-config","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","pkg-config","pkgconf","Depends","#333","1","Depends","arrow","{}"

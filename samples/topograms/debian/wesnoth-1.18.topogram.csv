@@ -1,99 +1,99 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-wesnoth,wesnoth,wesnoth,fantasy turn-based strategy game (metapackage),,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18,wesnoth-1.18,wesnoth-1.18,fantasy turn-based strategy game (branch 1.18),,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-data,wesnoth-1.18-data,wesnoth-1.18-data,data files for Wesnoth (branch 1.18),,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-libboost-filesystem1.83.0,libboost-filesystem1.83.0,libboost-filesystem1.83.0,"filesystem operations (portable paths, iteration over directories, etc) in C++",,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libboost-iostreams1.83.0,libboost-iostreams1.83.0,libboost-iostreams1.83.0,Boost.Iostreams Library,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libboost-locale1.83.0,libboost-locale1.83.0,libboost-locale1.83.0,C++ facilities for localization,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libboost-program-options1.83.0,libboost-program-options1.83.0,libboost-program-options1.83.0,program options library for C++,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libboost-random1.83.0,libboost-random1.83.0,libboost-random1.83.0,Boost Random Number Library,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
-libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
-libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-liblua5.4-0,liblua5.4-0,liblua5.4-0,Shared library for the Lua interpreter version 5.4,,,1,1,,,,Section=libs; Version=5.4.7-1+b2,,,,,,,
-libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
-libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
-libsdl2-2.0-0,libsdl2-2.0-0,libsdl2-2.0-0,Simple DirectMedia Layer,,,1,1,,,,Section=libs; Version=2.32.4+dfsg-1,,,,,,,
-libsdl2-image-2.0-0,libsdl2-image-2.0-0,libsdl2-image-2.0-0,"Image loading library for Simple DirectMedia Layer 2, libraries",,,1,1,,,,Section=libs; Version=2.8.8+dfsg-1,,,,,,,
-libsdl2-mixer-2.0-0,libsdl2-mixer-2.0-0,libsdl2-mixer-2.0-0,"Mixer library for Simple DirectMedia Layer 2, libraries",,,1,1,,,,Section=libs; Version=2.8.1+dfsg-2,,,,,,,
-libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libvorbisfile3,libvorbisfile3,libvorbisfile3,high-level API for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
-wesnoth-1.18-did,wesnoth-1.18-did,wesnoth-1.18-did,"""Descent Into Darkness"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-dm,wesnoth-1.18-dm,wesnoth-1.18-dm,"""Delfador's Memoirs"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-dw,wesnoth-1.18-dw,wesnoth-1.18-dw,"""Dead Water"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-ei,wesnoth-1.18-ei,wesnoth-1.18-ei,"""The Eastern Invasion"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-httt,wesnoth-1.18-httt,wesnoth-1.18-httt,"""Heir to the Throne"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-l,wesnoth-1.18-l,wesnoth-1.18-l,"""Liberty"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-low,wesnoth-1.18-low,wesnoth-1.18-low,"""Legend of Wesmere"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-music,wesnoth-1.18-music,wesnoth-1.18-music,music files for Wesnoth (branch 1.18),,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-nr,wesnoth-1.18-nr,wesnoth-1.18-nr,"""Northern Rebirth"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-sof,wesnoth-1.18-sof,wesnoth-1.18-sof,"""The Sceptre of Fire"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-sota,wesnoth-1.18-sota,wesnoth-1.18-sota,"""Secrets of the Ancients"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-sotbe,wesnoth-1.18-sotbe,wesnoth-1.18-sotbe,"""Son of the Black-Eye"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-thot,wesnoth-1.18-thot,wesnoth-1.18-thot,"""The Hammer of Thursagan"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-trow,wesnoth-1.18-trow,wesnoth-1.18-trow,"""The Rise of Wesnoth"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-tsg,wesnoth-1.18-tsg,wesnoth-1.18-tsg,"""The South Guard"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-ttb,wesnoth-1.18-ttb,wesnoth-1.18-ttb,"""A Tale of Two Brothers"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-utbs,wesnoth-1.18-utbs,wesnoth-1.18-utbs,"""Under the Burning Suns"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-wesnoth-1.18-wof,wesnoth-1.18-wof,wesnoth-1.18-wof,"""Winds of Fate"" official campaign for Wesnoth (branch 1.18)",,,1,1,,,,Section=games; Version=1:1.18.5-1,,,,,,,
-fonts-adf-oldania,fonts-adf-oldania,fonts-adf-oldania,Oldania font of the Arkandis Digital Foundry,,,1,1,,,,Section=fonts; Version=0.20190904-3,,,,,,,
-fonts-dejavu-core,fonts-dejavu-core,fonts-dejavu-core,Vera font family derivate with additional characters,,,1,1,,,,Section=fonts; Version=2.37-8,,,,,,,
-fonts-dejavu-extra,fonts-dejavu-extra,fonts-dejavu-extra,Vera font family derivate with additional characters (extra variants),,,1,1,,,,Section=fonts; Version=2.37-8,,,,,,,
-fonts-droid-fallback,fonts-droid-fallback,fonts-droid-fallback,handheld device font with extensive style and language support (fallback),,,1,1,,,,Section=fonts; Version=1:8.1.0r7-1~1.gbp36536b,,,,,,,
-fonts-lato,fonts-lato,fonts-lato,sans-serif typeface family font,,,1,1,,,,Section=fonts; Version=2.015-1,,,,,,,
-fonts-lohit-beng-bengali,fonts-lohit-beng-bengali,fonts-lohit-beng-bengali,Lohit TrueType font for Bengali Language,,,1,1,,,,Section=fonts; Version=2.91.5-3,,,,,,,
-,,,,,,,,,,,,wesnoth-1.18,wesnoth,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,wesnoth-1.18-data,wesnoth,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,wesnoth-1.18-data,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-filesystem1.83.0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-iostreams1.83.0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-locale1.83.0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-program-options1.83.0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libboost-random1.83.0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcurl4t64,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblua5.4-0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpango-1.0-0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpangocairo-1.0-0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libreadline8t64,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-2.0-0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-image-2.0-0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsdl2-mixer-2.0-0,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libvorbisfile3,wesnoth-1.18,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,wesnoth-1.18-did,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-dm,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-dw,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-ei,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-httt,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-l,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-low,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-music,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-nr,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-sof,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-sota,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-sotbe,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-thot,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-trow,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-tsg,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-ttb,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-utbs,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,wesnoth-1.18-wof,wesnoth-1.18,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,fonts-adf-oldania,wesnoth-1.18-data,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-dejavu-core,wesnoth-1.18-data,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-dejavu-extra,wesnoth-1.18-data,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-droid-fallback,wesnoth-1.18-data,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-lato,wesnoth-1.18-data,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,fonts-lohit-beng-bengali,wesnoth-1.18-data,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"wesnoth","wesnoth","wesnoth","fantasy turn-based strategy game (metapackage)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18","wesnoth-1.18","wesnoth-1.18","fantasy turn-based strategy game (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-data","wesnoth-1.18-data","wesnoth-1.18-data","data files for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"libboost-filesystem1.83.0","libboost-filesystem1.83.0","libboost-filesystem1.83.0","filesystem operations (portable paths, iteration over directories, etc) in C++","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libboost-iostreams1.83.0","libboost-iostreams1.83.0","libboost-iostreams1.83.0","Boost.Iostreams Library","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libboost-locale1.83.0","libboost-locale1.83.0","libboost-locale1.83.0","C++ facilities for localization","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libboost-program-options1.83.0","libboost-program-options1.83.0","libboost-program-options1.83.0","program options library for C++","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libboost-random1.83.0","libboost-random1.83.0","libboost-random1.83.0","Boost Random Number Library","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","","","",""
+"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","","","",""
+"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"liblua5.4-0","liblua5.4-0","liblua5.4-0","Shared library for the Lua interpreter version 5.4","","","1","1","","","","Section=libs; Version=5.4.7-1+b2","","","","","","","",""
+"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","","","",""
+"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","","","",""
+"libsdl2-2.0-0","libsdl2-2.0-0","libsdl2-2.0-0","Simple DirectMedia Layer","","","1","1","","","","Section=libs; Version=2.32.4+dfsg-1","","","","","","","",""
+"libsdl2-image-2.0-0","libsdl2-image-2.0-0","libsdl2-image-2.0-0","Image loading library for Simple DirectMedia Layer 2, libraries","","","1","1","","","","Section=libs; Version=2.8.8+dfsg-1","","","","","","","",""
+"libsdl2-mixer-2.0-0","libsdl2-mixer-2.0-0","libsdl2-mixer-2.0-0","Mixer library for Simple DirectMedia Layer 2, libraries","","","1","1","","","","Section=libs; Version=2.8.1+dfsg-2","","","","","","","",""
+"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libvorbisfile3","libvorbisfile3","libvorbisfile3","high-level API for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","","","",""
+"wesnoth-1.18-did","wesnoth-1.18-did","wesnoth-1.18-did","""Descent Into Darkness"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-dm","wesnoth-1.18-dm","wesnoth-1.18-dm","""Delfador's Memoirs"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-dw","wesnoth-1.18-dw","wesnoth-1.18-dw","""Dead Water"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-ei","wesnoth-1.18-ei","wesnoth-1.18-ei","""The Eastern Invasion"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-httt","wesnoth-1.18-httt","wesnoth-1.18-httt","""Heir to the Throne"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-l","wesnoth-1.18-l","wesnoth-1.18-l","""Liberty"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-low","wesnoth-1.18-low","wesnoth-1.18-low","""Legend of Wesmere"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-music","wesnoth-1.18-music","wesnoth-1.18-music","music files for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-nr","wesnoth-1.18-nr","wesnoth-1.18-nr","""Northern Rebirth"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-sof","wesnoth-1.18-sof","wesnoth-1.18-sof","""The Sceptre of Fire"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-sota","wesnoth-1.18-sota","wesnoth-1.18-sota","""Secrets of the Ancients"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-sotbe","wesnoth-1.18-sotbe","wesnoth-1.18-sotbe","""Son of the Black-Eye"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-thot","wesnoth-1.18-thot","wesnoth-1.18-thot","""The Hammer of Thursagan"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-trow","wesnoth-1.18-trow","wesnoth-1.18-trow","""The Rise of Wesnoth"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-tsg","wesnoth-1.18-tsg","wesnoth-1.18-tsg","""The South Guard"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-ttb","wesnoth-1.18-ttb","wesnoth-1.18-ttb","""A Tale of Two Brothers"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-utbs","wesnoth-1.18-utbs","wesnoth-1.18-utbs","""Under the Burning Suns"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"wesnoth-1.18-wof","wesnoth-1.18-wof","wesnoth-1.18-wof","""Winds of Fate"" official campaign for Wesnoth (branch 1.18)","","","1","1","","","","Section=games; Version=1:1.18.5-1","","","","","","","",""
+"fonts-adf-oldania","fonts-adf-oldania","fonts-adf-oldania","Oldania font of the Arkandis Digital Foundry","","","1","1","","","","Section=fonts; Version=0.20190904-3","","","","","","","",""
+"fonts-dejavu-core","fonts-dejavu-core","fonts-dejavu-core","Vera font family derivate with additional characters","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","","","",""
+"fonts-dejavu-extra","fonts-dejavu-extra","fonts-dejavu-extra","Vera font family derivate with additional characters (extra variants)","","","1","1","","","","Section=fonts; Version=2.37-8","","","","","","","",""
+"fonts-droid-fallback","fonts-droid-fallback","fonts-droid-fallback","handheld device font with extensive style and language support (fallback)","","","1","1","","","","Section=fonts; Version=1:8.1.0r7-1~1.gbp36536b","","","","","","","",""
+"fonts-lato","fonts-lato","fonts-lato","sans-serif typeface family font","","","1","1","","","","Section=fonts; Version=2.015-1","","","","","","","",""
+"fonts-lohit-beng-bengali","fonts-lohit-beng-bengali","fonts-lohit-beng-bengali","Lohit TrueType font for Bengali Language","","","1","1","","","","Section=fonts; Version=2.91.5-3","","","","","","","",""
+"","","","","","","","","","","","","wesnoth","wesnoth-1.18","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth","wesnoth-1.18-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libboost-filesystem1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libboost-iostreams1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libboost-locale1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libboost-program-options1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libboost-random1.83.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libcurl4t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","liblua5.4-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libpango-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libpangocairo-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libreadline8t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libsdl2-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libsdl2-image-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libsdl2-mixer-2.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","libvorbisfile3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-did","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-dm","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-dw","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-ei","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-httt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-l","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-low","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-music","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-nr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-sof","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-sota","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-sotbe","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-thot","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-trow","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-tsg","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-ttb","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-utbs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18","wesnoth-1.18-wof","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18-data","fonts-adf-oldania","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18-data","fonts-dejavu-core","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18-data","fonts-dejavu-extra","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18-data","fonts-droid-fallback","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18-data","fonts-lato","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","wesnoth-1.18-data","fonts-lohit-beng-bengali","Depends","#333","1","Depends","arrow","{}"

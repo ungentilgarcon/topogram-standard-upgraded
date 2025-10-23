@@ -1,40 +1,40 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-aspell,aspell,aspell,GNU Aspell spell-checker,,,1,1,,,,Section=text; Version=0.60.8.1-4,,,,,,,
-libaspell15,libaspell15,libaspell15,GNU Aspell spell-checker runtime library,,,1,1,,,,Section=libs; Version=0.60.8.1-4,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libncursesw6,libncursesw6,libncursesw6,shared libraries for terminal handling (wide character support),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-dictionaries-common,dictionaries-common,dictionaries-common,spelling dictionaries - common utilities,,,1,1,,,,Section=text; Version=1.30.10,,,,,,,
-aspell-en,aspell-en,aspell-en,English dictionary for GNU Aspell,,,1,1,,,,Section=text; Version=2020.12.07-0-1,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libgpm2,libgpm2,libgpm2,General Purpose Mouse - shared library,,,1,1,,,,Section=libs; Version=1.20.7-11+b2,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-libtext-iconv-perl,libtext-iconv-perl,libtext-iconv-perl,module to convert between character sets in Perl,,,1,1,,,,Section=perl; Version=1.7-8+b4,,,,,,,
-emacsen-common,emacsen-common,emacsen-common,Common facilities for all emacsen,,,1,1,,,,Section=editors; Version=3.0.8,,,,,,,
-,,,,,,,,,,,,libaspell15,aspell,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,aspell,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libncursesw6,aspell,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,aspell,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtinfo6,aspell,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dictionaries-common,aspell,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,aspell-en,aspell,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libaspell15,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libaspell15,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,aspell-en,libaspell15,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libtinfo6,libncursesw6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libncursesw6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgpm2,libncursesw6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libtinfo6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,dictionaries-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtext-iconv-perl,dictionaries-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,emacsen-common,dictionaries-common,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,aspell,aspell-en,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dictionaries-common,aspell-en,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"aspell","aspell","aspell","GNU Aspell spell-checker","","","1","1","","","","Section=text; Version=0.60.8.1-4","","","","","","","",""
+"libaspell15","libaspell15","libaspell15","GNU Aspell spell-checker runtime library","","","1","1","","","","Section=libs; Version=0.60.8.1-4","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libncursesw6","libncursesw6","libncursesw6","shared libraries for terminal handling (wide character support)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"dictionaries-common","dictionaries-common","dictionaries-common","spelling dictionaries - common utilities","","","1","1","","","","Section=text; Version=1.30.10","","","","","","","",""
+"aspell-en","aspell-en","aspell-en","English dictionary for GNU Aspell","","","1","1","","","","Section=text; Version=2020.12.07-0-1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libgpm2","libgpm2","libgpm2","General Purpose Mouse - shared library","","","1","1","","","","Section=libs; Version=1.20.7-11+b2","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"libtext-iconv-perl","libtext-iconv-perl","libtext-iconv-perl","module to convert between character sets in Perl","","","1","1","","","","Section=perl; Version=1.7-8+b4","","","","","","","",""
+"emacsen-common","emacsen-common","emacsen-common","Common facilities for all emacsen","","","1","1","","","","Section=editors; Version=3.0.8","","","","","","","",""
+"","","","","","","","","","","","","aspell","libaspell15","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell","libncursesw6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell","libtinfo6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell","dictionaries-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell","aspell-en","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libaspell15","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaspell15","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libaspell15","aspell-en","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libncursesw6","libtinfo6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libncursesw6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libncursesw6","libgpm2","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libtinfo6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dictionaries-common","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dictionaries-common","libtext-iconv-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","dictionaries-common","emacsen-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell-en","aspell","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","aspell-en","dictionaries-common","Depends","#333","1","Depends","arrow","{}"

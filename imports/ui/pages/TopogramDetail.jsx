@@ -1,7 +1,8 @@
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useMemo } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Topograms, Nodes, Edges } from '/imports/api/collections';
+import { Mongo } from 'meteor/mongo'
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 import cola from 'cytoscape-cola';
@@ -113,8 +114,30 @@ function makeCyCompat(adapter) {
   return compat
 }
 
+const sanitizeIdParam = (value) => {
+  if (!value) return ''
+  const raw = String(value)
+  const match = raw.match(/^ObjectID\(["']?([0-9a-fA-F]{24})["']?\)$/)
+  if (match && match[1]) return match[1]
+  return raw
+}
+
 export default function TopogramDetail() {
-  const { id } = useParams();
+  const { id: routeId } = useParams();
+  const id = useMemo(() => sanitizeIdParam(routeId), [routeId])
+  const mongoObjectId = useMemo(() => {
+    if (!id || typeof id !== 'string' || id.length !== 24) return null
+    if (!/^[0-9a-fA-F]{24}$/.test(id)) return null
+    try { return new Mongo.ObjectID(id) } catch (e) { return null }
+  }, [id])
+  const mongoIdStr = mongoObjectId ? mongoObjectId._str : null
+  const idVariants = useMemo(() => {
+    const variants = []
+    if (id) variants.push(id)
+    if (mongoObjectId) variants.push(mongoObjectId)
+    if (mongoIdStr && mongoIdStr !== id) variants.push(mongoIdStr)
+    return variants
+  }, [id, mongoIdStr])
   // Debug rendering info is gated behind the sidepanel debug toggle (debugVisible)
 
   const isReadyTopogram = useSubscribe('topogram', id);
@@ -122,18 +145,32 @@ export default function TopogramDetail() {
   const isReadyEdges = useSubscribe('edges', id);
   const isReady = () => isReadyTopogram() && isReadyNodes() && isReadyEdges();
 
-  const tops = useFind(() => Topograms.find({ _id: id }), [id]);
+  const tops = useFind(() => {
+    if (!idVariants.length) return Topograms.find({ _id: '__none__' })
+    if (idVariants.length === 1) return Topograms.find({ _id: idVariants[0] })
+    return Topograms.find({ $or: idVariants.map(v => ({ _id: v })) })
+  }, [id, mongoIdStr]);
   // Publications may return documents where the topogramId lives at
   // top-level or nested under `data.topogramId`. Query both places so
   // Minimongo picks up the docs the server published.
   const nodes = useFind(() => {
-    const q = { $or: [{ topogramId: id }, { 'data.topogramId': id }] };
-    return Nodes.find(q);
-  }, [id]);
+    if (!idVariants.length) return Nodes.find({ _id: '__none__' })
+    const or = []
+    idVariants.forEach(v => {
+      or.push({ topogramId: v })
+      or.push({ 'data.topogramId': v })
+    })
+    return Nodes.find({ $or: or })
+  }, [id, mongoIdStr])
   const edges = useFind(() => {
-    const q = { $or: [{ topogramId: id }, { 'data.topogramId': id }] };
-    return Edges.find(q);
-  }, [id]);
+    if (!idVariants.length) return Edges.find({ _id: '__none__' })
+    const or = []
+    idVariants.forEach(v => {
+      or.push({ topogramId: v })
+      or.push({ 'data.topogramId': v })
+    })
+    return Edges.find({ $or: or })
+  }, [id, mongoIdStr])
 
   // Note: detailed debug output (render/id/sample docs) is emitted below
   // inside a useEffect that checks `debugVisible` so it only appears when
@@ -687,7 +724,14 @@ export default function TopogramDetail() {
         const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
         const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
         if (!resolvedSrc || !resolvedTgt) return
-        const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor))
+        const rawEdgeColor = (() => {
+          try {
+            const raw = edge && edge.data && edge.data.raw && (edge.data.raw.edgeColor || edge.data.raw.color || edge.data.raw.strokeColor)
+            if (typeof raw === 'string' && raw.trim() !== '') return raw.trim()
+          } catch (e) {}
+          return null
+        })()
+        const ecolor = (edge.data && (edge.data.color || edge.data.strokeColor || edge.data.lineColor)) || rawEdgeColor
         const data = { id: String(edge._id), source: String(resolvedSrc), target: String(resolvedTgt) }
         // Copy time fields from the original edge into the element so
         // timeline visibility checks on cy.edges() can read them. Also
@@ -709,13 +753,19 @@ export default function TopogramDetail() {
         if (edge.data && typeof edge.data.enlightement !== 'undefined') data.enlightement = edge.data.enlightement
         // preserve edge weight (or width) so renderers can map it to visual width
         try {
-          const rawEdgeWeight = edge && edge.data ? (edge.data.weight || edge.data.rawWeight || edge.data.width) : (edge.weight || edge.width || null)
-          data.weight = (typeof rawEdgeWeight !== 'undefined' && rawEdgeWeight !== null) ? rawEdgeWeight : 1
-        } catch (e) {}
+          const rawEdgeWeight = edge && edge.data ? (edge.data.weight || edge.data.rawWeight || edge.data.width || (edge.data.raw && (edge.data.raw.edgeWeight || edge.data.raw.weight))) : (edge.weight || edge.width || null)
+          const numericWeight = Number(rawEdgeWeight)
+          data.weight = Number.isFinite(numericWeight) && numericWeight > 0 ? numericWeight : 1
+        } catch (e) { data.weight = 1 }
         data._parallelIndex = idx
         data._parallelCount = groupEdges.length
-        if (ecolor != null) data.color = ecolor
-  else data.color = _stringToColorHex(String(edge._id || (edge.data && (edge.data.source || '') + '|' + (edge.data && edge.data.target || ''))))
+        const hasExplicitColor = typeof ecolor === 'string' ? ecolor.trim() !== '' : (ecolor != null)
+        if (hasExplicitColor) {
+          data.color = typeof ecolor === 'string' ? ecolor.trim() : ecolor
+        } else {
+          const fallbackKey = [resolvedSrc || rawSrc || '', resolvedTgt || rawTgt || '', data.relationship || '', String(idx)].join('|')
+          data.color = _stringToColorHex(fallbackKey)
+        }
         try {
           const relText = data.relationship || data.name || ''
           const relEmoji = data.relationshipEmoji || ''
@@ -781,16 +831,25 @@ export default function TopogramDetail() {
   const minW = numericWeights.length ? Math.min(...numericWeights) : 1
   const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
   // edge weight range for width mapping
-  const numericEdgeWeights = allEls.filter(el => el.data && el.data.source != null && el.data.target != null).map(el => Number(el.data.weight || el.data.width || 1))
+  const numericEdgeWeights = allEls
+    .filter(el => el.data && el.data.source != null && el.data.target != null)
+    .map(el => {
+      const val = Number(el.data.weight || el.data.width || 1)
+      return Number.isFinite(val) && val > 0 ? val : 1
+    })
   const minEW = numericEdgeWeights.length ? Math.min(...numericEdgeWeights) : 1
   const maxEW = numericEdgeWeights.length ? Math.max(...numericEdgeWeights) : (minEW + 1)
+  const edgeWidthMin = 1
+  const edgeWidthMax = minEW === maxEW ? 2 : 6
+  const edgeWidthStyle = minEW === maxEW
+    ? String((edgeWidthMin + edgeWidthMax) / 2)
+    : `mapData(weight, ${minEW}, ${maxEW}, ${edgeWidthMin}, ${edgeWidthMax})`
 
     const stylesheet = [
       { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
       { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-  { selector: 'edge', style: { 'width': `mapData(weight, ${minEW}, ${maxEW}, 1, 6)`, 'line-color': '#bbb', 'target-arrow-color': '#bbb', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
+      { selector: 'edge', style: { 'width': edgeWidthStyle, 'line-color': 'data(color)', 'target-arrow-color': 'data(color)', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
       { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
-      { selector: 'edge[color]', style: { 'line-color': 'data(color)', 'target-arrow-color': 'data(color)' } },
       { selector: 'edge[relationship], edge', style: {
         'label': 'data(_relVizLabel)',
         'text-rotation': 'autorotate',
@@ -1641,92 +1700,83 @@ export default function TopogramDetail() {
             // No geo data: show network if enabled, otherwise a placeholder
             if (!networkVisible) {
               return (
-                <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+                <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
                   <div>Both views hidden — use the settings panel to show Network or GeoMap.</div>
+                  <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={false} hasTimeInfo={hasTimeInfo} />
                 </div>
               )
             }
-            {
-              const impl = getGraphImpl()
-              if (impl === 'sigma' || impl === 'reagraph') {
-                return (
-                  <div className="cy-container" style={{ width: '100%', height: visualHeight, border: '1px solid #ccc' }}>
-                    <div className="cy-controls">
-                      <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
-                      <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
-                      <button className="cy-control-btn" onClick={doFit}>Fit</button>
-                      <div className="cy-control-row">
-                        <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
-                      </div>
-                    </div>
-                    <GraphWrapper
-                      elements={elements}
-                      layout={layout}
-                      stylesheet={stylesheet}
-                      impl={impl}
-                      cyCallback={(adapter) => {
-                        try {
-                          // Wrap adapter in compat shim so legacy consumers (Charts, etc.)
-                          // receive a cy-like object even when using non-cytoscape adapters.
-                          const compat = makeCyCompat(adapter)
-                          cyRef.current = compat
-                          setCyInstance && setCyInstance(compat)
-                        } catch (e) { console.warn('GraphWrapper cyCallback error', e) }
-                      }}
-                    />
-                  </div>
-                )
-              }
-            }
-            return (
-              <div className="cy-container" style={{ width: '100%', height: visualHeight, border: '1px solid #ccc' }}>
-                <div className="cy-controls">
-                  <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
-                  <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
-                  <button className="cy-control-btn" onClick={doFit}>Fit</button>
-                  <div className="cy-control-row">
-                    <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
-                  </div>
-                </div>
-                <CytoscapeComponent
-                  elements={elements}
-                  style={{ width: '100%', height: '100%' }}
-                  layout={layout}
-                  stylesheet={stylesheet}
-                  cy={(cy) => {
-                    try { cyRef.current = cy } catch (e) {}
+
+            const impl = getGraphImpl()
+            const networkView = (impl === 'sigma' || impl === 'reagraph') ? (
+              <GraphWrapper
+                elements={elements}
+                layout={layout}
+                stylesheet={stylesheet}
+                impl={impl}
+                cyCallback={(adapter) => {
+                  try {
+                    // Wrap adapter in compat shim so legacy consumers (Charts, etc.)
+                    // receive a cy-like object even when using non-cytoscape adapters.
+                    const compat = makeCyCompat(adapter)
+                    cyRef.current = compat
+                    if (setCyInstance) setCyInstance(compat)
+                  } catch (e) { console.warn('GraphWrapper cyCallback error', e) }
+                }}
+              />
+            ) : (
+              <CytoscapeComponent
+                elements={elements}
+                style={{ width: '100%', height: '100%' }}
+                layout={layout}
+                stylesheet={stylesheet}
+                cy={(cy) => {
+                  cyRef.current = cy
+                  try { if (setCyInstance) setCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (no-geo)', e) }
+                  try {
+                    if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
+                    if (typeof cy.selectionType === 'function') cy.selectionType('additive')
+                    if (typeof cy.autounselectify === 'function') cy.autounselectify(false)
+                    try { if (typeof cy.resize === 'function') cy.resize() } catch (e) {}
                     try {
-                      // enable box selection and additive selection mode when available
-                      if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
-                      if (typeof cy.selectionType === 'function') cy.selectionType('additive')
-                      if (typeof cy.autounselectify === 'function') cy.autounselectify(false)
-                      // ensure the renderer knows about the container size immediately
-                      try { if (typeof cy.resize === 'function') cy.resize() } catch (e) {}
-                      // expose cy on state for any consumers
-                      try { setCyInstance && setCyInstance(cy) } catch (e) {}
-                      // If the react-cytoscapejs wrapper didn't synchronously add
-                      // elements into the instance, add them here (guarded) so
-                      // the renderer has data to display immediately.
-                      try {
-                        if (Array.isArray(elements) && elements.length && cy.elements().length === 0) {
-                          try { cy.add(elements) } catch(e) {}
-                        }
-                      } catch (e) {}
-                      try { if (debugVisible) console.debug && console.debug('cy mounted (no-geo)', { elementsProp: Array.isArray(elements) ? elements.length : 0, elements: cy.elements().length, nodesHidden: cy.nodes().filter('.hidden').length, edgesHidden: cy.edges().filter('.hidden').length }) } catch(e){}
-                      try {
-                        const rect = cy.container && cy.container() && cy.container().getBoundingClientRect ? cy.container().getBoundingClientRect() : null
-                        const width = typeof cy.width === 'function' ? cy.width() : (rect ? rect.width : null)
-                        const height = typeof cy.height === 'function' ? cy.height() : (rect ? rect.height : null)
-                        const bb = cy.elements && cy.elements().length ? (() => { try { return cy.elements().boundingBox() } catch(e) { return null } })() : null
-                        const zoom = typeof cy.zoom === 'function' ? cy.zoom() : null
-                        const pan = typeof cy.pan === 'function' ? cy.pan() : null
-                        if (debugVisible) console.debug && console.debug('cy diagnostics (no-geo)', { containerRect: rect, width, height, elementsBoundingBox: bb, zoom, pan })
-                      } catch (e) {}
-                      // small delayed fit to allow layout/renderer to settle and then log state
-                        setTimeout(() => { try { safeFit(cy); const bb2 = cy.elements().length ? cy.elements().boundingBox() : null; if (debugVisible) console.debug && console.debug('cy post-fit diagnostics (no-geo)', { elements: cy.elements().length, bbox: bb2, zoom: cy.zoom(), pan: cy.pan() }) } catch(e){} }, 150)
-                    } catch (err) { console.warn('cy.setup failed', err) }
-                  }}
-                />
+                      if (Array.isArray(elements) && elements.length && cy.elements().length === 0) {
+                        try { cy.add(elements) } catch(e) {}
+                      }
+                    } catch (e) {}
+                    try { if (debugVisible) console.debug && console.debug('cy mounted (no-geo)', { elementsProp: Array.isArray(elements) ? elements.length : 0, elements: cy.elements().length, nodesHidden: cy.nodes().filter('.hidden').length, edgesHidden: cy.edges().filter('.hidden').length }) } catch(e){}
+                    try {
+                      const rect = cy.container && cy.container() && cy.container().getBoundingClientRect ? cy.container().getBoundingClientRect() : null
+                      const width = typeof cy.width === 'function' ? cy.width() : (rect ? rect.width : null)
+                      const height = typeof cy.height === 'function' ? cy.height() : (rect ? rect.height : null)
+                      const bb = cy.elements && cy.elements().length ? (() => { try { return cy.elements().boundingBox() } catch(e) { return null } })() : null
+                      const zoom = typeof cy.zoom === 'function' ? cy.zoom() : null
+                      const pan = typeof cy.pan === 'function' ? cy.pan() : null
+                      if (debugVisible) console.debug && console.debug('cy diagnostics (no-geo)', { containerRect: rect, width, height, elementsBoundingBox: bb, zoom, pan })
+                    } catch (e) {}
+                    setTimeout(() => { try { safeFit(cy); const bb2 = cy.elements().length ? cy.elements().boundingBox() : null; if (debugVisible) console.debug && console.debug('cy post-fit diagnostics (no-geo)', { elements: cy.elements().length, bbox: bb2, zoom: cy.zoom(), pan: cy.pan() }) } catch(e){} }, 150)
+                  } catch (err) { console.warn('cy.setup failed', err) }
+                }}
+              />
+            )
+
+            return (
+              <div style={{ display: 'flex', gap: 8, alignItems: 'stretch' }}>
+                <div className="cy-container" style={{ flex: '1 1 auto', minWidth: 0, height: visualHeight, border: '1px solid #ccc' }}>
+                  <div className="cy-controls">
+                    <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
+                    <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
+                    <button className="cy-control-btn" onClick={doFit}>Fit</button>
+                    <div className="cy-control-row">
+                      <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
+                    </div>
+                  </div>
+                  {networkView}
+                </div>
+                <div style={{ width: 320, alignSelf: 'flex-start' }}>
+                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
+                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
+                </div>
+                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={false} hasTimeInfo={hasTimeInfo} />
               </div>
             )
           }
@@ -1805,7 +1855,16 @@ export default function TopogramDetail() {
                         layout={layout}
                         stylesheet={stylesheet}
                         impl={impl}
-                        cyCallback={(adapter) => { try { const compat = makeCyCompat(adapter); cyRef.current = compat; setCyInstance && setCyInstance(compat); try { window._topoCy = compat } catch(e){} } catch(e){} }}
+                        cyCallback={(adapter) => {
+                          try {
+                            const compat = makeCyCompat(adapter)
+                            cyRef.current = compat
+                            if (setCyInstance) setCyInstance(compat)
+                            try { window._topoCy = compat } catch (err) {}
+                          } catch (e) {
+                            console.warn && console.warn('GraphWrapper cyCallback error (both)', e)
+                          }
+                        }}
                       />
                     ) : (
                       <CytoscapeComponent
@@ -1814,7 +1873,9 @@ export default function TopogramDetail() {
                         layout={layout}
                         stylesheet={stylesheet}
                         cy={(cy) => {
-                          try { cyRef.current = cy; setCyInstance(cy); try { window._topoCy = cy } catch (err) {} } catch (e) {}
+                          cyRef.current = cy
+                          try { setCyInstance && setCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (both)', e) }
+                          try { window._topoCy = cy } catch (err) {}
                           try {
                             if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
                             if (typeof cy.selectionType === 'function') cy.selectionType('additive')
@@ -1845,7 +1906,7 @@ export default function TopogramDetail() {
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
-                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
+                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
@@ -1872,7 +1933,15 @@ export default function TopogramDetail() {
                         layout={layout}
                         stylesheet={stylesheet}
                         impl={impl}
-                        cyCallback={(adapter) => { try { const compat = makeCyCompat(adapter); cyRef.current = compat } catch (e) {} try { setCyInstance && setCyInstance(compat) } catch (e) {} }}
+                        cyCallback={(adapter) => {
+                          try {
+                            const compat = makeCyCompat(adapter)
+                            cyRef.current = compat
+                            if (setCyInstance) setCyInstance(compat)
+                          } catch (e) {
+                            console.warn && console.warn('GraphWrapper cyCallback error (onlyNetwork)', e)
+                          }
+                        }}
                       />
                     ) : (
                       <CytoscapeComponent
@@ -1881,8 +1950,22 @@ export default function TopogramDetail() {
                         layout={layout}
                         stylesheet={stylesheet}
                         cy={(cy) => {
-                          try { cyRef.current = cy } catch (e) {}
-                          try { if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true); if (typeof cy.selectionType === 'function') cy.selectionType('additive'); if (typeof cy.autounselectify === 'function') cy.autounselectify(false); try { if (Array.isArray(elements) && elements.length && cy.elements().length === 0) { try { cy.add(elements) } catch(e) {} } } catch(e){} try { if (debugVisible) console.debug && console.debug('cy mounted (onlyNetwork)', { elementsProp: Array.isArray(elements) ? elements.length : 0, elements: cy.elements().length, nodesHidden: cy.nodes().filter('.hidden').length, edgesHidden: cy.edges().filter('.hidden').length }) } catch(e){}; setTimeout(() => { safeFit(cy) }, 50) } catch (err) { console.warn('cy.setup failed', err) }
+                          cyRef.current = cy
+                          try { if (setCyInstance) setCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (onlyNetwork)', e) }
+                          try {
+                            if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
+                            if (typeof cy.selectionType === 'function') cy.selectionType('additive')
+                            if (typeof cy.autounselectify === 'function') cy.autounselectify(false)
+                            try {
+                              if (Array.isArray(elements) && elements.length && cy.elements().length === 0) {
+                                try { cy.add(elements) } catch (e) {}
+                              }
+                            } catch (e) {}
+                            try { if (debugVisible) console.debug && console.debug('cy mounted (onlyNetwork)', { elementsProp: Array.isArray(elements) ? elements.length : 0, elements: cy.elements().length, nodesHidden: cy.nodes().filter('.hidden').length, edgesHidden: cy.edges().filter('.hidden').length }) } catch (e) {}
+                            setTimeout(() => { safeFit(cy) }, 50)
+                          } catch (err) {
+                            console.warn('cy.setup failed', err)
+                          }
                         }}
                       />
                     )
@@ -1890,7 +1973,7 @@ export default function TopogramDetail() {
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
-                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
+                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>

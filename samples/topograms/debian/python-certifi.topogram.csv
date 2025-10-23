@@ -1,10 +1,10 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-python3-certifi,python3-certifi,python3-certifi,root certificates for validating SSL certs and verifying TLS hosts (python3),,,1,1,,,,Section=python; Version=2025.1.31+ds-1,,,,,,,
-ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
-python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-openssl,openssl,openssl,Secure Sockets Layer toolkit - cryptographic utility,,,1,1,,,,Section=utils; Version=3.5.1-1,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-,,,,,,,,,,,,ca-certificates,python3-certifi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,python3:any,python3-certifi,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,openssl,ca-certificates,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,ca-certificates,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"python3-certifi","python3-certifi","python3-certifi","root certificates for validating SSL certs and verifying TLS hosts (python3)","","","1","1","","","","Section=python; Version=2025.1.31+ds-1","","","","","","","",""
+"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"openssl","openssl","openssl","Secure Sockets Layer toolkit - cryptographic utility","","","1","1","","","","Section=utils; Version=3.5.1-1","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"","","","","","","","","","","","","python3-certifi","ca-certificates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","python3-certifi","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ca-certificates","openssl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ca-certificates","debconf","Depends","#333","1","Depends","arrow","{}"

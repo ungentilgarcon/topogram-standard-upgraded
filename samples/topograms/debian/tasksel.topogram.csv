@@ -1,22 +1,22 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-task-albanian-desktop,task-albanian-desktop,task-albanian-desktop,Albanian desktop,,,1,1,,,,Section=tasks; Version=3.81,,,,,,,
-tasksel,tasksel,tasksel,tool for selecting tasks for installation on Debian systems,,,1,1,,,,Section=admin; Version=3.81,,,,,,,
-firefox-esr-l10n-sq,firefox-esr-l10n-sq,firefox-esr-l10n-sq,Albanian language package for Firefox ESR,,,1,1,,,,Section=localization; Version=128.14.0esr-1~deb13u1,,,,,,,
-myspell-sq,myspell-sq,myspell-sq,Albanian dictionary for myspell,,,1,1,,,,Section=text; Version=1.6.4-1.2,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-liblocale-gettext-perl,liblocale-gettext-perl,liblocale-gettext-perl,module using libc functions for internationalization in Perl,,,1,1,,,,Section=perl; Version=1.07-7+b1,,,,,,,
-apt,apt,apt,commandline package manager,,,1,1,,,,Section=admin; Version=3.0.3,,,,,,,
-tasksel-data,tasksel-data,tasksel-data,official tasks used for installation of Debian systems,,,1,1,,,,Section=admin; Version=3.81,,,,,,,
-firefox-esr,firefox-esr,firefox-esr,Mozilla Firefox web browser - Extended Support Release (ESR),,,1,1,,,,Section=web; Version=128.14.0esr-1~deb13u1,,,,,,,
-dictionaries-common,dictionaries-common,dictionaries-common,spelling dictionaries - common utilities,,,1,1,,,,Section=text; Version=1.30.10,,,,,,,
-,,,,,,,,,,,,tasksel,task-albanian-desktop,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,firefox-esr-l10n-sq,task-albanian-desktop,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,myspell-sq,task-albanian-desktop,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,debconf,tasksel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblocale-gettext-perl,tasksel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apt,tasksel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,tasksel-data,tasksel,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,firefox-esr,firefox-esr-l10n-sq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,firefox-esr,firefox-esr-l10n-sq,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,myspell-sq,firefox-esr-l10n-sq,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,dictionaries-common,myspell-sq,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"task-albanian-desktop","task-albanian-desktop","task-albanian-desktop","Albanian desktop","","","1","1","","","","Section=tasks; Version=3.81","","","","","","","",""
+"tasksel","tasksel","tasksel","tool for selecting tasks for installation on Debian systems","","","1","1","","","","Section=admin; Version=3.81","","","","","","","",""
+"firefox-esr-l10n-sq","firefox-esr-l10n-sq","firefox-esr-l10n-sq","Albanian language package for Firefox ESR","","","1","1","","","","Section=localization; Version=128.14.0esr-1~deb13u1","","","","","","","",""
+"myspell-sq","myspell-sq","myspell-sq","Albanian dictionary for myspell","","","1","1","","","","Section=text; Version=1.6.4-1.2","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"liblocale-gettext-perl","liblocale-gettext-perl","liblocale-gettext-perl","module using libc functions for internationalization in Perl","","","1","1","","","","Section=perl; Version=1.07-7+b1","","","","","","","",""
+"apt","apt","apt","commandline package manager","","","1","1","","","","Section=admin; Version=3.0.3","","","","","","","",""
+"tasksel-data","tasksel-data","tasksel-data","official tasks used for installation of Debian systems","","","1","1","","","","Section=admin; Version=3.81","","","","","","","",""
+"firefox-esr","firefox-esr","firefox-esr","Mozilla Firefox web browser - Extended Support Release (ESR)","","","1","1","","","","Section=web; Version=128.14.0esr-1~deb13u1","","","","","","","",""
+"dictionaries-common","dictionaries-common","dictionaries-common","spelling dictionaries - common utilities","","","1","1","","","","Section=text; Version=1.30.10","","","","","","","",""
+"","","","","","","","","","","","","task-albanian-desktop","tasksel","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","task-albanian-desktop","firefox-esr-l10n-sq","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","task-albanian-desktop","myspell-sq","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","tasksel","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tasksel","liblocale-gettext-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tasksel","apt","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","tasksel","tasksel-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","firefox-esr-l10n-sq","firefox-esr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","firefox-esr-l10n-sq","firefox-esr","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","firefox-esr-l10n-sq","myspell-sq","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","myspell-sq","dictionaries-common","Depends","#333","1","Depends","arrow","{}"

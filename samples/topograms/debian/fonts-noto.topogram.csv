@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"fonts-croscore","fonts-croscore","fonts-croscore","width-compatible fonts for improved on-screen readability","","","1","1","","","","Section=fonts; Version=20201225-2","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"fonts-croscore","fonts-croscore","fonts-croscore","width-compatible fonts for improved on-screen readability","","","1","1","","","","Section=fonts; Version=20201225-2","","","","","","","",""

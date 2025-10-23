@@ -1,29 +1,29 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gpgme-json,gpgme-json,gpgme-json,Use GnuPG with web browser extensions,,,1,1,,,,Section=utils; Version=1.24.2-3,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgpg-error0,libgpg-error0,libgpg-error0,GnuPG development runtime library,,,1,1,,,,Section=libs; Version=1.51-4,,,,,,,
-libgpgme11t64,libgpgme11t64,libgpgme11t64,GPGME - GnuPG Made Easy (library),,,1,1,,,,Section=libs; Version=1.24.2-3,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-libgpg-error-l10n,libgpg-error-l10n,libgpg-error-l10n,library of error values and messages in GnuPG (localization files),,,1,1,,,,Section=localization; Version=1.51-4,,,,,,,
-gnupg,gnupg,gnupg,GNU privacy guard - a free PGP replacement,,,1,1,,,,Section=utils; Version=2.4.7-21,,,,,,,
-libassuan9,libassuan9,libassuan9,IPC library for the GnuPG components,,,1,1,,,,Section=libs; Version=3.0.2-2,,,,,,,
-dirmngr,dirmngr,dirmngr,GNU privacy guard - network certificate management service,,,1,1,,,,Section=utils; Version=2.4.7-21+b3,,,,,,,
-gpg-agent,gpg-agent,gpg-agent,GNU privacy guard - cryptographic agent,,,1,1,,,,Section=utils; Version=2.4.7-21+b3,,,,,,,
-gpg-wks-client,gpg-wks-client,gpg-wks-client,GNU privacy guard - Web Key Service client,,,1,1,,,,Section=utils; Version=2.4.7-21+b3,,,,,,,
-gpgsm,gpgsm,gpgsm,GNU privacy guard - S/MIME version,,,1,1,,,,Section=utils; Version=2.4.7-21+b3,,,,,,,
-,,,,,,,,,,,,libc6,gpgme-json,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgpg-error0,gpgme-json,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgpgme11t64,gpgme-json,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libgpg-error0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgpg-error-l10n,libgpg-error0,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gnupg,libgpgme11t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libassuan9,libgpgme11t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgpgme11t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgpg-error0,libgpgme11t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dirmngr,libgpgme11t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gpg-agent,libgpgme11t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gpg-wks-client,libgpgme11t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gpgsm,libgpgme11t64,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gpgme-json","gpgme-json","gpgme-json","Use GnuPG with web browser extensions","","","1","1","","","","Section=utils; Version=1.24.2-3","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgpg-error0","libgpg-error0","libgpg-error0","GnuPG development runtime library","","","1","1","","","","Section=libs; Version=1.51-4","","","","","","","",""
+"libgpgme11t64","libgpgme11t64","libgpgme11t64","GPGME - GnuPG Made Easy (library)","","","1","1","","","","Section=libs; Version=1.24.2-3","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libgpg-error-l10n","libgpg-error-l10n","libgpg-error-l10n","library of error values and messages in GnuPG (localization files)","","","1","1","","","","Section=localization; Version=1.51-4","","","","","","","",""
+"gnupg","gnupg","gnupg","GNU privacy guard - a free PGP replacement","","","1","1","","","","Section=utils; Version=2.4.7-21","","","","","","","",""
+"libassuan9","libassuan9","libassuan9","IPC library for the GnuPG components","","","1","1","","","","Section=libs; Version=3.0.2-2","","","","","","","",""
+"dirmngr","dirmngr","dirmngr","GNU privacy guard - network certificate management service","","","1","1","","","","Section=utils; Version=2.4.7-21+b3","","","","","","","",""
+"gpg-agent","gpg-agent","gpg-agent","GNU privacy guard - cryptographic agent","","","1","1","","","","Section=utils; Version=2.4.7-21+b3","","","","","","","",""
+"gpg-wks-client","gpg-wks-client","gpg-wks-client","GNU privacy guard - Web Key Service client","","","1","1","","","","Section=utils; Version=2.4.7-21+b3","","","","","","","",""
+"gpgsm","gpgsm","gpgsm","GNU privacy guard - S/MIME version","","","1","1","","","","Section=utils; Version=2.4.7-21+b3","","","","","","","",""
+"","","","","","","","","","","","","gpgme-json","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gpgme-json","libgpg-error0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gpgme-json","libgpgme11t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgpg-error0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgpg-error0","libgpg-error-l10n","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","gnupg","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","libassuan9","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","libgpg-error0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","dirmngr","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","gpg-agent","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","gpg-wks-client","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgpgme11t64","gpgsm","Recommends","#333","1","Recommends","arrow","{}"

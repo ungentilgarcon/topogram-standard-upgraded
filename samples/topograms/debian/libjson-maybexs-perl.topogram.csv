@@ -1,17 +1,17 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libjson-maybexs-perl,libjson-maybexs-perl,libjson-maybexs-perl,interface to the best available JSON module,,,1,1,,,,Section=perl; Version=1.004008-1,,,,,,,
-perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libcpanel-json-xs-perl,libcpanel-json-xs-perl,libcpanel-json-xs-perl,module for fast and correct serialising to JSON,,,1,1,,,,Section=perl; Version=4.39-1,,,,,,,
-libjson-pp-perl,libjson-pp-perl,libjson-pp-perl,module for manipulating JSON-formatted data (Pure Perl),,,1,1,,,,Section=perl; Version=4.16000-2,,,,,,,
-perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
-perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libjson-perl,libjson-perl,libjson-perl,module for manipulating JSON-formatted data,,,1,1,,,,Section=perl; Version=4.10000-1,,,,,,,
-,,,,,,,,,,,,perl:any,libjson-maybexs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcpanel-json-xs-perl,libjson-maybexs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjson-pp-perl,libjson-maybexs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl,libcpanel-json-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perlapi-5.40.0,libcpanel-json-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libcpanel-json-xs-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,perl:any,libjson-pp-perl,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libjson-perl,libjson-pp-perl,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libjson-maybexs-perl","libjson-maybexs-perl","libjson-maybexs-perl","interface to the best available JSON module","","","1","1","","","","Section=perl; Version=1.004008-1","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libcpanel-json-xs-perl","libcpanel-json-xs-perl","libcpanel-json-xs-perl","module for fast and correct serialising to JSON","","","1","1","","","","Section=perl; Version=4.39-1","","","","","","","",""
+"libjson-pp-perl","libjson-pp-perl","libjson-pp-perl","module for manipulating JSON-formatted data (Pure Perl)","","","1","1","","","","Section=perl; Version=4.16000-2","","","","","","","",""
+"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","","","",""
+"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libjson-perl","libjson-perl","libjson-perl","module for manipulating JSON-formatted data","","","1","1","","","","Section=perl; Version=4.10000-1","","","","","","","",""
+"","","","","","","","","","","","","libjson-maybexs-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjson-maybexs-perl","libcpanel-json-xs-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjson-maybexs-perl","libjson-pp-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcpanel-json-xs-perl","perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcpanel-json-xs-perl","perlapi-5.40.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcpanel-json-xs-perl","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjson-pp-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjson-pp-perl","libjson-perl","Recommends","#333","1","Recommends","arrow","{}"

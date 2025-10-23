@@ -1,56 +1,56 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libatkmm-1.6-1v5,libatkmm-1.6-1v5,libatkmm-1.6-1v5,C++ wrappers for ATK accessibility toolkit (shared libraries),,,1,1,,,,Section=libs; Version=2.28.4-1+b2,,,,,,,
-libatk1.0-0t64,libatk1.0-0t64,libatk1.0-0t64,ATK accessibility toolkit,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libglibmm-2.4-1t64,libglibmm-2.4-1t64,libglibmm-2.4-1t64,C++ wrapper for the GLib toolkit (shared libraries),,,1,1,,,,Section=libs; Version=2.66.8-1,,,,,,,
-libsigc++-2.0-0v5,libsigc++-2.0-0v5,libsigc++-2.0-0v5,type-safe Signal Framework for C++ - runtime,,,1,1,,,,Section=libs; Version=2.12.1-3,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-at-spi2-common,at-spi2-common,at-spi2-common,Assistive Technology Service Provider Interface (common files),,,1,1,,,,Section=misc; Version=2.56.2-1,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libatomic1,libatomic1,libatomic1,support library providing __atomic built-in functions,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
-libmount1,libmount1,libmount1,device mounting library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
-libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libglib2.0-data,libglib2.0-data,libglib2.0-data,Common files for GLib library,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
-xdg-user-dirs,xdg-user-dirs,xdg-user-dirs,tool to manage well known user directories,,,1,1,,,,Section=utils; Version=0.18-2,,,,,,,
-,,,,,,,,,,,,libatk1.0-0t64,libatkmm-1.6-1v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libatkmm-1.6-1v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libatkmm-1.6-1v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libatkmm-1.6-1v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglibmm-2.4-1t64,libatkmm-1.6-1v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsigc++-2.0-0v5,libatkmm-1.6-1v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libatkmm-1.6-1v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libatk1.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libatk1.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,at-spi2-common,libatk1.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libatomic1,libglib2.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libglib2.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libffi8,libglib2.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmount1,libglib2.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,libglib2.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libselinux1,libglib2.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libglib2.0-0t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-data,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,shared-mime-info,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,xdg-user-dirs,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libc6,libglibmm-2.4-1t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libglibmm-2.4-1t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libglibmm-2.4-1t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsigc++-2.0-0v5,libglibmm-2.4-1t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libglibmm-2.4-1t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libsigc++-2.0-0v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libsigc++-2.0-0v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libsigc++-2.0-0v5,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libatkmm-1.6-1v5","libatkmm-1.6-1v5","libatkmm-1.6-1v5","C++ wrappers for ATK accessibility toolkit (shared libraries)","","","1","1","","","","Section=libs; Version=2.28.4-1+b2","","","","","","","",""
+"libatk1.0-0t64","libatk1.0-0t64","libatk1.0-0t64","ATK accessibility toolkit","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libglibmm-2.4-1t64","libglibmm-2.4-1t64","libglibmm-2.4-1t64","C++ wrapper for the GLib toolkit (shared libraries)","","","1","1","","","","Section=libs; Version=2.66.8-1","","","","","","","",""
+"libsigc++-2.0-0v5","libsigc++-2.0-0v5","libsigc++-2.0-0v5","type-safe Signal Framework for C++ - runtime","","","1","1","","","","Section=libs; Version=2.12.1-3","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"at-spi2-common","at-spi2-common","at-spi2-common","Assistive Technology Service Provider Interface (common files)","","","1","1","","","","Section=misc; Version=2.56.2-1","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libatomic1","libatomic1","libatomic1","support library providing __atomic built-in functions","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","","","",""
+"libmount1","libmount1","libmount1","device mounting library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","","","",""
+"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libglib2.0-data","libglib2.0-data","libglib2.0-data","Common files for GLib library","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","","","",""
+"xdg-user-dirs","xdg-user-dirs","xdg-user-dirs","tool to manage well known user directories","","","1","1","","","","Section=utils; Version=0.18-2","","","","","","","",""
+"","","","","","","","","","","","","libatkmm-1.6-1v5","libatk1.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatkmm-1.6-1v5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatkmm-1.6-1v5","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatkmm-1.6-1v5","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatkmm-1.6-1v5","libglibmm-2.4-1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatkmm-1.6-1v5","libsigc++-2.0-0v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatkmm-1.6-1v5","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatk1.0-0t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatk1.0-0t64","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libatk1.0-0t64","at-spi2-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","libatomic1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","libffi8","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","libmount1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","libselinux1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","libglib2.0-data","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","shared-mime-info","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libglib2.0-0t64","xdg-user-dirs","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libglibmm-2.4-1t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglibmm-2.4-1t64","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglibmm-2.4-1t64","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglibmm-2.4-1t64","libsigc++-2.0-0v5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libglibmm-2.4-1t64","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsigc++-2.0-0v5","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsigc++-2.0-0v5","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsigc++-2.0-0v5","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"

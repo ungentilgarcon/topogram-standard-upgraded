@@ -1,17 +1,17 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-gir1.2-xfconf-0,gir1.2-xfconf-0,gir1.2-xfconf-0,utilities for managing settings in Xfce - introspection support,,,1,1,,,,Section=introspection; Version=4.20.0-1,,,,,,,
-gir1.2-gio-2.0,gir1.2-gio-2.0,gir1.2-gio-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-gir1.2-glib-2.0,gir1.2-glib-2.0,gir1.2-glib-2.0,"Introspection data for GLib, GObject, Gio and GModule",,,1,1,,,,Section=introspection; Version=2.84.4-3~deb13u1,,,,,,,
-gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libxfconf-0-3,libxfconf-0-3,libxfconf-0-3,Client library for Xfce4 configure interface,,,1,1,,,,Section=libs; Version=4.20.0-1,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-xfconf,xfconf,xfconf,utilities for managing settings in Xfce,,,1,1,,,,Section=xfce; Version=4.20.0-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,gir1.2-gio-2.0,gir1.2-xfconf-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-glib-2.0,gir1.2-xfconf-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-xfconf-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxfconf-0-3,gir1.2-xfconf-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,gir1.2-glib-2.0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,xfconf,libxfconf-0-3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxfconf-0-3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,libxfconf-0-3,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gir1.2-xfconf-0","gir1.2-xfconf-0","gir1.2-xfconf-0","utilities for managing settings in Xfce - introspection support","","","1","1","","","","Section=introspection; Version=4.20.0-1","","","","","","","",""
+"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"gir1.2-glib-2.0","gir1.2-glib-2.0","gir1.2-glib-2.0","Introspection data for GLib, GObject, Gio and GModule","","","1","1","","","","Section=introspection; Version=2.84.4-3~deb13u1","","","","","","","",""
+"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libxfconf-0-3","libxfconf-0-3","libxfconf-0-3","Client library for Xfce4 configure interface","","","1","1","","","","Section=libs; Version=4.20.0-1","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"xfconf","xfconf","xfconf","utilities for managing settings in Xfce","","","1","1","","","","Section=xfce; Version=4.20.0-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","gir1.2-xfconf-0","gir1.2-gio-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-xfconf-0","gir1.2-glib-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-xfconf-0","gir1.2-gobject-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-xfconf-0","libxfconf-0-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-glib-2.0","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxfconf-0-3","xfconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxfconf-0-3","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxfconf-0-3","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"

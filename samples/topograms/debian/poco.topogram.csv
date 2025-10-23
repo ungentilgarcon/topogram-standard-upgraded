@@ -1,181 +1,181 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libpoco-dev,libpoco-dev,libpoco-dev,C++ Portable Components (POCO) Development files,,,1,1,,,,Section=libdevel; Version=1.13.0-6+b2,,,,,,,
-libpocoactiverecord100,libpocoactiverecord100,libpocoactiverecord100,C++ Portable Components (POCO) ActiveRecord library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpococrypto100,libpococrypto100,libpococrypto100,C++ Portable Components (POCO) Crypto library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocodata100,libpocodata100,libpocodata100,C++ Portable Components (POCO) Data library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocoencodings100,libpocoencodings100,libpocoencodings100,C++ Portable Components (POCO) Encodings library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocofoundation100,libpocofoundation100,libpocofoundation100,C++ Portable Components (POCO) Foundation library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocojson100,libpocojson100,libpocojson100,C++ Portable Components (POCO) JSON library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocojwt100,libpocojwt100,libpocojwt100,C++ Portable Components (POCO) JWT library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocodatamysql100,libpocodatamysql100,libpocodatamysql100,C++ Portable Components (POCO) Data MySQL library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocodatapostgresql100,libpocodatapostgresql100,libpocodatapostgresql100,C++ Portable Components (POCO) Data PostgreSQL library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocomongodb100,libpocomongodb100,libpocomongodb100,C++ Portable Components (POCO) Data MongoDB library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpoconet100,libpoconet100,libpoconet100,C++ Portable Components (POCO) Network library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpoconetssl100,libpoconetssl100,libpoconetssl100,C++ Portable Components (POCO) Network library with SSL,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocodataodbc100,libpocodataodbc100,libpocodataodbc100,C++ Portable Components (POCO) ODBC library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocodatasqlite100,libpocodatasqlite100,libpocodatasqlite100,C++ Portable Components (POCO) Data SQLite library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocoprometheus100,libpocoprometheus100,libpocoprometheus100,C++ Portable Components (POCO) Prometheus library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocoredis100,libpocoredis100,libpocoredis100,C++ Portable Components (POCO) Redis library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocoutil100,libpocoutil100,libpocoutil100,C++ Portable Components (POCO) Util library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocoxml100,libpocoxml100,libpocoxml100,C++ Portable Components (POCO) XML library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libpocozip100,libpocozip100,libpocozip100,C++ Portable Components (POCO) Zip library,,,1,1,,,,Section=libs; Version=1.13.0-6+b2,,,,,,,
-libexpat1-dev,libexpat1-dev,libexpat1-dev,XML parsing C library - development kit,,,1,1,,,,Section=libdevel; Version=2.7.1-2,,,,,,,
-default-libmysqlclient-dev,default-libmysqlclient-dev,default-libmysqlclient-dev,MySQL database development files (metapackage),,,1,1,,,,Section=database; Version=1.1.1,,,,,,,
-libpcre2-dev,libpcre2-dev,libpcre2-dev,New Perl Compatible Regular Expression Library - development files,,,1,1,,,,Section=libdevel; Version=10.46-1~deb13u1,,,,,,,
-libsqlite3-dev,libsqlite3-dev,libsqlite3-dev,SQLite 3 development files,,,1,1,,,,Section=libdevel; Version=3.46.1-7,,,,,,,
-libssl-dev,libssl-dev,libssl-dev,Secure Sockets Layer toolkit - development files,,,1,1,,,,Section=libdevel; Version=3.5.1-1,,,,,,,
-zlib1g-dev,zlib1g-dev,zlib1g-dev,compression library - development,,,1,1,,,,Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
-libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libmariadb3,libmariadb3,libmariadb3,MariaDB database client library,,,1,1,,,,Section=libs; Version=1:11.8.3-0+deb13u1,,,,,,,
-libpq5,libpq5,libpq5,PostgreSQL C client library,,,1,1,,,,Section=libs; Version=17.6-0+deb13u1,,,,,,,
-libodbc2,libodbc2,libodbc2,ODBC Driver Manager library for Unix,,,1,1,,,,Section=libs; Version=2.3.12-2,,,,,,,
-libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
-libexpat1,libexpat1,libexpat1,XML parsing C library - runtime library,,,1,1,,,,Section=libs; Version=2.7.1-2,,,,,,,
-libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
-libmariadb-dev-compat,libmariadb-dev-compat,libmariadb-dev-compat,"MariaDB Connector/C, compatibility symlinks",,,1,1,,,,Section=libdevel; Version=1:11.8.3-0+deb13u1,,,,,,,
-libc-dev,libc-dev,libc-dev,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libpcre2-16-0,libpcre2-16-0,libpcre2-16-0,New Perl Compatible Regular Expression Library - 16 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libpcre2-32-0,libpcre2-32-0,libpcre2-32-0,New Perl Compatible Regular Expression Library - 32 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-libpcre2-posix3,libpcre2-posix3,libpcre2-posix3,New Perl Compatible Regular Expression Library - posix-compatible runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
-,,,,,,,,,,,,libpocoactiverecord100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpococrypto100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodata100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocoencodings100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocojson100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocojwt100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodatamysql100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodatapostgresql100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocomongodb100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoconet100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoconetssl100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodataodbc100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodatasqlite100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocoprometheus100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocoredis100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocoutil100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocoxml100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocozip100,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1-dev,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,default-libmysqlclient-dev,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-dev,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsqlite3-dev,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl-dev,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g-dev,libpoco-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocoactiverecord100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocoactiverecord100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodata100,libpocoactiverecord100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocoactiverecord100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocoactiverecord100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpococrypto100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpococrypto100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpococrypto100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,libpococrypto100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpococrypto100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocodata100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocodata100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocodata100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocodata100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocoencodings100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocoencodings100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocoencodings100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocoencodings100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocofoundation100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocofoundation100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,libpocofoundation100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocofoundation100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libpocofoundation100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocojson100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocojson100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocojson100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocojson100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocojwt100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocojwt100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpococrypto100,libpocojwt100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocojwt100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocojson100,libpocojwt100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocojwt100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocodatamysql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocodatamysql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmariadb3,libpocodatamysql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodata100,libpocodatamysql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocodatamysql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocodatamysql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocodatapostgresql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocodatapostgresql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodata100,libpocodatapostgresql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocodatapostgresql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpq5,libpocodatapostgresql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocodatapostgresql100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocomongodb100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocomongodb100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocomongodb100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoconet100,libpocomongodb100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocomongodb100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpoconet100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpoconet100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpoconet100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpoconet100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpococrypto100,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoconet100,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocoutil100,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpoconetssl100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocodataodbc100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocodataodbc100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libodbc2,libpocodataodbc100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodata100,libpocodataodbc100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocodataodbc100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocodataodbc100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocodatasqlite100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocodatasqlite100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocodata100,libpocodatasqlite100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocodatasqlite100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsqlite3-0,libpocodatasqlite100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocodatasqlite100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocoprometheus100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocoprometheus100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocoprometheus100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoconet100,libpocoprometheus100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocoprometheus100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocoredis100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocoredis100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocoredis100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoconet100,libpocoredis100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocoredis100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocoutil100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocoutil100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocoutil100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocojson100,libpocoutil100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocoxml100,libpocoutil100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocoutil100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocoxml100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1,libpocoxml100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocoxml100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocoxml100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocoxml100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpocozip100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libpocozip100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpocofoundation100,libpocozip100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,libpocozip100,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1,libexpat1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,libexpat1-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libmariadb-dev-compat,default-libmysqlclient-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc-dev,libpcre2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-8-0,libpcre2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-16-0,libpcre2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-32-0,libpcre2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpcre2-posix3,libpcre2-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsqlite3-0,libsqlite3-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc-dev,libsqlite3-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libssl3t64,libssl-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,zlib1g-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6-dev,zlib1g-dev,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libpoco-dev","libpoco-dev","libpoco-dev","C++ Portable Components (POCO) Development files","","","1","1","","","","Section=libdevel; Version=1.13.0-6+b2","","","","","","","",""
+"libpocoactiverecord100","libpocoactiverecord100","libpocoactiverecord100","C++ Portable Components (POCO) ActiveRecord library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpococrypto100","libpococrypto100","libpococrypto100","C++ Portable Components (POCO) Crypto library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocodata100","libpocodata100","libpocodata100","C++ Portable Components (POCO) Data library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocoencodings100","libpocoencodings100","libpocoencodings100","C++ Portable Components (POCO) Encodings library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocofoundation100","libpocofoundation100","libpocofoundation100","C++ Portable Components (POCO) Foundation library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocojson100","libpocojson100","libpocojson100","C++ Portable Components (POCO) JSON library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocojwt100","libpocojwt100","libpocojwt100","C++ Portable Components (POCO) JWT library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocodatamysql100","libpocodatamysql100","libpocodatamysql100","C++ Portable Components (POCO) Data MySQL library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocodatapostgresql100","libpocodatapostgresql100","libpocodatapostgresql100","C++ Portable Components (POCO) Data PostgreSQL library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocomongodb100","libpocomongodb100","libpocomongodb100","C++ Portable Components (POCO) Data MongoDB library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpoconet100","libpoconet100","libpoconet100","C++ Portable Components (POCO) Network library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpoconetssl100","libpoconetssl100","libpoconetssl100","C++ Portable Components (POCO) Network library with SSL","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocodataodbc100","libpocodataodbc100","libpocodataodbc100","C++ Portable Components (POCO) ODBC library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocodatasqlite100","libpocodatasqlite100","libpocodatasqlite100","C++ Portable Components (POCO) Data SQLite library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocoprometheus100","libpocoprometheus100","libpocoprometheus100","C++ Portable Components (POCO) Prometheus library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocoredis100","libpocoredis100","libpocoredis100","C++ Portable Components (POCO) Redis library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocoutil100","libpocoutil100","libpocoutil100","C++ Portable Components (POCO) Util library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocoxml100","libpocoxml100","libpocoxml100","C++ Portable Components (POCO) XML library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libpocozip100","libpocozip100","libpocozip100","C++ Portable Components (POCO) Zip library","","","1","1","","","","Section=libs; Version=1.13.0-6+b2","","","","","","","",""
+"libexpat1-dev","libexpat1-dev","libexpat1-dev","XML parsing C library - development kit","","","1","1","","","","Section=libdevel; Version=2.7.1-2","","","","","","","",""
+"default-libmysqlclient-dev","default-libmysqlclient-dev","default-libmysqlclient-dev","MySQL database development files (metapackage)","","","1","1","","","","Section=database; Version=1.1.1","","","","","","","",""
+"libpcre2-dev","libpcre2-dev","libpcre2-dev","New Perl Compatible Regular Expression Library - development files","","","1","1","","","","Section=libdevel; Version=10.46-1~deb13u1","","","","","","","",""
+"libsqlite3-dev","libsqlite3-dev","libsqlite3-dev","SQLite 3 development files","","","1","1","","","","Section=libdevel; Version=3.46.1-7","","","","","","","",""
+"libssl-dev","libssl-dev","libssl-dev","Secure Sockets Layer toolkit - development files","","","1","1","","","","Section=libdevel; Version=3.5.1-1","","","","","","","",""
+"zlib1g-dev","zlib1g-dev","zlib1g-dev","compression library - development","","","1","1","","","","Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","","","",""
+"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libmariadb3","libmariadb3","libmariadb3","MariaDB database client library","","","1","1","","","","Section=libs; Version=1:11.8.3-0+deb13u1","","","","","","","",""
+"libpq5","libpq5","libpq5","PostgreSQL C client library","","","1","1","","","","Section=libs; Version=17.6-0+deb13u1","","","","","","","",""
+"libodbc2","libodbc2","libodbc2","ODBC Driver Manager library for Unix","","","1","1","","","","Section=libs; Version=2.3.12-2","","","","","","","",""
+"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","","","",""
+"libexpat1","libexpat1","libexpat1","XML parsing C library - runtime library","","","1","1","","","","Section=libs; Version=2.7.1-2","","","","","","","",""
+"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","","","",""
+"libmariadb-dev-compat","libmariadb-dev-compat","libmariadb-dev-compat","MariaDB Connector/C, compatibility symlinks","","","1","1","","","","Section=libdevel; Version=1:11.8.3-0+deb13u1","","","","","","","",""
+"libc-dev","libc-dev","libc-dev","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libpcre2-16-0","libpcre2-16-0","libpcre2-16-0","New Perl Compatible Regular Expression Library - 16 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libpcre2-32-0","libpcre2-32-0","libpcre2-32-0","New Perl Compatible Regular Expression Library - 32 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"libpcre2-posix3","libpcre2-posix3","libpcre2-posix3","New Perl Compatible Regular Expression Library - posix-compatible runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","","","",""
+"","","","","","","","","","","","","libpoco-dev","libpocoactiverecord100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpococrypto100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocodata100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocoencodings100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocojson100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocojwt100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocodatamysql100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocodatapostgresql100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocomongodb100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpoconet100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpoconetssl100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocodataodbc100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocodatasqlite100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocoprometheus100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocoredis100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocoutil100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocoxml100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpocozip100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libexpat1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","default-libmysqlclient-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libpcre2-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libsqlite3-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","libssl-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoco-dev","zlib1g-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoactiverecord100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoactiverecord100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoactiverecord100","libpocodata100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoactiverecord100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoactiverecord100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpococrypto100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpococrypto100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpococrypto100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpococrypto100","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpococrypto100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodata100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodata100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodata100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodata100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoencodings100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoencodings100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoencodings100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoencodings100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocofoundation100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocofoundation100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocofoundation100","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocofoundation100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocofoundation100","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojson100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojson100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojson100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojson100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojwt100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojwt100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojwt100","libpococrypto100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojwt100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojwt100","libpocojson100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocojwt100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatamysql100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatamysql100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatamysql100","libmariadb3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatamysql100","libpocodata100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatamysql100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatamysql100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatapostgresql100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatapostgresql100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatapostgresql100","libpocodata100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatapostgresql100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatapostgresql100","libpq5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatapostgresql100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocomongodb100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocomongodb100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocomongodb100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocomongodb100","libpoconet100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocomongodb100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconet100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconet100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconet100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconet100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libpococrypto100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libpoconet100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libpocoutil100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpoconetssl100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodataodbc100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodataodbc100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodataodbc100","libodbc2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodataodbc100","libpocodata100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodataodbc100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodataodbc100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatasqlite100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatasqlite100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatasqlite100","libpocodata100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatasqlite100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatasqlite100","libsqlite3-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocodatasqlite100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoprometheus100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoprometheus100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoprometheus100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoprometheus100","libpoconet100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoprometheus100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoredis100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoredis100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoredis100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoredis100","libpoconet100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoredis100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoutil100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoutil100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoutil100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoutil100","libpocojson100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoutil100","libpocoxml100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoutil100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoxml100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoxml100","libexpat1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoxml100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoxml100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocoxml100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocozip100","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocozip100","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocozip100","libpocofoundation100","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpocozip100","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libexpat1-dev","libexpat1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libexpat1-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","default-libmysqlclient-dev","libmariadb-dev-compat","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpcre2-dev","libc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpcre2-dev","libpcre2-8-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpcre2-dev","libpcre2-16-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpcre2-dev","libpcre2-32-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpcre2-dev","libpcre2-posix3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsqlite3-dev","libsqlite3-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsqlite3-dev","libc-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libssl-dev","libssl3t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g-dev","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","zlib1g-dev","libc6-dev","Depends","#333","1","Depends","arrow","{}"

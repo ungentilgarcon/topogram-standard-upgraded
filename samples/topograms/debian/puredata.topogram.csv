@@ -1,9 +1,9 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libpd-dev,libpd-dev,libpd-dev,Pure Data as an embeddable audio synthesis library - header files,,,1,1,,,,Section=libdevel; Version=0.55.2+ds-2,,,,,,,
-libpd0,libpd0,libpd0,Pure Data as an embeddable audio synthesis library,,,1,1,,,,Section=libs; Version=0.55.2+ds-2,,,,,,,
-puredata-dev,puredata-dev,puredata-dev,realtime computer music and graphics system - development files,,,1,1,,,,Section=libdevel; Version=0.55.2+ds-2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-,,,,,,,,,,,,libpd0,libpd-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,puredata-dev,libpd-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,puredata-dev,libpd-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libpd0,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libpd-dev","libpd-dev","libpd-dev","Pure Data as an embeddable audio synthesis library - header files","","","1","1","","","","Section=libdevel; Version=0.55.2+ds-2","","","","","","","",""
+"libpd0","libpd0","libpd0","Pure Data as an embeddable audio synthesis library","","","1","1","","","","Section=libs; Version=0.55.2+ds-2","","","","","","","",""
+"puredata-dev","puredata-dev","puredata-dev","realtime computer music and graphics system - development files","","","1","1","","","","Section=libdevel; Version=0.55.2+ds-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libpd-dev","libpd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpd-dev","puredata-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpd-dev","puredata-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libpd0","libc6","Depends","#333","1","Depends","arrow","{}"

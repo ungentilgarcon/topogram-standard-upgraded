@@ -1,210 +1,210 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-cups,cups,cups,"Common UNIX Printing System(tm) - PPD/driver support, web interface",,,1,1,,,,Section=net; Version=2.4.10-3,,,,,,,
-cups-client,cups-client,cups-client,Common UNIX Printing System(tm) - client programs (SysV),,,1,1,,,,Section=net; Version=2.4.10-3,,,,,,,
-cups-common,cups-common,cups-common,Common UNIX Printing System(tm) - common files,,,1,1,,,,Section=net; Version=2.4.10-3,,,,,,,
-cups-core-drivers,cups-core-drivers,cups-core-drivers,Common UNIX Printing System(tm) - driverless printing,,,1,1,,,,Section=net; Version=2.4.10-3,,,,,,,
-cups-daemon,cups-daemon,cups-daemon,Common UNIX Printing System(tm) - daemon,,,1,1,,,,Section=net; Version=2.4.10-3,,,,,,,
-cups-filters,cups-filters,cups-filters,OpenPrinting CUPS Filters - Main Package,,,1,1,,,,Section=net; Version=1.28.17-6,,,,,,,
-cups-ppdc,cups-ppdc,cups-ppdc,Common UNIX Printing System(tm) - PPD manipulation utilities,,,1,1,,,,Section=utils; Version=2.4.10-3,,,,,,,
-cups-server-common,cups-server-common,cups-server-common,Common UNIX Printing System(tm) - server common files,,,1,1,,,,Section=net; Version=2.4.10-3,,,,,,,
-debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
-ghostscript,ghostscript,ghostscript,interpreter for the PostScript language and for PDF,,,1,1,,,,Section=text; Version=10.05.1~dfsg-1,,,,,,,
-libcups2t64,libcups2t64,libcups2t64,Common UNIX Printing System(tm) - Core library,,,1,1,,,,Section=libs; Version=2.4.10-3,,,,,,,
-poppler-utils,poppler-utils,poppler-utils,PDF utilities (based on Poppler),,,1,1,,,,Section=utils; Version=25.03.0-5,,,,,,,
-procps,procps,procps,/proc file system utilities,,,1,1,,,,Section=admin; Version=2:4.0.4-9,,,,,,,
-libavahi-client3,libavahi-client3,libavahi-client3,Avahi client library,,,1,1,,,,Section=libs; Version=0.8-16,,,,,,,
-libavahi-common3,libavahi-common3,libavahi-common3,Avahi common library,,,1,1,,,,Section=libs; Version=0.8-16,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libusb-1.0-0,libusb-1.0-0,libusb-1.0-0,userspace USB programming library,,,1,1,,,,Section=libs; Version=2:1.0.28-1,,,,,,,
-avahi-daemon,avahi-daemon,avahi-daemon,Avahi mDNS/DNS-SD daemon,,,1,1,,,,Section=net; Version=0.8-16,,,,,,,
-colord,colord,colord,system service to manage device colour profiles -- system daemon,,,1,1,,,,Section=graphics; Version=1.4.7-3,,,,,,,
-adduser,adduser,adduser,add and remove users and groups,,,1,1,,,,Section=admin; Version=3.152,,,,,,,
-cups-filters-core-drivers,cups-filters-core-drivers,cups-filters-core-drivers,OpenPrinting CUPS Filters - Driverless printing,,,1,1,,,,Section=net; Version=1.28.17-6,,,,,,,
-bc,bc,bc,GNU bc arbitrary precision calculator language,,,1,1,,,,Section=math; Version=1.07.1-4,,,,,,,
-lsb-base,lsb-base,lsb-base,transitional package for Linux Standard Base init script functionality,,,1,1,,,,Section=misc; Version=11.6,,,,,,,
-ssl-cert,ssl-cert,ssl-cert,simple debconf wrapper for OpenSSL,,,1,1,,,,Section=utils; Version=1.1.3,,,,,,,
-libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
-libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
-libpam0g,libpam0g,libpam0g,Pluggable Authentication Modules library,,,1,1,,,,Section=libs; Version=1.7.0-5,,,,,,,
-libpaper2,libpaper2,libpaper2,Paper sizes catalogue,,,1,1,,,,Section=libs; Version=2.2.5-0.3+b2,,,,,,,
-libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-cups-browsed,cups-browsed,cups-browsed,OpenPrinting CUPS Filters - cups-browsed,,,1,1,,,,Section=net; Version=1.28.17-6,,,,,,,
-ipp-usb,ipp-usb,ipp-usb,Daemon for IPP over USB printer support,,,1,1,,,,Section=comm; Version=0.9.23-2+b7,,,,,,,
-libcupsfilters1t64,libcupsfilters1t64,libcupsfilters1t64,OpenPrinting CUPS Filters - Shared library,,,1,1,,,,Section=libs; Version=1.28.17-6,,,,,,,
-libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
-libfontembed1t64,libfontembed1t64,libfontembed1t64,OpenPrinting CUPS Filters - Font Embed Shared library,,,1,1,,,,Section=libs; Version=1.28.17-6,,,,,,,
-libqpdf30,libqpdf30,libqpdf30,runtime library for PDF transformation/inspection software,,,1,1,,,,Section=libs; Version=12.2.0-1,,,,,,,
-liblouisutdml-bin,liblouisutdml-bin,liblouisutdml-bin,Braille UTDML translation utilities,,,1,1,,,,Section=text; Version=2.12.0-7,,,,,,,
-lynx,lynx,lynx,classic non-graphical (text-mode) web browser,,,1,1,,,,Section=web; Version=2.9.2-1,,,,,,,
-apt,apt,apt,commandline package manager,,,1,1,,,,Section=admin; Version=3.0.3,,,,,,,
-debconf-i18n,debconf-i18n,debconf-i18n,full internationalization support for debconf,,,1,1,,,,Section=localization; Version=1.5.91,,,,,,,
-libgs10,libgs10,libgs10,interpreter for the PostScript language and for PDF - Library,,,1,1,,,,Section=libs; Version=10.05.1~dfsg-1,,,,,,,
-libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-libpoppler147,libpoppler147,libpoppler147,PDF rendering library,,,1,1,,,,Section=libs; Version=25.03.0-5,,,,,,,
-libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
-libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
-liblcms2-2,liblcms2-2,liblcms2-2,Little CMS 2 color management library,,,1,1,,,,Section=libs; Version=2.16-2,,,,,,,
-libncursesw6,libncursesw6,libncursesw6,shared libraries for terminal handling (wide character support),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-libproc2-0,libproc2-0,libproc2-0,library for accessing process information from /proc,,,1,1,,,,Section=libs; Version=2:4.0.4-9,,,,,,,
-libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
-init-system-helpers,init-system-helpers,init-system-helpers,helper tools for all init systems,,,1,1,,,,Section=admin; Version=1.69~deb13u1,,,,,,,
-psmisc,psmisc,psmisc,utilities that use the proc file system,,,1,1,,,,Section=admin; Version=23.7-2,,,,,,,
-linux-sysctl-defaults,linux-sysctl-defaults,linux-sysctl-defaults,default sysctl configuration for Linux,,,1,1,,,,Section=kernel; Version=4.12,,,,,,,
-libavahi-common-data,libavahi-common-data,libavahi-common-data,Avahi common data files,,,1,1,,,,Section=libs; Version=0.8-16,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
-libavahi-core7,libavahi-core7,libavahi-core7,Avahi's embeddable mDNS/DNS-SD library,,,1,1,,,,Section=libs; Version=0.8-16,,,,,,,
-libcap2,libcap2,libcap2,POSIX 1003.1e capabilities (library),,,1,1,,,,Section=libs; Version=1:2.75-10+b1,,,,,,,
-libdaemon0,libdaemon0,libdaemon0,lightweight C library for daemons - runtime library,,,1,1,,,,Section=libs; Version=0.14-7.1+b3,,,,,,,
-libexpat1,libexpat1,libexpat1,XML parsing C library - runtime library,,,1,1,,,,Section=libs; Version=2.7.1-2,,,,,,,
-default-dbus-system-bus,default-dbus-system-bus,default-dbus-system-bus,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-libnss-mdns,libnss-mdns,libnss-mdns,NSS module for Multicast DNS name resolution,,,1,1,,,,Section=admin; Version=0.15.1-4+b1,,,,,,,
-acl,acl,acl,access control list - utilities,,,1,1,,,,Section=utils; Version=2.3.2-2+b1,,,,,,,
-colord-data,colord-data,colord-data,system service to manage device colour profiles -- data files,,,1,1,,,,Section=graphics; Version=1.4.7-3,,,,,,,
-polkitd,polkitd,polkitd,framework for managing administrative policies and privileges,,,1,1,,,,Section=admin; Version=126-2,,,,,,,
-dconf-gsettings-backend,dconf-gsettings-backend,dconf-gsettings-backend,simple configuration storage system - GSettings back-end,,,1,1,,,,Section=libs; Version=0.40.0-5,,,,,,,
-libcolord2,libcolord2,libcolord2,system service to manage device colour profiles -- runtime,,,1,1,,,,Section=libs; Version=1.4.7-3,,,,,,,
-libcolorhug2,libcolorhug2,libcolorhug2,library to access the ColorHug colourimeter -- runtime,,,1,1,,,,Section=libs; Version=1.4.7-3,,,,,,,
-libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
-libgudev-1.0-0,libgudev-1.0-0,libgudev-1.0-0,GObject-based wrapper library for libudev,,,1,1,,,,Section=libs; Version=238-6,,,,,,,
-libgusb2,libgusb2,libgusb2,GLib wrapper around libusb1,,,1,1,,,,Section=libs; Version=0.4.9-1+b1,,,,,,,
-libpolkit-gobject-1-0,libpolkit-gobject-1-0,libpolkit-gobject-1-0,polkit Authorization API,,,1,1,,,,Section=libs; Version=126-2,,,,,,,
-libsane1,libsane1,libsane1,API library for scanners,,,1,1,,,,Section=libs; Version=1.3.1-3+b1,,,,,,,
-libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
-,,,,,,,,,,,,cups-client,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-common,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-core-drivers,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-daemon,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-filters,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-ppdc,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-server-common,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,debconf,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ghostscript,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcups2t64,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,poppler-utils,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,procps,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-client3,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-common3,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libusb-1.0-0,cups,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,avahi-daemon,cups,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,colord,cups,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,adduser,cups-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-common,cups-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcups2t64,cups-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cups-client,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-daemon,cups-core-drivers,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-filters-core-drivers,cups-core-drivers,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcups2t64,cups-core-drivers,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cups-core-drivers,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,avahi-daemon,cups-core-drivers,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,adduser,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,bc,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcups2t64,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,lsb-base,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,procps,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ssl-cert,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-client3,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-common3,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgssapi-krb5-2,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpam0g,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpaper2,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,cups-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,avahi-daemon,cups-daemon,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,colord,cups-daemon,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,cups-browsed,cups-daemon,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,ipp-usb,cups-daemon,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,bc,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,cups-filters-core-drivers,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,ghostscript,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,poppler-utils,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcups2t64,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcupsfilters1t64,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontconfig1,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfontembed1t64,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libqpdf30,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,cups-filters,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,colord,cups-filters,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,liblouisutdml-bin,cups-filters,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,lynx,cups-filters,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,cups-common,cups-ppdc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,cups-ppdc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcups2t64,cups-ppdc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,cups-ppdc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,cups-ppdc,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,apt,debconf,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,debconf-i18n,debconf,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libgs10,ghostscript,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,ghostscript,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-client3,libcups2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-common3,libcups2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libcups2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgnutls30t64,libcups2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgssapi-krb5-2,libcups2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libcups2t64,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpoppler147,poppler-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,poppler-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcairo2,poppler-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libfreetype6,poppler-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,poppler-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libstdc++6,poppler-utils,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,procps,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libncursesw6,procps,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libproc2-0,procps,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,procps,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libtinfo6,procps,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,init-system-helpers,procps,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,psmisc,procps,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,linux-sysctl-defaults,procps,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,libavahi-common3,libavahi-client3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libavahi-client3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,libavahi-client3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libavahi-common3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-common-data,libavahi-common3,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libusb-1.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libudev1,libusb-1.0-0,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-common3,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libavahi-core7,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcap2,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdaemon0,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libexpat1,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,adduser,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,default-dbus-system-bus,avahi-daemon,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libnss-mdns,avahi-daemon,Recommends,#333,1,Recommends,{}
-,,,,,,,,,,,,acl,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,adduser,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,colord-data,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,polkitd,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,dconf-gsettings-backend,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcolord2,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcolorhug2,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libdbus-1-3,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libglib2.0-0t64,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgudev-1.0-0,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgusb2,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblcms2-2,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpolkit-gobject-1-0,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsane1,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsqlite3-0,colord,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsystemd0,colord,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"cups","cups","cups","Common UNIX Printing System(tm) - PPD/driver support, web interface","","","1","1","","","","Section=net; Version=2.4.10-3","","","","","","","",""
+"cups-client","cups-client","cups-client","Common UNIX Printing System(tm) - client programs (SysV)","","","1","1","","","","Section=net; Version=2.4.10-3","","","","","","","",""
+"cups-common","cups-common","cups-common","Common UNIX Printing System(tm) - common files","","","1","1","","","","Section=net; Version=2.4.10-3","","","","","","","",""
+"cups-core-drivers","cups-core-drivers","cups-core-drivers","Common UNIX Printing System(tm) - driverless printing","","","1","1","","","","Section=net; Version=2.4.10-3","","","","","","","",""
+"cups-daemon","cups-daemon","cups-daemon","Common UNIX Printing System(tm) - daemon","","","1","1","","","","Section=net; Version=2.4.10-3","","","","","","","",""
+"cups-filters","cups-filters","cups-filters","OpenPrinting CUPS Filters - Main Package","","","1","1","","","","Section=net; Version=1.28.17-6","","","","","","","",""
+"cups-ppdc","cups-ppdc","cups-ppdc","Common UNIX Printing System(tm) - PPD manipulation utilities","","","1","1","","","","Section=utils; Version=2.4.10-3","","","","","","","",""
+"cups-server-common","cups-server-common","cups-server-common","Common UNIX Printing System(tm) - server common files","","","1","1","","","","Section=net; Version=2.4.10-3","","","","","","","",""
+"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","","","",""
+"ghostscript","ghostscript","ghostscript","interpreter for the PostScript language and for PDF","","","1","1","","","","Section=text; Version=10.05.1~dfsg-1","","","","","","","",""
+"libcups2t64","libcups2t64","libcups2t64","Common UNIX Printing System(tm) - Core library","","","1","1","","","","Section=libs; Version=2.4.10-3","","","","","","","",""
+"poppler-utils","poppler-utils","poppler-utils","PDF utilities (based on Poppler)","","","1","1","","","","Section=utils; Version=25.03.0-5","","","","","","","",""
+"procps","procps","procps","/proc file system utilities","","","1","1","","","","Section=admin; Version=2:4.0.4-9","","","","","","","",""
+"libavahi-client3","libavahi-client3","libavahi-client3","Avahi client library","","","1","1","","","","Section=libs; Version=0.8-16","","","","","","","",""
+"libavahi-common3","libavahi-common3","libavahi-common3","Avahi common library","","","1","1","","","","Section=libs; Version=0.8-16","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libusb-1.0-0","libusb-1.0-0","libusb-1.0-0","userspace USB programming library","","","1","1","","","","Section=libs; Version=2:1.0.28-1","","","","","","","",""
+"avahi-daemon","avahi-daemon","avahi-daemon","Avahi mDNS/DNS-SD daemon","","","1","1","","","","Section=net; Version=0.8-16","","","","","","","",""
+"colord","colord","colord","system service to manage device colour profiles -- system daemon","","","1","1","","","","Section=graphics; Version=1.4.7-3","","","","","","","",""
+"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","","","",""
+"cups-filters-core-drivers","cups-filters-core-drivers","cups-filters-core-drivers","OpenPrinting CUPS Filters - Driverless printing","","","1","1","","","","Section=net; Version=1.28.17-6","","","","","","","",""
+"bc","bc","bc","GNU bc arbitrary precision calculator language","","","1","1","","","","Section=math; Version=1.07.1-4","","","","","","","",""
+"lsb-base","lsb-base","lsb-base","transitional package for Linux Standard Base init script functionality","","","1","1","","","","Section=misc; Version=11.6","","","","","","","",""
+"ssl-cert","ssl-cert","ssl-cert","simple debconf wrapper for OpenSSL","","","1","1","","","","Section=utils; Version=1.1.3","","","","","","","",""
+"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","","","",""
+"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","","","",""
+"libpam0g","libpam0g","libpam0g","Pluggable Authentication Modules library","","","1","1","","","","Section=libs; Version=1.7.0-5","","","","","","","",""
+"libpaper2","libpaper2","libpaper2","Paper sizes catalogue","","","1","1","","","","Section=libs; Version=2.2.5-0.3+b2","","","","","","","",""
+"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"cups-browsed","cups-browsed","cups-browsed","OpenPrinting CUPS Filters - cups-browsed","","","1","1","","","","Section=net; Version=1.28.17-6","","","","","","","",""
+"ipp-usb","ipp-usb","ipp-usb","Daemon for IPP over USB printer support","","","1","1","","","","Section=comm; Version=0.9.23-2+b7","","","","","","","",""
+"libcupsfilters1t64","libcupsfilters1t64","libcupsfilters1t64","OpenPrinting CUPS Filters - Shared library","","","1","1","","","","Section=libs; Version=1.28.17-6","","","","","","","",""
+"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","","","",""
+"libfontembed1t64","libfontembed1t64","libfontembed1t64","OpenPrinting CUPS Filters - Font Embed Shared library","","","1","1","","","","Section=libs; Version=1.28.17-6","","","","","","","",""
+"libqpdf30","libqpdf30","libqpdf30","runtime library for PDF transformation/inspection software","","","1","1","","","","Section=libs; Version=12.2.0-1","","","","","","","",""
+"liblouisutdml-bin","liblouisutdml-bin","liblouisutdml-bin","Braille UTDML translation utilities","","","1","1","","","","Section=text; Version=2.12.0-7","","","","","","","",""
+"lynx","lynx","lynx","classic non-graphical (text-mode) web browser","","","1","1","","","","Section=web; Version=2.9.2-1","","","","","","","",""
+"apt","apt","apt","commandline package manager","","","1","1","","","","Section=admin; Version=3.0.3","","","","","","","",""
+"debconf-i18n","debconf-i18n","debconf-i18n","full internationalization support for debconf","","","1","1","","","","Section=localization; Version=1.5.91","","","","","","","",""
+"libgs10","libgs10","libgs10","interpreter for the PostScript language and for PDF - Library","","","1","1","","","","Section=libs; Version=10.05.1~dfsg-1","","","","","","","",""
+"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"libpoppler147","libpoppler147","libpoppler147","PDF rendering library","","","1","1","","","","Section=libs; Version=25.03.0-5","","","","","","","",""
+"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","","","",""
+"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","","","",""
+"liblcms2-2","liblcms2-2","liblcms2-2","Little CMS 2 color management library","","","1","1","","","","Section=libs; Version=2.16-2","","","","","","","",""
+"libncursesw6","libncursesw6","libncursesw6","shared libraries for terminal handling (wide character support)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"libproc2-0","libproc2-0","libproc2-0","library for accessing process information from /proc","","","1","1","","","","Section=libs; Version=2:4.0.4-9","","","","","","","",""
+"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"init-system-helpers","init-system-helpers","init-system-helpers","helper tools for all init systems","","","1","1","","","","Section=admin; Version=1.69~deb13u1","","","","","","","",""
+"psmisc","psmisc","psmisc","utilities that use the proc file system","","","1","1","","","","Section=admin; Version=23.7-2","","","","","","","",""
+"linux-sysctl-defaults","linux-sysctl-defaults","linux-sysctl-defaults","default sysctl configuration for Linux","","","1","1","","","","Section=kernel; Version=4.12","","","","","","","",""
+"libavahi-common-data","libavahi-common-data","libavahi-common-data","Avahi common data files","","","1","1","","","","Section=libs; Version=0.8-16","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"libavahi-core7","libavahi-core7","libavahi-core7","Avahi's embeddable mDNS/DNS-SD library","","","1","1","","","","Section=libs; Version=0.8-16","","","","","","","",""
+"libcap2","libcap2","libcap2","POSIX 1003.1e capabilities (library)","","","1","1","","","","Section=libs; Version=1:2.75-10+b1","","","","","","","",""
+"libdaemon0","libdaemon0","libdaemon0","lightweight C library for daemons - runtime library","","","1","1","","","","Section=libs; Version=0.14-7.1+b3","","","","","","","",""
+"libexpat1","libexpat1","libexpat1","XML parsing C library - runtime library","","","1","1","","","","Section=libs; Version=2.7.1-2","","","","","","","",""
+"default-dbus-system-bus","default-dbus-system-bus","default-dbus-system-bus","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libnss-mdns","libnss-mdns","libnss-mdns","NSS module for Multicast DNS name resolution","","","1","1","","","","Section=admin; Version=0.15.1-4+b1","","","","","","","",""
+"acl","acl","acl","access control list - utilities","","","1","1","","","","Section=utils; Version=2.3.2-2+b1","","","","","","","",""
+"colord-data","colord-data","colord-data","system service to manage device colour profiles -- data files","","","1","1","","","","Section=graphics; Version=1.4.7-3","","","","","","","",""
+"polkitd","polkitd","polkitd","framework for managing administrative policies and privileges","","","1","1","","","","Section=admin; Version=126-2","","","","","","","",""
+"dconf-gsettings-backend","dconf-gsettings-backend","dconf-gsettings-backend","simple configuration storage system - GSettings back-end","","","1","1","","","","Section=libs; Version=0.40.0-5","","","","","","","",""
+"libcolord2","libcolord2","libcolord2","system service to manage device colour profiles -- runtime","","","1","1","","","","Section=libs; Version=1.4.7-3","","","","","","","",""
+"libcolorhug2","libcolorhug2","libcolorhug2","library to access the ColorHug colourimeter -- runtime","","","1","1","","","","Section=libs; Version=1.4.7-3","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"libgudev-1.0-0","libgudev-1.0-0","libgudev-1.0-0","GObject-based wrapper library for libudev","","","1","1","","","","Section=libs; Version=238-6","","","","","","","",""
+"libgusb2","libgusb2","libgusb2","GLib wrapper around libusb1","","","1","1","","","","Section=libs; Version=0.4.9-1+b1","","","","","","","",""
+"libpolkit-gobject-1-0","libpolkit-gobject-1-0","libpolkit-gobject-1-0","polkit Authorization API","","","1","1","","","","Section=libs; Version=126-2","","","","","","","",""
+"libsane1","libsane1","libsane1","API library for scanners","","","1","1","","","","Section=libs; Version=1.3.1-3+b1","","","","","","","",""
+"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","","","",""
+"","","","","","","","","","","","","cups","cups-client","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","cups-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","cups-core-drivers","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","cups-daemon","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","cups-filters","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","cups-ppdc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","cups-server-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","debconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","ghostscript","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","libcups2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","poppler-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","procps","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","libavahi-client3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","libavahi-common3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","libusb-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups","avahi-daemon","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups","colord","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-client","adduser","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-client","cups-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-client","libcups2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-client","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-core-drivers","cups-daemon","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-core-drivers","cups-filters-core-drivers","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-core-drivers","libcups2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-core-drivers","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-core-drivers","avahi-daemon","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","adduser","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","bc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libcups2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","lsb-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","procps","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","ssl-cert","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libavahi-client3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libavahi-common3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libgssapi-krb5-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libpam0g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libpaper2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","libsystemd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","avahi-daemon","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","colord","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","cups-browsed","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-daemon","ipp-usb","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","bc","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","cups-filters-core-drivers","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","ghostscript","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","poppler-utils","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libcups2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libcupsfilters1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libfontconfig1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libfontembed1t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libqpdf30","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","colord","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","liblouisutdml-bin","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-filters","lynx","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","cups-ppdc","cups-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-ppdc","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-ppdc","libcups2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-ppdc","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","cups-ppdc","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","debconf","apt","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","debconf","debconf-i18n","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","ghostscript","libgs10","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","ghostscript","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcups2t64","libavahi-client3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcups2t64","libavahi-common3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcups2t64","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcups2t64","libgnutls30t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcups2t64","libgssapi-krb5-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcups2t64","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","poppler-utils","libpoppler147","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","poppler-utils","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","poppler-utils","libcairo2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","poppler-utils","libfreetype6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","poppler-utils","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","poppler-utils","libstdc++6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","procps","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","procps","libncursesw6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","procps","libproc2-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","procps","libsystemd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","procps","libtinfo6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","procps","init-system-helpers","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","procps","psmisc","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","procps","linux-sysctl-defaults","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libavahi-client3","libavahi-common3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavahi-client3","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavahi-client3","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavahi-common3","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libavahi-common3","libavahi-common-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libusb-1.0-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libusb-1.0-0","libudev1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libavahi-common3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libavahi-core7","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libcap2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libdaemon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libexpat1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libsystemd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","adduser","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","default-dbus-system-bus","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","avahi-daemon","libnss-mdns","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","colord","acl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","adduser","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","colord-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","polkitd","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","dconf-gsettings-backend","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libcolord2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libcolorhug2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libgudev-1.0-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libgusb2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","liblcms2-2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libpolkit-gobject-1-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libsane1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libsqlite3-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","colord","libsystemd0","Depends","#333","1","Depends","arrow","{}"

@@ -1,68 +1,68 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-libxen-dev,libxen-dev,libxen-dev,Public headers and libs for Xen,,,1,1,,,,Section=libdevel; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxenmisc4.20,libxenmisc4.20,libxenmisc4.20,"Xen runtime libraries - miscellaneous, versioned ABI",,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxencall1,libxencall1,libxencall1,Xen runtime library - libxencall,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxendevicemodel1,libxendevicemodel1,libxendevicemodel1,Xen runtime libraries - libxendevicemodel,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxenevtchn1,libxenevtchn1,libxenevtchn1,Xen runtime libraries - libxenevtchn,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxenforeignmemory1,libxenforeignmemory1,libxenforeignmemory1,Xen runtime libraries - libxenforeignmemory,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxengnttab1,libxengnttab1,libxengnttab1,Xen runtime libraries - libxengnttab,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxenstore4,libxenstore4,libxenstore4,Xen runtime libraries - libxenstore,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxentoolcore1,libxentoolcore1,libxentoolcore1,Xen runtime libraries - libxentoolcore,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxentoollog1,libxentoollog1,libxentoollog1,Xen runtime libraries - libxentoollog,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libxenhypfs1,libxenhypfs1,libxenhypfs1,Xen runtime library - libxenhypfs,,,1,1,,,,Section=libs; Version=4.20.0+68-g35cb38b222-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libext2fs2t64,libext2fs2t64,libext2fs2t64,ext2/ext3/ext4 file system libraries,,,1,1,,,,Section=libs; Version=1.47.2-3+b3,,,,,,,
-liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
-libuuid1,libuuid1,libuuid1,Universally Unique ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
-libyajl2,libyajl2,libyajl2,Yet Another JSON Library,,,1,1,,,,Section=libs; Version=2.1.0-5+b2,,,,,,,
-libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
-zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
-,,,,,,,,,,,,libxenmisc4.20,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxencall1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxendevicemodel1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenevtchn1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenforeignmemory1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxengnttab1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenstore4,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoolcore1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenhypfs1,libxen-dev,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libext2fs2t64,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,liblzma5,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libuuid1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxencall1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxendevicemodel1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenevtchn1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenforeignmemory1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxengnttab1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenhypfs1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxenstore4,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libyajl2,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libzstd1,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libxenmisc4.20,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxencall1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoolcore1,libxencall1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxencall1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxendevicemodel1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxencall1,libxendevicemodel1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoolcore1,libxendevicemodel1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxendevicemodel1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxenevtchn1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoolcore1,libxenevtchn1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxenevtchn1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxenforeignmemory1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoolcore1,libxenforeignmemory1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxenforeignmemory1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxengnttab1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoolcore1,libxengnttab1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxengnttab1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxenstore4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoolcore1,libxenstore4,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxentoolcore1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxentoollog1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,libxenhypfs1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxencall1,libxenhypfs1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libxentoollog1,libxenhypfs1,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,zlib1g,libxenhypfs1,Depends,#333,1,Depends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libxen-dev","libxen-dev","libxen-dev","Public headers and libs for Xen","","","1","1","","","","Section=libdevel; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxenmisc4.20","libxenmisc4.20","libxenmisc4.20","Xen runtime libraries - miscellaneous, versioned ABI","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxencall1","libxencall1","libxencall1","Xen runtime library - libxencall","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxendevicemodel1","libxendevicemodel1","libxendevicemodel1","Xen runtime libraries - libxendevicemodel","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxenevtchn1","libxenevtchn1","libxenevtchn1","Xen runtime libraries - libxenevtchn","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxenforeignmemory1","libxenforeignmemory1","libxenforeignmemory1","Xen runtime libraries - libxenforeignmemory","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxengnttab1","libxengnttab1","libxengnttab1","Xen runtime libraries - libxengnttab","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxenstore4","libxenstore4","libxenstore4","Xen runtime libraries - libxenstore","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxentoolcore1","libxentoolcore1","libxentoolcore1","Xen runtime libraries - libxentoolcore","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxentoollog1","libxentoollog1","libxentoollog1","Xen runtime libraries - libxentoollog","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libxenhypfs1","libxenhypfs1","libxenhypfs1","Xen runtime library - libxenhypfs","","","1","1","","","","Section=libs; Version=4.20.0+68-g35cb38b222-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libext2fs2t64","libext2fs2t64","libext2fs2t64","ext2/ext3/ext4 file system libraries","","","1","1","","","","Section=libs; Version=1.47.2-3+b3","","","","","","","",""
+"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","","","",""
+"libuuid1","libuuid1","libuuid1","Universally Unique ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","","","",""
+"libyajl2","libyajl2","libyajl2","Yet Another JSON Library","","","1","1","","","","Section=libs; Version=2.1.0-5+b2","","","","","","","",""
+"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","","","",""
+"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","","","",""
+"","","","","","","","","","","","","libxen-dev","libxenmisc4.20","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxencall1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxendevicemodel1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxenevtchn1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxenforeignmemory1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxengnttab1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxenstore4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxentoolcore1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxen-dev","libxenhypfs1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libext2fs2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","liblzma5","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libuuid1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxencall1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxendevicemodel1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxenevtchn1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxenforeignmemory1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxengnttab1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxenhypfs1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxenstore4","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libyajl2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","libzstd1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenmisc4.20","zlib1g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxencall1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxencall1","libxentoolcore1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxencall1","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxendevicemodel1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxendevicemodel1","libxencall1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxendevicemodel1","libxentoolcore1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxendevicemodel1","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenevtchn1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenevtchn1","libxentoolcore1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenevtchn1","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenforeignmemory1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenforeignmemory1","libxentoolcore1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenforeignmemory1","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxengnttab1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxengnttab1","libxentoolcore1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxengnttab1","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenstore4","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenstore4","libxentoolcore1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxentoolcore1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxentoollog1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenhypfs1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenhypfs1","libxencall1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenhypfs1","libxentoollog1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxenhypfs1","zlib1g","Depends","#333","1","Depends","arrow","{}"

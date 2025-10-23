@@ -1,30 +1,30 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-adduser,adduser,adduser,add and remove users and groups,,,1,1,,,,Section=admin; Version=3.152,,,,,,,
-passwd,passwd,passwd,change and administer password and group data,,,1,1,,,,Section=admin; Version=1:4.17.4-2,,,,,,,
-base-passwd,base-passwd,base-passwd,Debian base system master password and group files,,,1,1,,,,Section=admin; Version=3.6.7,,,,,,,
-libpam-modules,libpam-modules,libpam-modules,Pluggable Authentication Modules for PAM,,,1,1,,,,Section=admin; Version=1.7.0-5,,,,,,,
-login.defs,login.defs,login.defs,system user management configuration,,,1,1,,,,Section=admin; Version=1:4.17.4-2,,,,,,,
-libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
-libattr1,libattr1,libattr1,extended attribute handling - shared library,,,1,1,,,,Section=libs; Version=1:2.5.2-3,,,,,,,
-libaudit1,libaudit1,libaudit1,Dynamic library for security auditing,,,1,1,,,,Section=libs; Version=1:4.0.2-2+b2,,,,,,,
-libbsd0,libbsd0,libbsd0,utility functions from BSD systems - shared library,,,1,1,,,,Section=libs; Version=0.12.2-2,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libcrypt1,libcrypt1,libcrypt1,libcrypt shared library,,,1,1,,,,Section=libs; Version=1:4.4.38-1,,,,,,,
-libpam0g,libpam0g,libpam0g,Pluggable Authentication Modules library,,,1,1,,,,Section=libs; Version=1.7.0-5,,,,,,,
-libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
-libsemanage2,libsemanage2,libsemanage2,SELinux policy management library,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
-sensible-utils,sensible-utils,sensible-utils,Utilities for sensible alternative selection,,,1,1,,,,Section=utils; Version=0.0.25,,,,,,,
-,,,,,,,,,,,,passwd,adduser,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,base-passwd,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpam-modules,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,login.defs,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libacl1,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libattr1,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libaudit1,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libbsd0,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libcrypt1,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libpam0g,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libselinux1,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libsemanage2,passwd,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,sensible-utils,passwd,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","","","",""
+"passwd","passwd","passwd","change and administer password and group data","","","1","1","","","","Section=admin; Version=1:4.17.4-2","","","","","","","",""
+"base-passwd","base-passwd","base-passwd","Debian base system master password and group files","","","1","1","","","","Section=admin; Version=3.6.7","","","","","","","",""
+"libpam-modules","libpam-modules","libpam-modules","Pluggable Authentication Modules for PAM","","","1","1","","","","Section=admin; Version=1.7.0-5","","","","","","","",""
+"login.defs","login.defs","login.defs","system user management configuration","","","1","1","","","","Section=admin; Version=1:4.17.4-2","","","","","","","",""
+"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","","","",""
+"libattr1","libattr1","libattr1","extended attribute handling - shared library","","","1","1","","","","Section=libs; Version=1:2.5.2-3","","","","","","","",""
+"libaudit1","libaudit1","libaudit1","Dynamic library for security auditing","","","1","1","","","","Section=libs; Version=1:4.0.2-2+b2","","","","","","","",""
+"libbsd0","libbsd0","libbsd0","utility functions from BSD systems - shared library","","","1","1","","","","Section=libs; Version=0.12.2-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libcrypt1","libcrypt1","libcrypt1","libcrypt shared library","","","1","1","","","","Section=libs; Version=1:4.4.38-1","","","","","","","",""
+"libpam0g","libpam0g","libpam0g","Pluggable Authentication Modules library","","","1","1","","","","Section=libs; Version=1.7.0-5","","","","","","","",""
+"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","","","",""
+"libsemanage2","libsemanage2","libsemanage2","SELinux policy management library","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","","","",""
+"sensible-utils","sensible-utils","sensible-utils","Utilities for sensible alternative selection","","","1","1","","","","Section=utils; Version=0.0.25","","","","","","","",""
+"","","","","","","","","","","","","adduser","passwd","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","base-passwd","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libpam-modules","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","login.defs","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libacl1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libattr1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libaudit1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libbsd0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libcrypt1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libpam0g","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libselinux1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","libsemanage2","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","passwd","sensible-utils","Recommends","#333","1","Recommends","arrow","{}"

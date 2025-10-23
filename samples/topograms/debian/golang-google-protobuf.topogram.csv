@@ -1,2 +1,2 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"golang-google-protobuf-dev","golang-google-protobuf-dev","golang-google-protobuf-dev","Go support for protocol buffers (APIv2)","","","1","1","","","","Section=golang; Version=1.36.5-1","","","","","",""
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-google-protobuf-dev","golang-google-protobuf-dev","golang-google-protobuf-dev","Go support for protocol buffers (APIv2)","","","1","1","","","","Section=golang; Version=1.36.5-1","","","","","","","",""

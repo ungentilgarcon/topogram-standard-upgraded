@@ -1,14 +1,14 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-r-cran-nlme,r-cran-nlme,r-cran-nlme,GNU R package for (non-)linear mixed effects models,,,1,1,,,,Section=gnu-r; Version=3.1.168-1,,,,,,,
-r-api-4.0,r-api-4.0,r-api-4.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
-r-cran-lattice,r-cran-lattice,r-cran-lattice,GNU R package for 'Trellis' graphics,,,1,1,,,,Section=gnu-r; Version=0.22-7-1,,,,,,,
-libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
-libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
-libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
-,,,,,,,,,,,,r-api-4.0,r-cran-nlme,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-cran-lattice,r-cran-nlme,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-nlme,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libc6,r-cran-lattice,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,r-api-4.0,r-cran-lattice,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
-,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"r-cran-nlme","r-cran-nlme","r-cran-nlme","GNU R package for (non-)linear mixed effects models","","","1","1","","","","Section=gnu-r; Version=3.1.168-1","","","","","","","",""
+"r-api-4.0","r-api-4.0","r-api-4.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"r-cran-lattice","r-cran-lattice","r-cran-lattice","GNU R package for 'Trellis' graphics","","","1","1","","","","Section=gnu-r; Version=0.22-7-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","r-cran-nlme","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-nlme","r-cran-lattice","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-nlme","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-lattice","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","r-cran-lattice","r-api-4.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
