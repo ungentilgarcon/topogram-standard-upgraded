@@ -37,7 +37,44 @@ function writeCSV(file, rows) {
   fs.writeFileSync(path.join(OUT_DIR, file), text, 'utf8')
 }
 
-// Minimal country catalog (capital coords approximated)
+// Helpers to build properly aligned rows
+function blankRow() {
+  return new Array(H.length).fill('')
+}
+
+function nodeRow({ id, name, label, description, color, fillColor, weight = 1, rawWeight = 1, lat = '', lng = '', emoji = '' }) {
+  const r = blankRow()
+  r[H.indexOf('id')] = id
+  r[H.indexOf('name')] = name
+  r[H.indexOf('label')] = label
+  r[H.indexOf('description')] = description
+  r[H.indexOf('color')] = color
+  r[H.indexOf('fillColor')] = fillColor
+  r[H.indexOf('weight')] = weight
+  r[H.indexOf('rawWeight')] = rawWeight
+  r[H.indexOf('lat')] = lat
+  r[H.indexOf('lng')] = lng
+  r[H.indexOf('emoji')] = emoji
+  return r
+}
+
+function edgeRow({ source, target, edgeLabel, edgeColor = '#888', edgeWeight = 1, relationship = edgeLabel, start = '', end = '', time = '', date = '', enlightement = 'arrow' }) {
+  const r = blankRow()
+  r[H.indexOf('start')] = start
+  r[H.indexOf('end')] = end
+  r[H.indexOf('time')] = time
+  r[H.indexOf('date')] = date
+  r[H.indexOf('source')] = source
+  r[H.indexOf('target')] = target
+  r[H.indexOf('edgeLabel')] = edgeLabel
+  r[H.indexOf('edgeColor')] = edgeColor
+  r[H.indexOf('edgeWeight')] = edgeWeight
+  r[H.indexOf('relationship')] = relationship
+  r[H.indexOf('enlightement')] = enlightement
+  return r
+}
+
+// Expanded country catalog (capital coords approximated)
 const countries = [
   { id: 'cn', name: 'China', lat: 39.9042, lng: 116.4074 },
   { id: 'us', name: 'United States', lat: 38.9072, lng: -77.0369 },
@@ -54,6 +91,13 @@ const countries = [
   { id: 'de', name: 'Germany', lat: 52.5200, lng: 13.4050 },
   { id: 'fr', name: 'France', lat: 48.8566, lng: 2.3522 },
   { id: 'gb', name: 'United Kingdom', lat: 51.5074, lng: -0.1278 },
+  { id: 'nl', name: 'Netherlands', lat: 52.3676, lng: 4.9041 },
+  { id: 'be', name: 'Belgium', lat: 50.8503, lng: 4.3517 },
+  { id: 'es', name: 'Spain', lat: 40.4168, lng: -3.7038 },
+  { id: 'it', name: 'Italy', lat: 41.9028, lng: 12.4964 },
+  { id: 'pl', name: 'Poland', lat: 52.2297, lng: 21.0122 },
+  { id: 'tr', name: 'Türkiye', lat: 39.9334, lng: 32.8597 },
+  { id: 'ae', name: 'United Arab Emirates', lat: 24.4539, lng: 54.3773 },
   { id: 'br', name: 'Brazil', lat: -15.7939, lng: -47.8828 },
   { id: 'cl', name: 'Chile', lat: -33.4489, lng: -70.6693 },
   { id: 'za', name: 'South Africa', lat: -25.7479, lng: 28.2293 },
@@ -63,26 +107,67 @@ const countries = [
 
 const ports = [
   { id: 'port-shanghai', name: 'Port of Shanghai', lat: 31.2304, lng: 121.4737, country: 'cn' },
+  { id: 'port-ningbo', name: 'Port of Ningbo-Zhoushan', lat: 29.8782, lng: 121.5495, country: 'cn' },
   { id: 'port-shenzhen', name: 'Port of Shenzhen (Yantian)', lat: 22.561, lng: 114.278, country: 'cn' },
-  { id: 'port-la', name: 'Port of Los Angeles', lat: 33.740, lng: -118.271, country: 'us' },
-  { id: 'port-rotterdam', name: 'Port of Rotterdam', lat: 51.951, lng: 4.142, country: 'nl' },
+  { id: 'port-guangzhou', name: 'Port of Guangzhou', lat: 23.1103, lng: 113.2644, country: 'cn' },
+  { id: 'port-qingdao', name: 'Port of Qingdao', lat: 36.0662, lng: 120.3826, country: 'cn' },
+  { id: 'port-tianjin', name: 'Port of Tianjin', lat: 39.3434, lng: 117.3616, country: 'cn' },
+  { id: 'port-hk', name: 'Port of Hong Kong', lat: 22.308, lng: 114.161, country: 'cn' },
   { id: 'port-singapore', name: 'Port of Singapore', lat: 1.264, lng: 103.840, country: 'sg' },
   { id: 'port-busan', name: 'Port of Busan', lat: 35.1028, lng: 129.0403, country: 'kr' },
   { id: 'port-yokohama', name: 'Port of Yokohama', lat: 35.4437, lng: 139.6380, country: 'jp' },
-  { id: 'port-hk', name: 'Port of Hong Kong', lat: 22.308, lng: 114.161, country: 'cn' },
+  { id: 'port-rotterdam', name: 'Port of Rotterdam', lat: 51.951, lng: 4.142, country: 'nl' },
   { id: 'port-antwerp', name: 'Port of Antwerp', lat: 51.263, lng: 4.399, country: 'be' },
+  { id: 'port-hamburg', name: 'Port of Hamburg', lat: 53.5461, lng: 9.9665, country: 'de' },
+  { id: 'port-algeciras', name: 'Port of Algeciras', lat: 36.1333, lng: -5.4500, country: 'es' },
+  { id: 'port-nynj', name: 'Port of New York/New Jersey', lat: 40.6681, lng: -74.0451, country: 'us' },
+  { id: 'port-la', name: 'Port of Los Angeles', lat: 33.740, lng: -118.271, country: 'us' },
+  { id: 'port-longbeach', name: 'Port of Long Beach', lat: 33.7676, lng: -118.1997, country: 'us' },
+  { id: 'port-savannah', name: 'Port of Savannah', lat: 32.0823, lng: -81.0998, country: 'us' },
+  { id: 'port-jebelali', name: 'Port of Jebel Ali (Dubai)', lat: 25.0126, lng: 55.0615, country: 'ae' },
 ]
 
+// Companies with multiple facilities (granular lat/lng)
 const companies = [
-  { id: 'tsmc', name: 'TSMC', country: 'tw', type: 'Semiconductor Fab', lat: 24.813, lng: 120.967 },
-  { id: 'foxconn', name: 'Foxconn', country: 'cn', type: 'EMS/Assembly', lat: 22.756, lng: 114.064 },
-  { id: 'samsung', name: 'Samsung Electronics', country: 'kr', type: 'Semiconductor + OEM', lat: 37.263, lng: 127.028 },
-  { id: 'lgchem', name: 'LG Chem', country: 'kr', type: 'Battery', lat: 37.5665, lng: 126.978 },
-  { id: 'catl', name: 'CATL', country: 'cn', type: 'Battery', lat: 24.489, lng: 118.089 },
-  { id: 'byd', name: 'BYD', country: 'cn', type: 'Battery + OEM', lat: 22.555, lng: 113.883 },
-  { id: 'apple', name: 'Apple', country: 'us', type: 'OEM', lat: 37.3349, lng: -122.009 },
-  { id: 'xiaomi', name: 'Xiaomi', country: 'cn', type: 'OEM', lat: 39.983, lng: 116.312 },
-  { id: 'sony', name: 'Sony', country: 'jp', type: 'OEM', lat: 35.6895, lng: 139.6917 },
+  { id: 'tsmc', name: 'TSMC', type: 'Semiconductor Fab', facilities: [
+    { id: 'hsinchu', country: 'tw', lat: 24.813, lng: 120.967, label: 'Hsinchu' },
+    { id: 'tainan', country: 'tw', lat: 22.999, lng: 120.226, label: 'Tainan' },
+    { id: 'taichung', country: 'tw', lat: 24.147, lng: 120.673, label: 'Taichung' },
+    { id: 'phoenix', country: 'us', lat: 33.4484, lng: -112.0740, label: 'Phoenix' },
+    { id: 'kumamoto', country: 'jp', lat: 32.8031, lng: 130.7079, label: 'Kumamoto' },
+  ]},
+  { id: 'foxconn', name: 'Foxconn', type: 'EMS/Assembly', facilities: [
+    { id: 'shenzhen', country: 'cn', lat: 22.756, lng: 114.064, label: 'Shenzhen' },
+    { id: 'zhengzhou', country: 'cn', lat: 34.7466, lng: 113.6254, label: 'Zhengzhou' },
+    { id: 'chennai', country: 'in', lat: 13.0827, lng: 80.2707, label: 'Chennai' },
+    { id: 'guanajuato', country: 'mx', lat: 21.0190, lng: -101.2574, label: 'Guanajuato' },
+  ]},
+  { id: 'samsung', name: 'Samsung Electronics', type: 'Semiconductor + OEM', facilities: [
+    { id: 'suwon', country: 'kr', lat: 37.263, lng: 127.028, label: 'Suwon' },
+    { id: 'hwaseong', country: 'kr', lat: 37.199, lng: 127.028, label: 'Hwaseong' },
+    { id: 'pyeongtaek', country: 'kr', lat: 36.992, lng: 127.113, label: 'Pyeongtaek' },
+  ]},
+  { id: 'lgchem', name: 'LG Chem', type: 'Battery', facilities: [
+    { id: 'ochang', country: 'kr', lat: 36.7133, lng: 127.4897, label: 'Ochang' },
+    { id: 'nanjing', country: 'cn', lat: 32.0603, lng: 118.7969, label: 'Nanjing' },
+  ]},
+  { id: 'catl', name: 'CATL', type: 'Battery', facilities: [
+    { id: 'ningde', country: 'cn', lat: 26.6617, lng: 119.5220, label: 'Ningde' },
+    { id: 'yibin', country: 'cn', lat: 28.7517, lng: 104.6417, label: 'Yibin' },
+  ]},
+  { id: 'byd', name: 'BYD', type: 'Battery + OEM', facilities: [
+    { id: 'shenzhen', country: 'cn', lat: 22.555, lng: 113.883, label: 'Shenzhen' },
+    { id: 'xiAn', country: 'cn', lat: 34.3416, lng: 108.9398, label: 'Xi’an' },
+  ]},
+  { id: 'apple', name: 'Apple', type: 'OEM', facilities: [
+    { id: 'cupertino', country: 'us', lat: 37.3349, lng: -122.009, label: 'Cupertino' },
+  ]},
+  { id: 'xiaomi', name: 'Xiaomi', type: 'OEM', facilities: [
+    { id: 'beijing', country: 'cn', lat: 39.983, lng: 116.312, label: 'Beijing' },
+  ]},
+  { id: 'sony', name: 'Sony', type: 'OEM', facilities: [
+    { id: 'tokyo', country: 'jp', lat: 35.6895, lng: 139.6917, label: 'Tokyo' },
+  ]},
 ]
 
 const materials = [
@@ -108,23 +193,23 @@ function buildTradeFlows() {
   // Countries as nodes
   countries.forEach(c => {
     const [color, fill] = colorFor('country')
-    rows.push([`country-${c.id}`, c.name, c.name, 'Country (trade node)', color, fill, 1, 1, c.lat, c.lng])
+    rows.push(nodeRow({ id: `country-${c.id}`, name: c.name, label: c.name, description: 'Country (trade node)', color, fillColor: fill, weight: 1, rawWeight: 1, lat: c.lat, lng: c.lng }))
   })
-  // Commodity categories
   const commodities = ['HS-8507 Batteries','HS-8517 Smartphones','HS-8542 Integrated Circuits','HS-8528 Displays']
-  const years = [2019,2020,2021,2022,2023,2024]
-  function randBetween(a,b){ return Math.round(a + Math.random()*(b-a)) }
-  // Generate flows between top pairs
+  const years = [2018,2019,2020,2021,2022,2023,2024,2025]
   const pairs = [
-    ['cn','us'],['cn','de'],['kr','us'],['tw','cn'],['tw','us'],['jp','us'],['sg','us'],['cn','in'],['vn','us'],['mx','us']
+    ['cn','us'],['cn','de'],['kr','us'],['tw','cn'],['tw','us'],['jp','us'],['sg','us'],['cn','in'],['vn','us'],['mx','us'],
+    ['cn','gb'],['cn','nl'],['cn','fr'],['cn','it'],['cn','es']
   ]
+  function randBetween(a,b){ return Math.round(a + Math.random()*(b-a)) }
   pairs.forEach(([src,dst]) => {
     commodities.forEach((comm,i) => {
       years.forEach(y => {
         const v = randBetween(200, 1200) * (i+1)
         const label = `${comm} ${y}`
-        const [_, __] = colorFor('country')
-        rows.push([,,,,,,,,,,,,'',`country-${src}`,`country-${dst}`,label,'#3f51b5',v,label,'arrow'])
+        const start = `${y}-01-01`
+        const end = `${y}-12-31`
+        rows.push(edgeRow({ source: `country-${src}`, target: `country-${dst}`, edgeLabel: label, edgeColor: '#3f51b5', edgeWeight: v, relationship: label, start, end, time: String(y), date: start }))
       })
     })
   })
@@ -133,47 +218,102 @@ function buildTradeFlows() {
 
 function buildCompanyChains() {
   const rows = []
+  // Facility nodes
   companies.forEach(co => {
     const [color, fill] = colorFor('company')
-    rows.push([`co-${co.id}`, co.name, co.type, `${co.type} (${co.country.toUpperCase()})`, color, fill, 5, 5, co.lat, co.lng, '', '', '', '', '', '', '', '', '', '', '', '🏭'])
+    co.facilities.forEach(f => {
+      rows.push(nodeRow({ id: `co-${co.id}-${f.id}`, name: `${co.name} ${f.label}`, label: co.type, description: `${co.type} (${co.name})`, color, fillColor: fill, weight: 5, rawWeight: 5, lat: f.lat, lng: f.lng, emoji: '🏭' }))
+    })
   })
-  // Supplier → OEM edges
-  const supplierTo = [
-    ['tsmc','apple','SoC supply'], ['tsmc','xiaomi','SoC supply'], ['samsung','apple','Display supply'], ['lgchem','foxconn','Battery cells'], ['catl','foxconn','Battery cells'], ['byd','xiaomi','Battery pack']
+  // Supplier → OEM facility-level edges per quarter
+  const relations = [
+    // SoC: TSMC → Foxconn (assembly) & OEMs
+    ['tsmc-hsinchu','foxconn-zhengzhou','SoC supply'],
+    ['tsmc-tainan','foxconn-shenzhen','SoC supply'],
+    ['tsmc-taichung','xiaomi-beijing','SoC supply'],
+    // Displays / Components: Samsung → Foxconn / Apple
+    ['samsung-hwaseong','foxconn-zhengzhou','Display supply'],
+    ['samsung-pyeongtaek','apple-cupertino','Display design/coordination'],
+    // Batteries: CATL/LG → Foxconn, BYD → Xiaomi
+    ['lgchem-ochang','foxconn-zhengzhou','Battery cells'],
+    ['catl-ningde','foxconn-zhengzhou','Battery cells'],
+    ['byd-xiAn','xiaomi-beijing','Battery pack'],
   ]
-  supplierTo.forEach(([s,t,label]) => {
-    rows.push([,,,,,,,,,,,,'',`co-${s}`,`co-${t}`,label,'#009688',50,label,'arrow'])
+  const quarters = [
+    ['2023-01-01','2023-03-31','2023Q1'],
+    ['2023-04-01','2023-06-30','2023Q2'],
+    ['2023-07-01','2023-09-30','2023Q3'],
+    ['2023-10-01','2023-12-31','2023Q4'],
+    ['2024-01-01','2024-03-31','2024Q1'],
+    ['2024-04-01','2024-06-30','2024Q2'],
+    ['2024-07-01','2024-09-30','2024Q3'],
+    ['2024-10-01','2024-12-31','2024Q4'],
+  ]
+  function w(base){ return Math.round(base * (0.8 + Math.random()*0.4)) }
+  relations.forEach(([s,t,label]) => {
+    quarters.forEach(([start,end,q]) => {
+      const [sid, sfac] = s.split('-')
+      const [tid, tfac] = t.split('-')
+      rows.push(edgeRow({ source: `co-${sid}-${sfac}`, target: `co-${tid}-${tfac}`, edgeLabel: label, edgeColor: '#009688', edgeWeight: w(50), relationship: label, start, end, time: q, date: start }))
+    })
   })
   return rows
 }
 
+
 function buildLogistics() {
   const rows = []
+  // Port nodes
   ports.forEach(p => {
     const [color, fill] = colorFor('port')
-    rows.push([p.id, p.name, p.name, 'Seaport', color, fill, 3, 3, p.lat, p.lng, '', '', '', '', '', '', '', '', '', '', '', '🛳️'])
+    rows.push(nodeRow({ id: p.id, name: p.name, label: p.name, description: 'Seaport', color, fillColor: fill, weight: 3, rawWeight: 3, lat: p.lat, lng: p.lng, emoji: '🛳️' }))
   })
-  // Connect factory areas to ports and to destinations
-  const edges = [
-    ['co-foxconn','port-shenzhen','export electronics','#2196f3',200],
-    ['co-samsung','port-busan','export components','#2196f3',120],
-    ['co-tsmc','port-yokohama','export wafers','#2196f3',80],
-    ['port-shenzhen','port-la','transpacific lane','#3f51b5',400],
-    ['port-busan','port-la','transpacific lane','#3f51b5',220],
-    ['port-yokohama','port-la','transpacific lane','#3f51b5',160],
+  // Connect factory areas to ports and port-to-port lanes
+  const factoryToPort = [
+    ['co-foxconn-shenzhen','port-shenzhen','export electronics'],
+    ['co-foxconn-zhengzhou','port-shanghai','export electronics'],
+    ['co-samsung-pyeongtaek','port-busan','export components'],
+    ['co-tsmc-kumamoto','port-yokohama','export wafers'],
   ]
-  edges.forEach(([s,t,label,color,w]) => {
-    rows.push([,,,,,,,,,,,,'',s,t,label,color,w,label,'arrow'])
+  const portLanes = [
+    ['port-shenzhen','port-la','transpacific lane'],
+    ['port-shanghai','port-longbeach','transpacific lane'],
+    ['port-busan','port-la','transpacific lane'],
+    ['port-yokohama','port-nynj','transpacific lane'],
+    ['port-singapore','port-rotterdam','asia-europe lane'],
+    ['port-ningbo','port-antwerp','asia-europe lane'],
+    ['port-jebelali','port-rotterdam','middle-east-europe lane'],
+  ]
+  // monthly series for 2024
+  const months = [
+    ['2024-01-01','2024-01-31','2024-01'],['2024-02-01','2024-02-29','2024-02'],
+    ['2024-03-01','2024-03-31','2024-03'],['2024-04-01','2024-04-30','2024-04'],
+    ['2024-05-01','2024-05-31','2024-05'],['2024-06-01','2024-06-30','2024-06'],
+    ['2024-07-01','2024-07-31','2024-07'],['2024-08-01','2024-08-31','2024-08'],
+    ['2024-09-01','2024-09-30','2024-09'],['2024-10-01','2024-10-31','2024-10'],
+    ['2024-11-01','2024-11-30','2024-11'],['2024-12-01','2024-12-31','2024-12'],
+  ]
+  function wm(base){ return Math.round(base * (0.7 + Math.random()*0.6)) }
+  factoryToPort.forEach(([s,t,label]) => {
+    months.forEach(([start,end,m]) => {
+      rows.push(edgeRow({ source: s, target: t, edgeLabel: label, edgeColor: '#2196f3', edgeWeight: wm(120), relationship: label, start, end, time: m, date: start }))
+    })
+  })
+  portLanes.forEach(([s,t,label]) => {
+    months.forEach(([start,end,m]) => {
+      rows.push(edgeRow({ source: s, target: t, edgeLabel: label, edgeColor: '#3f51b5', edgeWeight: wm(300), relationship: label, start, end, time: m, date: start }))
+    })
   })
   return rows
 }
 
 function buildMaterialFlows() {
   const rows = []
+  // Raw material extraction nodes at source countries
   materials.forEach(m => {
     const c = countries.find(cc => cc.id === m.from) || countries[0]
     const [color, fill] = colorFor('material')
-    rows.push([`mat-${m.id}`, m.name, m.name, `Raw material (${m.name})`, color, fill, 2, 2, c.lat, c.lng, '', '', '', '', '', '', '', '', '', '', '', '⛏️'])
+    rows.push(nodeRow({ id: `mat-${m.id}`, name: m.name, label: m.name, description: `Raw material (${m.name})`, color, fillColor: fill, weight: 2, rawWeight: 2, lat: c.lat, lng: c.lng, emoji: '⛏️' }))
   })
   // Transformation nodes
   const transformations = [
@@ -184,7 +324,7 @@ function buildMaterialFlows() {
   ]
   transformations.forEach(t => {
     const [color, fill] = colorFor('product')
-    rows.push([`proc-${t.id}`, t.name, t.name, 'Process/Product stage', color, fill, 2, 2, 0, 0])
+    rows.push(nodeRow({ id: `proc-${t.id}`, name: t.name, label: t.name, description: 'Process/Product stage', color, fillColor: fill, weight: 2, rawWeight: 2, lat: 0, lng: 0 }))
   })
   const chain = [
     ['mat-lithium','proc-chem-refine','refining'],
@@ -194,24 +334,32 @@ function buildMaterialFlows() {
     ['proc-battery-cell','proc-battery-pack','pack assembly'],
     ['proc-battery-pack','proc-smartphone','final assembly'],
   ]
+  const years = [['2024-01-01','2024-12-31','2024'],['2025-01-01','2025-12-31','2025']]
   chain.forEach(([s,t,label]) => {
-    rows.push([,,,,,,,,,,,,'',s,t,label,'#795548',50,label,'arrow'])
+    years.forEach(([start,end,y]) => {
+      rows.push(edgeRow({ source: s, target: t, edgeLabel: label, edgeColor: '#795548', edgeWeight: 50, relationship: label, start, end, time: y, date: start }))
+    })
   })
   return rows
 }
 
 function buildESGImpacts() {
   const rows = []
-  // Treat ESG as node attributes on companies; add a few edges to a pseudo node for impact category
   const esgHub = 'esg-co2'
-  rows.push([esgHub, 'CO2e Impact', 'CO2e', 'Aggregated emissions impact hub', '#9e9e9e', '#eeeeee', 1, 1, 0, 0])
+  rows.push(nodeRow({ id: esgHub, name: 'CO2e Impact', label: 'CO2e', description: 'Aggregated emissions impact hub', color: '#9e9e9e', fillColor: '#eeeeee', weight: 1, rawWeight: 1, lat: 0, lng: 0 }))
   const picks = ['foxconn','tsmc','samsung','lgchem','catl','byd']
+  const years = [2020,2021,2022,2023,2024]
   picks.forEach(id => {
     const co = companies.find(c => c.id === id)
     const [color, fill] = colorFor('company')
+    const f = co.facilities[0]
     // node with additional ESG fields baked in notes
-    rows.push([`esg-${id}`, `${co.name} ESG`, co.type, `ESG overlay for ${co.name}` , color, fill, 5, 5, co.lat, co.lng, '', '', '', '', '', '', '', '', '', '', '', ''])
-    rows.push([,,,,,,,,,,,,'',`esg-${id}`, esgHub, 'annual CO2e (kt)', '#f44336', Math.round(100+Math.random()*400), 'CO2e', 'arrow'])
+    rows.push(nodeRow({ id: `esg-${id}`, name: `${co.name} ESG`, label: co.type, description: `ESG overlay for ${co.name}`, color, fillColor: fill, weight: 5, rawWeight: 5, lat: f.lat, lng: f.lng }))
+    years.forEach(y => {
+      const start = `${y}-01-01`
+      const end = `${y}-12-31`
+      rows.push(edgeRow({ source: `esg-${id}`, target: esgHub, edgeLabel: 'annual CO2e (kt)', edgeColor: '#f44336', edgeWeight: Math.round(100+Math.random()*400), relationship: 'CO2e', start, end, time: String(y), date: start }))
+    })
   })
   return rows
 }
