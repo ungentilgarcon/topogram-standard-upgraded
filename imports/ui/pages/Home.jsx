@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useMemo, useState } from 'react';
 import { useSubscribe, useFind, useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor'
 // Ensure client accounts functions like Meteor.loginWithPassword are registered
@@ -42,9 +42,12 @@ const normalizeId = (value) => {
 export default function Home() {
   console.debug && console.debug('Home component rendered');
 
-  // subscribe to all topograms for local/migration view
-  const isReady = useSubscribe('allTopograms');
+  // Pagination state for the main list
+  const PER_PAGE_ALL = 200
+  const [pageAll, setPageAll] = useState(1)
+  const isReady = useSubscribe('topograms.paginated', useMemo(() => ({ page: pageAll, limit: PER_PAGE_ALL }), [pageAll]))
   const tops = useFind(() => Topograms.find({}, { sort: { createdAt: -1 } }));
+  const [totalAll, setTotalAll] = useState(0)
   const [importModalOpen, setImportModalOpen] = useState(false)
   const [loginOpen, setLoginOpen] = useState(false)
   const [loginEmail, setLoginEmail] = useState('')
@@ -227,6 +230,14 @@ export default function Home() {
     } catch (e) {}
   }, [isReady && isReady(), topsList.length]);
 
+  // Fetch total count for pagination (main list)
+  useEffect(() => {
+    Meteor.call('topograms.count', {}, (err, res) => {
+      if (err) return console.warn('topograms.count failed', err)
+      setTotalAll(res || 0)
+    })
+  }, [pageAll])
+
   useEffect(() => {
     // query server for admin status
     if (!userId) return setIsAdmin(false)
@@ -245,30 +256,24 @@ export default function Home() {
 
   const toggleFolder = (name) => setExpandedFolders(prev => ({ ...prev, [name]: !prev[name] }))
 
-  // group topograms by `folder` field so imported folders (eg. 'Debian') show first
-  const folderMap = {}
-  const noFolder = []
-  topsList.forEach(t => {
-    if (t && t.folder) {
-      folderMap[t.folder] = folderMap[t.folder] || []
-      folderMap[t.folder].push(t)
-    } else {
-      noFolder.push(t)
-    }
-  })
+  // Folder list is now driven by server counts
+  const [folderList, setFolderList] = useState([])
+  useEffect(() => {
+    Meteor.call('topograms.folderCounts', (err, res) => {
+      if (err) return console.warn('topograms.folderCounts failed', err)
+      setFolderList(Array.isArray(res) ? res : [])
+    })
+  }, [])
 
   const exportReady = !!(exportConfig && exportConfig.id && exportConfig.title && exportConfig.networkRenderer && exportConfig.geoRenderer)
   const exportDownloadHref = exportResult && exportResult.filename ? (`/_exports/${exportResult.filename}`) : null
 
-  // Auto-expand all folders present in folderMap so they show as folders on load
+  // Auto-expand the first folder (if any) as a cue
   useEffect(() => {
-    const keys = Object.keys(folderMap || {})
-    if (keys.length) {
-      const expanded = {}
-      keys.forEach(k => { expanded[k] = true })
-      setExpandedFolders(expanded)
+    if (folderList && folderList.length) {
+      setExpandedFolders(prev => (Object.keys(prev).length ? prev : { [folderList[0].name]: true }))
     }
-  }, [topsList])
+  }, [folderList])
 
   // Debug panel toggle state - default true while investigating missing folders
   const [showDebug, setShowDebug] = useState(true)
@@ -431,7 +436,7 @@ export default function Home() {
           </DialogActions>
         </form>
       </Dialog>
-  {topsList.length === 0 ? (
+  {topsList.length === 0 && (folderList.length === 0) ? (
         <div>
           <p>No topograms found.</p>
           <details>
@@ -442,13 +447,17 @@ export default function Home() {
       ) : (
         <div>
           <ul className="topogram-list">
-            {Object.keys(folderMap).map(folderName => (
+            {folderList.map(info => {
+              const folderName = info && info.name
+              const count = info && info.count
+              if (!folderName) return null
+              return (
               <li key={`folder-${folderName}`} className="topogram-item folder-item">
                 <div className="folder-header" onClick={() => toggleFolder(folderName)} role="button" tabIndex={0} onKeyPress={() => toggleFolder(folderName)}>
                   <span className="folder-icon" aria-hidden>📁</span>
                   <div className="folder-meta">
                     <strong className="folder-name">{folderName}</strong>
-                    <small className="folder-count">({folderMap[folderName].length} maps)</small>
+                    <small className="folder-count">({count} maps)</small>
                   </div>
                   {isAdmin ? (
                     <div className="folder-actions">
@@ -457,7 +466,7 @@ export default function Home() {
                         size="small"
                         color="error"
                         variant="outlined"
-                        onClick={(event) => { event.stopPropagation(); handleDeleteFolder(folderName, folderMap[folderName].length) }}
+                        onClick={(event) => { event.stopPropagation(); handleDeleteFolder(folderName, count) }}
                         sx={{ ml: 'auto' }}
                       >
                         Delete folder
@@ -466,28 +475,17 @@ export default function Home() {
                   ) : null}
                 </div>
                 {expandedFolders[folderName] ? (
-                  <div className="folder-contents">
-                    {folderMap[folderName].map(t => {
-                      const docId = normalizeId(t && t._id)
-                      const keyId = docId || String(t && t._id || '')
-                      const route = docId ? `/t/${docId}` : `/t/${encodeURIComponent(String(t && t._id || ''))}`
-                      return (
-                        <div key={keyId} className="topogram-item folder-card">
-                          <Link to={route} className="topogram-link">{t.title || t.name || docId || String(t && t._id)}</Link>
-                          {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
-                          {isAdmin ? (
-                            <div className="topogram-admin-actions">
-                              <Button size="small" color="error" variant="outlined" onClick={() => handleDeleteTopogram(t)}>Delete</Button>
-                              <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => openExportDialog(t)}>Export</Button>
-                            </div>
-                          ) : null}
-                        </div>
-                      )
-                    })}
-                  </div>
+                  <FolderSection
+                    name={folderName}
+                    perPage={50}
+                    isAdmin={isAdmin}
+                    onDeleteTopogram={handleDeleteTopogram}
+                    onExport={openExportDialog}
+                  />
                 ) : null}
               </li>
-            ))}
+              )
+            })}
             {noFolder.map(t => {
               const docId = normalizeId(t && t._id)
               const keyId = docId || String(t && t._id || '')
@@ -507,6 +505,13 @@ export default function Home() {
             })}
           </ul>
 
+          {/* Main list pagination */}
+          <div className="pagination-bar">
+            <button type="button" className="page-btn" disabled={pageAll <= 1} onClick={() => setPageAll(p => Math.max(1, p - 1))}>Previous</button>
+            <span className="page-info">Page {pageAll} / {Math.max(1, Math.ceil((totalAll || 0) / PER_PAGE_ALL))}</span>
+            <button type="button" className="page-btn" disabled={pageAll >= Math.ceil((totalAll || 0) / PER_PAGE_ALL)} onClick={() => setPageAll(p => p + 1)}>Next</button>
+          </div>
+
           {showDebug ? (
             <div className="folder-debug-panel">
               <div className="debug-header">
@@ -516,7 +521,7 @@ export default function Home() {
               <div className="debug-body">
                 <div><strong>Subscription ready:</strong> {String(isReady())}</div>
                 <div><strong>topsList.length:</strong> {topsList.length}</div>
-                <div><strong>Folders:</strong> {Object.keys(folderMap).join(', ') || '(none)'}</div>
+                <div><strong>Folders:</strong> {folderList.map(f => f.name).join(', ') || '(none)'}</div>
               </div>
               <details className="debug-details">
                 <summary>First 20 received topograms (client)</summary>
@@ -528,4 +533,45 @@ export default function Home() {
       )}
     </div>
   );
+}
+
+function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport }) {
+  const [page, setPage] = useState(1)
+  const ready = useSubscribe('topograms.paginated', useMemo(() => ({ folder: name, page, limit: perPage }), [name, page, perPage]))
+  const items = useFind(() => Topograms.find({ folder: name }, { sort: { createdAt: -1 } }))
+  const [total, setTotal] = useState(0)
+  useEffect(() => {
+    Meteor.call('topograms.count', { folder: name }, (err, res) => {
+      if (err) return console.warn('topograms.count folder failed', err)
+      setTotal(res || 0)
+    })
+  }, [name])
+  const totalPages = Math.max(1, Math.ceil((total || 0) / perPage))
+
+  return (
+    <div className="folder-contents">
+      {items.map(t => {
+        const docId = normalizeId(t && t._id)
+        const keyId = docId || String(t && t._id || '')
+        const route = docId ? `/t/${docId}` : `/t/${encodeURIComponent(String(t && t._id || ''))}`
+        return (
+          <div key={keyId} className="topogram-item folder-card">
+            <Link to={route} className="topogram-link">{t.title || t.name || docId || String(t && t._id)}</Link>
+            {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
+            {isAdmin ? (
+              <div className="topogram-admin-actions">
+                <Button size="small" color="error" variant="outlined" onClick={() => onDeleteTopogram(t)}>Delete</Button>
+                <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => onExport(t)}>Export</Button>
+              </div>
+            ) : null}
+          </div>
+        )
+      })}
+      <div className="pagination-bar">
+        <button type="button" className="page-btn" disabled={page <= 1} onClick={() => setPage(p => Math.max(1, p - 1))}>Previous</button>
+        <span className="page-info">Page {page} / {totalPages}</span>
+        <button type="button" className="page-btn" disabled={page >= totalPages} onClick={() => setPage(p => p + 1)}>Next</button>
+      </div>
+    </div>
+  )
 }
