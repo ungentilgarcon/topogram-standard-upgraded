@@ -44,34 +44,63 @@ function blankRow() {
 
 function nodeRow({ id, name, label, description, color, fillColor, weight = 1, rawWeight = 1, lat = '', lng = '', emoji = '' }) {
   const r = blankRow()
-  r[H.indexOf('id')] = id
-  r[H.indexOf('name')] = name
-  r[H.indexOf('label')] = label
-  r[H.indexOf('description')] = description
-  r[H.indexOf('color')] = color
-  r[H.indexOf('fillColor')] = fillColor
-  r[H.indexOf('weight')] = weight
-  r[H.indexOf('rawWeight')] = rawWeight
-  r[H.indexOf('lat')] = lat
-  r[H.indexOf('lng')] = lng
-  r[H.indexOf('emoji')] = emoji
+  r[0] = id
+  r[1] = name
+  r[2] = label || name
+  r[3] = description || ''
+  r[4] = color
+  r[5] = fillColor
+  r[6] = weight
+  r[7] = rawWeight
+  r[8] = lat
+  r[9] = lng
+  r[21] = emoji || ''
   return r
 }
 
-function edgeRow({ source, target, edgeLabel, edgeColor = '#888', edgeWeight = 1, relationship = edgeLabel, start = '', end = '', time = '', date = '', enlightement = 'arrow' }) {
+function edgeRow({ start = '', end = '', time = '', date = '', source, target, edgeLabel = '', edgeColor = '#999', edgeWeight = 1, relationship = '', enlightement = 'arrow' }) {
   const r = blankRow()
-  r[H.indexOf('start')] = start
-  r[H.indexOf('end')] = end
-  r[H.indexOf('time')] = time
-  r[H.indexOf('date')] = date
-  r[H.indexOf('source')] = source
-  r[H.indexOf('target')] = target
-  r[H.indexOf('edgeLabel')] = edgeLabel
-  r[H.indexOf('edgeColor')] = edgeColor
-  r[H.indexOf('edgeWeight')] = edgeWeight
-  r[H.indexOf('relationship')] = relationship
-  r[H.indexOf('enlightement')] = enlightement
+  r[10] = start
+  r[11] = end
+  r[12] = time
+  r[13] = date || start
+  r[14] = source
+  r[15] = target
+  r[16] = edgeLabel
+  r[17] = edgeColor
+  r[18] = edgeWeight
+  r[19] = relationship || edgeLabel
+  r[20] = enlightement
   return r
+}
+
+// Helpers for time periods
+function getLastNYears(n) {
+  const current = new Date().getFullYear()
+  const out = []
+  for (let i = n - 1; i >= 0; i--) out.push(current - i)
+  return out
+}
+function quartersForYears(years) {
+  const q = []
+  years.forEach(y => {
+    q.push([`${y}-01-01`, `${y}-03-31`, `${y}Q1`])
+    q.push([`${y}-04-01`, `${y}-06-30`, `${y}Q2`])
+    q.push([`${y}-07-01`, `${y}-09-30`, `${y}Q3`])
+    q.push([`${y}-10-01`, `${y}-12-31`, `${y}Q4`])
+  })
+  return q
+}
+function monthsForYears(years) {
+  const m = []
+  years.forEach(y => {
+    for (let month = 1; month <= 12; month++) {
+      const mm = String(month).padStart(2, '0')
+      const lastDay = new Date(y, month, 0).getDate()
+      m.push([`${y}-${mm}-01`, `${y}-${mm}-${String(lastDay).padStart(2, '0')}`, `${y}-${mm}`])
+    }
+  })
+  return m
 }
 
 // Expanded country catalog (capital coords approximated)
@@ -157,7 +186,7 @@ const companies = [
   ]},
   { id: 'byd', name: 'BYD', type: 'Battery + OEM', facilities: [
     { id: 'shenzhen', country: 'cn', lat: 22.555, lng: 113.883, label: 'Shenzhen' },
-    { id: 'xiAn', country: 'cn', lat: 34.3416, lng: 108.9398, label: 'Xi’an' },
+    { id: 'xian', country: 'cn', lat: 34.3416, lng: 108.9398, label: 'Xi\'an' },
   ]},
   { id: 'apple', name: 'Apple', type: 'OEM', facilities: [
     { id: 'cupertino', country: 'us', lat: 37.3349, lng: -122.009, label: 'Cupertino' },
@@ -188,15 +217,18 @@ function colorFor(type) {
   }
 }
 
+// Row helpers using rows push
+function addNode(rows, params) { rows.push(nodeRow(params)) }
+function addEdge(rows, params) { rows.push(edgeRow(params)) }
+
 function buildTradeFlows() {
   const rows = []
-  // Countries as nodes
+  const [color, fill] = colorFor('country')
   countries.forEach(c => {
-    const [color, fill] = colorFor('country')
-    rows.push(nodeRow({ id: `country-${c.id}`, name: c.name, label: c.name, description: 'Country (trade node)', color, fillColor: fill, weight: 1, rawWeight: 1, lat: c.lat, lng: c.lng }))
+    addNode(rows, { id: `country-${c.id}`, name: c.name, label: c.name, description: 'Country (trade node)', color, fillColor: fill, weight: 1, rawWeight: 1, lat: c.lat, lng: c.lng })
   })
   const commodities = ['HS-8507 Batteries','HS-8517 Smartphones','HS-8542 Integrated Circuits','HS-8528 Displays']
-  const years = [2018,2019,2020,2021,2022,2023,2024,2025]
+  const years = getLastNYears(7)
   const pairs = [
     ['cn','us'],['cn','de'],['kr','us'],['tw','cn'],['tw','us'],['jp','us'],['sg','us'],['cn','in'],['vn','us'],['mx','us'],
     ['cn','gb'],['cn','nl'],['cn','fr'],['cn','it'],['cn','es']
@@ -207,9 +239,7 @@ function buildTradeFlows() {
       years.forEach(y => {
         const v = randBetween(200, 1200) * (i+1)
         const label = `${comm} ${y}`
-        const start = `${y}-01-01`
-        const end = `${y}-12-31`
-        rows.push(edgeRow({ source: `country-${src}`, target: `country-${dst}`, edgeLabel: label, edgeColor: '#3f51b5', edgeWeight: v, relationship: label, start, end, time: String(y), date: start }))
+        addEdge(rows, { start: `${y}-01-01`, end: `${y}-12-31`, time: String(y), date: `${y}-01-01`, source: `country-${src}`, target: `country-${dst}`, edgeLabel: label, edgeColor: '#3f51b5', edgeWeight: v, relationship: label })
       })
     })
   })
@@ -218,57 +248,38 @@ function buildTradeFlows() {
 
 function buildCompanyChains() {
   const rows = []
-  // Facility nodes
+  const [color, fill] = colorFor('company')
   companies.forEach(co => {
-    const [color, fill] = colorFor('company')
     co.facilities.forEach(f => {
-      rows.push(nodeRow({ id: `co-${co.id}-${f.id}`, name: `${co.name} ${f.label}`, label: co.type, description: `${co.type} (${co.name})`, color, fillColor: fill, weight: 5, rawWeight: 5, lat: f.lat, lng: f.lng, emoji: '🏭' }))
+      addNode(rows, { id: `co-${co.id}-${f.id}`, name: `${co.name} ${f.label}`, label: co.type, description: `${co.type} (${co.name})`, color, fillColor: fill, weight: 5, rawWeight: 5, lat: f.lat, lng: f.lng, emoji: '🏭' })
     })
   })
-  // Supplier → OEM facility-level edges per quarter
   const relations = [
-    // SoC: TSMC → Foxconn (assembly) & OEMs
-    ['tsmc-hsinchu','foxconn-zhengzhou','SoC supply'],
-    ['tsmc-tainan','foxconn-shenzhen','SoC supply'],
-    ['tsmc-taichung','xiaomi-beijing','SoC supply'],
-    // Displays / Components: Samsung → Foxconn / Apple
-    ['samsung-hwaseong','foxconn-zhengzhou','Display supply'],
-    ['samsung-pyeongtaek','apple-cupertino','Display design/coordination'],
-    // Batteries: CATL/LG → Foxconn, BYD → Xiaomi
-    ['lgchem-ochang','foxconn-zhengzhou','Battery cells'],
-    ['catl-ningde','foxconn-zhengzhou','Battery cells'],
-    ['byd-xiAn','xiaomi-beijing','Battery pack'],
+    ['co-tsmc-hsinchu','co-foxconn-zhengzhou','SoC supply'],
+    ['co-tsmc-tainan','co-foxconn-shenzhen','SoC supply'],
+    ['co-tsmc-taichung','co-xiaomi-beijing','SoC supply'],
+    ['co-samsung-hwaseong','co-foxconn-zhengzhou','Display supply'],
+    ['co-samsung-pyeongtaek','co-apple-cupertino','Display coordination'],
+    ['co-lgchem-ochang','co-foxconn-zhengzhou','Battery cells'],
+    ['co-catl-ningde','co-foxconn-zhengzhou','Battery cells'],
+    ['co-byd-xian','co-xiaomi-beijing','Battery pack'],
   ]
-  const quarters = [
-    ['2023-01-01','2023-03-31','2023Q1'],
-    ['2023-04-01','2023-06-30','2023Q2'],
-    ['2023-07-01','2023-09-30','2023Q3'],
-    ['2023-10-01','2023-12-31','2023Q4'],
-    ['2024-01-01','2024-03-31','2024Q1'],
-    ['2024-04-01','2024-06-30','2024Q2'],
-    ['2024-07-01','2024-09-30','2024Q3'],
-    ['2024-10-01','2024-12-31','2024Q4'],
-  ]
+  const q = quartersForYears(getLastNYears(7))
   function w(base){ return Math.round(base * (0.8 + Math.random()*0.4)) }
   relations.forEach(([s,t,label]) => {
-    quarters.forEach(([start,end,q]) => {
-      const [sid, sfac] = s.split('-')
-      const [tid, tfac] = t.split('-')
-      rows.push(edgeRow({ source: `co-${sid}-${sfac}`, target: `co-${tid}-${tfac}`, edgeLabel: label, edgeColor: '#009688', edgeWeight: w(50), relationship: label, start, end, time: q, date: start }))
+    q.forEach(([start,end,qq]) => {
+      addEdge(rows, { start, end, time: qq, date: start, source: s, target: t, edgeLabel: label, edgeColor: '#009688', edgeWeight: w(50), relationship: label })
     })
   })
   return rows
 }
 
-
 function buildLogistics() {
   const rows = []
-  // Port nodes
+  const [color, fill] = colorFor('port')
   ports.forEach(p => {
-    const [color, fill] = colorFor('port')
-    rows.push(nodeRow({ id: p.id, name: p.name, label: p.name, description: 'Seaport', color, fillColor: fill, weight: 3, rawWeight: 3, lat: p.lat, lng: p.lng, emoji: '🛳️' }))
+    addNode(rows, { id: p.id, name: p.name, label: p.name, description: 'Seaport', color, fillColor: fill, weight: 3, rawWeight: 3, lat: p.lat, lng: p.lng, emoji: '🛳️' })
   })
-  // Connect factory areas to ports and port-to-port lanes
   const factoryToPort = [
     ['co-foxconn-shenzhen','port-shenzhen','export electronics'],
     ['co-foxconn-zhengzhou','port-shanghai','export electronics'],
@@ -284,24 +295,16 @@ function buildLogistics() {
     ['port-ningbo','port-antwerp','asia-europe lane'],
     ['port-jebelali','port-rotterdam','middle-east-europe lane'],
   ]
-  // monthly series for 2024
-  const months = [
-    ['2024-01-01','2024-01-31','2024-01'],['2024-02-01','2024-02-29','2024-02'],
-    ['2024-03-01','2024-03-31','2024-03'],['2024-04-01','2024-04-30','2024-04'],
-    ['2024-05-01','2024-05-31','2024-05'],['2024-06-01','2024-06-30','2024-06'],
-    ['2024-07-01','2024-07-31','2024-07'],['2024-08-01','2024-08-31','2024-08'],
-    ['2024-09-01','2024-09-30','2024-09'],['2024-10-01','2024-10-31','2024-10'],
-    ['2024-11-01','2024-11-30','2024-11'],['2024-12-01','2024-12-31','2024-12'],
-  ]
+  const months = monthsForYears(getLastNYears(7))
   function wm(base){ return Math.round(base * (0.7 + Math.random()*0.6)) }
   factoryToPort.forEach(([s,t,label]) => {
     months.forEach(([start,end,m]) => {
-      rows.push(edgeRow({ source: s, target: t, edgeLabel: label, edgeColor: '#2196f3', edgeWeight: wm(120), relationship: label, start, end, time: m, date: start }))
+      addEdge(rows, { start, end, time: m, date: start, source: s, target: t, edgeLabel: label, edgeColor: '#2196f3', edgeWeight: wm(120), relationship: label })
     })
   })
   portLanes.forEach(([s,t,label]) => {
     months.forEach(([start,end,m]) => {
-      rows.push(edgeRow({ source: s, target: t, edgeLabel: label, edgeColor: '#3f51b5', edgeWeight: wm(300), relationship: label, start, end, time: m, date: start }))
+      addEdge(rows, { start, end, time: m, date: start, source: s, target: t, edgeLabel: label, edgeColor: '#3f51b5', edgeWeight: wm(300), relationship: label })
     })
   })
   return rows
@@ -309,13 +312,12 @@ function buildLogistics() {
 
 function buildMaterialFlows() {
   const rows = []
-  // Raw material extraction nodes at source countries
+  const [matColor, matFill] = colorFor('material')
   materials.forEach(m => {
     const c = countries.find(cc => cc.id === m.from) || countries[0]
-    const [color, fill] = colorFor('material')
-    rows.push(nodeRow({ id: `mat-${m.id}`, name: m.name, label: m.name, description: `Raw material (${m.name})`, color, fillColor: fill, weight: 2, rawWeight: 2, lat: c.lat, lng: c.lng, emoji: '⛏️' }))
+    addNode(rows, { id: `mat-${m.id}`, name: m.name, label: m.name, description: `Raw material (${m.name})`, color: matColor, fillColor: matFill, weight: 2, rawWeight: 2, lat: c.lat, lng: c.lng, emoji: '⛏️' })
   })
-  // Transformation nodes
+  const [prodColor, prodFill] = colorFor('product')
   const transformations = [
     { id: 'chem-refine', name: 'Chemical Refining' },
     { id: 'battery-cell', name: 'Battery Cell' },
@@ -323,8 +325,7 @@ function buildMaterialFlows() {
     { id: 'smartphone', name: 'Smartphone' },
   ]
   transformations.forEach(t => {
-    const [color, fill] = colorFor('product')
-    rows.push(nodeRow({ id: `proc-${t.id}`, name: t.name, label: t.name, description: 'Process/Product stage', color, fillColor: fill, weight: 2, rawWeight: 2, lat: 0, lng: 0 }))
+    addNode(rows, { id: `proc-${t.id}`, name: t.name, label: t.name, description: 'Process/Product stage', color: prodColor, fillColor: prodFill, weight: 2, rawWeight: 2, lat: 0, lng: 0 })
   })
   const chain = [
     ['mat-lithium','proc-chem-refine','refining'],
@@ -334,10 +335,10 @@ function buildMaterialFlows() {
     ['proc-battery-cell','proc-battery-pack','pack assembly'],
     ['proc-battery-pack','proc-smartphone','final assembly'],
   ]
-  const years = [['2024-01-01','2024-12-31','2024'],['2025-01-01','2025-12-31','2025']]
+  const years = getLastNYears(7)
   chain.forEach(([s,t,label]) => {
-    years.forEach(([start,end,y]) => {
-      rows.push(edgeRow({ source: s, target: t, edgeLabel: label, edgeColor: '#795548', edgeWeight: 50, relationship: label, start, end, time: y, date: start }))
+    years.forEach(y => {
+      addEdge(rows, { start: `${y}-01-01`, end: `${y}-12-31`, time: String(y), date: `${y}-01-01`, source: s, target: t, edgeLabel: label, edgeColor: '#795548', edgeWeight: 50, relationship: label })
     })
   })
   return rows
@@ -345,27 +346,22 @@ function buildMaterialFlows() {
 
 function buildESGImpacts() {
   const rows = []
-  const esgHub = 'esg-co2'
-  rows.push(nodeRow({ id: esgHub, name: 'CO2e Impact', label: 'CO2e', description: 'Aggregated emissions impact hub', color: '#9e9e9e', fillColor: '#eeeeee', weight: 1, rawWeight: 1, lat: 0, lng: 0 }))
+  addNode(rows, { id: 'esg-co2', name: 'CO2e Impact', label: 'CO2e', description: 'Aggregated emissions impact hub', color: '#9e9e9e', fillColor: '#eeeeee', weight: 1, rawWeight: 1, lat: 0, lng: 0 })
   const picks = ['foxconn','tsmc','samsung','lgchem','catl','byd']
-  const years = [2020,2021,2022,2023,2024]
+  const years = getLastNYears(7)
   picks.forEach(id => {
     const co = companies.find(c => c.id === id)
     const [color, fill] = colorFor('company')
     const f = co.facilities[0]
-    // node with additional ESG fields baked in notes
-    rows.push(nodeRow({ id: `esg-${id}`, name: `${co.name} ESG`, label: co.type, description: `ESG overlay for ${co.name}`, color, fillColor: fill, weight: 5, rawWeight: 5, lat: f.lat, lng: f.lng }))
+    addNode(rows, { id: `esg-${id}`, name: `${co.name} ESG`, label: co.type, description: `ESG overlay for ${co.name}`, color, fillColor: fill, weight: 5, rawWeight: 5, lat: f.lat, lng: f.lng })
     years.forEach(y => {
-      const start = `${y}-01-01`
-      const end = `${y}-12-31`
-      rows.push(edgeRow({ source: `esg-${id}`, target: esgHub, edgeLabel: 'annual CO2e (kt)', edgeColor: '#f44336', edgeWeight: Math.round(100+Math.random()*400), relationship: 'CO2e', start, end, time: String(y), date: start }))
+      addEdge(rows, { start: `${y}-01-01`, end: `${y}-12-31`, time: String(y), date: `${y}-01-01`, source: `esg-${id}`, target: 'esg-co2', edgeLabel: 'annual CO2e (kt)', edgeColor: '#f44336', edgeWeight: Math.round(100 + Math.random()*400), relationship: 'CO2e' })
     })
   })
   return rows
 }
 
 function padRows(rows) {
-  // Ensure each row has H.length columns
   return rows.map(r => {
     const a = Array.isArray(r) ? r.slice() : []
     while (a.length < H.length) a.push('')
@@ -381,14 +377,12 @@ function main() {
     ['material_flows.topogram.csv', buildMaterialFlows()],
     ['esg_impacts.topogram.csv', buildESGImpacts()],
   ]
-  // combined file: merge all with a layer field in extra column
   let combined = []
   files.forEach(([name, rows]) => {
     const layer = name.replace('.topogram.csv','')
     combined = combined.concat(rows.map(r => {
       const a = Array.isArray(r) ? r.slice() : []
       while (a.length < H.length) a.push('')
-      // put layer tag into 'extra'
       a[H.indexOf('extra')] = (a[H.indexOf('extra')] ? a[H.indexOf('extra')] + ';' : '') + `layer=${layer}`
       return a
     }))
@@ -399,3 +393,4 @@ function main() {
 }
 
 main()
+    const years = getLastNYears(7)
