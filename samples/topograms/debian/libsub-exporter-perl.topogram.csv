@@ -1,0 +1,13 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libsub-exporter-perl","libsub-exporter-perl","libsub-exporter-perl","sophisticated exporter for custom-built routines","","","1","1","","","","Section=perl; Version=0.990-1","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libdata-optlist-perl","libdata-optlist-perl","libdata-optlist-perl","module to parse and validate simple name/value option pairs","","","1","1","","","","Section=perl; Version=0.114-1","","","","","","","",""
+"libsub-install-perl","libsub-install-perl","libsub-install-perl","module for installing subroutines into packages easily","","","1","1","","","","Section=perl; Version=0.929-1","","","","","","","",""
+"libparams-util-perl","libparams-util-perl","libparams-util-perl","Perl extension for simple stand-alone param checking functions","","","1","1","","","","Section=perl; Version=1.102-3+b1","","","","","","","",""
+"","","","","","","","","","","","","libsub-exporter-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsub-exporter-perl","libdata-optlist-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsub-exporter-perl","libsub-install-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdata-optlist-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdata-optlist-perl","libparams-util-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdata-optlist-perl","libsub-install-perl","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsub-install-perl","perl:any","Depends","#333","1","Depends","arrow","{}"

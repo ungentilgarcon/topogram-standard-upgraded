@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libasm-java","libasm-java","libasm-java","Java bytecode manipulation framework","","","1","1","","","","Section=java; Version=9.8-1","","","","","","","",""

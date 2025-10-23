@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-golang-x-text-dev","golang-golang-x-text-dev","golang-golang-x-text-dev","Supplementary Go text-related libraries","","","1","1","","","","Section=golang; Version=0.22.0-1","","","","","","","",""

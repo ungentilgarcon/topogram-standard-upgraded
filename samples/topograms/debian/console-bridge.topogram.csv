@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libconsole-bridge-dev","libconsole-bridge-dev","libconsole-bridge-dev","console bridge - development files","","","1","1","","","","Section=libdevel; Version=1.0.1+dfsg2-3+b2","","","","","","","",""
+"libconsole-bridge1.0","libconsole-bridge1.0","libconsole-bridge1.0","console bridge - library","","","1","1","","","","Section=libs; Version=1.0.1+dfsg2-3+b2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"","","","","","","","","","","","","libconsole-bridge-dev","libconsole-bridge1.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libconsole-bridge1.0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libconsole-bridge1.0","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libconsole-bridge1.0","libstdc++6","Depends","#333","1","Depends","arrow","{}"

@@ -28,7 +28,7 @@ from collections import deque
 
 PACKAGES_URL_TEMPLATE = 'http://ftp.debian.org/debian/dists/{suite}/{component}/binary-amd64/Packages.gz'
 
-HEADER = 'id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra'
+HEADER = 'id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra'
 
 # simple regex to split dependency lists and strip version constraints and alternatives
 DEP_SPLIT_RE = re.compile(r',\s*')
@@ -142,12 +142,13 @@ def write_topogram_csv(nodes, edges, outpath):
         f.write(HEADER + '\n')
         # write nodes
         for nid, n in nodes.items():
-            # id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-            row = [n['id'], n['name'], n['label'], n['description'], '', '', '1', '1', '', '', '', n.get('notes',''), '', '', '', '', '', '']
+            # id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+            row = [n['id'], n['name'], n['label'], n['description'], '', '', '1', '1', '', '', '', n.get('notes',''), '', '', '', '', '', '', '', '']
             f.write(','.join('"{}"'.format(s.replace('"','""')) for s in row) + '\n')
         # write edges as rows where source/target fields are filled
+        # edges are tuples (dependent, dependency, rel) so we write source=dependent, target=dependency
         for src, tgt, rel in edges:
-            row = ['', '', '', '', '', '', '', '', '', '', '', '', src, tgt, rel, '#333', '1', rel, '{}']
+            row = ['', '', '', '', '', '', '', '', '', '', '', '', src, tgt, rel, '#333', '1', rel, 'arrow', '{}']
             f.write(','.join('"{}"'.format(s.replace('"','""')) for s in row) + '\n')
     print(f'Wrote CSV to {outpath}')
 

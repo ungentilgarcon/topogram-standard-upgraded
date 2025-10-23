@@ -1,0 +1,8 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libxkbcommon-dev","libxkbcommon-dev","libxkbcommon-dev","library interface to the XKB compiler - development files","","","1","1","","","","Section=libdevel; Version=1.7.0-2","","","","","","","",""
+"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","","","",""
+"xkb-data","xkb-data","xkb-data","X Keyboard Extension (XKB) configuration data","","","1","1","","","","Section=x11; Version=2.42-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libxkbcommon-dev","libxkbcommon0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxkbcommon0","xkb-data","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libxkbcommon0","libc6","Depends","#333","1","Depends","arrow","{}"

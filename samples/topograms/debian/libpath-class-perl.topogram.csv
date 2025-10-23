@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libpath-class-perl","libpath-class-perl","libpath-class-perl","module for cross-platform path specification manipulation","","","1","1","","","","Section=perl; Version=0.37-4","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","libpath-class-perl","perl:any","Depends","#333","1","Depends","arrow","{}"

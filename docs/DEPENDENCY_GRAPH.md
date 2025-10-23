@@ -13,12 +13,16 @@ flowchart TD
     Sseed[imports/startup/server/seed.js]
     Sapi[imports/endpoints/api-jsonroutes.js]
     Spub[imports/api/*/server/publications.js]
+    Mth[imports/api/topogramsMethods.js]
   end
 
   subgraph API
     MTopo[imports/endpoints/topograms.js]
     MNodes[imports/endpoints/nodes.js]
     MEdges[imports/endpoints/edges.js]
+    PubPag[topograms.paginated]
+    MethCnt[topograms.count]
+    MethFC[topograms.folderCounts]
   end
 
   subgraph UI
@@ -27,6 +31,7 @@ flowchart TD
     Charts[Charts - imports/ui/components/charts/*]
     Sel[SelectionPanel - imports/ui/components/SelectionPanel/*]
     Popup[Popup - imports/ui/components/common/Popup.jsx]
+    Home[Home page - imports/ui/pages/Home.jsx]
   end
 
   T -->|_id| N
@@ -41,6 +46,16 @@ flowchart TD
   MTopo --> T
   MNodes --> N
   MEdges --> E
+  Spub --> PubPag
+  Mth --> MethCnt
+  Mth --> MethFC
+  PubPag --> T
+  MethCnt --> T
+  MethFC --> T
+
+  Home --> PubPag
+  Home --> MethCnt
+  Home --> MethFC
 
   N --> Net
   E --> Net
@@ -56,9 +71,10 @@ flowchart TD
   style T fill:#f9f,stroke:#333,stroke-width:1px
   style N fill:#9ff,stroke:#333,stroke-width:1px
   style E fill:#ff9,stroke:#333,stroke-width:1px
+  style Home fill:#efe,stroke:#333,stroke-width:1px
 
 ```
 
 Notes:
-- The graph above is simplified — publications and methods glue collections to the UI with server-side filtering for permissions and limits.
+- The graph above is simplified — publications and methods glue collections to the UI with server-side filtering for permissions and limits. On branch `implementing_debian_graphs`, the Home page consumes `topograms.paginated` and the `topograms.count`/`topograms.folderCounts` methods to paginate non-foldered items on the main list and folder contents separately.
 - The export workflow (`mapappbuilder/`) ships with a dedicated dependency diagram in `mapappbuilder/README.md` that focuses on the static bundle toolchain and sandbox.

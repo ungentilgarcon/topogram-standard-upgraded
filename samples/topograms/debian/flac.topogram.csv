@@ -1,0 +1,13 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"flac","flac","flac","Free Lossless Audio Codec - command line tools","","","1","1","","","","Section=sound; Version=1.5.0+ds-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libflac14","libflac14","libflac14","Free Lossless Audio Codec - runtime C library","","","1","1","","","","Section=libs; Version=1.5.0+ds-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libogg0","libogg0","libogg0","Ogg bitstream library","","","1","1","","","","Section=libs; Version=1.3.5-3+b2","","","","","","","",""
+"","","","","","","","","","","","","flac","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","flac","libflac14","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libflac14","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libflac14","libogg0","Depends","#333","1","Depends","arrow","{}"

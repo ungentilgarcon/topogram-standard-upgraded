@@ -1,0 +1,6 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libcommons-codec-java","libcommons-codec-java","libcommons-codec-java","encoder and decoders such as Base64 and hexadecimal codec","","","1","1","","","","Section=java; Version=1.18.0-1","","","","","","","",""
+"libcommons-parent-java","libcommons-parent-java","libcommons-parent-java","Maven metadata for Apache Commons project","","","1","1","","","","Section=java; Version=56-1","","","","","","","",""
+"libapache-pom-java","libapache-pom-java","libapache-pom-java","Maven metadata for all Apache Software projects","","","1","1","","","","Section=java; Version=33-2","","","","","","","",""
+"","","","","","","","","","","","","libcommons-codec-java","libcommons-parent-java","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libcommons-parent-java","libapache-pom-java","Depends","#333","1","Depends","arrow","{}"

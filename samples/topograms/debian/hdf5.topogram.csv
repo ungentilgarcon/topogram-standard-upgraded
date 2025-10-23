@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"hdf5-helpers","hdf5-helpers","hdf5-helpers","HDF5 - Helper tools","","","1","1","","","","Section=science; Version=1.14.5+repack-3","","","","","","","",""

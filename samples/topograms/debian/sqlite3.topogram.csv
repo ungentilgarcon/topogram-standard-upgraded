@@ -1,0 +1,8 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"lemon","lemon","lemon","LALR(1) Parser Generator for C or C++","","","1","1","","","","Section=devel; Version=3.46.1-7","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","lemon","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"

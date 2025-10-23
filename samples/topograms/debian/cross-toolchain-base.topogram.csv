@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libc6-amd64-cross","libc6-amd64-cross","libc6-amd64-cross","GNU C Library: Shared libraries (for cross-compiling)","","","1","1","","","","Section=libs; Version=2.41-11cross1","","","","","","","",""

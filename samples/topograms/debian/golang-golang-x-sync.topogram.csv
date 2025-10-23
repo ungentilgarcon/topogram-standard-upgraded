@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"golang-golang-x-sync-dev","golang-golang-x-sync-dev","golang-golang-x-sync-dev","Supplemental Go synchronization libraries","","","1","1","","","","Section=golang; Version=0.7.0-1","","","","","","","",""

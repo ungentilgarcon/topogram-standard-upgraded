@@ -27,3 +27,55 @@ If you need to add a new endpoint:
 	Meteor-specific API is required by the builder itself.
 - See `mapappbuilder/README.md` for the complete packaging workflow and renderer adapters that
 	consume the exported JSON.
+
+## New on branch `implementing_debian_graphs`
+
+### Publications
+
+- `Meteor.publish('topograms.paginated', { folder?, noFolder?, page = 1, limit = 200 })`
+	- Returns topograms sorted by `createdAt: -1`, with pagination via `limit` and `skip`.
+	- When `folder` is provided, only items in that folder are returned.
+	- When `noFolder` is truthy, only items with no folder are returned (folder missing, `null`, or empty string).
+
+### Methods
+
+- `Meteor.call('topograms.count', { folder?, noFolder? }) -> Number`
+	- Returns the total count of topograms matching the same filters used by the publication.
+	- Uses `rawCollection().countDocuments` where available for accuracy on Meteor 3.
+
+- `Meteor.call('topograms.folderCounts') -> Array<{ name: string, count: number }>`
+	- Aggregation pipeline groups by `folder` (excluding `null`/missing) and returns a sorted array of folder names with counts.
+
+### Client usage example (Home page)
+
+```js
+// Non-foldered list: 200 per page
+const ready = useSubscribe('topograms.paginated', { noFolder: true, page, limit: 200 })
+const tops = useFind(() => Topograms.find({}, { sort: { createdAt: -1 } }))
+
+// Count for main pager (non-foldered only)
+Meteor.call('topograms.count', { noFolder: true }, (_, total) => setTotal(total))
+
+// Folder contents: 50 per page
+const folderReady = useSubscribe('topograms.paginated', { folder: name, page, limit: 50 })
+const items = useFind(() => Topograms.find({ folder: name }, { sort: { createdAt: -1 } }))
+
+// Counts per folder for the sidebar
+Meteor.call('topograms.folderCounts', (_, list) => setFolderList(list))
+```
+
+### Import script (outside Meteor)
+
+The Debian ingestion workflow uses `scripts/import_topograms_folder.py` which shells to `mongosh` for inserts. Key flags:
+
+```
+--dir <path>            # required — folder containing .topogram.csv files
+--folder <label>        # optional — explicit folder label (defaults to directory name)
+--clean-folder <label>  # optional — delete all docs for a folder before import
+--commit                # perform writes (omit to dry-run)
+--limit N               # import at most N files
+--mongo-url <url>       # mongodb://localhost:27017/meteor by default
+--port <number>         # alternate to mongo-url, e.g., 27017
+```
+
+The script normalizes direction fields and ensures edge arrowheads are present when declared in the CSV (`enlightement = 'arrow'`).

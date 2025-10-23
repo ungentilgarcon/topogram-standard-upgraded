@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"cl-actionlib-msgs","cl-actionlib-msgs","cl-actionlib-msgs","Messages relating to Robot OS actionlib, LISP interface","","","1","1","","","","Section=lisp; Version=1.13.1-3","","","","","","","",""
+"cl-std-msgs","cl-std-msgs","cl-std-msgs","LISP interface for Standard Robot OS Messages","","","1","1","","","","Section=lisp; Version=0.5.13-4","","","","","","","",""
+"","","","","","","","","","","","","cl-actionlib-msgs","cl-std-msgs","Depends","#333","1","Depends","arrow","{}"

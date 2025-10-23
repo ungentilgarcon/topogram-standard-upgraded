@@ -1,0 +1,11 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"psmisc","psmisc","psmisc","utilities that use the proc file system","","","1","1","","","","Section=admin; Version=23.7-2","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"","","","","","","","","","","","","psmisc","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","psmisc","libtinfo6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libtinfo6","libc6","Depends","#333","1","Depends","arrow","{}"

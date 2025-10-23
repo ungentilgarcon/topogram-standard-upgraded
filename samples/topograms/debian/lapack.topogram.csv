@@ -1,0 +1,8 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libatlas3-base","libatlas3-base","libatlas3-base","transitional package","","","1","1","","","","Section=oldlibs; Version=3.12.1-6","","","","","","","",""
+"libblas3","libblas3","libblas3","Basic Linear Algebra Reference implementations, shared library","","","1","1","","","","Section=libs; Version=3.12.1-6","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"","","","","","","","","","","","","libatlas3-base","libblas3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libblas3","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libblas3","libgcc-s1","Depends","#333","1","Depends","arrow","{}"

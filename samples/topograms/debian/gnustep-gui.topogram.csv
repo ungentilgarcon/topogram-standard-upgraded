@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gnustep-gui-common","gnustep-gui-common","gnustep-gui-common","GNUstep GUI Library - common files","","","1","1","","","","Section=gnustep; Version=0.32.0-3","","","","","","","",""
+"gnustep-base-common","gnustep-base-common","gnustep-base-common","GNUstep Base library - common files","","","1","1","","","","Section=gnustep; Version=1.31.1-3","","","","","","","",""
+"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","","","",""
+"gnustep-common:any","gnustep-common:any","gnustep-common:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"tzdata-legacy","tzdata-legacy","tzdata-legacy","time zone data for TAI minus ten seconds","","","1","1","","","","Section=localization; Version=2025b-4+deb13u1","","","","","","","",""
+"","","","","","","","","","","","","gnustep-gui-common","gnustep-base-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnustep-base-common","ca-certificates","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnustep-base-common","gnustep-common:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gnustep-base-common","tzdata-legacy","Depends","#333","1","Depends","arrow","{}"

@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"r-bioc-biocgenerics","r-bioc-biocgenerics","r-bioc-biocgenerics","generic functions for Bioconductor","","","1","1","","","","Section=gnu-r; Version=0.52.0-2","","","","","","","",""
+"r-api-4.0","r-api-4.0","r-api-4.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","r-bioc-biocgenerics","r-api-4.0","Depends","#333","1","Depends","arrow","{}"

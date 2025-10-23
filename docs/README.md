@@ -12,4 +12,9 @@ Files:
 - `API.md` — where to find server endpoints, publications and methods.
 - `../mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
 
+Branch-specific notes:
+
+- `BRANCH_IMPLEMENTING_DEBIAN_GRAPHS.md` — Debian imports, server-driven pagination, and the
+	Home page folder ergonomics introduced on that branch. Start here if you pulled that branch.
+
 Start with `QUICKSTART.md` to run the project, then read `ARCHITECTURE.md` and `DATASET.md` to understand the data model.
