@@ -264,6 +264,8 @@ export default function Home() {
       setFolderList(Array.isArray(res) ? res : [])
     })
   }, [])
+  // Compute no-folder docs from the current page's dataset
+  const noFolder = useMemo(() => (Array.isArray(topsList) ? topsList.filter(t => !(t && t.folder)) : []), [topsList])
 
   const exportReady = !!(exportConfig && exportConfig.id && exportConfig.title && exportConfig.networkRenderer && exportConfig.geoRenderer)
   const exportDownloadHref = exportResult && exportResult.filename ? (`/_exports/${exportResult.filename}`) : null

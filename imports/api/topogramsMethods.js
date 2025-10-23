@@ -5,10 +5,9 @@ Meteor.methods({
   async 'topograms.count'({ folder } = {}) {
     const query = folder ? { folder } : {}
     try {
-      // Use synchronous count; in Meteor 3, use rawCollection if needed
-      return await Topograms.find(query).countAsync()
+      const col = Topograms.rawCollection()
+      return await col.countDocuments(query)
     } catch (e) {
-      // fallback for older drivers
       try { return Topograms.find(query).count() } catch (err) { /* ignore */ }
       return 0
     }
