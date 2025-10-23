@@ -1,20 +1,22 @@
-Global Supply Chain Graph of Everything — Sample
+Global Supply Chain Graph of Everything — Layered Samples
 
-This sample dataset sketches a miniature “graph of everything” for a modern smartphone supply chain, linking mines, ports, factories, logistics hubs, retail, and the end consumer.
+This dataset provides layered CSVs to explore a global supply chain network from macro trade flows down to company links and logistics, with optional ESG overlays. Import one layer at a time or the combined view.
 
-Contents
-- global_supply_chain.topogram.csv — A single CSV combining nodes (sites) and edges (flows). Edges are rows that include source/target columns and have enlightement=arrow for direction.
+Files
+- trade_flows.topogram.csv — Country-to-country trade edges, grouped by commodities (e.g., HS-8507 Batteries, HS-8517 Smartphones) and year (2019–2024). Nodes are countries.
+- company_chains.topogram.csv — Supplier→OEM relationships across notable companies (TSMC, Foxconn, Samsung, CATL, LG Chem, BYD, Apple, Xiaomi, Sony). Nodes are company sites.
+- logistics_routes.topogram.csv — Port-centric transport lanes (export terminals, transpacific lanes). Nodes are major ports; edges are shipping routes.
+- material_flows.topogram.csv — Transformation chain from raw materials (lithium/cobalt/nickel/silicon) to battery cell/pack to smartphone. Nodes represent materials and process/product stages.
+- esg_impacts.topogram.csv — Simple ESG overlay with a CO2e hub and company-specific ESG nodes linked by impact edges.
+- combined_all_layers.topogram.csv — Union of all above with a layer=... tag in the `extra` field.
+- global_supply_chain.topogram.csv — A compact story graph connecting mines→ports→factories→retail→consumer.
 
-Concepts showcased
-- Nodes include resource extraction sites (lithium, cobalt, nickel), ports, battery factory, assembly factory, export/import ports, retail, and the consumer.
-- Edges represent transport and transformation steps: mine → port → port → factory → assembly → export → import → retail → consumer.
-- Colors distinguish sectors (mining, ports, factories, retail/consumer) and edges use sector-themed colors.
-
-How to import
-- Using the app UI: open the Import dialog on Home and select the CSV.
-- Using the CLI importer:
+Usage
+- App UI: Home → Import → select any .topogram.csv file above.
+- CLI bulk import:
   - Optional
     ./scripts/import_topograms_folder.py --dir samples/topograms/flowofevrything --folder "Global Supply Chain" --commit
 
-Source inspiration
-- Based on the note in ideas/flowofeverything.txt. Real-world data sources listed there (UN Comtrade, AIS, Open Supply Hub, etc.) can be layered in later to replace this synthetic sketch.
+Notes
+- Synthetic data intended for demo and prototyping. Replace with real datasets (UN Comtrade, TiVA, WIOD, AIS, Open Supply Hub, corporate disclosures) as needed.
+- Each CSV adheres to Topogram’s header; edges have source/target and `enlightement=arrow`.

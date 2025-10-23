@@ -1,0 +1,17 @@
+# Topogram Sample
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra
+port-shanghai,Port of Shanghai,Port of Shanghai,Seaport,#2196f3,#bbdefb,3,3,31.2304,121.4737,,,,,,,,,,,,🛳️,
+port-shenzhen,Port of Shenzhen (Yantian),Port of Shenzhen (Yantian),Seaport,#2196f3,#bbdefb,3,3,22.561,114.278,,,,,,,,,,,,🛳️,
+port-la,Port of Los Angeles,Port of Los Angeles,Seaport,#2196f3,#bbdefb,3,3,33.74,-118.271,,,,,,,,,,,,🛳️,
+port-rotterdam,Port of Rotterdam,Port of Rotterdam,Seaport,#2196f3,#bbdefb,3,3,51.951,4.142,,,,,,,,,,,,🛳️,
+port-singapore,Port of Singapore,Port of Singapore,Seaport,#2196f3,#bbdefb,3,3,1.264,103.84,,,,,,,,,,,,🛳️,
+port-busan,Port of Busan,Port of Busan,Seaport,#2196f3,#bbdefb,3,3,35.1028,129.0403,,,,,,,,,,,,🛳️,
+port-yokohama,Port of Yokohama,Port of Yokohama,Seaport,#2196f3,#bbdefb,3,3,35.4437,139.638,,,,,,,,,,,,🛳️,
+port-hk,Port of Hong Kong,Port of Hong Kong,Seaport,#2196f3,#bbdefb,3,3,22.308,114.161,,,,,,,,,,,,🛳️,
+port-antwerp,Port of Antwerp,Port of Antwerp,Seaport,#2196f3,#bbdefb,3,3,51.263,4.399,,,,,,,,,,,,🛳️,
+,,,,,,,,,,,,,co-foxconn,port-shenzhen,export electronics,#2196f3,200,export electronics,arrow,,,
+,,,,,,,,,,,,,co-samsung,port-busan,export components,#2196f3,120,export components,arrow,,,
+,,,,,,,,,,,,,co-tsmc,port-yokohama,export wafers,#2196f3,80,export wafers,arrow,,,
+,,,,,,,,,,,,,port-shenzhen,port-la,transpacific lane,#3f51b5,400,transpacific lane,arrow,,,
+,,,,,,,,,,,,,port-busan,port-la,transpacific lane,#3f51b5,220,transpacific lane,arrow,,,
+,,,,,,,,,,,,,port-yokohama,port-la,transpacific lane,#3f51b5,160,transpacific lane,arrow,,,

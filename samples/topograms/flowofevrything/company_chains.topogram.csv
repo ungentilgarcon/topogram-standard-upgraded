@@ -1,0 +1,17 @@
+# Topogram Sample
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra
+co-tsmc,TSMC,Semiconductor Fab,Semiconductor Fab (TW),#4caf50,#c8e6c9,5,5,24.813,120.967,,,,,,,,,,,,🏭,
+co-foxconn,Foxconn,EMS/Assembly,EMS/Assembly (CN),#4caf50,#c8e6c9,5,5,22.756,114.064,,,,,,,,,,,,🏭,
+co-samsung,Samsung Electronics,Semiconductor + OEM,Semiconductor + OEM (KR),#4caf50,#c8e6c9,5,5,37.263,127.028,,,,,,,,,,,,🏭,
+co-lgchem,LG Chem,Battery,Battery (KR),#4caf50,#c8e6c9,5,5,37.5665,126.978,,,,,,,,,,,,🏭,
+co-catl,CATL,Battery,Battery (CN),#4caf50,#c8e6c9,5,5,24.489,118.089,,,,,,,,,,,,🏭,
+co-byd,BYD,Battery + OEM,Battery + OEM (CN),#4caf50,#c8e6c9,5,5,22.555,113.883,,,,,,,,,,,,🏭,
+co-apple,Apple,OEM,OEM (US),#4caf50,#c8e6c9,5,5,37.3349,-122.009,,,,,,,,,,,,🏭,
+co-xiaomi,Xiaomi,OEM,OEM (CN),#4caf50,#c8e6c9,5,5,39.983,116.312,,,,,,,,,,,,🏭,
+co-sony,Sony,OEM,OEM (JP),#4caf50,#c8e6c9,5,5,35.6895,139.6917,,,,,,,,,,,,🏭,
+,,,,,,,,,,,,,co-tsmc,co-apple,SoC supply,#009688,50,SoC supply,arrow,,,
+,,,,,,,,,,,,,co-tsmc,co-xiaomi,SoC supply,#009688,50,SoC supply,arrow,,,
+,,,,,,,,,,,,,co-samsung,co-apple,Display supply,#009688,50,Display supply,arrow,,,
+,,,,,,,,,,,,,co-lgchem,co-foxconn,Battery cells,#009688,50,Battery cells,arrow,,,
+,,,,,,,,,,,,,co-catl,co-foxconn,Battery cells,#009688,50,Battery cells,arrow,,,
+,,,,,,,,,,,,,co-byd,co-xiaomi,Battery pack,#009688,50,Battery pack,arrow,,,

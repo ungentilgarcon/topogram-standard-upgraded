@@ -1,0 +1,16 @@
+# Topogram Sample
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra
+mat-lithium,Lithium,Lithium,Raw material (Lithium),#ff9800,#ffe0b2,2,2,-33.4489,-70.6693,,,,,,,,,,,,⛏️,
+mat-cobalt,Cobalt,Cobalt,Raw material (Cobalt),#ff9800,#ffe0b2,2,2,-25.7479,28.2293,,,,,,,,,,,,⛏️,
+mat-nickel,Nickel,Nickel,Raw material (Nickel),#ff9800,#ffe0b2,2,2,-6.2088,106.8456,,,,,,,,,,,,⛏️,
+mat-silicon,Silicon,Silicon,Raw material (Silicon),#ff9800,#ffe0b2,2,2,39.9042,116.4074,,,,,,,,,,,,⛏️,
+proc-chem-refine,Chemical Refining,Chemical Refining,Process/Product stage,#9c27b0,#e1bee7,2,2,0,0,,,,,,,,,,,,,
+proc-battery-cell,Battery Cell,Battery Cell,Process/Product stage,#9c27b0,#e1bee7,2,2,0,0,,,,,,,,,,,,,
+proc-battery-pack,Battery Pack,Battery Pack,Process/Product stage,#9c27b0,#e1bee7,2,2,0,0,,,,,,,,,,,,,
+proc-smartphone,Smartphone,Smartphone,Process/Product stage,#9c27b0,#e1bee7,2,2,0,0,,,,,,,,,,,,,
+,,,,,,,,,,,,,mat-lithium,proc-chem-refine,refining,#795548,50,refining,arrow,,,
+,,,,,,,,,,,,,mat-cobalt,proc-chem-refine,refining,#795548,50,refining,arrow,,,
+,,,,,,,,,,,,,mat-nickel,proc-chem-refine,refining,#795548,50,refining,arrow,,,
+,,,,,,,,,,,,,proc-chem-refine,proc-battery-cell,cell manufacturing,#795548,50,cell manufacturing,arrow,,,
+,,,,,,,,,,,,,proc-battery-cell,proc-battery-pack,pack assembly,#795548,50,pack assembly,arrow,,,
+,,,,,,,,,,,,,proc-battery-pack,proc-smartphone,final assembly,#795548,50,final assembly,arrow,,,
