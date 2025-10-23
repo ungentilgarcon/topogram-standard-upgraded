@@ -1,12 +1,12 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libosmocodec-doc","libosmocodec-doc","libosmocodec-doc","Documentation for the osmo codec library","","","1","1","","","","Section=doc; Version=1.11.0-2","","","","","",""
-"libosmocodec4","libosmocodec4","libosmocodec4","Osmo codec library","","","1","1","","","","Section=libs; Version=1.11.0-2","","","","","",""
-"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libosmocore22","libosmocore22","libosmocore22","Osmo Core library","","","1","1","","","","Section=libs; Version=1.11.0-2","","","","","",""
-"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","",""
-"","","","","","","","","","","","","libosmocodec-doc","libosmocodec4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libosmocodec-doc","libjs-jquery","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libosmocodec4","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libosmocodec4","libosmocore22","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjs-jquery","javascript-common","Recommends","#333","1","Recommends","{}"
+libosmocodec-doc,libosmocodec-doc,libosmocodec-doc,Documentation for the osmo codec library,,,1,1,,,,Section=doc; Version=1.11.0-2,,,,,,,
+libosmocodec4,libosmocodec4,libosmocodec4,Osmo codec library,,,1,1,,,,Section=libs; Version=1.11.0-2,,,,,,,
+libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libosmocore22,libosmocore22,libosmocore22,Osmo Core library,,,1,1,,,,Section=libs; Version=1.11.0-2,,,,,,,
+javascript-common,javascript-common,javascript-common,Base support for JavaScript library packages,,,1,1,,,,Section=javascript; Version=12+nmu1,,,,,,,
+,,,,,,,,,,,,libosmocodec4,libosmocodec-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-jquery,libosmocodec-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libosmocodec4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libosmocore22,libosmocodec4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,javascript-common,libjs-jquery,Recommends,#333,1,Recommends,{}

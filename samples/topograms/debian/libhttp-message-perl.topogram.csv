@@ -1,61 +1,61 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libhttp-message-perl","libhttp-message-perl","libhttp-message-perl","perl interface to HTTP style messages","","","1","1","","","","Section=perl; Version=7.00-2","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libclone-perl","libclone-perl","libclone-perl","module for recursively copying Perl datatypes","","","1","1","","","","Section=perl; Version=0.47-1+b1","","","","","",""
-"libcompress-raw-bzip2-perl","libcompress-raw-bzip2-perl","libcompress-raw-bzip2-perl","low-level interface to bzip2 compression library","","","1","1","","","","Section=perl; Version=2.213-2","","","","","",""
-"libcompress-raw-zlib-perl","libcompress-raw-zlib-perl","libcompress-raw-zlib-perl","low-level interface to zlib compression library","","","1","1","","","","Section=perl; Version=2.213-1+b1","","","","","",""
-"libencode-locale-perl","libencode-locale-perl","libencode-locale-perl","utility to determine the locale encoding","","","1","1","","","","Section=perl; Version=1.05-3","","","","","",""
-"libencode-perl","libencode-perl","libencode-perl","module providing interfaces between Perl's strings and the system","","","1","1","","","","Section=perl; Version=3.21-1+b2","","","","","",""
-"libhttp-date-perl","libhttp-date-perl","libhttp-date-perl","module of date conversion routines","","","1","1","","","","Section=perl; Version=6.06-1","","","","","",""
-"libio-html-perl","libio-html-perl","libio-html-perl","open an HTML file with automatic charset detection","","","1","1","","","","Section=perl; Version=1.004-3","","","","","",""
-"liblwp-mediatypes-perl","liblwp-mediatypes-perl","liblwp-mediatypes-perl","module to guess media type for a file or a URL","","","1","1","","","","Section=perl; Version=6.04-2","","","","","",""
-"liburi-perl","liburi-perl","liburi-perl","module to manipulate and access URI strings","","","1","1","","","","Section=perl; Version=5.30-1","","","","","",""
-"libio-compress-brotli-perl","libio-compress-brotli-perl","libio-compress-brotli-perl","modules to read/write Brotli buffers/streams","","","1","1","","","","Section=perl; Version=0.004001-2+b3","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"perlapi-5.40.1","perlapi-5.40.1","perlapi-5.40.1","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libtime-local-perl","libtime-local-perl","libtime-local-perl","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libtimedate-perl","libtimedate-perl","libtimedate-perl","collection of modules to manipulate date/time information","","","1","1","","","","Section=perl; Version=2.3300-2","","","","","",""
-"libscalar-list-utils-perl","libscalar-list-utils-perl","libscalar-list-utils-perl","modules providing common scalar and list utility subroutines","","","1","1","","","","Section=perl; Version=1:1.63-1+b4","","","","","",""
-"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","",""
-"","","","","","","","","","","","","libhttp-message-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libclone-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libcompress-raw-bzip2-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libcompress-raw-zlib-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libencode-locale-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libencode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libhttp-date-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libio-html-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","liblwp-mediatypes-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libio-compress-brotli-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libclone-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclone-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclone-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-bzip2-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-bzip2-perl","perlapi-5.40.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-bzip2-perl","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-bzip2-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-zlib-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-zlib-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-zlib-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcompress-raw-zlib-perl","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libencode-locale-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libencode-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libencode-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libencode-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-date-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-date-perl","libtime-local-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-date-perl","libtimedate-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-html-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblwp-mediatypes-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libencode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-compress-brotli-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-compress-brotli-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-compress-brotli-perl","libbrotli1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-compress-brotli-perl","libc6","Depends","#333","1","Depends","{}"
+libhttp-message-perl,libhttp-message-perl,libhttp-message-perl,perl interface to HTTP style messages,,,1,1,,,,Section=perl; Version=7.00-2,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libclone-perl,libclone-perl,libclone-perl,module for recursively copying Perl datatypes,,,1,1,,,,Section=perl; Version=0.47-1+b1,,,,,,,
+libcompress-raw-bzip2-perl,libcompress-raw-bzip2-perl,libcompress-raw-bzip2-perl,low-level interface to bzip2 compression library,,,1,1,,,,Section=perl; Version=2.213-2,,,,,,,
+libcompress-raw-zlib-perl,libcompress-raw-zlib-perl,libcompress-raw-zlib-perl,low-level interface to zlib compression library,,,1,1,,,,Section=perl; Version=2.213-1+b1,,,,,,,
+libencode-locale-perl,libencode-locale-perl,libencode-locale-perl,utility to determine the locale encoding,,,1,1,,,,Section=perl; Version=1.05-3,,,,,,,
+libencode-perl,libencode-perl,libencode-perl,module providing interfaces between Perl's strings and the system,,,1,1,,,,Section=perl; Version=3.21-1+b2,,,,,,,
+libhttp-date-perl,libhttp-date-perl,libhttp-date-perl,module of date conversion routines,,,1,1,,,,Section=perl; Version=6.06-1,,,,,,,
+libio-html-perl,libio-html-perl,libio-html-perl,open an HTML file with automatic charset detection,,,1,1,,,,Section=perl; Version=1.004-3,,,,,,,
+liblwp-mediatypes-perl,liblwp-mediatypes-perl,liblwp-mediatypes-perl,module to guess media type for a file or a URL,,,1,1,,,,Section=perl; Version=6.04-2,,,,,,,
+liburi-perl,liburi-perl,liburi-perl,module to manipulate and access URI strings,,,1,1,,,,Section=perl; Version=5.30-1,,,,,,,
+libio-compress-brotli-perl,libio-compress-brotli-perl,libio-compress-brotli-perl,modules to read/write Brotli buffers/streams,,,1,1,,,,Section=perl; Version=0.004001-2+b3,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+perlapi-5.40.1,perlapi-5.40.1,perlapi-5.40.1,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libtime-local-perl,libtime-local-perl,libtime-local-perl,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libtimedate-perl,libtimedate-perl,libtimedate-perl,collection of modules to manipulate date/time information,,,1,1,,,,Section=perl; Version=2.3300-2,,,,,,,
+libscalar-list-utils-perl,libscalar-list-utils-perl,libscalar-list-utils-perl,modules providing common scalar and list utility subroutines,,,1,1,,,,Section=perl; Version=1:1.63-1+b4,,,,,,,
+libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
+,,,,,,,,,,,,perl:any,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclone-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcompress-raw-bzip2-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcompress-raw-zlib-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-locale-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-date-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libio-html-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblwp-mediatypes-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libio-compress-brotli-perl,libhttp-message-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl,libclone-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libclone-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libclone-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libcompress-raw-bzip2-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.1,libcompress-raw-bzip2-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,libcompress-raw-bzip2-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libcompress-raw-bzip2-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libcompress-raw-zlib-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libcompress-raw-zlib-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libcompress-raw-zlib-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libcompress-raw-zlib-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libencode-locale-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libencode-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libencode-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libencode-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libhttp-date-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtime-local-perl,libhttp-date-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtimedate-perl,libhttp-date-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libio-html-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,liblwp-mediatypes-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-perl,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libscalar-list-utils-perl,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libio-compress-brotli-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libio-compress-brotli-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbrotli1,libio-compress-brotli-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libio-compress-brotli-perl,Depends,#333,1,Depends,{}

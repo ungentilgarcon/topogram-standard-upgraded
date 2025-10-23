@@ -1,4 +1,4 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"python3-serial","python3-serial","python3-serial","pyserial - module encapsulating access for the serial port","","","1","1","","","","Section=python; Version=3.5-2","","","","","",""
-"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"","","","","","","","","","","","","python3-serial","python3:any","Depends","#333","1","Depends","{}"
+python3-serial,python3-serial,python3-serial,pyserial - module encapsulating access for the serial port,,,1,1,,,,Section=python; Version=3.5-2,,,,,,,
+python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+,,,,,,,,,,,,python3:any,python3-serial,Depends,#333,1,Depends,{}

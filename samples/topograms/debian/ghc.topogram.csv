@@ -1,70 +1,70 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"ghc","ghc","ghc","The Glasgow Haskell Compilation system","","","1","1","","","","Section=haskell; Version=9.6.6-4","","","","","",""
-"gcc","gcc","gcc","GNU C compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","",""
-"libgmp-dev","libgmp-dev","libgmp-dev","Multiprecision arithmetic library developers tools","","","1","1","","","","Section=libdevel; Version=2:6.3.0+dfsg-3","","","","","",""
-"libffi-dev","libffi-dev","libffi-dev","Foreign Function Interface library (development files)","","","1","1","","","","Section=libdevel; Version=3.4.8-2","","","","","",""
-"libbsd-dev","libbsd-dev","libbsd-dev","utility functions from BSD systems - development files","","","1","1","","","","Section=libdevel; Version=0.12.2-2","","","","","",""
-"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","",""
-"libncurses-dev","libncurses-dev","libncurses-dev","developer's libraries for ncurses","","","1","1","","","","Section=libdevel; Version=6.5+20250216-2","","","","","",""
-"libnuma-dev","libnuma-dev","libnuma-dev","Development files for libnuma","","","1","1","","","","Section=libdevel; Version=2.0.19-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","",""
-"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
-"libnuma1","libnuma1","libnuma1","Libraries for controlling NUMA policy","","","1","1","","","","Section=libs; Version=2.0.19-1","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libstdc++-14-dev:amd64","libstdc++-14-dev:amd64","libstdc++-14-dev:amd64","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"cpp","cpp","cpp","GNU C preprocessor (cpp)","","","1","1","","","","Section=interpreters; Version=4:14.2.0-1","","","","","",""
-"cpp-x86-64-linux-gnu","cpp-x86-64-linux-gnu","cpp-x86-64-linux-gnu","GNU C preprocessor (cpp) for the amd64 architecture","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","",""
-"gcc-14","gcc-14","gcc-14","GNU C compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","",""
-"gcc-x86-64-linux-gnu","gcc-x86-64-linux-gnu","gcc-x86-64-linux-gnu","GNU C compiler for the amd64 architecture","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","",""
-"libgmpxx4ldbl","libgmpxx4ldbl","libgmpxx4ldbl","Multiprecision arithmetic library (C++ bindings)","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
-"libbsd0","libbsd0","libbsd0","utility functions from BSD systems - shared library","","","1","1","","","","Section=libs; Version=0.12.2-2","","","","","",""
-"libmd-dev","libmd-dev","libmd-dev","message digest functions from BSD systems - development files","","","1","1","","","","Section=libdevel; Version=1.1.0-2+b1","","","","","",""
-"libc-dev-bin","libc-dev-bin","libc-dev-bin","GNU C Library: Development binaries","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","",""
-"linux-libc-dev","linux-libc-dev","linux-libc-dev","Linux support headers for userspace development","","","1","1","","","","Section=devel; Version=6.12.43-1","","","","","",""
-"libcrypt-dev","libcrypt-dev","libcrypt-dev","libcrypt development files","","","1","1","","","","Section=libdevel; Version=1:4.4.38-1","","","","","",""
-"rpcsvc-proto","rpcsvc-proto","rpcsvc-proto","RPC protocol compiler and definitions","","","1","1","","","","Section=libs; Version=1.4.3-1","","","","","",""
-"libncurses6","libncurses6","libncurses6","shared libraries for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libncursesw6","libncursesw6","libncursesw6","shared libraries for terminal handling (wide character support)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"","","","","","","","","","","","","ghc","gcc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libgmp-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libffi-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libbsd-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libc6-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libncurses-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libnuma-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libgmp10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libnuma1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ghc","libstdc++-14-dev:amd64","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gcc","cpp","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gcc","cpp-x86-64-linux-gnu","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gcc","gcc-14","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gcc","gcc-x86-64-linux-gnu","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gcc","libc6-dev","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgmp-dev","libgmp10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmp-dev","libgmpxx4ldbl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libffi-dev","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbsd-dev","libbsd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbsd-dev","libmd-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","libc-dev-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","linux-libc-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","libcrypt-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","rpcsvc-proto","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libncurses6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libncursesw6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libc6-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnuma-dev","libnuma1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnuma-dev","libc6-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libffi8","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmp10","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnuma1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtinfo6","libc6","Depends","#333","1","Depends","{}"
+ghc,ghc,ghc,The Glasgow Haskell Compilation system,,,1,1,,,,Section=haskell; Version=9.6.6-4,,,,,,,
+gcc,gcc,gcc,GNU C compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
+libgmp-dev,libgmp-dev,libgmp-dev,Multiprecision arithmetic library developers tools,,,1,1,,,,Section=libdevel; Version=2:6.3.0+dfsg-3,,,,,,,
+libffi-dev,libffi-dev,libffi-dev,Foreign Function Interface library (development files),,,1,1,,,,Section=libdevel; Version=3.4.8-2,,,,,,,
+libbsd-dev,libbsd-dev,libbsd-dev,utility functions from BSD systems - development files,,,1,1,,,,Section=libdevel; Version=0.12.2-2,,,,,,,
+libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
+libncurses-dev,libncurses-dev,libncurses-dev,developer's libraries for ncurses,,,1,1,,,,Section=libdevel; Version=6.5+20250216-2,,,,,,,
+libnuma-dev,libnuma-dev,libnuma-dev,Development files for libnuma,,,1,1,,,,Section=libdevel; Version=2.0.19-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
+libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
+libnuma1,libnuma1,libnuma1,Libraries for controlling NUMA policy,,,1,1,,,,Section=libs; Version=2.0.19-1,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libstdc++-14-dev:amd64,libstdc++-14-dev:amd64,libstdc++-14-dev:amd64,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+cpp,cpp,cpp,GNU C preprocessor (cpp),,,1,1,,,,Section=interpreters; Version=4:14.2.0-1,,,,,,,
+cpp-x86-64-linux-gnu,cpp-x86-64-linux-gnu,cpp-x86-64-linux-gnu,GNU C preprocessor (cpp) for the amd64 architecture,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
+gcc-14,gcc-14,gcc-14,GNU C compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
+gcc-x86-64-linux-gnu,gcc-x86-64-linux-gnu,gcc-x86-64-linux-gnu,GNU C compiler for the amd64 architecture,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
+libgmpxx4ldbl,libgmpxx4ldbl,libgmpxx4ldbl,Multiprecision arithmetic library (C++ bindings),,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
+libbsd0,libbsd0,libbsd0,utility functions from BSD systems - shared library,,,1,1,,,,Section=libs; Version=0.12.2-2,,,,,,,
+libmd-dev,libmd-dev,libmd-dev,message digest functions from BSD systems - development files,,,1,1,,,,Section=libdevel; Version=1.1.0-2+b1,,,,,,,
+libc-dev-bin,libc-dev-bin,libc-dev-bin,GNU C Library: Development binaries,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
+linux-libc-dev,linux-libc-dev,linux-libc-dev,Linux support headers for userspace development,,,1,1,,,,Section=devel; Version=6.12.43-1,,,,,,,
+libcrypt-dev,libcrypt-dev,libcrypt-dev,libcrypt development files,,,1,1,,,,Section=libdevel; Version=1:4.4.38-1,,,,,,,
+rpcsvc-proto,rpcsvc-proto,rpcsvc-proto,RPC protocol compiler and definitions,,,1,1,,,,Section=libs; Version=1.4.3-1,,,,,,,
+libncurses6,libncurses6,libncurses6,shared libraries for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libncursesw6,libncursesw6,libncursesw6,shared libraries for terminal handling (wide character support),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+,,,,,,,,,,,,gcc,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgmp-dev,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi-dev,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbsd-dev,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-dev,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libncurses-dev,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnuma-dev,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi8,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgmp10,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnuma1,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,ghc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++-14-dev:amd64,ghc,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,cpp,gcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,cpp-x86-64-linux-gnu,gcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14,gcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-x86-64-linux-gnu,gcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-dev,gcc,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgmp10,libgmp-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgmpxx4ldbl,libgmp-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi8,libffi-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbsd0,libbsd-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmd-dev,libbsd-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc-dev-bin,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,linux-libc-dev,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcrypt-dev,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,rpcsvc-proto,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,libncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libncurses6,libncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libncursesw6,libncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-dev,libncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnuma1,libnuma-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-dev,libnuma-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libffi8,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgmp10,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libnuma1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtinfo6,Depends,#333,1,Depends,{}

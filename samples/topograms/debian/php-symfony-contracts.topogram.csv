@@ -1,10 +1,10 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"php-symfony-cache-contracts","php-symfony-cache-contracts","php-symfony-cache-contracts","Generic abstractions related to caching","","","1","1","","","","Section=php; Version=3.5.2-5","","","","","",""
-"php-common","php-common","php-common","Common files for PHP packages","","","1","1","","","","Section=php; Version=2:96","","","","","",""
-"php-psr-cache","php-psr-cache","php-psr-cache","Common interface for caching libraries","","","1","1","","","","Section=php; Version=3.0.0-4","","","","","",""
-"psmisc","psmisc","psmisc","utilities that use the proc file system","","","1","1","","","","Section=admin; Version=23.7-2","","","","","",""
-"","","","","","","","","","","","","php-symfony-cache-contracts","php-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","php-symfony-cache-contracts","php-psr-cache","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","php-symfony-cache-contracts","php-psr-cache","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","php-common","psmisc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","php-psr-cache","php-common","Depends","#333","1","Depends","{}"
+php-symfony-cache-contracts,php-symfony-cache-contracts,php-symfony-cache-contracts,Generic abstractions related to caching,,,1,1,,,,Section=php; Version=3.5.2-5,,,,,,,
+php-common,php-common,php-common,Common files for PHP packages,,,1,1,,,,Section=php; Version=2:96,,,,,,,
+php-psr-cache,php-psr-cache,php-psr-cache,Common interface for caching libraries,,,1,1,,,,Section=php; Version=3.0.0-4,,,,,,,
+psmisc,psmisc,psmisc,utilities that use the proc file system,,,1,1,,,,Section=admin; Version=23.7-2,,,,,,,
+,,,,,,,,,,,,php-common,php-symfony-cache-contracts,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,php-psr-cache,php-symfony-cache-contracts,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,php-psr-cache,php-symfony-cache-contracts,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,psmisc,php-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,php-common,php-psr-cache,Depends,#333,1,Depends,{}

@@ -1,35 +1,35 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libgsettings-qt-dev","libgsettings-qt-dev","libgsettings-qt-dev","library to access GSettings from Qt5 (development files)","","","1","1","","","","Section=libdevel; Version=1.0.0-4","","","","","",""
-"libgio-2.0-dev","libgio-2.0-dev","libgio-2.0-dev","Development files for the GLib, GObject and GIO libraries","","","1","1","","","","Section=libdevel; Version=2.84.4-3~deb13u1","","","","","",""
-"libgsettings-qt1","libgsettings-qt1","libgsettings-qt1","library to access GSettings from Qt5 (shared libraries)","","","1","1","","","","Section=libs; Version=1.0.0-4","","","","","",""
-"libffi-dev","libffi-dev","libffi-dev","Foreign Function Interface library (development files)","","","1","1","","","","Section=libdevel; Version=3.4.8-2","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libmount-dev","libmount-dev","libmount-dev","device mounting library - headers","","","1","1","","","","Section=libdevel; Version=2.41-5","","","","","",""
-"libpcre2-dev","libpcre2-dev","libpcre2-dev","New Perl Compatible Regular Expression Library - development files","","","1","1","","","","Section=libdevel; Version=10.46-1~deb13u1","","","","","",""
-"libselinux1-dev","libselinux1-dev","libselinux1-dev","SELinux development headers","","","1","1","","","","Section=libdevel; Version=3.8.1-1","","","","","",""
-"libsysprof-capture-4-dev","libsysprof-capture-4-dev","libsysprof-capture-4-dev","capture library for system-wide Linux profiler","","","1","1","","","","Section=libdevel; Version=48.0-2","","","","","",""
-"pkgconf","pkgconf","pkgconf","manage compile and link flags for libraries","","","1","1","","","","Section=devel; Version=1.8.1-4","","","","","",""
-"zlib1g-dev","zlib1g-dev","zlib1g-dev","compression library - development","","","1","1","","","","Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libgio-2.0-dev-bin","libgio-2.0-dev-bin","libgio-2.0-dev-bin","Development utilities for GLib, GObject and GIO libraries","","","1","1","","","","Section=libdevel; Version=2.84.4-3~deb13u1","","","","","",""
-"libglib2.0-bin","libglib2.0-bin","libglib2.0-bin","Programs for the GLib library","","","1","1","","","","Section=misc; Version=2.84.4-3~deb13u1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libqt5core5t64","libqt5core5t64","libqt5core5t64","Qt 5 core module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libgsettings-qt-dev","libgio-2.0-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgsettings-qt-dev","libgsettings-qt1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libffi-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libmount-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libpcre2-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libselinux1-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libsysprof-capture-4-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","pkgconf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","zlib1g-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libgio-2.0-dev-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgio-2.0-dev","libglib2.0-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgsettings-qt1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgsettings-qt1","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgsettings-qt1","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgsettings-qt1","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgsettings-qt1","libstdc++6","Depends","#333","1","Depends","{}"
+libgsettings-qt-dev,libgsettings-qt-dev,libgsettings-qt-dev,library to access GSettings from Qt5 (development files),,,1,1,,,,Section=libdevel; Version=1.0.0-4,,,,,,,
+libgio-2.0-dev,libgio-2.0-dev,libgio-2.0-dev,"Development files for the GLib, GObject and GIO libraries",,,1,1,,,,Section=libdevel; Version=2.84.4-3~deb13u1,,,,,,,
+libgsettings-qt1,libgsettings-qt1,libgsettings-qt1,library to access GSettings from Qt5 (shared libraries),,,1,1,,,,Section=libs; Version=1.0.0-4,,,,,,,
+libffi-dev,libffi-dev,libffi-dev,Foreign Function Interface library (development files),,,1,1,,,,Section=libdevel; Version=3.4.8-2,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libmount-dev,libmount-dev,libmount-dev,device mounting library - headers,,,1,1,,,,Section=libdevel; Version=2.41-5,,,,,,,
+libpcre2-dev,libpcre2-dev,libpcre2-dev,New Perl Compatible Regular Expression Library - development files,,,1,1,,,,Section=libdevel; Version=10.46-1~deb13u1,,,,,,,
+libselinux1-dev,libselinux1-dev,libselinux1-dev,SELinux development headers,,,1,1,,,,Section=libdevel; Version=3.8.1-1,,,,,,,
+libsysprof-capture-4-dev,libsysprof-capture-4-dev,libsysprof-capture-4-dev,capture library for system-wide Linux profiler,,,1,1,,,,Section=libdevel; Version=48.0-2,,,,,,,
+pkgconf,pkgconf,pkgconf,manage compile and link flags for libraries,,,1,1,,,,Section=devel; Version=1.8.1-4,,,,,,,
+zlib1g-dev,zlib1g-dev,zlib1g-dev,compression library - development,,,1,1,,,,Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libgio-2.0-dev-bin,libgio-2.0-dev-bin,libgio-2.0-dev-bin,"Development utilities for GLib, GObject and GIO libraries",,,1,1,,,,Section=libdevel; Version=2.84.4-3~deb13u1,,,,,,,
+libglib2.0-bin,libglib2.0-bin,libglib2.0-bin,Programs for the GLib library,,,1,1,,,,Section=misc; Version=2.84.4-3~deb13u1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libqt5core5t64,libqt5core5t64,libqt5core5t64,Qt 5 core module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libgio-2.0-dev,libgsettings-qt-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgsettings-qt1,libgsettings-qt-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi-dev,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmount-dev,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-dev,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1-dev,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsysprof-capture-4-dev,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,pkgconf,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g-dev,libgio-2.0-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgio-2.0-dev-bin,libgio-2.0-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libglib2.0-bin,libgio-2.0-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libgsettings-qt1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libgsettings-qt1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgsettings-qt1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libgsettings-qt1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libgsettings-qt1,Depends,#333,1,Depends,{}

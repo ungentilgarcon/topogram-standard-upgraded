@@ -1,110 +1,110 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"debhelper","debhelper","debhelper","helper programs for debian/rules","","","1","1","","","","Section=devel; Version=13.24.2","","","","","",""
-"dh-autoreconf","dh-autoreconf","dh-autoreconf","debhelper add-on to call autoreconf and clean up after the build","","","1","1","","","","Section=devel; Version=20","","","","","",""
-"dh-strip-nondeterminism","dh-strip-nondeterminism","dh-strip-nondeterminism","file non-deterministic information stripper — Debhelper add-on","","","1","1","","","","Section=perl; Version=1.14.1-2","","","","","",""
-"dpkg-dev","dpkg-dev","dpkg-dev","Debian package development tools","","","1","1","","","","Section=utils; Version=1.22.21","","","","","",""
-"autotools-dev","autotools-dev","autotools-dev","Update infrastructure for config.{guess,sub} files","","","1","1","","","","Section=devel; Version=20240727.1","","","","","",""
-"dpkg","dpkg","dpkg","Debian package management system","","","1","1","","","","Section=admin; Version=1.22.21","","","","","",""
-"dwz","dwz","dwz","DWARF compression tool","","","1","1","","","","Section=devel; Version=0.15-1+b1","","","","","",""
-"file","file","file","Recognize the type of data in a file using ""magic"" numbers","","","1","1","","","","Section=utils; Version=1:5.46-5","","","","","",""
-"libdebhelper-perl","libdebhelper-perl","libdebhelper-perl","debhelper perl modules","","","1","1","","","","Section=perl; Version=13.24.2","","","","","",""
-"libdpkg-perl","libdpkg-perl","libdpkg-perl","Dpkg perl modules","","","1","1","","","","Section=perl; Version=1.22.21","","","","","",""
-"man-db","man-db","man-db","tools for reading manual pages","","","1","1","","","","Section=doc; Version=2.13.1-1","","","","","",""
-"po-debconf","po-debconf","po-debconf","tool for managing templates file translations with gettext","","","1","1","","","","Section=devel; Version=1.0.21+nmu1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"autoconf","autoconf","autoconf","automatic configure script builder","","","1","1","","","","Section=devel; Version=2.72-3.1","","","","","",""
-"automake","automake","automake","Tool for generating GNU Standards-compliant Makefiles","","","1","1","","","","Section=devel; Version=1:1.17-4","","","","","",""
-"autopoint","autopoint","autopoint","tool for setting up gettext infrastructure in a source package","","","1","1","","","","Section=devel; Version=0.23.1-2","","","","","",""
-"libtool","libtool","libtool","Generic library support script","","","1","1","","","","Section=devel; Version=2.5.4-4","","","","","",""
-"libfile-stripnondeterminism-perl","libfile-stripnondeterminism-perl","libfile-stripnondeterminism-perl","file non-deterministic information stripper — Perl module","","","1","1","","","","Section=perl; Version=1.14.1-2","","","","","",""
-"tar","tar","tar","GNU version of the tar archiving utility","","","1","1","","","","Section=utils; Version=1.35+dfsg-3.1","","","","","",""
-"bzip2","bzip2","bzip2","high-quality block-sorting file compressor - utilities","","","1","1","","","","Section=utils; Version=1.0.8-6","","","","","",""
-"xz-utils","xz-utils","xz-utils","XZ-format compression utilities","","","1","1","","","","Section=utils; Version=5.8.1-1","","","","","",""
-"patch","patch","patch","Apply a diff file to an original","","","1","1","","","","Section=vcs; Version=2.8-2","","","","","",""
-"make","make","make","utility for directing compilation","","","1","1","","","","Section=devel; Version=4.4.1-2","","","","","",""
-"binutils","binutils","binutils","GNU assembler, linker and binary utilities","","","1","1","","","","Section=devel; Version=2.44-3","","","","","",""
-"build-essential","build-essential","build-essential","Informational list of build-essential packages","","","1","1","","","","Section=devel; Version=12.12","","","","","",""
-"gcc","gcc","gcc","GNU C compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","",""
-"fakeroot","fakeroot","fakeroot","tool for simulating superuser privileges","","","1","1","","","","Section=utils; Version=1.37.1.1-1","","","","","",""
-"sq","sq","sq","OpenPGP command-line tool from Sequoia","","","1","1","","","","Section=utils; Version=1.3.1-2+b1","","","","","",""
-"sqv","sqv","sqv","OpenPGP signature verification program from Sequoia","","","1","1","","","","Section=utils; Version=1.3.0-3","","","","","",""
-"libalgorithm-merge-perl","libalgorithm-merge-perl","libalgorithm-merge-perl","Perl module for three-way merge of textual data","","","1","1","","","","Section=perl; Version=0.08-5","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libelf1t64","libelf1t64","libelf1t64","library to read and write ELF files","","","1","1","","","","Section=libs; Version=0.192-4","","","","","",""
-"libmagic1t64","libmagic1t64","libmagic1t64","Recognize the type of data in a file using ""magic"" numbers - library","","","1","1","","","","Section=libs; Version=1:5.46-5","","","","","",""
-"libfile-fcntllock-perl","libfile-fcntllock-perl","libfile-fcntllock-perl","Perl module for file locking with fcntl(2)","","","1","1","","","","Section=perl; Version=0.22-4+b4","","","","","",""
-"liblocale-gettext-perl","liblocale-gettext-perl","liblocale-gettext-perl","module using libc functions for internationalization in Perl","","","1","1","","","","Section=perl; Version=1.07-7+b1","","","","","",""
-"bsdextrautils","bsdextrautils","bsdextrautils","extra utilities from 4.4BSD-Lite","","","1","1","","","","Section=utils; Version=2.41-5","","","","","",""
-"groff-base","groff-base","groff-base","GNU troff text-formatting system (base system components)","","","1","1","","","","Section=text; Version=1.23.0-9","","","","","",""
-"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","",""
-"libgdbm6t64","libgdbm6t64","libgdbm6t64","GNU dbm database routines (runtime version)","","","1","1","","","","Section=libs; Version=1.24-2","","","","","",""
-"libpipeline1","libpipeline1","libpipeline1","Unix process pipeline manipulation library","","","1","1","","","","Section=libs; Version=1.5.8-1","","","","","",""
-"libseccomp2","libseccomp2","libseccomp2","high level interface to Linux seccomp filter","","","1","1","","","","Section=libs; Version=2.6.0-2","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"gettext","gettext","gettext","GNU Internationalization utilities","","","1","1","","","","Section=devel; Version=0.23.1-2","","","","","",""
-"intltool-debian","intltool-debian","intltool-debian","Help i18n of RFC822 compliant config files","","","1","1","","","","Section=devel; Version=0.35.0+20060710.6","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"sensible-utils","sensible-utils","sensible-utils","Utilities for sensible alternative selection","","","1","1","","","","Section=utils; Version=0.0.25","","","","","",""
-"libcompress-zlib-perl","libcompress-zlib-perl","libcompress-zlib-perl","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libmail-sendmail-perl","libmail-sendmail-perl","libmail-sendmail-perl","simple way to send email from a perl script","","","1","1","","","","Section=perl; Version=0.80-3","","","","","",""
-"","","","","","","","","","","","","debhelper","dh-autoreconf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","dh-strip-nondeterminism","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","dpkg-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","autotools-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","dpkg","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","dwz","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","file","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","libdebhelper-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","libdpkg-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","man-db","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","po-debconf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debhelper","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-autoreconf","autoconf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-autoreconf","automake","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-autoreconf","autopoint","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-autoreconf","libdebhelper-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-autoreconf","libtool","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-autoreconf","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-strip-nondeterminism","libdebhelper-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-strip-nondeterminism","libfile-stripnondeterminism-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dh-strip-nondeterminism","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","libdpkg-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","tar","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","bzip2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","xz-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","patch","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","make","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","binutils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dpkg-dev","build-essential","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","dpkg-dev","gcc","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","dpkg-dev","fakeroot","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","dpkg-dev","sq","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","dpkg-dev","sqv","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","dpkg-dev","libalgorithm-merge-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","dpkg","tar","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dwz","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dwz","libelf1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","file","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","file","libmagic1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdebhelper-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdpkg-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdpkg-perl","dpkg","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdpkg-perl","libfile-fcntllock-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libdpkg-perl","liblocale-gettext-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libdpkg-perl","bzip2","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libdpkg-perl","xz-utils","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","man-db","bsdextrautils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","man-db","groff-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","man-db","debconf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","man-db","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","man-db","libgdbm6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","man-db","libpipeline1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","man-db","libseccomp2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","man-db","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","po-debconf","gettext","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","po-debconf","intltool-debian","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","po-debconf","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","po-debconf","sensible-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","po-debconf","libcompress-zlib-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","po-debconf","libmail-sendmail-perl","Recommends","#333","1","Recommends","{}"
+debhelper,debhelper,debhelper,helper programs for debian/rules,,,1,1,,,,Section=devel; Version=13.24.2,,,,,,,
+dh-autoreconf,dh-autoreconf,dh-autoreconf,debhelper add-on to call autoreconf and clean up after the build,,,1,1,,,,Section=devel; Version=20,,,,,,,
+dh-strip-nondeterminism,dh-strip-nondeterminism,dh-strip-nondeterminism,file non-deterministic information stripper — Debhelper add-on,,,1,1,,,,Section=perl; Version=1.14.1-2,,,,,,,
+dpkg-dev,dpkg-dev,dpkg-dev,Debian package development tools,,,1,1,,,,Section=utils; Version=1.22.21,,,,,,,
+autotools-dev,autotools-dev,autotools-dev,"Update infrastructure for config.{guess,sub} files",,,1,1,,,,Section=devel; Version=20240727.1,,,,,,,
+dpkg,dpkg,dpkg,Debian package management system,,,1,1,,,,Section=admin; Version=1.22.21,,,,,,,
+dwz,dwz,dwz,DWARF compression tool,,,1,1,,,,Section=devel; Version=0.15-1+b1,,,,,,,
+file,file,file,"Recognize the type of data in a file using ""magic"" numbers",,,1,1,,,,Section=utils; Version=1:5.46-5,,,,,,,
+libdebhelper-perl,libdebhelper-perl,libdebhelper-perl,debhelper perl modules,,,1,1,,,,Section=perl; Version=13.24.2,,,,,,,
+libdpkg-perl,libdpkg-perl,libdpkg-perl,Dpkg perl modules,,,1,1,,,,Section=perl; Version=1.22.21,,,,,,,
+man-db,man-db,man-db,tools for reading manual pages,,,1,1,,,,Section=doc; Version=2.13.1-1,,,,,,,
+po-debconf,po-debconf,po-debconf,tool for managing templates file translations with gettext,,,1,1,,,,Section=devel; Version=1.0.21+nmu1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+autoconf,autoconf,autoconf,automatic configure script builder,,,1,1,,,,Section=devel; Version=2.72-3.1,,,,,,,
+automake,automake,automake,Tool for generating GNU Standards-compliant Makefiles,,,1,1,,,,Section=devel; Version=1:1.17-4,,,,,,,
+autopoint,autopoint,autopoint,tool for setting up gettext infrastructure in a source package,,,1,1,,,,Section=devel; Version=0.23.1-2,,,,,,,
+libtool,libtool,libtool,Generic library support script,,,1,1,,,,Section=devel; Version=2.5.4-4,,,,,,,
+libfile-stripnondeterminism-perl,libfile-stripnondeterminism-perl,libfile-stripnondeterminism-perl,file non-deterministic information stripper — Perl module,,,1,1,,,,Section=perl; Version=1.14.1-2,,,,,,,
+tar,tar,tar,GNU version of the tar archiving utility,,,1,1,,,,Section=utils; Version=1.35+dfsg-3.1,,,,,,,
+bzip2,bzip2,bzip2,high-quality block-sorting file compressor - utilities,,,1,1,,,,Section=utils; Version=1.0.8-6,,,,,,,
+xz-utils,xz-utils,xz-utils,XZ-format compression utilities,,,1,1,,,,Section=utils; Version=5.8.1-1,,,,,,,
+patch,patch,patch,Apply a diff file to an original,,,1,1,,,,Section=vcs; Version=2.8-2,,,,,,,
+make,make,make,utility for directing compilation,,,1,1,,,,Section=devel; Version=4.4.1-2,,,,,,,
+binutils,binutils,binutils,"GNU assembler, linker and binary utilities",,,1,1,,,,Section=devel; Version=2.44-3,,,,,,,
+build-essential,build-essential,build-essential,Informational list of build-essential packages,,,1,1,,,,Section=devel; Version=12.12,,,,,,,
+gcc,gcc,gcc,GNU C compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
+fakeroot,fakeroot,fakeroot,tool for simulating superuser privileges,,,1,1,,,,Section=utils; Version=1.37.1.1-1,,,,,,,
+sq,sq,sq,OpenPGP command-line tool from Sequoia,,,1,1,,,,Section=utils; Version=1.3.1-2+b1,,,,,,,
+sqv,sqv,sqv,OpenPGP signature verification program from Sequoia,,,1,1,,,,Section=utils; Version=1.3.0-3,,,,,,,
+libalgorithm-merge-perl,libalgorithm-merge-perl,libalgorithm-merge-perl,Perl module for three-way merge of textual data,,,1,1,,,,Section=perl; Version=0.08-5,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libelf1t64,libelf1t64,libelf1t64,library to read and write ELF files,,,1,1,,,,Section=libs; Version=0.192-4,,,,,,,
+libmagic1t64,libmagic1t64,libmagic1t64,"Recognize the type of data in a file using ""magic"" numbers - library",,,1,1,,,,Section=libs; Version=1:5.46-5,,,,,,,
+libfile-fcntllock-perl,libfile-fcntllock-perl,libfile-fcntllock-perl,Perl module for file locking with fcntl(2),,,1,1,,,,Section=perl; Version=0.22-4+b4,,,,,,,
+liblocale-gettext-perl,liblocale-gettext-perl,liblocale-gettext-perl,module using libc functions for internationalization in Perl,,,1,1,,,,Section=perl; Version=1.07-7+b1,,,,,,,
+bsdextrautils,bsdextrautils,bsdextrautils,extra utilities from 4.4BSD-Lite,,,1,1,,,,Section=utils; Version=2.41-5,,,,,,,
+groff-base,groff-base,groff-base,GNU troff text-formatting system (base system components),,,1,1,,,,Section=text; Version=1.23.0-9,,,,,,,
+debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
+libgdbm6t64,libgdbm6t64,libgdbm6t64,GNU dbm database routines (runtime version),,,1,1,,,,Section=libs; Version=1.24-2,,,,,,,
+libpipeline1,libpipeline1,libpipeline1,Unix process pipeline manipulation library,,,1,1,,,,Section=libs; Version=1.5.8-1,,,,,,,
+libseccomp2,libseccomp2,libseccomp2,high level interface to Linux seccomp filter,,,1,1,,,,Section=libs; Version=2.6.0-2,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+gettext,gettext,gettext,GNU Internationalization utilities,,,1,1,,,,Section=devel; Version=0.23.1-2,,,,,,,
+intltool-debian,intltool-debian,intltool-debian,Help i18n of RFC822 compliant config files,,,1,1,,,,Section=devel; Version=0.35.0+20060710.6,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+sensible-utils,sensible-utils,sensible-utils,Utilities for sensible alternative selection,,,1,1,,,,Section=utils; Version=0.0.25,,,,,,,
+libcompress-zlib-perl,libcompress-zlib-perl,libcompress-zlib-perl,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libmail-sendmail-perl,libmail-sendmail-perl,libmail-sendmail-perl,simple way to send email from a perl script,,,1,1,,,,Section=perl; Version=0.80-3,,,,,,,
+,,,,,,,,,,,,dh-autoreconf,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dh-strip-nondeterminism,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dpkg-dev,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,autotools-dev,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dpkg,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dwz,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,file,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdebhelper-perl,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdpkg-perl,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,man-db,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,po-debconf,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,debhelper,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,autoconf,dh-autoreconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,automake,dh-autoreconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,autopoint,dh-autoreconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdebhelper-perl,dh-autoreconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtool,dh-autoreconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,dh-autoreconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdebhelper-perl,dh-strip-nondeterminism,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-stripnondeterminism-perl,dh-strip-nondeterminism,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,dh-strip-nondeterminism,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdpkg-perl,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tar,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,bzip2,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xz-utils,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,patch,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,make,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,binutils,dpkg-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,build-essential,dpkg-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gcc,dpkg-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,fakeroot,dpkg-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,sq,dpkg-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,sqv,dpkg-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libalgorithm-merge-perl,dpkg-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,tar,dpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,dwz,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libelf1t64,dwz,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,file,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmagic1t64,file,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libdebhelper-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libdpkg-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dpkg,libdpkg-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-fcntllock-perl,libdpkg-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liblocale-gettext-perl,libdpkg-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,bzip2,libdpkg-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xz-utils,libdpkg-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,bsdextrautils,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,groff-base,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,debconf,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdbm6t64,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpipeline1,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libseccomp2,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,man-db,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gettext,po-debconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,intltool-debian,po-debconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,po-debconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,sensible-utils,po-debconf,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcompress-zlib-perl,po-debconf,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libmail-sendmail-perl,po-debconf,Recommends,#333,1,Recommends,{}

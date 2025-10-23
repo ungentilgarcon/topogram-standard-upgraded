@@ -1,28 +1,28 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"kamailio","kamailio","kamailio","very fast, dynamic and configurable SIP server","","","1","1","","","","Section=net; Version=6.0.1-1+deb13u1","","","","","",""
-"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","",""
-"python3","python3","python3","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","",""
-"passwd","passwd","passwd","change and administer password and group data","","","1","1","","","","Section=admin; Version=1:4.17.4-2","","","","","",""
-"python3.13","python3.13","python3.13","Interactive high-level object-oriented language (version 3.13)","","","1","1","","","","Section=python; Version=3.13.5-2","","","","","",""
-"libpython3-stdlib","libpython3-stdlib","libpython3-stdlib","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"readline-common","readline-common","readline-common","GNU readline and history libraries, common files","","","1","1","","","","Section=utils; Version=8.2-6","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"","","","","","","","","","","","","kamailio","adduser","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kamailio","python3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kamailio","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kamailio","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kamailio","libreadline8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","adduser","passwd","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3","python3.13","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3","libpython3-stdlib","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libpcre2-8-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libreadline8t64","readline-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libreadline8t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libreadline8t64","libtinfo6","Depends","#333","1","Depends","{}"
+kamailio,kamailio,kamailio,"very fast, dynamic and configurable SIP server",,,1,1,,,,Section=net; Version=6.0.1-1+deb13u1,,,,,,,
+adduser,adduser,adduser,add and remove users and groups,,,1,1,,,,Section=admin; Version=3.152,,,,,,,
+python3,python3,python3,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
+passwd,passwd,passwd,change and administer password and group data,,,1,1,,,,Section=admin; Version=1:4.17.4-2,,,,,,,
+python3.13,python3.13,python3.13,Interactive high-level object-oriented language (version 3.13),,,1,1,,,,Section=python; Version=3.13.5-2,,,,,,,
+libpython3-stdlib,libpython3-stdlib,libpython3-stdlib,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+readline-common,readline-common,readline-common,"GNU readline and history libraries, common files",,,1,1,,,,Section=utils; Version=8.2-6,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+,,,,,,,,,,,,adduser,kamailio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3,kamailio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,kamailio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,kamailio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libreadline8t64,kamailio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,passwd,adduser,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3.13,python3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpython3-stdlib,python3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libpcre2-8-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,readline-common,libreadline8t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libreadline8t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,libreadline8t64,Depends,#333,1,Depends,{}

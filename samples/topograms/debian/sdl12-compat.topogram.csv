@@ -1,8 +1,8 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libsdl1.2-compat","libsdl1.2-compat","libsdl1.2-compat","SDL 1.2 binary compatibility library - transitional package","","","1","1","","","","Section=libs; Version=1.2.68-3","","","","","",""
-"libsdl1.2debian","libsdl1.2debian","libsdl1.2debian","SDL 1.2 binary compatibility library wrapping SDL 2.0","","","1","1","","","","Section=libs; Version=1.2.68-3","","","","","",""
-"libsdl2-2.0-0","libsdl2-2.0-0","libsdl2-2.0-0","Simple DirectMedia Layer","","","1","1","","","","Section=libs; Version=2.32.4+dfsg-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","libsdl1.2-compat","libsdl1.2debian","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsdl1.2debian","libsdl2-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsdl1.2debian","libc6","Depends","#333","1","Depends","{}"
+libsdl1.2-compat,libsdl1.2-compat,libsdl1.2-compat,SDL 1.2 binary compatibility library - transitional package,,,1,1,,,,Section=libs; Version=1.2.68-3,,,,,,,
+libsdl1.2debian,libsdl1.2debian,libsdl1.2debian,SDL 1.2 binary compatibility library wrapping SDL 2.0,,,1,1,,,,Section=libs; Version=1.2.68-3,,,,,,,
+libsdl2-2.0-0,libsdl2-2.0-0,libsdl2-2.0-0,Simple DirectMedia Layer,,,1,1,,,,Section=libs; Version=2.32.4+dfsg-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,libsdl1.2debian,libsdl1.2-compat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsdl2-2.0-0,libsdl1.2debian,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libsdl1.2debian,Depends,#333,1,Depends,{}

@@ -1,13 +1,13 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gpgrt-tools","gpgrt-tools","gpgrt-tools","GnuPG development runtime library (executable tools)","","","1","1","","","","Section=devel; Version=1.51-4","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgpg-error0","libgpg-error0","libgpg-error0","GnuPG development runtime library","","","1","1","","","","Section=libs; Version=1.51-4","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libgpg-error-l10n","libgpg-error-l10n","libgpg-error-l10n","library of error values and messages in GnuPG (localization files)","","","1","1","","","","Section=localization; Version=1.51-4","","","","","",""
-"","","","","","","","","","","","","gpgrt-tools","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpgrt-tools","libgpg-error0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgpg-error0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgpg-error0","libgpg-error-l10n","Recommends","#333","1","Recommends","{}"
+gpgrt-tools,gpgrt-tools,gpgrt-tools,GnuPG development runtime library (executable tools),,,1,1,,,,Section=devel; Version=1.51-4,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgpg-error0,libgpg-error0,libgpg-error0,GnuPG development runtime library,,,1,1,,,,Section=libs; Version=1.51-4,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libgpg-error-l10n,libgpg-error-l10n,libgpg-error-l10n,library of error values and messages in GnuPG (localization files),,,1,1,,,,Section=localization; Version=1.51-4,,,,,,,
+,,,,,,,,,,,,libc6,gpgrt-tools,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgpg-error0,gpgrt-tools,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libgpg-error0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgpg-error-l10n,libgpg-error0,Recommends,#333,1,Recommends,{}

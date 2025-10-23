@@ -1,11 +1,11 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libhttpclient-java","libhttpclient-java","libhttpclient-java","HTTP/1.1 compliant HTTP agent implementation","","","1","1","","","","Section=java; Version=4.5.14-1","","","","","",""
-"libcommons-codec-java","libcommons-codec-java","libcommons-codec-java","encoder and decoders such as Base64 and hexadecimal codec","","","1","1","","","","Section=java; Version=1.18.0-1","","","","","",""
-"libcommons-logging-java","libcommons-logging-java","libcommons-logging-java","common wrapper interface for several logging APIs","","","1","1","","","","Section=java; Version=1.3.0-2","","","","","",""
-"libhttpcore-java","libhttpcore-java","libhttpcore-java","set of low level HTTP transport components for Java","","","1","1","","","","Section=java; Version=4.4.16-1","","","","","",""
-"libcommons-parent-java","libcommons-parent-java","libcommons-parent-java","Maven metadata for Apache Commons project","","","1","1","","","","Section=java; Version=56-1","","","","","",""
-"","","","","","","","","","","","","libhttpclient-java","libcommons-codec-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttpclient-java","libcommons-logging-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttpclient-java","libhttpcore-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcommons-codec-java","libcommons-parent-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcommons-logging-java","libcommons-parent-java","Depends","#333","1","Depends","{}"
+libhttpclient-java,libhttpclient-java,libhttpclient-java,HTTP/1.1 compliant HTTP agent implementation,,,1,1,,,,Section=java; Version=4.5.14-1,,,,,,,
+libcommons-codec-java,libcommons-codec-java,libcommons-codec-java,encoder and decoders such as Base64 and hexadecimal codec,,,1,1,,,,Section=java; Version=1.18.0-1,,,,,,,
+libcommons-logging-java,libcommons-logging-java,libcommons-logging-java,common wrapper interface for several logging APIs,,,1,1,,,,Section=java; Version=1.3.0-2,,,,,,,
+libhttpcore-java,libhttpcore-java,libhttpcore-java,set of low level HTTP transport components for Java,,,1,1,,,,Section=java; Version=4.4.16-1,,,,,,,
+libcommons-parent-java,libcommons-parent-java,libcommons-parent-java,Maven metadata for Apache Commons project,,,1,1,,,,Section=java; Version=56-1,,,,,,,
+,,,,,,,,,,,,libcommons-codec-java,libhttpclient-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcommons-logging-java,libhttpclient-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttpcore-java,libhttpclient-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcommons-parent-java,libcommons-codec-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcommons-parent-java,libcommons-logging-java,Depends,#333,1,Depends,{}

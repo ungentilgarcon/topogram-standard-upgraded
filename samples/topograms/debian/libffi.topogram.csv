@@ -1,6 +1,6 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libffi-dev","libffi-dev","libffi-dev","Foreign Function Interface library (development files)","","","1","1","","","","Section=libdevel; Version=3.4.8-2","","","","","",""
-"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","libffi-dev","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libffi8","libc6","Depends","#333","1","Depends","{}"
+libffi-dev,libffi-dev,libffi-dev,Foreign Function Interface library (development files),,,1,1,,,,Section=libdevel; Version=3.4.8-2,,,,,,,
+libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,libffi8,libffi-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libffi8,Depends,#333,1,Depends,{}

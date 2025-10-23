@@ -1,12 +1,12 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"fonts-opensymbol","fonts-opensymbol","fonts-opensymbol","OpenSymbol TrueType font","","","1","1","","","","Section=fonts; Version=4:102.12+LibO25.2.3-2+deb13u2","","","","","",""
-"fontconfig","fontconfig","fontconfig","generic font configuration library - support binaries","","","1","1","","","","Section=fonts; Version=2.15.0-2.3","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"fontconfig-config","fontconfig-config","fontconfig-config","generic font configuration library - configuration","","","1","1","","","","Section=fonts; Version=2.15.0-2.3","","","","","",""
-"","","","","","","","","","","","","fonts-opensymbol","fontconfig","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","fontconfig","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","fontconfig","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","fontconfig","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","fontconfig","fontconfig-config","Depends","#333","1","Depends","{}"
+fonts-opensymbol,fonts-opensymbol,fonts-opensymbol,OpenSymbol TrueType font,,,1,1,,,,Section=fonts; Version=4:102.12+LibO25.2.3-2+deb13u2,,,,,,,
+fontconfig,fontconfig,fontconfig,generic font configuration library - support binaries,,,1,1,,,,Section=fonts; Version=2.15.0-2.3,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+fontconfig-config,fontconfig-config,fontconfig-config,generic font configuration library - configuration,,,1,1,,,,Section=fonts; Version=2.15.0-2.3,,,,,,,
+,,,,,,,,,,,,fontconfig,fonts-opensymbol,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,fontconfig,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,fontconfig,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,fontconfig,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fontconfig-config,fontconfig,Depends,#333,1,Depends,{}

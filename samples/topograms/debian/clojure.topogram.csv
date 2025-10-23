@@ -1,28 +1,28 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"clojure","clojure","clojure","Lisp dialect for the JVM","","","1","1","","","","Section=devel; Version=1.12.0-1","","","","","",""
-"default-jre-headless","default-jre-headless","default-jre-headless","Standard Java or Java compatible Runtime (headless)","","","1","1","","","","Section=java; Version=2:1.21-76","","","","","",""
-"libclojure-java","libclojure-java","libclojure-java","Lisp dialect for the JVM (library)","","","1","1","","","","Section=java; Version=1.12.0-1","","","","","",""
-"rlwrap","rlwrap","rlwrap","readline feature command line wrapper","","","1","1","","","","Section=utils; Version=0.46.1-1+b1","","","","","",""
-"openjdk-21-jre-headless","openjdk-21-jre-headless","openjdk-21-jre-headless","OpenJDK Java runtime, using Hotspot JIT (headless)","","","1","1","","","","Section=java; Version=21.0.8+9-1","","","","","",""
-"java-common","java-common","java-common","Base package for Java runtimes","","","1","1","","","","Section=java; Version=0.76","","","","","",""
-"libjsr166y-java","libjsr166y-java","libjsr166y-java","Parallel computation framework for Java","","","1","1","","","","Section=java; Version=1.7.0-3","","","","","",""
-"libcore-specs-alpha-clojure","libcore-specs-alpha-clojure","libcore-specs-alpha-clojure","specs to describe Clojure core macros and functions","","","1","1","","","","Section=java; Version=0.4.74-1","","","","","",""
-"libspec-alpha-clojure","libspec-alpha-clojure","libspec-alpha-clojure","library to describe the structure of data and functions","","","1","1","","","","Section=java; Version=0.5.238-1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"","","","","","","","","","","","","clojure","default-jre-headless","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clojure","libclojure-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clojure","rlwrap","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","default-jre-headless","openjdk-21-jre-headless","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","default-jre-headless","java-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclojure-java","libjsr166y-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclojure-java","libcore-specs-alpha-clojure","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclojure-java","libspec-alpha-clojure","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rlwrap","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rlwrap","python3:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rlwrap","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rlwrap","libreadline8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rlwrap","libtinfo6","Depends","#333","1","Depends","{}"
+clojure,clojure,clojure,Lisp dialect for the JVM,,,1,1,,,,Section=devel; Version=1.12.0-1,,,,,,,
+default-jre-headless,default-jre-headless,default-jre-headless,Standard Java or Java compatible Runtime (headless),,,1,1,,,,Section=java; Version=2:1.21-76,,,,,,,
+libclojure-java,libclojure-java,libclojure-java,Lisp dialect for the JVM (library),,,1,1,,,,Section=java; Version=1.12.0-1,,,,,,,
+rlwrap,rlwrap,rlwrap,readline feature command line wrapper,,,1,1,,,,Section=utils; Version=0.46.1-1+b1,,,,,,,
+openjdk-21-jre-headless,openjdk-21-jre-headless,openjdk-21-jre-headless,"OpenJDK Java runtime, using Hotspot JIT (headless)",,,1,1,,,,Section=java; Version=21.0.8+9-1,,,,,,,
+java-common,java-common,java-common,Base package for Java runtimes,,,1,1,,,,Section=java; Version=0.76,,,,,,,
+libjsr166y-java,libjsr166y-java,libjsr166y-java,Parallel computation framework for Java,,,1,1,,,,Section=java; Version=1.7.0-3,,,,,,,
+libcore-specs-alpha-clojure,libcore-specs-alpha-clojure,libcore-specs-alpha-clojure,specs to describe Clojure core macros and functions,,,1,1,,,,Section=java; Version=0.4.74-1,,,,,,,
+libspec-alpha-clojure,libspec-alpha-clojure,libspec-alpha-clojure,library to describe the structure of data and functions,,,1,1,,,,Section=java; Version=0.5.238-1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+,,,,,,,,,,,,default-jre-headless,clojure,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclojure-java,clojure,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,rlwrap,clojure,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,openjdk-21-jre-headless,default-jre-headless,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,java-common,default-jre-headless,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjsr166y-java,libclojure-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcore-specs-alpha-clojure,libclojure-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libspec-alpha-clojure,libclojure-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,rlwrap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3:any,rlwrap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,rlwrap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libreadline8t64,rlwrap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,rlwrap,Depends,#333,1,Depends,{}

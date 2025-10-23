@@ -1,12 +1,12 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"python-pandas-doc","python-pandas-doc","python-pandas-doc","data structures for ""relational"" or ""labeled"" data - documentation","","","1","1","","","","Section=doc; Version=2.2.3+dfsg-9","","","","","",""
-"libjs-sphinxdoc","libjs-sphinxdoc","libjs-sphinxdoc","JavaScript support for Sphinx documentation","","","1","1","","","","Section=javascript; Version=8.1.3-5","","","","","",""
-"libjs-mathjax","libjs-mathjax","libjs-mathjax","JavaScript display engine for LaTeX and MathML","","","1","1","","","","Section=javascript; Version=2.7.9+dfsg-1","","","","","",""
-"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","",""
-"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","",""
-"fonts-mathjax","fonts-mathjax","fonts-mathjax","JavaScript display engine for LaTeX and MathML (fonts)","","","1","1","","","","Section=fonts; Version=2.7.9+dfsg-1","","","","","",""
-"","","","","","","","","","","","","python-pandas-doc","libjs-sphinxdoc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python-pandas-doc","libjs-mathjax","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjs-sphinxdoc","libjs-jquery","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjs-sphinxdoc","libjs-underscore","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjs-mathjax","fonts-mathjax","Depends","#333","1","Depends","{}"
+python-pandas-doc,python-pandas-doc,python-pandas-doc,"data structures for ""relational"" or ""labeled"" data - documentation",,,1,1,,,,Section=doc; Version=2.2.3+dfsg-9,,,,,,,
+libjs-sphinxdoc,libjs-sphinxdoc,libjs-sphinxdoc,JavaScript support for Sphinx documentation,,,1,1,,,,Section=javascript; Version=8.1.3-5,,,,,,,
+libjs-mathjax,libjs-mathjax,libjs-mathjax,JavaScript display engine for LaTeX and MathML,,,1,1,,,,Section=javascript; Version=2.7.9+dfsg-1,,,,,,,
+libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
+libjs-underscore,libjs-underscore,libjs-underscore,JavaScript's functional programming helper library,,,1,1,,,,Section=javascript; Version=1.13.4~dfsg+~1.11.4-3,,,,,,,
+fonts-mathjax,fonts-mathjax,fonts-mathjax,JavaScript display engine for LaTeX and MathML (fonts),,,1,1,,,,Section=fonts; Version=2.7.9+dfsg-1,,,,,,,
+,,,,,,,,,,,,libjs-sphinxdoc,python-pandas-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-mathjax,python-pandas-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-jquery,libjs-sphinxdoc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-underscore,libjs-sphinxdoc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-mathjax,libjs-mathjax,Depends,#333,1,Depends,{}

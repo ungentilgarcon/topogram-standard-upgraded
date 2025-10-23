@@ -1,12 +1,12 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libboost-atomic1.88-dev","libboost-atomic1.88-dev","libboost-atomic1.88-dev","atomic data types, operations, and memory ordering constraints","","","1","1","","","","Section=libdevel; Version=1.88.0-1","","","","","",""
-"libboost1.88-dev","libboost1.88-dev","libboost1.88-dev","Boost C++ Libraries development files","","","1","1","","","","Section=libdevel; Version=1.88.0-1","","","","","",""
-"libboost-atomic1.88.0","libboost-atomic1.88.0","libboost-atomic1.88.0","atomic data types, operations, and memory ordering constraints","","","1","1","","","","Section=libs; Version=1.88.0-1","","","","","",""
-"libstdc++-14-dev","libstdc++-14-dev","libstdc++-14-dev","GNU Standard C++ Library v3 (development files)","","","1","1","","","","Section=libdevel; Version=14.2.0-19","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libboost-atomic1.88-dev","libboost1.88-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libboost-atomic1.88-dev","libboost-atomic1.88.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libboost1.88-dev","libstdc++-14-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libboost-atomic1.88.0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libboost-atomic1.88.0","libstdc++6","Depends","#333","1","Depends","{}"
+libboost-atomic1.88-dev,libboost-atomic1.88-dev,libboost-atomic1.88-dev,"atomic data types, operations, and memory ordering constraints",,,1,1,,,,Section=libdevel; Version=1.88.0-1,,,,,,,
+libboost1.88-dev,libboost1.88-dev,libboost1.88-dev,Boost C++ Libraries development files,,,1,1,,,,Section=libdevel; Version=1.88.0-1,,,,,,,
+libboost-atomic1.88.0,libboost-atomic1.88.0,libboost-atomic1.88.0,"atomic data types, operations, and memory ordering constraints",,,1,1,,,,Section=libs; Version=1.88.0-1,,,,,,,
+libstdc++-14-dev,libstdc++-14-dev,libstdc++-14-dev,GNU Standard C++ Library v3 (development files),,,1,1,,,,Section=libdevel; Version=14.2.0-19,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libboost1.88-dev,libboost-atomic1.88-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libboost-atomic1.88.0,libboost-atomic1.88-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++-14-dev,libboost1.88-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libboost-atomic1.88.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libboost-atomic1.88.0,Depends,#333,1,Depends,{}

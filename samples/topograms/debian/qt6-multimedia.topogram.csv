@@ -1,368 +1,368 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libqt6multimedia6","libqt6multimedia6","libqt6multimedia6","Qt 6 Multimedia library","","","1","1","","","","Section=libs; Version=6.8.2-8","","","","","",""
-"libpipewire-0.3-0t64","libpipewire-0.3-0t64","libpipewire-0.3-0t64","libraries for the PipeWire multimedia server","","","1","1","","","","Section=libs; Version=1.4.2-1","","","","","",""
-"libavcodec61","libavcodec61","libavcodec61","FFmpeg library with de/encoders for audio/video codecs - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","",""
-"libavformat61","libavformat61","libavformat61","FFmpeg library with (de)muxers for multimedia containers - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","",""
-"libavutil59","libavutil59","libavutil59","FFmpeg library with functions for simplifying programming - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libegl1","libegl1","libegl1","Vendor neutral GL dispatch library -- EGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libopengl0","libopengl0","libopengl0","Vendor neutral GL dispatch library -- OpenGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libpulse0","libpulse0","libpulse0","PulseAudio client libraries","","","1","1","","","","Section=libs; Version=17.0+dfsg1-2+b1","","","","","",""
-"libqt6core6t64","libqt6core6t64","libqt6core6t64","Qt 6 core module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"libqt6dbus6","libqt6dbus6","libqt6dbus6","Qt 6 D-Bus module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"libqt6gui6","libqt6gui6","libqt6gui6","Qt 6 GUI module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"libqt6network6","libqt6network6","libqt6network6","Qt 6 network module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"libqt6opengl6","libqt6opengl6","libqt6opengl6","Qt 6 OpenGL module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"libqt6quick6","libqt6quick6","libqt6quick6","Qt 6 Quick library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libswresample5","libswresample5","libswresample5","FFmpeg library for audio resampling, rematrixing etc. - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","",""
-"libswscale8","libswscale8","libswscale8","FFmpeg library for image scaling and various conversions - runtime files","","","1","1","","","","Section=libs; Version=7:7.1.1-1+b1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","",""
-"libxrandr2","libxrandr2","libxrandr2","X11 RandR extension library","","","1","1","","","","Section=libs; Version=2:1.5.4-1+b3","","","","","",""
-"qt6-base-private-abi","qt6-base-private-abi","qt6-base-private-abi","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libspa-0.2-modules","libspa-0.2-modules","libspa-0.2-modules","libraries for the PipeWire multimedia server Simple Plugin API - modules","","","1","1","","","","Section=libs; Version=1.4.2-1","","","","","",""
-"libpipewire-0.3-common","libpipewire-0.3-common","libpipewire-0.3-common","libraries for the PipeWire multimedia server - common files","","","1","1","","","","Section=libs; Version=1.4.2-1","","","","","",""
-"libaom3","libaom3","libaom3","AV1 Video Codec Library","","","1","1","","","","Section=libs; Version=3.12.1-1","","","","","",""
-"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
-"libcodec2-1.2","libcodec2-1.2","libcodec2-1.2","Codec2 runtime library","","","1","1","","","","Section=libs; Version=1.2.0-3","","","","","",""
-"libdav1d7","libdav1d7","libdav1d7","fast and small AV1 video stream decoder (shared library)","","","1","1","","","","Section=libs; Version=1.5.1-1","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libgsm1","libgsm1","libgsm1","Shared libraries for GSM speech compressor","","","1","1","","","","Section=libs; Version=1.0.22-1+b2","","","","","",""
-"libjxl0.11","libjxl0.11","libjxl0.11","JPEG XL Image Coding System - ""JXL"" (shared libraries)","","","1","1","","","","Section=libs; Version=0.11.1-4","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"libmp3lame0","libmp3lame0","libmp3lame0","MP3 encoding library","","","1","1","","","","Section=libs; Version=3.100-6+b3","","","","","",""
-"libopenjp2-7","libopenjp2-7","libopenjp2-7","JPEG 2000 image compression/decompression library","","","1","1","","","","Section=libs; Version=2.5.3-2.1~deb13u1","","","","","",""
-"libopus0","libopus0","libopus0","Opus codec runtime library","","","1","1","","","","Section=libs; Version=1.5.2-2","","","","","",""
-"librav1e0.7","librav1e0.7","librav1e0.7","Fastest and safest AV1 encoder - shared library","","","1","1","","","","Section=libs; Version=0.7.1-9+b2","","","","","",""
-"librsvg2-2","librsvg2-2","librsvg2-2","SAX-based renderer library for SVG files (runtime)","","","1","1","","","","Section=libs; Version=2.60.0+dfsg-1","","","","","",""
-"libshine3","libshine3","libshine3","Fixed-point MP3 encoding library - runtime files","","","1","1","","","","Section=libs; Version=3.1.1-2+b2","","","","","",""
-"libsnappy1v5","libsnappy1v5","libsnappy1v5","fast compression/decompression library","","","1","1","","","","Section=libs; Version=1.2.2-1","","","","","",""
-"libspeex1","libspeex1","libspeex1","Speex codec library (runtime library)","","","1","1","","","","Section=libs; Version=1.2.1-3","","","","","",""
-"libsvtav1enc2","libsvtav1enc2","libsvtav1enc2","Scalable Video Technology for AV1 (libsvtav1enc shared library)","","","1","1","","","","Section=libs; Version=2.3.0+dfsg-1","","","","","",""
-"libtheoradec1","libtheoradec1","libtheoradec1","Theora Video Compression Codec (shared library - libtheoradec)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","",""
-"libtheoraenc1","libtheoraenc1","libtheoraenc1","Theora Video Compression Codec (shared library - libtheoraenc)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","",""
-"libtwolame0","libtwolame0","libtwolame0","MPEG Audio Layer 2 encoding library","","","1","1","","","","Section=libs; Version=0.4.0-2+b2","","","","","",""
-"libva2","libva2","libva2","Video Acceleration (VA) API for Linux -- runtime","","","1","1","","","","Section=libs; Version=2.22.0-3","","","","","",""
-"libvorbis0a","libvorbis0a","libvorbis0a","decoder library for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","",""
-"libvorbisenc2","libvorbisenc2","libvorbisenc2","encoder library for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","",""
-"libvpl2","libvpl2","libvpl2","Intel Video Processing Library -- shared library","","","1","1","","","","Section=libs; Version=1:2.14.0-1+b1","","","","","",""
-"libvpx9","libvpx9","libvpx9","VP8 and VP9 video codec (shared library)","","","1","1","","","","Section=libs; Version=1.15.0-2.1","","","","","",""
-"libwebp7","libwebp7","libwebp7","Lossy compression of digital photographic images (shared library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","",""
-"libwebpmux3","libwebpmux3","libwebpmux3","Lossy compression of digital photographic images (libwebpmux library)","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","",""
-"libx264-164","libx264-164","libx264-164","x264 video coding library","","","1","1","","","","Section=libs; Version=2:0.164.3108+git31e19f9-2+b1","","","","","",""
-"libx265-215","libx265-215","libx265-215","H.265/HEVC video stream encoder (shared library)","","","1","1","","","","Section=libs; Version=4.1-2","","","","","",""
-"libxvidcore4","libxvidcore4","libxvidcore4","Open source MPEG-4 video codec (library)","","","1","1","","","","Section=libs; Version=2:1.3.7-1+b2","","","","","",""
-"libzvbi0t64","libzvbi0t64","libzvbi0t64","Vertical Blanking Interval decoder (VBI) - runtime files","","","1","1","","","","Section=libs; Version=0.2.44-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libbluray2","libbluray2","libbluray2","Blu-ray disc playback support library (shared library)","","","1","1","","","","Section=libs; Version=1:1.3.4-1+b2","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"libchromaprint1","libchromaprint1","libchromaprint1","audio fingerprint library","","","1","1","","","","Section=libs; Version=1.5.1-7","","","","","",""
-"libdvdnav4","libdvdnav4","libdvdnav4","DVD navigation library","","","1","1","","","","Section=libs; Version=6.1.1-3+b1","","","","","",""
-"libdvdread8t64","libdvdread8t64","libdvdread8t64","library for reading DVDs","","","1","1","","","","Section=libs; Version=6.1.3-2","","","","","",""
-"libgme0","libgme0","libgme0","Playback library for video game music files - shared library","","","1","1","","","","Section=libs; Version=0.6.3-7+b2","","","","","",""
-"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","",""
-"libopenmpt0t64","libopenmpt0t64","libopenmpt0t64","module music library based on OpenMPT -- shared library","","","1","1","","","","Section=libs; Version=0.7.13-1+b1","","","","","",""
-"librabbitmq4","librabbitmq4","librabbitmq4","AMQP client library written in C","","","1","1","","","","Section=libs; Version=0.15.0-1","","","","","",""
-"librist4","librist4","librist4","Reliable Internet Stream Transport -- shared library","","","1","1","","","","Section=libs; Version=0.2.11+dfsg-1","","","","","",""
-"libsrt1.5-gnutls","libsrt1.5-gnutls","libsrt1.5-gnutls","Secure Reliable Transport UDP streaming library (GnuTLS flavour)","","","1","1","","","","Section=libs; Version=1.5.4-1","","","","","",""
-"libssh-4","libssh-4","libssh-4","tiny C SSH library (OpenSSL flavor)","","","1","1","","","","Section=libs; Version=0.11.2-1","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"libzmq5","libzmq5","libzmq5","lightweight messaging kernel (shared library)","","","1","1","","","","Section=libs; Version=4.3.5-1+b3","","","","","",""
-"libdrm2","libdrm2","libdrm2","Userspace interface to kernel DRM services -- runtime","","","1","1","","","","Section=libs; Version=2.4.124-2","","","","","",""
-"libva-drm2","libva-drm2","libva-drm2","Video Acceleration (VA) API for Linux -- DRM runtime","","","1","1","","","","Section=libs; Version=2.22.0-3","","","","","",""
-"libva-x11-2","libva-x11-2","libva-x11-2","Video Acceleration (VA) API for Linux -- X11 runtime","","","1","1","","","","Section=libs; Version=2.22.0-3","","","","","",""
-"libvdpau1","libvdpau1","libvdpau1","Video Decode and Presentation API for Unix (libraries)","","","1","1","","","","Section=libs; Version=1.5-3+b1","","","","","",""
-"ocl-icd-libopencl1","ocl-icd-libopencl1","ocl-icd-libopencl1","Generic OpenCL ICD Loader","","","1","1","","","","Section=libs; Version=2.3.3-1","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libglvnd0","libglvnd0","libglvnd0","Vendor neutral GL dispatch library","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libegl-mesa0","libegl-mesa0","libegl-mesa0","free implementation of the EGL API -- Mesa vendor library","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libasyncns0","libasyncns0","libasyncns0","Asynchronous name service query library","","","1","1","","","","Section=libs; Version=0.8-6+b5","","","","","",""
-"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","",""
-"libsndfile1","libsndfile1","libsndfile1","Library for reading/writing audio files","","","1","1","","","","Section=libs; Version=1.2.2-2+b1","","","","","",""
-"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libx11-xcb1","libx11-xcb1","libx11-xcb1","Xlib/XCB interface library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","",""
-"libb2-1","libb2-1","libb2-1","BLAKE2 family of hash functions","","","1","1","","","","Section=libs; Version=0.98.1-1.1+b2","","","","","",""
-"libdouble-conversion3","libdouble-conversion3","libdouble-conversion3","routines to convert IEEE floats to and from strings","","","1","1","","","","Section=libs; Version=3.3.1-1","","","","","",""
-"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","",""
-"libpcre2-16-0","libpcre2-16-0","libpcre2-16-0","New Perl Compatible Regular Expression Library - 16 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"qt6-translations-l10n","qt6-translations-l10n","qt6-translations-l10n","translations for Qt 6","","","1","1","","","","Section=localization; Version=6.8.2-2","","","","","",""
-"fontconfig","fontconfig","fontconfig","generic font configuration library - support binaries","","","1","1","","","","Section=fonts; Version=2.15.0-2.3","","","","","",""
-"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"libglx0","libglx0","libglx0","Vendor neutral GL dispatch library -- GLX support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","",""
-"libice6","libice6","libice6","X11 Inter-Client Exchange library","","","1","1","","","","Section=libs; Version=2:1.1.1-1","","","","","",""
-"libinput10","libinput10","libinput10","input device management and event handling library - shared library","","","1","1","","","","Section=libs; Version=1.28.1-1","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"libmd4c0","libmd4c0","libmd4c0","Markdown for C","","","1","1","","","","Section=libs; Version=0.5.2-2+b1","","","","","",""
-"libmtdev1t64","libmtdev1t64","libmtdev1t64","Multitouch Protocol Translation Library - shared library","","","1","1","","","","Section=libs; Version=1.1.7-1","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libsm6","libsm6","libsm6","X11 Session Management library","","","1","1","","","","Section=libs; Version=2:1.2.6-1","","","","","",""
-"libts0t64","libts0t64","libts0t64","touch screen library","","","1","1","","","","Section=libs; Version=1.22-1.1+b1","","","","","",""
-"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libxcb-cursor0","libxcb-cursor0","libxcb-cursor0","utility libraries for X C Binding -- cursor","","","1","1","","","","Section=libs; Version=0.1.5-1","","","","","",""
-"libxcb-glx0","libxcb-glx0","libxcb-glx0","X C Binding, glx extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-icccm4","libxcb-icccm4","libxcb-icccm4","utility libraries for X C Binding -- icccm","","","1","1","","","","Section=libs; Version=0.4.2-1","","","","","",""
-"libxcb-image0","libxcb-image0","libxcb-image0","utility libraries for X C Binding -- image","","","1","1","","","","Section=libs; Version=0.4.0-2+b2","","","","","",""
-"libxcb-keysyms1","libxcb-keysyms1","libxcb-keysyms1","utility libraries for X C Binding -- keysyms","","","1","1","","","","Section=libs; Version=0.4.1-1","","","","","",""
-"libxcb-randr0","libxcb-randr0","libxcb-randr0","X C Binding, randr extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-render-util0","libxcb-render-util0","libxcb-render-util0","utility libraries for X C Binding -- render-util","","","1","1","","","","Section=libs; Version=0.3.10-1","","","","","",""
-"libxcb-render0","libxcb-render0","libxcb-render0","X C Binding, render extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shape0","libxcb-shape0","libxcb-shape0","X C Binding, shape extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shm0","libxcb-shm0","libxcb-shm0","X C Binding, shm extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-sync1","libxcb-sync1","libxcb-sync1","X C Binding, sync extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xfixes0","libxcb-xfixes0","libxcb-xfixes0","X C Binding, xfixes extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xinput0","libxcb-xinput0","libxcb-xinput0","X C Binding, xinput extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xkb1","libxcb-xkb1","libxcb-xkb1","X C Binding, XKEYBOARD extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxkbcommon-x11-0","libxkbcommon-x11-0","libxkbcommon-x11-0","library to create keymaps with the XKB X11 protocol","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"qt6-gtk-platformtheme","qt6-gtk-platformtheme","qt6-gtk-platformtheme","Qt 6 GTK+ 3 platform theme","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"qt6-qpa-plugins","qt6-qpa-plugins","qt6-qpa-plugins","Qt 6 QPA plugins","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"qt6-svg-plugins","qt6-svg-plugins","qt6-svg-plugins","Qt 6 SVG library plugins","","","1","1","","","","Section=libs; Version=6.8.2-3","","","","","",""
-"qt6-wayland","qt6-wayland","qt6-wayland","Qt 6 Wayland platform plugin","","","1","1","","","","Section=libs; Version=6.8.2-4","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","",""
-"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libproxy1v5","libproxy1v5","libproxy1v5","automatic proxy configuration management library (shared)","","","1","1","","","","Section=libs; Version=0.5.9-1","","","","","",""
-"libgbm1","libgbm1","libgbm1","generic buffer management API -- runtime","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"libqt6qml6","libqt6qml6","libqt6qml6","Qt 6 QML library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"libqt6qmlmeta6","libqt6qmlmeta6","libqt6qmlmeta6","Qt 6 QML Meta library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"libqt6qmlmodels6","libqt6qmlmodels6","libqt6qmlmodels6","Qt 6 QML Models library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"qt6-declarative-private-abi","qt6-declarative-private-abi","qt6-declarative-private-abi","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libsoxr0","libsoxr0","libsoxr0","High quality 1D sample-rate conversion library","","","1","1","","","","Section=libs; Version=0.1.3-4+b2","","","","","",""
-"libx11-data","libx11-data","libx11-data","X11 client-side library","","","1","1","","","","Section=x11; Version=2:1.8.12-1","","","","","",""
-"libxrender1","libxrender1","libxrender1","X Rendering Extension client library","","","1","1","","","","Section=libs; Version=1:0.9.12-1","","","","","",""
-"","","","","","","","","","","","","libqt6multimedia6","libpipewire-0.3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libavcodec61","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libavformat61","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libavutil59","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libegl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libopengl0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libpulse0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libqt6core6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libqt6dbus6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libqt6gui6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libqt6network6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libqt6opengl6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libqt6quick6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libswresample5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libswscale8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","libxrandr2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6multimedia6","qt6-base-private-abi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpipewire-0.3-0t64","libspa-0.2-modules","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpipewire-0.3-0t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpipewire-0.3-0t64","libpipewire-0.3-common","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libavcodec61","libaom3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libavutil59","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libcodec2-1.2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libdav1d7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libgsm1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libjxl0.11","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libmp3lame0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libopenjp2-7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libopus0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","librav1e0.7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","librsvg2-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libshine3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libsnappy1v5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libspeex1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libsvtav1enc2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libswresample5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libtheoradec1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libtheoraenc1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libtwolame0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libva2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libvorbis0a","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libvorbisenc2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libvpl2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libvpx9","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libwebp7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libwebpmux3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libx264-164","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libx265-215","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libxvidcore4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","libzvbi0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavcodec61","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libavcodec61","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libavutil59","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libbluray2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libchromaprint1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libdvdnav4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libdvdread8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libgme0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libgnutls30t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libopenmpt0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","librabbitmq4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","librist4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libsrt1.5-gnutls","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libssh-4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","libzmq5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavformat61","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libdrm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libva-drm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libva-x11-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libva2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libvdpau1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libvpl2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","ocl-icd-libopencl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libavutil59","ocl-icd-libopencl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libegl1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libegl1","libglvnd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libegl1","libegl-mesa0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libopengl0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libopengl0","libglvnd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libasyncns0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libdbus-1-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libsndfile1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libx11-xcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","shared-mime-info","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libb2-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libdouble-conversion3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libicu76","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libpcre2-16-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6core6t64","qt6-translations-l10n","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt6dbus6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6dbus6","libdbus-1-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6dbus6","libqt6core6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6dbus6","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6dbus6","qt6-base-private-abi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","fontconfig","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libdrm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libegl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libglx0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libharfbuzz0b","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libinput10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libmd4c0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libmtdev1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libopengl0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libqt6core6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libqt6dbus6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libsm6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libts0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libx11-xcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-cursor0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-glx0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-icccm4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-image0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-keysyms1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-randr0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-render-util0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-render0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-shape0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-shm0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-sync1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-xfixes0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-xinput0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb-xkb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxkbcommon-x11-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","libxkbcommon0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","qt6-base-private-abi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6gui6","qt6-gtk-platformtheme","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt6gui6","qt6-qpa-plugins","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt6gui6","qt6-svg-plugins","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt6gui6","qt6-wayland","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt6network6","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libbrotli1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libproxy1v5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libqt6core6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libqt6dbus6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","qt6-base-private-abi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6network6","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libdrm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libegl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libgbm1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libinput10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libmtdev1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libopengl0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libqt6core6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libqt6gui6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libts0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libx11-xcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","libxkbcommon0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6opengl6","qt6-base-private-abi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libqt6core6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libqt6gui6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libqt6network6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libqt6opengl6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libqt6qml6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libqt6qmlmeta6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libqt6qmlmodels6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","qt6-base-private-abi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt6quick6","qt6-declarative-private-abi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswresample5","libavutil59","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswresample5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswresample5","libsoxr0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswscale8","libavutil59","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswscale8","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libx11-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxext6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxext6","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxrandr2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxrandr2","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxrandr2","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxrandr2","libxrender1","Depends","#333","1","Depends","{}"
+libqt6multimedia6,libqt6multimedia6,libqt6multimedia6,Qt 6 Multimedia library,,,1,1,,,,Section=libs; Version=6.8.2-8,,,,,,,
+libpipewire-0.3-0t64,libpipewire-0.3-0t64,libpipewire-0.3-0t64,libraries for the PipeWire multimedia server,,,1,1,,,,Section=libs; Version=1.4.2-1,,,,,,,
+libavcodec61,libavcodec61,libavcodec61,FFmpeg library with de/encoders for audio/video codecs - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
+libavformat61,libavformat61,libavformat61,FFmpeg library with (de)muxers for multimedia containers - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
+libavutil59,libavutil59,libavutil59,FFmpeg library with functions for simplifying programming - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libegl1,libegl1,libegl1,Vendor neutral GL dispatch library -- EGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libopengl0,libopengl0,libopengl0,Vendor neutral GL dispatch library -- OpenGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libpulse0,libpulse0,libpulse0,PulseAudio client libraries,,,1,1,,,,Section=libs; Version=17.0+dfsg1-2+b1,,,,,,,
+libqt6core6t64,libqt6core6t64,libqt6core6t64,Qt 6 core module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+libqt6dbus6,libqt6dbus6,libqt6dbus6,Qt 6 D-Bus module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+libqt6gui6,libqt6gui6,libqt6gui6,Qt 6 GUI module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+libqt6network6,libqt6network6,libqt6network6,Qt 6 network module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+libqt6opengl6,libqt6opengl6,libqt6opengl6,Qt 6 OpenGL module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+libqt6quick6,libqt6quick6,libqt6quick6,Qt 6 Quick library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libswresample5,libswresample5,libswresample5,"FFmpeg library for audio resampling, rematrixing etc. - runtime files",,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
+libswscale8,libswscale8,libswscale8,FFmpeg library for image scaling and various conversions - runtime files,,,1,1,,,,Section=libs; Version=7:7.1.1-1+b1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
+libxrandr2,libxrandr2,libxrandr2,X11 RandR extension library,,,1,1,,,,Section=libs; Version=2:1.5.4-1+b3,,,,,,,
+qt6-base-private-abi,qt6-base-private-abi,qt6-base-private-abi,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libspa-0.2-modules,libspa-0.2-modules,libspa-0.2-modules,libraries for the PipeWire multimedia server Simple Plugin API - modules,,,1,1,,,,Section=libs; Version=1.4.2-1,,,,,,,
+libpipewire-0.3-common,libpipewire-0.3-common,libpipewire-0.3-common,libraries for the PipeWire multimedia server - common files,,,1,1,,,,Section=libs; Version=1.4.2-1,,,,,,,
+libaom3,libaom3,libaom3,AV1 Video Codec Library,,,1,1,,,,Section=libs; Version=3.12.1-1,,,,,,,
+libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
+libcodec2-1.2,libcodec2-1.2,libcodec2-1.2,Codec2 runtime library,,,1,1,,,,Section=libs; Version=1.2.0-3,,,,,,,
+libdav1d7,libdav1d7,libdav1d7,fast and small AV1 video stream decoder (shared library),,,1,1,,,,Section=libs; Version=1.5.1-1,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libgsm1,libgsm1,libgsm1,Shared libraries for GSM speech compressor,,,1,1,,,,Section=libs; Version=1.0.22-1+b2,,,,,,,
+libjxl0.11,libjxl0.11,libjxl0.11,"JPEG XL Image Coding System - ""JXL"" (shared libraries)",,,1,1,,,,Section=libs; Version=0.11.1-4,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+libmp3lame0,libmp3lame0,libmp3lame0,MP3 encoding library,,,1,1,,,,Section=libs; Version=3.100-6+b3,,,,,,,
+libopenjp2-7,libopenjp2-7,libopenjp2-7,JPEG 2000 image compression/decompression library,,,1,1,,,,Section=libs; Version=2.5.3-2.1~deb13u1,,,,,,,
+libopus0,libopus0,libopus0,Opus codec runtime library,,,1,1,,,,Section=libs; Version=1.5.2-2,,,,,,,
+librav1e0.7,librav1e0.7,librav1e0.7,Fastest and safest AV1 encoder - shared library,,,1,1,,,,Section=libs; Version=0.7.1-9+b2,,,,,,,
+librsvg2-2,librsvg2-2,librsvg2-2,SAX-based renderer library for SVG files (runtime),,,1,1,,,,Section=libs; Version=2.60.0+dfsg-1,,,,,,,
+libshine3,libshine3,libshine3,Fixed-point MP3 encoding library - runtime files,,,1,1,,,,Section=libs; Version=3.1.1-2+b2,,,,,,,
+libsnappy1v5,libsnappy1v5,libsnappy1v5,fast compression/decompression library,,,1,1,,,,Section=libs; Version=1.2.2-1,,,,,,,
+libspeex1,libspeex1,libspeex1,Speex codec library (runtime library),,,1,1,,,,Section=libs; Version=1.2.1-3,,,,,,,
+libsvtav1enc2,libsvtav1enc2,libsvtav1enc2,Scalable Video Technology for AV1 (libsvtav1enc shared library),,,1,1,,,,Section=libs; Version=2.3.0+dfsg-1,,,,,,,
+libtheoradec1,libtheoradec1,libtheoradec1,Theora Video Compression Codec (shared library - libtheoradec),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
+libtheoraenc1,libtheoraenc1,libtheoraenc1,Theora Video Compression Codec (shared library - libtheoraenc),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
+libtwolame0,libtwolame0,libtwolame0,MPEG Audio Layer 2 encoding library,,,1,1,,,,Section=libs; Version=0.4.0-2+b2,,,,,,,
+libva2,libva2,libva2,Video Acceleration (VA) API for Linux -- runtime,,,1,1,,,,Section=libs; Version=2.22.0-3,,,,,,,
+libvorbis0a,libvorbis0a,libvorbis0a,decoder library for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
+libvorbisenc2,libvorbisenc2,libvorbisenc2,encoder library for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
+libvpl2,libvpl2,libvpl2,Intel Video Processing Library -- shared library,,,1,1,,,,Section=libs; Version=1:2.14.0-1+b1,,,,,,,
+libvpx9,libvpx9,libvpx9,VP8 and VP9 video codec (shared library),,,1,1,,,,Section=libs; Version=1.15.0-2.1,,,,,,,
+libwebp7,libwebp7,libwebp7,Lossy compression of digital photographic images (shared library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
+libwebpmux3,libwebpmux3,libwebpmux3,Lossy compression of digital photographic images (libwebpmux library),,,1,1,,,,Section=libs; Version=1.5.0-0.1,,,,,,,
+libx264-164,libx264-164,libx264-164,x264 video coding library,,,1,1,,,,Section=libs; Version=2:0.164.3108+git31e19f9-2+b1,,,,,,,
+libx265-215,libx265-215,libx265-215,H.265/HEVC video stream encoder (shared library),,,1,1,,,,Section=libs; Version=4.1-2,,,,,,,
+libxvidcore4,libxvidcore4,libxvidcore4,Open source MPEG-4 video codec (library),,,1,1,,,,Section=libs; Version=2:1.3.7-1+b2,,,,,,,
+libzvbi0t64,libzvbi0t64,libzvbi0t64,Vertical Blanking Interval decoder (VBI) - runtime files,,,1,1,,,,Section=libs; Version=0.2.44-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libbluray2,libbluray2,libbluray2,Blu-ray disc playback support library (shared library),,,1,1,,,,Section=libs; Version=1:1.3.4-1+b2,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+libchromaprint1,libchromaprint1,libchromaprint1,audio fingerprint library,,,1,1,,,,Section=libs; Version=1.5.1-7,,,,,,,
+libdvdnav4,libdvdnav4,libdvdnav4,DVD navigation library,,,1,1,,,,Section=libs; Version=6.1.1-3+b1,,,,,,,
+libdvdread8t64,libdvdread8t64,libdvdread8t64,library for reading DVDs,,,1,1,,,,Section=libs; Version=6.1.3-2,,,,,,,
+libgme0,libgme0,libgme0,Playback library for video game music files - shared library,,,1,1,,,,Section=libs; Version=0.6.3-7+b2,,,,,,,
+libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
+libopenmpt0t64,libopenmpt0t64,libopenmpt0t64,module music library based on OpenMPT -- shared library,,,1,1,,,,Section=libs; Version=0.7.13-1+b1,,,,,,,
+librabbitmq4,librabbitmq4,librabbitmq4,AMQP client library written in C,,,1,1,,,,Section=libs; Version=0.15.0-1,,,,,,,
+librist4,librist4,librist4,Reliable Internet Stream Transport -- shared library,,,1,1,,,,Section=libs; Version=0.2.11+dfsg-1,,,,,,,
+libsrt1.5-gnutls,libsrt1.5-gnutls,libsrt1.5-gnutls,Secure Reliable Transport UDP streaming library (GnuTLS flavour),,,1,1,,,,Section=libs; Version=1.5.4-1,,,,,,,
+libssh-4,libssh-4,libssh-4,tiny C SSH library (OpenSSL flavor),,,1,1,,,,Section=libs; Version=0.11.2-1,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+libzmq5,libzmq5,libzmq5,lightweight messaging kernel (shared library),,,1,1,,,,Section=libs; Version=4.3.5-1+b3,,,,,,,
+libdrm2,libdrm2,libdrm2,Userspace interface to kernel DRM services -- runtime,,,1,1,,,,Section=libs; Version=2.4.124-2,,,,,,,
+libva-drm2,libva-drm2,libva-drm2,Video Acceleration (VA) API for Linux -- DRM runtime,,,1,1,,,,Section=libs; Version=2.22.0-3,,,,,,,
+libva-x11-2,libva-x11-2,libva-x11-2,Video Acceleration (VA) API for Linux -- X11 runtime,,,1,1,,,,Section=libs; Version=2.22.0-3,,,,,,,
+libvdpau1,libvdpau1,libvdpau1,Video Decode and Presentation API for Unix (libraries),,,1,1,,,,Section=libs; Version=1.5-3+b1,,,,,,,
+ocl-icd-libopencl1,ocl-icd-libopencl1,ocl-icd-libopencl1,Generic OpenCL ICD Loader,,,1,1,,,,Section=libs; Version=2.3.3-1,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libglvnd0,libglvnd0,libglvnd0,Vendor neutral GL dispatch library,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libegl-mesa0,libegl-mesa0,libegl-mesa0,free implementation of the EGL API -- Mesa vendor library,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libasyncns0,libasyncns0,libasyncns0,Asynchronous name service query library,,,1,1,,,,Section=libs; Version=0.8-6+b5,,,,,,,
+libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
+libsndfile1,libsndfile1,libsndfile1,Library for reading/writing audio files,,,1,1,,,,Section=libs; Version=1.2.2-2+b1,,,,,,,
+libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libx11-xcb1,libx11-xcb1,libx11-xcb1,Xlib/XCB interface library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
+libb2-1,libb2-1,libb2-1,BLAKE2 family of hash functions,,,1,1,,,,Section=libs; Version=0.98.1-1.1+b2,,,,,,,
+libdouble-conversion3,libdouble-conversion3,libdouble-conversion3,routines to convert IEEE floats to and from strings,,,1,1,,,,Section=libs; Version=3.3.1-1,,,,,,,
+libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
+libpcre2-16-0,libpcre2-16-0,libpcre2-16-0,New Perl Compatible Regular Expression Library - 16 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+qt6-translations-l10n,qt6-translations-l10n,qt6-translations-l10n,translations for Qt 6,,,1,1,,,,Section=localization; Version=6.8.2-2,,,,,,,
+fontconfig,fontconfig,fontconfig,generic font configuration library - support binaries,,,1,1,,,,Section=fonts; Version=2.15.0-2.3,,,,,,,
+libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+libglx0,libglx0,libglx0,Vendor neutral GL dispatch library -- GLX support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
+libice6,libice6,libice6,X11 Inter-Client Exchange library,,,1,1,,,,Section=libs; Version=2:1.1.1-1,,,,,,,
+libinput10,libinput10,libinput10,input device management and event handling library - shared library,,,1,1,,,,Section=libs; Version=1.28.1-1,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+libmd4c0,libmd4c0,libmd4c0,Markdown for C,,,1,1,,,,Section=libs; Version=0.5.2-2+b1,,,,,,,
+libmtdev1t64,libmtdev1t64,libmtdev1t64,Multitouch Protocol Translation Library - shared library,,,1,1,,,,Section=libs; Version=1.1.7-1,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libsm6,libsm6,libsm6,X11 Session Management library,,,1,1,,,,Section=libs; Version=2:1.2.6-1,,,,,,,
+libts0t64,libts0t64,libts0t64,touch screen library,,,1,1,,,,Section=libs; Version=1.22-1.1+b1,,,,,,,
+libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libxcb-cursor0,libxcb-cursor0,libxcb-cursor0,utility libraries for X C Binding -- cursor,,,1,1,,,,Section=libs; Version=0.1.5-1,,,,,,,
+libxcb-glx0,libxcb-glx0,libxcb-glx0,"X C Binding, glx extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-icccm4,libxcb-icccm4,libxcb-icccm4,utility libraries for X C Binding -- icccm,,,1,1,,,,Section=libs; Version=0.4.2-1,,,,,,,
+libxcb-image0,libxcb-image0,libxcb-image0,utility libraries for X C Binding -- image,,,1,1,,,,Section=libs; Version=0.4.0-2+b2,,,,,,,
+libxcb-keysyms1,libxcb-keysyms1,libxcb-keysyms1,utility libraries for X C Binding -- keysyms,,,1,1,,,,Section=libs; Version=0.4.1-1,,,,,,,
+libxcb-randr0,libxcb-randr0,libxcb-randr0,"X C Binding, randr extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-render-util0,libxcb-render-util0,libxcb-render-util0,utility libraries for X C Binding -- render-util,,,1,1,,,,Section=libs; Version=0.3.10-1,,,,,,,
+libxcb-render0,libxcb-render0,libxcb-render0,"X C Binding, render extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shape0,libxcb-shape0,libxcb-shape0,"X C Binding, shape extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shm0,libxcb-shm0,libxcb-shm0,"X C Binding, shm extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-sync1,libxcb-sync1,libxcb-sync1,"X C Binding, sync extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xfixes0,libxcb-xfixes0,libxcb-xfixes0,"X C Binding, xfixes extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xinput0,libxcb-xinput0,libxcb-xinput0,"X C Binding, xinput extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xkb1,libxcb-xkb1,libxcb-xkb1,"X C Binding, XKEYBOARD extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxkbcommon-x11-0,libxkbcommon-x11-0,libxkbcommon-x11-0,library to create keymaps with the XKB X11 protocol,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+qt6-gtk-platformtheme,qt6-gtk-platformtheme,qt6-gtk-platformtheme,Qt 6 GTK+ 3 platform theme,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+qt6-qpa-plugins,qt6-qpa-plugins,qt6-qpa-plugins,Qt 6 QPA plugins,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+qt6-svg-plugins,qt6-svg-plugins,qt6-svg-plugins,Qt 6 SVG library plugins,,,1,1,,,,Section=libs; Version=6.8.2-3,,,,,,,
+qt6-wayland,qt6-wayland,qt6-wayland,Qt 6 Wayland platform plugin,,,1,1,,,,Section=libs; Version=6.8.2-4,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
+libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libproxy1v5,libproxy1v5,libproxy1v5,automatic proxy configuration management library (shared),,,1,1,,,,Section=libs; Version=0.5.9-1,,,,,,,
+libgbm1,libgbm1,libgbm1,generic buffer management API -- runtime,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+libqt6qml6,libqt6qml6,libqt6qml6,Qt 6 QML library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+libqt6qmlmeta6,libqt6qmlmeta6,libqt6qmlmeta6,Qt 6 QML Meta library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+libqt6qmlmodels6,libqt6qmlmodels6,libqt6qmlmodels6,Qt 6 QML Models library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+qt6-declarative-private-abi,qt6-declarative-private-abi,qt6-declarative-private-abi,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libsoxr0,libsoxr0,libsoxr0,High quality 1D sample-rate conversion library,,,1,1,,,,Section=libs; Version=0.1.3-4+b2,,,,,,,
+libx11-data,libx11-data,libx11-data,X11 client-side library,,,1,1,,,,Section=x11; Version=2:1.8.12-1,,,,,,,
+libxrender1,libxrender1,libxrender1,X Rendering Extension client library,,,1,1,,,,Section=libs; Version=1:0.9.12-1,,,,,,,
+,,,,,,,,,,,,libpipewire-0.3-0t64,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavcodec61,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavformat61,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavutil59,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl1,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopengl0,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpulse0,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6core6t64,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6dbus6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6gui6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6network6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6opengl6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6quick6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libswresample5,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libswscale8,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrandr2,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-base-private-abi,libqt6multimedia6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libspa-0.2-modules,libpipewire-0.3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpipewire-0.3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpipewire-0.3-common,libpipewire-0.3-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libaom3,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavutil59,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcodec2-1.2,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdav1d7,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgsm1,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjxl0.11,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmp3lame0,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopenjp2-7,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopus0,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librav1e0.7,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librsvg2-2,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libshine3,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsnappy1v5,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libspeex1,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsvtav1enc2,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libswresample5,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtheoradec1,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtheoraenc1,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtwolame0,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libva2,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvorbis0a,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvorbisenc2,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvpl2,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvpx9,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwebp7,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwebpmux3,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx264-164,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx265-215,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxvidcore4,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzvbi0t64,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libavcodec61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavcodec61,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavutil59,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbluray2,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libchromaprint1,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdvdnav4,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdvdread8t64,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgme0,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnutls30t64,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopenmpt0t64,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librabbitmq4,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librist4,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsrt1.5-gnutls,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssh-4,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzmq5,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libavformat61,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdrm2,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libva-drm2,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libva-x11-2,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libva2,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvdpau1,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvpl2,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ocl-icd-libopencl1,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ocl-icd-libopencl1,libavutil59,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libegl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglvnd0,libegl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl-mesa0,libegl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libopengl0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglvnd0,libopengl0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libasyncns0,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbus-1-3,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsndfile1,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-xcb1,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,shared-mime-info,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libb2-1,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdouble-conversion3,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu76,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-16-0,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt6core6t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-translations-l10n,libqt6core6t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libqt6dbus6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbus-1-3,libqt6dbus6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6core6t64,libqt6dbus6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt6dbus6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-base-private-abi,libqt6dbus6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fontconfig,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdrm2,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglx0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libharfbuzz0b,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice6,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libinput10,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmd4c0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmtdev1t64,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopengl0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6core6t64,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6dbus6,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsm6,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libts0t64,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-xcb1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-cursor0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-glx0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-icccm4,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-image0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-keysyms1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-randr0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render-util0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shape0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shm0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-sync1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xfixes0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xinput0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xkb1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon-x11-0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon0,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-base-private-abi,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt6gui6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-gtk-platformtheme,libqt6gui6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qt6-qpa-plugins,libqt6gui6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qt6-svg-plugins,libqt6gui6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qt6-wayland,libqt6gui6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libssl3t64,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbrotli1,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libproxy1v5,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6core6t64,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6dbus6,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-base-private-abi,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt6network6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdrm2,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl1,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgbm1,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libinput10,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmtdev1t64,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopengl0,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6core6t64,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6gui6,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libts0t64,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-xcb1,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon0,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-base-private-abi,libqt6opengl6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6core6t64,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6gui6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6network6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6opengl6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6qml6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6qmlmeta6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6qmlmodels6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-base-private-abi,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qt6-declarative-private-abi,libqt6quick6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavutil59,libswresample5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libswresample5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsoxr0,libswresample5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavutil59,libswscale8,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libswscale8,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-data,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxext6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libxext6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxrandr2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libxrandr2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,libxrandr2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrender1,libxrandr2,Depends,#333,1,Depends,{}

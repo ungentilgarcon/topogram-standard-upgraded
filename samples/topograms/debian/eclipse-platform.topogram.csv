@@ -1,8 +1,8 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libeclipse-compare-core-java","libeclipse-compare-core-java","libeclipse-compare-core-java","Eclipse Core Compare Support","","","1","1","","","","Section=java; Version=3.8.100+eclipse4.29-4","","","","","",""
-"libequinox-common-java","libequinox-common-java","libequinox-common-java","Eclipse Equinox Common Utility Bundle","","","1","1","","","","Section=java; Version=3.18.100+eclipse4.29-2","","","","","",""
-"libicu4j-java","libicu4j-java","libicu4j-java","Library for Unicode support and internationalization","","","1","1","","","","Section=java; Version=73.2-1","","","","","",""
-"libeclipse-core-runtime-java","libeclipse-core-runtime-java","libeclipse-core-runtime-java","Eclipse Core Runtime","","","1","1","","","","Section=java; Version=3.29.0+eclipse4.29-4","","","","","",""
-"","","","","","","","","","","","","libeclipse-compare-core-java","libequinox-common-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libeclipse-compare-core-java","libicu4j-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libeclipse-compare-core-java","libeclipse-core-runtime-java","Depends","#333","1","Depends","{}"
+libeclipse-compare-core-java,libeclipse-compare-core-java,libeclipse-compare-core-java,Eclipse Core Compare Support,,,1,1,,,,Section=java; Version=3.8.100+eclipse4.29-4,,,,,,,
+libequinox-common-java,libequinox-common-java,libequinox-common-java,Eclipse Equinox Common Utility Bundle,,,1,1,,,,Section=java; Version=3.18.100+eclipse4.29-2,,,,,,,
+libicu4j-java,libicu4j-java,libicu4j-java,Library for Unicode support and internationalization,,,1,1,,,,Section=java; Version=73.2-1,,,,,,,
+libeclipse-core-runtime-java,libeclipse-core-runtime-java,libeclipse-core-runtime-java,Eclipse Core Runtime,,,1,1,,,,Section=java; Version=3.29.0+eclipse4.29-4,,,,,,,
+,,,,,,,,,,,,libequinox-common-java,libeclipse-compare-core-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu4j-java,libeclipse-compare-core-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libeclipse-core-runtime-java,libeclipse-compare-core-java,Depends,#333,1,Depends,{}

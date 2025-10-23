@@ -1,121 +1,121 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gnustep-back-common","gnustep-back-common","gnustep-back-common","GNUstep GUI Backend - common files","","","1","1","","","","Section=gnustep; Version=0.32.0-3","","","","","",""
-"fonts-freefont-ttf","fonts-freefont-ttf","fonts-freefont-ttf","Freefont Serif, Sans and Mono Truetype fonts","","","1","1","","","","Section=fonts; Version=20211204+svn4273-2","","","","","",""
-"gnustep-base-runtime","gnustep-base-runtime","gnustep-base-runtime","GNUstep Base library - daemons and tools","","","1","1","","","","Section=gnustep; Version=1.31.1-3","","","","","",""
-"gnustep-gui-runtime","gnustep-gui-runtime","gnustep-gui-runtime","GNUstep GUI Library - runtime files","","","1","1","","","","Section=gnustep; Version=0.32.0-3+b1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libgnustep-base1.31","libgnustep-base1.31","libgnustep-base1.31","GNUstep Base library","","","1","1","","","","Section=libs; Version=1.31.1-3","","","","","",""
-"libgnustep-gui0.32","libgnustep-gui0.32","libgnustep-gui0.32","GNUstep GUI Library","","","1","1","","","","Section=libs; Version=0.32.0-3+b1","","","","","",""
-"libobjc4","libobjc4","libobjc4","Runtime library for GNU Objective-C applications","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxfixes3","libxfixes3","libxfixes3","X11 miscellaneous 'fixes' extension library","","","1","1","","","","Section=libs; Version=1:6.0.0-2+b4","","","","","",""
-"gnustep-base-common","gnustep-base-common","gnustep-base-common","GNUstep Base library - common files","","","1","1","","","","Section=gnustep; Version=1.31.1-3","","","","","",""
-"graphviz","graphviz","graphviz","rich set of graph drawing tools","","","1","1","","","","Section=graphics; Version=2.42.4-3","","","","","",""
-"init-system-helpers","init-system-helpers","init-system-helpers","helper tools for all init systems","","","1","1","","","","Section=admin; Version=1.69~deb13u1","","","","","",""
-"gnustep-gui-common","gnustep-gui-common","gnustep-gui-common","GNUstep GUI Library - common files","","","1","1","","","","Section=gnustep; Version=0.32.0-3","","","","","",""
-"gnustep-layout-multiarch","gnustep-layout-multiarch","gnustep-layout-multiarch","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libao4","libao4","libao4","Cross Platform Audio Output Library","","","1","1","","","","Section=libs; Version=1.2.2+20180113-1.2","","","","","",""
-"libaspell15","libaspell15","libaspell15","GNU Aspell spell-checker runtime library","","","1","1","","","","Section=libs; Version=0.60.8.1-4","","","","","",""
-"libcups2t64","libcups2t64","libcups2t64","Common UNIX Printing System(tm) - Core library","","","1","1","","","","Section=libs; Version=2.4.10-3","","","","","",""
-"libflite1","libflite1","libflite1","Small run-time speech synthesis engine - shared libraries","","","1","1","","","","Section=libs; Version=2.2-7","","","","","",""
-"libpocketsphinx3","libpocketsphinx3","libpocketsphinx3","Speech recognition tool - front-end library","","","1","1","","","","Section=libs; Version=0.8+5prealpha+1-15+b4","","","","","",""
-"libsndfile1","libsndfile1","libsndfile1","Library for reading/writing audio files","","","1","1","","","","Section=libs; Version=1.2.2-2+b1","","","","","",""
-"libsphinxbase3t64","libsphinxbase3t64","libsphinxbase3t64","Speech recognition tool - shared library","","","1","1","","","","Section=libs; Version=0.8+5prealpha+1-21+b1","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"dpkg-dev","dpkg-dev","dpkg-dev","Debian package development tools","","","1","1","","","","Section=utils; Version=1.22.21","","","","","",""
-"gnustep-multiarch","gnustep-multiarch","gnustep-multiarch","GNUstep Multi-Arch support","","","1","1","","","","Section=gnustep; Version=2.9.3-6","","","","","",""
-"gnutls-bin","gnutls-bin","gnutls-bin","GNU TLS library - commandline utilities","","","1","1","","","","Section=net; Version=3.8.9-3","","","","","",""
-"libavahi-client3","libavahi-client3","libavahi-client3","Avahi client library","","","1","1","","","","Section=libs; Version=0.8-16","","","","","",""
-"libavahi-common3","libavahi-common3","libavahi-common3","Avahi common library","","","1","1","","","","Section=libs; Version=0.8-16","","","","","",""
-"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","",""
-"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","",""
-"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"libxslt1.1","libxslt1.1","libxslt1.1","XSLT 1.0 processing library - runtime library","","","1","1","","","","Section=libs; Version=1.1.35-1.2+deb13u1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libgif7","libgif7","libgif7","library for GIF images (library)","","","1","1","","","","Section=libs; Version=5.2.2-1+b1","","","","","",""
-"libicns1","libicns1","libicns1","library for manipulation of the Mac OS icns format","","","1","1","","","","Section=libs; Version=0.8.1.83.g921f972-0.1+b2","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"libmagickcore-7.q16-10","libmagickcore-7.q16-10","libmagickcore-7.q16-10","low-level image manipulation library -- quantum depth Q16","","","1","1","","","","Section=libs; Version=8:7.1.1.43+dfsg1-1+deb13u1","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","",""
-"libgc1","libgc1","libgc1","conservative garbage collector for C and C++","","","1","1","","","","Section=libs; Version=1:8.2.8-1","","","","","",""
-"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libx11-data","libx11-data","libx11-data","X11 client-side library","","","1","1","","","","Section=x11; Version=2:1.8.12-1","","","","","",""
-"","","","","","","","","","","","","gnustep-back-common","fonts-freefont-ttf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","gnustep-base-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","gnustep-gui-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","libgnustep-base1.31","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","libgnustep-gui0.32","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","libobjc4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-back-common","libxfixes3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-base-runtime","gnustep-base-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-base-runtime","graphviz","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-base-runtime","init-system-helpers","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-base-runtime","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-base-runtime","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-base-runtime","libgnustep-base1.31","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-base-runtime","libobjc4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","gnustep-gui-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","gnustep-layout-multiarch","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libgnustep-gui0.32","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","gnustep-base-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libao4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libaspell15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libcups2t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libflite1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libgnustep-base1.31","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libobjc4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libpocketsphinx3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libsndfile1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnustep-gui-runtime","libsphinxbase3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","dpkg-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","gnustep-base-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","gnustep-multiarch","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","gnutls-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libavahi-client3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libavahi-common3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libgnutls30t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libicu76","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libobjc4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","libxslt1.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-base1.31","gnustep-base-runtime","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","gnustep-gui-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","gnustep-base-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libgif7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libgnustep-base1.31","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libicns1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libicu76","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libmagickcore-7.q16-10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libobjc4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","libtiff6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnustep-gui0.32","gnustep-gui-runtime","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libobjc4","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libobjc4","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libobjc4","libgc1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libobjc4","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libx11-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfixes3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfixes3","libx11-6","Depends","#333","1","Depends","{}"
+gnustep-back-common,gnustep-back-common,gnustep-back-common,GNUstep GUI Backend - common files,,,1,1,,,,Section=gnustep; Version=0.32.0-3,,,,,,,
+fonts-freefont-ttf,fonts-freefont-ttf,fonts-freefont-ttf,"Freefont Serif, Sans and Mono Truetype fonts",,,1,1,,,,Section=fonts; Version=20211204+svn4273-2,,,,,,,
+gnustep-base-runtime,gnustep-base-runtime,gnustep-base-runtime,GNUstep Base library - daemons and tools,,,1,1,,,,Section=gnustep; Version=1.31.1-3,,,,,,,
+gnustep-gui-runtime,gnustep-gui-runtime,gnustep-gui-runtime,GNUstep GUI Library - runtime files,,,1,1,,,,Section=gnustep; Version=0.32.0-3+b1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libgnustep-base1.31,libgnustep-base1.31,libgnustep-base1.31,GNUstep Base library,,,1,1,,,,Section=libs; Version=1.31.1-3,,,,,,,
+libgnustep-gui0.32,libgnustep-gui0.32,libgnustep-gui0.32,GNUstep GUI Library,,,1,1,,,,Section=libs; Version=0.32.0-3+b1,,,,,,,
+libobjc4,libobjc4,libobjc4,Runtime library for GNU Objective-C applications,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxfixes3,libxfixes3,libxfixes3,X11 miscellaneous 'fixes' extension library,,,1,1,,,,Section=libs; Version=1:6.0.0-2+b4,,,,,,,
+gnustep-base-common,gnustep-base-common,gnustep-base-common,GNUstep Base library - common files,,,1,1,,,,Section=gnustep; Version=1.31.1-3,,,,,,,
+graphviz,graphviz,graphviz,rich set of graph drawing tools,,,1,1,,,,Section=graphics; Version=2.42.4-3,,,,,,,
+init-system-helpers,init-system-helpers,init-system-helpers,helper tools for all init systems,,,1,1,,,,Section=admin; Version=1.69~deb13u1,,,,,,,
+gnustep-gui-common,gnustep-gui-common,gnustep-gui-common,GNUstep GUI Library - common files,,,1,1,,,,Section=gnustep; Version=0.32.0-3,,,,,,,
+gnustep-layout-multiarch,gnustep-layout-multiarch,gnustep-layout-multiarch,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libao4,libao4,libao4,Cross Platform Audio Output Library,,,1,1,,,,Section=libs; Version=1.2.2+20180113-1.2,,,,,,,
+libaspell15,libaspell15,libaspell15,GNU Aspell spell-checker runtime library,,,1,1,,,,Section=libs; Version=0.60.8.1-4,,,,,,,
+libcups2t64,libcups2t64,libcups2t64,Common UNIX Printing System(tm) - Core library,,,1,1,,,,Section=libs; Version=2.4.10-3,,,,,,,
+libflite1,libflite1,libflite1,Small run-time speech synthesis engine - shared libraries,,,1,1,,,,Section=libs; Version=2.2-7,,,,,,,
+libpocketsphinx3,libpocketsphinx3,libpocketsphinx3,Speech recognition tool - front-end library,,,1,1,,,,Section=libs; Version=0.8+5prealpha+1-15+b4,,,,,,,
+libsndfile1,libsndfile1,libsndfile1,Library for reading/writing audio files,,,1,1,,,,Section=libs; Version=1.2.2-2+b1,,,,,,,
+libsphinxbase3t64,libsphinxbase3t64,libsphinxbase3t64,Speech recognition tool - shared library,,,1,1,,,,Section=libs; Version=0.8+5prealpha+1-21+b1,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+dpkg-dev,dpkg-dev,dpkg-dev,Debian package development tools,,,1,1,,,,Section=utils; Version=1.22.21,,,,,,,
+gnustep-multiarch,gnustep-multiarch,gnustep-multiarch,GNUstep Multi-Arch support,,,1,1,,,,Section=gnustep; Version=2.9.3-6,,,,,,,
+gnutls-bin,gnutls-bin,gnutls-bin,GNU TLS library - commandline utilities,,,1,1,,,,Section=net; Version=3.8.9-3,,,,,,,
+libavahi-client3,libavahi-client3,libavahi-client3,Avahi client library,,,1,1,,,,Section=libs; Version=0.8-16,,,,,,,
+libavahi-common3,libavahi-common3,libavahi-common3,Avahi common library,,,1,1,,,,Section=libs; Version=0.8-16,,,,,,,
+libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
+libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
+libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+libxslt1.1,libxslt1.1,libxslt1.1,XSLT 1.0 processing library - runtime library,,,1,1,,,,Section=libs; Version=1.1.35-1.2+deb13u1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libgif7,libgif7,libgif7,library for GIF images (library),,,1,1,,,,Section=libs; Version=5.2.2-1+b1,,,,,,,
+libicns1,libicns1,libicns1,library for manipulation of the Mac OS icns format,,,1,1,,,,Section=libs; Version=0.8.1.83.g921f972-0.1+b2,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+libmagickcore-7.q16-10,libmagickcore-7.q16-10,libmagickcore-7.q16-10,low-level image manipulation library -- quantum depth Q16,,,1,1,,,,Section=libs; Version=8:7.1.1.43+dfsg1-1+deb13u1,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
+libgc1,libgc1,libgc1,conservative garbage collector for C and C++,,,1,1,,,,Section=libs; Version=1:8.2.8-1,,,,,,,
+libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libx11-data,libx11-data,libx11-data,X11 client-side library,,,1,1,,,,Section=x11; Version=2:1.8.12-1,,,,,,,
+,,,,,,,,,,,,fonts-freefont-ttf,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-base-runtime,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-gui-runtime,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnustep-base1.31,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnustep-gui0.32,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libobjc4,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfixes3,gnustep-back-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-base-common,gnustep-base-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,graphviz,gnustep-base-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,init-system-helpers,gnustep-base-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gnustep-base-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,gnustep-base-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnustep-base1.31,gnustep-base-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libobjc4,gnustep-base-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-gui-common,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-layout-multiarch,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnustep-gui0.32,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-base-runtime,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libao4,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libaspell15,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcups2t64,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libflite1,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnustep-base1.31,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libobjc4,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpocketsphinx3,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsndfile1,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsphinxbase3t64,gnustep-gui-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dpkg-dev,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-base-common,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-multiarch,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnutls-bin,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavahi-client3,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libavahi-common3,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi8,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnutls30t64,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu76,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libobjc4,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxslt1.1,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libgnustep-base1.31,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-base-runtime,libgnustep-base1.31,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gnustep-gui-common,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-base-runtime,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgif7,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnustep-base1.31,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicns1,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu76,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmagickcore-7.q16-10,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libobjc4,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtiff6,libgnustep-gui0.32,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnustep-gui-runtime,libgnustep-gui0.32,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gcc-14-base,libobjc4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libobjc4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgc1,libobjc4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libobjc4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-data,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxfixes3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libxfixes3,Depends,#333,1,Depends,{}

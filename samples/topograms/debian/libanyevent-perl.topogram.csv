@@ -1,33 +1,33 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libanyevent-perl","libanyevent-perl","libanyevent-perl","event loop framework with multiple implementations","","","1","1","","","","Section=perl; Version=7.170-2+b7","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libasync-interrupt-perl","libasync-interrupt-perl","libasync-interrupt-perl","module to allow C/XS libraries to interrupt perl","","","1","1","","","","Section=perl; Version=1.26-1+b6","","","","","",""
-"libev-perl","libev-perl","libev-perl","Perl interface to libev, the high performance event loop","","","1","1","","","","Section=perl; Version=4.34-1+b4","","","","","",""
-"libguard-perl","libguard-perl","libguard-perl","Perl module providing safe cleanup using guard objects","","","1","1","","","","Section=perl; Version=1.023-2+b4","","","","","",""
-"perl-base","perl-base","perl-base","minimal Perl system","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perl-modules-5.40","perl-modules-5.40","perl-modules-5.40","Core Perl modules","","","1","1","","","","Section=libs; Version=5.40.1-6","","","","","",""
-"libperl5.40","libperl5.40","libperl5.40","shared Perl library","","","1","1","","","","Section=libs; Version=5.40.1-6","","","","","",""
-"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcommon-sense-perl","libcommon-sense-perl","libcommon-sense-perl","module that implements some sane defaults for Perl programs","","","1","1","","","","Section=perl; Version=3.75-3+b5","","","","","",""
-"","","","","","","","","","","","","libanyevent-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libanyevent-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libanyevent-perl","libasync-interrupt-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libanyevent-perl","libev-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libanyevent-perl","libguard-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","perl","perl-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","perl","perl-modules-5.40","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","perl","libperl5.40","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","perl","netbase","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libasync-interrupt-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libasync-interrupt-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libasync-interrupt-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libasync-interrupt-perl","libcommon-sense-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libev-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libev-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libev-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libev-perl","libcommon-sense-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libguard-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libguard-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libguard-perl","libc6","Depends","#333","1","Depends","{}"
+libanyevent-perl,libanyevent-perl,libanyevent-perl,event loop framework with multiple implementations,,,1,1,,,,Section=perl; Version=7.170-2+b7,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libasync-interrupt-perl,libasync-interrupt-perl,libasync-interrupt-perl,module to allow C/XS libraries to interrupt perl,,,1,1,,,,Section=perl; Version=1.26-1+b6,,,,,,,
+libev-perl,libev-perl,libev-perl,"Perl interface to libev, the high performance event loop",,,1,1,,,,Section=perl; Version=4.34-1+b4,,,,,,,
+libguard-perl,libguard-perl,libguard-perl,Perl module providing safe cleanup using guard objects,,,1,1,,,,Section=perl; Version=1.023-2+b4,,,,,,,
+perl-base,perl-base,perl-base,minimal Perl system,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perl-modules-5.40,perl-modules-5.40,perl-modules-5.40,Core Perl modules,,,1,1,,,,Section=libs; Version=5.40.1-6,,,,,,,
+libperl5.40,libperl5.40,libperl5.40,shared Perl library,,,1,1,,,,Section=libs; Version=5.40.1-6,,,,,,,
+netbase,netbase,netbase,Basic TCP/IP networking system,,,1,1,,,,Section=admin; Version=6.5,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcommon-sense-perl,libcommon-sense-perl,libcommon-sense-perl,module that implements some sane defaults for Perl programs,,,1,1,,,,Section=perl; Version=3.75-3+b5,,,,,,,
+,,,,,,,,,,,,perl,libanyevent-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libanyevent-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libasync-interrupt-perl,libanyevent-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libev-perl,libanyevent-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libguard-perl,libanyevent-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl-base,perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl-modules-5.40,perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libperl5.40,perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,netbase,perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl,libasync-interrupt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libasync-interrupt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libasync-interrupt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcommon-sense-perl,libasync-interrupt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libev-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libev-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libev-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcommon-sense-perl,libev-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libguard-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libguard-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libguard-perl,Depends,#333,1,Depends,{}

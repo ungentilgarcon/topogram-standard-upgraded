@@ -1,42 +1,42 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"hunspell","hunspell","hunspell","spell checker and morphological analyzer (program)","","","1","1","","","","Section=text; Version=1.7.2+really1.7.2-10+b4","","","","","",""
-"hunspell-en-us","hunspell-en-us","hunspell-en-us","English_american dictionary for hunspell","","","1","1","","","","Section=text; Version=1:2020.12.07-4","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libhunspell-1.7-0","libhunspell-1.7-0","libhunspell-1.7-0","spell checker and morphological analyzer (shared library)","","","1","1","","","","Section=libs; Version=1.7.2+really1.7.2-10+b4","","","","","",""
-"libncursesw6","libncursesw6","libncursesw6","shared libraries for terminal handling (wide character support)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"dictionaries-common","dictionaries-common","dictionaries-common","spelling dictionaries - common utilities","","","1","1","","","","Section=text; Version=1.30.10","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libgpm2","libgpm2","libgpm2","General Purpose Mouse - shared library","","","1","1","","","","Section=libs; Version=1.20.7-11+b2","","","","","",""
-"readline-common","readline-common","readline-common","GNU readline and history libraries, common files","","","1","1","","","","Section=utils; Version=8.2-6","","","","","",""
-"","","","","","","","","","","","","hunspell","hunspell-en-us","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell","libhunspell-1.7-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell","libncursesw6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell","libreadline8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hunspell-en-us","dictionaries-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhunspell-1.7-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhunspell-1.7-0","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhunspell-1.7-0","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhunspell-1.7-0","hunspell-en-us","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libncursesw6","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncursesw6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncursesw6","libgpm2","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libreadline8t64","readline-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libreadline8t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libreadline8t64","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtinfo6","libc6","Depends","#333","1","Depends","{}"
+hunspell,hunspell,hunspell,spell checker and morphological analyzer (program),,,1,1,,,,Section=text; Version=1.7.2+really1.7.2-10+b4,,,,,,,
+hunspell-en-us,hunspell-en-us,hunspell-en-us,English_american dictionary for hunspell,,,1,1,,,,Section=text; Version=1:2020.12.07-4,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libhunspell-1.7-0,libhunspell-1.7-0,libhunspell-1.7-0,spell checker and morphological analyzer (shared library),,,1,1,,,,Section=libs; Version=1.7.2+really1.7.2-10+b4,,,,,,,
+libncursesw6,libncursesw6,libncursesw6,shared libraries for terminal handling (wide character support),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+dictionaries-common,dictionaries-common,dictionaries-common,spelling dictionaries - common utilities,,,1,1,,,,Section=text; Version=1.30.10,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libgpm2,libgpm2,libgpm2,General Purpose Mouse - shared library,,,1,1,,,,Section=libs; Version=1.20.7-11+b2,,,,,,,
+readline-common,readline-common,readline-common,"GNU readline and history libraries, common files",,,1,1,,,,Section=utils; Version=8.2-6,,,,,,,
+,,,,,,,,,,,,hunspell-en-us,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhunspell-1.7-0,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libncursesw6,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libreadline8t64,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,hunspell,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dictionaries-common,hunspell-en-us,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libhunspell-1.7-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libhunspell-1.7-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libhunspell-1.7-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,hunspell-en-us,libhunspell-1.7-0,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libtinfo6,libncursesw6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libncursesw6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgpm2,libncursesw6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,readline-common,libreadline8t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libreadline8t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,libreadline8t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtinfo6,Depends,#333,1,Depends,{}

@@ -1,58 +1,58 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"audispd-plugins","audispd-plugins","audispd-plugins","Plugins for the audit event dispatcher","","","1","1","","","","Section=admin; Version=1:4.0.2-2+b2","","","","","",""
-"auditd","auditd","auditd","User space tools for security auditing","","","1","1","","","","Section=admin; Version=1:4.0.2-2+b2","","","","","",""
-"libauparse0t64","libauparse0t64","libauparse0t64","Dynamic library for parsing security auditing","","","1","1","","","","Section=libs; Version=1:4.0.2-2+b2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcap-ng0","libcap-ng0","libcap-ng0","alternate POSIX capabilities library","","","1","1","","","","Section=libs; Version=0.8.5-4+b1","","","","","",""
-"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libkrb5-3","libkrb5-3","libkrb5-3","MIT Kerberos runtime libraries","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libldap2","libldap2","libldap2","OpenLDAP libraries","","","1","1","","","","Section=libs; Version=2.6.10+dfsg-1","","","","","",""
-"libaudit1","libaudit1","libaudit1","Dynamic library for security auditing","","","1","1","","","","Section=libs; Version=1:4.0.2-2+b2","","","","","",""
-"mawk","mawk","mawk","Pattern scanning and text processing language","","","1","1","","","","Section=interpreters; Version=1.3.4.20250131-1","","","","","",""
-"libwrap0","libwrap0","libwrap0","Wietse Venema's TCP wrappers library","","","1","1","","","","Section=libs; Version=7.6.q-36","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libcom-err2","libcom-err2","libcom-err2","common error description library","","","1","1","","","","Section=libs; Version=1.47.2-3+b3","","","","","",""
-"libk5crypto3","libk5crypto3","libk5crypto3","MIT Kerberos runtime libraries - Crypto Library","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libkrb5support0","libkrb5support0","libkrb5support0","MIT Kerberos runtime libraries - Support library","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libkeyutils1","libkeyutils1","libkeyutils1","Linux Key Management Utilities (library)","","","1","1","","","","Section=libs; Version=1.6.3-6","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"krb5-locales","krb5-locales","krb5-locales","internationalization support for MIT Kerberos","","","1","1","","","","Section=localization; Version=1.21.3-5","","","","","",""
-"libsasl2-2","libsasl2-2","libsasl2-2","Cyrus SASL - authentication abstraction library","","","1","1","","","","Section=libs; Version=2.1.28+dfsg1-9","","","","","",""
-"libldap-common","libldap-common","libldap-common","OpenLDAP common files for libraries","","","1","1","","","","Section=libs; Version=2.6.10+dfsg-1","","","","","",""
-"","","","","","","","","","","","","audispd-plugins","auditd","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","audispd-plugins","libauparse0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","audispd-plugins","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","audispd-plugins","libcap-ng0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","audispd-plugins","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","audispd-plugins","libkrb5-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","audispd-plugins","libldap2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","libaudit1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","libauparse0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","mawk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","libcap-ng0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","libkrb5-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","auditd","libwrap0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libauparse0t64","libaudit1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libauparse0t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcap-ng0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libkrb5-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libcom-err2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libk5crypto3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libkrb5support0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkrb5-3","libkrb5support0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkrb5-3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkrb5-3","libcom-err2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkrb5-3","libk5crypto3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkrb5-3","libkeyutils1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkrb5-3","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkrb5-3","krb5-locales","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libldap2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libldap2","libsasl2-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libldap2","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libldap2","libldap-common","Recommends","#333","1","Recommends","{}"
+audispd-plugins,audispd-plugins,audispd-plugins,Plugins for the audit event dispatcher,,,1,1,,,,Section=admin; Version=1:4.0.2-2+b2,,,,,,,
+auditd,auditd,auditd,User space tools for security auditing,,,1,1,,,,Section=admin; Version=1:4.0.2-2+b2,,,,,,,
+libauparse0t64,libauparse0t64,libauparse0t64,Dynamic library for parsing security auditing,,,1,1,,,,Section=libs; Version=1:4.0.2-2+b2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcap-ng0,libcap-ng0,libcap-ng0,alternate POSIX capabilities library,,,1,1,,,,Section=libs; Version=0.8.5-4+b1,,,,,,,
+libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libkrb5-3,libkrb5-3,libkrb5-3,MIT Kerberos runtime libraries,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libldap2,libldap2,libldap2,OpenLDAP libraries,,,1,1,,,,Section=libs; Version=2.6.10+dfsg-1,,,,,,,
+libaudit1,libaudit1,libaudit1,Dynamic library for security auditing,,,1,1,,,,Section=libs; Version=1:4.0.2-2+b2,,,,,,,
+mawk,mawk,mawk,Pattern scanning and text processing language,,,1,1,,,,Section=interpreters; Version=1.3.4.20250131-1,,,,,,,
+libwrap0,libwrap0,libwrap0,Wietse Venema's TCP wrappers library,,,1,1,,,,Section=libs; Version=7.6.q-36,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libcom-err2,libcom-err2,libcom-err2,common error description library,,,1,1,,,,Section=libs; Version=1.47.2-3+b3,,,,,,,
+libk5crypto3,libk5crypto3,libk5crypto3,MIT Kerberos runtime libraries - Crypto Library,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libkrb5support0,libkrb5support0,libkrb5support0,MIT Kerberos runtime libraries - Support library,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libkeyutils1,libkeyutils1,libkeyutils1,Linux Key Management Utilities (library),,,1,1,,,,Section=libs; Version=1.6.3-6,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+krb5-locales,krb5-locales,krb5-locales,internationalization support for MIT Kerberos,,,1,1,,,,Section=localization; Version=1.21.3-5,,,,,,,
+libsasl2-2,libsasl2-2,libsasl2-2,Cyrus SASL - authentication abstraction library,,,1,1,,,,Section=libs; Version=2.1.28+dfsg1-9,,,,,,,
+libldap-common,libldap-common,libldap-common,OpenLDAP common files for libraries,,,1,1,,,,Section=libs; Version=2.6.10+dfsg-1,,,,,,,
+,,,,,,,,,,,,auditd,audispd-plugins,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libauparse0t64,audispd-plugins,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,audispd-plugins,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap-ng0,audispd-plugins,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,audispd-plugins,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5-3,audispd-plugins,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libldap2,audispd-plugins,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libaudit1,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libauparse0t64,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,mawk,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap-ng0,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5-3,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwrap0,auditd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libaudit1,libauparse0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libauparse0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libcap-ng0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5-3,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcom-err2,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libk5crypto3,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5support0,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5support0,libkrb5-3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkrb5-3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcom-err2,libkrb5-3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libk5crypto3,libkrb5-3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkeyutils1,libkrb5-3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libkrb5-3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,krb5-locales,libkrb5-3,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libldap2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsasl2-2,libldap2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libldap2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libldap-common,libldap2,Recommends,#333,1,Recommends,{}

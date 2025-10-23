@@ -1,4 +1,4 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"python3-sql","python3-sql","python3-sql","Library to write SQL queries (implemented in Python 3)","","","1","1","","","","Section=python; Version=1.5.2-2","","","","","",""
-"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"","","","","","","","","","","","","python3-sql","python3:any","Depends","#333","1","Depends","{}"
+python3-sql,python3-sql,python3-sql,Library to write SQL queries (implemented in Python 3),,,1,1,,,,Section=python; Version=1.5.2-2,,,,,,,
+python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+,,,,,,,,,,,,python3:any,python3-sql,Depends,#333,1,Depends,{}

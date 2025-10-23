@@ -1,40 +1,40 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libswt-cairo-gtk-4-jni","libswt-cairo-gtk-4-jni","libswt-cairo-gtk-4-jni","Standard Widget Toolkit for GTK+ Cairo JNI library","","","1","1","","","","Section=libs; Version=4.29.0-1","","","","","",""
-"libswt-gtk-4-jni","libswt-gtk-4-jni","libswt-gtk-4-jni","Standard Widget Toolkit for GTK+ JNI library","","","1","1","","","","Section=libs; Version=4.29.0-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
-"libatk1.0-0t64","libatk1.0-0t64","libatk1.0-0t64","ATK accessibility toolkit","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","",""
-"libgtk-3-0t64","libgtk-3-0t64","libgtk-3-0t64","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=3.24.49-3","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"libpixman-1-0","libpixman-1-0","libpixman-1-0","pixel-manipulation library for X and cairo","","","1","1","","","","Section=libs; Version=0.44.0-3","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxcb-render0","libxcb-render0","libxcb-render0","X C Binding, render extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shm0","libxcb-shm0","libxcb-shm0","X C Binding, shm extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","",""
-"libxrender1","libxrender1","libxrender1","X Rendering Extension client library","","","1","1","","","","Section=libs; Version=1:0.9.12-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"","","","","","","","","","","","","libswt-cairo-gtk-4-jni","libswt-gtk-4-jni","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswt-cairo-gtk-4-jni","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswt-cairo-gtk-4-jni","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswt-gtk-4-jni","libatk1.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswt-gtk-4-jni","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libswt-gtk-4-jni","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcairo2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libpixman-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxcb-render0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxcb-shm0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxrender1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","zlib1g","Depends","#333","1","Depends","{}"
+libswt-cairo-gtk-4-jni,libswt-cairo-gtk-4-jni,libswt-cairo-gtk-4-jni,Standard Widget Toolkit for GTK+ Cairo JNI library,,,1,1,,,,Section=libs; Version=4.29.0-1,,,,,,,
+libswt-gtk-4-jni,libswt-gtk-4-jni,libswt-gtk-4-jni,Standard Widget Toolkit for GTK+ JNI library,,,1,1,,,,Section=libs; Version=4.29.0-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
+libatk1.0-0t64,libatk1.0-0t64,libatk1.0-0t64,ATK accessibility toolkit,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
+libgtk-3-0t64,libgtk-3-0t64,libgtk-3-0t64,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=3.24.49-3,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+libpixman-1-0,libpixman-1-0,libpixman-1-0,pixel-manipulation library for X and cairo,,,1,1,,,,Section=libs; Version=0.44.0-3,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxcb-render0,libxcb-render0,libxcb-render0,"X C Binding, render extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shm0,libxcb-shm0,libxcb-shm0,"X C Binding, shm extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
+libxrender1,libxrender1,libxrender1,X Rendering Extension client library,,,1,1,,,,Section=libs; Version=1:0.9.12-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+,,,,,,,,,,,,libswt-gtk-4-jni,libswt-cairo-gtk-4-jni,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libswt-cairo-gtk-4-jni,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libswt-cairo-gtk-4-jni,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatk1.0-0t64,libswt-gtk-4-jni,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libswt-gtk-4-jni,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libswt-gtk-4-jni,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpixman-1-0,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render0,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shm0,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrender1,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libcairo2,Depends,#333,1,Depends,{}

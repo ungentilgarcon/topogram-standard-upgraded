@@ -1,21 +1,21 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libghc-http-types-dev","libghc-http-types-dev","libghc-http-types-dev","Generic HTTP types (for both client and server code)","","","1","1","","","","Section=haskell; Version=0.12.4-1+b1","","","","","",""
-"libghc-array-dev-0.5.6.0-65c23","libghc-array-dev-0.5.6.0-65c23","libghc-array-dev-0.5.6.0-65c23","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libghc-base-dev-4.18.2.1-8e81e","libghc-base-dev-4.18.2.1-8e81e","libghc-base-dev-4.18.2.1-8e81e","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libghc-bytestring-dev-0.11.5.3-7048d","libghc-bytestring-dev-0.11.5.3-7048d","libghc-bytestring-dev-0.11.5.3-7048d","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libghc-case-insensitive-dev-1.2.1.0-94a09","libghc-case-insensitive-dev-1.2.1.0-94a09","libghc-case-insensitive-dev-1.2.1.0-94a09","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libghc-text-dev-2.0.2-5b954","libghc-text-dev-2.0.2-5b954","libghc-text-dev-2.0.2-5b954","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"","","","","","","","","","","","","libghc-http-types-dev","libghc-array-dev-0.5.6.0-65c23","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libghc-http-types-dev","libghc-base-dev-4.18.2.1-8e81e","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libghc-http-types-dev","libghc-bytestring-dev-0.11.5.3-7048d","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libghc-http-types-dev","libghc-case-insensitive-dev-1.2.1.0-94a09","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libghc-http-types-dev","libghc-text-dev-2.0.2-5b954","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libghc-http-types-dev","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libghc-http-types-dev","libgmp10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgmp10","libc6","Depends","#333","1","Depends","{}"
+libghc-http-types-dev,libghc-http-types-dev,libghc-http-types-dev,Generic HTTP types (for both client and server code),,,1,1,,,,Section=haskell; Version=0.12.4-1+b1,,,,,,,
+libghc-array-dev-0.5.6.0-65c23,libghc-array-dev-0.5.6.0-65c23,libghc-array-dev-0.5.6.0-65c23,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libghc-base-dev-4.18.2.1-8e81e,libghc-base-dev-4.18.2.1-8e81e,libghc-base-dev-4.18.2.1-8e81e,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libghc-bytestring-dev-0.11.5.3-7048d,libghc-bytestring-dev-0.11.5.3-7048d,libghc-bytestring-dev-0.11.5.3-7048d,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libghc-case-insensitive-dev-1.2.1.0-94a09,libghc-case-insensitive-dev-1.2.1.0-94a09,libghc-case-insensitive-dev-1.2.1.0-94a09,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libghc-text-dev-2.0.2-5b954,libghc-text-dev-2.0.2-5b954,libghc-text-dev-2.0.2-5b954,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+,,,,,,,,,,,,libghc-array-dev-0.5.6.0-65c23,libghc-http-types-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libghc-base-dev-4.18.2.1-8e81e,libghc-http-types-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libghc-bytestring-dev-0.11.5.3-7048d,libghc-http-types-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libghc-case-insensitive-dev-1.2.1.0-94a09,libghc-http-types-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libghc-text-dev-2.0.2-5b954,libghc-http-types-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libghc-http-types-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgmp10,libghc-http-types-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libgmp10,Depends,#333,1,Depends,{}

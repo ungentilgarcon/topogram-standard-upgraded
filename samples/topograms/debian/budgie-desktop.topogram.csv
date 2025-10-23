@@ -1,549 +1,549 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"budgie-core","budgie-core","budgie-core","Core package for Budgie-Desktop","","","1","1","","","","Section=x11; Version=10.9.2-8","","","","","",""
-"gnome-screensaver","gnome-screensaver","gnome-screensaver","Screensaver and screen lock formerly used in GNOME","","","1","1","","","","Section=gnome; Version=3.6.1-14","","","","","",""
-"budgie-session","budgie-session","budgie-session","Budgie Session Manager","","","1","1","","","","Section=misc; Version=0.9.1-3","","","","","",""
-"gnome-settings-daemon","gnome-settings-daemon","gnome-settings-daemon","daemon handling the GNOME session settings","","","1","1","","","","Section=gnome; Version=48.1-1","","","","","",""
-"zenity","zenity","zenity","Display graphical dialog boxes from shell scripts","","","1","1","","","","Section=gnome; Version=4.1.90-1","","","","","",""
-"dconf-gsettings-backend","dconf-gsettings-backend","dconf-gsettings-backend","simple configuration storage system - GSettings back-end","","","1","1","","","","Section=libs; Version=0.40.0-5","","","","","",""
-"libasound2t64","libasound2t64","libasound2t64","shared library for ALSA applications","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","",""
-"libbudgie-appindexer0","libbudgie-appindexer0","libbudgie-appindexer0","Menu library for budgie-desktop","","","1","1","","","","Section=libs; Version=10.9.2-8","","","","","",""
-"libbudgie-plugin0","libbudgie-plugin0","libbudgie-plugin0","Plugin library for budgie-desktop","","","1","1","","","","Section=libs; Version=10.9.2-8","","","","","",""
-"libbudgie-private0","libbudgie-private0","libbudgie-private0","Budgie Private library for budgie-desktop","","","1","1","","","","Section=libs; Version=10.9.2-8","","","","","",""
-"libbudgie-raven-plugin0","libbudgie-raven-plugin0","libbudgie-raven-plugin0","Raven Plugin library for budgie-desktop","","","1","1","","","","Section=libs; Version=10.9.2-8","","","","","",""
-"libbudgietheme0","libbudgietheme0","libbudgietheme0","Theme library for budgie-desktop","","","1","1","","","","Section=libs; Version=10.9.2-8","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
-"libcanberra-gtk3-0","libcanberra-gtk3-0","libcanberra-gtk3-0","GTK+ 3.0 helper for playing widget event sounds with libcanberra","","","1","1","","","","Section=libs; Version=0.30-18","","","","","",""
-"libcanberra0","libcanberra0","libcanberra0","simple abstract interface for playing event sounds","","","1","1","","","","Section=libs; Version=0.30-18","","","","","",""
-"libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","GDK Pixbuf library","","","1","1","","","","Section=libs; Version=2.42.12+dfsg-4","","","","","",""
-"libgee-0.8-2","libgee-0.8-2","libgee-0.8-2","GObject based collection and utility library","","","1","1","","","","Section=libs; Version=0.20.8-1","","","","","",""
-"libgirepository-1.0-1","libgirepository-1.0-1","libgirepository-1.0-1","Library for handling GObject introspection data (runtime library)","","","1","1","","","","Section=libs; Version=1.84.0-1","","","","","",""
-"libgles2","libgles2","libgles2","Vendor neutral GL dispatch library -- GLESv2 support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libgnome-desktop-3-20t64","libgnome-desktop-3-20t64","libgnome-desktop-3-20t64","Utility library for the GNOME desktop - GTK 3 version","","","1","1","","","","Section=libs; Version=44.3-3","","","","","",""
-"libgstreamer1.0-0","libgstreamer1.0-0","libgstreamer1.0-0","Core GStreamer libraries and elements","","","1","1","","","","Section=libs; Version=1.26.2-2","","","","","",""
-"libgtk-3-0t64","libgtk-3-0t64","libgtk-3-0t64","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=3.24.49-3","","","","","",""
-"libibus-1.0-5","libibus-1.0-5","libibus-1.0-5","Intelligent Input Bus - shared library","","","1","1","","","","Section=libs; Version=1.5.32-2","","","","","",""
-"libmagpie-0-0","libmagpie-0-0","libmagpie-0-0","window manager library from the magpie window manager","","","1","1","","","","Section=libs; Version=0.9.4-3","","","","","",""
-"libnotify4","libnotify4","libnotify4","sends desktop notifications to a notification daemon","","","1","1","","","","Section=libs; Version=0.8.6-1","","","","","",""
-"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libpeas-1.0-0","libpeas-1.0-0","libpeas-1.0-0","Application plugin library","","","1","1","","","","Section=libs; Version=1.36.0-3+b4","","","","","",""
-"libpolkit-agent-1-0","libpolkit-agent-1-0","libpolkit-agent-1-0","polkit Authentication Agent API","","","1","1","","","","Section=libs; Version=126-2","","","","","",""
-"libpolkit-gobject-1-0","libpolkit-gobject-1-0","libpolkit-gobject-1-0","polkit Authorization API","","","1","1","","","","Section=libs; Version=126-2","","","","","",""
-"libpulse-mainloop-glib0","libpulse-mainloop-glib0","libpulse-mainloop-glib0","PulseAudio client libraries (glib support)","","","1","1","","","","Section=libs; Version=17.0+dfsg1-2+b1","","","","","",""
-"libpulse0","libpulse0","libpulse0","PulseAudio client libraries","","","1","1","","","","Section=libs; Version=17.0+dfsg1-2+b1","","","","","",""
-"libraven0","libraven0","libraven0","Raven library for budgie-desktop","","","1","1","","","","Section=libs; Version=10.9.2-8","","","","","",""
-"libupower-glib3","libupower-glib3","libupower-glib3","abstraction for power management - shared library","","","1","1","","","","Section=libs; Version=1.90.9-1","","","","","",""
-"libuuid1","libuuid1","libuuid1","Universally Unique ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","",""
-"libwnck-3-0","libwnck-3-0","libwnck-3-0","Window Navigator Construction Kit - runtime files","","","1","1","","","","Section=libs; Version=43.2-1","","","","","",""
-"libxfce4windowing-0-0","libxfce4windowing-0-0","libxfce4windowing-0-0","Wayland utility functions library for Xfce4","","","1","1","","","","Section=libs; Version=4.20.2-1","","","","","",""
-"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","",""
-"libdbus-glib-1-2","libdbus-glib-1-2","libdbus-glib-1-2","deprecated library for D-Bus IPC","","","1","1","","","","Section=oldlibs; Version=0.114-1","","","","","",""
-"libgnomekbd8","libgnomekbd8","libgnomekbd8","GNOME library to manage keyboard configuration - shared library","","","1","1","","","","Section=libs; Version=3.28.1-2","","","","","",""
-"libpam0g","libpam0g","libpam0g","Pluggable Authentication Modules library","","","1","1","","","","Section=libs; Version=1.7.0-5","","","","","",""
-"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","",""
-"libxklavier16","libxklavier16","libxklavier16","X Keyboard Extension high-level API","","","1","1","","","","Section=libs; Version=5.4-5+b2","","","","","",""
-"libxxf86vm1","libxxf86vm1","libxxf86vm1","X11 XFree86 video mode extension library","","","1","1","","","","Section=libs; Version=1:1.1.4-1+b4","","","","","",""
-"default-dbus-session-bus","default-dbus-session-bus","default-dbus-session-bus","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gsettings-desktop-schemas","gsettings-desktop-schemas","gsettings-desktop-schemas","GSettings desktop-wide schemas","","","1","1","","","","Section=gnome; Version=48.0-1","","","","","",""
-"gnome-power-manager","gnome-power-manager","gnome-power-manager","power management tool for the GNOME desktop","","","1","1","","","","Section=gnome; Version=43.0-4+b1","","","","","",""
-"libpam-gnome-keyring","libpam-gnome-keyring","libpam-gnome-keyring","PAM module to unlock the GNOME keyring upon login","","","1","1","","","","Section=admin; Version=48.0-1","","","","","",""
-"upower","upower","upower","abstraction for power management","","","1","1","","","","Section=admin; Version=1.90.9-1","","","","","",""
-"libegl1","libegl1","libegl1","Vendor neutral GL dispatch library -- EGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libepoxy0","libepoxy0","libepoxy0","OpenGL function pointer management library","","","1","1","","","","Section=libs; Version=1.5.10-2","","","","","",""
-"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libice6","libice6","libice6","X11 Inter-Client Exchange library","","","1","1","","","","Section=libs; Version=2:1.1.1-1","","","","","",""
-"libjson-glib-1.0-0","libjson-glib-1.0-0","libjson-glib-1.0-0","GLib JSON manipulation library","","","1","1","","","","Section=libs; Version=1.10.6+ds-2","","","","","",""
-"libsm6","libsm6","libsm6","X11 Session Management library","","","1","1","","","","Section=libs; Version=2:1.2.6-1","","","","","",""
-"libxcomposite1","libxcomposite1","libxcomposite1","X11 Composite extension library","","","1","1","","","","Section=libs; Version=1:0.4.6-1","","","","","",""
-"default-logind","default-logind","default-logind","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gnome-settings-daemon-common","gnome-settings-daemon-common","gnome-settings-daemon-common","daemon handling the GNOME session settings - common files","","","1","1","","","","Section=gnome; Version=48.1-1","","","","","",""
-"libspa-0.2-bluetooth","libspa-0.2-bluetooth","libspa-0.2-bluetooth","libraries for the PipeWire multimedia server - bluetooth plugins","","","1","1","","","","Section=libs; Version=1.4.2-1","","","","","",""
-"pipewire-audio","pipewire-audio","pipewire-audio","recommended set of PipeWire packages for a standard audio desktop use","","","1","1","","","","Section=sound; Version=1.4.2-1","","","","","",""
-"libcolord2","libcolord2","libcolord2","system service to manage device colour profiles -- runtime","","","1","1","","","","Section=libs; Version=1.4.7-3","","","","","",""
-"libcups2t64","libcups2t64","libcups2t64","Common UNIX Printing System(tm) - Core library","","","1","1","","","","Section=libs; Version=2.4.10-3","","","","","",""
-"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","",""
-"libgck-2-2","libgck-2-2","libgck-2-2","Glib wrapper library for PKCS#11 - runtime","","","1","1","","","","Section=libs; Version=4.4.0.1-3","","","","","",""
-"libgcr-4-4","libgcr-4-4","libgcr-4-4","Library for Crypto related tasks","","","1","1","","","","Section=libs; Version=4.4.0.1-3","","","","","",""
-"libgeoclue-2-0","libgeoclue-2-0","libgeoclue-2-0","convenience library to interact with geoinformation service","","","1","1","","","","Section=libs; Version=2.7.2-2","","","","","",""
-"libgeocode-glib-2-0","libgeocode-glib-2-0","libgeocode-glib-2-0","geocoding and reverse geocoding GLib library using Nominatim","","","1","1","","","","Section=libs; Version=3.26.4-1","","","","","",""
-"libgudev-1.0-0","libgudev-1.0-0","libgudev-1.0-0","GObject-based wrapper library for libudev","","","1","1","","","","Section=libs; Version=238-6","","","","","",""
-"libgweather-4-0t64","libgweather-4-0t64","libgweather-4-0t64","GWeather shared library","","","1","1","","","","Section=libs; Version=4.4.4-1","","","","","",""
-"libmm-glib0","libmm-glib0","libmm-glib0","D-Bus service for managing modems - shared libraries","","","1","1","","","","Section=libs; Version=1.24.0-1+deb13u1","","","","","",""
-"libnm0","libnm0","libnm0","GObject-based client library for NetworkManager","","","1","1","","","","Section=libs; Version=1.52.1-1","","","","","",""
-"libp11-kit0","libp11-kit0","libp11-kit0","library for loading and coordinating access to PKCS#11 modules - runtime","","","1","1","","","","Section=libs; Version=0.25.5-3","","","","","",""
-"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libwacom9","libwacom9","libwacom9","Wacom model feature query library","","","1","1","","","","Section=libs; Version=2.14.0-1","","","","","",""
-"libwayland-client0","libwayland-client0","libwayland-client0","wayland compositor infrastructure - client library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","",""
-"libxfixes3","libxfixes3","libxfixes3","X11 miscellaneous 'fixes' extension library","","","1","1","","","","Section=libs; Version=1:6.0.0-2+b4","","","","","",""
-"libxi6","libxi6","libxi6","X11 Input extension library","","","1","1","","","","Section=libs; Version=2:1.8.2-1","","","","","",""
-"iio-sensor-proxy","iio-sensor-proxy","iio-sensor-proxy","IIO sensors to D-Bus proxy","","","1","1","","","","Section=utils; Version=3.7-3","","","","","",""
-"pkexec","pkexec","pkexec","run commands as another user with polkit authorization","","","1","1","","","","Section=admin; Version=126-2","","","","","",""
-"x11-xserver-utils","x11-xserver-utils","x11-xserver-utils","X server utilities","","","1","1","","","","Section=x11; Version=7.7+11","","","","","",""
-"libadwaita-1-0","libadwaita-1-0","libadwaita-1-0","Library with GTK widgets for mobile phones","","","1","1","","","","Section=libs; Version=1.7.6-1~deb13u1","","","","","",""
-"libgtk-4-1","libgtk-4-1","libgtk-4-1","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=4.18.6+ds-2","","","","","",""
-"zenity-common","zenity-common","zenity-common","Display graphical dialog boxes from shell scripts (common files)","","","1","1","","","","Section=gnome; Version=4.1.90-1","","","","","",""
-"dconf-service","dconf-service","dconf-service","simple configuration storage system - D-Bus service","","","1","1","","","","Section=libs; Version=0.40.0-5","","","","","",""
-"libdconf1","libdconf1","libdconf1","simple configuration storage system - runtime library","","","1","1","","","","Section=libs; Version=0.40.0-5","","","","","",""
-"libasound2-data","libasound2-data","libasound2-data","Configuration files and profiles for ALSA drivers","","","1","1","","","","Section=libs; Version=1.2.14-1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"libpixman-1-0","libpixman-1-0","libpixman-1-0","pixel-manipulation library for X and cairo","","","1","1","","","","Section=libs; Version=0.44.0-3","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libxcb-render0","libxcb-render0","libxcb-render0","X C Binding, render extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shm0","libxcb-shm0","libxcb-shm0","X C Binding, shm extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxrender1","libxrender1","libxrender1","X Rendering Extension client library","","","1","1","","","","Section=libs; Version=1:0.9.12-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libcanberra-gtk3-module","libcanberra-gtk3-module","libcanberra-gtk3-module","translates GTK3 widgets signals to event sounds","","","1","1","","","","Section=libs; Version=0.30-18","","","","","",""
-"libltdl7","libltdl7","libltdl7","System independent dlopen wrapper for GNU libtool","","","1","1","","","","Section=libs; Version=2.5.4-4","","","","","",""
-"libtdb1","libtdb1","libtdb1","Trivial Database - shared library","","","1","1","","","","Section=libs; Version=2:1.4.13+samba4.22.4+dfsg-1~deb13u1","","","","","",""
-"libvorbisfile3","libvorbisfile3","libvorbisfile3","high-level API for Vorbis General Audio Compression Codec","","","1","1","","","","Section=libs; Version=1.3.7-3","","","","","",""
-"sound-theme-freedesktop","sound-theme-freedesktop","sound-theme-freedesktop","freedesktop.org sound theme","","","1","1","","","","Section=sound; Version=0.8-6~deb13u1","","","","","",""
-"libgdk-pixbuf2.0-common","libgdk-pixbuf2.0-common","libgdk-pixbuf2.0-common","GDK Pixbuf library - data files","","","1","1","","","","Section=libs; Version=2.42.12+dfsg-4","","","","","",""
-"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","",""
-"libgdk-pixbuf2.0-bin","libgdk-pixbuf2.0-bin","libgdk-pixbuf2.0-bin","GDK Pixbuf library (thumbnailer)","","","1","1","","","","Section=libs; Version=2.42.12+dfsg-4","","","","","",""
-"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","",""
-"libglvnd0","libglvnd0","libglvnd0","Vendor neutral GL dispatch library","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libatomic1","libatomic1","libatomic1","support library providing __atomic built-in functions","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libmount1","libmount1","libmount1","device mounting library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"libglib2.0-data","libglib2.0-data","libglib2.0-data","Common files for GLib library","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"xdg-user-dirs","xdg-user-dirs","xdg-user-dirs","tool to manage well known user directories","","","1","1","","","","Section=utils; Version=0.18-2","","","","","",""
-"bubblewrap","bubblewrap","bubblewrap","utility for unprivileged chroot and namespace manipulation","","","1","1","","","","Section=admin; Version=0.11.0-2","","","","","",""
-"gnome-desktop3-data","gnome-desktop3-data","gnome-desktop3-data","Common files for GNOME desktop apps","","","1","1","","","","Section=gnome; Version=44.3-3","","","","","",""
-"iso-codes","iso-codes","iso-codes","ISO language, territory, currency, script codes and their translations","","","1","1","","","","Section=misc; Version=4.18.0-1","","","","","",""
-"libseccomp2","libseccomp2","libseccomp2","high level interface to Linux seccomp filter","","","1","1","","","","Section=libs; Version=2.6.0-2","","","","","",""
-"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libxkbregistry0","libxkbregistry0","libxkbregistry0","library to query available RMLVO","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"locales","locales","locales","GNU C Library: National Language (locale) data [support]","","","1","1","","","","Section=localization; Version=2.41-12","","","","","",""
-"libcap2","libcap2","libcap2","POSIX 1003.1e capabilities (library)","","","1","1","","","","Section=libs; Version=1:2.75-10+b1","","","","","",""
-"libcap2-bin","libcap2-bin","libcap2-bin","POSIX 1003.1e capabilities (utilities)","","","1","1","","","","Section=utils; Version=1:2.75-10+b1","","","","","",""
-"adwaita-icon-theme","adwaita-icon-theme","adwaita-icon-theme","default icon theme of GNOME","","","1","1","","","","Section=gnome; Version=48.1-1","","","","","",""
-"hicolor-icon-theme","hicolor-icon-theme","hicolor-icon-theme","default fallback theme for FreeDesktop.org icon themes","","","1","1","","","","Section=misc; Version=0.18-2","","","","","",""
-"libatk-bridge2.0-0t64","libatk-bridge2.0-0t64","libatk-bridge2.0-0t64","AT-SPI 2 toolkit bridge - shared library","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","",""
-"libatk1.0-0t64","libatk1.0-0t64","libatk1.0-0t64","ATK accessibility toolkit","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","",""
-"libcairo-gobject2","libcairo-gobject2","libcairo-gobject2","Cairo 2D vector graphics library (GObject library)","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
-"libcloudproviders0","libcloudproviders0","libcloudproviders0","cloud provider library","","","1","1","","","","Section=libs; Version=0.3.6-2","","","","","",""
-"libfribidi0","libfribidi0","libfribidi0","Free Implementation of the Unicode BiDi algorithm","","","1","1","","","","Section=libs; Version=1.0.16-1","","","","","",""
-"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","",""
-"libpangoft2-1.0-0","libpangoft2-1.0-0","libpangoft2-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libwayland-cursor0","libwayland-cursor0","libwayland-cursor0","wayland compositor infrastructure - cursor library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","",""
-"libwayland-egl1","libwayland-egl1","libwayland-egl1","wayland compositor infrastructure - EGL library","","","1","1","","","","Section=libs; Version=1.23.1-3","","","","","",""
-"libxcursor1","libxcursor1","libxcursor1","X cursor management library","","","1","1","","","","Section=libs; Version=1:1.2.3-1","","","","","",""
-"libxdamage1","libxdamage1","libxdamage1","X11 damaged region extension library","","","1","1","","","","Section=libs; Version=1:1.1.6-1+b2","","","","","",""
-"libxinerama1","libxinerama1","libxinerama1","X11 Xinerama extension library","","","1","1","","","","Section=libs; Version=2:1.1.4-3+b4","","","","","",""
-"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"libxrandr2","libxrandr2","libxrandr2","X11 RandR extension library","","","1","1","","","","Section=libs; Version=2:1.5.4-1+b3","","","","","",""
-"libgtk-3-common","libgtk-3-common","libgtk-3-common","common files for the GTK graphical user interface library","","","1","1","","","","Section=misc; Version=3.24.49-3","","","","","",""
-"libgtk-3-bin","libgtk-3-bin","libgtk-3-bin","programs for the GTK graphical user interface library","","","1","1","","","","Section=misc; Version=3.24.49-3","","","","","",""
-"librsvg2-common","librsvg2-common","librsvg2-common","SAX-based renderer library for SVG files (extra runtime)","","","1","1","","","","Section=libs; Version=2.60.0+dfsg-1","","","","","",""
-"magpie-common","magpie-common","magpie-common","shared files for the magpie window manager","","","1","1","","","","Section=misc; Version=0.9.4-3","","","","","",""
-"mutter-common","mutter-common","mutter-common","shared files for the Mutter window manager","","","1","1","","","","Section=misc; Version=48.4-2","","","","","",""
-"libdrm2","libdrm2","libdrm2","Userspace interface to kernel DRM services -- runtime","","","1","1","","","","Section=libs; Version=2.4.124-2","","","","","",""
-"libgbm1","libgbm1","libgbm1","generic buffer management API -- runtime","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"libgraphene-1.0-0","libgraphene-1.0-0","libgraphene-1.0-0","library of graphic data types","","","1","1","","","","Section=libs; Version=1.10.8-5","","","","","",""
-"libinput10","libinput10","libinput10","input device management and event handling library - shared library","","","1","1","","","","Section=libs; Version=1.28.1-1","","","","","",""
-"liblcms2-2","liblcms2-2","liblcms2-2","Little CMS 2 color management library","","","1","1","","","","Section=libs; Version=2.16-2","","","","","",""
-"libstartup-notification0","libstartup-notification0","libstartup-notification0","library for program launch feedback (shared library)","","","1","1","","","","Section=libs; Version=0.12-8","","","","","",""
-"libx11-xcb1","libx11-xcb1","libx11-xcb1","Xlib/XCB interface library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxcb-randr0","libxcb-randr0","libxcb-randr0","X C Binding, randr extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-res0","libxcb-res0","libxcb-res0","X C Binding, res extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxkbcommon-x11-0","libxkbcommon-x11-0","libxkbcommon-x11-0","library to create keymaps with the XKB X11 protocol","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"libxkbfile1","libxkbfile1","libxkbfile1","X11 keyboard file manipulation library","","","1","1","","","","Section=libs; Version=1:1.1.0-1+b4","","","","","",""
-"libxtst6","libxtst6","libxtst6","X11 Testing -- Record extension library","","","1","1","","","","Section=libs; Version=2:1.2.5-1","","","","","",""
-"fontconfig","fontconfig","fontconfig","generic font configuration library - support binaries","","","1","1","","","","Section=fonts; Version=2.15.0-2.3","","","","","",""
-"libthai0","libthai0","libthai0","Thai language support library","","","1","1","","","","Section=libs; Version=0.1.29-2+b1","","","","","",""
-"libpeas-common","libpeas-common","libpeas-common","Application plugin library (common files)","","","1","1","","","","Section=libs; Version=1.36.0-3","","","","","",""
-"libpython3.13","libpython3.13","libpython3.13","Shared Python runtime library (version 3.13)","","","1","1","","","","Section=libs; Version=3.13.5-2","","","","","",""
-"libasyncns0","libasyncns0","libasyncns0","Asynchronous name service query library","","","1","1","","","","Section=libs; Version=0.8-6+b5","","","","","",""
-"libsndfile1","libsndfile1","libsndfile1","Library for reading/writing audio files","","","1","1","","","","Section=libs; Version=1.2.2-2+b1","","","","","",""
-"libxres1","libxres1","libxres1","X11 Resource extension library","","","1","1","","","","Section=libs; Version=2:1.2.1-1+b2","","","","","",""
-"libwnck-3-common","libwnck-3-common","libwnck-3-common","Window Navigator Construction Kit - common files","","","1","1","","","","Section=libs; Version=43.2-1","","","","","",""
-"libdisplay-info2","libdisplay-info2","libdisplay-info2","EDID and DisplayID library (shared library)","","","1","1","","","","Section=libs; Version=0.2.0-2","","","","","",""
-"libxfce4windowing-common","libxfce4windowing-common","libxfce4windowing-common","common files for libxfce4windowing","","","1","1","","","","Section=xfce; Version=4.20.2-1","","","","","",""
-"","","","","","","","","","","","","budgie-core","gnome-screensaver","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","budgie-session","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","gnome-settings-daemon","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","zenity","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","dconf-gsettings-backend","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libasound2t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libbudgie-appindexer0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libbudgie-plugin0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libbudgie-private0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libbudgie-raven-plugin0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libbudgietheme0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libcanberra-gtk3-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libcanberra0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libgee-0.8-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libgirepository-1.0-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libgles2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libgnome-desktop-3-20t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libgstreamer1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libibus-1.0-5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libmagpie-0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libnotify4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libpeas-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libpolkit-agent-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libpolkit-gobject-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libpulse-mainloop-glib0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libpulse0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libraven0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libupower-glib3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libuuid1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libwnck-3-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-core","libxfce4windowing-0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libdbus-1-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libdbus-glib-1-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libgnome-desktop-3-20t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libgnomekbd8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libpam0g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libxklavier16","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libxxf86vm1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","default-dbus-session-bus","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","gsettings-desktop-schemas","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-screensaver","gnome-power-manager","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gnome-screensaver","libpam-gnome-keyring","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","budgie-session","default-dbus-session-bus","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","gsettings-desktop-schemas","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","upower","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","dconf-gsettings-backend","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libegl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libepoxy0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libgl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libgles2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libgnome-desktop-3-20t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libjson-glib-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libsm6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","libxcomposite1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","budgie-session","default-logind","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","default-logind","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","gnome-settings-daemon-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","gsettings-desktop-schemas","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libspa-0.2-bluetooth","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","pipewire-audio","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libasound2t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libcanberra-gtk3-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libcanberra0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libcolord2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libcups2t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgck-2-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgcr-4-4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgeoclue-2-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgeocode-glib-2-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgnome-desktop-3-20t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgudev-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libgweather-4-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libmm-glib0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libnm0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libnotify4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libp11-kit0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libpangocairo-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libpolkit-gobject-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libpulse-mainloop-glib0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libpulse0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libupower-glib3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libwacom9","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libwayland-client0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libxfixes3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","libxi6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","iio-sensor-proxy","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","pipewire-audio","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","pkexec","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gnome-settings-daemon","x11-xserver-utils","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","zenity","libadwaita-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","zenity","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","zenity","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","zenity","libgtk-4-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","zenity","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","zenity","zenity-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dconf-gsettings-backend","dconf-service","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dconf-gsettings-backend","dconf-service","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dconf-gsettings-backend","libdconf1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dconf-gsettings-backend","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dconf-gsettings-backend","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libasound2t64","libasound2-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libasound2t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-appindexer0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-appindexer0","libgee-0.8-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-appindexer0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-appindexer0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-plugin0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-plugin0","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-plugin0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-plugin0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-plugin0","libpeas-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-private0","libbudgie-plugin0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-private0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-private0","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-private0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-private0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-raven-plugin0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgie-raven-plugin0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgietheme0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgietheme0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbudgietheme0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcairo2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libpixman-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxcb-render0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxcb-shm0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","libxrender1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcairo2","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra-gtk3-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra-gtk3-0","libcanberra0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra-gtk3-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra-gtk3-0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra-gtk3-0","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra-gtk3-0","libcanberra-gtk3-module","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcanberra0","libasound2t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra0","libltdl7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra0","libtdb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra0","libvorbisfile3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcanberra0","sound-theme-freedesktop","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","libgdk-pixbuf2.0-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","shared-mime-info","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","libtiff6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgdk-pixbuf-2.0-0","libgdk-pixbuf2.0-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgee-0.8-2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgee-0.8-2","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgirepository-1.0-1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgirepository-1.0-1","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgirepository-1.0-1","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgles2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgles2","libglvnd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libatomic1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libmount1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libselinux1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libglib2.0-data","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","shared-mime-info","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","xdg-user-dirs","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","bubblewrap","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","gnome-desktop3-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","gnome-desktop3-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","gsettings-desktop-schemas","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","iso-codes","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libseccomp2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","libxkbregistry0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgnome-desktop-3-20t64","locales","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libcap2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libcap2-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","adwaita-icon-theme","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","hicolor-icon-theme","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","shared-mime-info","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libatk-bridge2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libatk1.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libcairo-gobject2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libcloudproviders0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libcolord2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libcups2t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libepoxy0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libfribidi0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libharfbuzz0b","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libpangocairo-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libpangoft2-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libwayland-client0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libwayland-cursor0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libwayland-egl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxcomposite1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxcursor1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxdamage1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxfixes3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxi6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxinerama1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxkbcommon0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libxrandr2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libgtk-3-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","libgtk-3-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgtk-3-0t64","librsvg2-common","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libibus-1.0-5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libibus-1.0-5","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","adwaita-icon-theme","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","gsettings-desktop-schemas","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","magpie-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","mutter-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libatk1.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libcairo-gobject2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libcanberra0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libcolord2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libdrm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libegl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libfribidi0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libgbm1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libgl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libgraphene-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libgudev-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libinput10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libjson-glib-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","liblcms2-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libpangocairo-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libpangoft2-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libsm6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libstartup-notification0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libwacom9","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libx11-xcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxcb-randr0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxcb-res0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxcomposite1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxcursor1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxdamage1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxfixes3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxi6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxinerama1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxkbcommon-x11-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxkbcommon0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxkbfile1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxrandr2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmagpie-0-0","libxtst6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnotify4","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnotify4","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnotify4","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpango-1.0-0","fontconfig","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpango-1.0-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpango-1.0-0","libfribidi0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpango-1.0-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpango-1.0-0","libharfbuzz0b","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpango-1.0-0","libthai0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpeas-1.0-0","libpeas-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpeas-1.0-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpeas-1.0-0","libgirepository-1.0-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpeas-1.0-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpeas-1.0-0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpeas-1.0-0","libpython3.13","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpolkit-agent-1-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpolkit-agent-1-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpolkit-agent-1-0","libpolkit-gobject-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpolkit-gobject-1-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpolkit-gobject-1-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpolkit-gobject-1-0","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse-mainloop-glib0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse-mainloop-glib0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse-mainloop-glib0","libpulse0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libasyncns0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libdbus-1-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libsndfile1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libx11-xcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpulse0","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libbudgie-private0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libbudgie-raven-plugin0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libgirepository-1.0-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libpeas-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libraven0","libuuid1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libupower-glib3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libupower-glib3","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libupower-glib3","upower","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libuuid1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libatk1.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libstartup-notification0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libxrender1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libxres1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwnck-3-0","libwnck-3-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libdisplay-info2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libwayland-client0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libwnck-3-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libxrandr2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfce4windowing-0-0","libxfce4windowing-common","Depends","#333","1","Depends","{}"
+budgie-core,budgie-core,budgie-core,Core package for Budgie-Desktop,,,1,1,,,,Section=x11; Version=10.9.2-8,,,,,,,
+gnome-screensaver,gnome-screensaver,gnome-screensaver,Screensaver and screen lock formerly used in GNOME,,,1,1,,,,Section=gnome; Version=3.6.1-14,,,,,,,
+budgie-session,budgie-session,budgie-session,Budgie Session Manager,,,1,1,,,,Section=misc; Version=0.9.1-3,,,,,,,
+gnome-settings-daemon,gnome-settings-daemon,gnome-settings-daemon,daemon handling the GNOME session settings,,,1,1,,,,Section=gnome; Version=48.1-1,,,,,,,
+zenity,zenity,zenity,Display graphical dialog boxes from shell scripts,,,1,1,,,,Section=gnome; Version=4.1.90-1,,,,,,,
+dconf-gsettings-backend,dconf-gsettings-backend,dconf-gsettings-backend,simple configuration storage system - GSettings back-end,,,1,1,,,,Section=libs; Version=0.40.0-5,,,,,,,
+libasound2t64,libasound2t64,libasound2t64,shared library for ALSA applications,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
+libbudgie-appindexer0,libbudgie-appindexer0,libbudgie-appindexer0,Menu library for budgie-desktop,,,1,1,,,,Section=libs; Version=10.9.2-8,,,,,,,
+libbudgie-plugin0,libbudgie-plugin0,libbudgie-plugin0,Plugin library for budgie-desktop,,,1,1,,,,Section=libs; Version=10.9.2-8,,,,,,,
+libbudgie-private0,libbudgie-private0,libbudgie-private0,Budgie Private library for budgie-desktop,,,1,1,,,,Section=libs; Version=10.9.2-8,,,,,,,
+libbudgie-raven-plugin0,libbudgie-raven-plugin0,libbudgie-raven-plugin0,Raven Plugin library for budgie-desktop,,,1,1,,,,Section=libs; Version=10.9.2-8,,,,,,,
+libbudgietheme0,libbudgietheme0,libbudgietheme0,Theme library for budgie-desktop,,,1,1,,,,Section=libs; Version=10.9.2-8,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
+libcanberra-gtk3-0,libcanberra-gtk3-0,libcanberra-gtk3-0,GTK+ 3.0 helper for playing widget event sounds with libcanberra,,,1,1,,,,Section=libs; Version=0.30-18,,,,,,,
+libcanberra0,libcanberra0,libcanberra0,simple abstract interface for playing event sounds,,,1,1,,,,Section=libs; Version=0.30-18,,,,,,,
+libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,GDK Pixbuf library,,,1,1,,,,Section=libs; Version=2.42.12+dfsg-4,,,,,,,
+libgee-0.8-2,libgee-0.8-2,libgee-0.8-2,GObject based collection and utility library,,,1,1,,,,Section=libs; Version=0.20.8-1,,,,,,,
+libgirepository-1.0-1,libgirepository-1.0-1,libgirepository-1.0-1,Library for handling GObject introspection data (runtime library),,,1,1,,,,Section=libs; Version=1.84.0-1,,,,,,,
+libgles2,libgles2,libgles2,Vendor neutral GL dispatch library -- GLESv2 support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libgnome-desktop-3-20t64,libgnome-desktop-3-20t64,libgnome-desktop-3-20t64,Utility library for the GNOME desktop - GTK 3 version,,,1,1,,,,Section=libs; Version=44.3-3,,,,,,,
+libgstreamer1.0-0,libgstreamer1.0-0,libgstreamer1.0-0,Core GStreamer libraries and elements,,,1,1,,,,Section=libs; Version=1.26.2-2,,,,,,,
+libgtk-3-0t64,libgtk-3-0t64,libgtk-3-0t64,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=3.24.49-3,,,,,,,
+libibus-1.0-5,libibus-1.0-5,libibus-1.0-5,Intelligent Input Bus - shared library,,,1,1,,,,Section=libs; Version=1.5.32-2,,,,,,,
+libmagpie-0-0,libmagpie-0-0,libmagpie-0-0,window manager library from the magpie window manager,,,1,1,,,,Section=libs; Version=0.9.4-3,,,,,,,
+libnotify4,libnotify4,libnotify4,sends desktop notifications to a notification daemon,,,1,1,,,,Section=libs; Version=0.8.6-1,,,,,,,
+libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libpeas-1.0-0,libpeas-1.0-0,libpeas-1.0-0,Application plugin library,,,1,1,,,,Section=libs; Version=1.36.0-3+b4,,,,,,,
+libpolkit-agent-1-0,libpolkit-agent-1-0,libpolkit-agent-1-0,polkit Authentication Agent API,,,1,1,,,,Section=libs; Version=126-2,,,,,,,
+libpolkit-gobject-1-0,libpolkit-gobject-1-0,libpolkit-gobject-1-0,polkit Authorization API,,,1,1,,,,Section=libs; Version=126-2,,,,,,,
+libpulse-mainloop-glib0,libpulse-mainloop-glib0,libpulse-mainloop-glib0,PulseAudio client libraries (glib support),,,1,1,,,,Section=libs; Version=17.0+dfsg1-2+b1,,,,,,,
+libpulse0,libpulse0,libpulse0,PulseAudio client libraries,,,1,1,,,,Section=libs; Version=17.0+dfsg1-2+b1,,,,,,,
+libraven0,libraven0,libraven0,Raven library for budgie-desktop,,,1,1,,,,Section=libs; Version=10.9.2-8,,,,,,,
+libupower-glib3,libupower-glib3,libupower-glib3,abstraction for power management - shared library,,,1,1,,,,Section=libs; Version=1.90.9-1,,,,,,,
+libuuid1,libuuid1,libuuid1,Universally Unique ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
+libwnck-3-0,libwnck-3-0,libwnck-3-0,Window Navigator Construction Kit - runtime files,,,1,1,,,,Section=libs; Version=43.2-1,,,,,,,
+libxfce4windowing-0-0,libxfce4windowing-0-0,libxfce4windowing-0-0,Wayland utility functions library for Xfce4,,,1,1,,,,Section=libs; Version=4.20.2-1,,,,,,,
+libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
+libdbus-glib-1-2,libdbus-glib-1-2,libdbus-glib-1-2,deprecated library for D-Bus IPC,,,1,1,,,,Section=oldlibs; Version=0.114-1,,,,,,,
+libgnomekbd8,libgnomekbd8,libgnomekbd8,GNOME library to manage keyboard configuration - shared library,,,1,1,,,,Section=libs; Version=3.28.1-2,,,,,,,
+libpam0g,libpam0g,libpam0g,Pluggable Authentication Modules library,,,1,1,,,,Section=libs; Version=1.7.0-5,,,,,,,
+libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
+libxklavier16,libxklavier16,libxklavier16,X Keyboard Extension high-level API,,,1,1,,,,Section=libs; Version=5.4-5+b2,,,,,,,
+libxxf86vm1,libxxf86vm1,libxxf86vm1,X11 XFree86 video mode extension library,,,1,1,,,,Section=libs; Version=1:1.1.4-1+b4,,,,,,,
+default-dbus-session-bus,default-dbus-session-bus,default-dbus-session-bus,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gsettings-desktop-schemas,gsettings-desktop-schemas,gsettings-desktop-schemas,GSettings desktop-wide schemas,,,1,1,,,,Section=gnome; Version=48.0-1,,,,,,,
+gnome-power-manager,gnome-power-manager,gnome-power-manager,power management tool for the GNOME desktop,,,1,1,,,,Section=gnome; Version=43.0-4+b1,,,,,,,
+libpam-gnome-keyring,libpam-gnome-keyring,libpam-gnome-keyring,PAM module to unlock the GNOME keyring upon login,,,1,1,,,,Section=admin; Version=48.0-1,,,,,,,
+upower,upower,upower,abstraction for power management,,,1,1,,,,Section=admin; Version=1.90.9-1,,,,,,,
+libegl1,libegl1,libegl1,Vendor neutral GL dispatch library -- EGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libepoxy0,libepoxy0,libepoxy0,OpenGL function pointer management library,,,1,1,,,,Section=libs; Version=1.5.10-2,,,,,,,
+libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libice6,libice6,libice6,X11 Inter-Client Exchange library,,,1,1,,,,Section=libs; Version=2:1.1.1-1,,,,,,,
+libjson-glib-1.0-0,libjson-glib-1.0-0,libjson-glib-1.0-0,GLib JSON manipulation library,,,1,1,,,,Section=libs; Version=1.10.6+ds-2,,,,,,,
+libsm6,libsm6,libsm6,X11 Session Management library,,,1,1,,,,Section=libs; Version=2:1.2.6-1,,,,,,,
+libxcomposite1,libxcomposite1,libxcomposite1,X11 Composite extension library,,,1,1,,,,Section=libs; Version=1:0.4.6-1,,,,,,,
+default-logind,default-logind,default-logind,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gnome-settings-daemon-common,gnome-settings-daemon-common,gnome-settings-daemon-common,daemon handling the GNOME session settings - common files,,,1,1,,,,Section=gnome; Version=48.1-1,,,,,,,
+libspa-0.2-bluetooth,libspa-0.2-bluetooth,libspa-0.2-bluetooth,libraries for the PipeWire multimedia server - bluetooth plugins,,,1,1,,,,Section=libs; Version=1.4.2-1,,,,,,,
+pipewire-audio,pipewire-audio,pipewire-audio,recommended set of PipeWire packages for a standard audio desktop use,,,1,1,,,,Section=sound; Version=1.4.2-1,,,,,,,
+libcolord2,libcolord2,libcolord2,system service to manage device colour profiles -- runtime,,,1,1,,,,Section=libs; Version=1.4.7-3,,,,,,,
+libcups2t64,libcups2t64,libcups2t64,Common UNIX Printing System(tm) - Core library,,,1,1,,,,Section=libs; Version=2.4.10-3,,,,,,,
+libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
+libgck-2-2,libgck-2-2,libgck-2-2,Glib wrapper library for PKCS#11 - runtime,,,1,1,,,,Section=libs; Version=4.4.0.1-3,,,,,,,
+libgcr-4-4,libgcr-4-4,libgcr-4-4,Library for Crypto related tasks,,,1,1,,,,Section=libs; Version=4.4.0.1-3,,,,,,,
+libgeoclue-2-0,libgeoclue-2-0,libgeoclue-2-0,convenience library to interact with geoinformation service,,,1,1,,,,Section=libs; Version=2.7.2-2,,,,,,,
+libgeocode-glib-2-0,libgeocode-glib-2-0,libgeocode-glib-2-0,geocoding and reverse geocoding GLib library using Nominatim,,,1,1,,,,Section=libs; Version=3.26.4-1,,,,,,,
+libgudev-1.0-0,libgudev-1.0-0,libgudev-1.0-0,GObject-based wrapper library for libudev,,,1,1,,,,Section=libs; Version=238-6,,,,,,,
+libgweather-4-0t64,libgweather-4-0t64,libgweather-4-0t64,GWeather shared library,,,1,1,,,,Section=libs; Version=4.4.4-1,,,,,,,
+libmm-glib0,libmm-glib0,libmm-glib0,D-Bus service for managing modems - shared libraries,,,1,1,,,,Section=libs; Version=1.24.0-1+deb13u1,,,,,,,
+libnm0,libnm0,libnm0,GObject-based client library for NetworkManager,,,1,1,,,,Section=libs; Version=1.52.1-1,,,,,,,
+libp11-kit0,libp11-kit0,libp11-kit0,library for loading and coordinating access to PKCS#11 modules - runtime,,,1,1,,,,Section=libs; Version=0.25.5-3,,,,,,,
+libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libwacom9,libwacom9,libwacom9,Wacom model feature query library,,,1,1,,,,Section=libs; Version=2.14.0-1,,,,,,,
+libwayland-client0,libwayland-client0,libwayland-client0,wayland compositor infrastructure - client library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
+libxfixes3,libxfixes3,libxfixes3,X11 miscellaneous 'fixes' extension library,,,1,1,,,,Section=libs; Version=1:6.0.0-2+b4,,,,,,,
+libxi6,libxi6,libxi6,X11 Input extension library,,,1,1,,,,Section=libs; Version=2:1.8.2-1,,,,,,,
+iio-sensor-proxy,iio-sensor-proxy,iio-sensor-proxy,IIO sensors to D-Bus proxy,,,1,1,,,,Section=utils; Version=3.7-3,,,,,,,
+pkexec,pkexec,pkexec,run commands as another user with polkit authorization,,,1,1,,,,Section=admin; Version=126-2,,,,,,,
+x11-xserver-utils,x11-xserver-utils,x11-xserver-utils,X server utilities,,,1,1,,,,Section=x11; Version=7.7+11,,,,,,,
+libadwaita-1-0,libadwaita-1-0,libadwaita-1-0,Library with GTK widgets for mobile phones,,,1,1,,,,Section=libs; Version=1.7.6-1~deb13u1,,,,,,,
+libgtk-4-1,libgtk-4-1,libgtk-4-1,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=4.18.6+ds-2,,,,,,,
+zenity-common,zenity-common,zenity-common,Display graphical dialog boxes from shell scripts (common files),,,1,1,,,,Section=gnome; Version=4.1.90-1,,,,,,,
+dconf-service,dconf-service,dconf-service,simple configuration storage system - D-Bus service,,,1,1,,,,Section=libs; Version=0.40.0-5,,,,,,,
+libdconf1,libdconf1,libdconf1,simple configuration storage system - runtime library,,,1,1,,,,Section=libs; Version=0.40.0-5,,,,,,,
+libasound2-data,libasound2-data,libasound2-data,Configuration files and profiles for ALSA drivers,,,1,1,,,,Section=libs; Version=1.2.14-1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+libpixman-1-0,libpixman-1-0,libpixman-1-0,pixel-manipulation library for X and cairo,,,1,1,,,,Section=libs; Version=0.44.0-3,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libxcb-render0,libxcb-render0,libxcb-render0,"X C Binding, render extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shm0,libxcb-shm0,libxcb-shm0,"X C Binding, shm extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxrender1,libxrender1,libxrender1,X Rendering Extension client library,,,1,1,,,,Section=libs; Version=1:0.9.12-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libcanberra-gtk3-module,libcanberra-gtk3-module,libcanberra-gtk3-module,translates GTK3 widgets signals to event sounds,,,1,1,,,,Section=libs; Version=0.30-18,,,,,,,
+libltdl7,libltdl7,libltdl7,System independent dlopen wrapper for GNU libtool,,,1,1,,,,Section=libs; Version=2.5.4-4,,,,,,,
+libtdb1,libtdb1,libtdb1,Trivial Database - shared library,,,1,1,,,,Section=libs; Version=2:1.4.13+samba4.22.4+dfsg-1~deb13u1,,,,,,,
+libvorbisfile3,libvorbisfile3,libvorbisfile3,high-level API for Vorbis General Audio Compression Codec,,,1,1,,,,Section=libs; Version=1.3.7-3,,,,,,,
+sound-theme-freedesktop,sound-theme-freedesktop,sound-theme-freedesktop,freedesktop.org sound theme,,,1,1,,,,Section=sound; Version=0.8-6~deb13u1,,,,,,,
+libgdk-pixbuf2.0-common,libgdk-pixbuf2.0-common,libgdk-pixbuf2.0-common,GDK Pixbuf library - data files,,,1,1,,,,Section=libs; Version=2.42.12+dfsg-4,,,,,,,
+shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
+libgdk-pixbuf2.0-bin,libgdk-pixbuf2.0-bin,libgdk-pixbuf2.0-bin,GDK Pixbuf library (thumbnailer),,,1,1,,,,Section=libs; Version=2.42.12+dfsg-4,,,,,,,
+libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
+libglvnd0,libglvnd0,libglvnd0,Vendor neutral GL dispatch library,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libatomic1,libatomic1,libatomic1,support library providing __atomic built-in functions,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libmount1,libmount1,libmount1,device mounting library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+libglib2.0-data,libglib2.0-data,libglib2.0-data,Common files for GLib library,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+xdg-user-dirs,xdg-user-dirs,xdg-user-dirs,tool to manage well known user directories,,,1,1,,,,Section=utils; Version=0.18-2,,,,,,,
+bubblewrap,bubblewrap,bubblewrap,utility for unprivileged chroot and namespace manipulation,,,1,1,,,,Section=admin; Version=0.11.0-2,,,,,,,
+gnome-desktop3-data,gnome-desktop3-data,gnome-desktop3-data,Common files for GNOME desktop apps,,,1,1,,,,Section=gnome; Version=44.3-3,,,,,,,
+iso-codes,iso-codes,iso-codes,"ISO language, territory, currency, script codes and their translations",,,1,1,,,,Section=misc; Version=4.18.0-1,,,,,,,
+libseccomp2,libseccomp2,libseccomp2,high level interface to Linux seccomp filter,,,1,1,,,,Section=libs; Version=2.6.0-2,,,,,,,
+libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libxkbregistry0,libxkbregistry0,libxkbregistry0,library to query available RMLVO,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+locales,locales,locales,GNU C Library: National Language (locale) data [support],,,1,1,,,,Section=localization; Version=2.41-12,,,,,,,
+libcap2,libcap2,libcap2,POSIX 1003.1e capabilities (library),,,1,1,,,,Section=libs; Version=1:2.75-10+b1,,,,,,,
+libcap2-bin,libcap2-bin,libcap2-bin,POSIX 1003.1e capabilities (utilities),,,1,1,,,,Section=utils; Version=1:2.75-10+b1,,,,,,,
+adwaita-icon-theme,adwaita-icon-theme,adwaita-icon-theme,default icon theme of GNOME,,,1,1,,,,Section=gnome; Version=48.1-1,,,,,,,
+hicolor-icon-theme,hicolor-icon-theme,hicolor-icon-theme,default fallback theme for FreeDesktop.org icon themes,,,1,1,,,,Section=misc; Version=0.18-2,,,,,,,
+libatk-bridge2.0-0t64,libatk-bridge2.0-0t64,libatk-bridge2.0-0t64,AT-SPI 2 toolkit bridge - shared library,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
+libatk1.0-0t64,libatk1.0-0t64,libatk1.0-0t64,ATK accessibility toolkit,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
+libcairo-gobject2,libcairo-gobject2,libcairo-gobject2,Cairo 2D vector graphics library (GObject library),,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
+libcloudproviders0,libcloudproviders0,libcloudproviders0,cloud provider library,,,1,1,,,,Section=libs; Version=0.3.6-2,,,,,,,
+libfribidi0,libfribidi0,libfribidi0,Free Implementation of the Unicode BiDi algorithm,,,1,1,,,,Section=libs; Version=1.0.16-1,,,,,,,
+libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
+libpangoft2-1.0-0,libpangoft2-1.0-0,libpangoft2-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libwayland-cursor0,libwayland-cursor0,libwayland-cursor0,wayland compositor infrastructure - cursor library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
+libwayland-egl1,libwayland-egl1,libwayland-egl1,wayland compositor infrastructure - EGL library,,,1,1,,,,Section=libs; Version=1.23.1-3,,,,,,,
+libxcursor1,libxcursor1,libxcursor1,X cursor management library,,,1,1,,,,Section=libs; Version=1:1.2.3-1,,,,,,,
+libxdamage1,libxdamage1,libxdamage1,X11 damaged region extension library,,,1,1,,,,Section=libs; Version=1:1.1.6-1+b2,,,,,,,
+libxinerama1,libxinerama1,libxinerama1,X11 Xinerama extension library,,,1,1,,,,Section=libs; Version=2:1.1.4-3+b4,,,,,,,
+libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+libxrandr2,libxrandr2,libxrandr2,X11 RandR extension library,,,1,1,,,,Section=libs; Version=2:1.5.4-1+b3,,,,,,,
+libgtk-3-common,libgtk-3-common,libgtk-3-common,common files for the GTK graphical user interface library,,,1,1,,,,Section=misc; Version=3.24.49-3,,,,,,,
+libgtk-3-bin,libgtk-3-bin,libgtk-3-bin,programs for the GTK graphical user interface library,,,1,1,,,,Section=misc; Version=3.24.49-3,,,,,,,
+librsvg2-common,librsvg2-common,librsvg2-common,SAX-based renderer library for SVG files (extra runtime),,,1,1,,,,Section=libs; Version=2.60.0+dfsg-1,,,,,,,
+magpie-common,magpie-common,magpie-common,shared files for the magpie window manager,,,1,1,,,,Section=misc; Version=0.9.4-3,,,,,,,
+mutter-common,mutter-common,mutter-common,shared files for the Mutter window manager,,,1,1,,,,Section=misc; Version=48.4-2,,,,,,,
+libdrm2,libdrm2,libdrm2,Userspace interface to kernel DRM services -- runtime,,,1,1,,,,Section=libs; Version=2.4.124-2,,,,,,,
+libgbm1,libgbm1,libgbm1,generic buffer management API -- runtime,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+libgraphene-1.0-0,libgraphene-1.0-0,libgraphene-1.0-0,library of graphic data types,,,1,1,,,,Section=libs; Version=1.10.8-5,,,,,,,
+libinput10,libinput10,libinput10,input device management and event handling library - shared library,,,1,1,,,,Section=libs; Version=1.28.1-1,,,,,,,
+liblcms2-2,liblcms2-2,liblcms2-2,Little CMS 2 color management library,,,1,1,,,,Section=libs; Version=2.16-2,,,,,,,
+libstartup-notification0,libstartup-notification0,libstartup-notification0,library for program launch feedback (shared library),,,1,1,,,,Section=libs; Version=0.12-8,,,,,,,
+libx11-xcb1,libx11-xcb1,libx11-xcb1,Xlib/XCB interface library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxcb-randr0,libxcb-randr0,libxcb-randr0,"X C Binding, randr extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-res0,libxcb-res0,libxcb-res0,"X C Binding, res extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxkbcommon-x11-0,libxkbcommon-x11-0,libxkbcommon-x11-0,library to create keymaps with the XKB X11 protocol,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+libxkbfile1,libxkbfile1,libxkbfile1,X11 keyboard file manipulation library,,,1,1,,,,Section=libs; Version=1:1.1.0-1+b4,,,,,,,
+libxtst6,libxtst6,libxtst6,X11 Testing -- Record extension library,,,1,1,,,,Section=libs; Version=2:1.2.5-1,,,,,,,
+fontconfig,fontconfig,fontconfig,generic font configuration library - support binaries,,,1,1,,,,Section=fonts; Version=2.15.0-2.3,,,,,,,
+libthai0,libthai0,libthai0,Thai language support library,,,1,1,,,,Section=libs; Version=0.1.29-2+b1,,,,,,,
+libpeas-common,libpeas-common,libpeas-common,Application plugin library (common files),,,1,1,,,,Section=libs; Version=1.36.0-3,,,,,,,
+libpython3.13,libpython3.13,libpython3.13,Shared Python runtime library (version 3.13),,,1,1,,,,Section=libs; Version=3.13.5-2,,,,,,,
+libasyncns0,libasyncns0,libasyncns0,Asynchronous name service query library,,,1,1,,,,Section=libs; Version=0.8-6+b5,,,,,,,
+libsndfile1,libsndfile1,libsndfile1,Library for reading/writing audio files,,,1,1,,,,Section=libs; Version=1.2.2-2+b1,,,,,,,
+libxres1,libxres1,libxres1,X11 Resource extension library,,,1,1,,,,Section=libs; Version=2:1.2.1-1+b2,,,,,,,
+libwnck-3-common,libwnck-3-common,libwnck-3-common,Window Navigator Construction Kit - common files,,,1,1,,,,Section=libs; Version=43.2-1,,,,,,,
+libdisplay-info2,libdisplay-info2,libdisplay-info2,EDID and DisplayID library (shared library),,,1,1,,,,Section=libs; Version=0.2.0-2,,,,,,,
+libxfce4windowing-common,libxfce4windowing-common,libxfce4windowing-common,common files for libxfce4windowing,,,1,1,,,,Section=xfce; Version=4.20.2-1,,,,,,,
+,,,,,,,,,,,,gnome-screensaver,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,budgie-session,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnome-settings-daemon,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zenity,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dconf-gsettings-backend,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libasound2t64,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgie-appindexer0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgie-plugin0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgie-private0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgie-raven-plugin0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgietheme0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra-gtk3-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgee-0.8-2,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgirepository-1.0-1,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgles2,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnome-desktop-3-20t64,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgstreamer1.0-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libibus-1.0-5,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmagpie-0-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnotify4,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpeas-1.0-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpolkit-agent-1-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpolkit-gobject-1-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpulse-mainloop-glib0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpulse0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libraven0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libupower-glib3,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuuid1,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwnck-3-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfce4windowing-0-0,budgie-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbus-1-3,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbus-glib-1-2,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnome-desktop-3-20t64,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnomekbd8,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpam0g,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxklavier16,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxxf86vm1,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,default-dbus-session-bus,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gsettings-desktop-schemas,gnome-screensaver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnome-power-manager,gnome-screensaver,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libpam-gnome-keyring,gnome-screensaver,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,default-dbus-session-bus,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gsettings-desktop-schemas,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,upower,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dconf-gsettings-backend,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl1,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libepoxy0,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl1,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgles2,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnome-desktop-3-20t64,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice6,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjson-glib-1.0-0,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsm6,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcomposite1,budgie-session,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,default-logind,budgie-session,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,default-logind,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnome-settings-daemon-common,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gsettings-desktop-schemas,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libspa-0.2-bluetooth,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,pipewire-audio,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libasound2t64,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra-gtk3-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcolord2,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcups2t64,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgck-2-2,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcr-4-4,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgeoclue-2-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgeocode-glib-2-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnome-desktop-3-20t64,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgudev-1.0-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgweather-4-0t64,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmm-glib0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnm0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnotify4,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libp11-kit0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangocairo-1.0-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpolkit-gobject-1-0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpulse-mainloop-glib0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpulse0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libupower-glib3,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwacom9,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwayland-client0,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfixes3,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxi6,gnome-settings-daemon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,iio-sensor-proxy,gnome-settings-daemon,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,pipewire-audio,gnome-settings-daemon,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,pkexec,gnome-settings-daemon,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,x11-xserver-utils,gnome-settings-daemon,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libadwaita-1-0,zenity,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,zenity,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,zenity,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-4-1,zenity,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,zenity,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zenity-common,zenity,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dconf-service,dconf-gsettings-backend,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dconf-service,dconf-gsettings-backend,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdconf1,dconf-gsettings-backend,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,dconf-gsettings-backend,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,dconf-gsettings-backend,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libasound2-data,libasound2t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libasound2t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libbudgie-appindexer0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgee-0.8-2,libbudgie-appindexer0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libbudgie-appindexer0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libbudgie-appindexer0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libbudgie-plugin0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libbudgie-plugin0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libbudgie-plugin0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libbudgie-plugin0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpeas-1.0-0,libbudgie-plugin0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgie-plugin0,libbudgie-private0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libbudgie-private0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libbudgie-private0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libbudgie-private0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libbudgie-private0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libbudgie-raven-plugin0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libbudgie-raven-plugin0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libbudgietheme0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libbudgietheme0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libbudgietheme0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpixman-1-0,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render0,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shm0,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrender1,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libcairo2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libcanberra-gtk3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra0,libcanberra-gtk3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libcanberra-gtk3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libcanberra-gtk3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libcanberra-gtk3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra-gtk3-module,libcanberra-gtk3-0,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libasound2t64,libcanberra0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libcanberra0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libltdl7,libcanberra0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtdb1,libcanberra0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvorbisfile3,libcanberra0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,sound-theme-freedesktop,libcanberra0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf2.0-common,libgdk-pixbuf-2.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,shared-mime-info,libgdk-pixbuf-2.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgdk-pixbuf-2.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgdk-pixbuf-2.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,libgdk-pixbuf-2.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libgdk-pixbuf-2.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtiff6,libgdk-pixbuf-2.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf2.0-bin,libgdk-pixbuf-2.0-0,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libgee-0.8-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgee-0.8-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgirepository-1.0-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi8,libgirepository-1.0-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgirepository-1.0-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgles2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglvnd0,libgles2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatomic1,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi8,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmount1,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-data,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,shared-mime-info,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xdg-user-dirs,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,bubblewrap,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnome-desktop3-data,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gnome-desktop3-data,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gsettings-desktop-schemas,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,iso-codes,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libseccomp2,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbregistry0,libgnome-desktop-3-20t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,locales,libgnome-desktop-3-20t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap2,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap2-bin,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,adwaita-icon-theme,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,hicolor-icon-theme,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,shared-mime-info,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatk-bridge2.0-0t64,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatk1.0-0t64,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo-gobject2,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcloudproviders0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcolord2,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcups2t64,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libepoxy0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfribidi0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libharfbuzz0b,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangocairo-1.0-0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangoft2-1.0-0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwayland-client0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwayland-cursor0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwayland-egl1,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcomposite1,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcursor1,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxdamage1,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfixes3,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxi6,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxinerama1,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon0,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrandr2,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-common,libgtk-3-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-bin,libgtk-3-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,librsvg2-common,libgtk-3-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libibus-1.0-5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libibus-1.0-5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,adwaita-icon-theme,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gsettings-desktop-schemas,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,magpie-common,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,mutter-common,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatk1.0-0t64,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo-gobject2,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcolord2,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdrm2,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfribidi0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgbm1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgraphene-1.0-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgudev-1.0-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice6,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libinput10,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjson-glib-1.0-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblcms2-2,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangocairo-1.0-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangoft2-1.0-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsm6,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstartup-notification0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwacom9,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-xcb1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-randr0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-res0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcomposite1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcursor1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxdamage1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfixes3,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxi6,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxinerama1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon-x11-0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon0,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbfile1,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrandr2,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxtst6,libmagpie-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libnotify4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libnotify4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libnotify4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fontconfig,libpango-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpango-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfribidi0,libpango-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libpango-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libharfbuzz0b,libpango-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libthai0,libpango-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpeas-common,libpeas-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpeas-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgirepository-1.0-1,libpeas-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libpeas-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libpeas-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpython3.13,libpeas-1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpolkit-agent-1-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libpolkit-agent-1-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpolkit-gobject-1-0,libpolkit-agent-1-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpolkit-gobject-1-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libpolkit-gobject-1-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,libpolkit-gobject-1-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpulse-mainloop-glib0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libpulse-mainloop-glib0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpulse0,libpulse-mainloop-glib0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libasyncns0,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbus-1-3,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsndfile1,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-xcb1,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libpulse0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgie-private0,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbudgie-raven-plugin0,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgirepository-1.0-1,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpeas-1.0-0,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuuid1,libraven0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libupower-glib3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libupower-glib3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,upower,libupower-glib3,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libuuid1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatk1.0-0t64,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstartup-notification0,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrender1,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxres1,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwnck-3-common,libwnck-3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdisplay-info2,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwayland-client0,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwnck-3-0,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrandr2,libxfce4windowing-0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfce4windowing-common,libxfce4windowing-0-0,Depends,#333,1,Depends,{}

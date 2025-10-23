@@ -1,582 +1,582 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"kio","kio","kio","resource and network access abstraction","","","1","1","","","","Section=kde; Version=5.116.0-1","","","","","",""
-"kded5","kded5","kded5","Extensible daemon for providing session services","","","1","1","","","","Section=kde; Version=5.116.0-1","","","","","",""
-"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libkf5archive5","libkf5archive5","libkf5archive5","Qt 5 addon providing access to numerous types of archives","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5authcore5","libkf5authcore5","libkf5authcore5","Abstraction to system policy and authentication features","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5configcore5","libkf5configcore5","libkf5configcore5","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5configwidgets5","libkf5configwidgets5","libkf5configwidgets5","Extra widgets for easier configuration support.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5coreaddons5","libkf5coreaddons5","libkf5coreaddons5","KDE Frameworks 5 addons to QtCore","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5dbusaddons5","libkf5dbusaddons5","libkf5dbusaddons5","class library for qtdbus","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5doctools5","libkf5doctools5","libkf5doctools5","Tools to generate documentation in various formats from DocBook","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5i18n5","libkf5i18n5","libkf5i18n5","Advanced internationalization framework.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5itemviews5","libkf5itemviews5","libkf5itemviews5","Qt library with additional widgets for ItemModels","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5kiocore5","libkf5kiocore5","libkf5kiocore5","resource and network access abstraction (KIO core library)","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5kiogui5","libkf5kiogui5","libkf5kiogui5","resource and network access abstraction (KIO gui library)","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5kiontlm5","libkf5kiontlm5","libkf5kiontlm5","resource and network access abstraction (KIO NTLM library)","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5kiowidgets5","libkf5kiowidgets5","libkf5kiowidgets5","resource and network access abstraction (KIO widgets library)","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5notifications5","libkf5notifications5","libkf5notifications5","Framework for desktop notifications","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5service-bin","libkf5service-bin","libkf5service-bin","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5service5","libkf5service5","libkf5service5","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5solid5","libkf5solid5","libkf5solid5","Qt library to query and control hardware","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5textwidgets5","libkf5textwidgets5","libkf5textwidgets5","Advanced text editing widgets.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5wallet-bin","libkf5wallet-bin","libkf5wallet-bin","transitional dummy package","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5wallet5","libkf5wallet5","libkf5wallet5","Secure and unified container for user passwords.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5widgetsaddons5","libkf5widgetsaddons5","libkf5widgetsaddons5","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5windowsystem5","libkf5windowsystem5","libkf5windowsystem5","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libqt5core5t64","libqt5core5t64","libqt5core5t64","Qt 5 core module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5dbus5t64","libqt5dbus5t64","libqt5dbus5t64","Qt 5 D-Bus module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5gui5t64","libqt5gui5t64","libqt5gui5t64","Qt 5 GUI module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5network5t64","libqt5network5t64","libqt5network5t64","Qt 5 network module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5qml5","libqt5qml5","libqt5qml5","Qt 5 QML module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-3","","","","","",""
-"libqt5widgets5t64","libqt5widgets5t64","libqt5widgets5t64","Qt 5 widgets module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5x11extras5","libqt5x11extras5","libqt5x11extras5","Qt 5 X11 extras","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libqt5xml5t64","libqt5xml5t64","libqt5xml5t64","Qt 5 XML module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"libxslt1.1","libxslt1.1","libxslt1.1","XSLT 1.0 processing library - runtime library","","","1","1","","","","Section=libs; Version=1.1.35-1.2+deb13u1","","","","","",""
-"switcheroo-control","switcheroo-control","switcheroo-control","D-Bus service to check the availability of dual-GPU","","","1","1","","","","Section=gnome; Version=2.6-3","","","","","",""
-"systemsettings","systemsettings","systemsettings","System Settings interface","","","1","1","","","","Section=kde; Version=4:6.3.4-2","","","","","",""
-"libkf5crash5","libkf5crash5","libkf5crash5","Support for application crash analysis and bug report from apps","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libkrb5-3","libkrb5-3","libkrb5-3","MIT Kerberos runtime libraries","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libcom-err2","libcom-err2","libcom-err2","common error description library","","","1","1","","","","Section=libs; Version=1.47.2-3+b3","","","","","",""
-"libk5crypto3","libk5crypto3","libk5crypto3","MIT Kerberos runtime libraries - Crypto Library","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libkrb5support0","libkrb5support0","libkrb5support0","MIT Kerberos runtime libraries - Support library","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libkf5archive-data","libkf5archive-data","libkf5archive-data","data files for karchive","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libkf5auth-data","libkf5auth-data","libkf5auth-data","Abstraction to system policy and authentication features","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libpolkit-qt5-1-1","libpolkit-qt5-1-1","libpolkit-qt5-1-1","PolicyKit-qt5-1 library","","","1","1","","","","Section=libs; Version=0.200.0-4+b1","","","","","",""
-"libkf5config-data","libkf5config-data","libkf5config-data","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5config-bin","libkf5config-bin","libkf5config-bin","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5configwidgets-data","libkf5configwidgets-data","libkf5configwidgets-data","Extra widgets for easier configuration support.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5codecs5","libkf5codecs5","libkf5codecs5","collection of methods to manipulate strings","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5configgui5","libkf5configgui5","libkf5configgui5","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5guiaddons5","libkf5guiaddons5","libkf5guiaddons5","additional addons for QtGui","","","1","1","","","","Section=libs; Version=5.116.0-2","","","","","",""
-"libkf5coreaddons-data","libkf5coreaddons-data","libkf5coreaddons-data","KDE Frameworks 5 addons to QtCore - data files","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","",""
-"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libkf5dbusaddons-data","libkf5dbusaddons-data","libkf5dbusaddons-data","class library for qtdbus","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5dbusaddons-bin","libkf5dbusaddons-bin","libkf5dbusaddons-bin","class library for qtdbus","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5i18n-data","libkf5i18n-data","libkf5i18n-data","Advanced internationalization framework.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5itemviews-data","libkf5itemviews-data","libkf5itemviews-data","Qt library with additional widgets for ItemModels","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libmount1","libmount1","libmount1","device mounting library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","",""
-"libkf5completion5","libkf5completion5","libkf5completion5","Widgets with advanced auto-completion features.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5iconthemes5","libkf5iconthemes5","libkf5iconthemes5","Support for icon themes.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5jobwidgets5","libkf5jobwidgets5","libkf5jobwidgets5","Widgets for tracking KJob instances","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5notifications-data","libkf5notifications-data","libkf5notifications-data","Framework for desktop notifications","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libcanberra0","libcanberra0","libcanberra0","simple abstract interface for playing event sounds","","","1","1","","","","Section=libs; Version=0.30-18","","","","","",""
-"libdbusmenu-qt5-2","libdbusmenu-qt5-2","libdbusmenu-qt5-2","Qt implementation of the DBusMenu protocol","","","1","1","","","","Section=libs; Version=0.9.3+16.04.20160218-3+b1","","","","","",""
-"libqt5texttospeech5","libqt5texttospeech5","libqt5texttospeech5","Speech library for Qt - libraries","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libkf5service-data","libkf5service-data","libkf5service-data","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5solid5-data","libkf5solid5-data","libkf5solid5-data","Qt library to query and control hardware","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libimobiledevice-1.0-6","libimobiledevice-1.0-6","libimobiledevice-1.0-6","Library for communicating with iPhone and other Apple devices","","","1","1","","","","Section=libs; Version=1.3.0+git20250228-2","","","","","",""
-"libplist-2.0-4","libplist-2.0-4","libplist-2.0-4","Library for handling Apple binary and XML property lists","","","1","1","","","","Section=libs; Version=2.6.0-2+b1","","","","","",""
-"media-player-info","media-player-info","media-player-info","Media player identification files","","","1","1","","","","Section=admin; Version=26-1","","","","","",""
-"libkf5textwidgets-data","libkf5textwidgets-data","libkf5textwidgets-data","Advanced text editing widgets.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5sonnetcore5","libkf5sonnetcore5","libkf5sonnetcore5","spell checking library for Qt, core lib","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5sonnetui5","libkf5sonnetui5","libkf5sonnetui5","spell checking library for Qt, ui lib","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"kwallet6","kwallet6","kwallet6","safe desktop-wide storage for passwords - kwalletd daemon","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf5wallet-data","libkf5wallet-data","libkf5wallet-data","Secure and unified container for user passwords.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5widgetsaddons-data","libkf5widgetsaddons-data","libkf5widgetsaddons-data","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5windowsystem-data","libkf5windowsystem-data","libkf5windowsystem-data","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxcb-keysyms1","libxcb-keysyms1","libxcb-keysyms1","utility libraries for X C Binding -- keysyms","","","1","1","","","","Section=libs; Version=0.4.1-1","","","","","",""
-"libxcb-res0","libxcb-res0","libxcb-res0","X C Binding, res extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxfixes3","libxfixes3","libxfixes3","X11 miscellaneous 'fixes' extension library","","","1","1","","","","Section=libs; Version=1:6.0.0-2+b4","","","","","",""
-"kwayland-integration","kwayland-integration","kwayland-integration","kwayland runtime integration plugins for Qt5/KF5","","","1","1","","","","Section=kde; Version=6.3.4-1","","","","","",""
-"qtwayland5","qtwayland5","qtwayland5","QtWayland platform plugin","","","1","1","","","","Section=libs; Version=5.15.15-3","","","","","",""
-"libdouble-conversion3","libdouble-conversion3","libdouble-conversion3","routines to convert IEEE floats to and from strings","","","1","1","","","","Section=libs; Version=3.3.1-1","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","",""
-"libpcre2-16-0","libpcre2-16-0","libpcre2-16-0","New Perl Compatible Regular Expression Library - 16 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"qttranslations5-l10n","qttranslations5-l10n","qttranslations5-l10n","translations for Qt 5","","","1","1","","","","Section=localization; Version=5.15.15-2","","","","","",""
-"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","",""
-"qtbase-abi-5-15-15","qtbase-abi-5-15-15","qtbase-abi-5-15-15","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"fontconfig","fontconfig","fontconfig","generic font configuration library - support binaries","","","1","1","","","","Section=fonts; Version=2.15.0-2.3","","","","","",""
-"libdrm2","libdrm2","libdrm2","Userspace interface to kernel DRM services -- runtime","","","1","1","","","","Section=libs; Version=2.4.124-2","","","","","",""
-"libegl1","libegl1","libegl1","Vendor neutral GL dispatch library -- EGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"libgbm1","libgbm1","libgbm1","generic buffer management API -- runtime","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","",""
-"libice6","libice6","libice6","X11 Inter-Client Exchange library","","","1","1","","","","Section=libs; Version=2:1.1.1-1","","","","","",""
-"libinput10","libinput10","libinput10","input device management and event handling library - shared library","","","1","1","","","","Section=libs; Version=1.28.1-1","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"libmd4c0","libmd4c0","libmd4c0","Markdown for C","","","1","1","","","","Section=libs; Version=0.5.2-2+b1","","","","","",""
-"libmtdev1t64","libmtdev1t64","libmtdev1t64","Multitouch Protocol Translation Library - shared library","","","1","1","","","","Section=libs; Version=1.1.7-1","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libsm6","libsm6","libsm6","X11 Session Management library","","","1","1","","","","Section=libs; Version=2:1.2.6-1","","","","","",""
-"libx11-xcb1","libx11-xcb1","libx11-xcb1","Xlib/XCB interface library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxcb-glx0","libxcb-glx0","libxcb-glx0","X C Binding, glx extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-icccm4","libxcb-icccm4","libxcb-icccm4","utility libraries for X C Binding -- icccm","","","1","1","","","","Section=libs; Version=0.4.2-1","","","","","",""
-"libxcb-image0","libxcb-image0","libxcb-image0","utility libraries for X C Binding -- image","","","1","1","","","","Section=libs; Version=0.4.0-2+b2","","","","","",""
-"libxcb-randr0","libxcb-randr0","libxcb-randr0","X C Binding, randr extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-render-util0","libxcb-render-util0","libxcb-render-util0","utility libraries for X C Binding -- render-util","","","1","1","","","","Section=libs; Version=0.3.10-1","","","","","",""
-"libxcb-render0","libxcb-render0","libxcb-render0","X C Binding, render extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shape0","libxcb-shape0","libxcb-shape0","X C Binding, shape extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shm0","libxcb-shm0","libxcb-shm0","X C Binding, shm extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-sync1","libxcb-sync1","libxcb-sync1","X C Binding, sync extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xfixes0","libxcb-xfixes0","libxcb-xfixes0","X C Binding, xfixes extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xinerama0","libxcb-xinerama0","libxcb-xinerama0","X C Binding, xinerama extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xinput0","libxcb-xinput0","libxcb-xinput0","X C Binding, xinput extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xkb1","libxcb-xkb1","libxcb-xkb1","X C Binding, XKEYBOARD extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxkbcommon-x11-0","libxkbcommon-x11-0","libxkbcommon-x11-0","library to create keymaps with the XKB X11 protocol","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"libxrender1","libxrender1","libxrender1","X Rendering Extension client library","","","1","1","","","","Section=libs; Version=1:0.9.12-1","","","","","",""
-"libqt5svg5","libqt5svg5","libqt5svg5","Qt 5 SVG module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"qt5-gtk-platformtheme","qt5-gtk-platformtheme","qt5-gtk-platformtheme","Qt 5 GTK+ 3 platform theme","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"libglx-mesa0","libglx-mesa0","libglx-mesa0","free implementation of the OpenGL API -- GLX vendor library","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"libgcrypt20","libgcrypt20","libgcrypt20","LGPL Crypto library - runtime library","","","1","1","","","","Section=libs; Version=1.11.0-7","","","","","",""
-"libgudev-1.0-0","libgudev-1.0-0","libgudev-1.0-0","GObject-based wrapper library for libudev","","","1","1","","","","Section=libs; Version=238-6","","","","","",""
-"qml6-module-org-kde-kirigami","qml6-module-org-kde-kirigami","qml6-module-org-kde-kirigami","set of QtQuick components targeted for mobile use (QML module)","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","",""
-"qml6-module-qtquick","qml6-module-qtquick","qml6-module-qtquick","Qt 6 Quick QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"qml6-module-qtquick-controls","qml6-module-qtquick-controls","qml6-module-qtquick-controls","Qt 6 Quick Controls QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"qml6-module-qtquick-layouts","qml6-module-qtquick-layouts","qml6-module-qtquick-layouts","Qt 6 Quick Layouts QML module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"kio6","kio6","kio6","resource and network access abstraction","","","1","1","","","","Section=libs; Version=6.13.0-6","","","","","",""
-"libkf6authcore6","libkf6authcore6","libkf6authcore6","Abstraction to system policy and authentication features","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6colorscheme6","libkf6colorscheme6","libkf6colorscheme6","Classes to read and interact with KColorScheme","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6configcore6","libkf6configcore6","libkf6configcore6","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","",""
-"libkf6configwidgets6","libkf6configwidgets6","libkf6configwidgets6","Extra widgets for easier configuration support","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6coreaddons6","libkf6coreaddons6","libkf6coreaddons6","KDE Frameworks 6 addons to QtCore","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6crash6","libkf6crash6","libkf6crash6","Support for application crash analysis and bug report from apps","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6dbusaddons6","libkf6dbusaddons6","libkf6dbusaddons6","class library for qtdbus","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6i18n6","libkf6i18n6","libkf6i18n6","Advanced internationalization framework","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6i18nqml6","libkf6i18nqml6","libkf6i18nqml6","Advanced internationalization framework (QML bindings)","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6itemmodels6","libkf6itemmodels6","libkf6itemmodels6","additional item/view models for Qt Itemview","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6itemviews6","libkf6itemviews6","libkf6itemviews6","Qt library with additional widgets for ItemModels","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6jobwidgets6","libkf6jobwidgets6","libkf6jobwidgets6","widgets for tracking KJob instances","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6kcmutils6","libkf6kcmutils6","libkf6kcmutils6","Extra APIs to write KConfig modules","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","",""
-"libkf6kcmutilscore6","libkf6kcmutilscore6","libkf6kcmutilscore6","Extra APIs to write KConfig modules","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","",""
-"libkf6kiocore6","libkf6kiocore6","libkf6kiocore6","resource and network access abstraction (KIO core library)","","","1","1","","","","Section=libs; Version=6.13.0-6","","","","","",""
-"libkf6kiogui6","libkf6kiogui6","libkf6kiogui6","resource and network access abstraction (KIO gui library)","","","1","1","","","","Section=libs; Version=6.13.0-6","","","","","",""
-"libkf6runner6","libkf6runner6","libkf6runner6","Used to write plugins loaded at runtime called ""Runners""","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6service-bin","libkf6service-bin","libkf6service-bin","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6service6","libkf6service6","libkf6service6","Advanced plugin and service introspection","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6widgetsaddons6","libkf6widgetsaddons6","libkf6widgetsaddons6","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libkf6windowsystem6","libkf6windowsystem6","libkf6windowsystem6","Convenience access to certain properties and features of the window manager","","","1","1","","","","Section=libs; Version=6.13.0-2","","","","","",""
-"libkf6xmlgui6","libkf6xmlgui6","libkf6xmlgui6","User configurable main windows","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","",""
-"libplasmaactivities6","libplasmaactivities6","libplasmaactivities6","core components for the KDE's Activities system - shared library","","","1","1","","","","Section=libs; Version=6.3.4-1","","","","","",""
-"libqt6core6t64","libqt6core6t64","libqt6core6t64","Qt 6 core module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"libqt6gui6","libqt6gui6","libqt6gui6","Qt 6 GUI module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"libqt6qml6","libqt6qml6","libqt6qml6","Qt 6 QML library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"libqt6quick6","libqt6quick6","libqt6quick6","Qt 6 Quick library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"libqt6quickwidgets6","libqt6quickwidgets6","libqt6quickwidgets6","Qt 6 Quick Widgets library","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-7","","","","","",""
-"libqt6widgets6","libqt6widgets6","libqt6widgets6","Qt 6 widgets module","","","1","1","","","","Section=libs; Version=6.8.2+dfsg-9","","","","","",""
-"","","","","","","","","","","","","kio","kded5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libacl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5archive5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5authcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5configwidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5dbusaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5doctools5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5itemviews5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5kiocore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5kiogui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5kiontlm5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5kiowidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5notifications5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5service-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5service5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5solid5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5textwidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5wallet-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5wallet5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5widgetsaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libkf5windowsystem5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5qml5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5x11extras5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libqt5xml5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","libxslt1.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kio","switcheroo-control","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","kio","systemsettings","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","kded5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libkf5crash5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libkf5dbusaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libkf5service-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libkf5service5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kded5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libacl1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libkrb5-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libcom-err2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libk5crypto3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libkrb5support0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","libkf5archive-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5archive5","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libkf5auth-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libpolkit-qt5-1-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5authcore5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configcore5","libkf5config-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configcore5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configcore5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configcore5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configcore5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configcore5","libkf5config-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5configwidgets-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5authcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5codecs5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5configgui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5guiaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libkf5widgetsaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5configwidgets5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","libkf5coreaddons-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","shared-mime-info","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5coreaddons5","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5dbusaddons5","libkf5dbusaddons-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5dbusaddons5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5dbusaddons5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5dbusaddons5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5dbusaddons5","libqt5x11extras5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5dbusaddons5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5dbusaddons5","libkf5dbusaddons-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libkf5doctools5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5doctools5","libkf5archive5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5doctools5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5doctools5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5doctools5","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5doctools5","libxslt1.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5i18n5","libkf5i18n-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5i18n5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5i18n5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5i18n5","libqt5qml5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5i18n5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5itemviews5","libkf5itemviews-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5itemviews5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5itemviews5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5itemviews5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5itemviews5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5itemviews5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libacl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libkf5authcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libkf5crash5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libkf5service-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libkf5service5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libmount1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libqt5xml5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiocore5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libkf5kiocore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libkf5service-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libkf5service5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libkf5windowsystem5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiogui5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiontlm5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiontlm5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5completion5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5configgui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5configwidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5guiaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5iconthemes5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5jobwidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5kiocore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5kiogui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5service-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5service5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5solid5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5widgetsaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libkf5windowsystem5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5kiowidgets5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libkf5notifications-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libcanberra0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libdbusmenu-qt5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libkf5windowsystem5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libqt5texttospeech5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libqt5x11extras5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5notifications5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service-bin","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service-bin","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service-bin","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service-bin","libkf5service5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service-bin","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libkf5service-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libkf5dbusaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libqt5xml5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5service5","libkf5service-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libkf5solid5","libkf5solid5-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libimobiledevice-1.0-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libmount1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libplist-2.0-4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libqt5xml5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5solid5","media-player-info","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5textwidgets-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5completion5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5configgui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5configwidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5sonnetcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5sonnetui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libkf5widgetsaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libqt5texttospeech5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5textwidgets5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet-bin","kwallet6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet5","libkf5wallet-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet5","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet5","libkf5windowsystem5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet5","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5wallet5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5widgetsaddons5","libkf5widgetsaddons-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5widgetsaddons5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5widgetsaddons5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5widgetsaddons5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5widgetsaddons5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5widgetsaddons5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libkf5windowsystem-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libqt5x11extras5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libxcb-keysyms1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libxcb-res0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","libxfixes3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","kwayland-integration","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libkf5windowsystem5","qtwayland5","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5core5t64","shared-mime-info","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libdouble-conversion3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libicu76","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libpcre2-16-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","qttranslations5-l10n","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5dbus5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5dbus5t64","libdbus-1-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5dbus5t64","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5dbus5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5dbus5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","fontconfig","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libdrm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libegl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libgbm1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libgl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libharfbuzz0b","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libinput10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libmd4c0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libmtdev1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libsm6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libx11-xcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-glx0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-icccm4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-image0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-keysyms1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-randr0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-render-util0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-render0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-shape0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-shm0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-sync1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xfixes0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xinerama0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xinput0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xkb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxkbcommon-x11-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxkbcommon0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxrender1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5svg5","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","qt5-gtk-platformtheme","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","qtwayland5","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5qml5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5qml5","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5qml5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5qml5","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5qml5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5qml5","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5qml5","libgl1","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5qml5","libglx-mesa0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5widgets5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5widgets5t64","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5widgets5t64","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5widgets5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5widgets5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5x11extras5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5x11extras5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5x11extras5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5xml5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5xml5t64","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5xml5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5xml5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml2","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml2","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxslt1.1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxslt1.1","libgcrypt20","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxslt1.1","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","switcheroo-control","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","switcheroo-control","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","switcheroo-control","libgudev-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","qml6-module-org-kde-kirigami","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","qml6-module-qtquick","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","qml6-module-qtquick-controls","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","qml6-module-qtquick-layouts","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","kio6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6authcore6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6colorscheme6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6configcore6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6configwidgets6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6coreaddons6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6crash6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6dbusaddons6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6i18n6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6i18nqml6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6itemmodels6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6itemviews6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6jobwidgets6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6kcmutils6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6kcmutilscore6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6kiocore6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6kiogui6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6runner6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6service-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6service6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6widgetsaddons6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6windowsystem6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libkf6xmlgui6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libplasmaactivities6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libqt6core6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libqt6gui6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libqt6qml6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libqt6quick6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libqt6quickwidgets6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libqt6widgets6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","systemsettings","libstdc++6","Depends","#333","1","Depends","{}"
+kio,kio,kio,resource and network access abstraction,,,1,1,,,,Section=kde; Version=5.116.0-1,,,,,,,
+kded5,kded5,kded5,Extensible daemon for providing session services,,,1,1,,,,Section=kde; Version=5.116.0-1,,,,,,,
+libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libkf5archive5,libkf5archive5,libkf5archive5,Qt 5 addon providing access to numerous types of archives,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5authcore5,libkf5authcore5,libkf5authcore5,Abstraction to system policy and authentication features,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5configcore5,libkf5configcore5,libkf5configcore5,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5configwidgets5,libkf5configwidgets5,libkf5configwidgets5,Extra widgets for easier configuration support.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5coreaddons5,libkf5coreaddons5,libkf5coreaddons5,KDE Frameworks 5 addons to QtCore,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5dbusaddons5,libkf5dbusaddons5,libkf5dbusaddons5,class library for qtdbus,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5doctools5,libkf5doctools5,libkf5doctools5,Tools to generate documentation in various formats from DocBook,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5i18n5,libkf5i18n5,libkf5i18n5,Advanced internationalization framework.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5itemviews5,libkf5itemviews5,libkf5itemviews5,Qt library with additional widgets for ItemModels,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5kiocore5,libkf5kiocore5,libkf5kiocore5,resource and network access abstraction (KIO core library),,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5kiogui5,libkf5kiogui5,libkf5kiogui5,resource and network access abstraction (KIO gui library),,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5kiontlm5,libkf5kiontlm5,libkf5kiontlm5,resource and network access abstraction (KIO NTLM library),,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5kiowidgets5,libkf5kiowidgets5,libkf5kiowidgets5,resource and network access abstraction (KIO widgets library),,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5notifications5,libkf5notifications5,libkf5notifications5,Framework for desktop notifications,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5service-bin,libkf5service-bin,libkf5service-bin,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5service5,libkf5service5,libkf5service5,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5solid5,libkf5solid5,libkf5solid5,Qt library to query and control hardware,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5textwidgets5,libkf5textwidgets5,libkf5textwidgets5,Advanced text editing widgets.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5wallet-bin,libkf5wallet-bin,libkf5wallet-bin,transitional dummy package,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5wallet5,libkf5wallet5,libkf5wallet5,Secure and unified container for user passwords.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5widgetsaddons5,libkf5widgetsaddons5,libkf5widgetsaddons5,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5windowsystem5,libkf5windowsystem5,libkf5windowsystem5,Convenience access to certain properties and features of the window manager,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libqt5core5t64,libqt5core5t64,libqt5core5t64,Qt 5 core module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5dbus5t64,libqt5dbus5t64,libqt5dbus5t64,Qt 5 D-Bus module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5gui5t64,libqt5gui5t64,libqt5gui5t64,Qt 5 GUI module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5network5t64,libqt5network5t64,libqt5network5t64,Qt 5 network module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5qml5,libqt5qml5,libqt5qml5,Qt 5 QML module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-3,,,,,,,
+libqt5widgets5t64,libqt5widgets5t64,libqt5widgets5t64,Qt 5 widgets module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5x11extras5,libqt5x11extras5,libqt5x11extras5,Qt 5 X11 extras,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libqt5xml5t64,libqt5xml5t64,libqt5xml5t64,Qt 5 XML module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+libxslt1.1,libxslt1.1,libxslt1.1,XSLT 1.0 processing library - runtime library,,,1,1,,,,Section=libs; Version=1.1.35-1.2+deb13u1,,,,,,,
+switcheroo-control,switcheroo-control,switcheroo-control,D-Bus service to check the availability of dual-GPU,,,1,1,,,,Section=gnome; Version=2.6-3,,,,,,,
+systemsettings,systemsettings,systemsettings,System Settings interface,,,1,1,,,,Section=kde; Version=4:6.3.4-2,,,,,,,
+libkf5crash5,libkf5crash5,libkf5crash5,Support for application crash analysis and bug report from apps,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libkrb5-3,libkrb5-3,libkrb5-3,MIT Kerberos runtime libraries,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libcom-err2,libcom-err2,libcom-err2,common error description library,,,1,1,,,,Section=libs; Version=1.47.2-3+b3,,,,,,,
+libk5crypto3,libk5crypto3,libk5crypto3,MIT Kerberos runtime libraries - Crypto Library,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libkrb5support0,libkrb5support0,libkrb5support0,MIT Kerberos runtime libraries - Support library,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libkf5archive-data,libkf5archive-data,libkf5archive-data,data files for karchive,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libkf5auth-data,libkf5auth-data,libkf5auth-data,Abstraction to system policy and authentication features,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libpolkit-qt5-1-1,libpolkit-qt5-1-1,libpolkit-qt5-1-1,PolicyKit-qt5-1 library,,,1,1,,,,Section=libs; Version=0.200.0-4+b1,,,,,,,
+libkf5config-data,libkf5config-data,libkf5config-data,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5config-bin,libkf5config-bin,libkf5config-bin,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5configwidgets-data,libkf5configwidgets-data,libkf5configwidgets-data,Extra widgets for easier configuration support.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5codecs5,libkf5codecs5,libkf5codecs5,collection of methods to manipulate strings,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5configgui5,libkf5configgui5,libkf5configgui5,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5guiaddons5,libkf5guiaddons5,libkf5guiaddons5,additional addons for QtGui,,,1,1,,,,Section=libs; Version=5.116.0-2,,,,,,,
+libkf5coreaddons-data,libkf5coreaddons-data,libkf5coreaddons-data,KDE Frameworks 5 addons to QtCore - data files,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
+libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libkf5dbusaddons-data,libkf5dbusaddons-data,libkf5dbusaddons-data,class library for qtdbus,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5dbusaddons-bin,libkf5dbusaddons-bin,libkf5dbusaddons-bin,class library for qtdbus,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5i18n-data,libkf5i18n-data,libkf5i18n-data,Advanced internationalization framework.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5itemviews-data,libkf5itemviews-data,libkf5itemviews-data,Qt library with additional widgets for ItemModels,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libmount1,libmount1,libmount1,device mounting library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
+libkf5completion5,libkf5completion5,libkf5completion5,Widgets with advanced auto-completion features.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5iconthemes5,libkf5iconthemes5,libkf5iconthemes5,Support for icon themes.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5jobwidgets5,libkf5jobwidgets5,libkf5jobwidgets5,Widgets for tracking KJob instances,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5notifications-data,libkf5notifications-data,libkf5notifications-data,Framework for desktop notifications,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libcanberra0,libcanberra0,libcanberra0,simple abstract interface for playing event sounds,,,1,1,,,,Section=libs; Version=0.30-18,,,,,,,
+libdbusmenu-qt5-2,libdbusmenu-qt5-2,libdbusmenu-qt5-2,Qt implementation of the DBusMenu protocol,,,1,1,,,,Section=libs; Version=0.9.3+16.04.20160218-3+b1,,,,,,,
+libqt5texttospeech5,libqt5texttospeech5,libqt5texttospeech5,Speech library for Qt - libraries,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libkf5service-data,libkf5service-data,libkf5service-data,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5solid5-data,libkf5solid5-data,libkf5solid5-data,Qt library to query and control hardware,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libimobiledevice-1.0-6,libimobiledevice-1.0-6,libimobiledevice-1.0-6,Library for communicating with iPhone and other Apple devices,,,1,1,,,,Section=libs; Version=1.3.0+git20250228-2,,,,,,,
+libplist-2.0-4,libplist-2.0-4,libplist-2.0-4,Library for handling Apple binary and XML property lists,,,1,1,,,,Section=libs; Version=2.6.0-2+b1,,,,,,,
+media-player-info,media-player-info,media-player-info,Media player identification files,,,1,1,,,,Section=admin; Version=26-1,,,,,,,
+libkf5textwidgets-data,libkf5textwidgets-data,libkf5textwidgets-data,Advanced text editing widgets.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5sonnetcore5,libkf5sonnetcore5,libkf5sonnetcore5,"spell checking library for Qt, core lib",,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5sonnetui5,libkf5sonnetui5,libkf5sonnetui5,"spell checking library for Qt, ui lib",,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+kwallet6,kwallet6,kwallet6,safe desktop-wide storage for passwords - kwalletd daemon,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf5wallet-data,libkf5wallet-data,libkf5wallet-data,Secure and unified container for user passwords.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5widgetsaddons-data,libkf5widgetsaddons-data,libkf5widgetsaddons-data,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5windowsystem-data,libkf5windowsystem-data,libkf5windowsystem-data,Convenience access to certain properties and features of the window manager,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxcb-keysyms1,libxcb-keysyms1,libxcb-keysyms1,utility libraries for X C Binding -- keysyms,,,1,1,,,,Section=libs; Version=0.4.1-1,,,,,,,
+libxcb-res0,libxcb-res0,libxcb-res0,"X C Binding, res extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxfixes3,libxfixes3,libxfixes3,X11 miscellaneous 'fixes' extension library,,,1,1,,,,Section=libs; Version=1:6.0.0-2+b4,,,,,,,
+kwayland-integration,kwayland-integration,kwayland-integration,kwayland runtime integration plugins for Qt5/KF5,,,1,1,,,,Section=kde; Version=6.3.4-1,,,,,,,
+qtwayland5,qtwayland5,qtwayland5,QtWayland platform plugin,,,1,1,,,,Section=libs; Version=5.15.15-3,,,,,,,
+libdouble-conversion3,libdouble-conversion3,libdouble-conversion3,routines to convert IEEE floats to and from strings,,,1,1,,,,Section=libs; Version=3.3.1-1,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
+libpcre2-16-0,libpcre2-16-0,libpcre2-16-0,New Perl Compatible Regular Expression Library - 16 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+qttranslations5-l10n,qttranslations5-l10n,qttranslations5-l10n,translations for Qt 5,,,1,1,,,,Section=localization; Version=5.15.15-2,,,,,,,
+libdbus-1-3,libdbus-1-3,libdbus-1-3,simple interprocess messaging system (library),,,1,1,,,,Section=libs; Version=1.16.2-2,,,,,,,
+qtbase-abi-5-15-15,qtbase-abi-5-15-15,qtbase-abi-5-15-15,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+fontconfig,fontconfig,fontconfig,generic font configuration library - support binaries,,,1,1,,,,Section=fonts; Version=2.15.0-2.3,,,,,,,
+libdrm2,libdrm2,libdrm2,Userspace interface to kernel DRM services -- runtime,,,1,1,,,,Section=libs; Version=2.4.124-2,,,,,,,
+libegl1,libegl1,libegl1,Vendor neutral GL dispatch library -- EGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+libgbm1,libgbm1,libgbm1,generic buffer management API -- runtime,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
+libice6,libice6,libice6,X11 Inter-Client Exchange library,,,1,1,,,,Section=libs; Version=2:1.1.1-1,,,,,,,
+libinput10,libinput10,libinput10,input device management and event handling library - shared library,,,1,1,,,,Section=libs; Version=1.28.1-1,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+libmd4c0,libmd4c0,libmd4c0,Markdown for C,,,1,1,,,,Section=libs; Version=0.5.2-2+b1,,,,,,,
+libmtdev1t64,libmtdev1t64,libmtdev1t64,Multitouch Protocol Translation Library - shared library,,,1,1,,,,Section=libs; Version=1.1.7-1,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libsm6,libsm6,libsm6,X11 Session Management library,,,1,1,,,,Section=libs; Version=2:1.2.6-1,,,,,,,
+libx11-xcb1,libx11-xcb1,libx11-xcb1,Xlib/XCB interface library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxcb-glx0,libxcb-glx0,libxcb-glx0,"X C Binding, glx extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-icccm4,libxcb-icccm4,libxcb-icccm4,utility libraries for X C Binding -- icccm,,,1,1,,,,Section=libs; Version=0.4.2-1,,,,,,,
+libxcb-image0,libxcb-image0,libxcb-image0,utility libraries for X C Binding -- image,,,1,1,,,,Section=libs; Version=0.4.0-2+b2,,,,,,,
+libxcb-randr0,libxcb-randr0,libxcb-randr0,"X C Binding, randr extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-render-util0,libxcb-render-util0,libxcb-render-util0,utility libraries for X C Binding -- render-util,,,1,1,,,,Section=libs; Version=0.3.10-1,,,,,,,
+libxcb-render0,libxcb-render0,libxcb-render0,"X C Binding, render extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shape0,libxcb-shape0,libxcb-shape0,"X C Binding, shape extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shm0,libxcb-shm0,libxcb-shm0,"X C Binding, shm extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-sync1,libxcb-sync1,libxcb-sync1,"X C Binding, sync extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xfixes0,libxcb-xfixes0,libxcb-xfixes0,"X C Binding, xfixes extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xinerama0,libxcb-xinerama0,libxcb-xinerama0,"X C Binding, xinerama extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xinput0,libxcb-xinput0,libxcb-xinput0,"X C Binding, xinput extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xkb1,libxcb-xkb1,libxcb-xkb1,"X C Binding, XKEYBOARD extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxkbcommon-x11-0,libxkbcommon-x11-0,libxkbcommon-x11-0,library to create keymaps with the XKB X11 protocol,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+libxrender1,libxrender1,libxrender1,X Rendering Extension client library,,,1,1,,,,Section=libs; Version=1:0.9.12-1,,,,,,,
+libqt5svg5,libqt5svg5,libqt5svg5,Qt 5 SVG module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+qt5-gtk-platformtheme,qt5-gtk-platformtheme,qt5-gtk-platformtheme,Qt 5 GTK+ 3 platform theme,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+libglx-mesa0,libglx-mesa0,libglx-mesa0,free implementation of the OpenGL API -- GLX vendor library,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+libgcrypt20,libgcrypt20,libgcrypt20,LGPL Crypto library - runtime library,,,1,1,,,,Section=libs; Version=1.11.0-7,,,,,,,
+libgudev-1.0-0,libgudev-1.0-0,libgudev-1.0-0,GObject-based wrapper library for libudev,,,1,1,,,,Section=libs; Version=238-6,,,,,,,
+qml6-module-org-kde-kirigami,qml6-module-org-kde-kirigami,qml6-module-org-kde-kirigami,set of QtQuick components targeted for mobile use (QML module),,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
+qml6-module-qtquick,qml6-module-qtquick,qml6-module-qtquick,Qt 6 Quick QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+qml6-module-qtquick-controls,qml6-module-qtquick-controls,qml6-module-qtquick-controls,Qt 6 Quick Controls QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+qml6-module-qtquick-layouts,qml6-module-qtquick-layouts,qml6-module-qtquick-layouts,Qt 6 Quick Layouts QML module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+kio6,kio6,kio6,resource and network access abstraction,,,1,1,,,,Section=libs; Version=6.13.0-6,,,,,,,
+libkf6authcore6,libkf6authcore6,libkf6authcore6,Abstraction to system policy and authentication features,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6colorscheme6,libkf6colorscheme6,libkf6colorscheme6,Classes to read and interact with KColorScheme,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6configcore6,libkf6configcore6,libkf6configcore6,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
+libkf6configwidgets6,libkf6configwidgets6,libkf6configwidgets6,Extra widgets for easier configuration support,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6coreaddons6,libkf6coreaddons6,libkf6coreaddons6,KDE Frameworks 6 addons to QtCore,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6crash6,libkf6crash6,libkf6crash6,Support for application crash analysis and bug report from apps,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6dbusaddons6,libkf6dbusaddons6,libkf6dbusaddons6,class library for qtdbus,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6i18n6,libkf6i18n6,libkf6i18n6,Advanced internationalization framework,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6i18nqml6,libkf6i18nqml6,libkf6i18nqml6,Advanced internationalization framework (QML bindings),,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6itemmodels6,libkf6itemmodels6,libkf6itemmodels6,additional item/view models for Qt Itemview,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6itemviews6,libkf6itemviews6,libkf6itemviews6,Qt library with additional widgets for ItemModels,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6jobwidgets6,libkf6jobwidgets6,libkf6jobwidgets6,widgets for tracking KJob instances,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6kcmutils6,libkf6kcmutils6,libkf6kcmutils6,Extra APIs to write KConfig modules,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
+libkf6kcmutilscore6,libkf6kcmutilscore6,libkf6kcmutilscore6,Extra APIs to write KConfig modules,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
+libkf6kiocore6,libkf6kiocore6,libkf6kiocore6,resource and network access abstraction (KIO core library),,,1,1,,,,Section=libs; Version=6.13.0-6,,,,,,,
+libkf6kiogui6,libkf6kiogui6,libkf6kiogui6,resource and network access abstraction (KIO gui library),,,1,1,,,,Section=libs; Version=6.13.0-6,,,,,,,
+libkf6runner6,libkf6runner6,libkf6runner6,"Used to write plugins loaded at runtime called ""Runners""",,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6service-bin,libkf6service-bin,libkf6service-bin,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6service6,libkf6service6,libkf6service6,Advanced plugin and service introspection,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6widgetsaddons6,libkf6widgetsaddons6,libkf6widgetsaddons6,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libkf6windowsystem6,libkf6windowsystem6,libkf6windowsystem6,Convenience access to certain properties and features of the window manager,,,1,1,,,,Section=libs; Version=6.13.0-2,,,,,,,
+libkf6xmlgui6,libkf6xmlgui6,libkf6xmlgui6,User configurable main windows,,,1,1,,,,Section=libs; Version=6.13.0-1,,,,,,,
+libplasmaactivities6,libplasmaactivities6,libplasmaactivities6,core components for the KDE's Activities system - shared library,,,1,1,,,,Section=libs; Version=6.3.4-1,,,,,,,
+libqt6core6t64,libqt6core6t64,libqt6core6t64,Qt 6 core module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+libqt6gui6,libqt6gui6,libqt6gui6,Qt 6 GUI module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+libqt6qml6,libqt6qml6,libqt6qml6,Qt 6 QML library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+libqt6quick6,libqt6quick6,libqt6quick6,Qt 6 Quick library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+libqt6quickwidgets6,libqt6quickwidgets6,libqt6quickwidgets6,Qt 6 Quick Widgets library,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-7,,,,,,,
+libqt6widgets6,libqt6widgets6,libqt6widgets6,Qt 6 widgets module,,,1,1,,,,Section=libs; Version=6.8.2+dfsg-9,,,,,,,
+,,,,,,,,,,,,kded5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libacl1,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5archive5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5authcore5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configwidgets5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5dbusaddons5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5doctools5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5itemviews5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiocore5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiogui5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiontlm5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiowidgets5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5notifications5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service-bin,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5solid5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5textwidgets5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5wallet-bin,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5wallet5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5widgetsaddons5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5windowsystem5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5qml5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5x11extras5,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5xml5t64,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxslt1.1,kio,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,switcheroo-control,kio,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,systemsettings,kio,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5crash5,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5dbusaddons5,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service-bin,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service5,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,kded5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libacl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5-3,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcom-err2,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libk5crypto3,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5support0,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5archive-data,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libkf5archive5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5auth-data,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpolkit-qt5-1-1,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5authcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5config-data,libkf5configcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5configcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5configcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5configcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5configcore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5config-bin,libkf5configcore5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libkf5configwidgets-data,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5authcore5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5codecs5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configgui5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5guiaddons5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5widgetsaddons5,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5configwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons-data,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,shared-mime-info,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libkf5coreaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5dbusaddons-data,libkf5dbusaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5dbusaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5dbusaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5dbusaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5x11extras5,libkf5dbusaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5dbusaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5dbusaddons-bin,libkf5dbusaddons5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libkf5doctools5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5archive5,libkf5doctools5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5doctools5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5doctools5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libkf5doctools5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxslt1.1,libkf5doctools5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n-data,libkf5i18n5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5i18n5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5i18n5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5qml5,libkf5i18n5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5i18n5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5itemviews-data,libkf5itemviews5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5itemviews5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5itemviews5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5itemviews5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5itemviews5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5itemviews5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libacl1,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5authcore5,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5crash5,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service-bin,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service5,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmount1,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5xml5t64,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5kiocore5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiocore5,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service-bin,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service5,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5windowsystem5,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5kiogui5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5kiontlm5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5kiontlm5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5completion5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configgui5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configwidgets5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5guiaddons5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5iconthemes5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5jobwidgets5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiocore5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiogui5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service-bin,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5solid5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5widgetsaddons5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5windowsystem5,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5kiowidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5notifications-data,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcanberra0,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbusmenu-qt5-2,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5windowsystem5,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5texttospeech5,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5x11extras5,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5notifications5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5service-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5service-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,libkf5service-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service5,libkf5service-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5service-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service-data,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5dbusaddons5,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5xml5t64,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5service5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5service-bin,libkf5service5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libkf5solid5-data,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libimobiledevice-1.0-6,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmount1,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplist-2.0-4,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5xml5t64,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libkf5solid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,media-player-info,libkf5solid5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libkf5textwidgets-data,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5completion5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configgui5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configwidgets5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5sonnetcore5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5sonnetui5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5widgetsaddons5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5texttospeech5,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5textwidgets5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,kwallet6,libkf5wallet-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5wallet-data,libkf5wallet5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5wallet5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,libkf5wallet5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5windowsystem5,libkf5wallet5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5wallet5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libkf5wallet5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5wallet5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5widgetsaddons-data,libkf5widgetsaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5widgetsaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5widgetsaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5widgetsaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5widgetsaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5widgetsaddons5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5windowsystem-data,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5x11extras5,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-keysyms1,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-res0,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfixes3,libkf5windowsystem5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,kwayland-integration,libkf5windowsystem5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qtwayland5,libkf5windowsystem5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,shared-mime-info,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdouble-conversion3,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu76,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-16-0,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qttranslations5-l10n,libqt5core5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libqt5dbus5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbus-1-3,libqt5dbus5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5dbus5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5dbus5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5dbus5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fontconfig,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdrm2,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgbm1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libharfbuzz0b,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libinput10,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmd4c0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmtdev1t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsm6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-xcb1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-glx0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-icccm4,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-image0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-keysyms1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-randr0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render-util0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shape0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shm0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-sync1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xfixes0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xinerama0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xinput0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xkb1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon-x11-0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrender1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5svg5,libqt5gui5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qt5-gtk-platformtheme,libqt5gui5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qtwayland5,libqt5gui5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libssl3t64,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5qml5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt5qml5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5qml5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,libqt5qml5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5qml5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5qml5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl1,libqt5qml5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libglx-mesa0,libqt5qml5,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libqt5widgets5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5widgets5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libqt5widgets5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5widgets5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5widgets5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5x11extras5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5x11extras5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libqt5x11extras5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5xml5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5xml5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5xml5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5xml5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxml2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libxml2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libxml2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxslt1.1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcrypt20,libxslt1.1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libxslt1.1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,switcheroo-control,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,switcheroo-control,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgudev-1.0-0,switcheroo-control,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qml6-module-org-kde-kirigami,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qml6-module-qtquick,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qml6-module-qtquick-controls,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qml6-module-qtquick-layouts,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,kio6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6authcore6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6colorscheme6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6configcore6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6configwidgets6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6coreaddons6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6crash6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6dbusaddons6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6i18n6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6i18nqml6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6itemmodels6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6itemviews6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6jobwidgets6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6kcmutils6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6kcmutilscore6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6kiocore6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6kiogui6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6runner6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6service-bin,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6service6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6widgetsaddons6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6windowsystem6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf6xmlgui6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplasmaactivities6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6core6t64,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6gui6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6qml6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6quick6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6quickwidgets6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt6widgets6,systemsettings,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,systemsettings,Depends,#333,1,Depends,{}

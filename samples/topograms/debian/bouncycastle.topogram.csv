@@ -1,11 +1,11 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libbcjmail-java","libbcjmail-java","libbcjmail-java","Bouncy Castle Jakarta S/MIME API","","","1","1","","","","Section=java; Version=1.80-3","","","","","",""
-"libbcpkix-java","libbcpkix-java","libbcpkix-java","Bouncy Castle Java API for PKIX, CMS, EAC, TSP, PKCS, OCSP, CMP, and CRMF","","","1","1","","","","Section=java; Version=1.80-3","","","","","",""
-"libjakarta-activation-java","libjakarta-activation-java","libjakarta-activation-java","Jakarta Activation","","","1","1","","","","Section=java; Version=2.0.0-1","","","","","",""
-"libjakarta-mail-java","libjakarta-mail-java","libjakarta-mail-java","Jakarta Mail API","","","1","1","","","","Section=java; Version=2.0.0-2","","","","","",""
-"libbcutil-java","libbcutil-java","libbcutil-java","Bouncy Castle ASN.1 Extension and Utility APIs","","","1","1","","","","Section=java; Version=1.80-3","","","","","",""
-"","","","","","","","","","","","","libbcjmail-java","libbcpkix-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbcjmail-java","libjakarta-activation-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbcjmail-java","libjakarta-mail-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbcpkix-java","libbcutil-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjakarta-mail-java","libjakarta-activation-java","Depends","#333","1","Depends","{}"
+libbcjmail-java,libbcjmail-java,libbcjmail-java,Bouncy Castle Jakarta S/MIME API,,,1,1,,,,Section=java; Version=1.80-3,,,,,,,
+libbcpkix-java,libbcpkix-java,libbcpkix-java,"Bouncy Castle Java API for PKIX, CMS, EAC, TSP, PKCS, OCSP, CMP, and CRMF",,,1,1,,,,Section=java; Version=1.80-3,,,,,,,
+libjakarta-activation-java,libjakarta-activation-java,libjakarta-activation-java,Jakarta Activation,,,1,1,,,,Section=java; Version=2.0.0-1,,,,,,,
+libjakarta-mail-java,libjakarta-mail-java,libjakarta-mail-java,Jakarta Mail API,,,1,1,,,,Section=java; Version=2.0.0-2,,,,,,,
+libbcutil-java,libbcutil-java,libbcutil-java,Bouncy Castle ASN.1 Extension and Utility APIs,,,1,1,,,,Section=java; Version=1.80-3,,,,,,,
+,,,,,,,,,,,,libbcpkix-java,libbcjmail-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjakarta-activation-java,libbcjmail-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjakarta-mail-java,libbcjmail-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbcutil-java,libbcpkix-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjakarta-activation-java,libjakarta-mail-java,Depends,#333,1,Depends,{}

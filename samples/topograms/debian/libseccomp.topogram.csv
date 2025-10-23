@@ -1,6 +1,6 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libseccomp-dev","libseccomp-dev","libseccomp-dev","high level interface to Linux seccomp filter (development files)","","","1","1","","","","Section=libdevel; Version=2.6.0-2","","","","","",""
-"libseccomp2","libseccomp2","libseccomp2","high level interface to Linux seccomp filter","","","1","1","","","","Section=libs; Version=2.6.0-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","libseccomp-dev","libseccomp2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libseccomp2","libc6","Depends","#333","1","Depends","{}"
+libseccomp-dev,libseccomp-dev,libseccomp-dev,high level interface to Linux seccomp filter (development files),,,1,1,,,,Section=libdevel; Version=2.6.0-2,,,,,,,
+libseccomp2,libseccomp2,libseccomp2,high level interface to Linux seccomp filter,,,1,1,,,,Section=libs; Version=2.6.0-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,libseccomp2,libseccomp-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libseccomp2,Depends,#333,1,Depends,{}

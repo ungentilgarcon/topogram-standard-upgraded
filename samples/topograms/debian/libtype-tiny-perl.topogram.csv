@@ -1,29 +1,29 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libtype-tiny-perl","libtype-tiny-perl","libtype-tiny-perl","tiny, yet Moo(se)-compatible type constraint","","","1","1","","","","Section=perl; Version=2.004000-2","","","","","",""
-"libexporter-tiny-perl","libexporter-tiny-perl","libexporter-tiny-perl","tiny exporter similar to Sub::Exporter","","","1","1","","","","Section=perl; Version=1.006002-1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libclass-xsaccessor-perl","libclass-xsaccessor-perl","libclass-xsaccessor-perl","Perl module providing fast XS accessors","","","1","1","","","","Section=perl; Version=1.19-4+b5","","","","","",""
-"libref-util-perl","libref-util-perl","libref-util-perl","set of utility functions for checking references","","","1","1","","","","Section=perl; Version=0.204-2","","","","","",""
-"libtype-tiny-xs-perl","libtype-tiny-xs-perl","libtype-tiny-xs-perl","boost for some of Type::Tiny's built-in type constraints","","","1","1","","","","Section=perl; Version=0.025-2+b1","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perlapi-5.40.1","perlapi-5.40.1","perlapi-5.40.1","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libreadonly-perl","libreadonly-perl","libreadonly-perl","facility for creating read-only scalars, arrays and hashes","","","1","1","","","","Section=perl; Version=2.050-3","","","","","",""
-"libref-util-xs-perl","libref-util-xs-perl","libref-util-xs-perl","XS implementation for Ref::Util","","","1","1","","","","Section=perl; Version=0.117-2+b4","","","","","",""
-"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"","","","","","","","","","","","","libtype-tiny-perl","libexporter-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtype-tiny-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtype-tiny-perl","libclass-xsaccessor-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libtype-tiny-perl","libref-util-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libtype-tiny-perl","libtype-tiny-xs-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libexporter-tiny-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-xsaccessor-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-xsaccessor-perl","perlapi-5.40.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-xsaccessor-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-xsaccessor-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libref-util-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libref-util-perl","libreadonly-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libref-util-perl","libref-util-xs-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libtype-tiny-xs-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtype-tiny-xs-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtype-tiny-xs-perl","libc6","Depends","#333","1","Depends","{}"
+libtype-tiny-perl,libtype-tiny-perl,libtype-tiny-perl,"tiny, yet Moo(se)-compatible type constraint",,,1,1,,,,Section=perl; Version=2.004000-2,,,,,,,
+libexporter-tiny-perl,libexporter-tiny-perl,libexporter-tiny-perl,tiny exporter similar to Sub::Exporter,,,1,1,,,,Section=perl; Version=1.006002-1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libclass-xsaccessor-perl,libclass-xsaccessor-perl,libclass-xsaccessor-perl,Perl module providing fast XS accessors,,,1,1,,,,Section=perl; Version=1.19-4+b5,,,,,,,
+libref-util-perl,libref-util-perl,libref-util-perl,set of utility functions for checking references,,,1,1,,,,Section=perl; Version=0.204-2,,,,,,,
+libtype-tiny-xs-perl,libtype-tiny-xs-perl,libtype-tiny-xs-perl,boost for some of Type::Tiny's built-in type constraints,,,1,1,,,,Section=perl; Version=0.025-2+b1,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perlapi-5.40.1,perlapi-5.40.1,perlapi-5.40.1,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libreadonly-perl,libreadonly-perl,libreadonly-perl,"facility for creating read-only scalars, arrays and hashes",,,1,1,,,,Section=perl; Version=2.050-3,,,,,,,
+libref-util-xs-perl,libref-util-xs-perl,libref-util-xs-perl,XS implementation for Ref::Util,,,1,1,,,,Section=perl; Version=0.117-2+b4,,,,,,,
+perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+,,,,,,,,,,,,libexporter-tiny-perl,libtype-tiny-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libtype-tiny-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-xsaccessor-perl,libtype-tiny-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libref-util-perl,libtype-tiny-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libtype-tiny-xs-perl,libtype-tiny-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libexporter-tiny-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libclass-xsaccessor-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.1,libclass-xsaccessor-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libclass-xsaccessor-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libclass-xsaccessor-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libref-util-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libreadonly-perl,libref-util-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libref-util-xs-perl,libref-util-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl,libtype-tiny-xs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libtype-tiny-xs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtype-tiny-xs-perl,Depends,#333,1,Depends,{}

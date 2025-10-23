@@ -1,30 +1,30 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"ca-certificates-mono","ca-certificates-mono","ca-certificates-mono","Common CA certificates (Mono keystore)","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"mono-runtime","mono-runtime","mono-runtime","Mono runtime - default version","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"libmono-corlib4.5-cil","libmono-corlib4.5-cil","libmono-corlib4.5-cil","Mono core library (for CLI 4.5)","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"libmono-security4.0-cil","libmono-security4.0-cil","libmono-security4.0-cil","Mono Security library (for CLI 4.0)","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"mono-runtime-sgen","mono-runtime-sgen","mono-runtime-sgen","Mono runtime - Using SGen garbage collector","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"binfmt-support","binfmt-support","binfmt-support","Support for extra binary formats","","","1","1","","","","Section=admin; Version=2.2.2-7","","","","","",""
-"libmono-corlib4.5-dll","libmono-corlib4.5-dll","libmono-corlib4.5-dll","Mono core library (for CLI 4.5) - stand-alone package","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"libmono-i18n-west4.0-cil","libmono-i18n-west4.0-cil","libmono-i18n-west4.0-cil","Mono I18N.West library (for CLI 4.0)","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"libmono-system4.0-cil","libmono-system4.0-cil","libmono-system4.0-cil","Mono System libraries (for CLI 4.0)","","","1","1","","","","Section=cli-mono; Version=6.12.0.199+dfsg-6","","","","","",""
-"openssl","openssl","openssl","Secure Sockets Layer toolkit - cryptographic utility","","","1","1","","","","Section=utils; Version=3.5.1-1","","","","","",""
-"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","",""
-"","","","","","","","","","","","","ca-certificates-mono","mono-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ca-certificates-mono","libmono-corlib4.5-cil","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ca-certificates-mono","libmono-security4.0-cil","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ca-certificates-mono","ca-certificates","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","mono-runtime","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","mono-runtime","mono-runtime-sgen","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","mono-runtime","binfmt-support","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libmono-corlib4.5-cil","libmono-corlib4.5-dll","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmono-corlib4.5-cil","mono-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmono-corlib4.5-cil","mono-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmono-corlib4.5-cil","libmono-i18n-west4.0-cil","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libmono-security4.0-cil","libmono-corlib4.5-dll","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmono-security4.0-cil","libmono-system4.0-cil","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmono-security4.0-cil","ca-certificates-mono","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","ca-certificates","openssl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ca-certificates","debconf","Depends","#333","1","Depends","{}"
+ca-certificates-mono,ca-certificates-mono,ca-certificates-mono,Common CA certificates (Mono keystore),,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+mono-runtime,mono-runtime,mono-runtime,Mono runtime - default version,,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+libmono-corlib4.5-cil,libmono-corlib4.5-cil,libmono-corlib4.5-cil,Mono core library (for CLI 4.5),,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+libmono-security4.0-cil,libmono-security4.0-cil,libmono-security4.0-cil,Mono Security library (for CLI 4.0),,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+mono-runtime-sgen,mono-runtime-sgen,mono-runtime-sgen,Mono runtime - Using SGen garbage collector,,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+binfmt-support,binfmt-support,binfmt-support,Support for extra binary formats,,,1,1,,,,Section=admin; Version=2.2.2-7,,,,,,,
+libmono-corlib4.5-dll,libmono-corlib4.5-dll,libmono-corlib4.5-dll,Mono core library (for CLI 4.5) - stand-alone package,,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+libmono-i18n-west4.0-cil,libmono-i18n-west4.0-cil,libmono-i18n-west4.0-cil,Mono I18N.West library (for CLI 4.0),,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+libmono-system4.0-cil,libmono-system4.0-cil,libmono-system4.0-cil,Mono System libraries (for CLI 4.0),,,1,1,,,,Section=cli-mono; Version=6.12.0.199+dfsg-6,,,,,,,
+openssl,openssl,openssl,Secure Sockets Layer toolkit - cryptographic utility,,,1,1,,,,Section=utils; Version=3.5.1-1,,,,,,,
+debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
+,,,,,,,,,,,,mono-runtime,ca-certificates-mono,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmono-corlib4.5-cil,ca-certificates-mono,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmono-security4.0-cil,ca-certificates-mono,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ca-certificates,ca-certificates-mono,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,mono-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,mono-runtime-sgen,mono-runtime,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,binfmt-support,mono-runtime,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libmono-corlib4.5-dll,libmono-corlib4.5-cil,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,mono-runtime,libmono-corlib4.5-cil,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,mono-runtime,libmono-corlib4.5-cil,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmono-i18n-west4.0-cil,libmono-corlib4.5-cil,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libmono-corlib4.5-dll,libmono-security4.0-cil,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmono-system4.0-cil,libmono-security4.0-cil,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ca-certificates-mono,libmono-security4.0-cil,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,openssl,ca-certificates,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,debconf,ca-certificates,Depends,#333,1,Depends,{}

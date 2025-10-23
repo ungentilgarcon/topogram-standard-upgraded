@@ -1,45 +1,45 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gir1.2-gtksource-4","gir1.2-gtksource-4","gir1.2-gtksource-4","gir files for the GTK+ syntax highlighting widget","","","1","1","","","","Section=introspection; Version=4.8.4-6","","","","","",""
-"gir1.2-gdk-3.0","gir1.2-gdk-3.0","gir1.2-gdk-3.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gir1.2-gtk-3.0","gir1.2-gtk-3.0","gir1.2-gtk-3.0","GTK graphical user interface library -- gir bindings","","","1","1","","","","Section=introspection; Version=3.24.49-3","","","","","",""
-"libgtksourceview-4-0","libgtksourceview-4-0","libgtksourceview-4-0","shared libraries for the GTK+ syntax highlighting widget","","","1","1","","","","Section=libs; Version=4.8.4-6","","","","","",""
-"gir1.2-atk-1.0","gir1.2-atk-1.0","gir1.2-atk-1.0","ATK accessibility toolkit (GObject introspection)","","","1","1","","","","Section=introspection; Version=2.56.2-1","","","","","",""
-"gir1.2-cairo-1.0","gir1.2-cairo-1.0","gir1.2-cairo-1.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gir1.2-gdkpixbuf-2.0","gir1.2-gdkpixbuf-2.0","gir1.2-gdkpixbuf-2.0","GDK Pixbuf library - GObject-Introspection","","","1","1","","","","Section=introspection; Version=2.42.12+dfsg-4","","","","","",""
-"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gir1.2-pango-1.0","gir1.2-pango-1.0","gir1.2-pango-1.0","Layout and rendering of internationalized text - gir bindings","","","1","1","","","","Section=introspection; Version=1.56.3-1","","","","","",""
-"gir1.2-xlib-2.0","gir1.2-xlib-2.0","gir1.2-xlib-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libgtk-3-0t64","libgtk-3-0t64","libgtk-3-0t64","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=3.24.49-3","","","","","",""
-"libgtk-3-common","libgtk-3-common","libgtk-3-common","common files for the GTK graphical user interface library","","","1","1","","","","Section=misc; Version=3.24.49-3","","","","","",""
-"libgtksourceview-4-common","libgtksourceview-4-common","libgtksourceview-4-common","common files for the GTK+ syntax highlighting widget","","","1","1","","","","Section=libs; Version=4.8.4-6","","","","","",""
-"libatk1.0-0t64","libatk1.0-0t64","libatk1.0-0t64","ATK accessibility toolkit","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
-"libfribidi0","libfribidi0","libfribidi0","Free Implementation of the Unicode BiDi algorithm","","","1","1","","","","Section=libs; Version=1.0.16-1","","","","","",""
-"libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","GDK Pixbuf library","","","1","1","","","","Section=libs; Version=2.42.12+dfsg-4","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"","","","","","","","","","","","","gir1.2-gtksource-4","gir1.2-gdk-3.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtksource-4","gir1.2-gtk-3.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtksource-4","libgtksourceview-4-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-atk-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-cairo-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-gdkpixbuf-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-gio-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-pango-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","gir1.2-xlib-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gtk-3.0","libgtk-3-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libgtksourceview-4-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libatk1.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libfribidi0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libpangocairo-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgtksourceview-4-0","libxml2","Depends","#333","1","Depends","{}"
+gir1.2-gtksource-4,gir1.2-gtksource-4,gir1.2-gtksource-4,gir files for the GTK+ syntax highlighting widget,,,1,1,,,,Section=introspection; Version=4.8.4-6,,,,,,,
+gir1.2-gdk-3.0,gir1.2-gdk-3.0,gir1.2-gdk-3.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gir1.2-gtk-3.0,gir1.2-gtk-3.0,gir1.2-gtk-3.0,GTK graphical user interface library -- gir bindings,,,1,1,,,,Section=introspection; Version=3.24.49-3,,,,,,,
+libgtksourceview-4-0,libgtksourceview-4-0,libgtksourceview-4-0,shared libraries for the GTK+ syntax highlighting widget,,,1,1,,,,Section=libs; Version=4.8.4-6,,,,,,,
+gir1.2-atk-1.0,gir1.2-atk-1.0,gir1.2-atk-1.0,ATK accessibility toolkit (GObject introspection),,,1,1,,,,Section=introspection; Version=2.56.2-1,,,,,,,
+gir1.2-cairo-1.0,gir1.2-cairo-1.0,gir1.2-cairo-1.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gir1.2-gdkpixbuf-2.0,gir1.2-gdkpixbuf-2.0,gir1.2-gdkpixbuf-2.0,GDK Pixbuf library - GObject-Introspection,,,1,1,,,,Section=introspection; Version=2.42.12+dfsg-4,,,,,,,
+gir1.2-gio-2.0,gir1.2-gio-2.0,gir1.2-gio-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gir1.2-pango-1.0,gir1.2-pango-1.0,gir1.2-pango-1.0,Layout and rendering of internationalized text - gir bindings,,,1,1,,,,Section=introspection; Version=1.56.3-1,,,,,,,
+gir1.2-xlib-2.0,gir1.2-xlib-2.0,gir1.2-xlib-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libgtk-3-0t64,libgtk-3-0t64,libgtk-3-0t64,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=3.24.49-3,,,,,,,
+libgtk-3-common,libgtk-3-common,libgtk-3-common,common files for the GTK graphical user interface library,,,1,1,,,,Section=misc; Version=3.24.49-3,,,,,,,
+libgtksourceview-4-common,libgtksourceview-4-common,libgtksourceview-4-common,common files for the GTK+ syntax highlighting widget,,,1,1,,,,Section=libs; Version=4.8.4-6,,,,,,,
+libatk1.0-0t64,libatk1.0-0t64,libatk1.0-0t64,ATK accessibility toolkit,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
+libfribidi0,libfribidi0,libfribidi0,Free Implementation of the Unicode BiDi algorithm,,,1,1,,,,Section=libs; Version=1.0.16-1,,,,,,,
+libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,GDK Pixbuf library,,,1,1,,,,Section=libs; Version=2.42.12+dfsg-4,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+,,,,,,,,,,,,gir1.2-gdk-3.0,gir1.2-gtksource-4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gtk-3.0,gir1.2-gtksource-4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtksourceview-4-0,gir1.2-gtksource-4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-atk-1.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-cairo-1.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gdkpixbuf-2.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gio-2.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-pango-1.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-xlib-2.0,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-common,gir1.2-gtk-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtksourceview-4-common,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatk1.0-0t64,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfribidi0,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangocairo-1.0-0,libgtksourceview-4-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libgtksourceview-4-0,Depends,#333,1,Depends,{}

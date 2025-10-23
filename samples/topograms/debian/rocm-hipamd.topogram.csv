@@ -1,113 +1,113 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"hipcc","hipcc","hipcc","C++ Runtime API and Kernel Language for AMD and NVIDIA GPUs","","","1","1","","","","Section=devel; Version=5.7.1-6","","","","","",""
-"clang-17","clang-17","clang-17","C, C++ and Objective-C compiler","","","1","1","","","","Section=devel; Version=1:17.0.6-22+b2","","","","","",""
-"llvm-17","llvm-17","llvm-17","Modular compiler and toolchain technologies","","","1","1","","","","Section=devel; Version=1:17.0.6-22+b2","","","","","",""
-"lld-17","lld-17","lld-17","LLVM-based linker","","","1","1","","","","Section=devel; Version=1:17.0.6-22+b2","","","","","",""
-"clang-tools-17","clang-tools-17","clang-tools-17","clang-based tools for C/C++ developments","","","1","1","","","","Section=devel; Version=1:17.0.6-22+b2","","","","","",""
-"rocm-device-libs-17","rocm-device-libs-17","rocm-device-libs-17","AMD specific device-side language runtime libraries","","","1","1","","","","Section=libs; Version=6.0+git20231212.5a852ed-2","","","","","",""
-"rocminfo","rocminfo","rocminfo","ROCm Application for Reporting System Info","","","1","1","","","","Section=video; Version=6.1.2-2","","","","","",""
-"libamdhip64-dev","libamdhip64-dev","libamdhip64-dev","Header files for the AMD implementation of HIP","","","1","1","","","","Section=libdevel; Version=5.7.1-6","","","","","",""
-"libclang-rt-17-dev","libclang-rt-17-dev","libclang-rt-17-dev","Compiler-rt - development package","","","1","1","","","","Section=libdevel; Version=1:17.0.6-22+b2","","","","","",""
-"file","file","file","Recognize the type of data in a file using ""magic"" numbers","","","1","1","","","","Section=utils; Version=1:5.46-5","","","","","",""
-"libfile-which-perl","libfile-which-perl","libfile-which-perl","Perl module for searching paths for executable programs","","","1","1","","","","Section=perl; Version=1.27-2","","","","","",""
-"liburi-encode-perl","liburi-encode-perl","liburi-encode-perl","Perl module to encode and decode strings to URIs","","","1","1","","","","Section=perl; Version=1.1.1-3","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libclang-cpp17t64","libclang-cpp17t64","libclang-cpp17t64","C++ interface to the Clang library","","","1","1","","","","Section=libs; Version=1:17.0.6-22+b2","","","","","",""
-"libllvm17t64","libllvm17t64","libllvm17t64","Modular compiler and toolchain technologies, runtime library","","","1","1","","","","Section=libs; Version=1:17.0.6-22+b2","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libstdc++-14-dev","libstdc++-14-dev","libstdc++-14-dev","GNU Standard C++ Library v3 (development files)","","","1","1","","","","Section=libdevel; Version=14.2.0-19","","","","","",""
-"libgcc-14-dev","libgcc-14-dev","libgcc-14-dev","GCC support library (development files)","","","1","1","","","","Section=libdevel; Version=14.2.0-19","","","","","",""
-"libobjc-14-dev","libobjc-14-dev","libobjc-14-dev","Runtime library for GNU Objective-C applications (development files)","","","1","1","","","","Section=libdevel; Version=14.2.0-19","","","","","",""
-"libclang-common-17-dev","libclang-common-17-dev","libclang-common-17-dev","Clang library - Common development package","","","1","1","","","","Section=libdevel; Version=1:17.0.6-22+b2","","","","","",""
-"llvm-17-linker-tools","llvm-17-linker-tools","llvm-17-linker-tools","Modular compiler and toolchain technologies - Plugins","","","1","1","","","","Section=devel; Version=1:17.0.6-22+b2","","","","","",""
-"libclang1-17t64","libclang1-17t64","libclang1-17t64","C interface to the Clang library","","","1","1","","","","Section=libs; Version=1:17.0.6-22+b2","","","","","",""
-"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","",""
-"binutils","binutils","binutils","GNU assembler, linker and binary utilities","","","1","1","","","","Section=devel; Version=2.44-3","","","","","",""
-"llvm-17-dev","llvm-17-dev","llvm-17-dev","Modular compiler and toolchain technologies, libraries and headers","","","1","1","","","","Section=devel; Version=1:17.0.6-22+b2","","","","","",""
-"python3","python3","python3","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","",""
-"llvm-17-runtime","llvm-17-runtime","llvm-17-runtime","Modular compiler and toolchain technologies, IR interpreter","","","1","1","","","","Section=devel; Version=1:17.0.6-22+b2","","","","","",""
-"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libpfm4","libpfm4","libpfm4","Library to program the performance monitoring events","","","1","1","","","","Section=libs; Version=4.13.0+git99-gc5587f9-1","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"libhsa-runtime64-1","libhsa-runtime64-1","libhsa-runtime64-1","HSA Runtime API and runtime for ROCm","","","1","1","","","","Section=libs; Version=6.1.2-3","","","","","",""
-"pciutils","pciutils","pciutils","PCI utilities","","","1","1","","","","Section=admin; Version=1:3.13.0-2","","","","","",""
-"kmod","kmod","kmod","tools for managing Linux kernel modules","","","1","1","","","","Section=admin; Version=34.2-2","","","","","",""
-"libamdhip64-5","libamdhip64-5","libamdhip64-5","Heterogeneous Interface for Portability - AMD GPUs implementation","","","1","1","","","","Section=libs; Version=5.7.1-6","","","","","",""
-"libhiprtc-builtins5","libhiprtc-builtins5","libhiprtc-builtins5","HIP Run Time Compilation libraries","","","1","1","","","","Section=libs; Version=5.7.1-6","","","","","",""
-"libamd-comgr-dev","libamd-comgr-dev","libamd-comgr-dev","ROCm code object manager - development package","","","1","1","","","","Section=libdevel; Version=6.0+git20231212.4510c28+dfsg-3+b2","","","","","",""
-"libhsa-runtime-dev","libhsa-runtime-dev","libhsa-runtime-dev","HSA Runtime API and runtime for ROCm - development files","","","1","1","","","","Section=libdevel; Version=6.1.2-3","","","","","",""
-"libmagic1t64","libmagic1t64","libmagic1t64","Recognize the type of data in a file using ""magic"" numbers - library","","","1","1","","","","Section=libs; Version=1:5.46-5","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"","","","","","","","","","","","","hipcc","clang-17","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","llvm-17","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","lld-17","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","clang-tools-17","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","rocm-device-libs-17","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","rocminfo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","libamdhip64-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","libclang-rt-17-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","file","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","libfile-which-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","hipcc","liburi-encode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libclang-cpp17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libllvm17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libstdc++-14-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libgcc-14-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libobjc-14-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libclang-common-17-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","llvm-17-linker-tools","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libclang1-17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","libc6-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","binutils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-17","llvm-17-dev","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","clang-17","python3","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","llvm-17","llvm-17-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","llvm-17-linker-tools","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libcurl4t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libllvm17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libpfm4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","llvm-17","llvm-17-dev","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","lld-17","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lld-17","libllvm17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lld-17","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lld-17","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lld-17","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libclang-cpp17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libclang1-17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libllvm17t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","clang-17","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","clang-tools-17","python3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rocminfo","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rocminfo","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rocminfo","libhsa-runtime64-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rocminfo","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rocminfo","python3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rocminfo","pciutils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rocminfo","kmod","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libamdhip64-dev","libamdhip64-5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libamdhip64-dev","libhiprtc-builtins5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libamdhip64-dev","libamd-comgr-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libamdhip64-dev","libhsa-runtime-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclang-rt-17-dev","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclang-rt-17-dev","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","file","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","file","libmagic1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfile-which-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-encode-perl","perl:any","Depends","#333","1","Depends","{}"
+hipcc,hipcc,hipcc,C++ Runtime API and Kernel Language for AMD and NVIDIA GPUs,,,1,1,,,,Section=devel; Version=5.7.1-6,,,,,,,
+clang-17,clang-17,clang-17,"C, C++ and Objective-C compiler",,,1,1,,,,Section=devel; Version=1:17.0.6-22+b2,,,,,,,
+llvm-17,llvm-17,llvm-17,Modular compiler and toolchain technologies,,,1,1,,,,Section=devel; Version=1:17.0.6-22+b2,,,,,,,
+lld-17,lld-17,lld-17,LLVM-based linker,,,1,1,,,,Section=devel; Version=1:17.0.6-22+b2,,,,,,,
+clang-tools-17,clang-tools-17,clang-tools-17,clang-based tools for C/C++ developments,,,1,1,,,,Section=devel; Version=1:17.0.6-22+b2,,,,,,,
+rocm-device-libs-17,rocm-device-libs-17,rocm-device-libs-17,AMD specific device-side language runtime libraries,,,1,1,,,,Section=libs; Version=6.0+git20231212.5a852ed-2,,,,,,,
+rocminfo,rocminfo,rocminfo,ROCm Application for Reporting System Info,,,1,1,,,,Section=video; Version=6.1.2-2,,,,,,,
+libamdhip64-dev,libamdhip64-dev,libamdhip64-dev,Header files for the AMD implementation of HIP,,,1,1,,,,Section=libdevel; Version=5.7.1-6,,,,,,,
+libclang-rt-17-dev,libclang-rt-17-dev,libclang-rt-17-dev,Compiler-rt - development package,,,1,1,,,,Section=libdevel; Version=1:17.0.6-22+b2,,,,,,,
+file,file,file,"Recognize the type of data in a file using ""magic"" numbers",,,1,1,,,,Section=utils; Version=1:5.46-5,,,,,,,
+libfile-which-perl,libfile-which-perl,libfile-which-perl,Perl module for searching paths for executable programs,,,1,1,,,,Section=perl; Version=1.27-2,,,,,,,
+liburi-encode-perl,liburi-encode-perl,liburi-encode-perl,Perl module to encode and decode strings to URIs,,,1,1,,,,Section=perl; Version=1.1.1-3,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libclang-cpp17t64,libclang-cpp17t64,libclang-cpp17t64,C++ interface to the Clang library,,,1,1,,,,Section=libs; Version=1:17.0.6-22+b2,,,,,,,
+libllvm17t64,libllvm17t64,libllvm17t64,"Modular compiler and toolchain technologies, runtime library",,,1,1,,,,Section=libs; Version=1:17.0.6-22+b2,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libstdc++-14-dev,libstdc++-14-dev,libstdc++-14-dev,GNU Standard C++ Library v3 (development files),,,1,1,,,,Section=libdevel; Version=14.2.0-19,,,,,,,
+libgcc-14-dev,libgcc-14-dev,libgcc-14-dev,GCC support library (development files),,,1,1,,,,Section=libdevel; Version=14.2.0-19,,,,,,,
+libobjc-14-dev,libobjc-14-dev,libobjc-14-dev,Runtime library for GNU Objective-C applications (development files),,,1,1,,,,Section=libdevel; Version=14.2.0-19,,,,,,,
+libclang-common-17-dev,libclang-common-17-dev,libclang-common-17-dev,Clang library - Common development package,,,1,1,,,,Section=libdevel; Version=1:17.0.6-22+b2,,,,,,,
+llvm-17-linker-tools,llvm-17-linker-tools,llvm-17-linker-tools,Modular compiler and toolchain technologies - Plugins,,,1,1,,,,Section=devel; Version=1:17.0.6-22+b2,,,,,,,
+libclang1-17t64,libclang1-17t64,libclang1-17t64,C interface to the Clang library,,,1,1,,,,Section=libs; Version=1:17.0.6-22+b2,,,,,,,
+libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
+binutils,binutils,binutils,"GNU assembler, linker and binary utilities",,,1,1,,,,Section=devel; Version=2.44-3,,,,,,,
+llvm-17-dev,llvm-17-dev,llvm-17-dev,"Modular compiler and toolchain technologies, libraries and headers",,,1,1,,,,Section=devel; Version=1:17.0.6-22+b2,,,,,,,
+python3,python3,python3,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
+llvm-17-runtime,llvm-17-runtime,llvm-17-runtime,"Modular compiler and toolchain technologies, IR interpreter",,,1,1,,,,Section=devel; Version=1:17.0.6-22+b2,,,,,,,
+libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libpfm4,libpfm4,libpfm4,Library to program the performance monitoring events,,,1,1,,,,Section=libs; Version=4.13.0+git99-gc5587f9-1,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+libhsa-runtime64-1,libhsa-runtime64-1,libhsa-runtime64-1,HSA Runtime API and runtime for ROCm,,,1,1,,,,Section=libs; Version=6.1.2-3,,,,,,,
+pciutils,pciutils,pciutils,PCI utilities,,,1,1,,,,Section=admin; Version=1:3.13.0-2,,,,,,,
+kmod,kmod,kmod,tools for managing Linux kernel modules,,,1,1,,,,Section=admin; Version=34.2-2,,,,,,,
+libamdhip64-5,libamdhip64-5,libamdhip64-5,Heterogeneous Interface for Portability - AMD GPUs implementation,,,1,1,,,,Section=libs; Version=5.7.1-6,,,,,,,
+libhiprtc-builtins5,libhiprtc-builtins5,libhiprtc-builtins5,HIP Run Time Compilation libraries,,,1,1,,,,Section=libs; Version=5.7.1-6,,,,,,,
+libamd-comgr-dev,libamd-comgr-dev,libamd-comgr-dev,ROCm code object manager - development package,,,1,1,,,,Section=libdevel; Version=6.0+git20231212.4510c28+dfsg-3+b2,,,,,,,
+libhsa-runtime-dev,libhsa-runtime-dev,libhsa-runtime-dev,HSA Runtime API and runtime for ROCm - development files,,,1,1,,,,Section=libdevel; Version=6.1.2-3,,,,,,,
+libmagic1t64,libmagic1t64,libmagic1t64,"Recognize the type of data in a file using ""magic"" numbers - library",,,1,1,,,,Section=libs; Version=1:5.46-5,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+,,,,,,,,,,,,clang-17,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,llvm-17,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lld-17,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,clang-tools-17,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,rocm-device-libs-17,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,rocminfo,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libamdhip64-dev,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclang-rt-17-dev,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,file,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-which-perl,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-encode-perl,hipcc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclang-cpp17t64,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libllvm17t64,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++-14-dev,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-14-dev,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libobjc-14-dev,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclang-common-17-dev,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,llvm-17-linker-tools,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclang1-17t64,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-dev,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,binutils,clang-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,llvm-17-dev,clang-17,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,python3,clang-17,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,llvm-17-runtime,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,llvm-17-linker-tools,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcurl4t64,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libllvm17t64,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpfm4,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,llvm-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,llvm-17-dev,llvm-17,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,lld-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libllvm17t64,lld-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,lld-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,lld-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,lld-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclang-cpp17t64,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclang1-17t64,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libllvm17t64,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,clang-17,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3,clang-tools-17,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,rocminfo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,rocminfo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhsa-runtime64-1,rocminfo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,rocminfo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3,rocminfo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,pciutils,rocminfo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,kmod,rocminfo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libamdhip64-5,libamdhip64-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhiprtc-builtins5,libamdhip64-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libamd-comgr-dev,libamdhip64-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhsa-runtime-dev,libamdhip64-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libclang-rt-17-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libclang-rt-17-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,file,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmagic1t64,file,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libfile-which-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,liburi-encode-perl,Depends,#333,1,Depends,{}

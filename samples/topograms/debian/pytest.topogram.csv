@@ -1,24 +1,24 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"python-pytest-doc","python-pytest-doc","python-pytest-doc","Simple, powerful testing in Python - Documentation","","","1","1","","","","Section=doc; Version=8.3.5-2","","","","","",""
-"libjs-sphinxdoc","libjs-sphinxdoc","libjs-sphinxdoc","JavaScript support for Sphinx documentation","","","1","1","","","","Section=javascript; Version=8.1.3-5","","","","","",""
-"python3-pytest","python3-pytest","python3-pytest","Simple, powerful testing in Python3","","","1","1","","","","Section=python; Version=8.3.5-2","","","","","",""
-"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","",""
-"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","",""
-"python3-exceptiongroup","python3-exceptiongroup","python3-exceptiongroup","Backport of PEP 654 (exception groups)","","","1","1","","","","Section=python; Version=1.2.2-1","","","","","",""
-"python3-iniconfig","python3-iniconfig","python3-iniconfig","brain-dead simple parsing of ini files","","","1","1","","","","Section=python; Version=1.1.1-2","","","","","",""
-"python3-packaging","python3-packaging","python3-packaging","core utilities for python3 packages","","","1","1","","","","Section=python; Version=25.0-1","","","","","",""
-"python3-pluggy","python3-pluggy","python3-pluggy","plugin and hook calling mechanisms for Python 3","","","1","1","","","","Section=python; Version=1.5.0-1","","","","","",""
-"python3-tomli","python3-tomli","python3-tomli","lil' TOML parser for Python","","","1","1","","","","Section=python; Version=2.2.1-2+b1","","","","","",""
-"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"python3-pygments","python3-pygments","python3-pygments","syntax highlighting package written in Python 3","","","1","1","","","","Section=python; Version=2.18.0+dfsg-2","","","","","",""
-"","","","","","","","","","","","","python-pytest-doc","libjs-sphinxdoc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python-pytest-doc","python3-pytest","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libjs-sphinxdoc","libjs-jquery","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjs-sphinxdoc","libjs-underscore","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pytest","python3-exceptiongroup","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pytest","python3-iniconfig","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pytest","python3-packaging","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pytest","python3-pluggy","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pytest","python3-tomli","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pytest","python3:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pytest","python3-pygments","Recommends","#333","1","Recommends","{}"
+python-pytest-doc,python-pytest-doc,python-pytest-doc,"Simple, powerful testing in Python - Documentation",,,1,1,,,,Section=doc; Version=8.3.5-2,,,,,,,
+libjs-sphinxdoc,libjs-sphinxdoc,libjs-sphinxdoc,JavaScript support for Sphinx documentation,,,1,1,,,,Section=javascript; Version=8.1.3-5,,,,,,,
+python3-pytest,python3-pytest,python3-pytest,"Simple, powerful testing in Python3",,,1,1,,,,Section=python; Version=8.3.5-2,,,,,,,
+libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
+libjs-underscore,libjs-underscore,libjs-underscore,JavaScript's functional programming helper library,,,1,1,,,,Section=javascript; Version=1.13.4~dfsg+~1.11.4-3,,,,,,,
+python3-exceptiongroup,python3-exceptiongroup,python3-exceptiongroup,Backport of PEP 654 (exception groups),,,1,1,,,,Section=python; Version=1.2.2-1,,,,,,,
+python3-iniconfig,python3-iniconfig,python3-iniconfig,brain-dead simple parsing of ini files,,,1,1,,,,Section=python; Version=1.1.1-2,,,,,,,
+python3-packaging,python3-packaging,python3-packaging,core utilities for python3 packages,,,1,1,,,,Section=python; Version=25.0-1,,,,,,,
+python3-pluggy,python3-pluggy,python3-pluggy,plugin and hook calling mechanisms for Python 3,,,1,1,,,,Section=python; Version=1.5.0-1,,,,,,,
+python3-tomli,python3-tomli,python3-tomli,lil' TOML parser for Python,,,1,1,,,,Section=python; Version=2.2.1-2+b1,,,,,,,
+python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+python3-pygments,python3-pygments,python3-pygments,syntax highlighting package written in Python 3,,,1,1,,,,Section=python; Version=2.18.0+dfsg-2,,,,,,,
+,,,,,,,,,,,,libjs-sphinxdoc,python-pytest-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-pytest,python-pytest-doc,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libjs-jquery,libjs-sphinxdoc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-underscore,libjs-sphinxdoc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-exceptiongroup,python3-pytest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-iniconfig,python3-pytest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-packaging,python3-pytest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-pluggy,python3-pytest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-tomli,python3-pytest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3:any,python3-pytest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-pygments,python3-pytest,Recommends,#333,1,Recommends,{}

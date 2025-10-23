@@ -1,35 +1,35 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"cxl","cxl","cxl","provisioning for CXL device memory","","","1","1","","","","Section=misc; Version=81-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcxl1","libcxl1","libcxl1","utility library for managing Compute Express Link devices","","","1","1","","","","Section=libs; Version=81-1","","","","","",""
-"libdaxctl1","libdaxctl1","libdaxctl1","Utility library for managing the device DAX subsystem","","","1","1","","","","Section=libs; Version=81-1","","","","","",""
-"libjson-c5","libjson-c5","libjson-c5","JSON manipulation library - shared library","","","1","1","","","","Section=libs; Version=0.18+ds-1","","","","","",""
-"libtraceevent1","libtraceevent1","libtraceevent1","Linux kernel trace event library (shared library)","","","1","1","","","","Section=libs; Version=1:1.8.4-2","","","","","",""
-"libtracefs1","libtracefs1","libtracefs1","API to access the kernel tracefs directory (shared library)","","","1","1","","","","Section=libs; Version=1.8.1-1","","","","","",""
-"libuuid1","libuuid1","libuuid1","Universally Unique ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libkmod2","libkmod2","libkmod2","libkmod shared library","","","1","1","","","","Section=libs; Version=34.2-2","","","","","",""
-"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"","","","","","","","","","","","","cxl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","cxl","libcxl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","cxl","libdaxctl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","cxl","libjson-c5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","cxl","libtraceevent1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","cxl","libtracefs1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","cxl","libuuid1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcxl1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcxl1","libdaxctl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcxl1","libkmod2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcxl1","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcxl1","libuuid1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdaxctl1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdaxctl1","libkmod2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdaxctl1","libuuid1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjson-c5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtraceevent1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtracefs1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtracefs1","libtraceevent1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libuuid1","libc6","Depends","#333","1","Depends","{}"
+cxl,cxl,cxl,provisioning for CXL device memory,,,1,1,,,,Section=misc; Version=81-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcxl1,libcxl1,libcxl1,utility library for managing Compute Express Link devices,,,1,1,,,,Section=libs; Version=81-1,,,,,,,
+libdaxctl1,libdaxctl1,libdaxctl1,Utility library for managing the device DAX subsystem,,,1,1,,,,Section=libs; Version=81-1,,,,,,,
+libjson-c5,libjson-c5,libjson-c5,JSON manipulation library - shared library,,,1,1,,,,Section=libs; Version=0.18+ds-1,,,,,,,
+libtraceevent1,libtraceevent1,libtraceevent1,Linux kernel trace event library (shared library),,,1,1,,,,Section=libs; Version=1:1.8.4-2,,,,,,,
+libtracefs1,libtracefs1,libtracefs1,API to access the kernel tracefs directory (shared library),,,1,1,,,,Section=libs; Version=1.8.1-1,,,,,,,
+libuuid1,libuuid1,libuuid1,Universally Unique ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libkmod2,libkmod2,libkmod2,libkmod shared library,,,1,1,,,,Section=libs; Version=34.2-2,,,,,,,
+libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+,,,,,,,,,,,,libc6,cxl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcxl1,cxl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdaxctl1,cxl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjson-c5,cxl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtraceevent1,cxl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtracefs1,cxl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuuid1,cxl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libcxl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdaxctl1,libcxl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkmod2,libcxl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libcxl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuuid1,libcxl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libdaxctl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkmod2,libdaxctl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuuid1,libdaxctl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libjson-c5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtraceevent1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtracefs1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtraceevent1,libtracefs1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libuuid1,Depends,#333,1,Depends,{}

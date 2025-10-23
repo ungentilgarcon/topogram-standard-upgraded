@@ -1,13 +1,13 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libamd3","libamd3","libamd3","approximate minimum degree ordering library for sparse matrices","","","1","1","","","","Section=libs; Version=1:7.10.1+dfsg-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libsuitesparseconfig7","libsuitesparseconfig7","libsuitesparseconfig7","configuration routines for all SuiteSparse modules","","","1","1","","","","Section=libs; Version=1:7.10.1+dfsg-1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libgomp1","libgomp1","libgomp1","GCC OpenMP (GOMP) support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libamd3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libamd3","libsuitesparseconfig7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libsuitesparseconfig7","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsuitesparseconfig7","libgomp1","Depends","#333","1","Depends","{}"
+libamd3,libamd3,libamd3,approximate minimum degree ordering library for sparse matrices,,,1,1,,,,Section=libs; Version=1:7.10.1+dfsg-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libsuitesparseconfig7,libsuitesparseconfig7,libsuitesparseconfig7,configuration routines for all SuiteSparse modules,,,1,1,,,,Section=libs; Version=1:7.10.1+dfsg-1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libgomp1,libgomp1,libgomp1,GCC OpenMP (GOMP) support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libc6,libamd3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsuitesparseconfig7,libamd3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libsuitesparseconfig7,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libsuitesparseconfig7,Depends,#333,1,Depends,{}

@@ -1,12 +1,12 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libice-dev","libice-dev","libice-dev","X11 Inter-Client Exchange library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.1.1-1","","","","","",""
-"libice6","libice6","libice6","X11 Inter-Client Exchange library","","","1","1","","","","Section=libs; Version=2:1.1.1-1","","","","","",""
-"x11proto-dev","x11proto-dev","x11proto-dev","X11 extension protocols and auxiliary headers","","","1","1","","","","Section=x11; Version=2024.1-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"x11-common","x11-common","x11-common","X Window System (X.Org) infrastructure","","","1","1","","","","Section=x11; Version=1:7.7+24","","","","","",""
-"xorg-sgml-doctools","xorg-sgml-doctools","xorg-sgml-doctools","Common tools for building X.Org SGML documentation","","","1","1","","","","Section=x11; Version=1:1.11-1.1","","","","","",""
-"","","","","","","","","","","","","libice-dev","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libice-dev","x11proto-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libice6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libice6","x11-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","x11proto-dev","xorg-sgml-doctools","Depends","#333","1","Depends","{}"
+libice-dev,libice-dev,libice-dev,X11 Inter-Client Exchange library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.1.1-1,,,,,,,
+libice6,libice6,libice6,X11 Inter-Client Exchange library,,,1,1,,,,Section=libs; Version=2:1.1.1-1,,,,,,,
+x11proto-dev,x11proto-dev,x11proto-dev,X11 extension protocols and auxiliary headers,,,1,1,,,,Section=x11; Version=2024.1-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+x11-common,x11-common,x11-common,X Window System (X.Org) infrastructure,,,1,1,,,,Section=x11; Version=1:7.7+24,,,,,,,
+xorg-sgml-doctools,xorg-sgml-doctools,xorg-sgml-doctools,Common tools for building X.Org SGML documentation,,,1,1,,,,Section=x11; Version=1:1.11-1.1,,,,,,,
+,,,,,,,,,,,,libice6,libice-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,x11proto-dev,libice-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libice6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,x11-common,libice6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xorg-sgml-doctools,x11proto-dev,Depends,#333,1,Depends,{}

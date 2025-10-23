@@ -1,19 +1,19 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libexif-dev","libexif-dev","libexif-dev","library to parse EXIF files (development files)","","","1","1","","","","Section=libdevel; Version=0.6.25-1","","","","","",""
-"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","",""
-"libexif12","libexif12","libexif12","library to parse EXIF files","","","1","1","","","","Section=libs; Version=0.6.25-1","","","","","",""
-"libexif-doc","libexif-doc","libexif-doc","library to parse EXIF files (documentation)","","","1","1","","","","Section=doc; Version=0.6.25-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libc-dev-bin","libc-dev-bin","libc-dev-bin","GNU C Library: Development binaries","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","",""
-"linux-libc-dev","linux-libc-dev","linux-libc-dev","Linux support headers for userspace development","","","1","1","","","","Section=devel; Version=6.12.43-1","","","","","",""
-"libcrypt-dev","libcrypt-dev","libcrypt-dev","libcrypt development files","","","1","1","","","","Section=libdevel; Version=1:4.4.38-1","","","","","",""
-"rpcsvc-proto","rpcsvc-proto","rpcsvc-proto","RPC protocol compiler and definitions","","","1","1","","","","Section=libs; Version=1.4.3-1","","","","","",""
-"","","","","","","","","","","","","libexif-dev","libc6-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libexif-dev","libexif12","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libexif-dev","libexif-doc","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libc6-dev","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","libc-dev-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","linux-libc-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","libcrypt-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6-dev","rpcsvc-proto","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libexif12","libc6","Depends","#333","1","Depends","{}"
+libexif-dev,libexif-dev,libexif-dev,library to parse EXIF files (development files),,,1,1,,,,Section=libdevel; Version=0.6.25-1,,,,,,,
+libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
+libexif12,libexif12,libexif12,library to parse EXIF files,,,1,1,,,,Section=libs; Version=0.6.25-1,,,,,,,
+libexif-doc,libexif-doc,libexif-doc,library to parse EXIF files (documentation),,,1,1,,,,Section=doc; Version=0.6.25-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libc-dev-bin,libc-dev-bin,libc-dev-bin,GNU C Library: Development binaries,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
+linux-libc-dev,linux-libc-dev,linux-libc-dev,Linux support headers for userspace development,,,1,1,,,,Section=devel; Version=6.12.43-1,,,,,,,
+libcrypt-dev,libcrypt-dev,libcrypt-dev,libcrypt development files,,,1,1,,,,Section=libdevel; Version=1:4.4.38-1,,,,,,,
+rpcsvc-proto,rpcsvc-proto,rpcsvc-proto,RPC protocol compiler and definitions,,,1,1,,,,Section=libs; Version=1.4.3-1,,,,,,,
+,,,,,,,,,,,,libc6-dev,libexif-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libexif12,libexif-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libexif-doc,libexif-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc-dev-bin,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,linux-libc-dev,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcrypt-dev,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,rpcsvc-proto,libc6-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libexif12,Depends,#333,1,Depends,{}

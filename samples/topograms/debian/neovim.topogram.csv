@@ -1,61 +1,61 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"neovim","neovim","neovim","heavily refactored vim fork","","","1","1","","","","Section=editors; Version=0.10.4-8","","","","","",""
-"neovim-runtime","neovim-runtime","neovim-runtime","heavily refactored vim fork (runtime files)","","","1","1","","","","Section=editors; Version=0.10.4-8","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libluajit-5.1-2","libluajit-5.1-2","libluajit-5.1-2","OpenResty-maintained branch of LuaJIT (shared objects)","","","1","1","","","","Section=libs; Version=2.1.0+openresty20250117-2","","","","","",""
-"libmsgpack-c2","libmsgpack-c2","libmsgpack-c2","binary-based efficient object serialization library","","","1","1","","","","Section=libs; Version=6.0.1-3+b1","","","","","",""
-"libtree-sitter0.22","libtree-sitter0.22","libtree-sitter0.22","incremental parsing system for programming tools","","","1","1","","","","Section=libs; Version=0.22.6-6+b1","","","","","",""
-"libunibilium4","libunibilium4","libunibilium4","simple, self-contained terminfo library","","","1","1","","","","Section=libs; Version=2.1.1-2+b1","","","","","",""
-"libuv1t64","libuv1t64","libuv1t64","asynchronous event notification library - runtime library","","","1","1","","","","Section=libs; Version=1.50.0-2","","","","","",""
-"libvterm0","libvterm0","libvterm0","abstract terminal library","","","1","1","","","","Section=libs; Version=0.3.3-3+b1","","","","","",""
-"lua-lpeg","lua-lpeg","lua-lpeg","LPeg library for the Lua language","","","1","1","","","","Section=interpreters; Version=1.1.0-2","","","","","",""
-"lua-luv","lua-luv","lua-luv","libuv bindings for Lua","","","1","1","","","","Section=interpreters; Version=1.48.0-2-3","","","","","",""
-"python3-pynvim","python3-pynvim","python3-pynvim","Python3 library for scripting Neovim processes through its msgpack-rpc API","","","1","1","","","","Section=python; Version=0.5.2-2","","","","","",""
-"xclip","xclip","xclip","command line interface to X selections","","","1","1","","","","Section=x11; Version=0.13-4","","","","","",""
-"xxd","xxd","xxd","tool to make (or reverse) a hex dump","","","1","1","","","","Section=editors; Version=2:9.1.1230-2","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libluajit-5.1-common","libluajit-5.1-common","libluajit-5.1-common","OpenResty-maintained branch of LuaJIT (common files)","","","1","1","","","","Section=interpreters; Version=2.1.0+openresty20250117-2","","","","","",""
-"python3-msgpack","python3-msgpack","python3-msgpack","Python 3 implementation of MessagePack format","","","1","1","","","","Section=python; Version=1.0.3-3+b4","","","","","",""
-"python3-typing-extensions","python3-typing-extensions","python3-typing-extensions","Backported and Experimental Type Hints for Python","","","1","1","","","","Section=python; Version=4.13.2-1","","","","","",""
-"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"python3-greenlet","python3-greenlet","python3-greenlet","Lightweight in-process concurrent programming (python3)","","","1","1","","","","Section=python; Version=3.1.0-1+b2","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxmu6","libxmu6","libxmu6","X11 miscellaneous utility library","","","1","1","","","","Section=libs; Version=2:1.1.3-3+b4","","","","","",""
-"xauth","xauth","xauth","X authentication utility","","","1","1","","","","Section=x11; Version=1:1.1.2-1.1","","","","","",""
-"","","","","","","","","","","","","neovim","neovim-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","libluajit-5.1-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","libmsgpack-c2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","libtree-sitter0.22","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","libunibilium4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","libuv1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","libvterm0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","lua-lpeg","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","lua-luv","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","neovim","python3-pynvim","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","neovim","xclip","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","neovim","xxd","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libluajit-5.1-2","libluajit-5.1-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libluajit-5.1-2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libluajit-5.1-2","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmsgpack-c2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtree-sitter0.22","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libunibilium4","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libuv1t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvterm0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lua-lpeg","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lua-luv","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lua-luv","libuv1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pynvim","python3-msgpack","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pynvim","python3-typing-extensions","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pynvim","python3:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pynvim","python3-greenlet","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-pynvim","neovim","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","xclip","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xclip","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xclip","libxmu6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xclip","xauth","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","xxd","libc6","Depends","#333","1","Depends","{}"
+neovim,neovim,neovim,heavily refactored vim fork,,,1,1,,,,Section=editors; Version=0.10.4-8,,,,,,,
+neovim-runtime,neovim-runtime,neovim-runtime,heavily refactored vim fork (runtime files),,,1,1,,,,Section=editors; Version=0.10.4-8,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libluajit-5.1-2,libluajit-5.1-2,libluajit-5.1-2,OpenResty-maintained branch of LuaJIT (shared objects),,,1,1,,,,Section=libs; Version=2.1.0+openresty20250117-2,,,,,,,
+libmsgpack-c2,libmsgpack-c2,libmsgpack-c2,binary-based efficient object serialization library,,,1,1,,,,Section=libs; Version=6.0.1-3+b1,,,,,,,
+libtree-sitter0.22,libtree-sitter0.22,libtree-sitter0.22,incremental parsing system for programming tools,,,1,1,,,,Section=libs; Version=0.22.6-6+b1,,,,,,,
+libunibilium4,libunibilium4,libunibilium4,"simple, self-contained terminfo library",,,1,1,,,,Section=libs; Version=2.1.1-2+b1,,,,,,,
+libuv1t64,libuv1t64,libuv1t64,asynchronous event notification library - runtime library,,,1,1,,,,Section=libs; Version=1.50.0-2,,,,,,,
+libvterm0,libvterm0,libvterm0,abstract terminal library,,,1,1,,,,Section=libs; Version=0.3.3-3+b1,,,,,,,
+lua-lpeg,lua-lpeg,lua-lpeg,LPeg library for the Lua language,,,1,1,,,,Section=interpreters; Version=1.1.0-2,,,,,,,
+lua-luv,lua-luv,lua-luv,libuv bindings for Lua,,,1,1,,,,Section=interpreters; Version=1.48.0-2-3,,,,,,,
+python3-pynvim,python3-pynvim,python3-pynvim,Python3 library for scripting Neovim processes through its msgpack-rpc API,,,1,1,,,,Section=python; Version=0.5.2-2,,,,,,,
+xclip,xclip,xclip,command line interface to X selections,,,1,1,,,,Section=x11; Version=0.13-4,,,,,,,
+xxd,xxd,xxd,tool to make (or reverse) a hex dump,,,1,1,,,,Section=editors; Version=2:9.1.1230-2,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libluajit-5.1-common,libluajit-5.1-common,libluajit-5.1-common,OpenResty-maintained branch of LuaJIT (common files),,,1,1,,,,Section=interpreters; Version=2.1.0+openresty20250117-2,,,,,,,
+python3-msgpack,python3-msgpack,python3-msgpack,Python 3 implementation of MessagePack format,,,1,1,,,,Section=python; Version=1.0.3-3+b4,,,,,,,
+python3-typing-extensions,python3-typing-extensions,python3-typing-extensions,Backported and Experimental Type Hints for Python,,,1,1,,,,Section=python; Version=4.13.2-1,,,,,,,
+python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+python3-greenlet,python3-greenlet,python3-greenlet,Lightweight in-process concurrent programming (python3),,,1,1,,,,Section=python; Version=3.1.0-1+b2,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxmu6,libxmu6,libxmu6,X11 miscellaneous utility library,,,1,1,,,,Section=libs; Version=2:1.1.3-3+b4,,,,,,,
+xauth,xauth,xauth,X authentication utility,,,1,1,,,,Section=x11; Version=1:1.1.2-1.1,,,,,,,
+,,,,,,,,,,,,neovim-runtime,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libluajit-5.1-2,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmsgpack-c2,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtree-sitter0.22,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libunibilium4,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuv1t64,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvterm0,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lua-lpeg,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lua-luv,neovim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-pynvim,neovim,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xclip,neovim,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xxd,neovim,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libluajit-5.1-common,libluajit-5.1-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libluajit-5.1-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libluajit-5.1-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libmsgpack-c2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtree-sitter0.22,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libunibilium4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libuv1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libvterm0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,lua-lpeg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,lua-luv,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuv1t64,lua-luv,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-msgpack,python3-pynvim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-typing-extensions,python3-pynvim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3:any,python3-pynvim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3-greenlet,python3-pynvim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,neovim,python3-pynvim,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,xclip,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,xclip,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxmu6,xclip,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xauth,xclip,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,xxd,Depends,#333,1,Depends,{}

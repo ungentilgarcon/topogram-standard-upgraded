@@ -1,7 +1,7 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libequinox-frameworkadmin-equinox-java","libequinox-frameworkadmin-equinox-java","libequinox-frameworkadmin-equinox-java","Equinox Framework Admin for Equinox","","","1","1","","","","Section=java; Version=1.2.400+eclipse4.29-1","","","","","",""
-"libequinox-frameworkadmin-java","libequinox-frameworkadmin-java","libequinox-frameworkadmin-java","Equinox Framework Admin","","","1","1","","","","Section=java; Version=2.2.200+eclipse4.29-1","","","","","",""
-"libequinox-common-java","libequinox-common-java","libequinox-common-java","Eclipse Equinox Common Utility Bundle","","","1","1","","","","Section=java; Version=3.18.100+eclipse4.29-2","","","","","",""
-"","","","","","","","","","","","","libequinox-frameworkadmin-equinox-java","libequinox-frameworkadmin-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libequinox-frameworkadmin-equinox-java","libequinox-common-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libequinox-frameworkadmin-java","libequinox-common-java","Depends","#333","1","Depends","{}"
+libequinox-frameworkadmin-equinox-java,libequinox-frameworkadmin-equinox-java,libequinox-frameworkadmin-equinox-java,Equinox Framework Admin for Equinox,,,1,1,,,,Section=java; Version=1.2.400+eclipse4.29-1,,,,,,,
+libequinox-frameworkadmin-java,libequinox-frameworkadmin-java,libequinox-frameworkadmin-java,Equinox Framework Admin,,,1,1,,,,Section=java; Version=2.2.200+eclipse4.29-1,,,,,,,
+libequinox-common-java,libequinox-common-java,libequinox-common-java,Eclipse Equinox Common Utility Bundle,,,1,1,,,,Section=java; Version=3.18.100+eclipse4.29-2,,,,,,,
+,,,,,,,,,,,,libequinox-frameworkadmin-java,libequinox-frameworkadmin-equinox-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libequinox-common-java,libequinox-frameworkadmin-equinox-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libequinox-common-java,libequinox-frameworkadmin-java,Depends,#333,1,Depends,{}

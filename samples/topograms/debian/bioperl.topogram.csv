@@ -1,297 +1,297 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"bioperl","bioperl","bioperl","Perl tools for computational molecular biology","","","1","1","","","","Section=science; Version=1.7.8-1","","","","","",""
-"libbio-perl-perl","libbio-perl-perl","libbio-perl-perl","BioPerl core perl modules","","","1","1","","","","Section=perl; Version=1.7.8-1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libtest-most-perl","libtest-most-perl","libtest-most-perl","Perl module with the most commonly needed test functions and features","","","1","1","","","","Section=perl; Version=0.38-1","","","","","",""
-"bioperl-run","bioperl-run","bioperl-run","BioPerl wrappers: scripts","","","1","1","","","","Section=science; Version=1.7.3-13","","","","","",""
-"perl-doc","perl-doc","perl-doc","Perl documentation","","","1","1","","","","Section=doc; Version=5.40.1-6","","","","","",""
-"libhttp-message-perl","libhttp-message-perl","libhttp-message-perl","perl interface to HTTP style messages","","","1","1","","","","Section=perl; Version=7.00-2","","","","","",""
-"libwww-perl","libwww-perl","libwww-perl","simple and consistent interface to the world-wide web","","","1","1","","","","Section=perl; Version=6.78-1","","","","","",""
-"libcache-cache-perl","libcache-cache-perl","libcache-cache-perl","Managed caches of persistent information","","","1","1","","","","Section=perl; Version=1.08-3","","","","","",""
-"libbio-perl-run-perl","libbio-perl-run-perl","libbio-perl-run-perl","BioPerl wrappers: modules","","","1","1","","","","Section=perl; Version=1.7.3-13","","","","","",""
-"libdbi-perl","libdbi-perl","libdbi-perl","Perl Database Interface (DBI)","","","1","1","","","","Section=perl; Version=1.647-1","","","","","",""
-"libgd-gd2-perl","libgd-gd2-perl","libgd-gd2-perl","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libapache-dbi-perl","libapache-dbi-perl","libapache-dbi-perl","interface connecting Apache server to database via perl's DBI","","","1","1","","","","Section=perl; Version=1.12-3","","","","","",""
-"liburi-perl","liburi-perl","liburi-perl","module to manipulate and access URI strings","","","1","1","","","","Section=perl; Version=5.30-1","","","","","",""
-"libxml-simple-perl","libxml-simple-perl","libxml-simple-perl","Perl module for reading and writing XML","","","1","1","","","","Section=perl; Version=2.25-2","","","","","",""
-"libyaml-perl","libyaml-perl","libyaml-perl","YAML Ain't Markup Language","","","1","1","","","","Section=perl; Version=1.31-1","","","","","",""
-"libace-perl","libace-perl","libace-perl","Object-Oriented Access to ACEDB Databases","","","1","1","","","","Section=perl; Version=1.92-12+b1","","","","","",""
-"liblist-moreutils-perl","liblist-moreutils-perl","liblist-moreutils-perl","Perl module with additional list functions not found in List::Util","","","1","1","","","","Section=perl; Version=0.430-2","","","","","",""
-"libxml-twig-perl","libxml-twig-perl","libxml-twig-perl","Perl module for processing huge XML documents in tree mode","","","1","1","","","","Section=perl; Version=1:3.52-3","","","","","",""
-"libset-scalar-perl","libset-scalar-perl","libset-scalar-perl","Perl interface for operations on finite sets","","","1","1","","","","Section=perl; Version=1.29-3","","","","","",""
-"libio-string-perl","libio-string-perl","libio-string-perl","Emulate IO::File interface for in-core strings","","","1","1","","","","Section=perl; Version=1.08-4","","","","","",""
-"libdata-stag-perl","libdata-stag-perl","libdata-stag-perl","module to manipulate Structured Tags datastructures","","","1","1","","","","Section=perl; Version=0.14-3","","","","","",""
-"libalgorithm-munkres-perl","libalgorithm-munkres-perl","libalgorithm-munkres-perl","extension for Munkres' solution to Assignment problem","","","1","1","","","","Section=perl; Version=0.08-5","","","","","",""
-"libarray-compare-perl","libarray-compare-perl","libarray-compare-perl","Perl module to easily compare arrays","","","1","1","","","","Section=perl; Version=3.0.8-1","","","","","",""
-"libbio-asn1-entrezgene-perl","libbio-asn1-entrezgene-perl","libbio-asn1-entrezgene-perl","parser for NCBI Entrez Gene and NCBI Sequence records","","","1","1","","","","Section=perl; Version=1.730-3","","","","","",""
-"libclone-perl","libclone-perl","libclone-perl","module for recursively copying Perl datatypes","","","1","1","","","","Section=perl; Version=0.47-1+b1","","","","","",""
-"libconvert-binary-c-perl","libconvert-binary-c-perl","libconvert-binary-c-perl","Binary Data Conversion using C Types","","","1","1","","","","Section=perl; Version=0.85-1+b1","","","","","",""
-"libdbd-sqlite3-perl","libdbd-sqlite3-perl","libdbd-sqlite3-perl","Perl DBI driver with a self-contained RDBMS","","","1","1","","","","Section=perl; Version=1.76-1","","","","","",""
-"libdbd-mysql-perl","libdbd-mysql-perl","libdbd-mysql-perl","Perl5 database interface to the MariaDB/MySQL database","","","1","1","","","","Section=perl; Version=4.053-1","","","","","",""
-"libdbd-pg-perl","libdbd-pg-perl","libdbd-pg-perl","Perl DBI driver for the PostgreSQL database server","","","1","1","","","","Section=perl; Version=3.18.0-1+b3","","","","","",""
-"libgd-perl","libgd-perl","libgd-perl","Perl module wrapper for libgd","","","1","1","","","","Section=perl; Version=2.78-1+b3","","","","","",""
-"libgraph-perl","libgraph-perl","libgraph-perl","Perl module for graph data structures and algorithms","","","1","1","","","","Section=perl; Version=1:0.9735-1","","","","","",""
-"libgraphviz-perl","libgraphviz-perl","libgraphviz-perl","Perl interface to the GraphViz graphing tool","","","1","1","","","","Section=perl; Version=2.24-1","","","","","",""
-"libhtml-parser-perl","libhtml-parser-perl","libhtml-parser-perl","collection of modules that parse HTML text documents","","","1","1","","","","Section=perl; Version=3.83-1+b2","","","","","",""
-"libhtml-tableextract-perl","libhtml-tableextract-perl","libhtml-tableextract-perl","module for extracting the content contained in HTML tables","","","1","1","","","","Section=perl; Version=2.15-2","","","","","",""
-"libpostscript-perl","libpostscript-perl","libpostscript-perl","Perl module to generate PostScript code","","","1","1","","","","Section=perl; Version=0.06-3.1","","","","","",""
-"libsoap-lite-perl","libsoap-lite-perl","libsoap-lite-perl","Perl implementation of a SOAP client and server","","","1","1","","","","Section=perl; Version=1.27-3","","","","","",""
-"libsort-naturally-perl","libsort-naturally-perl","libsort-naturally-perl","Sort naturally - sort lexically except for numerical parts","","","1","1","","","","Section=perl; Version=1.03-4","","","","","",""
-"libspreadsheet-parseexcel-perl","libspreadsheet-parseexcel-perl","libspreadsheet-parseexcel-perl","Perl module to access information from Excel Spreadsheets","","","1","1","","","","Section=perl; Version=0.6600-1","","","","","",""
-"libspreadsheet-writeexcel-perl","libspreadsheet-writeexcel-perl","libspreadsheet-writeexcel-perl","module to create Excel spreadsheets","","","1","1","","","","Section=perl; Version=2.40-4","","","","","",""
-"libstorable-perl","libstorable-perl","libstorable-perl","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libsvg-perl","libsvg-perl","libsvg-perl","perl module to generate SVG images","","","1","1","","","","Section=perl; Version=2.87-1","","","","","",""
-"libsvg-graph-perl","libsvg-graph-perl","libsvg-graph-perl","module to visualize data in SVG format","","","1","1","","","","Section=perl; Version=0.02-4","","","","","",""
-"libxml-dom-xpath-perl","libxml-dom-xpath-perl","libxml-dom-xpath-perl","adds XPath support to XML::DOM, using XML::XPathEngine","","","1","1","","","","Section=perl; Version=0.14-4","","","","","",""
-"libxml-parser-perl","libxml-parser-perl","libxml-parser-perl","Perl module for parsing XML files","","","1","1","","","","Section=perl; Version=2.47-1+b3","","","","","",""
-"libxml-sax-perl","libxml-sax-perl","libxml-sax-perl","Perl module for using and building Perl SAX2 XML processors","","","1","1","","","","Section=perl; Version=1.02+dfsg-4","","","","","",""
-"libxml-sax-writer-perl","libxml-sax-writer-perl","libxml-sax-writer-perl","Perl module for a SAX2 XML writer","","","1","1","","","","Section=perl; Version=0.57-3","","","","","",""
-"libxml-writer-perl","libxml-writer-perl","libxml-writer-perl","Perl module for writing XML documents","","","1","1","","","","Section=perl; Version=0.900-2","","","","","",""
-"libxml-libxml-perl","libxml-libxml-perl","libxml-libxml-perl","Perl interface to the libxml2 library","","","1","1","","","","Section=perl; Version=2.0207+dfsg+really+2.0134-5+b2","","","","","",""
-"libexception-class-perl","libexception-class-perl","libexception-class-perl","module that allows you to declare real exception classes in Perl","","","1","1","","","","Section=perl; Version=1.45-1","","","","","",""
-"libtest-deep-perl","libtest-deep-perl","libtest-deep-perl","Perl module for extremely flexible deep comparisons","","","1","1","","","","Section=perl; Version=1.205-1","","","","","",""
-"libtest-differences-perl","libtest-differences-perl","libtest-differences-perl","Perl module to test string and data structure differences","","","1","1","","","","Section=perl; Version=0.71-1","","","","","",""
-"libtest-exception-perl","libtest-exception-perl","libtest-exception-perl","module for testing exception-based code","","","1","1","","","","Section=perl; Version=0.43-3","","","","","",""
-"libtest-harness-perl","libtest-harness-perl","libtest-harness-perl","module to run standard Perl test scripts with statistics","","","1","1","","","","Section=perl; Version=3.50-1","","","","","",""
-"libtest-simple-perl","libtest-simple-perl","libtest-simple-perl","set of basic utilities for writing tests in Perl","","","1","1","","","","Section=perl; Version=1.302210-1","","","","","",""
-"libtest-warn-perl","libtest-warn-perl","libtest-warn-perl","test module for checking which warnings are generated","","","1","1","","","","Section=perl; Version=0.37-2","","","","","",""
-"libbio-featureio-perl","libbio-featureio-perl","libbio-featureio-perl","Modules for reading, writing, and manipulating sequence features","","","1","1","","","","Section=perl; Version=1.6.905-2","","","","","",""
-"libbio-cluster-perl","libbio-cluster-perl","libbio-cluster-perl","BioPerl cluster modules","","","1","1","","","","Section=perl; Version=1.7.3-6","","","","","",""
-"libtest-requiresinternet-perl","libtest-requiresinternet-perl","libtest-requiresinternet-perl","module to easily test network connectivity","","","1","1","","","","Section=perl; Version=0.05-4","","","","","",""
-"libbio-eutilities-perl","libbio-eutilities-perl","libbio-eutilities-perl","BioPerl interface to the Entrez Programming Utilities (E-utilities)","","","1","1","","","","Section=perl; Version=1.77-3","","","","","",""
-"libbio-tools-run-remoteblast-perl","libbio-tools-run-remoteblast-perl","libbio-tools-run-remoteblast-perl","Object for remote execution of the NCBI Blast via HTTP","","","1","1","","","","Section=perl; Version=1.7.3-3","","","","","",""
-"default-jdk-headless","default-jdk-headless","default-jdk-headless","Standard Java or Java compatible Development Kit (headless)","","","1","1","","","","Section=java; Version=2:1.21-76","","","","","",""
-"amap-align","amap-align","amap-align","Protein multiple alignment by sequence annealing","","","1","1","","","","Section=science; Version=2.2+git20080214.600fc29+dfsg-2","","","","","",""
-"ncbi-blast+-legacy","ncbi-blast+-legacy","ncbi-blast+-legacy","NCBI Blast legacy call script","","","1","1","","","","Section=science; Version=2.16.0+ds-7","","","","","",""
-"bwa","bwa","bwa","Burrows-Wheeler Aligner","","","1","1","","","","Section=science; Version=0.7.18-1","","","","","",""
-"exonerate","exonerate","exonerate","generic tool for pairwise sequence comparison","","","1","1","","","","Section=science; Version=2.4.0-5+b1","","","","","",""
-"kalign","kalign","kalign","Global and progressive multiple sequence alignment","","","1","1","","","","Section=science; Version=1:3.4.0-1+b3","","","","","",""
-"maq","maq","maq","maps short fixed-length polymorphic DNA sequence reads to reference sequences","","","1","1","","","","Section=science; Version=0.7.1-10","","","","","",""
-"mafft","mafft","mafft","Multiple alignment program for amino acid or nucleotide sequences","","","1","1","","","","Section=science; Version=7.505-1","","","","","",""
-"muscle","muscle","muscle","Multiple alignment program of protein sequences","","","1","1","","","","Section=science; Version=1:5.1.0-1","","","","","",""
-"ncoils","ncoils","ncoils","coiled coil secondary structure prediction","","","1","1","","","","Section=science; Version=2002-9","","","","","",""
-"phylip","phylip","phylip","package of programs for inferring phylogenies","","","1","1","","","","Section=science; Version=1:3.697+dfsg-4","","","","","",""
-"primer3","primer3","primer3","tool to design flanking oligo nucleotides for DNA amplification","","","1","1","","","","Section=science; Version=2.6.1-5","","","","","",""
-"probalign","probalign","probalign","multiple sequence alignment using partition function posterior probabilities","","","1","1","","","","Section=science; Version=1.4-10","","","","","",""
-"probcons","probcons","probcons","PROBabilistic CONSistency-based multiple sequence alignment","","","1","1","","","","Section=science; Version=1.12-14","","","","","",""
-"raxml","raxml","raxml","Randomized Axelerated Maximum Likelihood of phylogenetic trees","","","1","1","","","","Section=science; Version=8.2.13+dfsg-2+b1","","","","","",""
-"sim4","sim4","sim4","tool for aligning cDNA and genomic DNA","","","1","1","","","","Section=science; Version=0.0.20121010-8","","","","","",""
-"t-coffee","t-coffee","t-coffee","Multiple Sequence Alignment","","","1","1","","","","Section=science; Version=13.45.0.4846264+really13.41.0.28bdc39+dfsg-1","","","","","",""
-"wise","wise","wise","comparison of biopolymers, like DNA and protein sequences","","","1","1","","","","Section=science; Version=2.4.1-27","","","","","",""
-"lagan","lagan","lagan","highly parametrizable pairwise global genome sequence aligner","","","1","1","","","","Section=science; Version=2.0-10","","","","","",""
-"pal2nal","pal2nal","pal2nal","converts proteins to genomic DNA alignment","","","1","1","","","","Section=science; Version=14.1-3","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"libcompress-raw-bzip2-perl","libcompress-raw-bzip2-perl","libcompress-raw-bzip2-perl","low-level interface to bzip2 compression library","","","1","1","","","","Section=perl; Version=2.213-2","","","","","",""
-"libcompress-raw-zlib-perl","libcompress-raw-zlib-perl","libcompress-raw-zlib-perl","low-level interface to zlib compression library","","","1","1","","","","Section=perl; Version=2.213-1+b1","","","","","",""
-"libencode-locale-perl","libencode-locale-perl","libencode-locale-perl","utility to determine the locale encoding","","","1","1","","","","Section=perl; Version=1.05-3","","","","","",""
-"libencode-perl","libencode-perl","libencode-perl","module providing interfaces between Perl's strings and the system","","","1","1","","","","Section=perl; Version=3.21-1+b2","","","","","",""
-"libhttp-date-perl","libhttp-date-perl","libhttp-date-perl","module of date conversion routines","","","1","1","","","","Section=perl; Version=6.06-1","","","","","",""
-"libio-html-perl","libio-html-perl","libio-html-perl","open an HTML file with automatic charset detection","","","1","1","","","","Section=perl; Version=1.004-3","","","","","",""
-"liblwp-mediatypes-perl","liblwp-mediatypes-perl","liblwp-mediatypes-perl","module to guess media type for a file or a URL","","","1","1","","","","Section=perl; Version=6.04-2","","","","","",""
-"libio-compress-brotli-perl","libio-compress-brotli-perl","libio-compress-brotli-perl","modules to read/write Brotli buffers/streams","","","1","1","","","","Section=perl; Version=0.004001-2+b3","","","","","",""
-"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","",""
-"libfile-listing-perl","libfile-listing-perl","libfile-listing-perl","module to parse directory listings","","","1","1","","","","Section=perl; Version=6.16-1","","","","","",""
-"libhtml-tagset-perl","libhtml-tagset-perl","libhtml-tagset-perl","data tables pertaining to HTML","","","1","1","","","","Section=perl; Version=3.24-1","","","","","",""
-"libhtml-tree-perl","libhtml-tree-perl","libhtml-tree-perl","Perl module to represent and create HTML syntax trees","","","1","1","","","","Section=perl; Version=5.07-3","","","","","",""
-"libhttp-cookies-perl","libhttp-cookies-perl","libhttp-cookies-perl","HTTP cookie jars","","","1","1","","","","Section=perl; Version=6.11-1","","","","","",""
-"libhttp-negotiate-perl","libhttp-negotiate-perl","libhttp-negotiate-perl","implementation of content negotiation","","","1","1","","","","Section=perl; Version=6.01-2","","","","","",""
-"liblwp-protocol-https-perl","liblwp-protocol-https-perl","liblwp-protocol-https-perl","HTTPS driver for LWP::UserAgent","","","1","1","","","","Section=perl; Version=6.14-1","","","","","",""
-"libnet-http-perl","libnet-http-perl","libnet-http-perl","module providing low-level HTTP connection client","","","1","1","","","","Section=perl; Version=6.23-1","","","","","",""
-"libtry-tiny-perl","libtry-tiny-perl","libtry-tiny-perl","module providing minimalistic try/catch","","","1","1","","","","Section=perl; Version=0.32-1","","","","","",""
-"libwww-robotrules-perl","libwww-robotrules-perl","libwww-robotrules-perl","database of robots.txt-derived permissions","","","1","1","","","","Section=perl; Version=6.02-1","","","","","",""
-"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","",""
-"libdata-dump-perl","libdata-dump-perl","libdata-dump-perl","Perl module to help dump data structures","","","1","1","","","","Section=perl; Version=1.25-1","","","","","",""
-"libhtml-form-perl","libhtml-form-perl","libhtml-form-perl","module that represents an HTML form element","","","1","1","","","","Section=perl; Version=6.12-1","","","","","",""
-"libhtml-format-perl","libhtml-format-perl","libhtml-format-perl","module for transforming HTML into various formats","","","1","1","","","","Section=perl; Version=2.16-2","","","","","",""
-"libhttp-daemon-perl","libhttp-daemon-perl","libhttp-daemon-perl","simple http server class","","","1","1","","","","Section=perl; Version=6.16-1","","","","","",""
-"libmailtools-perl","libmailtools-perl","libmailtools-perl","modules to manipulate email in perl programs","","","1","1","","","","Section=perl; Version=2.22-1","","","","","",""
-"liberror-perl","liberror-perl","liberror-perl","Perl module for error/exception handling in an OO-ish way","","","1","1","","","","Section=perl; Version=0.17030-1","","","","","",""
-"libipc-sharelite-perl","libipc-sharelite-perl","libipc-sharelite-perl","Perl module that provides a simple interface to shared memory","","","1","1","","","","Section=perl; Version=0.17-5+b3","","","","","",""
-"libipc-run-perl","libipc-run-perl","libipc-run-perl","Perl module for running processes","","","1","1","","","","Section=perl; Version=20231003.0-2","","","","","",""
-"libfile-sort-perl","libfile-sort-perl","libfile-sort-perl","module to sort a file or merge sort multiple files","","","1","1","","","","Section=perl; Version=1.01-3","","","","","",""
-"libalgorithm-diff-perl","libalgorithm-diff-perl","libalgorithm-diff-perl","module to find differences between files","","","1","1","","","","Section=perl; Version=1.201-1","","","","","",""
-"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libapache2-mod-perl2","libapache2-mod-perl2","libapache2-mod-perl2","Integration of perl with the Apache2 web server","","","1","1","","","","Section=httpd; Version=2.0.13-2+b2","","","","","",""
-"libscalar-list-utils-perl","libscalar-list-utils-perl","libscalar-list-utils-perl","modules providing common scalar and list utility subroutines","","","1","1","","","","Section=perl; Version=1:1.63-1+b4","","","","","",""
-"libxml-namespacesupport-perl","libxml-namespacesupport-perl","libxml-namespacesupport-perl","Perl module for supporting simple generic namespaces","","","1","1","","","","Section=perl; Version=1.12-2","","","","","",""
-"libyaml-libyaml-perl","libyaml-libyaml-perl","libyaml-libyaml-perl","Perl interface to libyaml, a YAML implementation","","","1","1","","","","Section=perl; Version=0.903.0+ds-1","","","","","",""
-"libcgi-pm-perl","libcgi-pm-perl","libcgi-pm-perl","module for Common Gateway Interface applications","","","1","1","","","","Section=perl; Version=4.68-1","","","","","",""
-"libexporter-tiny-perl","libexporter-tiny-perl","libexporter-tiny-perl","tiny exporter similar to Sub::Exporter","","","1","1","","","","Section=perl; Version=1.006002-1","","","","","",""
-"liblist-moreutils-xs-perl","liblist-moreutils-xs-perl","liblist-moreutils-xs-perl","Perl module providing compiled List::MoreUtils functions","","","1","1","","","","Section=perl; Version=0.430-4+b2","","","","","",""
-"libtext-iconv-perl","libtext-iconv-perl","libtext-iconv-perl","module to convert between character sets in Perl","","","1","1","","","","Section=perl; Version=1.7-8+b4","","","","","",""
-"libtie-ixhash-perl","libtie-ixhash-perl","libtie-ixhash-perl","Perl module to order associative arrays","","","1","1","","","","Section=perl; Version=1.23-4","","","","","",""
-"libxml-xpathengine-perl","libxml-xpathengine-perl","libxml-xpathengine-perl","re-usable XPath engine for DOM-like trees","","","1","1","","","","Section=perl; Version=0.14-2","","","","","",""
-"","","","","","","","","","","","","bioperl","libbio-perl-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl","libtest-most-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl","bioperl-run","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","perl-doc","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libhttp-message-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libwww-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libcache-cache-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libbio-perl-run-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libdbi-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libgd-gd2-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libapache-dbi-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","liburi-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libxml-simple-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libyaml-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libace-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","liblist-moreutils-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libxml-twig-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl","libset-scalar-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libio-string-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libdata-stag-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","bioperl-run","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libace-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libalgorithm-munkres-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libarray-compare-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libbio-asn1-entrezgene-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libclone-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libconvert-binary-c-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libdbd-sqlite3-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libdbd-mysql-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libdbd-pg-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libgd-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libgraph-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libgraphviz-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libhtml-parser-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libhtml-tableextract-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","liblist-moreutils-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libpostscript-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libset-scalar-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libsoap-lite-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libsort-naturally-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libspreadsheet-parseexcel-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libspreadsheet-writeexcel-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libstorable-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libsvg-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libsvg-graph-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","liburi-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-dom-xpath-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-parser-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-sax-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-sax-writer-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-simple-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-twig-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-writer-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libxml-libxml-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-perl","libwww-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libtest-most-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-most-perl","libexception-class-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-most-perl","libtest-deep-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-most-perl","libtest-differences-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-most-perl","libtest-exception-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-most-perl","libtest-harness-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-most-perl","libtest-simple-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-most-perl","libtest-warn-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","bioperl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","libbio-perl-run-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","libbio-featureio-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","libbio-cluster-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","libtest-requiresinternet-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","libbio-eutilities-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","libbio-tools-run-remoteblast-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","libsoap-lite-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","default-jdk-headless","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bioperl-run","amap-align","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","ncbi-blast+-legacy","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","bwa","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","exonerate","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","kalign","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","maq","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","mafft","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","muscle","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","ncoils","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","phylip","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","primer3","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","probalign","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","probcons","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","raxml","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","sim4","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","t-coffee","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","wise","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","lagan","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bioperl-run","pal2nal","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","perl-doc","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libclone-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libcompress-raw-bzip2-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libcompress-raw-zlib-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libencode-locale-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libencode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libhttp-date-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libio-html-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","liblwp-mediatypes-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-message-perl","libio-compress-brotli-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","ca-certificates","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libencode-locale-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libfile-listing-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-parser-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-tagset-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-tree-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-cookies-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-date-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-message-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-negotiate-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","liblwp-mediatypes-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","liblwp-protocol-https-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libnet-http-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libtry-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libwww-robotrules-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","netbase","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libdata-dump-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-form-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-format-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-daemon-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libmailtools-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcache-cache-perl","liberror-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcache-cache-perl","libipc-sharelite-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcache-cache-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","libbio-perl-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","libipc-run-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","libfile-sort-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","libalgorithm-diff-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","libio-string-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","libxml-twig-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libbio-perl-run-perl","libwww-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libdbi-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdbi-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdbi-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache-dbi-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache-dbi-perl","libapache2-mod-perl2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache-dbi-perl","libdbi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libencode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml-simple-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml-simple-perl","libxml-libxml-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml-simple-perl","libxml-namespacesupport-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml-simple-perl","libxml-sax-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libyaml-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libyaml-perl","libyaml-libyaml-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libace-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libace-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libace-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libace-perl","libcache-cache-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libace-perl","libcgi-pm-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libace-perl","libgd-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","libexporter-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","liblist-moreutils-xs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml-twig-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml-twig-perl","libxml-parser-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml-twig-perl","libhtml-parser-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libxml-twig-perl","libtext-iconv-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libxml-twig-perl","libtie-ixhash-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libxml-twig-perl","libwww-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libxml-twig-perl","libxml-xpathengine-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libset-scalar-perl","perl:any","Depends","#333","1","Depends","{}"
+bioperl,bioperl,bioperl,Perl tools for computational molecular biology,,,1,1,,,,Section=science; Version=1.7.8-1,,,,,,,
+libbio-perl-perl,libbio-perl-perl,libbio-perl-perl,BioPerl core perl modules,,,1,1,,,,Section=perl; Version=1.7.8-1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libtest-most-perl,libtest-most-perl,libtest-most-perl,Perl module with the most commonly needed test functions and features,,,1,1,,,,Section=perl; Version=0.38-1,,,,,,,
+bioperl-run,bioperl-run,bioperl-run,BioPerl wrappers: scripts,,,1,1,,,,Section=science; Version=1.7.3-13,,,,,,,
+perl-doc,perl-doc,perl-doc,Perl documentation,,,1,1,,,,Section=doc; Version=5.40.1-6,,,,,,,
+libhttp-message-perl,libhttp-message-perl,libhttp-message-perl,perl interface to HTTP style messages,,,1,1,,,,Section=perl; Version=7.00-2,,,,,,,
+libwww-perl,libwww-perl,libwww-perl,simple and consistent interface to the world-wide web,,,1,1,,,,Section=perl; Version=6.78-1,,,,,,,
+libcache-cache-perl,libcache-cache-perl,libcache-cache-perl,Managed caches of persistent information,,,1,1,,,,Section=perl; Version=1.08-3,,,,,,,
+libbio-perl-run-perl,libbio-perl-run-perl,libbio-perl-run-perl,BioPerl wrappers: modules,,,1,1,,,,Section=perl; Version=1.7.3-13,,,,,,,
+libdbi-perl,libdbi-perl,libdbi-perl,Perl Database Interface (DBI),,,1,1,,,,Section=perl; Version=1.647-1,,,,,,,
+libgd-gd2-perl,libgd-gd2-perl,libgd-gd2-perl,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libapache-dbi-perl,libapache-dbi-perl,libapache-dbi-perl,interface connecting Apache server to database via perl's DBI,,,1,1,,,,Section=perl; Version=1.12-3,,,,,,,
+liburi-perl,liburi-perl,liburi-perl,module to manipulate and access URI strings,,,1,1,,,,Section=perl; Version=5.30-1,,,,,,,
+libxml-simple-perl,libxml-simple-perl,libxml-simple-perl,Perl module for reading and writing XML,,,1,1,,,,Section=perl; Version=2.25-2,,,,,,,
+libyaml-perl,libyaml-perl,libyaml-perl,YAML Ain't Markup Language,,,1,1,,,,Section=perl; Version=1.31-1,,,,,,,
+libace-perl,libace-perl,libace-perl,Object-Oriented Access to ACEDB Databases,,,1,1,,,,Section=perl; Version=1.92-12+b1,,,,,,,
+liblist-moreutils-perl,liblist-moreutils-perl,liblist-moreutils-perl,Perl module with additional list functions not found in List::Util,,,1,1,,,,Section=perl; Version=0.430-2,,,,,,,
+libxml-twig-perl,libxml-twig-perl,libxml-twig-perl,Perl module for processing huge XML documents in tree mode,,,1,1,,,,Section=perl; Version=1:3.52-3,,,,,,,
+libset-scalar-perl,libset-scalar-perl,libset-scalar-perl,Perl interface for operations on finite sets,,,1,1,,,,Section=perl; Version=1.29-3,,,,,,,
+libio-string-perl,libio-string-perl,libio-string-perl,Emulate IO::File interface for in-core strings,,,1,1,,,,Section=perl; Version=1.08-4,,,,,,,
+libdata-stag-perl,libdata-stag-perl,libdata-stag-perl,module to manipulate Structured Tags datastructures,,,1,1,,,,Section=perl; Version=0.14-3,,,,,,,
+libalgorithm-munkres-perl,libalgorithm-munkres-perl,libalgorithm-munkres-perl,extension for Munkres' solution to Assignment problem,,,1,1,,,,Section=perl; Version=0.08-5,,,,,,,
+libarray-compare-perl,libarray-compare-perl,libarray-compare-perl,Perl module to easily compare arrays,,,1,1,,,,Section=perl; Version=3.0.8-1,,,,,,,
+libbio-asn1-entrezgene-perl,libbio-asn1-entrezgene-perl,libbio-asn1-entrezgene-perl,parser for NCBI Entrez Gene and NCBI Sequence records,,,1,1,,,,Section=perl; Version=1.730-3,,,,,,,
+libclone-perl,libclone-perl,libclone-perl,module for recursively copying Perl datatypes,,,1,1,,,,Section=perl; Version=0.47-1+b1,,,,,,,
+libconvert-binary-c-perl,libconvert-binary-c-perl,libconvert-binary-c-perl,Binary Data Conversion using C Types,,,1,1,,,,Section=perl; Version=0.85-1+b1,,,,,,,
+libdbd-sqlite3-perl,libdbd-sqlite3-perl,libdbd-sqlite3-perl,Perl DBI driver with a self-contained RDBMS,,,1,1,,,,Section=perl; Version=1.76-1,,,,,,,
+libdbd-mysql-perl,libdbd-mysql-perl,libdbd-mysql-perl,Perl5 database interface to the MariaDB/MySQL database,,,1,1,,,,Section=perl; Version=4.053-1,,,,,,,
+libdbd-pg-perl,libdbd-pg-perl,libdbd-pg-perl,Perl DBI driver for the PostgreSQL database server,,,1,1,,,,Section=perl; Version=3.18.0-1+b3,,,,,,,
+libgd-perl,libgd-perl,libgd-perl,Perl module wrapper for libgd,,,1,1,,,,Section=perl; Version=2.78-1+b3,,,,,,,
+libgraph-perl,libgraph-perl,libgraph-perl,Perl module for graph data structures and algorithms,,,1,1,,,,Section=perl; Version=1:0.9735-1,,,,,,,
+libgraphviz-perl,libgraphviz-perl,libgraphviz-perl,Perl interface to the GraphViz graphing tool,,,1,1,,,,Section=perl; Version=2.24-1,,,,,,,
+libhtml-parser-perl,libhtml-parser-perl,libhtml-parser-perl,collection of modules that parse HTML text documents,,,1,1,,,,Section=perl; Version=3.83-1+b2,,,,,,,
+libhtml-tableextract-perl,libhtml-tableextract-perl,libhtml-tableextract-perl,module for extracting the content contained in HTML tables,,,1,1,,,,Section=perl; Version=2.15-2,,,,,,,
+libpostscript-perl,libpostscript-perl,libpostscript-perl,Perl module to generate PostScript code,,,1,1,,,,Section=perl; Version=0.06-3.1,,,,,,,
+libsoap-lite-perl,libsoap-lite-perl,libsoap-lite-perl,Perl implementation of a SOAP client and server,,,1,1,,,,Section=perl; Version=1.27-3,,,,,,,
+libsort-naturally-perl,libsort-naturally-perl,libsort-naturally-perl,Sort naturally - sort lexically except for numerical parts,,,1,1,,,,Section=perl; Version=1.03-4,,,,,,,
+libspreadsheet-parseexcel-perl,libspreadsheet-parseexcel-perl,libspreadsheet-parseexcel-perl,Perl module to access information from Excel Spreadsheets,,,1,1,,,,Section=perl; Version=0.6600-1,,,,,,,
+libspreadsheet-writeexcel-perl,libspreadsheet-writeexcel-perl,libspreadsheet-writeexcel-perl,module to create Excel spreadsheets,,,1,1,,,,Section=perl; Version=2.40-4,,,,,,,
+libstorable-perl,libstorable-perl,libstorable-perl,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libsvg-perl,libsvg-perl,libsvg-perl,perl module to generate SVG images,,,1,1,,,,Section=perl; Version=2.87-1,,,,,,,
+libsvg-graph-perl,libsvg-graph-perl,libsvg-graph-perl,module to visualize data in SVG format,,,1,1,,,,Section=perl; Version=0.02-4,,,,,,,
+libxml-dom-xpath-perl,libxml-dom-xpath-perl,libxml-dom-xpath-perl,"adds XPath support to XML::DOM, using XML::XPathEngine",,,1,1,,,,Section=perl; Version=0.14-4,,,,,,,
+libxml-parser-perl,libxml-parser-perl,libxml-parser-perl,Perl module for parsing XML files,,,1,1,,,,Section=perl; Version=2.47-1+b3,,,,,,,
+libxml-sax-perl,libxml-sax-perl,libxml-sax-perl,Perl module for using and building Perl SAX2 XML processors,,,1,1,,,,Section=perl; Version=1.02+dfsg-4,,,,,,,
+libxml-sax-writer-perl,libxml-sax-writer-perl,libxml-sax-writer-perl,Perl module for a SAX2 XML writer,,,1,1,,,,Section=perl; Version=0.57-3,,,,,,,
+libxml-writer-perl,libxml-writer-perl,libxml-writer-perl,Perl module for writing XML documents,,,1,1,,,,Section=perl; Version=0.900-2,,,,,,,
+libxml-libxml-perl,libxml-libxml-perl,libxml-libxml-perl,Perl interface to the libxml2 library,,,1,1,,,,Section=perl; Version=2.0207+dfsg+really+2.0134-5+b2,,,,,,,
+libexception-class-perl,libexception-class-perl,libexception-class-perl,module that allows you to declare real exception classes in Perl,,,1,1,,,,Section=perl; Version=1.45-1,,,,,,,
+libtest-deep-perl,libtest-deep-perl,libtest-deep-perl,Perl module for extremely flexible deep comparisons,,,1,1,,,,Section=perl; Version=1.205-1,,,,,,,
+libtest-differences-perl,libtest-differences-perl,libtest-differences-perl,Perl module to test string and data structure differences,,,1,1,,,,Section=perl; Version=0.71-1,,,,,,,
+libtest-exception-perl,libtest-exception-perl,libtest-exception-perl,module for testing exception-based code,,,1,1,,,,Section=perl; Version=0.43-3,,,,,,,
+libtest-harness-perl,libtest-harness-perl,libtest-harness-perl,module to run standard Perl test scripts with statistics,,,1,1,,,,Section=perl; Version=3.50-1,,,,,,,
+libtest-simple-perl,libtest-simple-perl,libtest-simple-perl,set of basic utilities for writing tests in Perl,,,1,1,,,,Section=perl; Version=1.302210-1,,,,,,,
+libtest-warn-perl,libtest-warn-perl,libtest-warn-perl,test module for checking which warnings are generated,,,1,1,,,,Section=perl; Version=0.37-2,,,,,,,
+libbio-featureio-perl,libbio-featureio-perl,libbio-featureio-perl,"Modules for reading, writing, and manipulating sequence features",,,1,1,,,,Section=perl; Version=1.6.905-2,,,,,,,
+libbio-cluster-perl,libbio-cluster-perl,libbio-cluster-perl,BioPerl cluster modules,,,1,1,,,,Section=perl; Version=1.7.3-6,,,,,,,
+libtest-requiresinternet-perl,libtest-requiresinternet-perl,libtest-requiresinternet-perl,module to easily test network connectivity,,,1,1,,,,Section=perl; Version=0.05-4,,,,,,,
+libbio-eutilities-perl,libbio-eutilities-perl,libbio-eutilities-perl,BioPerl interface to the Entrez Programming Utilities (E-utilities),,,1,1,,,,Section=perl; Version=1.77-3,,,,,,,
+libbio-tools-run-remoteblast-perl,libbio-tools-run-remoteblast-perl,libbio-tools-run-remoteblast-perl,Object for remote execution of the NCBI Blast via HTTP,,,1,1,,,,Section=perl; Version=1.7.3-3,,,,,,,
+default-jdk-headless,default-jdk-headless,default-jdk-headless,Standard Java or Java compatible Development Kit (headless),,,1,1,,,,Section=java; Version=2:1.21-76,,,,,,,
+amap-align,amap-align,amap-align,Protein multiple alignment by sequence annealing,,,1,1,,,,Section=science; Version=2.2+git20080214.600fc29+dfsg-2,,,,,,,
+ncbi-blast+-legacy,ncbi-blast+-legacy,ncbi-blast+-legacy,NCBI Blast legacy call script,,,1,1,,,,Section=science; Version=2.16.0+ds-7,,,,,,,
+bwa,bwa,bwa,Burrows-Wheeler Aligner,,,1,1,,,,Section=science; Version=0.7.18-1,,,,,,,
+exonerate,exonerate,exonerate,generic tool for pairwise sequence comparison,,,1,1,,,,Section=science; Version=2.4.0-5+b1,,,,,,,
+kalign,kalign,kalign,Global and progressive multiple sequence alignment,,,1,1,,,,Section=science; Version=1:3.4.0-1+b3,,,,,,,
+maq,maq,maq,maps short fixed-length polymorphic DNA sequence reads to reference sequences,,,1,1,,,,Section=science; Version=0.7.1-10,,,,,,,
+mafft,mafft,mafft,Multiple alignment program for amino acid or nucleotide sequences,,,1,1,,,,Section=science; Version=7.505-1,,,,,,,
+muscle,muscle,muscle,Multiple alignment program of protein sequences,,,1,1,,,,Section=science; Version=1:5.1.0-1,,,,,,,
+ncoils,ncoils,ncoils,coiled coil secondary structure prediction,,,1,1,,,,Section=science; Version=2002-9,,,,,,,
+phylip,phylip,phylip,package of programs for inferring phylogenies,,,1,1,,,,Section=science; Version=1:3.697+dfsg-4,,,,,,,
+primer3,primer3,primer3,tool to design flanking oligo nucleotides for DNA amplification,,,1,1,,,,Section=science; Version=2.6.1-5,,,,,,,
+probalign,probalign,probalign,multiple sequence alignment using partition function posterior probabilities,,,1,1,,,,Section=science; Version=1.4-10,,,,,,,
+probcons,probcons,probcons,PROBabilistic CONSistency-based multiple sequence alignment,,,1,1,,,,Section=science; Version=1.12-14,,,,,,,
+raxml,raxml,raxml,Randomized Axelerated Maximum Likelihood of phylogenetic trees,,,1,1,,,,Section=science; Version=8.2.13+dfsg-2+b1,,,,,,,
+sim4,sim4,sim4,tool for aligning cDNA and genomic DNA,,,1,1,,,,Section=science; Version=0.0.20121010-8,,,,,,,
+t-coffee,t-coffee,t-coffee,Multiple Sequence Alignment,,,1,1,,,,Section=science; Version=13.45.0.4846264+really13.41.0.28bdc39+dfsg-1,,,,,,,
+wise,wise,wise,"comparison of biopolymers, like DNA and protein sequences",,,1,1,,,,Section=science; Version=2.4.1-27,,,,,,,
+lagan,lagan,lagan,highly parametrizable pairwise global genome sequence aligner,,,1,1,,,,Section=science; Version=2.0-10,,,,,,,
+pal2nal,pal2nal,pal2nal,converts proteins to genomic DNA alignment,,,1,1,,,,Section=science; Version=14.1-3,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+libcompress-raw-bzip2-perl,libcompress-raw-bzip2-perl,libcompress-raw-bzip2-perl,low-level interface to bzip2 compression library,,,1,1,,,,Section=perl; Version=2.213-2,,,,,,,
+libcompress-raw-zlib-perl,libcompress-raw-zlib-perl,libcompress-raw-zlib-perl,low-level interface to zlib compression library,,,1,1,,,,Section=perl; Version=2.213-1+b1,,,,,,,
+libencode-locale-perl,libencode-locale-perl,libencode-locale-perl,utility to determine the locale encoding,,,1,1,,,,Section=perl; Version=1.05-3,,,,,,,
+libencode-perl,libencode-perl,libencode-perl,module providing interfaces between Perl's strings and the system,,,1,1,,,,Section=perl; Version=3.21-1+b2,,,,,,,
+libhttp-date-perl,libhttp-date-perl,libhttp-date-perl,module of date conversion routines,,,1,1,,,,Section=perl; Version=6.06-1,,,,,,,
+libio-html-perl,libio-html-perl,libio-html-perl,open an HTML file with automatic charset detection,,,1,1,,,,Section=perl; Version=1.004-3,,,,,,,
+liblwp-mediatypes-perl,liblwp-mediatypes-perl,liblwp-mediatypes-perl,module to guess media type for a file or a URL,,,1,1,,,,Section=perl; Version=6.04-2,,,,,,,
+libio-compress-brotli-perl,libio-compress-brotli-perl,libio-compress-brotli-perl,modules to read/write Brotli buffers/streams,,,1,1,,,,Section=perl; Version=0.004001-2+b3,,,,,,,
+ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
+libfile-listing-perl,libfile-listing-perl,libfile-listing-perl,module to parse directory listings,,,1,1,,,,Section=perl; Version=6.16-1,,,,,,,
+libhtml-tagset-perl,libhtml-tagset-perl,libhtml-tagset-perl,data tables pertaining to HTML,,,1,1,,,,Section=perl; Version=3.24-1,,,,,,,
+libhtml-tree-perl,libhtml-tree-perl,libhtml-tree-perl,Perl module to represent and create HTML syntax trees,,,1,1,,,,Section=perl; Version=5.07-3,,,,,,,
+libhttp-cookies-perl,libhttp-cookies-perl,libhttp-cookies-perl,HTTP cookie jars,,,1,1,,,,Section=perl; Version=6.11-1,,,,,,,
+libhttp-negotiate-perl,libhttp-negotiate-perl,libhttp-negotiate-perl,implementation of content negotiation,,,1,1,,,,Section=perl; Version=6.01-2,,,,,,,
+liblwp-protocol-https-perl,liblwp-protocol-https-perl,liblwp-protocol-https-perl,HTTPS driver for LWP::UserAgent,,,1,1,,,,Section=perl; Version=6.14-1,,,,,,,
+libnet-http-perl,libnet-http-perl,libnet-http-perl,module providing low-level HTTP connection client,,,1,1,,,,Section=perl; Version=6.23-1,,,,,,,
+libtry-tiny-perl,libtry-tiny-perl,libtry-tiny-perl,module providing minimalistic try/catch,,,1,1,,,,Section=perl; Version=0.32-1,,,,,,,
+libwww-robotrules-perl,libwww-robotrules-perl,libwww-robotrules-perl,database of robots.txt-derived permissions,,,1,1,,,,Section=perl; Version=6.02-1,,,,,,,
+netbase,netbase,netbase,Basic TCP/IP networking system,,,1,1,,,,Section=admin; Version=6.5,,,,,,,
+libdata-dump-perl,libdata-dump-perl,libdata-dump-perl,Perl module to help dump data structures,,,1,1,,,,Section=perl; Version=1.25-1,,,,,,,
+libhtml-form-perl,libhtml-form-perl,libhtml-form-perl,module that represents an HTML form element,,,1,1,,,,Section=perl; Version=6.12-1,,,,,,,
+libhtml-format-perl,libhtml-format-perl,libhtml-format-perl,module for transforming HTML into various formats,,,1,1,,,,Section=perl; Version=2.16-2,,,,,,,
+libhttp-daemon-perl,libhttp-daemon-perl,libhttp-daemon-perl,simple http server class,,,1,1,,,,Section=perl; Version=6.16-1,,,,,,,
+libmailtools-perl,libmailtools-perl,libmailtools-perl,modules to manipulate email in perl programs,,,1,1,,,,Section=perl; Version=2.22-1,,,,,,,
+liberror-perl,liberror-perl,liberror-perl,Perl module for error/exception handling in an OO-ish way,,,1,1,,,,Section=perl; Version=0.17030-1,,,,,,,
+libipc-sharelite-perl,libipc-sharelite-perl,libipc-sharelite-perl,Perl module that provides a simple interface to shared memory,,,1,1,,,,Section=perl; Version=0.17-5+b3,,,,,,,
+libipc-run-perl,libipc-run-perl,libipc-run-perl,Perl module for running processes,,,1,1,,,,Section=perl; Version=20231003.0-2,,,,,,,
+libfile-sort-perl,libfile-sort-perl,libfile-sort-perl,module to sort a file or merge sort multiple files,,,1,1,,,,Section=perl; Version=1.01-3,,,,,,,
+libalgorithm-diff-perl,libalgorithm-diff-perl,libalgorithm-diff-perl,module to find differences between files,,,1,1,,,,Section=perl; Version=1.201-1,,,,,,,
+perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libapache2-mod-perl2,libapache2-mod-perl2,libapache2-mod-perl2,Integration of perl with the Apache2 web server,,,1,1,,,,Section=httpd; Version=2.0.13-2+b2,,,,,,,
+libscalar-list-utils-perl,libscalar-list-utils-perl,libscalar-list-utils-perl,modules providing common scalar and list utility subroutines,,,1,1,,,,Section=perl; Version=1:1.63-1+b4,,,,,,,
+libxml-namespacesupport-perl,libxml-namespacesupport-perl,libxml-namespacesupport-perl,Perl module for supporting simple generic namespaces,,,1,1,,,,Section=perl; Version=1.12-2,,,,,,,
+libyaml-libyaml-perl,libyaml-libyaml-perl,libyaml-libyaml-perl,"Perl interface to libyaml, a YAML implementation",,,1,1,,,,Section=perl; Version=0.903.0+ds-1,,,,,,,
+libcgi-pm-perl,libcgi-pm-perl,libcgi-pm-perl,module for Common Gateway Interface applications,,,1,1,,,,Section=perl; Version=4.68-1,,,,,,,
+libexporter-tiny-perl,libexporter-tiny-perl,libexporter-tiny-perl,tiny exporter similar to Sub::Exporter,,,1,1,,,,Section=perl; Version=1.006002-1,,,,,,,
+liblist-moreutils-xs-perl,liblist-moreutils-xs-perl,liblist-moreutils-xs-perl,Perl module providing compiled List::MoreUtils functions,,,1,1,,,,Section=perl; Version=0.430-4+b2,,,,,,,
+libtext-iconv-perl,libtext-iconv-perl,libtext-iconv-perl,module to convert between character sets in Perl,,,1,1,,,,Section=perl; Version=1.7-8+b4,,,,,,,
+libtie-ixhash-perl,libtie-ixhash-perl,libtie-ixhash-perl,Perl module to order associative arrays,,,1,1,,,,Section=perl; Version=1.23-4,,,,,,,
+libxml-xpathengine-perl,libxml-xpathengine-perl,libxml-xpathengine-perl,re-usable XPath engine for DOM-like trees,,,1,1,,,,Section=perl; Version=0.14-2,,,,,,,
+,,,,,,,,,,,,libbio-perl-perl,bioperl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,bioperl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-most-perl,bioperl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,bioperl-run,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl-doc,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhttp-message-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libwww-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libcache-cache-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libbio-perl-run-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libdbi-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgd-gd2-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libapache-dbi-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liburi-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-simple-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libyaml-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libace-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liblist-moreutils-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-twig-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libset-scalar-perl,bioperl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libio-string-perl,libbio-perl-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdata-stag-perl,libbio-perl-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libbio-perl-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,bioperl-run,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libace-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libalgorithm-munkres-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libarray-compare-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libbio-asn1-entrezgene-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libclone-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libconvert-binary-c-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libdbd-sqlite3-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libdbd-mysql-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libdbd-pg-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgd-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgraph-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgraphviz-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhtml-parser-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhtml-tableextract-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liblist-moreutils-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libpostscript-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libset-scalar-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libsoap-lite-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libsort-naturally-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libspreadsheet-parseexcel-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libspreadsheet-writeexcel-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libstorable-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libsvg-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libsvg-graph-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liburi-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-dom-xpath-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-parser-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-sax-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-sax-writer-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-simple-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-twig-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-writer-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-libxml-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libwww-perl,libbio-perl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libexception-class-perl,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-deep-perl,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-differences-perl,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-exception-perl,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-harness-perl,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-simple-perl,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-warn-perl,libtest-most-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,bioperl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbio-perl-run-perl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbio-featureio-perl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbio-cluster-perl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-requiresinternet-perl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbio-eutilities-perl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbio-tools-run-remoteblast-perl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsoap-lite-perl,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,default-jdk-headless,bioperl-run,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,amap-align,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ncbi-blast+-legacy,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,bwa,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,exonerate,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,kalign,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,maq,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,mafft,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,muscle,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ncoils,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,phylip,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,primer3,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,probalign,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,probcons,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,raxml,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,sim4,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,t-coffee,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,wise,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,lagan,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,pal2nal,bioperl-run,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl,perl-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclone-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcompress-raw-bzip2-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcompress-raw-zlib-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-locale-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-date-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libio-html-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblwp-mediatypes-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libhttp-message-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libio-compress-brotli-perl,libhttp-message-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ca-certificates,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-locale-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-listing-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-parser-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-tagset-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-tree-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-cookies-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-date-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-message-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-negotiate-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblwp-mediatypes-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblwp-protocol-https-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnet-http-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtry-tiny-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwww-robotrules-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,netbase,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdata-dump-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhtml-form-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhtml-format-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhttp-daemon-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libmailtools-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liberror-perl,libcache-cache-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libipc-sharelite-perl,libcache-cache-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libcache-cache-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libbio-perl-run-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbio-perl-perl,libbio-perl-run-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libipc-run-perl,libbio-perl-run-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-sort-perl,libbio-perl-run-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libalgorithm-diff-perl,libbio-perl-run-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libio-string-perl,libbio-perl-run-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-twig-perl,libbio-perl-run-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libwww-perl,libbio-perl-run-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl,libdbi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libdbi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libdbi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libapache-dbi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libapache2-mod-perl2,libapache-dbi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdbi-perl,libapache-dbi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-perl,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libscalar-list-utils-perl,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libxml-simple-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml-libxml-perl,libxml-simple-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml-namespacesupport-perl,libxml-simple-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml-sax-perl,libxml-simple-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libyaml-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libyaml-libyaml-perl,libyaml-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libace-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libace-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libace-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcache-cache-perl,libace-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcgi-pm-perl,libace-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgd-perl,libace-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libexporter-tiny-perl,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblist-moreutils-xs-perl,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libxml-twig-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml-parser-perl,libxml-twig-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-parser-perl,libxml-twig-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libtext-iconv-perl,libxml-twig-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libtie-ixhash-perl,libxml-twig-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libwww-perl,libxml-twig-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libxml-xpathengine-perl,libxml-twig-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libset-scalar-perl,Depends,#333,1,Depends,{}

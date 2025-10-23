@@ -1,19 +1,19 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libpcp-archive1","libpcp-archive1","libpcp-archive1","Performance Co-Pilot archive writing library","","","1","1","","","","Section=libs; Version=6.3.8-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libpcp3","libpcp3","libpcp3","Performance Co-Pilot library","","","1","1","","","","Section=libs; Version=6.3.8-1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"libsasl2-2","libsasl2-2","libsasl2-2","Cyrus SASL - authentication abstraction library","","","1","1","","","","Section=libs; Version=2.1.28+dfsg1-9","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"pcp-conf","pcp-conf","pcp-conf","Performance Co-Pilot runtime configuration","","","1","1","","","","Section=libs; Version=6.3.8-1","","","","","",""
-"","","","","","","","","","","","","libpcp-archive1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcp-archive1","libpcp3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libpcp3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcp3","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcp3","libsasl2-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcp3","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcp3","pcp-conf","Depends","#333","1","Depends","{}"
+libpcp-archive1,libpcp-archive1,libpcp-archive1,Performance Co-Pilot archive writing library,,,1,1,,,,Section=libs; Version=6.3.8-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libpcp3,libpcp3,libpcp3,Performance Co-Pilot library,,,1,1,,,,Section=libs; Version=6.3.8-1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+libsasl2-2,libsasl2-2,libsasl2-2,Cyrus SASL - authentication abstraction library,,,1,1,,,,Section=libs; Version=2.1.28+dfsg1-9,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+pcp-conf,pcp-conf,pcp-conf,Performance Co-Pilot runtime configuration,,,1,1,,,,Section=libs; Version=6.3.8-1,,,,,,,
+,,,,,,,,,,,,libc6,libpcp-archive1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcp3,libpcp-archive1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libpcp3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libpcp3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsasl2-2,libpcp3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libpcp3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,pcp-conf,libpcp3,Depends,#333,1,Depends,{}

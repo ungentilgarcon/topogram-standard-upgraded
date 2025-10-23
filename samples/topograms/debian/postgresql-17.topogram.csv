@@ -1,17 +1,17 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libecpg-compat3","libecpg-compat3","libecpg-compat3","older version of run-time library for ECPG programs","","","1","1","","","","Section=libs; Version=17.6-0+deb13u1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libecpg6","libecpg6","libecpg6","run-time library for ECPG programs","","","1","1","","","","Section=libs; Version=17.6-0+deb13u1","","","","","",""
-"libpgtypes3","libpgtypes3","libpgtypes3","shared library libpgtypes for PostgreSQL 17","","","1","1","","","","Section=libs; Version=17.6-0+deb13u1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libpq5","libpq5","libpq5","PostgreSQL C client library","","","1","1","","","","Section=libs; Version=17.6-0+deb13u1","","","","","",""
-"","","","","","","","","","","","","libecpg-compat3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libecpg-compat3","libecpg6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libecpg-compat3","libpgtypes3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libecpg6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libecpg6","libpgtypes3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libecpg6","libpq5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpgtypes3","libc6","Depends","#333","1","Depends","{}"
+libecpg-compat3,libecpg-compat3,libecpg-compat3,older version of run-time library for ECPG programs,,,1,1,,,,Section=libs; Version=17.6-0+deb13u1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libecpg6,libecpg6,libecpg6,run-time library for ECPG programs,,,1,1,,,,Section=libs; Version=17.6-0+deb13u1,,,,,,,
+libpgtypes3,libpgtypes3,libpgtypes3,shared library libpgtypes for PostgreSQL 17,,,1,1,,,,Section=libs; Version=17.6-0+deb13u1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libpq5,libpq5,libpq5,PostgreSQL C client library,,,1,1,,,,Section=libs; Version=17.6-0+deb13u1,,,,,,,
+,,,,,,,,,,,,libc6,libecpg-compat3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libecpg6,libecpg-compat3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpgtypes3,libecpg-compat3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libecpg6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpgtypes3,libecpg6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpq5,libecpg6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpgtypes3,Depends,#333,1,Depends,{}

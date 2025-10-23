@@ -1,10 +1,10 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libpugixml-dev","libpugixml-dev","libpugixml-dev","Light-weight C++ XML processing library (development)","","","1","1","","","","Section=libdevel; Version=1.14-2","","","","","",""
-"libpugixml1v5","libpugixml1v5","libpugixml1v5","Light-weight C++ XML processing library","","","1","1","","","","Section=libs; Version=1.14-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libpugixml-dev","libpugixml1v5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpugixml1v5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpugixml1v5","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpugixml1v5","libstdc++6","Depends","#333","1","Depends","{}"
+libpugixml-dev,libpugixml-dev,libpugixml-dev,Light-weight C++ XML processing library (development),,,1,1,,,,Section=libdevel; Version=1.14-2,,,,,,,
+libpugixml1v5,libpugixml1v5,libpugixml1v5,Light-weight C++ XML processing library,,,1,1,,,,Section=libs; Version=1.14-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libpugixml1v5,libpugixml-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpugixml1v5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpugixml1v5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpugixml1v5,Depends,#333,1,Depends,{}

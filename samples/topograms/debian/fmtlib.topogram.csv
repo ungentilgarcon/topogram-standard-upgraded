@@ -1,10 +1,10 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libfmt-dev","libfmt-dev","libfmt-dev","fast type-safe C++ formatting library -- development files","","","1","1","","","","Section=libdevel; Version=10.1.1+ds1-4","","","","","",""
-"libfmt10","libfmt10","libfmt10","fast type-safe C++ formatting library -- library","","","1","1","","","","Section=libs; Version=10.1.1+ds1-4","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libfmt-dev","libfmt10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfmt10","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfmt10","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfmt10","libstdc++6","Depends","#333","1","Depends","{}"
+libfmt-dev,libfmt-dev,libfmt-dev,fast type-safe C++ formatting library -- development files,,,1,1,,,,Section=libdevel; Version=10.1.1+ds1-4,,,,,,,
+libfmt10,libfmt10,libfmt10,fast type-safe C++ formatting library -- library,,,1,1,,,,Section=libs; Version=10.1.1+ds1-4,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libfmt10,libfmt-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libfmt10,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libfmt10,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libfmt10,Depends,#333,1,Depends,{}

@@ -1,34 +1,34 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libruby","libruby","libruby","Libraries necessary to run Ruby","","","1","1","","","","Section=libs; Version=1:3.3+b1","","","","","",""
-"libruby3.3","libruby3.3","libruby3.3","Libraries necessary to run Ruby 3.3","","","1","1","","","","Section=libs; Version=3.3.8-2","","","","","",""
-"rake","rake","rake","ruby make-like utility","","","1","1","","","","Section=ruby; Version=13.2.1-1","","","","","",""
-"ruby-csv","ruby-csv","ruby-csv","CSV reader and writer","","","1","1","","","","Section=ruby; Version=3.3.4-1","","","","","",""
-"ruby-did-you-mean","ruby-did-you-mean","ruby-did-you-mean","smart error messages for Ruby > 2.3","","","1","1","","","","Section=ruby; Version=1.6.3-2","","","","","",""
-"ruby-net-telnet","ruby-net-telnet","ruby-net-telnet","telnet client library","","","1","1","","","","Section=ruby; Version=0.2.0-1","","","","","",""
-"ruby-ruby2-keywords","ruby-ruby2-keywords","ruby-ruby2-keywords","source-level compatibility library between ruby2.7 and ruby3","","","1","1","","","","Section=ruby; Version=0.0.5-1","","","","","",""
-"ruby-xmlrpc","ruby-xmlrpc","ruby-xmlrpc","XMLRPC library for Ruby","","","1","1","","","","Section=ruby; Version=0.3.3-2","","","","","",""
-"ruby-webrick","ruby-webrick","ruby-webrick","HTTP server toolkit in Ruby","","","1","1","","","","Section=ruby; Version=1.9.1-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcrypt1","libcrypt1","libcrypt1","libcrypt shared library","","","1","1","","","","Section=libs; Version=1:4.4.38-1","","","","","",""
-"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","",""
-"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"libyaml-0-2","libyaml-0-2","libyaml-0-2","Fast YAML 1.1 parser and emitter library","","","1","1","","","","Section=libs; Version=0.2.5-2","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"ruby-sdbm","ruby-sdbm","ruby-sdbm","simple file-based key-value store with String keys and values","","","1","1","","","","Section=ruby; Version=1.0.0-5+b7","","","","","",""
-"","","","","","","","","","","","","libruby","libruby3.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","rake","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","ruby-csv","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","ruby-did-you-mean","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","ruby-net-telnet","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","ruby-ruby2-keywords","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","ruby-xmlrpc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","ruby-webrick","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","libcrypt1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","libgmp10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","libyaml-0-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libruby3.3","ruby-sdbm","Recommends","#333","1","Recommends","{}"
+libruby,libruby,libruby,Libraries necessary to run Ruby,,,1,1,,,,Section=libs; Version=1:3.3+b1,,,,,,,
+libruby3.3,libruby3.3,libruby3.3,Libraries necessary to run Ruby 3.3,,,1,1,,,,Section=libs; Version=3.3.8-2,,,,,,,
+rake,rake,rake,ruby make-like utility,,,1,1,,,,Section=ruby; Version=13.2.1-1,,,,,,,
+ruby-csv,ruby-csv,ruby-csv,CSV reader and writer,,,1,1,,,,Section=ruby; Version=3.3.4-1,,,,,,,
+ruby-did-you-mean,ruby-did-you-mean,ruby-did-you-mean,smart error messages for Ruby > 2.3,,,1,1,,,,Section=ruby; Version=1.6.3-2,,,,,,,
+ruby-net-telnet,ruby-net-telnet,ruby-net-telnet,telnet client library,,,1,1,,,,Section=ruby; Version=0.2.0-1,,,,,,,
+ruby-ruby2-keywords,ruby-ruby2-keywords,ruby-ruby2-keywords,source-level compatibility library between ruby2.7 and ruby3,,,1,1,,,,Section=ruby; Version=0.0.5-1,,,,,,,
+ruby-xmlrpc,ruby-xmlrpc,ruby-xmlrpc,XMLRPC library for Ruby,,,1,1,,,,Section=ruby; Version=0.3.3-2,,,,,,,
+ruby-webrick,ruby-webrick,ruby-webrick,HTTP server toolkit in Ruby,,,1,1,,,,Section=ruby; Version=1.9.1-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcrypt1,libcrypt1,libcrypt1,libcrypt shared library,,,1,1,,,,Section=libs; Version=1:4.4.38-1,,,,,,,
+libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
+libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+libyaml-0-2,libyaml-0-2,libyaml-0-2,Fast YAML 1.1 parser and emitter library,,,1,1,,,,Section=libs; Version=0.2.5-2,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+ruby-sdbm,ruby-sdbm,ruby-sdbm,simple file-based key-value store with String keys and values,,,1,1,,,,Section=ruby; Version=1.0.0-5+b7,,,,,,,
+,,,,,,,,,,,,libruby3.3,libruby,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,rake,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-csv,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-did-you-mean,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-net-telnet,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-ruby2-keywords,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-xmlrpc,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-webrick,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcrypt1,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi8,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgmp10,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libyaml-0-2,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libruby3.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-sdbm,libruby3.3,Recommends,#333,1,Recommends,{}

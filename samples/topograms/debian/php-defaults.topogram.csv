@@ -1,36 +1,36 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libapache2-mod-php","libapache2-mod-php","libapache2-mod-php","server-side, HTML-embedded scripting language (Apache 2 module) (default)","","","1","1","","","","Section=php; Version=2:8.4+96","","","","","",""
-"libapache2-mod-php8.4","libapache2-mod-php8.4","libapache2-mod-php8.4","server-side, HTML-embedded scripting language (Apache 2 module)","","","1","1","","","","Section=httpd; Version=8.4.11-1","","","","","",""
-"media-types","media-types","media-types","List of standard media types and their usual file extension","","","1","1","","","","Section=net; Version=13.0.0","","","","","",""
-"php8.4-cli","php8.4-cli","php8.4-cli","command-line interpreter for the PHP scripting language","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","",""
-"php8.4-common","php8.4-common","php8.4-common","documentation, examples and common module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","",""
-"php8.4-opcache","php8.4-opcache","php8.4-opcache","Zend OpCache module for PHP","","","1","1","","","","Section=php; Version=8.4.11-1","","","","","",""
-"tzdata","tzdata","tzdata","time zone and daylight-saving time data","","","1","1","","","","Section=localization; Version=2025b-4+deb13u1","","","","","",""
-"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","",""
-"apache2-api-20120211","apache2-api-20120211","apache2-api-20120211","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"apache2-bin","apache2-bin","apache2-bin","Apache HTTP Server (modules and other binary files)","","","1","1","","","","Section=httpd; Version=2.4.65-2","","","","","",""
-"libargon2-1","libargon2-1","libargon2-1","memory-hard hashing function - runtime library","","","1","1","","","","Section=libs; Version=0~20190702+dfsg-4+b2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libsodium23","libsodium23","libsodium23","Network communication, cryptography and signaturing library","","","1","1","","","","Section=libs; Version=1.0.18-1+b2","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"apache2","apache2","apache2","Apache HTTP Server","","","1","1","","","","Section=httpd; Version=2.4.65-2","","","","","",""
-"","","","","","","","","","","","","libapache2-mod-php","libapache2-mod-php8.4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","media-types","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","php8.4-cli","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","php8.4-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","php8.4-opcache","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","tzdata","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","ucf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","apache2-api-20120211","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","apache2-bin","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","libargon2-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","libsodium23","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libapache2-mod-php8.4","apache2","Recommends","#333","1","Recommends","{}"
+libapache2-mod-php,libapache2-mod-php,libapache2-mod-php,"server-side, HTML-embedded scripting language (Apache 2 module) (default)",,,1,1,,,,Section=php; Version=2:8.4+96,,,,,,,
+libapache2-mod-php8.4,libapache2-mod-php8.4,libapache2-mod-php8.4,"server-side, HTML-embedded scripting language (Apache 2 module)",,,1,1,,,,Section=httpd; Version=8.4.11-1,,,,,,,
+media-types,media-types,media-types,List of standard media types and their usual file extension,,,1,1,,,,Section=net; Version=13.0.0,,,,,,,
+php8.4-cli,php8.4-cli,php8.4-cli,command-line interpreter for the PHP scripting language,,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
+php8.4-common,php8.4-common,php8.4-common,"documentation, examples and common module for PHP",,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
+php8.4-opcache,php8.4-opcache,php8.4-opcache,Zend OpCache module for PHP,,,1,1,,,,Section=php; Version=8.4.11-1,,,,,,,
+tzdata,tzdata,tzdata,time zone and daylight-saving time data,,,1,1,,,,Section=localization; Version=2025b-4+deb13u1,,,,,,,
+ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
+apache2-api-20120211,apache2-api-20120211,apache2-api-20120211,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+apache2-bin,apache2-bin,apache2-bin,Apache HTTP Server (modules and other binary files),,,1,1,,,,Section=httpd; Version=2.4.65-2,,,,,,,
+libargon2-1,libargon2-1,libargon2-1,memory-hard hashing function - runtime library,,,1,1,,,,Section=libs; Version=0~20190702+dfsg-4+b2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libsodium23,libsodium23,libsodium23,"Network communication, cryptography and signaturing library",,,1,1,,,,Section=libs; Version=1.0.18-1+b2,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+apache2,apache2,apache2,Apache HTTP Server,,,1,1,,,,Section=httpd; Version=2.4.65-2,,,,,,,
+,,,,,,,,,,,,libapache2-mod-php8.4,libapache2-mod-php,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,media-types,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,php8.4-cli,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,php8.4-common,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,php8.4-opcache,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tzdata,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ucf,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,apache2-api-20120211,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,apache2-bin,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libargon2-1,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsodium23,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libapache2-mod-php8.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,apache2,libapache2-mod-php8.4,Recommends,#333,1,Recommends,{}

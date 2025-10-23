@@ -1,12 +1,12 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libost-base-dev","libost-base-dev","libost-base-dev","Open-Source Computational Structural Biology Framework","","","1","1","","","","Section=libdevel; Version=2.9.3-2","","","","","",""
-"libost-base2.9","libost-base2.9","libost-base2.9","Open-Source Computational Structural Biology Framework","","","1","1","","","","Section=libs; Version=2.9.3-2","","","","","",""
-"libboost-filesystem1.83.0","libboost-filesystem1.83.0","libboost-filesystem1.83.0","filesystem operations (portable paths, iteration over directories, etc) in C++","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libost-base-dev","libost-base2.9","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libost-base2.9","libboost-filesystem1.83.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libost-base2.9","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libost-base2.9","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libost-base2.9","libstdc++6","Depends","#333","1","Depends","{}"
+libost-base-dev,libost-base-dev,libost-base-dev,Open-Source Computational Structural Biology Framework,,,1,1,,,,Section=libdevel; Version=2.9.3-2,,,,,,,
+libost-base2.9,libost-base2.9,libost-base2.9,Open-Source Computational Structural Biology Framework,,,1,1,,,,Section=libs; Version=2.9.3-2,,,,,,,
+libboost-filesystem1.83.0,libboost-filesystem1.83.0,libboost-filesystem1.83.0,"filesystem operations (portable paths, iteration over directories, etc) in C++",,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libost-base2.9,libost-base-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libboost-filesystem1.83.0,libost-base2.9,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libost-base2.9,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libost-base2.9,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libost-base2.9,Depends,#333,1,Depends,{}

@@ -1,15 +1,15 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libproc2-0","libproc2-0","libproc2-0","library for accessing process information from /proc","","","1","1","","","","Section=libs; Version=2:4.0.4-9","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libcap2","libcap2","libcap2","POSIX 1003.1e capabilities (library)","","","1","1","","","","Section=libs; Version=1:2.75-10+b1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"","","","","","","","","","","","","libproc2-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libproc2-0","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libsystemd0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsystemd0","libcap2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsystemd0","libzstd1","Recommends","#333","1","Recommends","{}"
+libproc2-0,libproc2-0,libproc2-0,library for accessing process information from /proc,,,1,1,,,,Section=libs; Version=2:4.0.4-9,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libcap2,libcap2,libcap2,POSIX 1003.1e capabilities (library),,,1,1,,,,Section=libs; Version=1:2.75-10+b1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+,,,,,,,,,,,,libc6,libproc2-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,libproc2-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libsystemd0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap2,libsystemd0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libsystemd0,Recommends,#333,1,Recommends,{}

@@ -1,348 +1,348 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libcatalyst-perl","libcatalyst-perl","libcatalyst-perl","elegant Model-View-Controller Web Application Framework","","","1","1","","","","Section=perl; Version=5.90132-1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libcgi-simple-perl","libcgi-simple-perl","libcgi-simple-perl","simple CGI.pm compatible OO CGI interface","","","1","1","","","","Section=perl; Version=1.282-1~deb13u1","","","","","",""
-"libcgi-struct-xs-perl","libcgi-struct-xs-perl","libcgi-struct-xs-perl","Perl module to build structures from CGI data, XS version","","","1","1","","","","Section=perl; Version=1.04-3+b4","","","","","",""
-"libclass-accessor-perl","libclass-accessor-perl","libclass-accessor-perl","Perl module that automatically generates accessors","","","1","1","","","","Section=perl; Version=0.51-2","","","","","",""
-"libclass-c3-adopt-next-perl","libclass-c3-adopt-next-perl","libclass-c3-adopt-next-perl","drop-in replacement for NEXT, using Class::C3 to do the hard work","","","1","1","","","","Section=perl; Version=0.14-2","","","","","",""
-"libclass-c3-perl","libclass-c3-perl","libclass-c3-perl","pragma for using the C3 method resolution order","","","1","1","","","","Section=perl; Version=0.35-2","","","","","",""
-"libclass-inspector-perl","libclass-inspector-perl","libclass-inspector-perl","Perl module that provides information about classes","","","1","1","","","","Section=perl; Version=1.36-3","","","","","",""
-"libclass-load-perl","libclass-load-perl","libclass-load-perl","module for loading modules by name","","","1","1","","","","Section=perl; Version=0.25-2","","","","","",""
-"libdata-dump-perl","libdata-dump-perl","libdata-dump-perl","Perl module to help dump data structures","","","1","1","","","","Section=perl; Version=1.25-1","","","","","",""
-"libencode-perl","libencode-perl","libencode-perl","module providing interfaces between Perl's strings and the system","","","1","1","","","","Section=perl; Version=3.21-1+b2","","","","","",""
-"libextutils-autoinstall-perl","libextutils-autoinstall-perl","libextutils-autoinstall-perl","module to automatically install dependencies via CPAN","","","1","1","","","","Section=perl; Version=0.64-2","","","","","",""
-"libfile-copy-recursive-perl","libfile-copy-recursive-perl","libfile-copy-recursive-perl","Perl extension for recursively copying files and directories","","","1","1","","","","Section=perl; Version=0.45-4","","","","","",""
-"libfile-modified-perl","libfile-modified-perl","libfile-modified-perl","module to check if files have changed","","","1","1","","","","Section=perl; Version=0.10-3","","","","","",""
-"libfile-slurp-perl","libfile-slurp-perl","libfile-slurp-perl","single call read & write file routines","","","1","1","","","","Section=perl; Version=9999.32-2","","","","","",""
-"libhash-multivalue-perl","libhash-multivalue-perl","libhash-multivalue-perl","module for storing multiple values per key in a hash","","","1","1","","","","Section=perl; Version=0.16-3","","","","","",""
-"libhtml-parser-perl","libhtml-parser-perl","libhtml-parser-perl","collection of modules that parse HTML text documents","","","1","1","","","","Section=perl; Version=3.83-1+b2","","","","","",""
-"libhttp-body-perl","libhttp-body-perl","libhttp-body-perl","module for processing data from HTTP POST requests","","","1","1","","","","Section=perl; Version=1.23-1","","","","","",""
-"libjson-maybexs-perl","libjson-maybexs-perl","libjson-maybexs-perl","interface to the best available JSON module","","","1","1","","","","Section=perl; Version=1.004008-1","","","","","",""
-"liblist-moreutils-perl","liblist-moreutils-perl","liblist-moreutils-perl","Perl module with additional list functions not found in List::Util","","","1","1","","","","Section=perl; Version=0.430-2","","","","","",""
-"libmime-types-perl","libmime-types-perl","libmime-types-perl","Perl extension for determining MIME types and Transfer Encoding","","","1","1","","","","Section=perl; Version=2.28-1","","","","","",""
-"libmodule-pluggable-perl","libmodule-pluggable-perl","libmodule-pluggable-perl","module for giving  modules the ability to have plugins","","","1","1","","","","Section=perl; Version=5.2-5","","","","","",""
-"libmoose-perl","libmoose-perl","libmoose-perl","modern Perl object system framework","","","1","1","","","","Section=perl; Version=2.2207-1+b3","","","","","",""
-"libmoosex-emulate-class-accessor-fast-perl","libmoosex-emulate-class-accessor-fast-perl","libmoosex-emulate-class-accessor-fast-perl","module to emulate Class::Accessor::Fast using Moose attributes","","","1","1","","","","Section=perl; Version=0.009032-2","","","","","",""
-"libmoosex-getopt-perl","libmoosex-getopt-perl","libmoosex-getopt-perl","Moose extension for processing command line options","","","1","1","","","","Section=perl; Version=0.78-1","","","","","",""
-"libmoosex-methodattributes-perl","libmoosex-methodattributes-perl","libmoosex-methodattributes-perl","Moose extension for code attribute introspection","","","1","1","","","","Section=perl; Version=0.32-1","","","","","",""
-"libnamespace-clean-perl","libnamespace-clean-perl","libnamespace-clean-perl","module for keeping imports and functions out of the current namespace","","","1","1","","","","Section=perl; Version=0.27-2","","","","","",""
-"libpath-class-perl","libpath-class-perl","libpath-class-perl","module for cross-platform path specification manipulation","","","1","1","","","","Section=perl; Version=0.37-4","","","","","",""
-"libperlio-utf8-strict-perl","libperlio-utf8-strict-perl","libperlio-utf8-strict-perl","fast and correct UTF-8 Perl IO module","","","1","1","","","","Section=perl; Version=0.010-1+b3","","","","","",""
-"libplack-middleware-fixmissingbodyinredirect-perl","libplack-middleware-fixmissingbodyinredirect-perl","libplack-middleware-fixmissingbodyinredirect-perl","Plack::Middleware which ensures redirect response have a body","","","1","1","","","","Section=perl; Version=0.12-1","","","","","",""
-"libplack-middleware-methodoverride-perl","libplack-middleware-methodoverride-perl","libplack-middleware-methodoverride-perl","Plack::Middleware to override REST methods via POST","","","1","1","","","","Section=perl; Version=0.20-2","","","","","",""
-"libplack-middleware-removeredundantbody-perl","libplack-middleware-removeredundantbody-perl","libplack-middleware-removeredundantbody-perl","Plack::Middleware which removes an unnecessary HTTP response body","","","1","1","","","","Section=perl; Version=0.09-3","","","","","",""
-"libplack-middleware-reverseproxy-perl","libplack-middleware-reverseproxy-perl","libplack-middleware-reverseproxy-perl","module supporting apps to run as a reverse proxy backend","","","1","1","","","","Section=perl; Version=0.16-2","","","","","",""
-"libplack-perl","libplack-perl","libplack-perl","interface between web servers and Perl web applications","","","1","1","","","","Section=perl; Version=1.0051-1","","","","","",""
-"libplack-test-externalserver-perl","libplack-test-externalserver-perl","libplack-test-externalserver-perl","module for running HTTP tests on external live servers","","","1","1","","","","Section=perl; Version=0.02-3","","","","","",""
-"libsafe-isa-perl","libsafe-isa-perl","libsafe-isa-perl","module for safely calling isa and friends on things that may not be objects","","","1","1","","","","Section=perl; Version=1.000010-1","","","","","",""
-"libscalar-list-utils-perl","libscalar-list-utils-perl","libscalar-list-utils-perl","modules providing common scalar and list utility subroutines","","","1","1","","","","Section=perl; Version=1:1.63-1+b4","","","","","",""
-"libscope-upper-perl","libscope-upper-perl","libscope-upper-perl","module to manipulate upper scopes","","","1","1","","","","Section=perl; Version=0.34-1+b3","","","","","",""
-"libstream-buffered-perl","libstream-buffered-perl","libstream-buffered-perl","temporary buffer to store strings in a seekable filehandle","","","1","1","","","","Section=perl; Version=0.03-3","","","","","",""
-"libstring-rewriteprefix-perl","libstring-rewriteprefix-perl","libstring-rewriteprefix-perl","module to rewrite strings based on a set of known prefixes","","","1","1","","","","Section=perl; Version=0.009-1","","","","","",""
-"libtask-weaken-perl","libtask-weaken-perl","libtask-weaken-perl","module for ensuring that a platform has weaken support","","","1","1","","","","Section=perl; Version=1.06-2","","","","","",""
-"libtest-mockobject-perl","libtest-mockobject-perl","libtest-mockobject-perl","Perl extension for emulating troublesome interfaces","","","1","1","","","","Section=perl; Version=1.20200122-4","","","","","",""
-"libtext-simpletable-perl","libtext-simpletable-perl","libtext-simpletable-perl","Perl module for creating simple eyecandy ASCII Tables","","","1","1","","","","Section=perl; Version=2.07-1","","","","","",""
-"libtree-simple-perl","libtree-simple-perl","libtree-simple-perl","implementation of a simple tree object","","","1","1","","","","Section=perl; Version=1.34-2","","","","","",""
-"libtree-simple-visitorfactory-perl","libtree-simple-visitorfactory-perl","libtree-simple-visitorfactory-perl","collection of dispensing visitor objects for Tree::Simple","","","1","1","","","","Section=perl; Version=0.16-3","","","","","",""
-"libtry-tiny-perl","libtry-tiny-perl","libtry-tiny-perl","module providing minimalistic try/catch","","","1","1","","","","Section=perl; Version=0.32-1","","","","","",""
-"liburi-perl","liburi-perl","liburi-perl","module to manipulate and access URI strings","","","1","1","","","","Section=perl; Version=5.30-1","","","","","",""
-"libwww-perl","libwww-perl","libwww-perl","simple and consistent interface to the world-wide web","","","1","1","","","","Section=perl; Version=6.78-1","","","","","",""
-"libcatalyst-dispatchtype-regex-perl","libcatalyst-dispatchtype-regex-perl","libcatalyst-dispatchtype-regex-perl","Regex DispatchType for Catalyst","","","1","1","","","","Section=perl; Version=5.90035-2","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libtest-deep-perl","libtest-deep-perl","libtest-deep-perl","Perl module for extremely flexible deep comparisons","","","1","1","","","","Section=perl; Version=1.205-1","","","","","",""
-"libtest-leaktrace-perl","libtest-leaktrace-perl","libtest-leaktrace-perl","Perl test module for tracing memory leaks","","","1","1","","","","Section=perl; Version=0.17-1+b5","","","","","",""
-"libsub-name-perl","libsub-name-perl","libsub-name-perl","module for assigning a new name to referenced sub","","","1","1","","","","Section=perl; Version=0.28-1","","","","","",""
-"libmro-compat-perl","libmro-compat-perl","libmro-compat-perl","mro::* interface compatibility for Perls < 5.9.5","","","1","1","","","","Section=perl; Version=0.15-2","","","","","",""
-"libalgorithm-c3-perl","libalgorithm-c3-perl","libalgorithm-c3-perl","Perl module for merging hierarchies using the C3 algorithm","","","1","1","","","","Section=perl; Version=0.11-2","","","","","",""
-"libclass-c3-xs-perl","libclass-c3-xs-perl","libclass-c3-xs-perl","Perl module to accelerate Class::C3","","","1","1","","","","Section=perl; Version=0.15-1+b6","","","","","",""
-"libdata-optlist-perl","libdata-optlist-perl","libdata-optlist-perl","module to parse and validate simple name/value option pairs","","","1","1","","","","Section=perl; Version=0.114-1","","","","","",""
-"libmodule-implementation-perl","libmodule-implementation-perl","libmodule-implementation-perl","module for loading one of several alternate implementations of a module","","","1","1","","","","Section=perl; Version=0.09-2","","","","","",""
-"libmodule-runtime-perl","libmodule-runtime-perl","libmodule-runtime-perl","Perl module for runtime module handling","","","1","1","","","","Section=perl; Version=0.018-1","","","","","",""
-"libpackage-stash-perl","libpackage-stash-perl","libpackage-stash-perl","module providing routines for manipulating stashes","","","1","1","","","","Section=perl; Version=0.40-1","","","","","",""
-"libhtml-tagset-perl","libhtml-tagset-perl","libhtml-tagset-perl","data tables pertaining to HTML","","","1","1","","","","Section=perl; Version=3.24-1","","","","","",""
-"libhttp-message-perl","libhttp-message-perl","libhttp-message-perl","perl interface to HTTP style messages","","","1","1","","","","Section=perl; Version=7.00-2","","","","","",""
-"libcpanel-json-xs-perl","libcpanel-json-xs-perl","libcpanel-json-xs-perl","module for fast and correct serialising to JSON","","","1","1","","","","Section=perl; Version=4.39-1","","","","","",""
-"libjson-pp-perl","libjson-pp-perl","libjson-pp-perl","module for manipulating JSON-formatted data (Pure Perl)","","","1","1","","","","Section=perl; Version=4.16000-2","","","","","",""
-"libexporter-tiny-perl","libexporter-tiny-perl","libexporter-tiny-perl","tiny exporter similar to Sub::Exporter","","","1","1","","","","Section=perl; Version=1.006002-1","","","","","",""
-"liblist-moreutils-xs-perl","liblist-moreutils-xs-perl","liblist-moreutils-xs-perl","Perl module providing compiled List::MoreUtils functions","","","1","1","","","","Section=perl; Version=0.430-4+b2","","","","","",""
-"libclass-load-xs-perl","libclass-load-xs-perl","libclass-load-xs-perl","XS implementation of parts of Class::Load","","","1","1","","","","Section=perl; Version=0.10-2+b4","","","","","",""
-"libdevel-globaldestruction-perl","libdevel-globaldestruction-perl","libdevel-globaldestruction-perl","module to expose the flag that marks global destruction","","","1","1","","","","Section=perl; Version=0.14-4","","","","","",""
-"libdevel-overloadinfo-perl","libdevel-overloadinfo-perl","libdevel-overloadinfo-perl","module to introspect overloaded operators","","","1","1","","","","Section=perl; Version=0.007-1","","","","","",""
-"libdevel-stacktrace-perl","libdevel-stacktrace-perl","libdevel-stacktrace-perl","Perl module containing stack trace and related objects","","","1","1","","","","Section=perl; Version=2.0500-1","","","","","",""
-"libeval-closure-perl","libeval-closure-perl","libeval-closure-perl","Perl module to safely and cleanly create closures via string eval","","","1","1","","","","Section=perl; Version=0.14-3","","","","","",""
-"libmodule-runtime-conflicts-perl","libmodule-runtime-conflicts-perl","libmodule-runtime-conflicts-perl","module to provide information on conflicts for Module::Runtime","","","1","1","","","","Section=perl; Version=0.003-2","","","","","",""
-"libpackage-deprecationmanager-perl","libpackage-deprecationmanager-perl","libpackage-deprecationmanager-perl","module for managing deprecation warnings for Perl distributions","","","1","1","","","","Section=perl; Version=0.18-1","","","","","",""
-"libpackage-stash-xs-perl","libpackage-stash-xs-perl","libpackage-stash-xs-perl","Perl module providing routines for manipulating stashes (XS version)","","","1","1","","","","Section=perl; Version=0.30-1+b4","","","","","",""
-"libparams-util-perl","libparams-util-perl","libparams-util-perl","Perl extension for simple stand-alone param checking functions","","","1","1","","","","Section=perl; Version=1.102-3+b1","","","","","",""
-"libsub-exporter-perl","libsub-exporter-perl","libsub-exporter-perl","sophisticated exporter for custom-built routines","","","1","1","","","","Section=perl; Version=0.990-1","","","","","",""
-"libdevel-partialdump-perl","libdevel-partialdump-perl","libdevel-partialdump-perl","Perl module to dump subroutine parameters concisely","","","1","1","","","","Section=perl; Version=0.20-2","","","","","",""
-"libgetopt-long-descriptive-perl","libgetopt-long-descriptive-perl","libgetopt-long-descriptive-perl","module that handles command-line arguments with usage text","","","1","1","","","","Section=perl; Version=0.116-2","","","","","",""
-"libmoosex-role-parameterized-perl","libmoosex-role-parameterized-perl","libmoosex-role-parameterized-perl","Moose extension providing parameterized roles","","","1","1","","","","Section=perl; Version=1.11-2","","","","","",""
-"libnamespace-autoclean-perl","libnamespace-autoclean-perl","libnamespace-autoclean-perl","module to remove imported symbols after compilation","","","1","1","","","","Section=perl; Version=0.31-1","","","","","",""
-"libb-hooks-endofscope-perl","libb-hooks-endofscope-perl","libb-hooks-endofscope-perl","module for executing code after a scope finished compilation","","","1","1","","","","Section=perl; Version=0.28-2","","","","","",""
-"libsub-identify-perl","libsub-identify-perl","libsub-identify-perl","module to retrieve names of code references","","","1","1","","","","Section=perl; Version=0.14-3+b3","","","","","",""
-"libapache-logformat-compiler-perl","libapache-logformat-compiler-perl","libapache-logformat-compiler-perl","Perl module to pre-compile a LogFormat string","","","1","1","","","","Section=perl; Version=0.36-3","","","","","",""
-"libcookie-baker-perl","libcookie-baker-perl","libcookie-baker-perl","simple cookie string generator and parser","","","1","1","","","","Section=perl; Version=0.12-1","","","","","",""
-"libdevel-stacktrace-ashtml-perl","libdevel-stacktrace-ashtml-perl","libdevel-stacktrace-ashtml-perl","module to display a stack trace in HTML","","","1","1","","","","Section=perl; Version=0.15-2","","","","","",""
-"libfile-sharedir-perl","libfile-sharedir-perl","libfile-sharedir-perl","module to locate non-code files during run-time","","","1","1","","","","Section=perl; Version=1.118-3","","","","","",""
-"libfilesys-notify-simple-perl","libfilesys-notify-simple-perl","libfilesys-notify-simple-perl","simple file system monitor","","","1","1","","","","Section=perl; Version=0.14-3","","","","","",""
-"libhttp-entity-parser-perl","libhttp-entity-parser-perl","libhttp-entity-parser-perl","PSGI compliant HTTP Entity Parser","","","1","1","","","","Section=perl; Version=0.25-2","","","","","",""
-"libhttp-headers-fast-perl","libhttp-headers-fast-perl","libhttp-headers-fast-perl","faster implementation of HTTP::Headers","","","1","1","","","","Section=perl; Version=0.22-3","","","","","",""
-"libhttp-tiny-perl","libhttp-tiny-perl","libhttp-tiny-perl","Perl module that implements a small, simple, correct HTTP/1.1 client","","","1","1","","","","Section=perl; Version=0.090-1","","","","","",""
-"libtest-tcp-perl","libtest-tcp-perl","libtest-tcp-perl","module to test TCP/IP programs","","","1","1","","","","Section=perl; Version=2.22-2","","","","","",""
-"libwww-form-urlencoded-perl","libwww-form-urlencoded-perl","libwww-form-urlencoded-perl","parser and builder for application/x-www-form-urlencoded format","","","1","1","","","","Section=perl; Version=0.26-2","","","","","",""
-"libcgi-compile-perl","libcgi-compile-perl","libcgi-compile-perl","module for compiling .cgi scripts to a code reference","","","1","1","","","","Section=perl; Version=0.27-1","","","","","",""
-"libcgi-emulate-psgi-perl","libcgi-emulate-psgi-perl","libcgi-emulate-psgi-perl","PSGI adapter for CGI","","","1","1","","","","Section=perl; Version=0.23-2","","","","","",""
-"libfcgi-perl","libfcgi-perl","libfcgi-perl","helper module for FastCGI","","","1","1","","","","Section=perl; Version=0.82+ds-3+b2","","","","","",""
-"libfcgi-procmanager-perl","libfcgi-procmanager-perl","libfcgi-procmanager-perl","Perl module to help manage FastCGI applications","","","1","1","","","","Section=perl; Version=0.28-3","","","","","",""
-"liblog-dispatch-perl","liblog-dispatch-perl","liblog-dispatch-perl","message dispatcher to multiple Log::Dispatch::* objects","","","1","1","","","","Section=perl; Version=2.71-1","","","","","",""
-"liblog-log4perl-perl","liblog-log4perl-perl","liblog-log4perl-perl","Perl port of the widely popular log4j logging package","","","1","1","","","","Section=perl; Version=1.57-1","","","","","",""
-"libmodule-refresh-perl","libmodule-refresh-perl","libmodule-refresh-perl","tool to refresh %INC files when updated on disk","","","1","1","","","","Section=perl; Version=0.18-2","","","","","",""
-"libuniversal-can-perl","libuniversal-can-perl","libuniversal-can-perl","safer version of UNIVERSAL::can","","","1","1","","","","Section=perl; Version=1.20140328-3","","","","","",""
-"libuniversal-isa-perl","libuniversal-isa-perl","libuniversal-isa-perl","safer version of UNIVERSAL::isa","","","1","1","","","","Section=perl; Version=1.20171012-3","","","","","",""
-"libunicode-linebreak-perl","libunicode-linebreak-perl","libunicode-linebreak-perl","UAX #14 Unicode Line Breaking Algorithm","","","1","1","","","","Section=perl; Version=0.0.20190101-1+b9","","","","","",""
-"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","",""
-"libencode-locale-perl","libencode-locale-perl","libencode-locale-perl","utility to determine the locale encoding","","","1","1","","","","Section=perl; Version=1.05-3","","","","","",""
-"libfile-listing-perl","libfile-listing-perl","libfile-listing-perl","module to parse directory listings","","","1","1","","","","Section=perl; Version=6.16-1","","","","","",""
-"libhtml-tree-perl","libhtml-tree-perl","libhtml-tree-perl","Perl module to represent and create HTML syntax trees","","","1","1","","","","Section=perl; Version=5.07-3","","","","","",""
-"libhttp-cookies-perl","libhttp-cookies-perl","libhttp-cookies-perl","HTTP cookie jars","","","1","1","","","","Section=perl; Version=6.11-1","","","","","",""
-"libhttp-date-perl","libhttp-date-perl","libhttp-date-perl","module of date conversion routines","","","1","1","","","","Section=perl; Version=6.06-1","","","","","",""
-"libhttp-negotiate-perl","libhttp-negotiate-perl","libhttp-negotiate-perl","implementation of content negotiation","","","1","1","","","","Section=perl; Version=6.01-2","","","","","",""
-"liblwp-mediatypes-perl","liblwp-mediatypes-perl","liblwp-mediatypes-perl","module to guess media type for a file or a URL","","","1","1","","","","Section=perl; Version=6.04-2","","","","","",""
-"liblwp-protocol-https-perl","liblwp-protocol-https-perl","liblwp-protocol-https-perl","HTTPS driver for LWP::UserAgent","","","1","1","","","","Section=perl; Version=6.14-1","","","","","",""
-"libnet-http-perl","libnet-http-perl","libnet-http-perl","module providing low-level HTTP connection client","","","1","1","","","","Section=perl; Version=6.23-1","","","","","",""
-"libwww-robotrules-perl","libwww-robotrules-perl","libwww-robotrules-perl","database of robots.txt-derived permissions","","","1","1","","","","Section=perl; Version=6.02-1","","","","","",""
-"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","",""
-"libhtml-form-perl","libhtml-form-perl","libhtml-form-perl","module that represents an HTML form element","","","1","1","","","","Section=perl; Version=6.12-1","","","","","",""
-"libhtml-format-perl","libhtml-format-perl","libhtml-format-perl","module for transforming HTML into various formats","","","1","1","","","","Section=perl; Version=2.16-2","","","","","",""
-"libhttp-daemon-perl","libhttp-daemon-perl","libhttp-daemon-perl","simple http server class","","","1","1","","","","Section=perl; Version=6.16-1","","","","","",""
-"libmailtools-perl","libmailtools-perl","libmailtools-perl","modules to manipulate email in perl programs","","","1","1","","","","Section=perl; Version=2.22-1","","","","","",""
-"","","","","","","","","","","","","libcatalyst-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libcgi-simple-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libcgi-struct-xs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libclass-accessor-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libclass-c3-adopt-next-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libclass-c3-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libclass-inspector-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libclass-load-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libdata-dump-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libencode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libextutils-autoinstall-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libfile-copy-recursive-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libfile-modified-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libfile-slurp-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libhash-multivalue-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libhtml-parser-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libhttp-body-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libjson-maybexs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","liblist-moreutils-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libmime-types-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libmodule-pluggable-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libmoose-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libmoosex-emulate-class-accessor-fast-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libmoosex-getopt-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libmoosex-methodattributes-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libnamespace-clean-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libpath-class-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libperlio-utf8-strict-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libplack-middleware-fixmissingbodyinredirect-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libplack-middleware-methodoverride-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libplack-middleware-removeredundantbody-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libplack-middleware-reverseproxy-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libplack-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libplack-test-externalserver-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libsafe-isa-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libscope-upper-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libstream-buffered-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libstring-rewriteprefix-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libtask-weaken-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libtest-mockobject-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libtext-simpletable-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libtree-simple-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libtree-simple-visitorfactory-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libtry-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libwww-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-perl","libcatalyst-dispatchtype-regex-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcgi-simple-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcgi-struct-xs-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcgi-struct-xs-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcgi-struct-xs-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcgi-struct-xs-perl","libtest-deep-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcgi-struct-xs-perl","libtest-leaktrace-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-accessor-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-accessor-perl","libsub-name-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-c3-adopt-next-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-c3-adopt-next-perl","libmro-compat-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-c3-adopt-next-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-c3-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-c3-perl","libalgorithm-c3-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-c3-perl","libclass-c3-xs-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libclass-inspector-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-load-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-load-perl","libdata-optlist-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-load-perl","libmodule-implementation-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-load-perl","libmodule-runtime-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-load-perl","libpackage-stash-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libclass-load-perl","libtry-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdata-dump-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libencode-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libencode-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libencode-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libextutils-autoinstall-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfile-copy-recursive-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfile-modified-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfile-slurp-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhash-multivalue-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhtml-parser-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhtml-parser-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhtml-parser-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhtml-parser-perl","libhtml-tagset-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhtml-parser-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhtml-parser-perl","libhttp-message-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libhttp-body-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-body-perl","libhttp-message-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-body-perl","libpath-class-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libhttp-body-perl","libwww-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjson-maybexs-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjson-maybexs-perl","libcpanel-json-xs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjson-maybexs-perl","libjson-pp-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","libexporter-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","liblist-moreutils-xs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblist-moreutils-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmime-types-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmodule-pluggable-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmodule-pluggable-perl","libmodule-runtime-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libmoose-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libclass-load-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libclass-load-xs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libdata-optlist-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libdevel-globaldestruction-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libdevel-overloadinfo-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libdevel-stacktrace-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libeval-closure-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libmodule-runtime-conflicts-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libmodule-runtime-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libmro-compat-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libpackage-deprecationmanager-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libpackage-stash-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libpackage-stash-xs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libparams-util-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libsub-exporter-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libtry-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoose-perl","libdevel-partialdump-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libmoosex-emulate-class-accessor-fast-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-emulate-class-accessor-fast-perl","libmoose-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-emulate-class-accessor-fast-perl","libnamespace-clean-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-getopt-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-getopt-perl","libgetopt-long-descriptive-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-getopt-perl","libmoose-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-getopt-perl","libmoosex-role-parameterized-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-getopt-perl","libnamespace-autoclean-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-getopt-perl","libtry-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-methodattributes-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-methodattributes-perl","libmoose-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmoosex-methodattributes-perl","libnamespace-autoclean-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnamespace-clean-perl","libb-hooks-endofscope-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnamespace-clean-perl","libpackage-stash-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnamespace-clean-perl","libsub-identify-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnamespace-clean-perl","libsub-name-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnamespace-clean-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpath-class-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libperlio-utf8-strict-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libperlio-utf8-strict-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libperlio-utf8-strict-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-fixmissingbodyinredirect-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-fixmissingbodyinredirect-perl","libhtml-parser-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-fixmissingbodyinredirect-perl","libplack-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-methodoverride-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-methodoverride-perl","libplack-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-removeredundantbody-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-removeredundantbody-perl","libplack-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-reverseproxy-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-middleware-reverseproxy-perl","libplack-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libapache-logformat-compiler-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libcookie-baker-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libdevel-stacktrace-ashtml-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libdevel-stacktrace-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libfile-sharedir-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libfilesys-notify-simple-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libhash-multivalue-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libhttp-entity-parser-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libhttp-headers-fast-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libhttp-message-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libhttp-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libstream-buffered-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libtest-tcp-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libtry-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libwww-form-urlencoded-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-perl","libcgi-compile-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-perl","libcgi-emulate-psgi-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-perl","libfcgi-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-perl","libfcgi-procmanager-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-perl","liblog-dispatch-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-perl","liblog-log4perl-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-perl","libmodule-refresh-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-perl","libwww-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libplack-test-externalserver-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-test-externalserver-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libplack-test-externalserver-perl","libwww-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsafe-isa-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libscalar-list-utils-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libscalar-list-utils-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libscalar-list-utils-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libscope-upper-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libscope-upper-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libscope-upper-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstream-buffered-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstring-rewriteprefix-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstring-rewriteprefix-perl","libsub-exporter-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtask-weaken-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-mockobject-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-mockobject-perl","libuniversal-can-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtest-mockobject-perl","libuniversal-isa-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtext-simpletable-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtext-simpletable-perl","libunicode-linebreak-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtree-simple-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtree-simple-visitorfactory-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtree-simple-visitorfactory-perl","libtree-simple-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtry-tiny-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libencode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","ca-certificates","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libencode-locale-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libfile-listing-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-parser-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-tagset-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-tree-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-cookies-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-date-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-message-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-negotiate-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","liblwp-mediatypes-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","liblwp-protocol-https-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libnet-http-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libtry-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","liburi-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libwww-robotrules-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","netbase","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libwww-perl","libdata-dump-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-form-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libhtml-format-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libhttp-daemon-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libwww-perl","libmailtools-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcatalyst-dispatchtype-regex-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-dispatchtype-regex-perl","libcatalyst-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-dispatchtype-regex-perl","libmoose-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcatalyst-dispatchtype-regex-perl","libtext-simpletable-perl","Depends","#333","1","Depends","{}"
+libcatalyst-perl,libcatalyst-perl,libcatalyst-perl,elegant Model-View-Controller Web Application Framework,,,1,1,,,,Section=perl; Version=5.90132-1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libcgi-simple-perl,libcgi-simple-perl,libcgi-simple-perl,simple CGI.pm compatible OO CGI interface,,,1,1,,,,Section=perl; Version=1.282-1~deb13u1,,,,,,,
+libcgi-struct-xs-perl,libcgi-struct-xs-perl,libcgi-struct-xs-perl,"Perl module to build structures from CGI data, XS version",,,1,1,,,,Section=perl; Version=1.04-3+b4,,,,,,,
+libclass-accessor-perl,libclass-accessor-perl,libclass-accessor-perl,Perl module that automatically generates accessors,,,1,1,,,,Section=perl; Version=0.51-2,,,,,,,
+libclass-c3-adopt-next-perl,libclass-c3-adopt-next-perl,libclass-c3-adopt-next-perl,"drop-in replacement for NEXT, using Class::C3 to do the hard work",,,1,1,,,,Section=perl; Version=0.14-2,,,,,,,
+libclass-c3-perl,libclass-c3-perl,libclass-c3-perl,pragma for using the C3 method resolution order,,,1,1,,,,Section=perl; Version=0.35-2,,,,,,,
+libclass-inspector-perl,libclass-inspector-perl,libclass-inspector-perl,Perl module that provides information about classes,,,1,1,,,,Section=perl; Version=1.36-3,,,,,,,
+libclass-load-perl,libclass-load-perl,libclass-load-perl,module for loading modules by name,,,1,1,,,,Section=perl; Version=0.25-2,,,,,,,
+libdata-dump-perl,libdata-dump-perl,libdata-dump-perl,Perl module to help dump data structures,,,1,1,,,,Section=perl; Version=1.25-1,,,,,,,
+libencode-perl,libencode-perl,libencode-perl,module providing interfaces between Perl's strings and the system,,,1,1,,,,Section=perl; Version=3.21-1+b2,,,,,,,
+libextutils-autoinstall-perl,libextutils-autoinstall-perl,libextutils-autoinstall-perl,module to automatically install dependencies via CPAN,,,1,1,,,,Section=perl; Version=0.64-2,,,,,,,
+libfile-copy-recursive-perl,libfile-copy-recursive-perl,libfile-copy-recursive-perl,Perl extension for recursively copying files and directories,,,1,1,,,,Section=perl; Version=0.45-4,,,,,,,
+libfile-modified-perl,libfile-modified-perl,libfile-modified-perl,module to check if files have changed,,,1,1,,,,Section=perl; Version=0.10-3,,,,,,,
+libfile-slurp-perl,libfile-slurp-perl,libfile-slurp-perl,single call read & write file routines,,,1,1,,,,Section=perl; Version=9999.32-2,,,,,,,
+libhash-multivalue-perl,libhash-multivalue-perl,libhash-multivalue-perl,module for storing multiple values per key in a hash,,,1,1,,,,Section=perl; Version=0.16-3,,,,,,,
+libhtml-parser-perl,libhtml-parser-perl,libhtml-parser-perl,collection of modules that parse HTML text documents,,,1,1,,,,Section=perl; Version=3.83-1+b2,,,,,,,
+libhttp-body-perl,libhttp-body-perl,libhttp-body-perl,module for processing data from HTTP POST requests,,,1,1,,,,Section=perl; Version=1.23-1,,,,,,,
+libjson-maybexs-perl,libjson-maybexs-perl,libjson-maybexs-perl,interface to the best available JSON module,,,1,1,,,,Section=perl; Version=1.004008-1,,,,,,,
+liblist-moreutils-perl,liblist-moreutils-perl,liblist-moreutils-perl,Perl module with additional list functions not found in List::Util,,,1,1,,,,Section=perl; Version=0.430-2,,,,,,,
+libmime-types-perl,libmime-types-perl,libmime-types-perl,Perl extension for determining MIME types and Transfer Encoding,,,1,1,,,,Section=perl; Version=2.28-1,,,,,,,
+libmodule-pluggable-perl,libmodule-pluggable-perl,libmodule-pluggable-perl,module for giving  modules the ability to have plugins,,,1,1,,,,Section=perl; Version=5.2-5,,,,,,,
+libmoose-perl,libmoose-perl,libmoose-perl,modern Perl object system framework,,,1,1,,,,Section=perl; Version=2.2207-1+b3,,,,,,,
+libmoosex-emulate-class-accessor-fast-perl,libmoosex-emulate-class-accessor-fast-perl,libmoosex-emulate-class-accessor-fast-perl,module to emulate Class::Accessor::Fast using Moose attributes,,,1,1,,,,Section=perl; Version=0.009032-2,,,,,,,
+libmoosex-getopt-perl,libmoosex-getopt-perl,libmoosex-getopt-perl,Moose extension for processing command line options,,,1,1,,,,Section=perl; Version=0.78-1,,,,,,,
+libmoosex-methodattributes-perl,libmoosex-methodattributes-perl,libmoosex-methodattributes-perl,Moose extension for code attribute introspection,,,1,1,,,,Section=perl; Version=0.32-1,,,,,,,
+libnamespace-clean-perl,libnamespace-clean-perl,libnamespace-clean-perl,module for keeping imports and functions out of the current namespace,,,1,1,,,,Section=perl; Version=0.27-2,,,,,,,
+libpath-class-perl,libpath-class-perl,libpath-class-perl,module for cross-platform path specification manipulation,,,1,1,,,,Section=perl; Version=0.37-4,,,,,,,
+libperlio-utf8-strict-perl,libperlio-utf8-strict-perl,libperlio-utf8-strict-perl,fast and correct UTF-8 Perl IO module,,,1,1,,,,Section=perl; Version=0.010-1+b3,,,,,,,
+libplack-middleware-fixmissingbodyinredirect-perl,libplack-middleware-fixmissingbodyinredirect-perl,libplack-middleware-fixmissingbodyinredirect-perl,Plack::Middleware which ensures redirect response have a body,,,1,1,,,,Section=perl; Version=0.12-1,,,,,,,
+libplack-middleware-methodoverride-perl,libplack-middleware-methodoverride-perl,libplack-middleware-methodoverride-perl,Plack::Middleware to override REST methods via POST,,,1,1,,,,Section=perl; Version=0.20-2,,,,,,,
+libplack-middleware-removeredundantbody-perl,libplack-middleware-removeredundantbody-perl,libplack-middleware-removeredundantbody-perl,Plack::Middleware which removes an unnecessary HTTP response body,,,1,1,,,,Section=perl; Version=0.09-3,,,,,,,
+libplack-middleware-reverseproxy-perl,libplack-middleware-reverseproxy-perl,libplack-middleware-reverseproxy-perl,module supporting apps to run as a reverse proxy backend,,,1,1,,,,Section=perl; Version=0.16-2,,,,,,,
+libplack-perl,libplack-perl,libplack-perl,interface between web servers and Perl web applications,,,1,1,,,,Section=perl; Version=1.0051-1,,,,,,,
+libplack-test-externalserver-perl,libplack-test-externalserver-perl,libplack-test-externalserver-perl,module for running HTTP tests on external live servers,,,1,1,,,,Section=perl; Version=0.02-3,,,,,,,
+libsafe-isa-perl,libsafe-isa-perl,libsafe-isa-perl,module for safely calling isa and friends on things that may not be objects,,,1,1,,,,Section=perl; Version=1.000010-1,,,,,,,
+libscalar-list-utils-perl,libscalar-list-utils-perl,libscalar-list-utils-perl,modules providing common scalar and list utility subroutines,,,1,1,,,,Section=perl; Version=1:1.63-1+b4,,,,,,,
+libscope-upper-perl,libscope-upper-perl,libscope-upper-perl,module to manipulate upper scopes,,,1,1,,,,Section=perl; Version=0.34-1+b3,,,,,,,
+libstream-buffered-perl,libstream-buffered-perl,libstream-buffered-perl,temporary buffer to store strings in a seekable filehandle,,,1,1,,,,Section=perl; Version=0.03-3,,,,,,,
+libstring-rewriteprefix-perl,libstring-rewriteprefix-perl,libstring-rewriteprefix-perl,module to rewrite strings based on a set of known prefixes,,,1,1,,,,Section=perl; Version=0.009-1,,,,,,,
+libtask-weaken-perl,libtask-weaken-perl,libtask-weaken-perl,module for ensuring that a platform has weaken support,,,1,1,,,,Section=perl; Version=1.06-2,,,,,,,
+libtest-mockobject-perl,libtest-mockobject-perl,libtest-mockobject-perl,Perl extension for emulating troublesome interfaces,,,1,1,,,,Section=perl; Version=1.20200122-4,,,,,,,
+libtext-simpletable-perl,libtext-simpletable-perl,libtext-simpletable-perl,Perl module for creating simple eyecandy ASCII Tables,,,1,1,,,,Section=perl; Version=2.07-1,,,,,,,
+libtree-simple-perl,libtree-simple-perl,libtree-simple-perl,implementation of a simple tree object,,,1,1,,,,Section=perl; Version=1.34-2,,,,,,,
+libtree-simple-visitorfactory-perl,libtree-simple-visitorfactory-perl,libtree-simple-visitorfactory-perl,collection of dispensing visitor objects for Tree::Simple,,,1,1,,,,Section=perl; Version=0.16-3,,,,,,,
+libtry-tiny-perl,libtry-tiny-perl,libtry-tiny-perl,module providing minimalistic try/catch,,,1,1,,,,Section=perl; Version=0.32-1,,,,,,,
+liburi-perl,liburi-perl,liburi-perl,module to manipulate and access URI strings,,,1,1,,,,Section=perl; Version=5.30-1,,,,,,,
+libwww-perl,libwww-perl,libwww-perl,simple and consistent interface to the world-wide web,,,1,1,,,,Section=perl; Version=6.78-1,,,,,,,
+libcatalyst-dispatchtype-regex-perl,libcatalyst-dispatchtype-regex-perl,libcatalyst-dispatchtype-regex-perl,Regex DispatchType for Catalyst,,,1,1,,,,Section=perl; Version=5.90035-2,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libtest-deep-perl,libtest-deep-perl,libtest-deep-perl,Perl module for extremely flexible deep comparisons,,,1,1,,,,Section=perl; Version=1.205-1,,,,,,,
+libtest-leaktrace-perl,libtest-leaktrace-perl,libtest-leaktrace-perl,Perl test module for tracing memory leaks,,,1,1,,,,Section=perl; Version=0.17-1+b5,,,,,,,
+libsub-name-perl,libsub-name-perl,libsub-name-perl,module for assigning a new name to referenced sub,,,1,1,,,,Section=perl; Version=0.28-1,,,,,,,
+libmro-compat-perl,libmro-compat-perl,libmro-compat-perl,mro::* interface compatibility for Perls < 5.9.5,,,1,1,,,,Section=perl; Version=0.15-2,,,,,,,
+libalgorithm-c3-perl,libalgorithm-c3-perl,libalgorithm-c3-perl,Perl module for merging hierarchies using the C3 algorithm,,,1,1,,,,Section=perl; Version=0.11-2,,,,,,,
+libclass-c3-xs-perl,libclass-c3-xs-perl,libclass-c3-xs-perl,Perl module to accelerate Class::C3,,,1,1,,,,Section=perl; Version=0.15-1+b6,,,,,,,
+libdata-optlist-perl,libdata-optlist-perl,libdata-optlist-perl,module to parse and validate simple name/value option pairs,,,1,1,,,,Section=perl; Version=0.114-1,,,,,,,
+libmodule-implementation-perl,libmodule-implementation-perl,libmodule-implementation-perl,module for loading one of several alternate implementations of a module,,,1,1,,,,Section=perl; Version=0.09-2,,,,,,,
+libmodule-runtime-perl,libmodule-runtime-perl,libmodule-runtime-perl,Perl module for runtime module handling,,,1,1,,,,Section=perl; Version=0.018-1,,,,,,,
+libpackage-stash-perl,libpackage-stash-perl,libpackage-stash-perl,module providing routines for manipulating stashes,,,1,1,,,,Section=perl; Version=0.40-1,,,,,,,
+libhtml-tagset-perl,libhtml-tagset-perl,libhtml-tagset-perl,data tables pertaining to HTML,,,1,1,,,,Section=perl; Version=3.24-1,,,,,,,
+libhttp-message-perl,libhttp-message-perl,libhttp-message-perl,perl interface to HTTP style messages,,,1,1,,,,Section=perl; Version=7.00-2,,,,,,,
+libcpanel-json-xs-perl,libcpanel-json-xs-perl,libcpanel-json-xs-perl,module for fast and correct serialising to JSON,,,1,1,,,,Section=perl; Version=4.39-1,,,,,,,
+libjson-pp-perl,libjson-pp-perl,libjson-pp-perl,module for manipulating JSON-formatted data (Pure Perl),,,1,1,,,,Section=perl; Version=4.16000-2,,,,,,,
+libexporter-tiny-perl,libexporter-tiny-perl,libexporter-tiny-perl,tiny exporter similar to Sub::Exporter,,,1,1,,,,Section=perl; Version=1.006002-1,,,,,,,
+liblist-moreutils-xs-perl,liblist-moreutils-xs-perl,liblist-moreutils-xs-perl,Perl module providing compiled List::MoreUtils functions,,,1,1,,,,Section=perl; Version=0.430-4+b2,,,,,,,
+libclass-load-xs-perl,libclass-load-xs-perl,libclass-load-xs-perl,XS implementation of parts of Class::Load,,,1,1,,,,Section=perl; Version=0.10-2+b4,,,,,,,
+libdevel-globaldestruction-perl,libdevel-globaldestruction-perl,libdevel-globaldestruction-perl,module to expose the flag that marks global destruction,,,1,1,,,,Section=perl; Version=0.14-4,,,,,,,
+libdevel-overloadinfo-perl,libdevel-overloadinfo-perl,libdevel-overloadinfo-perl,module to introspect overloaded operators,,,1,1,,,,Section=perl; Version=0.007-1,,,,,,,
+libdevel-stacktrace-perl,libdevel-stacktrace-perl,libdevel-stacktrace-perl,Perl module containing stack trace and related objects,,,1,1,,,,Section=perl; Version=2.0500-1,,,,,,,
+libeval-closure-perl,libeval-closure-perl,libeval-closure-perl,Perl module to safely and cleanly create closures via string eval,,,1,1,,,,Section=perl; Version=0.14-3,,,,,,,
+libmodule-runtime-conflicts-perl,libmodule-runtime-conflicts-perl,libmodule-runtime-conflicts-perl,module to provide information on conflicts for Module::Runtime,,,1,1,,,,Section=perl; Version=0.003-2,,,,,,,
+libpackage-deprecationmanager-perl,libpackage-deprecationmanager-perl,libpackage-deprecationmanager-perl,module for managing deprecation warnings for Perl distributions,,,1,1,,,,Section=perl; Version=0.18-1,,,,,,,
+libpackage-stash-xs-perl,libpackage-stash-xs-perl,libpackage-stash-xs-perl,Perl module providing routines for manipulating stashes (XS version),,,1,1,,,,Section=perl; Version=0.30-1+b4,,,,,,,
+libparams-util-perl,libparams-util-perl,libparams-util-perl,Perl extension for simple stand-alone param checking functions,,,1,1,,,,Section=perl; Version=1.102-3+b1,,,,,,,
+libsub-exporter-perl,libsub-exporter-perl,libsub-exporter-perl,sophisticated exporter for custom-built routines,,,1,1,,,,Section=perl; Version=0.990-1,,,,,,,
+libdevel-partialdump-perl,libdevel-partialdump-perl,libdevel-partialdump-perl,Perl module to dump subroutine parameters concisely,,,1,1,,,,Section=perl; Version=0.20-2,,,,,,,
+libgetopt-long-descriptive-perl,libgetopt-long-descriptive-perl,libgetopt-long-descriptive-perl,module that handles command-line arguments with usage text,,,1,1,,,,Section=perl; Version=0.116-2,,,,,,,
+libmoosex-role-parameterized-perl,libmoosex-role-parameterized-perl,libmoosex-role-parameterized-perl,Moose extension providing parameterized roles,,,1,1,,,,Section=perl; Version=1.11-2,,,,,,,
+libnamespace-autoclean-perl,libnamespace-autoclean-perl,libnamespace-autoclean-perl,module to remove imported symbols after compilation,,,1,1,,,,Section=perl; Version=0.31-1,,,,,,,
+libb-hooks-endofscope-perl,libb-hooks-endofscope-perl,libb-hooks-endofscope-perl,module for executing code after a scope finished compilation,,,1,1,,,,Section=perl; Version=0.28-2,,,,,,,
+libsub-identify-perl,libsub-identify-perl,libsub-identify-perl,module to retrieve names of code references,,,1,1,,,,Section=perl; Version=0.14-3+b3,,,,,,,
+libapache-logformat-compiler-perl,libapache-logformat-compiler-perl,libapache-logformat-compiler-perl,Perl module to pre-compile a LogFormat string,,,1,1,,,,Section=perl; Version=0.36-3,,,,,,,
+libcookie-baker-perl,libcookie-baker-perl,libcookie-baker-perl,simple cookie string generator and parser,,,1,1,,,,Section=perl; Version=0.12-1,,,,,,,
+libdevel-stacktrace-ashtml-perl,libdevel-stacktrace-ashtml-perl,libdevel-stacktrace-ashtml-perl,module to display a stack trace in HTML,,,1,1,,,,Section=perl; Version=0.15-2,,,,,,,
+libfile-sharedir-perl,libfile-sharedir-perl,libfile-sharedir-perl,module to locate non-code files during run-time,,,1,1,,,,Section=perl; Version=1.118-3,,,,,,,
+libfilesys-notify-simple-perl,libfilesys-notify-simple-perl,libfilesys-notify-simple-perl,simple file system monitor,,,1,1,,,,Section=perl; Version=0.14-3,,,,,,,
+libhttp-entity-parser-perl,libhttp-entity-parser-perl,libhttp-entity-parser-perl,PSGI compliant HTTP Entity Parser,,,1,1,,,,Section=perl; Version=0.25-2,,,,,,,
+libhttp-headers-fast-perl,libhttp-headers-fast-perl,libhttp-headers-fast-perl,faster implementation of HTTP::Headers,,,1,1,,,,Section=perl; Version=0.22-3,,,,,,,
+libhttp-tiny-perl,libhttp-tiny-perl,libhttp-tiny-perl,"Perl module that implements a small, simple, correct HTTP/1.1 client",,,1,1,,,,Section=perl; Version=0.090-1,,,,,,,
+libtest-tcp-perl,libtest-tcp-perl,libtest-tcp-perl,module to test TCP/IP programs,,,1,1,,,,Section=perl; Version=2.22-2,,,,,,,
+libwww-form-urlencoded-perl,libwww-form-urlencoded-perl,libwww-form-urlencoded-perl,parser and builder for application/x-www-form-urlencoded format,,,1,1,,,,Section=perl; Version=0.26-2,,,,,,,
+libcgi-compile-perl,libcgi-compile-perl,libcgi-compile-perl,module for compiling .cgi scripts to a code reference,,,1,1,,,,Section=perl; Version=0.27-1,,,,,,,
+libcgi-emulate-psgi-perl,libcgi-emulate-psgi-perl,libcgi-emulate-psgi-perl,PSGI adapter for CGI,,,1,1,,,,Section=perl; Version=0.23-2,,,,,,,
+libfcgi-perl,libfcgi-perl,libfcgi-perl,helper module for FastCGI,,,1,1,,,,Section=perl; Version=0.82+ds-3+b2,,,,,,,
+libfcgi-procmanager-perl,libfcgi-procmanager-perl,libfcgi-procmanager-perl,Perl module to help manage FastCGI applications,,,1,1,,,,Section=perl; Version=0.28-3,,,,,,,
+liblog-dispatch-perl,liblog-dispatch-perl,liblog-dispatch-perl,message dispatcher to multiple Log::Dispatch::* objects,,,1,1,,,,Section=perl; Version=2.71-1,,,,,,,
+liblog-log4perl-perl,liblog-log4perl-perl,liblog-log4perl-perl,Perl port of the widely popular log4j logging package,,,1,1,,,,Section=perl; Version=1.57-1,,,,,,,
+libmodule-refresh-perl,libmodule-refresh-perl,libmodule-refresh-perl,tool to refresh %INC files when updated on disk,,,1,1,,,,Section=perl; Version=0.18-2,,,,,,,
+libuniversal-can-perl,libuniversal-can-perl,libuniversal-can-perl,safer version of UNIVERSAL::can,,,1,1,,,,Section=perl; Version=1.20140328-3,,,,,,,
+libuniversal-isa-perl,libuniversal-isa-perl,libuniversal-isa-perl,safer version of UNIVERSAL::isa,,,1,1,,,,Section=perl; Version=1.20171012-3,,,,,,,
+libunicode-linebreak-perl,libunicode-linebreak-perl,libunicode-linebreak-perl,UAX #14 Unicode Line Breaking Algorithm,,,1,1,,,,Section=perl; Version=0.0.20190101-1+b9,,,,,,,
+ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
+libencode-locale-perl,libencode-locale-perl,libencode-locale-perl,utility to determine the locale encoding,,,1,1,,,,Section=perl; Version=1.05-3,,,,,,,
+libfile-listing-perl,libfile-listing-perl,libfile-listing-perl,module to parse directory listings,,,1,1,,,,Section=perl; Version=6.16-1,,,,,,,
+libhtml-tree-perl,libhtml-tree-perl,libhtml-tree-perl,Perl module to represent and create HTML syntax trees,,,1,1,,,,Section=perl; Version=5.07-3,,,,,,,
+libhttp-cookies-perl,libhttp-cookies-perl,libhttp-cookies-perl,HTTP cookie jars,,,1,1,,,,Section=perl; Version=6.11-1,,,,,,,
+libhttp-date-perl,libhttp-date-perl,libhttp-date-perl,module of date conversion routines,,,1,1,,,,Section=perl; Version=6.06-1,,,,,,,
+libhttp-negotiate-perl,libhttp-negotiate-perl,libhttp-negotiate-perl,implementation of content negotiation,,,1,1,,,,Section=perl; Version=6.01-2,,,,,,,
+liblwp-mediatypes-perl,liblwp-mediatypes-perl,liblwp-mediatypes-perl,module to guess media type for a file or a URL,,,1,1,,,,Section=perl; Version=6.04-2,,,,,,,
+liblwp-protocol-https-perl,liblwp-protocol-https-perl,liblwp-protocol-https-perl,HTTPS driver for LWP::UserAgent,,,1,1,,,,Section=perl; Version=6.14-1,,,,,,,
+libnet-http-perl,libnet-http-perl,libnet-http-perl,module providing low-level HTTP connection client,,,1,1,,,,Section=perl; Version=6.23-1,,,,,,,
+libwww-robotrules-perl,libwww-robotrules-perl,libwww-robotrules-perl,database of robots.txt-derived permissions,,,1,1,,,,Section=perl; Version=6.02-1,,,,,,,
+netbase,netbase,netbase,Basic TCP/IP networking system,,,1,1,,,,Section=admin; Version=6.5,,,,,,,
+libhtml-form-perl,libhtml-form-perl,libhtml-form-perl,module that represents an HTML form element,,,1,1,,,,Section=perl; Version=6.12-1,,,,,,,
+libhtml-format-perl,libhtml-format-perl,libhtml-format-perl,module for transforming HTML into various formats,,,1,1,,,,Section=perl; Version=2.16-2,,,,,,,
+libhttp-daemon-perl,libhttp-daemon-perl,libhttp-daemon-perl,simple http server class,,,1,1,,,,Section=perl; Version=6.16-1,,,,,,,
+libmailtools-perl,libmailtools-perl,libmailtools-perl,modules to manipulate email in perl programs,,,1,1,,,,Section=perl; Version=2.22-1,,,,,,,
+,,,,,,,,,,,,perl:any,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcgi-simple-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcgi-struct-xs-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-accessor-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-c3-adopt-next-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-c3-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-inspector-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-load-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdata-dump-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libextutils-autoinstall-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-copy-recursive-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-modified-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-slurp-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhash-multivalue-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-parser-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-body-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjson-maybexs-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblist-moreutils-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmime-types-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmodule-pluggable-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoose-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoosex-emulate-class-accessor-fast-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoosex-getopt-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoosex-methodattributes-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnamespace-clean-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpath-class-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libperlio-utf8-strict-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-middleware-fixmissingbodyinredirect-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-middleware-methodoverride-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-middleware-removeredundantbody-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-middleware-reverseproxy-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-test-externalserver-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsafe-isa-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libscalar-list-utils-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libscope-upper-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstream-buffered-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstring-rewriteprefix-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtask-weaken-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-mockobject-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtext-simpletable-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtree-simple-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtree-simple-visitorfactory-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtry-tiny-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwww-perl,libcatalyst-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcatalyst-dispatchtype-regex-perl,libcatalyst-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libcgi-simple-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libcgi-struct-xs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libcgi-struct-xs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libcgi-struct-xs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-deep-perl,libcgi-struct-xs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-leaktrace-perl,libcgi-struct-xs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libclass-accessor-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsub-name-perl,libclass-accessor-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libclass-c3-adopt-next-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmro-compat-perl,libclass-c3-adopt-next-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libclass-c3-adopt-next-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libclass-c3-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libalgorithm-c3-perl,libclass-c3-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-c3-xs-perl,libclass-c3-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libclass-inspector-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libclass-load-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdata-optlist-perl,libclass-load-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmodule-implementation-perl,libclass-load-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmodule-runtime-perl,libclass-load-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpackage-stash-perl,libclass-load-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtry-tiny-perl,libclass-load-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libdata-dump-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libencode-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libencode-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libencode-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libextutils-autoinstall-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libfile-copy-recursive-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libfile-modified-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libfile-slurp-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libhash-multivalue-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libhtml-parser-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libhtml-parser-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libhtml-parser-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-tagset-perl,libhtml-parser-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libhtml-parser-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-message-perl,libhtml-parser-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libhttp-body-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-message-perl,libhttp-body-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpath-class-perl,libhttp-body-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwww-perl,libhttp-body-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libjson-maybexs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcpanel-json-xs-perl,libjson-maybexs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjson-pp-perl,libjson-maybexs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libexporter-tiny-perl,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblist-moreutils-xs-perl,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,liblist-moreutils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libmime-types-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libmodule-pluggable-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmodule-runtime-perl,libmodule-pluggable-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-load-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libclass-load-xs-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdata-optlist-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdevel-globaldestruction-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdevel-overloadinfo-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdevel-stacktrace-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libeval-closure-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmodule-runtime-conflicts-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmodule-runtime-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmro-compat-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpackage-deprecationmanager-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpackage-stash-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpackage-stash-xs-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libparams-util-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libscalar-list-utils-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsub-exporter-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtry-tiny-perl,libmoose-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdevel-partialdump-perl,libmoose-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libmoosex-emulate-class-accessor-fast-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoose-perl,libmoosex-emulate-class-accessor-fast-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnamespace-clean-perl,libmoosex-emulate-class-accessor-fast-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libmoosex-getopt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgetopt-long-descriptive-perl,libmoosex-getopt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoose-perl,libmoosex-getopt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoosex-role-parameterized-perl,libmoosex-getopt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnamespace-autoclean-perl,libmoosex-getopt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtry-tiny-perl,libmoosex-getopt-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libmoosex-methodattributes-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoose-perl,libmoosex-methodattributes-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnamespace-autoclean-perl,libmoosex-methodattributes-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libb-hooks-endofscope-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpackage-stash-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsub-identify-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsub-name-perl,libnamespace-clean-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libnamespace-clean-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libpath-class-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libperlio-utf8-strict-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libperlio-utf8-strict-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libperlio-utf8-strict-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libplack-middleware-fixmissingbodyinredirect-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-parser-perl,libplack-middleware-fixmissingbodyinredirect-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-perl,libplack-middleware-fixmissingbodyinredirect-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libplack-middleware-methodoverride-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-perl,libplack-middleware-methodoverride-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libplack-middleware-removeredundantbody-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-perl,libplack-middleware-removeredundantbody-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libplack-middleware-reverseproxy-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplack-perl,libplack-middleware-reverseproxy-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libapache-logformat-compiler-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcookie-baker-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdevel-stacktrace-ashtml-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdevel-stacktrace-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-sharedir-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfilesys-notify-simple-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhash-multivalue-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-entity-parser-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-headers-fast-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-message-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-tiny-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstream-buffered-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtest-tcp-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtry-tiny-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwww-form-urlencoded-perl,libplack-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcgi-compile-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libcgi-emulate-psgi-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libfcgi-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libfcgi-procmanager-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liblog-dispatch-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liblog-log4perl-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libmodule-refresh-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libwww-perl,libplack-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libplack-test-externalserver-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libplack-test-externalserver-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwww-perl,libplack-test-externalserver-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libsafe-isa-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libscalar-list-utils-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libscope-upper-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libscope-upper-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libscope-upper-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libstream-buffered-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libstring-rewriteprefix-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsub-exporter-perl,libstring-rewriteprefix-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libtask-weaken-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libtest-mockobject-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuniversal-can-perl,libtest-mockobject-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuniversal-isa-perl,libtest-mockobject-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libtext-simpletable-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libunicode-linebreak-perl,libtext-simpletable-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libtree-simple-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libtree-simple-visitorfactory-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtree-simple-perl,libtree-simple-visitorfactory-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libtry-tiny-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-perl,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libscalar-list-utils-perl,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ca-certificates,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-locale-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfile-listing-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-parser-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-tagset-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhtml-tree-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-cookies-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-date-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-message-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhttp-negotiate-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblwp-mediatypes-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblwp-protocol-https-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnet-http-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtry-tiny-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liburi-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwww-robotrules-perl,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,netbase,libwww-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdata-dump-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhtml-form-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhtml-format-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhttp-daemon-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libmailtools-perl,libwww-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl:any,libcatalyst-dispatchtype-regex-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcatalyst-perl,libcatalyst-dispatchtype-regex-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmoose-perl,libcatalyst-dispatchtype-regex-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtext-simpletable-perl,libcatalyst-dispatchtype-regex-perl,Depends,#333,1,Depends,{}

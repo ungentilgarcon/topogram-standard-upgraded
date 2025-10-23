@@ -1,10 +1,10 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"hunspell-en-au","hunspell-en-au","hunspell-en-au","English (Australia) dictionary for hunspell","","","1","1","","","","Section=text; Version=1:2020.12.07-4","","","","","",""
-"dictionaries-common","dictionaries-common","dictionaries-common","spelling dictionaries - common utilities","","","1","1","","","","Section=text; Version=1.30.10","","","","","",""
-"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","",""
-"libtext-iconv-perl","libtext-iconv-perl","libtext-iconv-perl","module to convert between character sets in Perl","","","1","1","","","","Section=perl; Version=1.7-8+b4","","","","","",""
-"emacsen-common","emacsen-common","emacsen-common","Common facilities for all emacsen","","","1","1","","","","Section=editors; Version=3.0.8","","","","","",""
-"","","","","","","","","","","","","hunspell-en-au","dictionaries-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dictionaries-common","debconf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dictionaries-common","libtext-iconv-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","dictionaries-common","emacsen-common","Depends","#333","1","Depends","{}"
+hunspell-en-au,hunspell-en-au,hunspell-en-au,English (Australia) dictionary for hunspell,,,1,1,,,,Section=text; Version=1:2020.12.07-4,,,,,,,
+dictionaries-common,dictionaries-common,dictionaries-common,spelling dictionaries - common utilities,,,1,1,,,,Section=text; Version=1.30.10,,,,,,,
+debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
+libtext-iconv-perl,libtext-iconv-perl,libtext-iconv-perl,module to convert between character sets in Perl,,,1,1,,,,Section=perl; Version=1.7-8+b4,,,,,,,
+emacsen-common,emacsen-common,emacsen-common,Common facilities for all emacsen,,,1,1,,,,Section=editors; Version=3.0.8,,,,,,,
+,,,,,,,,,,,,dictionaries-common,hunspell-en-au,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,debconf,dictionaries-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtext-iconv-perl,dictionaries-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,emacsen-common,dictionaries-common,Depends,#333,1,Depends,{}

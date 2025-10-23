@@ -1,31 +1,31 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"ruby-atk","ruby-atk","ruby-atk","ATK bindings for the Ruby language","","","1","1","","","","Section=ruby; Version=4.2.2-2","","","","","",""
-"gir1.2-atk-1.0","gir1.2-atk-1.0","gir1.2-atk-1.0","ATK accessibility toolkit (GObject introspection)","","","1","1","","","","Section=introspection; Version=2.56.2-1","","","","","",""
-"ruby-gobject-introspection","ruby-gobject-introspection","ruby-gobject-introspection","GObject Introspection bindings for the Ruby language","","","1","1","","","","Section=ruby; Version=4.2.2-2+b2","","","","","",""
-"ruby-glib2","ruby-glib2","ruby-glib2","GLib 2 bindings for the Ruby language","","","1","1","","","","Section=ruby; Version=4.2.2-2+b2","","","","","",""
-"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libatk1.0-0t64","libatk1.0-0t64","libatk1.0-0t64","ATK accessibility toolkit","","","1","1","","","","Section=libs; Version=2.56.2-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgirepository-1.0-1","libgirepository-1.0-1","libgirepository-1.0-1","Library for handling GObject introspection data (runtime library)","","","1","1","","","","Section=libs; Version=1.84.0-1","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libruby3.3","libruby3.3","libruby3.3","Libraries necessary to run Ruby 3.3","","","1","1","","","","Section=libs; Version=3.3.8-2","","","","","",""
-"libruby","libruby","libruby","Libraries necessary to run Ruby","","","1","1","","","","Section=libs; Version=1:3.3+b1","","","","","",""
-"ruby-pkg-config","ruby-pkg-config","ruby-pkg-config","pkg-config implementation for Ruby","","","1","1","","","","Section=ruby; Version=1.5.9-1","","","","","",""
-"","","","","","","","","","","","","ruby-atk","gir1.2-atk-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-atk","ruby-gobject-introspection","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-atk","ruby-glib2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-atk-1.0","gir1.2-gobject-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-atk-1.0","libatk1.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-gobject-introspection","ruby-glib2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-gobject-introspection","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-gobject-introspection","libgirepository-1.0-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-gobject-introspection","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-gobject-introspection","libruby3.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-gobject-introspection","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-gobject-introspection","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-glib2","ruby-pkg-config","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-glib2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-glib2","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-glib2","libruby3.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-glib2","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-glib2","libruby","Depends","#333","1","Depends","{}"
+ruby-atk,ruby-atk,ruby-atk,ATK bindings for the Ruby language,,,1,1,,,,Section=ruby; Version=4.2.2-2,,,,,,,
+gir1.2-atk-1.0,gir1.2-atk-1.0,gir1.2-atk-1.0,ATK accessibility toolkit (GObject introspection),,,1,1,,,,Section=introspection; Version=2.56.2-1,,,,,,,
+ruby-gobject-introspection,ruby-gobject-introspection,ruby-gobject-introspection,GObject Introspection bindings for the Ruby language,,,1,1,,,,Section=ruby; Version=4.2.2-2+b2,,,,,,,
+ruby-glib2,ruby-glib2,ruby-glib2,GLib 2 bindings for the Ruby language,,,1,1,,,,Section=ruby; Version=4.2.2-2+b2,,,,,,,
+gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libatk1.0-0t64,libatk1.0-0t64,libatk1.0-0t64,ATK accessibility toolkit,,,1,1,,,,Section=libs; Version=2.56.2-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgirepository-1.0-1,libgirepository-1.0-1,libgirepository-1.0-1,Library for handling GObject introspection data (runtime library),,,1,1,,,,Section=libs; Version=1.84.0-1,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libruby3.3,libruby3.3,libruby3.3,Libraries necessary to run Ruby 3.3,,,1,1,,,,Section=libs; Version=3.3.8-2,,,,,,,
+libruby,libruby,libruby,Libraries necessary to run Ruby,,,1,1,,,,Section=libs; Version=1:3.3+b1,,,,,,,
+ruby-pkg-config,ruby-pkg-config,ruby-pkg-config,pkg-config implementation for Ruby,,,1,1,,,,Section=ruby; Version=1.5.9-1,,,,,,,
+,,,,,,,,,,,,gir1.2-atk-1.0,ruby-atk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-gobject-introspection,ruby-atk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-glib2,ruby-atk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-atk-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libatk1.0-0t64,gir1.2-atk-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-glib2,ruby-gobject-introspection,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,ruby-gobject-introspection,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgirepository-1.0-1,ruby-gobject-introspection,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,ruby-gobject-introspection,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby3.3,ruby-gobject-introspection,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-gobject-introspection,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-gobject-introspection,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-pkg-config,ruby-glib2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,ruby-glib2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,ruby-glib2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby3.3,ruby-glib2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-glib2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-glib2,Depends,#333,1,Depends,{}

@@ -1,26 +1,26 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"lib32ncurses-dev","lib32ncurses-dev","lib32ncurses-dev","developer's libraries for ncurses (32-bit)","","","1","1","","","","Section=libdevel; Version=6.5+20250216-2","","","","","",""
-"lib32ncurses6","lib32ncurses6","lib32ncurses6","shared libraries for terminal handling (32-bit)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"lib32ncursesw6","lib32ncursesw6","lib32ncursesw6","shared libraries for terminal handling (wide character support) (32-bit)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"lib32tinfo6","lib32tinfo6","lib32tinfo6","shared low-level terminfo library for terminal handling (32-bit)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libncurses-dev","libncurses-dev","libncurses-dev","developer's libraries for ncurses","","","1","1","","","","Section=libdevel; Version=6.5+20250216-2","","","","","",""
-"lib32c-dev","lib32c-dev","lib32c-dev","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6-i386","libc6-i386","libc6-i386","GNU C Library: 32-bit shared libraries for AMD64","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libncurses6","libncurses6","libncurses6","shared libraries for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libncursesw6","libncursesw6","libncursesw6","shared libraries for terminal handling (wide character support)","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","lib32ncurses-dev","lib32ncurses6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncurses-dev","lib32ncursesw6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncurses-dev","lib32tinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncurses-dev","libncurses-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncurses-dev","lib32c-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncurses6","lib32tinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncurses6","libc6-i386","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncursesw6","lib32tinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32ncursesw6","libc6-i386","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","lib32tinfo6","libc6-i386","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libncurses6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libncursesw6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libncurses-dev","libc6-dev","Depends","#333","1","Depends","{}"
+lib32ncurses-dev,lib32ncurses-dev,lib32ncurses-dev,developer's libraries for ncurses (32-bit),,,1,1,,,,Section=libdevel; Version=6.5+20250216-2,,,,,,,
+lib32ncurses6,lib32ncurses6,lib32ncurses6,shared libraries for terminal handling (32-bit),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+lib32ncursesw6,lib32ncursesw6,lib32ncursesw6,shared libraries for terminal handling (wide character support) (32-bit),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+lib32tinfo6,lib32tinfo6,lib32tinfo6,shared low-level terminfo library for terminal handling (32-bit),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libncurses-dev,libncurses-dev,libncurses-dev,developer's libraries for ncurses,,,1,1,,,,Section=libdevel; Version=6.5+20250216-2,,,,,,,
+lib32c-dev,lib32c-dev,lib32c-dev,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6-i386,libc6-i386,libc6-i386,GNU C Library: 32-bit shared libraries for AMD64,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libncurses6,libncurses6,libncurses6,shared libraries for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libncursesw6,libncursesw6,libncursesw6,shared libraries for terminal handling (wide character support),,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,lib32ncurses6,lib32ncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lib32ncursesw6,lib32ncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lib32tinfo6,lib32ncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libncurses-dev,lib32ncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lib32c-dev,lib32ncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lib32tinfo6,lib32ncurses6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-i386,lib32ncurses6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lib32tinfo6,lib32ncursesw6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-i386,lib32ncursesw6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-i386,lib32tinfo6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,libncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libncurses6,libncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libncursesw6,libncurses-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-dev,libncurses-dev,Depends,#333,1,Depends,{}

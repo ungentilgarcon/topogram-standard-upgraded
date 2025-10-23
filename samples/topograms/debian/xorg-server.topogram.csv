@@ -1,85 +1,85 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"xnest","xnest","xnest","Nested X server","","","1","1","","","","Section=x11; Version=2:21.1.16-1.3","","","","","",""
-"xserver-common","xserver-common","xserver-common","common files used by various X servers","","","1","1","","","","Section=x11; Version=2:21.1.16-1.3","","","","","",""
-"libaudit1","libaudit1","libaudit1","Dynamic library for security auditing","","","1","1","","","","Section=libs; Version=1:4.0.2-2+b2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libnettle8t64","libnettle8t64","libnettle8t64","low level cryptographic library (symmetric and one-way cryptos)","","","1","1","","","","Section=libs; Version=3.10.1-1","","","","","",""
-"libpixman-1-0","libpixman-1-0","libpixman-1-0","pixel-manipulation library for X and cairo","","","1","1","","","","Section=libs; Version=0.44.0-3","","","","","",""
-"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libunwind8","libunwind8","libunwind8","library to determine the call-chain of a program - runtime","","","1","1","","","","Section=libs; Version=1.8.1-0.1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxau6","libxau6","libxau6","X11 authorisation library","","","1","1","","","","Section=libs; Version=1:1.0.11-1","","","","","",""
-"libxdmcp6","libxdmcp6","libxdmcp6","X11 Display Manager Control Protocol library","","","1","1","","","","Section=libs; Version=1:1.1.5-1","","","","","",""
-"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","",""
-"libxfont2","libxfont2","libxfont2","X11 font rasterisation library","","","1","1","","","","Section=libs; Version=1:2.0.6-1+b3","","","","","",""
-"libgl1-mesa-dri","libgl1-mesa-dri","libgl1-mesa-dri","free implementation of the OpenGL API -- DRI modules","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"x11-common","x11-common","x11-common","X Window System (X.Org) infrastructure","","","1","1","","","","Section=x11; Version=1:7.7+24","","","","","",""
-"xkb-data","xkb-data","xkb-data","X Keyboard Extension (XKB) configuration data","","","1","1","","","","Section=x11; Version=2.42-1","","","","","",""
-"x11-xkb-utils","x11-xkb-utils","x11-xkb-utils","X11 XKB utilities","","","1","1","","","","Section=x11; Version=7.7+9","","","","","",""
-"xfonts-base","xfonts-base","xfonts-base","standard fonts for X","","","1","1","","","","Section=fonts; Version=1:1.0.5+nmu1","","","","","",""
-"xauth","xauth","xauth","X authentication utility","","","1","1","","","","Section=x11; Version=1:1.1.2-1.1","","","","","",""
-"libaudit-common","libaudit-common","libaudit-common","Dynamic library for security auditing - common files","","","1","1","","","","Section=libs; Version=1:4.0.2-2","","","","","",""
-"libcap-ng0","libcap-ng0","libcap-ng0","alternate POSIX capabilities library","","","1","1","","","","Section=libs; Version=0.8.5-4+b1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libcap2","libcap2","libcap2","POSIX 1003.1e capabilities (library)","","","1","1","","","","Section=libs; Version=1:2.75-10+b1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libx11-data","libx11-data","libx11-data","X11 client-side library","","","1","1","","","","Section=x11; Version=2:1.8.12-1","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"libfontenc1","libfontenc1","libfontenc1","X11 font encoding library","","","1","1","","","","Section=libs; Version=1:1.1.8-1+b2","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libgbm1","libgbm1","libgbm1","generic buffer management API -- runtime","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"libvulkan1","libvulkan1","libvulkan1","Vulkan loader library","","","1","1","","","","Section=libs; Version=1.4.309.0-1","","","","","",""
-"","","","","","","","","","","","","xnest","xserver-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libaudit1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libnettle8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libpixman-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libselinux1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libunwind8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libxau6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libxdmcp6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libxfont2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xnest","libgl1-mesa-dri","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","xserver-common","x11-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xserver-common","xkb-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xserver-common","x11-xkb-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xserver-common","xfonts-base","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","xserver-common","xauth","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libaudit1","libaudit-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libaudit1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libaudit1","libcap-ng0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libnettle8t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpixman-1-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libselinux1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libselinux1","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsystemd0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsystemd0","libcap2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsystemd0","libzstd1","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libunwind8","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libunwind8","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libx11-6","libx11-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxau6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxdmcp6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxext6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxext6","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfont2","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfont2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfont2","libfontenc1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfont2","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxfont2","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgl1-mesa-dri","libgbm1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgl1-mesa-dri","libvulkan1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgl1-mesa-dri","libc6","Depends","#333","1","Depends","{}"
+xnest,xnest,xnest,Nested X server,,,1,1,,,,Section=x11; Version=2:21.1.16-1.3,,,,,,,
+xserver-common,xserver-common,xserver-common,common files used by various X servers,,,1,1,,,,Section=x11; Version=2:21.1.16-1.3,,,,,,,
+libaudit1,libaudit1,libaudit1,Dynamic library for security auditing,,,1,1,,,,Section=libs; Version=1:4.0.2-2+b2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libnettle8t64,libnettle8t64,libnettle8t64,low level cryptographic library (symmetric and one-way cryptos),,,1,1,,,,Section=libs; Version=3.10.1-1,,,,,,,
+libpixman-1-0,libpixman-1-0,libpixman-1-0,pixel-manipulation library for X and cairo,,,1,1,,,,Section=libs; Version=0.44.0-3,,,,,,,
+libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libunwind8,libunwind8,libunwind8,library to determine the call-chain of a program - runtime,,,1,1,,,,Section=libs; Version=1.8.1-0.1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxau6,libxau6,libxau6,X11 authorisation library,,,1,1,,,,Section=libs; Version=1:1.0.11-1,,,,,,,
+libxdmcp6,libxdmcp6,libxdmcp6,X11 Display Manager Control Protocol library,,,1,1,,,,Section=libs; Version=1:1.1.5-1,,,,,,,
+libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
+libxfont2,libxfont2,libxfont2,X11 font rasterisation library,,,1,1,,,,Section=libs; Version=1:2.0.6-1+b3,,,,,,,
+libgl1-mesa-dri,libgl1-mesa-dri,libgl1-mesa-dri,free implementation of the OpenGL API -- DRI modules,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+x11-common,x11-common,x11-common,X Window System (X.Org) infrastructure,,,1,1,,,,Section=x11; Version=1:7.7+24,,,,,,,
+xkb-data,xkb-data,xkb-data,X Keyboard Extension (XKB) configuration data,,,1,1,,,,Section=x11; Version=2.42-1,,,,,,,
+x11-xkb-utils,x11-xkb-utils,x11-xkb-utils,X11 XKB utilities,,,1,1,,,,Section=x11; Version=7.7+9,,,,,,,
+xfonts-base,xfonts-base,xfonts-base,standard fonts for X,,,1,1,,,,Section=fonts; Version=1:1.0.5+nmu1,,,,,,,
+xauth,xauth,xauth,X authentication utility,,,1,1,,,,Section=x11; Version=1:1.1.2-1.1,,,,,,,
+libaudit-common,libaudit-common,libaudit-common,Dynamic library for security auditing - common files,,,1,1,,,,Section=libs; Version=1:4.0.2-2,,,,,,,
+libcap-ng0,libcap-ng0,libcap-ng0,alternate POSIX capabilities library,,,1,1,,,,Section=libs; Version=0.8.5-4+b1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libcap2,libcap2,libcap2,POSIX 1003.1e capabilities (library),,,1,1,,,,Section=libs; Version=1:2.75-10+b1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libx11-data,libx11-data,libx11-data,X11 client-side library,,,1,1,,,,Section=x11; Version=2:1.8.12-1,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+libfontenc1,libfontenc1,libfontenc1,X11 font encoding library,,,1,1,,,,Section=libs; Version=1:1.1.8-1+b2,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libgbm1,libgbm1,libgbm1,generic buffer management API -- runtime,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+libvulkan1,libvulkan1,libvulkan1,Vulkan loader library,,,1,1,,,,Section=libs; Version=1.4.309.0-1,,,,,,,
+,,,,,,,,,,,,xserver-common,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libaudit1,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnettle8t64,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpixman-1-0,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libunwind8,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxau6,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxdmcp6,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxfont2,xnest,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl1-mesa-dri,xnest,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,x11-common,xserver-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xkb-data,xserver-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,x11-xkb-utils,xserver-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xfonts-base,xserver-common,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xauth,xserver-common,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libaudit-common,libaudit1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libaudit1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap-ng0,libaudit1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libnettle8t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpixman-1-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libselinux1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,libselinux1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libsystemd0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap2,libsystemd0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libsystemd0,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libunwind8,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libunwind8,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-data,libx11-6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxau6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxdmcp6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxext6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libxext6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,libxfont2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxfont2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontenc1,libxfont2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libxfont2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libxfont2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgbm1,libgl1-mesa-dri,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvulkan1,libgl1-mesa-dri,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgl1-mesa-dri,Depends,#333,1,Depends,{}

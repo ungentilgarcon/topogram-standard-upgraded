@@ -1,7 +1,7 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","",""
-"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","",""
-"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","",""
-"","","","","","","","","","","","","libjs-underscore","javascript-common","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libjs-underscore","libjs-jquery","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libjs-jquery","javascript-common","Recommends","#333","1","Recommends","{}"
+libjs-underscore,libjs-underscore,libjs-underscore,JavaScript's functional programming helper library,,,1,1,,,,Section=javascript; Version=1.13.4~dfsg+~1.11.4-3,,,,,,,
+javascript-common,javascript-common,javascript-common,Base support for JavaScript library packages,,,1,1,,,,Section=javascript; Version=12+nmu1,,,,,,,
+libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
+,,,,,,,,,,,,javascript-common,libjs-underscore,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libjs-jquery,libjs-underscore,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,javascript-common,libjs-jquery,Recommends,#333,1,Recommends,{}

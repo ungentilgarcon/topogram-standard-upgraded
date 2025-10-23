@@ -1,68 +1,68 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gvfs","gvfs","gvfs","userspace virtual filesystem - GIO module","","","1","1","","","","Section=libs; Version=1.57.2-2","","","","","",""
-"gvfs-common","gvfs-common","gvfs-common","userspace virtual filesystem - common data files","","","1","1","","","","Section=libs; Version=1.57.2-2","","","","","",""
-"gvfs-daemons","gvfs-daemons","gvfs-daemons","userspace virtual filesystem - servers","","","1","1","","","","Section=libs; Version=1.57.2-2","","","","","",""
-"gvfs-libs","gvfs-libs","gvfs-libs","userspace virtual filesystem - private libraries","","","1","1","","","","Section=libs; Version=1.57.2-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"desktop-file-utils","desktop-file-utils","desktop-file-utils","Utilities for .desktop files","","","1","1","","","","Section=devel; Version=0.28-1","","","","","",""
-"lsof","lsof","lsof","utility to list open files","","","1","1","","","","Section=utils; Version=4.99.4+dfsg-2","","","","","",""
-"udisks2","udisks2","udisks2","D-Bus service to access and manipulate storage devices","","","1","1","","","","Section=admin; Version=2.10.1-12.1+deb13u1","","","","","",""
-"libbluray2","libbluray2","libbluray2","Blu-ray disc playback support library (shared library)","","","1","1","","","","Section=libs; Version=1:1.3.4-1+b2","","","","","",""
-"libgudev-1.0-0","libgudev-1.0-0","libgudev-1.0-0","GObject-based wrapper library for libudev","","","1","1","","","","Section=libs; Version=238-6","","","","","",""
-"libsecret-1-0","libsecret-1-0","libsecret-1-0","Secret store","","","1","1","","","","Section=libs; Version=0.21.7-1","","","","","",""
-"libsystemd0","libsystemd0","libsystemd0","systemd utility library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libudisks2-0","libudisks2-0","libudisks2-0","GObject based library to access udisks2","","","1","1","","","","Section=libs; Version=2.10.1-12.1+deb13u1","","","","","",""
-"dbus","dbus","dbus","simple interprocess messaging system (system message bus)","","","1","1","","","","Section=admin; Version=1.16.2-2","","","","","",""
-"gsettings-desktop-schemas","gsettings-desktop-schemas","gsettings-desktop-schemas","GSettings desktop-wide schemas","","","1","1","","","","Section=gnome; Version=48.0-1","","","","","",""
-"libgcr-4-4","libgcr-4-4","libgcr-4-4","Library for Crypto related tasks","","","1","1","","","","Section=libs; Version=4.4.0.1-3","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libatomic1","libatomic1","libatomic1","support library providing __atomic built-in functions","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libffi8","libffi8","libffi8","Foreign Function Interface library runtime","","","1","1","","","","Section=libs; Version=3.4.8-2","","","","","",""
-"libmount1","libmount1","libmount1","device mounting library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libglib2.0-data","libglib2.0-data","libglib2.0-data","Common files for GLib library","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","",""
-"xdg-user-dirs","xdg-user-dirs","xdg-user-dirs","tool to manage well known user directories","","","1","1","","","","Section=utils; Version=0.18-2","","","","","",""
-"","","","","","","","","","","","","gvfs","gvfs-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs","gvfs-daemons","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs","gvfs-daemons","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs","gvfs-libs","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-common","desktop-file-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-common","gvfs","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gvfs-daemons","gvfs-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","gvfs-libs","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","lsof","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","udisks2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","libbluray2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","libgudev-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","libsecret-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","libsystemd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","libudisks2-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-daemons","dbus","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gvfs-daemons","gvfs","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gvfs-libs","gsettings-desktop-schemas","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-libs","gvfs-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-libs","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-libs","libgcr-4-4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-libs","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gvfs-libs","libsecret-1-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libatomic1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libffi8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libmount1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libselinux1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","libglib2.0-data","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","shared-mime-info","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libglib2.0-0t64","xdg-user-dirs","Recommends","#333","1","Recommends","{}"
+gvfs,gvfs,gvfs,userspace virtual filesystem - GIO module,,,1,1,,,,Section=libs; Version=1.57.2-2,,,,,,,
+gvfs-common,gvfs-common,gvfs-common,userspace virtual filesystem - common data files,,,1,1,,,,Section=libs; Version=1.57.2-2,,,,,,,
+gvfs-daemons,gvfs-daemons,gvfs-daemons,userspace virtual filesystem - servers,,,1,1,,,,Section=libs; Version=1.57.2-2,,,,,,,
+gvfs-libs,gvfs-libs,gvfs-libs,userspace virtual filesystem - private libraries,,,1,1,,,,Section=libs; Version=1.57.2-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+desktop-file-utils,desktop-file-utils,desktop-file-utils,Utilities for .desktop files,,,1,1,,,,Section=devel; Version=0.28-1,,,,,,,
+lsof,lsof,lsof,utility to list open files,,,1,1,,,,Section=utils; Version=4.99.4+dfsg-2,,,,,,,
+udisks2,udisks2,udisks2,D-Bus service to access and manipulate storage devices,,,1,1,,,,Section=admin; Version=2.10.1-12.1+deb13u1,,,,,,,
+libbluray2,libbluray2,libbluray2,Blu-ray disc playback support library (shared library),,,1,1,,,,Section=libs; Version=1:1.3.4-1+b2,,,,,,,
+libgudev-1.0-0,libgudev-1.0-0,libgudev-1.0-0,GObject-based wrapper library for libudev,,,1,1,,,,Section=libs; Version=238-6,,,,,,,
+libsecret-1-0,libsecret-1-0,libsecret-1-0,Secret store,,,1,1,,,,Section=libs; Version=0.21.7-1,,,,,,,
+libsystemd0,libsystemd0,libsystemd0,systemd utility library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libudisks2-0,libudisks2-0,libudisks2-0,GObject based library to access udisks2,,,1,1,,,,Section=libs; Version=2.10.1-12.1+deb13u1,,,,,,,
+dbus,dbus,dbus,simple interprocess messaging system (system message bus),,,1,1,,,,Section=admin; Version=1.16.2-2,,,,,,,
+gsettings-desktop-schemas,gsettings-desktop-schemas,gsettings-desktop-schemas,GSettings desktop-wide schemas,,,1,1,,,,Section=gnome; Version=48.0-1,,,,,,,
+libgcr-4-4,libgcr-4-4,libgcr-4-4,Library for Crypto related tasks,,,1,1,,,,Section=libs; Version=4.4.0.1-3,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libatomic1,libatomic1,libatomic1,support library providing __atomic built-in functions,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libffi8,libffi8,libffi8,Foreign Function Interface library runtime,,,1,1,,,,Section=libs; Version=3.4.8-2,,,,,,,
+libmount1,libmount1,libmount1,device mounting library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libglib2.0-data,libglib2.0-data,libglib2.0-data,Common files for GLib library,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
+xdg-user-dirs,xdg-user-dirs,xdg-user-dirs,tool to manage well known user directories,,,1,1,,,,Section=utils; Version=0.18-2,,,,,,,
+,,,,,,,,,,,,gvfs-common,gvfs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gvfs-daemons,gvfs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gvfs-daemons,gvfs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gvfs-libs,gvfs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gvfs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gvfs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,desktop-file-utils,gvfs-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gvfs,gvfs-common,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gvfs-common,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gvfs-libs,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,lsof,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,udisks2,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbluray2,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgudev-1.0-0,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsecret-1-0,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsystemd0,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudisks2-0,gvfs-daemons,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dbus,gvfs-daemons,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gvfs,gvfs-daemons,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gsettings-desktop-schemas,gvfs-libs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gvfs-common,gvfs-libs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gvfs-libs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcr-4-4,gvfs-libs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gvfs-libs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsecret-1-0,gvfs-libs,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libatomic1,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libffi8,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmount1,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libglib2.0-0t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-data,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,shared-mime-info,libglib2.0-0t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xdg-user-dirs,libglib2.0-0t64,Recommends,#333,1,Recommends,{}

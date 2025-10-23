@@ -1,171 +1,171 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"texlive-lang-all","texlive-lang-all","texlive-lang-all","TeX Live: metapackage depending on all TeX Live language packages","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"tex-common","tex-common","tex-common","common infrastructure for building and installing TeX","","","1","1","","","","Section=tex; Version=6.19","","","","","",""
-"texlive-lang-arabic","texlive-lang-arabic","texlive-lang-arabic","TeX Live: Arabic","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-chinese","texlive-lang-chinese","texlive-lang-chinese","TeX Live: Chinese","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-cjk","texlive-lang-cjk","texlive-lang-cjk","TeX Live: Chinese/Japanese/Korean (base)","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-cyrillic","texlive-lang-cyrillic","texlive-lang-cyrillic","TeX Live: Cyrillic","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-czechslovak","texlive-lang-czechslovak","texlive-lang-czechslovak","TeX Live: Czech/Slovak","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-english","texlive-lang-english","texlive-lang-english","TeX Live: US and UK English","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-european","texlive-lang-european","texlive-lang-european","TeX Live: Other European languages","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-french","texlive-lang-french","texlive-lang-french","TeX Live: French","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-german","texlive-lang-german","texlive-lang-german","TeX Live: German","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-greek","texlive-lang-greek","texlive-lang-greek","TeX Live: Greek","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-italian","texlive-lang-italian","texlive-lang-italian","TeX Live: Italian","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-japanese","texlive-lang-japanese","texlive-lang-japanese","TeX Live: Japanese","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-korean","texlive-lang-korean","texlive-lang-korean","TeX Live: Korean","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-other","texlive-lang-other","texlive-lang-other","TeX Live: Other languages","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-polish","texlive-lang-polish","texlive-lang-polish","TeX Live: Polish","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-portuguese","texlive-lang-portuguese","texlive-lang-portuguese","TeX Live: Portuguese","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-lang-spanish","texlive-lang-spanish","texlive-lang-spanish","TeX Live: Spanish","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","",""
-"fonts-hosny-amiri","fonts-hosny-amiri","fonts-hosny-amiri","Arabic Naskh style typographically oriented font","","","1","1","","","","Section=fonts; Version=1.001-1","","","","","",""
-"texlive-base","texlive-base","texlive-base","TeX Live: Essential programs and files","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"texlive-plain-generic","texlive-plain-generic","texlive-plain-generic","TeX Live: Plain (La)TeX packages","","","1","1","","","","Section=tex; Version=2024.20250309-2","","","","","",""
-"fonts-arphic-bkai00mp","fonts-arphic-bkai00mp","fonts-arphic-bkai00mp","""AR PL KaitiM Big5"" Chinese TrueType font by Arphic Technology","","","1","1","","","","Section=fonts; Version=2.10-21","","","","","",""
-"fonts-arphic-bsmi00lp","fonts-arphic-bsmi00lp","fonts-arphic-bsmi00lp","""AR PL Mingti2L Big5"" Chinese TrueType font by Arphic Technology","","","1","1","","","","Section=fonts; Version=2.10-18","","","","","",""
-"fonts-arphic-gbsn00lp","fonts-arphic-gbsn00lp","fonts-arphic-gbsn00lp","""AR PL SungtiL GB"" Chinese TrueType font by Arphic Technology","","","1","1","","","","Section=fonts; Version=2.11-16","","","","","",""
-"fonts-arphic-gkai00mp","fonts-arphic-gkai00mp","fonts-arphic-gkai00mp","""AR PL KaitiM GB"" Chinese TrueType font by Arphic Technology","","","1","1","","","","Section=fonts; Version=2.11-16","","","","","",""
-"poppler-data","poppler-data","poppler-data","encoding data for the poppler PDF rendering library","","","1","1","","","","Section=misc; Version=0.4.12-1","","","","","",""
-"texlive-binaries","texlive-binaries","texlive-binaries","Binaries for TeX Live","","","1","1","","","","Section=tex; Version=2024.20240313.70630+ds-6","","","","","",""
-"texlive-latex-base","texlive-latex-base","texlive-latex-base","TeX Live: LaTeX fundamental packages","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"latex-cjk-all","latex-cjk-all","latex-cjk-all","installs all LaTeX CJK packages","","","1","1","","","","Section=tex; Version=4.8.5-1","","","","","",""
-"ruby","ruby","ruby","Interpreter of object-oriented scripting language Ruby (default version)","","","1","1","","","","Section=ruby; Version=1:3.3+b1","","","","","",""
-"texlive-luatex","texlive-luatex","texlive-luatex","TeX Live: LuaTeX packages","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"fonts-gfs-baskerville","fonts-gfs-baskerville","fonts-gfs-baskerville","ancient Greek font revival","","","1","1","","","","Section=fonts; Version=1.1-6","","","","","",""
-"fonts-gfs-porson","fonts-gfs-porson","fonts-gfs-porson","Greek font (Porson revival)","","","1","1","","","","Section=fonts; Version=1.1-7","","","","","",""
-"fonts-ipaexfont-gothic","fonts-ipaexfont-gothic","fonts-ipaexfont-gothic","Japanese OpenType font, IPAex Gothic Font","","","1","1","","","","Section=fonts; Version=00401-5","","","","","",""
-"fonts-ipaexfont-mincho","fonts-ipaexfont-mincho","fonts-ipaexfont-mincho","Japanese OpenType font, IPAex Mincho Font","","","1","1","","","","Section=fonts; Version=00401-5","","","","","",""
-"fonts-ipafont-gothic","fonts-ipafont-gothic","fonts-ipafont-gothic","Japanese OpenType font set, IPA Gothic and IPA P Gothic Fonts","","","1","1","","","","Section=fonts; Version=00303-23","","","","","",""
-"fonts-ipafont-mincho","fonts-ipafont-mincho","fonts-ipafont-mincho","Japanese OpenType font set, IPA Mincho and IPA P Mincho Fonts","","","1","1","","","","Section=fonts; Version=00303-23","","","","","",""
-"texlive-latex-recommended","texlive-latex-recommended","texlive-latex-recommended","TeX Live: LaTeX recommended packages","","","1","1","","","","Section=tex; Version=2024.20250309-1","","","","","",""
-"fonts-baekmuk","fonts-baekmuk","fonts-baekmuk","Baekmuk series Korean fonts","","","1","1","","","","Section=fonts; Version=2.2-13","","","","","",""
-"fonts-unfonts-core","fonts-unfonts-core","fonts-unfonts-core","Un series Korean TrueType fonts","","","1","1","","","","Section=fonts; Version=1:1.0.2-080608-19","","","","","",""
-"fonts-unfonts-extra","fonts-unfonts-extra","fonts-unfonts-extra","Un series Korean TrueType fonts (extra)","","","1","1","","","","Section=fonts; Version=1:1.0.2-080608+dfsg-11","","","","","",""
-"fonts-sil-padauk","fonts-sil-padauk","fonts-sil-padauk","Burmese Unicode TrueType font with OpenType and Graphite support","","","1","1","","","","Section=fonts; Version=5.001-1","","","","","",""
-"fonts-tlwg-garuda-otf","fonts-tlwg-garuda-otf","fonts-tlwg-garuda-otf","Thai Garuda OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-kinnari-otf","fonts-tlwg-kinnari-otf","fonts-tlwg-kinnari-otf","Thai Kinnari OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-laksaman-otf","fonts-tlwg-laksaman-otf","fonts-tlwg-laksaman-otf","Thai Laksaman OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-loma-otf","fonts-tlwg-loma-otf","fonts-tlwg-loma-otf","Thai Loma OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-mono-otf","fonts-tlwg-mono-otf","fonts-tlwg-mono-otf","Thai TlwgMono OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-norasi-otf","fonts-tlwg-norasi-otf","fonts-tlwg-norasi-otf","Thai Norasi OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-purisa-otf","fonts-tlwg-purisa-otf","fonts-tlwg-purisa-otf","Thai Purisa OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-sawasdee-otf","fonts-tlwg-sawasdee-otf","fonts-tlwg-sawasdee-otf","Thai Sawasdee OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-typewriter-otf","fonts-tlwg-typewriter-otf","fonts-tlwg-typewriter-otf","Thai TlwgTypewriter OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-typist-otf","fonts-tlwg-typist-otf","fonts-tlwg-typist-otf","Thai TlwgTypist OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-typo-otf","fonts-tlwg-typo-otf","fonts-tlwg-typo-otf","Thai TlwgTypo OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-umpush-otf","fonts-tlwg-umpush-otf","fonts-tlwg-umpush-otf","Thai Umpush OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"fonts-tlwg-waree-otf","fonts-tlwg-waree-otf","fonts-tlwg-waree-otf","Thai Waree OpenType font","","","1","1","","","","Section=fonts; Version=1:0.7.3-1","","","","","",""
-"","","","","","","","","","","","","texlive-lang-all","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-arabic","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-chinese","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-cjk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-cyrillic","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-czechslovak","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-english","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-european","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-french","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-german","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-greek","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-italian","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-japanese","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-korean","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-other","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-polish","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-portuguese","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-all","texlive-lang-spanish","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","tex-common","ucf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-arabic","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-arabic","fonts-hosny-amiri","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-arabic","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-arabic","texlive-plain-generic","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-chinese","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-chinese","fonts-arphic-bkai00mp","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-chinese","fonts-arphic-bsmi00lp","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-chinese","fonts-arphic-gbsn00lp","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-chinese","fonts-arphic-gkai00mp","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-chinese","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-chinese","texlive-lang-cjk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","poppler-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","texlive-latex-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","latex-cjk-all","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","ruby","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","texlive-lang-chinese","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","texlive-lang-japanese","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-cjk","texlive-lang-korean","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-cyrillic","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cyrillic","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cyrillic","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-cyrillic","texlive-latex-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-lang-english","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-lang-european","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-lang-french","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-lang-german","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-lang-italian","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-lang-polish","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-lang-spanish","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-latex-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-czechslovak","texlive-luatex","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-english","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-english","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-european","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-european","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-french","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-french","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-german","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-german","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-greek","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-greek","fonts-gfs-baskerville","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-greek","fonts-gfs-porson","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-greek","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-greek","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-italian","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-italian","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","ruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","texlive-lang-cjk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","fonts-ipaexfont-gothic","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","fonts-ipaexfont-mincho","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","fonts-ipafont-gothic","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","fonts-ipafont-mincho","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-japanese","texlive-latex-recommended","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","texlive-lang-korean","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-korean","fonts-baekmuk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-korean","fonts-unfonts-core","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-korean","fonts-unfonts-extra","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-korean","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-korean","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-korean","texlive-lang-cjk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-sil-padauk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-garuda-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-kinnari-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-laksaman-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-loma-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-mono-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-norasi-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-purisa-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-sawasdee-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-typewriter-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-typist-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-typo-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-umpush-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","fonts-tlwg-waree-otf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-other","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-polish","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-polish","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-polish","texlive-binaries","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-polish","texlive-latex-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-portuguese","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-portuguese","texlive-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-spanish","tex-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","texlive-lang-spanish","texlive-base","Depends","#333","1","Depends","{}"
+texlive-lang-all,texlive-lang-all,texlive-lang-all,TeX Live: metapackage depending on all TeX Live language packages,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+tex-common,tex-common,tex-common,common infrastructure for building and installing TeX,,,1,1,,,,Section=tex; Version=6.19,,,,,,,
+texlive-lang-arabic,texlive-lang-arabic,texlive-lang-arabic,TeX Live: Arabic,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-chinese,texlive-lang-chinese,texlive-lang-chinese,TeX Live: Chinese,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-cjk,texlive-lang-cjk,texlive-lang-cjk,TeX Live: Chinese/Japanese/Korean (base),,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-cyrillic,texlive-lang-cyrillic,texlive-lang-cyrillic,TeX Live: Cyrillic,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-czechslovak,texlive-lang-czechslovak,texlive-lang-czechslovak,TeX Live: Czech/Slovak,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-english,texlive-lang-english,texlive-lang-english,TeX Live: US and UK English,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-european,texlive-lang-european,texlive-lang-european,TeX Live: Other European languages,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-french,texlive-lang-french,texlive-lang-french,TeX Live: French,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-german,texlive-lang-german,texlive-lang-german,TeX Live: German,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-greek,texlive-lang-greek,texlive-lang-greek,TeX Live: Greek,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-italian,texlive-lang-italian,texlive-lang-italian,TeX Live: Italian,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-japanese,texlive-lang-japanese,texlive-lang-japanese,TeX Live: Japanese,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-korean,texlive-lang-korean,texlive-lang-korean,TeX Live: Korean,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-other,texlive-lang-other,texlive-lang-other,TeX Live: Other languages,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-polish,texlive-lang-polish,texlive-lang-polish,TeX Live: Polish,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-portuguese,texlive-lang-portuguese,texlive-lang-portuguese,TeX Live: Portuguese,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-lang-spanish,texlive-lang-spanish,texlive-lang-spanish,TeX Live: Spanish,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
+fonts-hosny-amiri,fonts-hosny-amiri,fonts-hosny-amiri,Arabic Naskh style typographically oriented font,,,1,1,,,,Section=fonts; Version=1.001-1,,,,,,,
+texlive-base,texlive-base,texlive-base,TeX Live: Essential programs and files,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+texlive-plain-generic,texlive-plain-generic,texlive-plain-generic,TeX Live: Plain (La)TeX packages,,,1,1,,,,Section=tex; Version=2024.20250309-2,,,,,,,
+fonts-arphic-bkai00mp,fonts-arphic-bkai00mp,fonts-arphic-bkai00mp,"""AR PL KaitiM Big5"" Chinese TrueType font by Arphic Technology",,,1,1,,,,Section=fonts; Version=2.10-21,,,,,,,
+fonts-arphic-bsmi00lp,fonts-arphic-bsmi00lp,fonts-arphic-bsmi00lp,"""AR PL Mingti2L Big5"" Chinese TrueType font by Arphic Technology",,,1,1,,,,Section=fonts; Version=2.10-18,,,,,,,
+fonts-arphic-gbsn00lp,fonts-arphic-gbsn00lp,fonts-arphic-gbsn00lp,"""AR PL SungtiL GB"" Chinese TrueType font by Arphic Technology",,,1,1,,,,Section=fonts; Version=2.11-16,,,,,,,
+fonts-arphic-gkai00mp,fonts-arphic-gkai00mp,fonts-arphic-gkai00mp,"""AR PL KaitiM GB"" Chinese TrueType font by Arphic Technology",,,1,1,,,,Section=fonts; Version=2.11-16,,,,,,,
+poppler-data,poppler-data,poppler-data,encoding data for the poppler PDF rendering library,,,1,1,,,,Section=misc; Version=0.4.12-1,,,,,,,
+texlive-binaries,texlive-binaries,texlive-binaries,Binaries for TeX Live,,,1,1,,,,Section=tex; Version=2024.20240313.70630+ds-6,,,,,,,
+texlive-latex-base,texlive-latex-base,texlive-latex-base,TeX Live: LaTeX fundamental packages,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+latex-cjk-all,latex-cjk-all,latex-cjk-all,installs all LaTeX CJK packages,,,1,1,,,,Section=tex; Version=4.8.5-1,,,,,,,
+ruby,ruby,ruby,Interpreter of object-oriented scripting language Ruby (default version),,,1,1,,,,Section=ruby; Version=1:3.3+b1,,,,,,,
+texlive-luatex,texlive-luatex,texlive-luatex,TeX Live: LuaTeX packages,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+fonts-gfs-baskerville,fonts-gfs-baskerville,fonts-gfs-baskerville,ancient Greek font revival,,,1,1,,,,Section=fonts; Version=1.1-6,,,,,,,
+fonts-gfs-porson,fonts-gfs-porson,fonts-gfs-porson,Greek font (Porson revival),,,1,1,,,,Section=fonts; Version=1.1-7,,,,,,,
+fonts-ipaexfont-gothic,fonts-ipaexfont-gothic,fonts-ipaexfont-gothic,"Japanese OpenType font, IPAex Gothic Font",,,1,1,,,,Section=fonts; Version=00401-5,,,,,,,
+fonts-ipaexfont-mincho,fonts-ipaexfont-mincho,fonts-ipaexfont-mincho,"Japanese OpenType font, IPAex Mincho Font",,,1,1,,,,Section=fonts; Version=00401-5,,,,,,,
+fonts-ipafont-gothic,fonts-ipafont-gothic,fonts-ipafont-gothic,"Japanese OpenType font set, IPA Gothic and IPA P Gothic Fonts",,,1,1,,,,Section=fonts; Version=00303-23,,,,,,,
+fonts-ipafont-mincho,fonts-ipafont-mincho,fonts-ipafont-mincho,"Japanese OpenType font set, IPA Mincho and IPA P Mincho Fonts",,,1,1,,,,Section=fonts; Version=00303-23,,,,,,,
+texlive-latex-recommended,texlive-latex-recommended,texlive-latex-recommended,TeX Live: LaTeX recommended packages,,,1,1,,,,Section=tex; Version=2024.20250309-1,,,,,,,
+fonts-baekmuk,fonts-baekmuk,fonts-baekmuk,Baekmuk series Korean fonts,,,1,1,,,,Section=fonts; Version=2.2-13,,,,,,,
+fonts-unfonts-core,fonts-unfonts-core,fonts-unfonts-core,Un series Korean TrueType fonts,,,1,1,,,,Section=fonts; Version=1:1.0.2-080608-19,,,,,,,
+fonts-unfonts-extra,fonts-unfonts-extra,fonts-unfonts-extra,Un series Korean TrueType fonts (extra),,,1,1,,,,Section=fonts; Version=1:1.0.2-080608+dfsg-11,,,,,,,
+fonts-sil-padauk,fonts-sil-padauk,fonts-sil-padauk,Burmese Unicode TrueType font with OpenType and Graphite support,,,1,1,,,,Section=fonts; Version=5.001-1,,,,,,,
+fonts-tlwg-garuda-otf,fonts-tlwg-garuda-otf,fonts-tlwg-garuda-otf,Thai Garuda OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-kinnari-otf,fonts-tlwg-kinnari-otf,fonts-tlwg-kinnari-otf,Thai Kinnari OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-laksaman-otf,fonts-tlwg-laksaman-otf,fonts-tlwg-laksaman-otf,Thai Laksaman OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-loma-otf,fonts-tlwg-loma-otf,fonts-tlwg-loma-otf,Thai Loma OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-mono-otf,fonts-tlwg-mono-otf,fonts-tlwg-mono-otf,Thai TlwgMono OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-norasi-otf,fonts-tlwg-norasi-otf,fonts-tlwg-norasi-otf,Thai Norasi OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-purisa-otf,fonts-tlwg-purisa-otf,fonts-tlwg-purisa-otf,Thai Purisa OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-sawasdee-otf,fonts-tlwg-sawasdee-otf,fonts-tlwg-sawasdee-otf,Thai Sawasdee OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-typewriter-otf,fonts-tlwg-typewriter-otf,fonts-tlwg-typewriter-otf,Thai TlwgTypewriter OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-typist-otf,fonts-tlwg-typist-otf,fonts-tlwg-typist-otf,Thai TlwgTypist OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-typo-otf,fonts-tlwg-typo-otf,fonts-tlwg-typo-otf,Thai TlwgTypo OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-umpush-otf,fonts-tlwg-umpush-otf,fonts-tlwg-umpush-otf,Thai Umpush OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+fonts-tlwg-waree-otf,fonts-tlwg-waree-otf,fonts-tlwg-waree-otf,Thai Waree OpenType font,,,1,1,,,,Section=fonts; Version=1:0.7.3-1,,,,,,,
+,,,,,,,,,,,,tex-common,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-arabic,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-chinese,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-cjk,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-cyrillic,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-czechslovak,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-english,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-european,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-french,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-german,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-greek,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-italian,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-japanese,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-korean,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-other,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-polish,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-portuguese,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-spanish,texlive-lang-all,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ucf,tex-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-arabic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-hosny-amiri,texlive-lang-arabic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-arabic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-plain-generic,texlive-lang-arabic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-chinese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-arphic-bkai00mp,texlive-lang-chinese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-arphic-bsmi00lp,texlive-lang-chinese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-arphic-gbsn00lp,texlive-lang-chinese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-arphic-gkai00mp,texlive-lang-chinese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-chinese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-cjk,texlive-lang-chinese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-cjk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,poppler-data,texlive-lang-cjk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-cjk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-cjk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-latex-base,texlive-lang-cjk,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,latex-cjk-all,texlive-lang-cjk,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ruby,texlive-lang-cjk,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,texlive-lang-chinese,texlive-lang-cjk,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,texlive-lang-japanese,texlive-lang-cjk,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,texlive-lang-korean,texlive-lang-cjk,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-cyrillic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-cyrillic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-cyrillic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-latex-base,texlive-lang-cyrillic,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-english,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-european,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-french,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-german,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-italian,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-polish,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-spanish,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-latex-base,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-luatex,texlive-lang-czechslovak,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-english,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-english,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-european,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-european,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-french,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-french,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-german,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-german,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-greek,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-gfs-baskerville,texlive-lang-greek,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-gfs-porson,texlive-lang-greek,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-greek,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-greek,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-italian,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-italian,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-japanese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby,texlive-lang-japanese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-japanese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-japanese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-cjk,texlive-lang-japanese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-ipaexfont-gothic,texlive-lang-japanese,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,fonts-ipaexfont-mincho,texlive-lang-japanese,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,fonts-ipafont-gothic,texlive-lang-japanese,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,fonts-ipafont-mincho,texlive-lang-japanese,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,texlive-latex-recommended,texlive-lang-japanese,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-korean,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-baekmuk,texlive-lang-korean,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-unfonts-core,texlive-lang-korean,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-unfonts-extra,texlive-lang-korean,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-korean,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-korean,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-lang-cjk,texlive-lang-korean,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-sil-padauk,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-garuda-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-kinnari-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-laksaman-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-loma-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-mono-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-norasi-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-purisa-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-sawasdee-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-typewriter-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-typist-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-typo-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-umpush-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-tlwg-waree-otf,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-other,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-polish,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-polish,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-binaries,texlive-lang-polish,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-latex-base,texlive-lang-polish,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-portuguese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-portuguese,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tex-common,texlive-lang-spanish,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,texlive-base,texlive-lang-spanish,Depends,#333,1,Depends,{}

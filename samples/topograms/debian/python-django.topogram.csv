@@ -1,8 +1,8 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"python-django-doc","python-django-doc","python-django-doc","High-level Python web development framework (documentation)","","","1","1","","","","Section=doc; Version=3:4.2.23-1","","","","","",""
-"libjs-sphinxdoc","libjs-sphinxdoc","libjs-sphinxdoc","JavaScript support for Sphinx documentation","","","1","1","","","","Section=javascript; Version=8.1.3-5","","","","","",""
-"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","",""
-"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","",""
-"","","","","","","","","","","","","python-django-doc","libjs-sphinxdoc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjs-sphinxdoc","libjs-jquery","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjs-sphinxdoc","libjs-underscore","Depends","#333","1","Depends","{}"
+python-django-doc,python-django-doc,python-django-doc,High-level Python web development framework (documentation),,,1,1,,,,Section=doc; Version=3:4.2.23-1,,,,,,,
+libjs-sphinxdoc,libjs-sphinxdoc,libjs-sphinxdoc,JavaScript support for Sphinx documentation,,,1,1,,,,Section=javascript; Version=8.1.3-5,,,,,,,
+libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
+libjs-underscore,libjs-underscore,libjs-underscore,JavaScript's functional programming helper library,,,1,1,,,,Section=javascript; Version=1.13.4~dfsg+~1.11.4-3,,,,,,,
+,,,,,,,,,,,,libjs-sphinxdoc,python-django-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-jquery,libjs-sphinxdoc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-underscore,libjs-sphinxdoc,Depends,#333,1,Depends,{}

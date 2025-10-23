@@ -1,143 +1,143 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libpcl-apps1.15","libpcl-apps1.15","libpcl-apps1.15","Point Cloud Library - apps library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libpcl-common1.15","libpcl-common1.15","libpcl-common1.15","Point Cloud Library - common library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libpcl-features1.15","libpcl-features1.15","libpcl-features1.15","Point Cloud Library - features library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libpcl-filters1.15","libpcl-filters1.15","libpcl-filters1.15","Point Cloud Library - filters library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libpcl-search1.15","libpcl-search1.15","libpcl-search1.15","Point Cloud Library - search library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libpcl-segmentation1.15","libpcl-segmentation1.15","libpcl-segmentation1.15","Point Cloud Library - segmentation library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libpcl-surface1.15","libpcl-surface1.15","libpcl-surface1.15","Point Cloud Library - surface library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libvtk9.3","libvtk9.3","libvtk9.3","VTK libraries","","","1","1","","","","Section=libs; Version=9.3.0+dfsg1-4+b1","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libgomp1","libgomp1","libgomp1","GCC OpenMP (GOMP) support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libpcl-kdtree1.15","libpcl-kdtree1.15","libpcl-kdtree1.15","Point Cloud Library - kdtree library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libpcl-octree1.15","libpcl-octree1.15","libpcl-octree1.15","Point Cloud Library - octree library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libpcl-sample-consensus1.15","libpcl-sample-consensus1.15","libpcl-sample-consensus1.15","Point Cloud Library - sample consensus library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"liblz4-1","liblz4-1","liblz4-1","Fast LZ compression algorithm library - runtime","","","1","1","","","","Section=libs; Version=1.10.0-4","","","","","",""
-"libpcl-ml1.15","libpcl-ml1.15","libpcl-ml1.15","Point Cloud Library - ml library","","","1","1","","","","Section=libs; Version=1.15.0+dfsg-2","","","","","",""
-"libqhull-r8.0","libqhull-r8.0","libqhull-r8.0","calculate convex hulls and related structures (reentrant shared library)","","","1","1","","","","Section=libs; Version=2020.2-6+b2","","","","","",""
-"libdouble-conversion3","libdouble-conversion3","libdouble-conversion3","routines to convert IEEE floats to and from strings","","","1","1","","","","Section=libs; Version=3.3.1-1","","","","","",""
-"libexpat1","libexpat1","libexpat1","XML parsing C library - runtime library","","","1","1","","","","Section=libs; Version=2.7.1-2","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"libgl2ps1.4","libgl2ps1.4","libgl2ps1.4","Lib providing high quality vector output for OpenGL application","","","1","1","","","","Section=libs; Version=1.4.2+dfsg1-2","","","","","",""
-"libglew2.2","libglew2.2","libglew2.2","OpenGL Extension Wrangler - runtime environment","","","1","1","","","","Section=libs; Version=2.2.0-4+b2","","","","","",""
-"libglx0","libglx0","libglx0","Vendor neutral GL dispatch library -- GLX support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libhdf5-310","libhdf5-310","libhdf5-310","HDF5 C runtime files - serial version","","","1","1","","","","Section=libs; Version=1.14.5+repack-3","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"libjsoncpp26","libjsoncpp26","libjsoncpp26","library for reading and writing JSON for C++","","","1","1","","","","Section=libs; Version=1.9.6-3","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"libnetcdf22","libnetcdf22","libnetcdf22","Interface for scientific data access to large binary data","","","1","1","","","","Section=libs; Version=1:4.9.3-1","","","","","",""
-"libogg0","libogg0","libogg0","Ogg bitstream library","","","1","1","","","","Section=libs; Version=1.3.5-3+b2","","","","","",""
-"libopengl0","libopengl0","libopengl0","Vendor neutral GL dispatch library -- OpenGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libopenmpi40","libopenmpi40","libopenmpi40","high performance message passing library -- shared library","","","1","1","","","","Section=libs; Version=5.0.7-1","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libproj25","libproj25","libproj25","Cartographic projection library","","","1","1","","","","Section=libs; Version=9.6.0-1","","","","","",""
-"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","",""
-"libtbb12","libtbb12","libtbb12","parallelism library for C++ - runtime files","","","1","1","","","","Section=libs; Version=2022.1.0-1","","","","","",""
-"libtcl8.6","libtcl8.6","libtcl8.6","Tcl (the Tool Command Language) v8.6 - run-time library files","","","1","1","","","","Section=libs; Version=8.6.16+dfsg-1","","","","","",""
-"libtheoradec1","libtheoradec1","libtheoradec1","Theora Video Compression Codec (shared library - libtheoradec)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","",""
-"libtheoraenc1","libtheoraenc1","libtheoraenc1","Theora Video Compression Codec (shared library - libtheoraenc)","","","1","1","","","","Section=libs; Version=1.2.0~alpha1+dfsg-6","","","","","",""
-"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","",""
-"libtk8.6","libtk8.6","libtk8.6","Tk toolkit for Tcl and X11 v8.6 - run-time files","","","1","1","","","","Section=libs; Version=8.6.16-1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"","","","","","","","","","","","","libpcl-apps1.15","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libpcl-common1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libpcl-features1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libpcl-filters1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libpcl-search1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libpcl-segmentation1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libpcl-surface1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-apps1.15","libvtk9.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-common1.15","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-common1.15","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-common1.15","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-common1.15","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libpcl-common1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libpcl-filters1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libpcl-kdtree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libpcl-octree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libpcl-search1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-features1.15","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libpcl-common1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libpcl-kdtree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libpcl-octree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libpcl-sample-consensus1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libpcl-search1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-filters1.15","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-search1.15","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-search1.15","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-search1.15","libpcl-common1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-search1.15","libpcl-kdtree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-search1.15","libpcl-octree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-search1.15","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","liblz4-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libpcl-common1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libpcl-features1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libpcl-filters1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libpcl-ml1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libpcl-sample-consensus1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libpcl-search1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-segmentation1.15","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libpcl-common1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libpcl-kdtree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libpcl-octree1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libpcl-search1.15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libqhull-r8.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpcl-surface1.15","libvtk9.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libdouble-conversion3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libexpat1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libgl2ps1.4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libglew2.2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libglx0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libhdf5-310","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libjsoncpp26","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","liblz4-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libnetcdf22","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libogg0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libopengl0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libopenmpi40","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libproj25","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libsqlite3-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libtbb12","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libtcl8.6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libtheoradec1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libtheoraenc1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libtiff6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libtk8.6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libvtk9.3","zlib1g","Depends","#333","1","Depends","{}"
+libpcl-apps1.15,libpcl-apps1.15,libpcl-apps1.15,Point Cloud Library - apps library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libpcl-common1.15,libpcl-common1.15,libpcl-common1.15,Point Cloud Library - common library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libpcl-features1.15,libpcl-features1.15,libpcl-features1.15,Point Cloud Library - features library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libpcl-filters1.15,libpcl-filters1.15,libpcl-filters1.15,Point Cloud Library - filters library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libpcl-search1.15,libpcl-search1.15,libpcl-search1.15,Point Cloud Library - search library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libpcl-segmentation1.15,libpcl-segmentation1.15,libpcl-segmentation1.15,Point Cloud Library - segmentation library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libpcl-surface1.15,libpcl-surface1.15,libpcl-surface1.15,Point Cloud Library - surface library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libvtk9.3,libvtk9.3,libvtk9.3,VTK libraries,,,1,1,,,,Section=libs; Version=9.3.0+dfsg1-4+b1,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libgomp1,libgomp1,libgomp1,GCC OpenMP (GOMP) support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libpcl-kdtree1.15,libpcl-kdtree1.15,libpcl-kdtree1.15,Point Cloud Library - kdtree library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libpcl-octree1.15,libpcl-octree1.15,libpcl-octree1.15,Point Cloud Library - octree library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libpcl-sample-consensus1.15,libpcl-sample-consensus1.15,libpcl-sample-consensus1.15,Point Cloud Library - sample consensus library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+liblz4-1,liblz4-1,liblz4-1,Fast LZ compression algorithm library - runtime,,,1,1,,,,Section=libs; Version=1.10.0-4,,,,,,,
+libpcl-ml1.15,libpcl-ml1.15,libpcl-ml1.15,Point Cloud Library - ml library,,,1,1,,,,Section=libs; Version=1.15.0+dfsg-2,,,,,,,
+libqhull-r8.0,libqhull-r8.0,libqhull-r8.0,calculate convex hulls and related structures (reentrant shared library),,,1,1,,,,Section=libs; Version=2020.2-6+b2,,,,,,,
+libdouble-conversion3,libdouble-conversion3,libdouble-conversion3,routines to convert IEEE floats to and from strings,,,1,1,,,,Section=libs; Version=3.3.1-1,,,,,,,
+libexpat1,libexpat1,libexpat1,XML parsing C library - runtime library,,,1,1,,,,Section=libs; Version=2.7.1-2,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+libgl2ps1.4,libgl2ps1.4,libgl2ps1.4,Lib providing high quality vector output for OpenGL application,,,1,1,,,,Section=libs; Version=1.4.2+dfsg1-2,,,,,,,
+libglew2.2,libglew2.2,libglew2.2,OpenGL Extension Wrangler - runtime environment,,,1,1,,,,Section=libs; Version=2.2.0-4+b2,,,,,,,
+libglx0,libglx0,libglx0,Vendor neutral GL dispatch library -- GLX support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libhdf5-310,libhdf5-310,libhdf5-310,HDF5 C runtime files - serial version,,,1,1,,,,Section=libs; Version=1.14.5+repack-3,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+libjsoncpp26,libjsoncpp26,libjsoncpp26,library for reading and writing JSON for C++,,,1,1,,,,Section=libs; Version=1.9.6-3,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+libnetcdf22,libnetcdf22,libnetcdf22,Interface for scientific data access to large binary data,,,1,1,,,,Section=libs; Version=1:4.9.3-1,,,,,,,
+libogg0,libogg0,libogg0,Ogg bitstream library,,,1,1,,,,Section=libs; Version=1.3.5-3+b2,,,,,,,
+libopengl0,libopengl0,libopengl0,Vendor neutral GL dispatch library -- OpenGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libopenmpi40,libopenmpi40,libopenmpi40,high performance message passing library -- shared library,,,1,1,,,,Section=libs; Version=5.0.7-1,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libproj25,libproj25,libproj25,Cartographic projection library,,,1,1,,,,Section=libs; Version=9.6.0-1,,,,,,,
+libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
+libtbb12,libtbb12,libtbb12,parallelism library for C++ - runtime files,,,1,1,,,,Section=libs; Version=2022.1.0-1,,,,,,,
+libtcl8.6,libtcl8.6,libtcl8.6,Tcl (the Tool Command Language) v8.6 - run-time library files,,,1,1,,,,Section=libs; Version=8.6.16+dfsg-1,,,,,,,
+libtheoradec1,libtheoradec1,libtheoradec1,Theora Video Compression Codec (shared library - libtheoradec),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
+libtheoraenc1,libtheoraenc1,libtheoraenc1,Theora Video Compression Codec (shared library - libtheoraenc),,,1,1,,,,Section=libs; Version=1.2.0~alpha1+dfsg-6,,,,,,,
+libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
+libtk8.6,libtk8.6,libtk8.6,Tk toolkit for Tcl and X11 v8.6 - run-time files,,,1,1,,,,Section=libs; Version=8.6.16-1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+,,,,,,,,,,,,libc6,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-common1.15,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-features1.15,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-filters1.15,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-search1.15,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-segmentation1.15,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-surface1.15,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvtk9.3,libpcl-apps1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpcl-common1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpcl-common1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libpcl-common1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpcl-common1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-common1.15,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-filters1.15,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-kdtree1.15,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-octree1.15,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-search1.15,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpcl-features1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-common1.15,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-kdtree1.15,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-octree1.15,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-sample-consensus1.15,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-search1.15,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpcl-filters1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpcl-search1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpcl-search1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-common1.15,libpcl-search1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-kdtree1.15,libpcl-search1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-octree1.15,libpcl-search1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpcl-search1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblz4-1,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-common1.15,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-features1.15,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-filters1.15,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-ml1.15,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-sample-consensus1.15,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-search1.15,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpcl-segmentation1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-common1.15,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-kdtree1.15,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-octree1.15,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcl-search1.15,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqhull-r8.0,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libvtk9.3,libpcl-surface1.15,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdouble-conversion3,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libexpat1,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl2ps1.4,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglew2.2,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglx0,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libhdf5-310,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjsoncpp26,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblz4-1,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnetcdf22,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libogg0,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopengl0,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopenmpi40,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libproj25,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsqlite3-0,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtbb12,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtcl8.6,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtheoradec1,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtheoraenc1,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtiff6,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtk8.6,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libvtk9.3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libvtk9.3,Depends,#333,1,Depends,{}

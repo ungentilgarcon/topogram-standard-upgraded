@@ -1,34 +1,34 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libio-socket-ssl-perl","libio-socket-ssl-perl","libio-socket-ssl-perl","Perl module implementing object oriented interface to SSL sockets","","","1","1","","","","Section=perl; Version=2.089-1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libnet-ssleay-perl","libnet-ssleay-perl","libnet-ssleay-perl","Perl module for Secure Sockets Layer (SSL)","","","1","1","","","","Section=perl; Version=1.94-3","","","","","",""
-"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","",""
-"libio-socket-ip-perl","libio-socket-ip-perl","libio-socket-ip-perl","module for using IPv4 and IPv6 sockets in a protocol-independent way","","","1","1","","","","Section=perl; Version=0.43-1","","","","","",""
-"libsocket-perl","libsocket-perl","libsocket-perl","networking constants and support functions","","","1","1","","","","Section=perl; Version=2.038-1+b1","","","","","",""
-"liburi-perl","liburi-perl","liburi-perl","module to manipulate and access URI strings","","","1","1","","","","Section=perl; Version=5.30-1","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perl-openssl-abi-3","perl-openssl-abi-3","perl-openssl-abi-3","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"perlapi-5.40.1","perlapi-5.40.1","perlapi-5.40.1","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libencode-perl","libencode-perl","libencode-perl","module providing interfaces between Perl's strings and the system","","","1","1","","","","Section=perl; Version=3.21-1+b2","","","","","",""
-"libscalar-list-utils-perl","libscalar-list-utils-perl","libscalar-list-utils-perl","modules providing common scalar and list utility subroutines","","","1","1","","","","Section=perl; Version=1:1.63-1+b4","","","","","",""
-"","","","","","","","","","","","","libio-socket-ssl-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-socket-ssl-perl","libnet-ssleay-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-socket-ssl-perl","netbase","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-socket-ssl-perl","libio-socket-ip-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libio-socket-ssl-perl","libsocket-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libio-socket-ssl-perl","liburi-perl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libnet-ssleay-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnet-ssleay-perl","perl-openssl-abi-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnet-ssleay-perl","perlapi-5.40.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnet-ssleay-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnet-ssleay-perl","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libio-socket-ip-perl","netbase","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsocket-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsocket-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsocket-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libencode-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liburi-perl","libscalar-list-utils-perl","Depends","#333","1","Depends","{}"
+libio-socket-ssl-perl,libio-socket-ssl-perl,libio-socket-ssl-perl,Perl module implementing object oriented interface to SSL sockets,,,1,1,,,,Section=perl; Version=2.089-1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libnet-ssleay-perl,libnet-ssleay-perl,libnet-ssleay-perl,Perl module for Secure Sockets Layer (SSL),,,1,1,,,,Section=perl; Version=1.94-3,,,,,,,
+netbase,netbase,netbase,Basic TCP/IP networking system,,,1,1,,,,Section=admin; Version=6.5,,,,,,,
+libio-socket-ip-perl,libio-socket-ip-perl,libio-socket-ip-perl,module for using IPv4 and IPv6 sockets in a protocol-independent way,,,1,1,,,,Section=perl; Version=0.43-1,,,,,,,
+libsocket-perl,libsocket-perl,libsocket-perl,networking constants and support functions,,,1,1,,,,Section=perl; Version=2.038-1+b1,,,,,,,
+liburi-perl,liburi-perl,liburi-perl,module to manipulate and access URI strings,,,1,1,,,,Section=perl; Version=5.30-1,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perl-openssl-abi-3,perl-openssl-abi-3,perl-openssl-abi-3,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+perlapi-5.40.1,perlapi-5.40.1,perlapi-5.40.1,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libencode-perl,libencode-perl,libencode-perl,module providing interfaces between Perl's strings and the system,,,1,1,,,,Section=perl; Version=3.21-1+b2,,,,,,,
+libscalar-list-utils-perl,libscalar-list-utils-perl,libscalar-list-utils-perl,modules providing common scalar and list utility subroutines,,,1,1,,,,Section=perl; Version=1:1.63-1+b4,,,,,,,
+,,,,,,,,,,,,perl:any,libio-socket-ssl-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnet-ssleay-perl,libio-socket-ssl-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,netbase,libio-socket-ssl-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libio-socket-ip-perl,libio-socket-ssl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libsocket-perl,libio-socket-ssl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,liburi-perl,libio-socket-ssl-perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,perl,libnet-ssleay-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl-openssl-abi-3,libnet-ssleay-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.1,libnet-ssleay-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libnet-ssleay-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libnet-ssleay-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,netbase,libio-socket-ip-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libsocket-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libsocket-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libsocket-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libencode-perl,liburi-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libscalar-list-utils-perl,liburi-perl,Depends,#333,1,Depends,{}

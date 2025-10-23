@@ -1,6 +1,6 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"elpa-protobuf-mode","elpa-protobuf-mode","elpa-protobuf-mode","Emacs addon for editing protocol buffers","","","1","1","","","","Section=editors; Version=3.21.12-11","","","","","",""
-"dh-elpa-helper","dh-elpa-helper","dh-elpa-helper","helper package for emacs lisp extensions","","","1","1","","","","Section=devel; Version=2.1.9","","","","","",""
-"emacsen-common","emacsen-common","emacsen-common","Common facilities for all emacsen","","","1","1","","","","Section=editors; Version=3.0.8","","","","","",""
-"","","","","","","","","","","","","elpa-protobuf-mode","dh-elpa-helper","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","elpa-protobuf-mode","emacsen-common","Depends","#333","1","Depends","{}"
+elpa-protobuf-mode,elpa-protobuf-mode,elpa-protobuf-mode,Emacs addon for editing protocol buffers,,,1,1,,,,Section=editors; Version=3.21.12-11,,,,,,,
+dh-elpa-helper,dh-elpa-helper,dh-elpa-helper,helper package for emacs lisp extensions,,,1,1,,,,Section=devel; Version=2.1.9,,,,,,,
+emacsen-common,emacsen-common,emacsen-common,Common facilities for all emacsen,,,1,1,,,,Section=editors; Version=3.0.8,,,,,,,
+,,,,,,,,,,,,dh-elpa-helper,elpa-protobuf-mode,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,emacsen-common,elpa-protobuf-mode,Depends,#333,1,Depends,{}

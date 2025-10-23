@@ -1,13 +1,13 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libxslt1-dev","libxslt1-dev","libxslt1-dev","XSLT 1.0 processing library - development kit","","","1","1","","","","Section=libdevel; Version=1.1.35-1.2+deb13u1","","","","","",""
-"libxml2-dev","libxml2-dev","libxml2-dev","GNOME XML library - development files","","","1","1","","","","Section=libdevel; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"libxslt1.1","libxslt1.1","libxslt1.1","XSLT 1.0 processing library - runtime library","","","1","1","","","","Section=libs; Version=1.1.35-1.2+deb13u1","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcrypt20","libgcrypt20","libgcrypt20","LGPL Crypto library - runtime library","","","1","1","","","","Section=libs; Version=1.11.0-7","","","","","",""
-"","","","","","","","","","","","","libxslt1-dev","libxml2-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxslt1-dev","libxslt1.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxml2-dev","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxslt1.1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxslt1.1","libgcrypt20","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libxslt1.1","libxml2","Depends","#333","1","Depends","{}"
+libxslt1-dev,libxslt1-dev,libxslt1-dev,XSLT 1.0 processing library - development kit,,,1,1,,,,Section=libdevel; Version=1.1.35-1.2+deb13u1,,,,,,,
+libxml2-dev,libxml2-dev,libxml2-dev,GNOME XML library - development files,,,1,1,,,,Section=libdevel; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+libxslt1.1,libxslt1.1,libxslt1.1,XSLT 1.0 processing library - runtime library,,,1,1,,,,Section=libs; Version=1.1.35-1.2+deb13u1,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcrypt20,libgcrypt20,libgcrypt20,LGPL Crypto library - runtime library,,,1,1,,,,Section=libs; Version=1.11.0-7,,,,,,,
+,,,,,,,,,,,,libxml2-dev,libxslt1-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxslt1.1,libxslt1-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libxml2-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libxslt1.1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcrypt20,libxslt1.1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libxslt1.1,Depends,#333,1,Depends,{}

@@ -1,9 +1,9 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libguava-java","libguava-java","libguava-java","Suite of Google common libraries for Java","","","1","1","","","","Section=java; Version=32.0.1-1","","","","","",""
-"libatinject-jsr330-api-java","libatinject-jsr330-api-java","libatinject-jsr330-api-java","Java API for JSR-330 Dependency Injection","","","1","1","","","","Section=java; Version=1.0+ds1-6","","","","","",""
-"liberror-prone-java","liberror-prone-java","liberror-prone-java","Catch common Java mistakes as compile-time errors","","","1","1","","","","Section=java; Version=2.18.0-1","","","","","",""
-"libjsr305-java","libjsr305-java","libjsr305-java","Java library that provides annotations for software defect detection","","","1","1","","","","Section=java; Version=0.1~+svn49-12","","","","","",""
-"","","","","","","","","","","","","libguava-java","libatinject-jsr330-api-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libguava-java","liberror-prone-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libguava-java","libjsr305-java","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liberror-prone-java","libguava-java","Depends","#333","1","Depends","{}"
+libguava-java,libguava-java,libguava-java,Suite of Google common libraries for Java,,,1,1,,,,Section=java; Version=32.0.1-1,,,,,,,
+libatinject-jsr330-api-java,libatinject-jsr330-api-java,libatinject-jsr330-api-java,Java API for JSR-330 Dependency Injection,,,1,1,,,,Section=java; Version=1.0+ds1-6,,,,,,,
+liberror-prone-java,liberror-prone-java,liberror-prone-java,Catch common Java mistakes as compile-time errors,,,1,1,,,,Section=java; Version=2.18.0-1,,,,,,,
+libjsr305-java,libjsr305-java,libjsr305-java,Java library that provides annotations for software defect detection,,,1,1,,,,Section=java; Version=0.1~+svn49-12,,,,,,,
+,,,,,,,,,,,,libatinject-jsr330-api-java,libguava-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liberror-prone-java,libguava-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjsr305-java,libguava-java,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libguava-java,liberror-prone-java,Depends,#333,1,Depends,{}

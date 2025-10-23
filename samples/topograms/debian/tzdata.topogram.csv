@@ -1,8 +1,8 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"tzdata","tzdata","tzdata","time zone and daylight-saving time data","","","1","1","","","","Section=localization; Version=2025b-4+deb13u1","","","","","",""
-"debconf","debconf","debconf","Debian configuration management system","","","1","1","","","","Section=admin; Version=1.5.91","","","","","",""
-"apt","apt","apt","commandline package manager","","","1","1","","","","Section=admin; Version=3.0.3","","","","","",""
-"debconf-i18n","debconf-i18n","debconf-i18n","full internationalization support for debconf","","","1","1","","","","Section=localization; Version=1.5.91","","","","","",""
-"","","","","","","","","","","","","tzdata","debconf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debconf","apt","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","debconf","debconf-i18n","Recommends","#333","1","Recommends","{}"
+tzdata,tzdata,tzdata,time zone and daylight-saving time data,,,1,1,,,,Section=localization; Version=2025b-4+deb13u1,,,,,,,
+debconf,debconf,debconf,Debian configuration management system,,,1,1,,,,Section=admin; Version=1.5.91,,,,,,,
+apt,apt,apt,commandline package manager,,,1,1,,,,Section=admin; Version=3.0.3,,,,,,,
+debconf-i18n,debconf-i18n,debconf-i18n,full internationalization support for debconf,,,1,1,,,,Section=localization; Version=1.5.91,,,,,,,
+,,,,,,,,,,,,debconf,tzdata,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,apt,debconf,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,debconf-i18n,debconf,Recommends,#333,1,Recommends,{}

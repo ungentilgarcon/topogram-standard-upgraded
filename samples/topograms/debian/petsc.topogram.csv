@@ -1,26 +1,26 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libpetsc-complex-dev","libpetsc-complex-dev","libpetsc-complex-dev","Virtual package depending on latest PETSc development package","","","1","1","","","","Section=libdevel; Version=3.22.5+dfsg1-2","","","","","",""
-"libpetsc-complex3.22-dev","libpetsc-complex3.22-dev","libpetsc-complex3.22-dev","Static libraries, shared links, header files for PETSc","","","1","1","","","","Section=libdevel; Version=3.22.5+dfsg1-2+b1","","","","","",""
-"libpetsc-complex3.22","libpetsc-complex3.22","libpetsc-complex3.22","Shared libraries for version 3.22 of PETSc with Complex Numbers","","","1","1","","","","Section=libs; Version=3.22.5+dfsg1-2+b1","","","","","",""
-"libpetsc3.22-dev-common","libpetsc3.22-dev-common","libpetsc3.22-dev-common","Common header and support dev files for PETSc","","","1","1","","","","Section=libdevel; Version=3.22.5+dfsg1-2","","","","","",""
-"mpi-default-dev","mpi-default-dev","mpi-default-dev","Standard MPI development files (metapackage)","","","1","1","","","","Section=libdevel; Version=1.18","","","","","",""
-"libopenmpi-dev","libopenmpi-dev","libopenmpi-dev","high performance message passing library -- header files","","","1","1","","","","Section=libdevel; Version=5.0.7-1","","","","","",""
-"libmumps-dev","libmumps-dev","libmumps-dev","Direct linear systems solver - parallel development files","","","1","1","","","","Section=libdevel; Version=5.7.3-3+b1","","","","","",""
-"gfortran","gfortran","gfortran","GNU Fortran 95 compiler","","","1","1","","","","Section=devel; Version=4:14.2.0-1","","","","","",""
-"valgrind-mpi","valgrind-mpi","valgrind-mpi","instrumentation framework for building dynamic analysis tools (MPI module)","","","1","1","","","","Section=devel; Version=1:3.24.0-3","","","","","",""
-"gfortran-14","gfortran-14","gfortran-14","GNU Fortran compiler","","","1","1","","","","Section=devel; Version=14.2.0-19","","","","","",""
-"python3","python3","python3","interactive high-level object-oriented language (default python3 version)","","","1","1","","","","Section=python; Version=3.13.5-1","","","","","",""
-"libpetsc3.22-dev-examples","libpetsc3.22-dev-examples","libpetsc3.22-dev-examples","Static libraries, shared links, header files for PETSc","","","1","1","","","","Section=libdevel; Version=3.22.5+dfsg1-2","","","","","",""
-"ksh","ksh","ksh","transitional package","","","1","1","","","","Section=shells; Version=20240113-1.0.10-2","","","","","",""
-"","","","","","","","","","","","","libpetsc-complex-dev","libpetsc-complex3.22-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","libpetsc-complex3.22","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","libpetsc3.22-dev-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","mpi-default-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","libopenmpi-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","libmumps-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","gfortran","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","valgrind-mpi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","gfortran-14","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","python3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","libpetsc3.22-dev-examples","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libpetsc-complex3.22-dev","ksh","Recommends","#333","1","Recommends","{}"
+libpetsc-complex-dev,libpetsc-complex-dev,libpetsc-complex-dev,Virtual package depending on latest PETSc development package,,,1,1,,,,Section=libdevel; Version=3.22.5+dfsg1-2,,,,,,,
+libpetsc-complex3.22-dev,libpetsc-complex3.22-dev,libpetsc-complex3.22-dev,"Static libraries, shared links, header files for PETSc",,,1,1,,,,Section=libdevel; Version=3.22.5+dfsg1-2+b1,,,,,,,
+libpetsc-complex3.22,libpetsc-complex3.22,libpetsc-complex3.22,Shared libraries for version 3.22 of PETSc with Complex Numbers,,,1,1,,,,Section=libs; Version=3.22.5+dfsg1-2+b1,,,,,,,
+libpetsc3.22-dev-common,libpetsc3.22-dev-common,libpetsc3.22-dev-common,Common header and support dev files for PETSc,,,1,1,,,,Section=libdevel; Version=3.22.5+dfsg1-2,,,,,,,
+mpi-default-dev,mpi-default-dev,mpi-default-dev,Standard MPI development files (metapackage),,,1,1,,,,Section=libdevel; Version=1.18,,,,,,,
+libopenmpi-dev,libopenmpi-dev,libopenmpi-dev,high performance message passing library -- header files,,,1,1,,,,Section=libdevel; Version=5.0.7-1,,,,,,,
+libmumps-dev,libmumps-dev,libmumps-dev,Direct linear systems solver - parallel development files,,,1,1,,,,Section=libdevel; Version=5.7.3-3+b1,,,,,,,
+gfortran,gfortran,gfortran,GNU Fortran 95 compiler,,,1,1,,,,Section=devel; Version=4:14.2.0-1,,,,,,,
+valgrind-mpi,valgrind-mpi,valgrind-mpi,instrumentation framework for building dynamic analysis tools (MPI module),,,1,1,,,,Section=devel; Version=1:3.24.0-3,,,,,,,
+gfortran-14,gfortran-14,gfortran-14,GNU Fortran compiler,,,1,1,,,,Section=devel; Version=14.2.0-19,,,,,,,
+python3,python3,python3,interactive high-level object-oriented language (default python3 version),,,1,1,,,,Section=python; Version=3.13.5-1,,,,,,,
+libpetsc3.22-dev-examples,libpetsc3.22-dev-examples,libpetsc3.22-dev-examples,"Static libraries, shared links, header files for PETSc",,,1,1,,,,Section=libdevel; Version=3.22.5+dfsg1-2,,,,,,,
+ksh,ksh,ksh,transitional package,,,1,1,,,,Section=shells; Version=20240113-1.0.10-2,,,,,,,
+,,,,,,,,,,,,libpetsc-complex3.22-dev,libpetsc-complex-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpetsc-complex3.22,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpetsc3.22-dev-common,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,mpi-default-dev,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopenmpi-dev,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmumps-dev,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gfortran,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,valgrind-mpi,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gfortran-14,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3,libpetsc-complex3.22-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpetsc3.22-dev-examples,libpetsc-complex3.22-dev,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ksh,libpetsc-complex3.22-dev,Recommends,#333,1,Recommends,{}

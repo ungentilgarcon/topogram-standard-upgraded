@@ -1,6 +1,6 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libjansson-dev","libjansson-dev","libjansson-dev","C library for encoding, decoding and manipulating JSON data (dev)","","","1","1","","","","Section=libdevel; Version=2.14-2+b3","","","","","",""
-"libjansson4","libjansson4","libjansson4","C library for encoding, decoding and manipulating JSON data","","","1","1","","","","Section=libs; Version=2.14-2+b3","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","libjansson-dev","libjansson4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjansson4","libc6","Depends","#333","1","Depends","{}"
+libjansson-dev,libjansson-dev,libjansson-dev,"C library for encoding, decoding and manipulating JSON data (dev)",,,1,1,,,,Section=libdevel; Version=2.14-2+b3,,,,,,,
+libjansson4,libjansson4,libjansson4,"C library for encoding, decoding and manipulating JSON data",,,1,1,,,,Section=libs; Version=2.14-2+b3,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,libjansson4,libjansson-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libjansson4,Depends,#333,1,Depends,{}

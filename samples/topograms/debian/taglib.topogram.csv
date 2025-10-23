@@ -1,20 +1,20 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libtag-c-dev","libtag-c-dev","libtag-c-dev","audio meta-data library - development files for C bindings","","","1","1","","","","Section=libdevel; Version=2.0.2-2","","","","","",""
-"libtag-c2","libtag-c2","libtag-c2","audio meta-data library - C bindings","","","1","1","","","","Section=libs; Version=2.0.2-2","","","","","",""
-"libtag-dev","libtag-dev","libtag-dev","audio meta-data library - development files","","","1","1","","","","Section=libdevel; Version=2.0.2-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libtag2","libtag2","libtag2","audio meta-data library","","","1","1","","","","Section=libs; Version=2.0.2-2","","","","","",""
-"dpkg-dev","dpkg-dev","dpkg-dev","Debian package development tools","","","1","1","","","","Section=utils; Version=1.22.21","","","","","",""
-"zlib1g-dev","zlib1g-dev","zlib1g-dev","compression library - development","","","1","1","","","","Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"","","","","","","","","","","","","libtag-c-dev","libtag-c2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-c-dev","libtag-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-c2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-c2","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-c2","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-c2","libtag2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-dev","dpkg-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-dev","libtag-c-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-dev","libtag2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtag-dev","zlib1g-dev","Depends","#333","1","Depends","{}"
+libtag-c-dev,libtag-c-dev,libtag-c-dev,audio meta-data library - development files for C bindings,,,1,1,,,,Section=libdevel; Version=2.0.2-2,,,,,,,
+libtag-c2,libtag-c2,libtag-c2,audio meta-data library - C bindings,,,1,1,,,,Section=libs; Version=2.0.2-2,,,,,,,
+libtag-dev,libtag-dev,libtag-dev,audio meta-data library - development files,,,1,1,,,,Section=libdevel; Version=2.0.2-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libtag2,libtag2,libtag2,audio meta-data library,,,1,1,,,,Section=libs; Version=2.0.2-2,,,,,,,
+dpkg-dev,dpkg-dev,dpkg-dev,Debian package development tools,,,1,1,,,,Section=utils; Version=1.22.21,,,,,,,
+zlib1g-dev,zlib1g-dev,zlib1g-dev,compression library - development,,,1,1,,,,Section=libdevel; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+,,,,,,,,,,,,libtag-c2,libtag-c-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtag-dev,libtag-c-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtag-c2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libtag-c2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libtag-c2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtag2,libtag-c2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,dpkg-dev,libtag-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtag-c-dev,libtag-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtag2,libtag-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g-dev,libtag-dev,Depends,#333,1,Depends,{}

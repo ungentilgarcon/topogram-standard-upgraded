@@ -1,6 +1,6 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"x11proto-core-dev","x11proto-core-dev","x11proto-core-dev","transitional dummy package","","","1","1","","","","Section=x11; Version=2024.1-1","","","","","",""
-"x11proto-dev","x11proto-dev","x11proto-dev","X11 extension protocols and auxiliary headers","","","1","1","","","","Section=x11; Version=2024.1-1","","","","","",""
-"xorg-sgml-doctools","xorg-sgml-doctools","xorg-sgml-doctools","Common tools for building X.Org SGML documentation","","","1","1","","","","Section=x11; Version=1:1.11-1.1","","","","","",""
-"","","","","","","","","","","","","x11proto-core-dev","x11proto-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","x11proto-dev","xorg-sgml-doctools","Depends","#333","1","Depends","{}"
+x11proto-core-dev,x11proto-core-dev,x11proto-core-dev,transitional dummy package,,,1,1,,,,Section=x11; Version=2024.1-1,,,,,,,
+x11proto-dev,x11proto-dev,x11proto-dev,X11 extension protocols and auxiliary headers,,,1,1,,,,Section=x11; Version=2024.1-1,,,,,,,
+xorg-sgml-doctools,xorg-sgml-doctools,xorg-sgml-doctools,Common tools for building X.Org SGML documentation,,,1,1,,,,Section=x11; Version=1:1.11-1.1,,,,,,,
+,,,,,,,,,,,,x11proto-dev,x11proto-core-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xorg-sgml-doctools,x11proto-dev,Depends,#333,1,Depends,{}

@@ -1,33 +1,33 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"vim","vim","vim","Vi IMproved - enhanced vi editor","","","1","1","","","","Section=editors; Version=2:9.1.1230-2","","","","","",""
-"vim-common","vim-common","vim-common","Vi IMproved - Common files","","","1","1","","","","Section=editors; Version=2:9.1.1230-2","","","","","",""
-"vim-runtime","vim-runtime","vim-runtime","Vi IMproved - Runtime files","","","1","1","","","","Section=editors; Version=2:9.1.1230-2","","","","","",""
-"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgpm2","libgpm2","libgpm2","General Purpose Mouse - shared library","","","1","1","","","","Section=libs; Version=1.20.7-11+b2","","","","","",""
-"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"libsodium23","libsodium23","libsodium23","Network communication, cryptography and signaturing library","","","1","1","","","","Section=libs; Version=1.0.18-1+b2","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"xxd","xxd","xxd","tool to make (or reverse) a hex dump","","","1","1","","","","Section=editors; Version=2:9.1.1230-2","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"","","","","","","","","","","","","vim","vim-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim","vim-runtime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim","libacl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim","libgpm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim","libselinux1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim","libsodium23","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","vim-common","xxd","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","vim-common","vim","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","vim-runtime","vim","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libacl1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgpm2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libselinux1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libselinux1","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsodium23","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libtinfo6","libc6","Depends","#333","1","Depends","{}"
+vim,vim,vim,Vi IMproved - enhanced vi editor,,,1,1,,,,Section=editors; Version=2:9.1.1230-2,,,,,,,
+vim-common,vim-common,vim-common,Vi IMproved - Common files,,,1,1,,,,Section=editors; Version=2:9.1.1230-2,,,,,,,
+vim-runtime,vim-runtime,vim-runtime,Vi IMproved - Runtime files,,,1,1,,,,Section=editors; Version=2:9.1.1230-2,,,,,,,
+libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgpm2,libgpm2,libgpm2,General Purpose Mouse - shared library,,,1,1,,,,Section=libs; Version=1.20.7-11+b2,,,,,,,
+libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+libsodium23,libsodium23,libsodium23,"Network communication, cryptography and signaturing library",,,1,1,,,,Section=libs; Version=1.0.18-1+b2,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+xxd,xxd,xxd,tool to make (or reverse) a hex dump,,,1,1,,,,Section=editors; Version=2:9.1.1230-2,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+,,,,,,,,,,,,vim-common,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,vim-runtime,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libacl1,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgpm2,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsodium23,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,vim,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xxd,vim-common,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,vim,vim-common,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,vim,vim-runtime,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libacl1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libgpm2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libselinux1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,libselinux1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libsodium23,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libtinfo6,Depends,#333,1,Depends,{}

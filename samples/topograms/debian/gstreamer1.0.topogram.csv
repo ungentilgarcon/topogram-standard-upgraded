@@ -1,23 +1,23 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gir1.2-gstreamer-1.0","gir1.2-gstreamer-1.0","gir1.2-gstreamer-1.0","GObject introspection data for the GStreamer library","","","1","1","","","","Section=introspection; Version=1.26.2-2","","","","","",""
-"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gir1.2-glib-2.0","gir1.2-glib-2.0","gir1.2-glib-2.0","Introspection data for GLib, GObject, Gio and GModule","","","1","1","","","","Section=introspection; Version=2.84.4-3~deb13u1","","","","","",""
-"gir1.2-gmodule-2.0","gir1.2-gmodule-2.0","gir1.2-gmodule-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libgstreamer1.0-0","libgstreamer1.0-0","libgstreamer1.0-0","Core GStreamer libraries and elements","","","1","1","","","","Section=libs; Version=1.26.2-2","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcap2","libcap2","libcap2","POSIX 1003.1e capabilities (library)","","","1","1","","","","Section=libs; Version=1:2.75-10+b1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libcap2-bin","libcap2-bin","libcap2-bin","POSIX 1003.1e capabilities (utilities)","","","1","1","","","","Section=utils; Version=1:2.75-10+b1","","","","","",""
-"","","","","","","","","","","","","gir1.2-gstreamer-1.0","gir1.2-gio-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gstreamer-1.0","gir1.2-glib-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gstreamer-1.0","gir1.2-gmodule-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gstreamer-1.0","gir1.2-gobject-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-gstreamer-1.0","libgstreamer1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-glib-2.0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libcap2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgstreamer1.0-0","libcap2-bin","Depends","#333","1","Depends","{}"
+gir1.2-gstreamer-1.0,gir1.2-gstreamer-1.0,gir1.2-gstreamer-1.0,GObject introspection data for the GStreamer library,,,1,1,,,,Section=introspection; Version=1.26.2-2,,,,,,,
+gir1.2-gio-2.0,gir1.2-gio-2.0,gir1.2-gio-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gir1.2-glib-2.0,gir1.2-glib-2.0,gir1.2-glib-2.0,"Introspection data for GLib, GObject, Gio and GModule",,,1,1,,,,Section=introspection; Version=2.84.4-3~deb13u1,,,,,,,
+gir1.2-gmodule-2.0,gir1.2-gmodule-2.0,gir1.2-gmodule-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libgstreamer1.0-0,libgstreamer1.0-0,libgstreamer1.0-0,Core GStreamer libraries and elements,,,1,1,,,,Section=libs; Version=1.26.2-2,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcap2,libcap2,libcap2,POSIX 1003.1e capabilities (library),,,1,1,,,,Section=libs; Version=1:2.75-10+b1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libcap2-bin,libcap2-bin,libcap2-bin,POSIX 1003.1e capabilities (utilities),,,1,1,,,,Section=utils; Version=1:2.75-10+b1,,,,,,,
+,,,,,,,,,,,,gir1.2-gio-2.0,gir1.2-gstreamer-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-glib-2.0,gir1.2-gstreamer-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gmodule-2.0,gir1.2-gstreamer-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-gstreamer-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgstreamer1.0-0,gir1.2-gstreamer-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gir1.2-glib-2.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap2,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libgstreamer1.0-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcap2-bin,libgstreamer1.0-0,Depends,#333,1,Depends,{}

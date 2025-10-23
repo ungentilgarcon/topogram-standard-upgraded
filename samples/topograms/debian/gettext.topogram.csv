@@ -1,8 +1,8 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"autopoint","autopoint","autopoint","tool for setting up gettext infrastructure in a source package","","","1","1","","","","Section=devel; Version=0.23.1-2","","","","","",""
-"xz-utils","xz-utils","xz-utils","XZ-format compression utilities","","","1","1","","","","Section=utils; Version=5.8.1-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"","","","","","","","","","","","","autopoint","xz-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xz-utils","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xz-utils","liblzma5","Depends","#333","1","Depends","{}"
+autopoint,autopoint,autopoint,tool for setting up gettext infrastructure in a source package,,,1,1,,,,Section=devel; Version=0.23.1-2,,,,,,,
+xz-utils,xz-utils,xz-utils,XZ-format compression utilities,,,1,1,,,,Section=utils; Version=5.8.1-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+,,,,,,,,,,,,xz-utils,autopoint,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,xz-utils,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,xz-utils,Depends,#333,1,Depends,{}

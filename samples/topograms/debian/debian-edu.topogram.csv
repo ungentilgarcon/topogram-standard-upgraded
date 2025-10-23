@@ -1,201 +1,201 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"education-astronomy","education-astronomy","education-astronomy","Debian Edu astronomy related applications","","","1","1","","","","Section=misc; Version=2.13.3","","","","","",""
-"education-tasks","education-tasks","education-tasks","Debian Edu tasks for tasksel","","","1","1","","","","Section=misc; Version=2.13.3","","","","","",""
-"education-menus","education-menus","education-menus","Debian Edu menu reorganization","","","1","1","","","","Section=misc; Version=2.13.3","","","","","",""
-"gpredict","gpredict","gpredict","Satellite tracking program","","","1","1","","","","Section=hamradio; Version=2.3-115-g0f3beb6-4","","","","","",""
-"kstars","kstars","kstars","desktop planetarium, observation planning and telescope control","","","1","1","","","","Section=science; Version=5:3.6.2-2+b5","","","","","",""
-"openuniverse","openuniverse","openuniverse","3D Universe Simulator","","","1","1","","","","Section=science; Version=1.0beta3.1+dfsg-7.2","","","","","",""
-"stellarium","stellarium","stellarium","real-time photo-realistic sky generator","","","1","1","","","","Section=science; Version=24.3-1","","","","","",""
-"xplanet","xplanet","xplanet","planetary body renderer","","","1","1","","","","Section=graphics; Version=1.3.1-3+b3","","","","","",""
-"xplanet-images","xplanet-images","xplanet-images","imagery for xplanet","","","1","1","","","","Section=graphics; Version=1.3.1-3","","","","","",""
-"tasksel","tasksel","tasksel","tool for selecting tasks for installation on Debian systems","","","1","1","","","","Section=admin; Version=3.81","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
-"libcurl3t64-gnutls","libcurl3t64-gnutls","libcurl3t64-gnutls","easy-to-use client-side URL transfer library (GnuTLS flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","",""
-"libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","libgdk-pixbuf-2.0-0","GDK Pixbuf library","","","1","1","","","","Section=libs; Version=2.42.12+dfsg-4","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libgoocanvas-2.0-9","libgoocanvas-2.0-9","libgoocanvas-2.0-9","Canvas widget for GTK+ - shared library","","","1","1","","","","Section=libs; Version=2.0.4-1.1","","","","","",""
-"libgtk-3-0t64","libgtk-3-0t64","libgtk-3-0t64","GTK graphical user interface library","","","1","1","","","","Section=libs; Version=3.24.49-3","","","","","",""
-"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"gpredict-doc","gpredict-doc","gpredict-doc","Satellite tracking program - documentation","","","1","1","","","","Section=hamradio; Version=2.3-115-g0f3beb6-4","","","","","",""
-"gpsd","gpsd","gpsd","Global Positioning System - daemon","","","1","1","","","","Section=misc; Version=3.25-5","","","","","",""
-"libhamlib-utils","libhamlib-utils","libhamlib-utils","Utilities to support the hamlib radio control library","","","1","1","","","","Section=hamradio; Version=4.6.2-1+b1","","","","","",""
-"kstars-data","kstars-data","kstars-data","data files for KStars desktop planetarium","","","1","1","","","","Section=science; Version=5:3.6.2-2","","","","","",""
-"libqt5sql5-sqlite","libqt5sql5-sqlite","libqt5sql5-sqlite","Qt 5 SQLite 3 database driver","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"kio","kio","kio","resource and network access abstraction","","","1","1","","","","Section=kde; Version=5.116.0-1","","","","","",""
-"libcfitsio10t64","libcfitsio10t64","libcfitsio10t64","shared library for I/O with FITS format data files","","","1","1","","","","Section=libs; Version=4.6.2-2","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libgsl28","libgsl28","libgsl28","GNU Scientific Library (GSL) -- library package","","","1","1","","","","Section=libs; Version=2.8+dfsg-5","","","","","",""
-"libindiclient1","libindiclient1","libindiclient1","Instrument-Neutral Device Interface library -- client library","","","1","1","","","","Section=libs; Version=1.9.9+dfsg-3+b5","","","","","",""
-"libkf5configcore5","libkf5configcore5","libkf5configcore5","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5configgui5","libkf5configgui5","libkf5configgui5","configuration settings framework for Qt","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5configwidgets5","libkf5configwidgets5","libkf5configwidgets5","Extra widgets for easier configuration support.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5coreaddons5","libkf5coreaddons5","libkf5coreaddons5","KDE Frameworks 5 addons to QtCore","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5crash5","libkf5crash5","libkf5crash5","Support for application crash analysis and bug report from apps","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5i18n5","libkf5i18n5","libkf5i18n5","Advanced internationalization framework.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5kiocore5","libkf5kiocore5","libkf5kiocore5","resource and network access abstraction (KIO core library)","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5kiowidgets5","libkf5kiowidgets5","libkf5kiowidgets5","resource and network access abstraction (KIO widgets library)","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5newstuff5","libkf5newstuff5","libkf5newstuff5","Support for downloading application assets from the network.","","","1","1","","","","Section=libs; Version=5.116.0-2","","","","","",""
-"libkf5notifications5","libkf5notifications5","libkf5notifications5","Framework for desktop notifications","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5notifyconfig5","libkf5notifyconfig5","libkf5notifyconfig5","Configuration system for KNotify.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5plotting5","libkf5plotting5","libkf5plotting5","KPlotting provides classes to do plotting.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5widgetsaddons5","libkf5widgetsaddons5","libkf5widgetsaddons5","add-on widgets and classes for applications that use the Qt Widgets module","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libkf5xmlgui5","libkf5xmlgui5","libkf5xmlgui5","User configurable main windows.","","","1","1","","","","Section=libs; Version=5.116.0-1","","","","","",""
-"libqt5concurrent5t64","libqt5concurrent5t64","libqt5concurrent5t64","Qt 5 concurrent module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5core5t64","libqt5core5t64","libqt5core5t64","Qt 5 core module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5datavisualization5","libqt5datavisualization5","libqt5datavisualization5","Qt 5 Data Visualization module","","","1","1","","","","Section=libs; Version=5.15.15-2+b1","","","","","",""
-"libqt5dbus5t64","libqt5dbus5t64","libqt5dbus5t64","Qt 5 D-Bus module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5gui5t64","libqt5gui5t64","libqt5gui5t64","Qt 5 GUI module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5keychain1","libqt5keychain1","libqt5keychain1","Qt API to store passwords (Qt 5 version)","","","1","1","","","","Section=libs; Version=0.15.0-1","","","","","",""
-"libqt5network5t64","libqt5network5t64","libqt5network5t64","Qt 5 network module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5printsupport5t64","libqt5printsupport5t64","libqt5printsupport5t64","Qt 5 print support module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5qml5","libqt5qml5","libqt5qml5","Qt 5 QML module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-3","","","","","",""
-"libqt5quick5","libqt5quick5","libqt5quick5","Qt 5 Quick library","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-3","","","","","",""
-"libqt5sql5t64","libqt5sql5t64","libqt5sql5t64","Qt 5 SQL module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5svg5","libqt5svg5","libqt5svg5","Qt 5 SVG module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libqt5websockets5","libqt5websockets5","libqt5websockets5","Qt 5 Web Sockets module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libqt5widgets5t64","libqt5widgets5t64","libqt5widgets5t64","Qt 5 widgets module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libraw23t64","libraw23t64","libraw23t64","raw image decoder library","","","1","1","","","","Section=libs; Version=0.21.4-2","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libstellarsolver2","libstellarsolver2","libstellarsolver2","Sextractor and Astrometry.net-Based Internal Astrometric Solver","","","1","1","","","","Section=libs; Version=2.6-1+b1","","","","","",""
-"libwcs8","libwcs8","libwcs8","Implementation of the FITS WCS standard","","","1","1","","","","Section=libs; Version=8.4+ds-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"astrometry.net","astrometry.net","astrometry.net","Astrometry plate solver","","","1","1","","","","Section=science; Version=0.97+dfsg-2","","","","","",""
-"indi-bin","indi-bin","indi-bin","INDI server, drivers and tools","","","1","1","","","","Section=misc; Version=1.9.9+dfsg-3+b5","","","","","",""
-"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libglu1-mesa","libglu1-mesa","libglu1-mesa","Mesa OpenGL utility library (GLU)","","","1","1","","","","Section=libs; Version=9.0.2-1.1+b3","","","","","",""
-"libglut3.12","libglut3.12","libglut3.12","OpenGL Utility Toolkit","","","1","1","","","","Section=libs; Version=3.4.0-4","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"libplib1t64","libplib1t64","libplib1t64","Portability Libraries: Run-time package","","","1","1","","","","Section=libs; Version=1.8.5-14.1+b1","","","","","",""
-"openuniverse-common","openuniverse-common","openuniverse-common","3D Universe Simulator data files","","","1","1","","","","Section=science; Version=1.0beta3.1+dfsg-7.2","","","","","",""
-"stellarium-data","stellarium-data","stellarium-data","Stellarium data files","","","1","1","","","","Section=science; Version=24.3-1","","","","","",""
-"libexiv2-28","libexiv2-28","libexiv2-28","EXIF/IPTC/XMP metadata manipulation library","","","1","1","","","","Section=libs; Version=0.28.5+dfsg-1","","","","","",""
-"libnlopt-cxx0","libnlopt-cxx0","libnlopt-cxx0","nonlinear optimization library (C++ interface)","","","1","1","","","","Section=libs; Version=2.7.1-6+b4","","","","","",""
-"libqt5charts5","libqt5charts5","libqt5charts5","Qt charts shared library","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libqt5multimedia5","libqt5multimedia5","libqt5multimedia5","Qt 5 Multimedia module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libqt5multimediawidgets5","libqt5multimediawidgets5","libqt5multimediawidgets5","Qt 5 Multimedia Widgets module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libqt5positioning5","libqt5positioning5","libqt5positioning5","Qt Positioning module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-3+b1","","","","","",""
-"libqt5qxlsx0t64","libqt5qxlsx0t64","libqt5qxlsx0t64","Excel file (*.xlsx) reader/writer library for Qt5 (library).","","","1","1","","","","Section=libs; Version=1.4.4-1.1+b4","","","","","",""
-"libqt5script5","libqt5script5","libqt5script5","Qt 5 script module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-2","","","","","",""
-"libqt5serialport5","libqt5serialport5","libqt5serialport5","Qt 5 serial port support","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"libqt5webenginewidgets5","libqt5webenginewidgets5","libqt5webenginewidgets5","Web content engine library for Qt - Widget","","","1","1","","","","Section=libs; Version=5.15.18+dfsg-2+b1","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"libgif7","libgif7","libgif7","library for GIF images (library)","","","1","1","","","","Section=libs; Version=5.2.2-1+b1","","","","","",""
-"libpangoft2-1.0-0","libpangoft2-1.0-0","libpangoft2-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxss1","libxss1","libxss1","X11 Screen Saver extension library","","","1","1","","","","Section=libs; Version=1:1.2.3-1+b3","","","","","",""
-"fonts-freefont-ttf","fonts-freefont-ttf","fonts-freefont-ttf","Freefont Serif, Sans and Mono Truetype fonts","","","1","1","","","","Section=fonts; Version=20211204+svn4273-2","","","","","",""
-"","","","","","","","","","","","","education-astronomy","education-tasks","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","education-astronomy","education-menus","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","education-astronomy","gpredict","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","education-astronomy","kstars","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","education-astronomy","openuniverse","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","education-astronomy","stellarium","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","education-astronomy","xplanet","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","education-astronomy","xplanet-images","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","education-tasks","tasksel","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libcurl3t64-gnutls","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libgdk-pixbuf-2.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libgoocanvas-2.0-9","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libgtk-3-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","libpangocairo-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","gpredict-doc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gpredict","gpsd","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","gpredict","libhamlib-utils","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","kstars","kstars-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5sql5-sqlite","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","kio","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libcfitsio10t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libgsl28","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libindiclient1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5configcore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5configgui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5configwidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5coreaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5crash5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5i18n5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5kiocore5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5kiowidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5newstuff5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5notifications5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5notifyconfig5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5plotting5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5widgetsaddons5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libkf5xmlgui5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5concurrent5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5datavisualization5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5keychain1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5printsupport5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5qml5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5quick5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5sql5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5svg5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5websockets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libraw23t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libstellarsolver2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","libwcs8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","kstars","astrometry.net","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","kstars","indi-bin","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","kstars","xplanet","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","openuniverse","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","libgl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","libglu1-mesa","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","libglut3.12","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","libplib1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openuniverse","openuniverse-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","stellarium-data","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libexiv2-28","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libindiclient1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libnlopt-cxx0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5charts5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5concurrent5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5multimedia5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5multimediawidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5positioning5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5qxlsx0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5script5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5serialport5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5webenginewidgets5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libqt5widgets5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","stellarium","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libgif7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libpangoft2-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libtiff6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","libxss1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","fonts-freefont-ttf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xplanet","xplanet-images","Recommends","#333","1","Recommends","{}"
+education-astronomy,education-astronomy,education-astronomy,Debian Edu astronomy related applications,,,1,1,,,,Section=misc; Version=2.13.3,,,,,,,
+education-tasks,education-tasks,education-tasks,Debian Edu tasks for tasksel,,,1,1,,,,Section=misc; Version=2.13.3,,,,,,,
+education-menus,education-menus,education-menus,Debian Edu menu reorganization,,,1,1,,,,Section=misc; Version=2.13.3,,,,,,,
+gpredict,gpredict,gpredict,Satellite tracking program,,,1,1,,,,Section=hamradio; Version=2.3-115-g0f3beb6-4,,,,,,,
+kstars,kstars,kstars,"desktop planetarium, observation planning and telescope control",,,1,1,,,,Section=science; Version=5:3.6.2-2+b5,,,,,,,
+openuniverse,openuniverse,openuniverse,3D Universe Simulator,,,1,1,,,,Section=science; Version=1.0beta3.1+dfsg-7.2,,,,,,,
+stellarium,stellarium,stellarium,real-time photo-realistic sky generator,,,1,1,,,,Section=science; Version=24.3-1,,,,,,,
+xplanet,xplanet,xplanet,planetary body renderer,,,1,1,,,,Section=graphics; Version=1.3.1-3+b3,,,,,,,
+xplanet-images,xplanet-images,xplanet-images,imagery for xplanet,,,1,1,,,,Section=graphics; Version=1.3.1-3,,,,,,,
+tasksel,tasksel,tasksel,tool for selecting tasks for installation on Debian systems,,,1,1,,,,Section=admin; Version=3.81,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
+libcurl3t64-gnutls,libcurl3t64-gnutls,libcurl3t64-gnutls,easy-to-use client-side URL transfer library (GnuTLS flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
+libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,libgdk-pixbuf-2.0-0,GDK Pixbuf library,,,1,1,,,,Section=libs; Version=2.42.12+dfsg-4,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libgoocanvas-2.0-9,libgoocanvas-2.0-9,libgoocanvas-2.0-9,Canvas widget for GTK+ - shared library,,,1,1,,,,Section=libs; Version=2.0.4-1.1,,,,,,,
+libgtk-3-0t64,libgtk-3-0t64,libgtk-3-0t64,GTK graphical user interface library,,,1,1,,,,Section=libs; Version=3.24.49-3,,,,,,,
+libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+gpredict-doc,gpredict-doc,gpredict-doc,Satellite tracking program - documentation,,,1,1,,,,Section=hamradio; Version=2.3-115-g0f3beb6-4,,,,,,,
+gpsd,gpsd,gpsd,Global Positioning System - daemon,,,1,1,,,,Section=misc; Version=3.25-5,,,,,,,
+libhamlib-utils,libhamlib-utils,libhamlib-utils,Utilities to support the hamlib radio control library,,,1,1,,,,Section=hamradio; Version=4.6.2-1+b1,,,,,,,
+kstars-data,kstars-data,kstars-data,data files for KStars desktop planetarium,,,1,1,,,,Section=science; Version=5:3.6.2-2,,,,,,,
+libqt5sql5-sqlite,libqt5sql5-sqlite,libqt5sql5-sqlite,Qt 5 SQLite 3 database driver,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+kio,kio,kio,resource and network access abstraction,,,1,1,,,,Section=kde; Version=5.116.0-1,,,,,,,
+libcfitsio10t64,libcfitsio10t64,libcfitsio10t64,shared library for I/O with FITS format data files,,,1,1,,,,Section=libs; Version=4.6.2-2,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libgsl28,libgsl28,libgsl28,GNU Scientific Library (GSL) -- library package,,,1,1,,,,Section=libs; Version=2.8+dfsg-5,,,,,,,
+libindiclient1,libindiclient1,libindiclient1,Instrument-Neutral Device Interface library -- client library,,,1,1,,,,Section=libs; Version=1.9.9+dfsg-3+b5,,,,,,,
+libkf5configcore5,libkf5configcore5,libkf5configcore5,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5configgui5,libkf5configgui5,libkf5configgui5,configuration settings framework for Qt,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5configwidgets5,libkf5configwidgets5,libkf5configwidgets5,Extra widgets for easier configuration support.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5coreaddons5,libkf5coreaddons5,libkf5coreaddons5,KDE Frameworks 5 addons to QtCore,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5crash5,libkf5crash5,libkf5crash5,Support for application crash analysis and bug report from apps,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5i18n5,libkf5i18n5,libkf5i18n5,Advanced internationalization framework.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5kiocore5,libkf5kiocore5,libkf5kiocore5,resource and network access abstraction (KIO core library),,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5kiowidgets5,libkf5kiowidgets5,libkf5kiowidgets5,resource and network access abstraction (KIO widgets library),,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5newstuff5,libkf5newstuff5,libkf5newstuff5,Support for downloading application assets from the network.,,,1,1,,,,Section=libs; Version=5.116.0-2,,,,,,,
+libkf5notifications5,libkf5notifications5,libkf5notifications5,Framework for desktop notifications,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5notifyconfig5,libkf5notifyconfig5,libkf5notifyconfig5,Configuration system for KNotify.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5plotting5,libkf5plotting5,libkf5plotting5,KPlotting provides classes to do plotting.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5widgetsaddons5,libkf5widgetsaddons5,libkf5widgetsaddons5,add-on widgets and classes for applications that use the Qt Widgets module,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libkf5xmlgui5,libkf5xmlgui5,libkf5xmlgui5,User configurable main windows.,,,1,1,,,,Section=libs; Version=5.116.0-1,,,,,,,
+libqt5concurrent5t64,libqt5concurrent5t64,libqt5concurrent5t64,Qt 5 concurrent module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5core5t64,libqt5core5t64,libqt5core5t64,Qt 5 core module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5datavisualization5,libqt5datavisualization5,libqt5datavisualization5,Qt 5 Data Visualization module,,,1,1,,,,Section=libs; Version=5.15.15-2+b1,,,,,,,
+libqt5dbus5t64,libqt5dbus5t64,libqt5dbus5t64,Qt 5 D-Bus module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5gui5t64,libqt5gui5t64,libqt5gui5t64,Qt 5 GUI module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5keychain1,libqt5keychain1,libqt5keychain1,Qt API to store passwords (Qt 5 version),,,1,1,,,,Section=libs; Version=0.15.0-1,,,,,,,
+libqt5network5t64,libqt5network5t64,libqt5network5t64,Qt 5 network module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5printsupport5t64,libqt5printsupport5t64,libqt5printsupport5t64,Qt 5 print support module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5qml5,libqt5qml5,libqt5qml5,Qt 5 QML module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-3,,,,,,,
+libqt5quick5,libqt5quick5,libqt5quick5,Qt 5 Quick library,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-3,,,,,,,
+libqt5sql5t64,libqt5sql5t64,libqt5sql5t64,Qt 5 SQL module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5svg5,libqt5svg5,libqt5svg5,Qt 5 SVG module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libqt5websockets5,libqt5websockets5,libqt5websockets5,Qt 5 Web Sockets module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libqt5widgets5t64,libqt5widgets5t64,libqt5widgets5t64,Qt 5 widgets module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libraw23t64,libraw23t64,libraw23t64,raw image decoder library,,,1,1,,,,Section=libs; Version=0.21.4-2,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libstellarsolver2,libstellarsolver2,libstellarsolver2,Sextractor and Astrometry.net-Based Internal Astrometric Solver,,,1,1,,,,Section=libs; Version=2.6-1+b1,,,,,,,
+libwcs8,libwcs8,libwcs8,Implementation of the FITS WCS standard,,,1,1,,,,Section=libs; Version=8.4+ds-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+astrometry.net,astrometry.net,astrometry.net,Astrometry plate solver,,,1,1,,,,Section=science; Version=0.97+dfsg-2,,,,,,,
+indi-bin,indi-bin,indi-bin,"INDI server, drivers and tools",,,1,1,,,,Section=misc; Version=1.9.9+dfsg-3+b5,,,,,,,
+libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libglu1-mesa,libglu1-mesa,libglu1-mesa,Mesa OpenGL utility library (GLU),,,1,1,,,,Section=libs; Version=9.0.2-1.1+b3,,,,,,,
+libglut3.12,libglut3.12,libglut3.12,OpenGL Utility Toolkit,,,1,1,,,,Section=libs; Version=3.4.0-4,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+libplib1t64,libplib1t64,libplib1t64,Portability Libraries: Run-time package,,,1,1,,,,Section=libs; Version=1.8.5-14.1+b1,,,,,,,
+openuniverse-common,openuniverse-common,openuniverse-common,3D Universe Simulator data files,,,1,1,,,,Section=science; Version=1.0beta3.1+dfsg-7.2,,,,,,,
+stellarium-data,stellarium-data,stellarium-data,Stellarium data files,,,1,1,,,,Section=science; Version=24.3-1,,,,,,,
+libexiv2-28,libexiv2-28,libexiv2-28,EXIF/IPTC/XMP metadata manipulation library,,,1,1,,,,Section=libs; Version=0.28.5+dfsg-1,,,,,,,
+libnlopt-cxx0,libnlopt-cxx0,libnlopt-cxx0,nonlinear optimization library (C++ interface),,,1,1,,,,Section=libs; Version=2.7.1-6+b4,,,,,,,
+libqt5charts5,libqt5charts5,libqt5charts5,Qt charts shared library,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libqt5multimedia5,libqt5multimedia5,libqt5multimedia5,Qt 5 Multimedia module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libqt5multimediawidgets5,libqt5multimediawidgets5,libqt5multimediawidgets5,Qt 5 Multimedia Widgets module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libqt5positioning5,libqt5positioning5,libqt5positioning5,Qt Positioning module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-3+b1,,,,,,,
+libqt5qxlsx0t64,libqt5qxlsx0t64,libqt5qxlsx0t64,Excel file (*.xlsx) reader/writer library for Qt5 (library).,,,1,1,,,,Section=libs; Version=1.4.4-1.1+b4,,,,,,,
+libqt5script5,libqt5script5,libqt5script5,Qt 5 script module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-2,,,,,,,
+libqt5serialport5,libqt5serialport5,libqt5serialport5,Qt 5 serial port support,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+libqt5webenginewidgets5,libqt5webenginewidgets5,libqt5webenginewidgets5,Web content engine library for Qt - Widget,,,1,1,,,,Section=libs; Version=5.15.18+dfsg-2+b1,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+libgif7,libgif7,libgif7,library for GIF images (library),,,1,1,,,,Section=libs; Version=5.2.2-1+b1,,,,,,,
+libpangoft2-1.0-0,libpangoft2-1.0-0,libpangoft2-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxss1,libxss1,libxss1,X11 Screen Saver extension library,,,1,1,,,,Section=libs; Version=1:1.2.3-1+b3,,,,,,,
+fonts-freefont-ttf,fonts-freefont-ttf,fonts-freefont-ttf,"Freefont Serif, Sans and Mono Truetype fonts",,,1,1,,,,Section=fonts; Version=20211204+svn4273-2,,,,,,,
+,,,,,,,,,,,,education-tasks,education-astronomy,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,education-menus,education-astronomy,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,gpredict,education-astronomy,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,kstars,education-astronomy,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,openuniverse,education-astronomy,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,stellarium,education-astronomy,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xplanet,education-astronomy,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xplanet-images,education-astronomy,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,tasksel,education-tasks,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcurl3t64-gnutls,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgdk-pixbuf-2.0-0,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgoocanvas-2.0-9,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgtk-3-0t64,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangocairo-1.0-0,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gpredict-doc,gpredict,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gpsd,gpredict,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libhamlib-utils,gpredict,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,kstars-data,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5sql5-sqlite,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,kio,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcfitsio10t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgsl28,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libindiclient1,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configcore5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configgui5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5configwidgets5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5coreaddons5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5crash5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5i18n5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiocore5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5kiowidgets5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5newstuff5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5notifications5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5notifyconfig5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5plotting5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5widgetsaddons5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkf5xmlgui5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5concurrent5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5datavisualization5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5keychain1,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5printsupport5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5qml5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5quick5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5sql5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5svg5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5websockets5,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libraw23t64,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstellarsolver2,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libwcs8,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,kstars,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,astrometry.net,kstars,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,indi-bin,kstars,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,xplanet,kstars,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl1,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglu1-mesa,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglut3.12,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libplib1t64,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,openuniverse-common,openuniverse,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,stellarium-data,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libexiv2-28,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libindiclient1,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnlopt-cxx0,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5charts5,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5concurrent5t64,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5multimedia5,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5multimediawidgets5,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5positioning5,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5qxlsx0t64,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5script5,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5serialport5,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5webenginewidgets5,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5widgets5t64,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,stellarium,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgif7,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangoft2-1.0-0,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtiff6,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxss1,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-freefont-ttf,xplanet,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xplanet-images,xplanet,Recommends,#333,1,Recommends,{}

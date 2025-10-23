@@ -1,6 +1,6 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libjson-c-dev","libjson-c-dev","libjson-c-dev","JSON manipulation library - development files","","","1","1","","","","Section=libdevel; Version=0.18+ds-1","","","","","",""
-"libjson-c5","libjson-c5","libjson-c5","JSON manipulation library - shared library","","","1","1","","","","Section=libs; Version=0.18+ds-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","libjson-c-dev","libjson-c5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjson-c5","libc6","Depends","#333","1","Depends","{}"
+libjson-c-dev,libjson-c-dev,libjson-c-dev,JSON manipulation library - development files,,,1,1,,,,Section=libdevel; Version=0.18+ds-1,,,,,,,
+libjson-c5,libjson-c5,libjson-c5,JSON manipulation library - shared library,,,1,1,,,,Section=libs; Version=0.18+ds-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,libjson-c5,libjson-c-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libjson-c5,Depends,#333,1,Depends,{}

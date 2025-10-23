@@ -1,145 +1,145 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"r-cran-magrittr","r-cran-magrittr","r-cran-magrittr","GNU R forward-pipe operator","","","1","1","","","","Section=gnu-r; Version=2.0.3-1","","","","","",""
-"r-base-core","r-base-core","r-base-core","GNU R core of statistical computation and graphics system","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","",""
-"r-api-4.0","r-api-4.0","r-api-4.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"r-cran-testthat","r-cran-testthat","r-cran-testthat","GNU R testsuite","","","1","1","","","","Section=gnu-r; Version=3.2.3-1","","","","","",""
-"r-cran-crayon","r-cran-crayon","r-cran-crayon","GNU R colored terminal output","","","1","1","","","","Section=gnu-r; Version=1.5.3-1","","","","","",""
-"zip","zip","zip","Archiver for .zip files","","","1","1","","","","Section=utils; Version=3.0-15","","","","","",""
-"unzip","unzip","unzip","De-archiver for .zip files","","","1","1","","","","Section=utils; Version=6.0-29","","","","","",""
-"libpaper-utils","libpaper-utils","libpaper-utils","Paper sizes catalogue (utilities)","","","1","1","","","","Section=utils; Version=2.2.5-0.3+b2","","","","","",""
-"xdg-utils","xdg-utils","xdg-utils","desktop integration utilities from freedesktop.org","","","1","1","","","","Section=utils; Version=1.2.1-2","","","","","",""
-"libblas3","libblas3","libblas3","Basic Linear Algebra Reference implementations, shared library","","","1","1","","","","Section=libs; Version=3.12.1-6","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"libcairo2","libcairo2","libcairo2","Cairo 2D vector graphics library","","","1","1","","","","Section=libs; Version=1.18.4-1+b1","","","","","",""
-"libcurl4t64","libcurl4t64","libcurl4t64","easy-to-use client-side URL transfer library (OpenSSL flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","",""
-"libdeflate0","libdeflate0","libdeflate0","fast, whole-buffer DEFLATE-based compression and decompression","","","1","1","","","","Section=libs; Version=1.23-2","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libgomp1","libgomp1","libgomp1","GCC OpenMP (GOMP) support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"liblapack3","liblapack3","liblapack3","Library of linear algebra routines 3 - shared version","","","1","1","","","","Section=libs; Version=3.12.1-6","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"libpango-1.0-0","libpango-1.0-0","libpango-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libpangocairo-1.0-0","libpangocairo-1.0-0","libpangocairo-1.0-0","Layout and rendering of internationalized text","","","1","1","","","","Section=libs; Version=1.56.3-1","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"libreadline8t64","libreadline8t64","libreadline8t64","GNU readline and history libraries, run-time libraries","","","1","1","","","","Section=libs; Version=8.2-6","","","","","",""
-"libtcl8.6","libtcl8.6","libtcl8.6","Tcl (the Tool Command Language) v8.6 - run-time library files","","","1","1","","","","Section=libs; Version=8.6.16+dfsg-1","","","","","",""
-"libtiff6","libtiff6","libtiff6","Tag Image File Format (TIFF) library","","","1","1","","","","Section=libs; Version=4.7.0-3","","","","","",""
-"libtirpc3t64","libtirpc3t64","libtirpc3t64","transport-independent RPC library","","","1","1","","","","Section=libs; Version=1.3.6+ds-1","","","","","",""
-"libtk8.6","libtk8.6","libtk8.6","Tk toolkit for Tcl and X11 v8.6 - run-time files","","","1","1","","","","Section=libs; Version=8.6.16-1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxt6t64","libxt6t64","libxt6t64","X11 toolkit intrinsics library","","","1","1","","","","Section=libs; Version=1:1.2.1-1.2+b2","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"ucf","ucf","ucf","Update Configuration File(s): preserve user changes to config files","","","1","1","","","","Section=utils; Version=3.0052","","","","","",""
-"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","",""
-"r-recommended","r-recommended","r-recommended","GNU R collection of recommended packages [metapackage]","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","",""
-"r-base-dev","r-base-dev","r-base-dev","GNU R installation of auxiliary GNU R packages","","","1","1","","","","Section=gnu-r; Version=4.5.0-3","","","","","",""
-"r-doc-html","r-doc-html","r-doc-html","GNU R html manuals for statistical computing system","","","1","1","","","","Section=doc; Version=4.5.0-3","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"r-cran-brio","r-cran-brio","r-cran-brio","basic R input output","","","1","1","","","","Section=gnu-r; Version=1.1.5-1","","","","","",""
-"r-cran-callr","r-cran-callr","r-cran-callr","Call GNU R from GNU R","","","1","1","","","","Section=gnu-r; Version=3.7.6-1","","","","","",""
-"r-cran-cli","r-cran-cli","r-cran-cli","GNU R helpers for developing command line interfaces","","","1","1","","","","Section=gnu-r; Version=3.6.4-1","","","","","",""
-"r-cran-desc","r-cran-desc","r-cran-desc","GNU R manipulation of DESCRIPTION files","","","1","1","","","","Section=gnu-r; Version=1.4.3-1","","","","","",""
-"r-cran-digest","r-cran-digest","r-cran-digest","GNU R package for 'hash digest' of R data structures","","","1","1","","","","Section=gnu-r; Version=0.6.37-1","","","","","",""
-"r-cran-evaluate","r-cran-evaluate","r-cran-evaluate","GNU R parsing and evaluation tools","","","1","1","","","","Section=gnu-r; Version=1.0.3-1","","","","","",""
-"r-cran-jsonlite","r-cran-jsonlite","r-cran-jsonlite","Robust, High Performance JSON Parser and Generator for R","","","1","1","","","","Section=gnu-r; Version=1.9.1+dfsg-1","","","","","",""
-"r-cran-lifecycle","r-cran-lifecycle","r-cran-lifecycle","manage the life cycle of your GNU R package functions","","","1","1","","","","Section=gnu-r; Version=1.0.4+dfsg-1","","","","","",""
-"r-cran-pkgload","r-cran-pkgload","r-cran-pkgload","simulate GNU R package installation and attach","","","1","1","","","","Section=gnu-r; Version=1.4.0-1","","","","","",""
-"r-cran-praise","r-cran-praise","r-cran-praise","GNU R praise users","","","1","1","","","","Section=gnu-r; Version=1.0.0-4","","","","","",""
-"r-cran-processx","r-cran-processx","r-cran-processx","GNU R execute and control system processes","","","1","1","","","","Section=gnu-r; Version=3.8.6-1","","","","","",""
-"r-cran-ps","r-cran-ps","r-cran-ps","GNU R list, query, manipulate system processes","","","1","1","","","","Section=gnu-r; Version=1.9.0-1","","","","","",""
-"r-cran-r6","r-cran-r6","r-cran-r6","R classes with reference semantics","","","1","1","","","","Section=gnu-r; Version=2.6.1-1","","","","","",""
-"r-cran-rlang","r-cran-rlang","r-cran-rlang","Functions for Base Types and Core R and 'Tidyverse' Features","","","1","1","","","","Section=gnu-r; Version=1.1.5-3","","","","","",""
-"r-cran-waldo","r-cran-waldo","r-cran-waldo","find differences between R objects","","","1","1","","","","Section=gnu-r; Version=0.6.1-2","","","","","",""
-"r-cran-withr","r-cran-withr","r-cran-withr","GNU R package to run code 'With' temporarily modified global state","","","1","1","","","","Section=gnu-r; Version=3.0.2+dfsg-1","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"r-cran-covr","r-cran-covr","r-cran-covr","test coverage for GNU R packages","","","1","1","","","","Section=gnu-r; Version=3.6.4+dfsg-1","","","","","",""
-"r-cran-curl","r-cran-curl","r-cran-curl","GNU R modern and flexible web client for R","","","1","1","","","","Section=gnu-r; Version=6.2.1+dfsg-1","","","","","",""
-"r-cran-knitr","r-cran-knitr","r-cran-knitr","GNU R package for dynamic report generation using Literate Programming","","","1","1","","","","Section=gnu-r; Version=1.50+dfsg-1","","","","","",""
-"r-cran-rmarkdown","r-cran-rmarkdown","r-cran-rmarkdown","convert R markdown documents into a variety of formats","","","1","1","","","","Section=gnu-r; Version=2.29+dfsg-1","","","","","",""
-"r-cran-rstudioapi","r-cran-rstudioapi","r-cran-rstudioapi","GNU R package for access to the RStudio API","","","1","1","","","","Section=gnu-r; Version=0.17.1-1","","","","","",""
-"r-cran-shiny","r-cran-shiny","r-cran-shiny","GNU R web application framework","","","1","1","","","","Section=gnu-r; Version=1.10.0+dfsg-2","","","","","",""
-"r-cran-usethis","r-cran-usethis","r-cran-usethis","Automate Package and Project Setup","","","1","1","","","","Section=gnu-r; Version=3.1.0-1","","","","","",""
-"r-cran-vctrs","r-cran-vctrs","r-cran-vctrs","GNU R vector helpers","","","1","1","","","","Section=gnu-r; Version=0.6.5-1","","","","","",""
-"r-cran-xml2","r-cran-xml2","r-cran-xml2","GNU R XML parser","","","1","1","","","","Section=gnu-r; Version=1.3.8-1","","","","","",""
-"r-cran-mockery","r-cran-mockery","r-cran-mockery","mocking library for GNU R","","","1","1","","","","Section=gnu-r; Version=0.4.4+dfsg-1","","","","","",""
-"","","","","","","","","","","","","r-cran-magrittr","r-base-core","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-magrittr","r-api-4.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-magrittr","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-magrittr","r-cran-testthat","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-magrittr","r-cran-crayon","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-base-core","zip","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","unzip","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libpaper-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","xdg-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libblas3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libcairo2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libcurl4t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libdeflate0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libicu76","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","liblapack3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libpango-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libpangocairo-1.0-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libreadline8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libtcl8.6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libtiff6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libtirpc3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libtk8.6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libxt6t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","ucf","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","ca-certificates","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-base-core","r-recommended","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-base-core","r-base-dev","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-base-core","r-doc-html","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-api-4.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-brio","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-callr","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-cli","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-desc","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-digest","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-evaluate","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-jsonlite","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-lifecycle","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-magrittr","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-pkgload","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-praise","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-processx","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-ps","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-r6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-rlang","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-waldo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-withr","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-covr","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-curl","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-knitr","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-rmarkdown","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-rstudioapi","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-shiny","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-usethis","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-vctrs","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-testthat","r-cran-xml2","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-crayon","r-api-4.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","r-cran-crayon","r-cran-mockery","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-crayon","r-cran-rstudioapi","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-crayon","r-cran-testthat","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","r-cran-crayon","r-cran-withr","Recommends","#333","1","Recommends","{}"
+r-cran-magrittr,r-cran-magrittr,r-cran-magrittr,GNU R forward-pipe operator,,,1,1,,,,Section=gnu-r; Version=2.0.3-1,,,,,,,
+r-base-core,r-base-core,r-base-core,GNU R core of statistical computation and graphics system,,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
+r-api-4.0,r-api-4.0,r-api-4.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+r-cran-testthat,r-cran-testthat,r-cran-testthat,GNU R testsuite,,,1,1,,,,Section=gnu-r; Version=3.2.3-1,,,,,,,
+r-cran-crayon,r-cran-crayon,r-cran-crayon,GNU R colored terminal output,,,1,1,,,,Section=gnu-r; Version=1.5.3-1,,,,,,,
+zip,zip,zip,Archiver for .zip files,,,1,1,,,,Section=utils; Version=3.0-15,,,,,,,
+unzip,unzip,unzip,De-archiver for .zip files,,,1,1,,,,Section=utils; Version=6.0-29,,,,,,,
+libpaper-utils,libpaper-utils,libpaper-utils,Paper sizes catalogue (utilities),,,1,1,,,,Section=utils; Version=2.2.5-0.3+b2,,,,,,,
+xdg-utils,xdg-utils,xdg-utils,desktop integration utilities from freedesktop.org,,,1,1,,,,Section=utils; Version=1.2.1-2,,,,,,,
+libblas3,libblas3,libblas3,"Basic Linear Algebra Reference implementations, shared library",,,1,1,,,,Section=libs; Version=3.12.1-6,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+libcairo2,libcairo2,libcairo2,Cairo 2D vector graphics library,,,1,1,,,,Section=libs; Version=1.18.4-1+b1,,,,,,,
+libcurl4t64,libcurl4t64,libcurl4t64,easy-to-use client-side URL transfer library (OpenSSL flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
+libdeflate0,libdeflate0,libdeflate0,"fast, whole-buffer DEFLATE-based compression and decompression",,,1,1,,,,Section=libs; Version=1.23-2,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libgomp1,libgomp1,libgomp1,GCC OpenMP (GOMP) support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+liblapack3,liblapack3,liblapack3,Library of linear algebra routines 3 - shared version,,,1,1,,,,Section=libs; Version=3.12.1-6,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+libpango-1.0-0,libpango-1.0-0,libpango-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libpangocairo-1.0-0,libpangocairo-1.0-0,libpangocairo-1.0-0,Layout and rendering of internationalized text,,,1,1,,,,Section=libs; Version=1.56.3-1,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+libreadline8t64,libreadline8t64,libreadline8t64,"GNU readline and history libraries, run-time libraries",,,1,1,,,,Section=libs; Version=8.2-6,,,,,,,
+libtcl8.6,libtcl8.6,libtcl8.6,Tcl (the Tool Command Language) v8.6 - run-time library files,,,1,1,,,,Section=libs; Version=8.6.16+dfsg-1,,,,,,,
+libtiff6,libtiff6,libtiff6,Tag Image File Format (TIFF) library,,,1,1,,,,Section=libs; Version=4.7.0-3,,,,,,,
+libtirpc3t64,libtirpc3t64,libtirpc3t64,transport-independent RPC library,,,1,1,,,,Section=libs; Version=1.3.6+ds-1,,,,,,,
+libtk8.6,libtk8.6,libtk8.6,Tk toolkit for Tcl and X11 v8.6 - run-time files,,,1,1,,,,Section=libs; Version=8.6.16-1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxt6t64,libxt6t64,libxt6t64,X11 toolkit intrinsics library,,,1,1,,,,Section=libs; Version=1:1.2.1-1.2+b2,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+ucf,ucf,ucf,Update Configuration File(s): preserve user changes to config files,,,1,1,,,,Section=utils; Version=3.0052,,,,,,,
+ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
+r-recommended,r-recommended,r-recommended,GNU R collection of recommended packages [metapackage],,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
+r-base-dev,r-base-dev,r-base-dev,GNU R installation of auxiliary GNU R packages,,,1,1,,,,Section=gnu-r; Version=4.5.0-3,,,,,,,
+r-doc-html,r-doc-html,r-doc-html,GNU R html manuals for statistical computing system,,,1,1,,,,Section=doc; Version=4.5.0-3,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+r-cran-brio,r-cran-brio,r-cran-brio,basic R input output,,,1,1,,,,Section=gnu-r; Version=1.1.5-1,,,,,,,
+r-cran-callr,r-cran-callr,r-cran-callr,Call GNU R from GNU R,,,1,1,,,,Section=gnu-r; Version=3.7.6-1,,,,,,,
+r-cran-cli,r-cran-cli,r-cran-cli,GNU R helpers for developing command line interfaces,,,1,1,,,,Section=gnu-r; Version=3.6.4-1,,,,,,,
+r-cran-desc,r-cran-desc,r-cran-desc,GNU R manipulation of DESCRIPTION files,,,1,1,,,,Section=gnu-r; Version=1.4.3-1,,,,,,,
+r-cran-digest,r-cran-digest,r-cran-digest,GNU R package for 'hash digest' of R data structures,,,1,1,,,,Section=gnu-r; Version=0.6.37-1,,,,,,,
+r-cran-evaluate,r-cran-evaluate,r-cran-evaluate,GNU R parsing and evaluation tools,,,1,1,,,,Section=gnu-r; Version=1.0.3-1,,,,,,,
+r-cran-jsonlite,r-cran-jsonlite,r-cran-jsonlite,"Robust, High Performance JSON Parser and Generator for R",,,1,1,,,,Section=gnu-r; Version=1.9.1+dfsg-1,,,,,,,
+r-cran-lifecycle,r-cran-lifecycle,r-cran-lifecycle,manage the life cycle of your GNU R package functions,,,1,1,,,,Section=gnu-r; Version=1.0.4+dfsg-1,,,,,,,
+r-cran-pkgload,r-cran-pkgload,r-cran-pkgload,simulate GNU R package installation and attach,,,1,1,,,,Section=gnu-r; Version=1.4.0-1,,,,,,,
+r-cran-praise,r-cran-praise,r-cran-praise,GNU R praise users,,,1,1,,,,Section=gnu-r; Version=1.0.0-4,,,,,,,
+r-cran-processx,r-cran-processx,r-cran-processx,GNU R execute and control system processes,,,1,1,,,,Section=gnu-r; Version=3.8.6-1,,,,,,,
+r-cran-ps,r-cran-ps,r-cran-ps,"GNU R list, query, manipulate system processes",,,1,1,,,,Section=gnu-r; Version=1.9.0-1,,,,,,,
+r-cran-r6,r-cran-r6,r-cran-r6,R classes with reference semantics,,,1,1,,,,Section=gnu-r; Version=2.6.1-1,,,,,,,
+r-cran-rlang,r-cran-rlang,r-cran-rlang,Functions for Base Types and Core R and 'Tidyverse' Features,,,1,1,,,,Section=gnu-r; Version=1.1.5-3,,,,,,,
+r-cran-waldo,r-cran-waldo,r-cran-waldo,find differences between R objects,,,1,1,,,,Section=gnu-r; Version=0.6.1-2,,,,,,,
+r-cran-withr,r-cran-withr,r-cran-withr,GNU R package to run code 'With' temporarily modified global state,,,1,1,,,,Section=gnu-r; Version=3.0.2+dfsg-1,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+r-cran-covr,r-cran-covr,r-cran-covr,test coverage for GNU R packages,,,1,1,,,,Section=gnu-r; Version=3.6.4+dfsg-1,,,,,,,
+r-cran-curl,r-cran-curl,r-cran-curl,GNU R modern and flexible web client for R,,,1,1,,,,Section=gnu-r; Version=6.2.1+dfsg-1,,,,,,,
+r-cran-knitr,r-cran-knitr,r-cran-knitr,GNU R package for dynamic report generation using Literate Programming,,,1,1,,,,Section=gnu-r; Version=1.50+dfsg-1,,,,,,,
+r-cran-rmarkdown,r-cran-rmarkdown,r-cran-rmarkdown,convert R markdown documents into a variety of formats,,,1,1,,,,Section=gnu-r; Version=2.29+dfsg-1,,,,,,,
+r-cran-rstudioapi,r-cran-rstudioapi,r-cran-rstudioapi,GNU R package for access to the RStudio API,,,1,1,,,,Section=gnu-r; Version=0.17.1-1,,,,,,,
+r-cran-shiny,r-cran-shiny,r-cran-shiny,GNU R web application framework,,,1,1,,,,Section=gnu-r; Version=1.10.0+dfsg-2,,,,,,,
+r-cran-usethis,r-cran-usethis,r-cran-usethis,Automate Package and Project Setup,,,1,1,,,,Section=gnu-r; Version=3.1.0-1,,,,,,,
+r-cran-vctrs,r-cran-vctrs,r-cran-vctrs,GNU R vector helpers,,,1,1,,,,Section=gnu-r; Version=0.6.5-1,,,,,,,
+r-cran-xml2,r-cran-xml2,r-cran-xml2,GNU R XML parser,,,1,1,,,,Section=gnu-r; Version=1.3.8-1,,,,,,,
+r-cran-mockery,r-cran-mockery,r-cran-mockery,mocking library for GNU R,,,1,1,,,,Section=gnu-r; Version=0.4.4+dfsg-1,,,,,,,
+,,,,,,,,,,,,r-base-core,r-cran-magrittr,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-api-4.0,r-cran-magrittr,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,r-cran-magrittr,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-testthat,r-cran-magrittr,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-crayon,r-cran-magrittr,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,zip,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,unzip,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpaper-utils,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xdg-utils,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libblas3,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcairo2,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcurl4t64,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdeflate0,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu76,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblapack3,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpango-1.0-0,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpangocairo-1.0-0,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libreadline8t64,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtcl8.6,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtiff6,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtirpc3t64,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtk8.6,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxt6t64,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ucf,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ca-certificates,r-base-core,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-recommended,r-base-core,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-base-dev,r-base-core,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-doc-html,r-base-core,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-api-4.0,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-brio,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-callr,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-cli,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-desc,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-digest,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-evaluate,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-jsonlite,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-lifecycle,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-magrittr,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-pkgload,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-praise,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-processx,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-ps,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-r6,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-rlang,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-waldo,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-withr,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,r-cran-testthat,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-covr,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-curl,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-knitr,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-rmarkdown,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-rstudioapi,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-shiny,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-usethis,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-vctrs,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-xml2,r-cran-testthat,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-api-4.0,r-cran-crayon,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,r-cran-mockery,r-cran-crayon,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-rstudioapi,r-cran-crayon,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-testthat,r-cran-crayon,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,r-cran-withr,r-cran-crayon,Recommends,#333,1,Recommends,{}

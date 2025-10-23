@@ -1,14 +1,14 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libgmp-dev","libgmp-dev","libgmp-dev","Multiprecision arithmetic library developers tools","","","1","1","","","","Section=libdevel; Version=2:6.3.0+dfsg-3","","","","","",""
-"libgmp10","libgmp10","libgmp10","Multiprecision arithmetic library","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
-"libgmpxx4ldbl","libgmpxx4ldbl","libgmpxx4ldbl","Multiprecision arithmetic library (C++ bindings)","","","1","1","","","","Section=libs; Version=2:6.3.0+dfsg-3","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libgmp-dev","libgmp10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmp-dev","libgmpxx4ldbl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmp10","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmpxx4ldbl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmpxx4ldbl","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmpxx4ldbl","libgmp10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgmpxx4ldbl","libstdc++6","Depends","#333","1","Depends","{}"
+libgmp-dev,libgmp-dev,libgmp-dev,Multiprecision arithmetic library developers tools,,,1,1,,,,Section=libdevel; Version=2:6.3.0+dfsg-3,,,,,,,
+libgmp10,libgmp10,libgmp10,Multiprecision arithmetic library,,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
+libgmpxx4ldbl,libgmpxx4ldbl,libgmpxx4ldbl,Multiprecision arithmetic library (C++ bindings),,,1,1,,,,Section=libs; Version=2:6.3.0+dfsg-3,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libgmp10,libgmp-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgmpxx4ldbl,libgmp-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgmp10,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgmpxx4ldbl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libgmpxx4ldbl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgmp10,libgmpxx4ldbl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libgmpxx4ldbl,Depends,#333,1,Depends,{}

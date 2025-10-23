@@ -1,23 +1,23 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gir1.2-ical-3.0","gir1.2-ical-3.0","gir1.2-ical-3.0","iCalendar library implementation in C (GObject Introspection)","","","1","1","","","","Section=introspection; Version=3.0.20-1+b1","","","","","",""
-"gir1.2-glib-2.0","gir1.2-glib-2.0","gir1.2-glib-2.0","Introspection data for GLib, GObject, Gio and GModule","","","1","1","","","","Section=introspection; Version=2.84.4-3~deb13u1","","","","","",""
-"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libical3t64","libical3t64","libical3t64","iCalendar library implementation in C (runtime)","","","1","1","","","","Section=libs; Version=3.0.20-1+b1","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"tzdata","tzdata","tzdata","time zone and daylight-saving time data","","","1","1","","","","Section=localization; Version=2025b-4+deb13u1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libdb5.3t64","libdb5.3t64","libdb5.3t64","Berkeley v5.3 Database Libraries [runtime]","","","1","1","","","","Section=libs; Version=5.3.28+dfsg2-9","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","gir1.2-ical-3.0","gir1.2-glib-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-ical-3.0","gir1.2-gobject-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-ical-3.0","libical3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-glib-2.0","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libical3t64","tzdata","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libical3t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libical3t64","libdb5.3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libical3t64","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libical3t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libical3t64","libicu76","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libical3t64","libstdc++6","Depends","#333","1","Depends","{}"
+gir1.2-ical-3.0,gir1.2-ical-3.0,gir1.2-ical-3.0,iCalendar library implementation in C (GObject Introspection),,,1,1,,,,Section=introspection; Version=3.0.20-1+b1,,,,,,,
+gir1.2-glib-2.0,gir1.2-glib-2.0,gir1.2-glib-2.0,"Introspection data for GLib, GObject, Gio and GModule",,,1,1,,,,Section=introspection; Version=2.84.4-3~deb13u1,,,,,,,
+gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libical3t64,libical3t64,libical3t64,iCalendar library implementation in C (runtime),,,1,1,,,,Section=libs; Version=3.0.20-1+b1,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+tzdata,tzdata,tzdata,time zone and daylight-saving time data,,,1,1,,,,Section=localization; Version=2025b-4+deb13u1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libdb5.3t64,libdb5.3t64,libdb5.3t64,Berkeley v5.3 Database Libraries [runtime],,,1,1,,,,Section=libs; Version=5.3.28+dfsg2-9,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,gir1.2-glib-2.0,gir1.2-ical-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-ical-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libical3t64,gir1.2-ical-3.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,gir1.2-glib-2.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,tzdata,libical3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libical3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdb5.3t64,libical3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libical3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libical3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu76,libical3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libical3t64,Depends,#333,1,Depends,{}

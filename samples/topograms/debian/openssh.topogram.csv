@@ -1,92 +1,92 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"openssh-client","openssh-client","openssh-client","secure shell (SSH) client, for secure access to remote machines","","","1","1","","","","Section=net; Version=1:10.0p1-7","","","","","",""
-"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","",""
-"init-system-helpers","init-system-helpers","init-system-helpers","helper tools for all init systems","","","1","1","","","","Section=admin; Version=1.69~deb13u1","","","","","",""
-"passwd","passwd","passwd","change and administer password and group data","","","1","1","","","","Section=admin; Version=1:4.17.4-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libedit2","libedit2","libedit2","BSD editline and history libraries","","","1","1","","","","Section=libs; Version=3.1-20250104-1","","","","","",""
-"libfido2-1","libfido2-1","libfido2-1","library for generating and verifying FIDO 2.0 objects","","","1","1","","","","Section=libs; Version=1.15.0-1+b1","","","","","",""
-"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"xauth","xauth","xauth","X authentication utility","","","1","1","","","","Section=x11; Version=1:1.1.2-1.1","","","","","",""
-"base-passwd","base-passwd","base-passwd","Debian base system master password and group files","","","1","1","","","","Section=admin; Version=3.6.7","","","","","",""
-"libpam-modules","libpam-modules","libpam-modules","Pluggable Authentication Modules for PAM","","","1","1","","","","Section=admin; Version=1.7.0-5","","","","","",""
-"login.defs","login.defs","login.defs","system user management configuration","","","1","1","","","","Section=admin; Version=1:4.17.4-2","","","","","",""
-"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","",""
-"libattr1","libattr1","libattr1","extended attribute handling - shared library","","","1","1","","","","Section=libs; Version=1:2.5.2-3","","","","","",""
-"libaudit1","libaudit1","libaudit1","Dynamic library for security auditing","","","1","1","","","","Section=libs; Version=1:4.0.2-2+b2","","","","","",""
-"libbsd0","libbsd0","libbsd0","utility functions from BSD systems - shared library","","","1","1","","","","Section=libs; Version=0.12.2-2","","","","","",""
-"libcrypt1","libcrypt1","libcrypt1","libcrypt shared library","","","1","1","","","","Section=libs; Version=1:4.4.38-1","","","","","",""
-"libpam0g","libpam0g","libpam0g","Pluggable Authentication Modules library","","","1","1","","","","Section=libs; Version=1.7.0-5","","","","","",""
-"libsemanage2","libsemanage2","libsemanage2","SELinux policy management library","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"sensible-utils","sensible-utils","sensible-utils","Utilities for sensible alternative selection","","","1","1","","","","Section=utils; Version=0.0.25","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libtinfo6","libtinfo6","libtinfo6","shared low-level terminfo library for terminal handling","","","1","1","","","","Section=libs; Version=6.5+20250216-2","","","","","",""
-"libcbor0.10","libcbor0.10","libcbor0.10","library for parsing and generating CBOR (RFC 7049)","","","1","1","","","","Section=libs; Version=0.10.2-2","","","","","",""
-"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libkrb5-3","libkrb5-3","libkrb5-3","MIT Kerberos runtime libraries","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libcom-err2","libcom-err2","libcom-err2","common error description library","","","1","1","","","","Section=libs; Version=1.47.2-3+b3","","","","","",""
-"libk5crypto3","libk5crypto3","libk5crypto3","MIT Kerberos runtime libraries - Crypto Library","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libkrb5support0","libkrb5support0","libkrb5support0","MIT Kerberos runtime libraries - Support library","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libpcre2-8-0","libpcre2-8-0","libpcre2-8-0","New Perl Compatible Regular Expression Library- 8 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"openssl-provider-legacy","openssl-provider-legacy","openssl-provider-legacy","Secure Sockets Layer toolkit - cryptographic utility","","","1","1","","","","Section=utils; Version=3.5.1-1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxau6","libxau6","libxau6","X11 authorisation library","","","1","1","","","","Section=libs; Version=1:1.0.11-1","","","","","",""
-"libxext6","libxext6","libxext6","X11 miscellaneous extension library","","","1","1","","","","Section=libs; Version=2:1.3.4-1+b3","","","","","",""
-"libxmuu1","libxmuu1","libxmuu1","X11 miscellaneous micro-utility library","","","1","1","","","","Section=libs; Version=2:1.1.3-3+b4","","","","","",""
-"","","","","","","","","","","","","openssh-client","adduser","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","init-system-helpers","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","passwd","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","libedit2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","libfido2-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","libselinux1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","openssh-client","xauth","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","adduser","passwd","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","base-passwd","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libpam-modules","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","login.defs","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libacl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libattr1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libaudit1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libbsd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libcrypt1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libpam0g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libselinux1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","libsemanage2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","passwd","sensible-utils","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libedit2","libbsd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libedit2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libedit2","libtinfo6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfido2-1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfido2-1","libcbor0.10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfido2-1","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfido2-1","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfido2-1","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libkrb5-3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libcom-err2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libk5crypto3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgssapi-krb5-2","libkrb5support0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libselinux1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libselinux1","libpcre2-8-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssl3t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssl3t64","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssl3t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssl3t64","openssl-provider-legacy","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","zlib1g","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xauth","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xauth","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xauth","libxau6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xauth","libxext6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","xauth","libxmuu1","Depends","#333","1","Depends","{}"
+openssh-client,openssh-client,openssh-client,"secure shell (SSH) client, for secure access to remote machines",,,1,1,,,,Section=net; Version=1:10.0p1-7,,,,,,,
+adduser,adduser,adduser,add and remove users and groups,,,1,1,,,,Section=admin; Version=3.152,,,,,,,
+init-system-helpers,init-system-helpers,init-system-helpers,helper tools for all init systems,,,1,1,,,,Section=admin; Version=1.69~deb13u1,,,,,,,
+passwd,passwd,passwd,change and administer password and group data,,,1,1,,,,Section=admin; Version=1:4.17.4-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libedit2,libedit2,libedit2,BSD editline and history libraries,,,1,1,,,,Section=libs; Version=3.1-20250104-1,,,,,,,
+libfido2-1,libfido2-1,libfido2-1,library for generating and verifying FIDO 2.0 objects,,,1,1,,,,Section=libs; Version=1.15.0-1+b1,,,,,,,
+libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+xauth,xauth,xauth,X authentication utility,,,1,1,,,,Section=x11; Version=1:1.1.2-1.1,,,,,,,
+base-passwd,base-passwd,base-passwd,Debian base system master password and group files,,,1,1,,,,Section=admin; Version=3.6.7,,,,,,,
+libpam-modules,libpam-modules,libpam-modules,Pluggable Authentication Modules for PAM,,,1,1,,,,Section=admin; Version=1.7.0-5,,,,,,,
+login.defs,login.defs,login.defs,system user management configuration,,,1,1,,,,Section=admin; Version=1:4.17.4-2,,,,,,,
+libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
+libattr1,libattr1,libattr1,extended attribute handling - shared library,,,1,1,,,,Section=libs; Version=1:2.5.2-3,,,,,,,
+libaudit1,libaudit1,libaudit1,Dynamic library for security auditing,,,1,1,,,,Section=libs; Version=1:4.0.2-2+b2,,,,,,,
+libbsd0,libbsd0,libbsd0,utility functions from BSD systems - shared library,,,1,1,,,,Section=libs; Version=0.12.2-2,,,,,,,
+libcrypt1,libcrypt1,libcrypt1,libcrypt shared library,,,1,1,,,,Section=libs; Version=1:4.4.38-1,,,,,,,
+libpam0g,libpam0g,libpam0g,Pluggable Authentication Modules library,,,1,1,,,,Section=libs; Version=1.7.0-5,,,,,,,
+libsemanage2,libsemanage2,libsemanage2,SELinux policy management library,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+sensible-utils,sensible-utils,sensible-utils,Utilities for sensible alternative selection,,,1,1,,,,Section=utils; Version=0.0.25,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libtinfo6,libtinfo6,libtinfo6,shared low-level terminfo library for terminal handling,,,1,1,,,,Section=libs; Version=6.5+20250216-2,,,,,,,
+libcbor0.10,libcbor0.10,libcbor0.10,library for parsing and generating CBOR (RFC 7049),,,1,1,,,,Section=libs; Version=0.10.2-2,,,,,,,
+libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libkrb5-3,libkrb5-3,libkrb5-3,MIT Kerberos runtime libraries,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libcom-err2,libcom-err2,libcom-err2,common error description library,,,1,1,,,,Section=libs; Version=1.47.2-3+b3,,,,,,,
+libk5crypto3,libk5crypto3,libk5crypto3,MIT Kerberos runtime libraries - Crypto Library,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libkrb5support0,libkrb5support0,libkrb5support0,MIT Kerberos runtime libraries - Support library,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libpcre2-8-0,libpcre2-8-0,libpcre2-8-0,New Perl Compatible Regular Expression Library- 8 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+openssl-provider-legacy,openssl-provider-legacy,openssl-provider-legacy,Secure Sockets Layer toolkit - cryptographic utility,,,1,1,,,,Section=utils; Version=3.5.1-1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxau6,libxau6,libxau6,X11 authorisation library,,,1,1,,,,Section=libs; Version=1:1.0.11-1,,,,,,,
+libxext6,libxext6,libxext6,X11 miscellaneous extension library,,,1,1,,,,Section=libs; Version=2:1.3.4-1+b3,,,,,,,
+libxmuu1,libxmuu1,libxmuu1,X11 miscellaneous micro-utility library,,,1,1,,,,Section=libs; Version=2:1.1.3-3+b4,,,,,,,
+,,,,,,,,,,,,adduser,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,init-system-helpers,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,passwd,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libedit2,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfido2-1,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,openssh-client,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xauth,openssh-client,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,passwd,adduser,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,base-passwd,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpam-modules,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,login.defs,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libacl1,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libattr1,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libaudit1,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbsd0,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcrypt1,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpam0g,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsemanage2,passwd,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,sensible-utils,passwd,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libbsd0,libedit2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libedit2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtinfo6,libedit2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libfido2-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcbor0.10,libfido2-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libfido2-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libfido2-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libfido2-1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5-3,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcom-err2,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libk5crypto3,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libkrb5support0,libgssapi-krb5-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libselinux1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-8-0,libselinux1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libssl3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libssl3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libssl3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,openssl-provider-legacy,libssl3t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,zlib1g,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,xauth,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,xauth,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxau6,xauth,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxext6,xauth,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxmuu1,xauth,Depends,#333,1,Depends,{}

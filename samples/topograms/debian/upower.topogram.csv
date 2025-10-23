@@ -1,14 +1,14 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gir1.2-upowerglib-1.0","gir1.2-upowerglib-1.0","gir1.2-upowerglib-1.0","GObject introspection data for upower","","","1","1","","","","Section=introspection; Version=1.90.9-1","","","","","",""
-"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libupower-glib3","libupower-glib3","libupower-glib3","abstraction for power management - shared library","","","1","1","","","","Section=libs; Version=1.90.9-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"upower","upower","upower","abstraction for power management","","","1","1","","","","Section=admin; Version=1.90.9-1","","","","","",""
-"","","","","","","","","","","","","gir1.2-upowerglib-1.0","gir1.2-gio-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-upowerglib-1.0","gir1.2-gobject-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-upowerglib-1.0","libupower-glib3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libupower-glib3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libupower-glib3","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libupower-glib3","upower","Recommends","#333","1","Recommends","{}"
+gir1.2-upowerglib-1.0,gir1.2-upowerglib-1.0,gir1.2-upowerglib-1.0,GObject introspection data for upower,,,1,1,,,,Section=introspection; Version=1.90.9-1,,,,,,,
+gir1.2-gio-2.0,gir1.2-gio-2.0,gir1.2-gio-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libupower-glib3,libupower-glib3,libupower-glib3,abstraction for power management - shared library,,,1,1,,,,Section=libs; Version=1.90.9-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+upower,upower,upower,abstraction for power management,,,1,1,,,,Section=admin; Version=1.90.9-1,,,,,,,
+,,,,,,,,,,,,gir1.2-gio-2.0,gir1.2-upowerglib-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-upowerglib-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libupower-glib3,gir1.2-upowerglib-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libupower-glib3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libupower-glib3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,upower,libupower-glib3,Recommends,#333,1,Recommends,{}

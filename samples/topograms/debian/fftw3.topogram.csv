@@ -1,27 +1,27 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libfftw3-bin","libfftw3-bin","libfftw3-bin","Library for computing Fast Fourier Transforms - Tools","","","1","1","","","","Section=libs; Version=3.3.10-2+b1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libfftw3-double3","libfftw3-double3","libfftw3-double3","Library for computing Fast Fourier Transforms - Double precision","","","1","1","","","","Section=libs; Version=3.3.10-2+b1","","","","","",""
-"libfftw3-long3","libfftw3-long3","libfftw3-long3","Library for computing Fast Fourier Transforms - Long precision","","","1","1","","","","Section=libs; Version=3.3.10-2+b1","","","","","",""
-"libfftw3-quad3","libfftw3-quad3","libfftw3-quad3","Library for computing Fast Fourier Transforms - Quad precision","","","1","1","","","","Section=libs; Version=3.3.10-2+b1","","","","","",""
-"libfftw3-single3","libfftw3-single3","libfftw3-single3","Library for computing Fast Fourier Transforms - Single precision","","","1","1","","","","Section=libs; Version=3.3.10-2+b1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libgomp1","libgomp1","libgomp1","GCC OpenMP (GOMP) support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libquadmath0","libquadmath0","libquadmath0","GCC Quad-Precision Math Library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libfftw3-bin","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-bin","libfftw3-double3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-bin","libfftw3-long3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-bin","libfftw3-quad3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-bin","libfftw3-single3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libfftw3-double3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-double3","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-long3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-long3","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-quad3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-quad3","libgomp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-quad3","libquadmath0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-single3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfftw3-single3","libgomp1","Depends","#333","1","Depends","{}"
+libfftw3-bin,libfftw3-bin,libfftw3-bin,Library for computing Fast Fourier Transforms - Tools,,,1,1,,,,Section=libs; Version=3.3.10-2+b1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libfftw3-double3,libfftw3-double3,libfftw3-double3,Library for computing Fast Fourier Transforms - Double precision,,,1,1,,,,Section=libs; Version=3.3.10-2+b1,,,,,,,
+libfftw3-long3,libfftw3-long3,libfftw3-long3,Library for computing Fast Fourier Transforms - Long precision,,,1,1,,,,Section=libs; Version=3.3.10-2+b1,,,,,,,
+libfftw3-quad3,libfftw3-quad3,libfftw3-quad3,Library for computing Fast Fourier Transforms - Quad precision,,,1,1,,,,Section=libs; Version=3.3.10-2+b1,,,,,,,
+libfftw3-single3,libfftw3-single3,libfftw3-single3,Library for computing Fast Fourier Transforms - Single precision,,,1,1,,,,Section=libs; Version=3.3.10-2+b1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libgomp1,libgomp1,libgomp1,GCC OpenMP (GOMP) support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libquadmath0,libquadmath0,libquadmath0,GCC Quad-Precision Math Library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libc6,libfftw3-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfftw3-double3,libfftw3-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfftw3-long3,libfftw3-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfftw3-quad3,libfftw3-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfftw3-single3,libfftw3-bin,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libfftw3-double3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libfftw3-double3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libfftw3-long3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libfftw3-long3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libfftw3-quad3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libfftw3-quad3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libquadmath0,libfftw3-quad3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libfftw3-single3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgomp1,libfftw3-single3,Depends,#333,1,Depends,{}

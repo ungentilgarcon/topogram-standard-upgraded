@@ -1,8 +1,8 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"cyrus-sasl2-doc","cyrus-sasl2-doc","cyrus-sasl2-doc","Cyrus SASL - documentation","","","1","1","","","","Section=doc; Version=2.1.28+dfsg1-9","","","","","",""
-"sphinx-rtd-theme-common","sphinx-rtd-theme-common","sphinx-rtd-theme-common","sphinx theme from readthedocs.org (common files)","","","1","1","","","","Section=python; Version=3.0.2+dfsg-2","","","","","",""
-"fonts-font-awesome","fonts-font-awesome","fonts-font-awesome","iconic font designed for use with Twitter Bootstrap","","","1","1","","","","Section=fonts; Version=5.0.10+really4.7.0~dfsg-4.1","","","","","",""
-"fonts-lato","fonts-lato","fonts-lato","sans-serif typeface family font","","","1","1","","","","Section=fonts; Version=2.015-1","","","","","",""
-"","","","","","","","","","","","","cyrus-sasl2-doc","sphinx-rtd-theme-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","sphinx-rtd-theme-common","fonts-font-awesome","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","sphinx-rtd-theme-common","fonts-lato","Depends","#333","1","Depends","{}"
+cyrus-sasl2-doc,cyrus-sasl2-doc,cyrus-sasl2-doc,Cyrus SASL - documentation,,,1,1,,,,Section=doc; Version=2.1.28+dfsg1-9,,,,,,,
+sphinx-rtd-theme-common,sphinx-rtd-theme-common,sphinx-rtd-theme-common,sphinx theme from readthedocs.org (common files),,,1,1,,,,Section=python; Version=3.0.2+dfsg-2,,,,,,,
+fonts-font-awesome,fonts-font-awesome,fonts-font-awesome,iconic font designed for use with Twitter Bootstrap,,,1,1,,,,Section=fonts; Version=5.0.10+really4.7.0~dfsg-4.1,,,,,,,
+fonts-lato,fonts-lato,fonts-lato,sans-serif typeface family font,,,1,1,,,,Section=fonts; Version=2.015-1,,,,,,,
+,,,,,,,,,,,,sphinx-rtd-theme-common,cyrus-sasl2-doc,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-font-awesome,sphinx-rtd-theme-common,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,fonts-lato,sphinx-rtd-theme-common,Depends,#333,1,Depends,{}

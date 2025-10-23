@@ -1,14 +1,14 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"doc-base","doc-base","doc-base","utilities to manage online documentation","","","1","1","","","","Section=doc; Version=0.11.2","","","","","",""
-"libuuid-perl","libuuid-perl","libuuid-perl","Universally Unique Identifier library for Perl","","","1","1","","","","Section=perl; Version=0.37-1","","","","","",""
-"libyaml-tiny-perl","libyaml-tiny-perl","libyaml-tiny-perl","Perl module for reading and writing YAML files","","","1","1","","","","Section=perl; Version=1.76-1","","","","","",""
-"perl-base","perl-base","perl-base","minimal Perl system","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perlapi-5.40.1","perlapi-5.40.1","perlapi-5.40.1","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"","","","","","","","","","","","","doc-base","libuuid-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","doc-base","libyaml-tiny-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libuuid-perl","perl-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libuuid-perl","perlapi-5.40.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libuuid-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libyaml-tiny-perl","perl:any","Depends","#333","1","Depends","{}"
+doc-base,doc-base,doc-base,utilities to manage online documentation,,,1,1,,,,Section=doc; Version=0.11.2,,,,,,,
+libuuid-perl,libuuid-perl,libuuid-perl,Universally Unique Identifier library for Perl,,,1,1,,,,Section=perl; Version=0.37-1,,,,,,,
+libyaml-tiny-perl,libyaml-tiny-perl,libyaml-tiny-perl,Perl module for reading and writing YAML files,,,1,1,,,,Section=perl; Version=1.76-1,,,,,,,
+perl-base,perl-base,perl-base,minimal Perl system,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perlapi-5.40.1,perlapi-5.40.1,perlapi-5.40.1,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+,,,,,,,,,,,,libuuid-perl,doc-base,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libyaml-tiny-perl,doc-base,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl-base,libuuid-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.1,libuuid-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libuuid-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libyaml-tiny-perl,Depends,#333,1,Depends,{}

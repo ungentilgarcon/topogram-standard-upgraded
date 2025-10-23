@@ -1,246 +1,246 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"rails","rails","rails","MVC ruby based framework geared for web application development (metapackage)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-rails","ruby-rails","ruby-rails","MVC ruby based framework geared for web application development","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"bundler","bundler","bundler","Manage Ruby application dependencies","","","1","1","","","","Section=ruby; Version=2.6.7-2","","","","","",""
-"puma","puma","puma","threaded HTTP 1.1 server for Ruby/Rack applications","","","1","1","","","","Section=ruby; Version=6.6.0-4","","","","","",""
-"ruby-bootsnap","ruby-bootsnap","ruby-bootsnap","Boot large ruby/rails apps faster","","","1","1","","","","Section=ruby; Version=1.18.4-1+b2","","","","","",""
-"ruby-byebug","ruby-byebug","ruby-byebug","Ruby fast debugger - base + CLI","","","1","1","","","","Section=ruby; Version=11.1.3-5+b2","","","","","",""
-"ruby-capybara","ruby-capybara","ruby-capybara","integration testing tool for Rack based web applications","","","1","1","","","","Section=ruby; Version=3.40.0+ds-2","","","","","",""
-"ruby-jbuilder","ruby-jbuilder","ruby-jbuilder","creation of JSON structures via a Builder-style DSL","","","1","1","","","","Section=ruby; Version=2.12.0-1","","","","","",""
-"ruby-listen","ruby-listen","ruby-listen","Ruby library listening to file modifications","","","1","1","","","","Section=ruby; Version=3.9.0-1","","","","","",""
-"ruby-selenium-webdriver","ruby-selenium-webdriver","ruby-selenium-webdriver","Browser automation framework and ecosystem","","","1","1","","","","Section=ruby; Version=4.4.0-1","","","","","",""
-"ruby-spring","ruby-spring","ruby-spring","Rails application preloader","","","1","1","","","","Section=ruby; Version=2.1.1-2","","","","","",""
-"ruby-spring-watcher-listen","ruby-spring-watcher-listen","ruby-spring-watcher-listen","Makes spring watch files using the listen library","","","1","1","","","","Section=ruby; Version=2.0.1-1.1","","","","","",""
-"ruby-sqlite3","ruby-sqlite3","ruby-sqlite3","SQLite3 interface for Ruby","","","1","1","","","","Section=ruby; Version=1.7.3-1","","","","","",""
-"ruby-turbolinks","ruby-turbolinks","ruby-turbolinks","following links in your Rails web application faster","","","1","1","","","","Section=ruby; Version=5.2.1-2","","","","","",""
-"ruby-web-console","ruby-web-console","ruby-web-console","Ruby on Rails debugger","","","1","1","","","","Section=ruby; Version=4.2.1-1","","","","","",""
-"yarnpkg","yarnpkg","yarnpkg","Fast, reliable, and secure dependency management","","","1","1","","","","Section=javascript; Version=4.1.0+dfsg-1","","","","","",""
-"ruby-actioncable","ruby-actioncable","ruby-actioncable","WebSocket framework for Rails (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-actionmailbox","ruby-actionmailbox","ruby-actionmailbox","receive and process incoming emails (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-actionmailer","ruby-actionmailer","ruby-actionmailer","email composition, delivery framework (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-actionpack","ruby-actionpack","ruby-actionpack","web-flow and rendering framework putting the VC in MVC (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-actiontext","ruby-actiontext","ruby-actiontext","edit and display rich text (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-actionview","ruby-actionview","ruby-actionview","framework for handling view template lookup and rendering (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-activejob","ruby-activejob","ruby-activejob","job framework with pluggable queues (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-activemodel","ruby-activemodel","ruby-activemodel","toolkit for building modeling frameworks (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-activerecord","ruby-activerecord","ruby-activerecord","object-relational mapper framework (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-activestorage","ruby-activestorage","ruby-activestorage","local and cloud file storage framework (part of Rails)","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-activesupport","ruby-activesupport","ruby-activesupport","collection of utility classes used by the Rails framework","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"ruby-bundler","ruby-bundler","ruby-bundler","Manage Ruby application dependencies (runtime)","","","1","1","","","","Section=ruby; Version=2.6.7-2","","","","","",""
-"ruby-railties","ruby-railties","ruby-railties","tools for creating, working with, and running Rails applications","","","1","1","","","","Section=ruby; Version=2:7.2.2.1+dfsg-7","","","","","",""
-"build-essential","build-essential","build-essential","Informational list of build-essential packages","","","1","1","","","","Section=devel; Version=12.12","","","","","",""
-"less","less","less","pager program similar to more","","","1","1","","","","Section=text; Version=668-1","","","","","",""
-"ruby-dev","ruby-dev","ruby-dev","Header files for compiling extension modules for Ruby (default version)","","","1","1","","","","Section=ruby; Version=1:3.3+b1","","","","","",""
-"sudo","sudo","sudo","Provide limited super user privileges to specific users","","","1","1","","","","Section=admin; Version=1.9.16p2-3","","","","","",""
-"ruby","ruby","ruby","Interpreter of object-oriented scripting language Ruby (default version)","","","1","1","","","","Section=ruby; Version=1:3.3+b1","","","","","",""
-"ruby-nio4r","ruby-nio4r","ruby-nio4r","Ruby library providing a selector API for monitoring IO objects","","","1","1","","","","Section=ruby; Version=2.7.3-1+b2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"libruby3.3","libruby3.3","libruby3.3","Libraries necessary to run Ruby 3.3","","","1","1","","","","Section=libs; Version=3.3.8-2","","","","","",""
-"libruby","libruby","libruby","Libraries necessary to run Ruby","","","1","1","","","","Section=libs; Version=1:3.3+b1","","","","","",""
-"ruby-msgpack","ruby-msgpack","ruby-msgpack","Ruby library for MessagePack","","","1","1","","","","Section=ruby; Version=1.7.2-1.1+b2","","","","","",""
-"ruby-columnize","ruby-columnize","ruby-columnize","Ruby library to format arrays as column-aligned strings","","","1","1","","","","Section=ruby; Version=0.9.0-1.1","","","","","",""
-"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","",""
-"libjs-jquery-ui","libjs-jquery-ui","libjs-jquery-ui","JavaScript UI library for dynamic web applications","","","1","1","","","","Section=javascript; Version=1.13.2+dfsg-1","","","","","",""
-"ruby-addressable","ruby-addressable","ruby-addressable","alternative URI implementation for Ruby","","","1","1","","","","Section=ruby; Version=2.8.7-2","","","","","",""
-"ruby-mini-mime","ruby-mini-mime","ruby-mini-mime","Lightweight mime type implementation","","","1","1","","","","Section=ruby; Version=1.1.5-1","","","","","",""
-"ruby-nokogiri","ruby-nokogiri","ruby-nokogiri","HTML, XML, SAX, and Reader parser for Ruby","","","1","1","","","","Section=ruby; Version=1.18.2+dfsg-1+b1","","","","","",""
-"ruby-rack","ruby-rack","ruby-rack","modular Ruby webserver interface","","","1","1","","","","Section=ruby; Version=3.1.16-0.1","","","","","",""
-"ruby-rack-test","ruby-rack-test","ruby-rack-test","Simple testing API built on Rack","","","1","1","","","","Section=ruby; Version=2.2.0-1","","","","","",""
-"ruby-regexp-parser","ruby-regexp-parser","ruby-regexp-parser","Scanner, lexer, parser for ruby's regular expressions","","","1","1","","","","Section=ruby; Version=2.6.1-1","","","","","",""
-"ruby-xpath","ruby-xpath","ruby-xpath","Ruby library to generate XPath expressions","","","1","1","","","","Section=ruby; Version=3.2.0-1","","","","","",""
-"ruby-multi-json","ruby-multi-json","ruby-multi-json","Ruby library to provide easy switching between different JSON backends","","","1","1","","","","Section=ruby; Version=1.15.0-1","","","","","",""
-"ruby-rb-inotify","ruby-rb-inotify","ruby-rb-inotify","Ruby wrapper for Linux's inotify, using FFI","","","1","1","","","","Section=ruby; Version=0.10.1-2","","","","","",""
-"ruby-childprocess","ruby-childprocess","ruby-childprocess","Ruby library for controlling external programs running in the background","","","1","1","","","","Section=ruby; Version=4.1.0-3","","","","","",""
-"ruby-zip","ruby-zip","ruby-zip","Ruby module for reading and writing zip files","","","1","1","","","","Section=ruby; Version=2.3.2-1","","","","","",""
-"ruby-websocket","ruby-websocket","ruby-websocket","Universal Ruby library to handle WebSocket protocol","","","1","1","","","","Section=ruby; Version=1.2.9-3","","","","","",""
-"chromium-driver","chromium-driver","chromium-driver","web browser - WebDriver support","","","1","1","","","","Section=web; Version=139.0.7258.154-1~deb13u1","","","","","",""
-"ruby-mini-portile2","ruby-mini-portile2","ruby-mini-portile2","simplistic port-like solution for developers","","","1","1","","","","Section=ruby; Version=2.8.7-1","","","","","",""
-"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","",""
-"sqlite3","sqlite3","sqlite3","Command line interface for SQLite 3","","","1","1","","","","Section=database; Version=3.46.1-7","","","","","",""
-"ruby-turbolinks-source","ruby-turbolinks-source","ruby-turbolinks-source","Provides Turbolinks as a ruby gem","","","1","1","","","","Section=ruby; Version=5.2.0+dfsg-2","","","","","",""
-"ruby-bindex","ruby-bindex","ruby-bindex","bindings for Ruby exceptions","","","1","1","","","","Section=ruby; Version=0.8.1+ds-2+b2","","","","","",""
-"nodejs:any","nodejs:any","nodejs:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"git","git","git","fast, scalable, distributed revision control system","","","1","1","","","","Section=vcs; Version=1:2.47.3-0+deb13u1","","","","","",""
-"node-tslib","node-tslib","node-tslib","Implementation of tslib for javascript","","","1","1","","","","Section=javascript; Version=2.4.1-1","","","","","",""
-"node-clipanion","node-clipanion","node-clipanion","Type-safe CLI library with no runtime dependencies","","","1","1","","","","Section=javascript; Version=3.2.1+dfsg-2","","","","","",""
-"node-lodash","node-lodash","node-lodash","Lo-dash is a Node.js utility library","","","1","1","","","","Section=javascript; Version=4.17.21+dfsg+~cs8.31.198.20210220-9","","","","","",""
-"node-ci-info","node-ci-info","node-ci-info","Get details about the current Continuous Integration environment","","","1","1","","","","Section=javascript; Version=4.0.0+~cs1.1.0-1","","","","","",""
-"node-enquirer","node-enquirer","node-enquirer","Stylish cli prompts that are user-friendly, intuitive and easy to create","","","1","1","","","","Section=javascript; Version=2.3.6~ds-5","","","","","",""
-"node-micromatch","node-micromatch","node-micromatch","Glob matching for javascript/node.js","","","1","1","","","","Section=javascript; Version=4.0.7+~4.0.9-1","","","","","",""
-"node-semver","node-semver","node-semver","Semantic Versioning for Node.js","","","1","1","","","","Section=javascript; Version=7.6.1+~7.5.8-2","","","","","",""
-"node-typanion","node-typanion","node-typanion","Static and runtime type assertion library with no dependencies","","","1","1","","","","Section=javascript; Version=3.14.0+dfsg-1","","","","","",""
-"node-diff","node-diff","node-diff","javascript text differencing implementation","","","1","1","","","","Section=javascript; Version=5.0.0~dfsg+~5.0.1-4","","","","","",""
-"node-react","node-react","node-react","Node.js library for building user interfaces","","","1","1","","","","Section=javascript; Version=18.2.0+dfsg+~cs88.72.123-1","","","","","",""
-"node-zkochan-cmd-shim","node-zkochan-cmd-shim","node-zkochan-cmd-shim","This package is the cmd-shim used in npm","","","1","1","","","","Section=javascript; Version=5.3.1+~1.0.2-3","","","","","",""
-"node-ssri","node-ssri","node-ssri","Utility for parsing, serializing, generating and verifying  ssri metadata","","","1","1","","","","Section=javascript; Version=9.0.1-3","","","","","",""
-"node-tar-stream","node-tar-stream","node-tar-stream","streaming tar parser and generator - Node.js module","","","1","1","","","","Section=javascript; Version=2.2.0+~cs3.2.2-1","","","","","",""
-"node-p-limit","node-p-limit","node-p-limit","run multiple promise-returning & async functions","","","1","1","","","","Section=javascript; Version=4.0.0+~cs4.0.0-5","","","","","",""
-"node-chalk","node-chalk","node-chalk","Terminal string styling for Node.js","","","1","1","","","","Section=javascript; Version=5.3.0-1","","","","","",""
-"esbuild","esbuild","esbuild","extremely fast JavaScript bundler and minifier (program)","","","1","1","","","","Section=javascript; Version=0.25.5-1+b1","","","","","",""
-"node-camelcase","node-camelcase","node-camelcase","Convert a string to camelCase","","","1","1","","","","Section=javascript; Version=7.0.0-3","","","","","",""
-"node-fast-glob","node-fast-glob","node-fast-glob","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"node-got","node-got","node-got","Simplified HTTP requests","","","1","1","","","","Section=javascript; Version=11.8.5+~cs58.13.36-5","","","","","",""
-"node-strip-ansi","node-strip-ansi","node-strip-ansi","Strip ANSI escape codes","","","1","1","","","","Section=javascript; Version=6.0.1-2","","","","","",""
-"node-tar","node-tar","node-tar","read and write portable tar archives module for Node.js","","","1","1","","","","Section=javascript; Version=6.2.1+~cs7.0.8-1","","","","","",""
-"node-globby","node-globby","node-globby","Extends glob with promise API","","","1","1","","","","Section=javascript; Version=13.1.3+~cs16.25.40-3","","","","","",""
-"node-typescript","node-typescript","node-typescript","TypeScript is a language for application scale JavaScript development","","","1","1","","","","Section=javascript; Version=4.9.5+ds1-2","","","","","",""
-"node-js-yaml","node-js-yaml","node-js-yaml","YAML 1.2 parser and serializer","","","1","1","","","","Section=javascript; Version=4.1.0+dfsg+~4.0.5-7","","","","","",""
-"node-ansi-styles","node-ansi-styles","node-ansi-styles","ANSI escape codes for styling strings in the terminal with Node.js","","","1","1","","","","Section=javascript; Version=6.2.1-3","","","","","",""
-"node-is-fullwidth-code-point","node-is-fullwidth-code-point","node-is-fullwidth-code-point","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"node-ansi-escapes","node-ansi-escapes","node-ansi-escapes","ANSI escape codes for manipulating the terminal","","","1","1","","","","Section=javascript; Version=5.0.0+really.4.3.1-1","","","","","",""
-"node-auto-bind","node-auto-bind","node-auto-bind","Automatically bind methods to their class instance","","","1","1","","","","Section=javascript; Version=4.0.0-2","","","","","",""
-"node-cli-boxes","node-cli-boxes","node-cli-boxes","Boxes for use in the terminal","","","1","1","","","","Section=javascript; Version=3.0.0-1","","","","","",""
-"node-cli-cursor","node-cli-cursor","node-cli-cursor","Toggle the CLI cursor","","","1","1","","","","Section=javascript; Version=4.0.0-3","","","","","",""
-"node-cli-truncate","node-cli-truncate","node-cli-truncate","Truncate a string to a specific width in the terminal","","","1","1","","","","Section=javascript; Version=2.1.0-5","","","","","",""
-"node-code-excerpt","node-code-excerpt","node-code-excerpt","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"node-indent-string","node-indent-string","node-indent-string","Indent each line in a string","","","1","1","","","","Section=javascript; Version=4.0.0-2","","","","","",""
-"node-is-ci","node-is-ci","node-is-ci","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"node-is-lower-case","node-is-lower-case","node-is-lower-case","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"node-is-upper-case","node-is-upper-case","node-is-upper-case","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"node-react-reconciler","node-react-reconciler","node-react-reconciler","Experimental package for creating custom React renderers","","","1","1","","","","Section=javascript; Version=0.28.0~18.2.0+dfsg+~cs88.72.123-1","","","","","",""
-"node-scheduler","node-scheduler","node-scheduler","JavaScript library for cooperative scheduling in a browser environment","","","1","1","","","","Section=javascript; Version=0.22.0~18.2.0+dfsg+~cs88.72.123-1","","","","","",""
-"node-signal-exit","node-signal-exit","node-signal-exit","Fire an event no matter how a process exits","","","1","1","","","","Section=javascript; Version=4.1.0-7","","","","","",""
-"node-slice-ansi","node-slice-ansi","node-slice-ansi","Slice a string with ANSI escape codes","","","1","1","","","","Section=javascript; Version=5.0.0+~cs9.0.0-5","","","","","",""
-"node-stack-utils","node-stack-utils","node-stack-utils","Captures and cleans stack traces","","","1","1","","","","Section=javascript; Version=2.0.6+~2.0.1-1","","","","","",""
-"node-string-width","node-string-width","node-string-width","Get the visual width of a string","","","1","1","","","","Section=javascript; Version=4.2.3+~cs13.2.3-1","","","","","",""
-"node-type-fest","node-type-fest","node-type-fest","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"node-widest-line","node-widest-line","node-widest-line","Get the visual width of the widest line in a string -","","","1","1","","","","Section=javascript; Version=3.1.0-2","","","","","",""
-"node-wrap-ansi","node-wrap-ansi","node-wrap-ansi","Wordwrap a string with ANSI escape codes","","","1","1","","","","Section=javascript; Version=8.0.1+~8.0.1-3","","","","","",""
-"node-ws","node-ws","node-ws","RFC-6455 WebSocket implementation module for Node.js","","","1","1","","","","Section=javascript; Version=8.18.1+~cs14.18.2-1","","","","","",""
-"","","","","","","","","","","","","rails","ruby-rails","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","bundler","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","puma","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-bootsnap","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-byebug","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-capybara","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-jbuilder","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-listen","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-selenium-webdriver","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-spring","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-spring-watcher-listen","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-sqlite3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-turbolinks","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","ruby-web-console","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","rails","yarnpkg","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-actioncable","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-actionmailbox","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-actionmailer","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-actionpack","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-actiontext","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-actionview","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-activejob","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-activemodel","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-activerecord","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-activestorage","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-activesupport","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-bundler","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-rails","ruby-railties","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bundler","ruby-bundler","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","bundler","build-essential","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bundler","less","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bundler","ruby-dev","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","bundler","sudo","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","puma","ruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","puma","ruby-nio4r","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","puma","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","puma","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","puma","libruby3.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","puma","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","puma","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-bootsnap","ruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-bootsnap","ruby-msgpack","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-bootsnap","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-bootsnap","libruby3.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-bootsnap","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-bootsnap","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-byebug","ruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-byebug","ruby-columnize","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-byebug","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-byebug","libruby3.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-byebug","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-byebug","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","libjs-jquery","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","libjs-jquery-ui","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","ruby-addressable","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","ruby-mini-mime","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","ruby-nokogiri","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","ruby-rack","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","ruby-rack-test","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","ruby-regexp-parser","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-capybara","ruby-xpath","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-jbuilder","ruby-activesupport","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-jbuilder","ruby-actionview","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-jbuilder","ruby-multi-json","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-listen","ruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-listen","ruby-rb-inotify","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-selenium-webdriver","ruby-childprocess","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-selenium-webdriver","ruby-zip","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-selenium-webdriver","ruby-websocket","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-selenium-webdriver","chromium-driver","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","ruby-spring","ruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-spring-watcher-listen","ruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-spring-watcher-listen","ruby-listen","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-spring-watcher-listen","ruby-listen","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-spring-watcher-listen","ruby-spring","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-spring-watcher-listen","ruby-spring","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-sqlite3","ruby-mini-portile2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-sqlite3","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-sqlite3","libsqlite3-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-sqlite3","libruby3.3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-sqlite3","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-sqlite3","libruby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-sqlite3","sqlite3","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","ruby-turbolinks","ruby-turbolinks-source","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-web-console","ruby-railties","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-web-console","ruby-activemodel","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-web-console","ruby-actionview","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","ruby-web-console","ruby-bindex","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","nodejs:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","git","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-tslib","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-clipanion","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-lodash","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-ci-info","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-enquirer","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-micromatch","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-semver","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-typanion","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-diff","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-react","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-zkochan-cmd-shim","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-ssri","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-tar-stream","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-p-limit","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-chalk","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","esbuild","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-camelcase","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-fast-glob","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-got","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-strip-ansi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-tar","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-globby","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-typescript","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-js-yaml","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-ansi-styles","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-is-fullwidth-code-point","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-ansi-escapes","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-auto-bind","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-cli-boxes","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-cli-cursor","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-cli-truncate","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-code-excerpt","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-indent-string","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-is-ci","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-is-lower-case","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-is-upper-case","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-react-reconciler","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-scheduler","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-signal-exit","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-slice-ansi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-stack-utils","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-string-width","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-type-fest","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-widest-line","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-wrap-ansi","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","yarnpkg","node-ws","Depends","#333","1","Depends","{}"
+rails,rails,rails,MVC ruby based framework geared for web application development (metapackage),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-rails,ruby-rails,ruby-rails,MVC ruby based framework geared for web application development,,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+bundler,bundler,bundler,Manage Ruby application dependencies,,,1,1,,,,Section=ruby; Version=2.6.7-2,,,,,,,
+puma,puma,puma,threaded HTTP 1.1 server for Ruby/Rack applications,,,1,1,,,,Section=ruby; Version=6.6.0-4,,,,,,,
+ruby-bootsnap,ruby-bootsnap,ruby-bootsnap,Boot large ruby/rails apps faster,,,1,1,,,,Section=ruby; Version=1.18.4-1+b2,,,,,,,
+ruby-byebug,ruby-byebug,ruby-byebug,Ruby fast debugger - base + CLI,,,1,1,,,,Section=ruby; Version=11.1.3-5+b2,,,,,,,
+ruby-capybara,ruby-capybara,ruby-capybara,integration testing tool for Rack based web applications,,,1,1,,,,Section=ruby; Version=3.40.0+ds-2,,,,,,,
+ruby-jbuilder,ruby-jbuilder,ruby-jbuilder,creation of JSON structures via a Builder-style DSL,,,1,1,,,,Section=ruby; Version=2.12.0-1,,,,,,,
+ruby-listen,ruby-listen,ruby-listen,Ruby library listening to file modifications,,,1,1,,,,Section=ruby; Version=3.9.0-1,,,,,,,
+ruby-selenium-webdriver,ruby-selenium-webdriver,ruby-selenium-webdriver,Browser automation framework and ecosystem,,,1,1,,,,Section=ruby; Version=4.4.0-1,,,,,,,
+ruby-spring,ruby-spring,ruby-spring,Rails application preloader,,,1,1,,,,Section=ruby; Version=2.1.1-2,,,,,,,
+ruby-spring-watcher-listen,ruby-spring-watcher-listen,ruby-spring-watcher-listen,Makes spring watch files using the listen library,,,1,1,,,,Section=ruby; Version=2.0.1-1.1,,,,,,,
+ruby-sqlite3,ruby-sqlite3,ruby-sqlite3,SQLite3 interface for Ruby,,,1,1,,,,Section=ruby; Version=1.7.3-1,,,,,,,
+ruby-turbolinks,ruby-turbolinks,ruby-turbolinks,following links in your Rails web application faster,,,1,1,,,,Section=ruby; Version=5.2.1-2,,,,,,,
+ruby-web-console,ruby-web-console,ruby-web-console,Ruby on Rails debugger,,,1,1,,,,Section=ruby; Version=4.2.1-1,,,,,,,
+yarnpkg,yarnpkg,yarnpkg,"Fast, reliable, and secure dependency management",,,1,1,,,,Section=javascript; Version=4.1.0+dfsg-1,,,,,,,
+ruby-actioncable,ruby-actioncable,ruby-actioncable,WebSocket framework for Rails (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-actionmailbox,ruby-actionmailbox,ruby-actionmailbox,receive and process incoming emails (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-actionmailer,ruby-actionmailer,ruby-actionmailer,"email composition, delivery framework (part of Rails)",,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-actionpack,ruby-actionpack,ruby-actionpack,web-flow and rendering framework putting the VC in MVC (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-actiontext,ruby-actiontext,ruby-actiontext,edit and display rich text (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-actionview,ruby-actionview,ruby-actionview,framework for handling view template lookup and rendering (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-activejob,ruby-activejob,ruby-activejob,job framework with pluggable queues (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-activemodel,ruby-activemodel,ruby-activemodel,toolkit for building modeling frameworks (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-activerecord,ruby-activerecord,ruby-activerecord,object-relational mapper framework (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-activestorage,ruby-activestorage,ruby-activestorage,local and cloud file storage framework (part of Rails),,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-activesupport,ruby-activesupport,ruby-activesupport,collection of utility classes used by the Rails framework,,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+ruby-bundler,ruby-bundler,ruby-bundler,Manage Ruby application dependencies (runtime),,,1,1,,,,Section=ruby; Version=2.6.7-2,,,,,,,
+ruby-railties,ruby-railties,ruby-railties,"tools for creating, working with, and running Rails applications",,,1,1,,,,Section=ruby; Version=2:7.2.2.1+dfsg-7,,,,,,,
+build-essential,build-essential,build-essential,Informational list of build-essential packages,,,1,1,,,,Section=devel; Version=12.12,,,,,,,
+less,less,less,pager program similar to more,,,1,1,,,,Section=text; Version=668-1,,,,,,,
+ruby-dev,ruby-dev,ruby-dev,Header files for compiling extension modules for Ruby (default version),,,1,1,,,,Section=ruby; Version=1:3.3+b1,,,,,,,
+sudo,sudo,sudo,Provide limited super user privileges to specific users,,,1,1,,,,Section=admin; Version=1.9.16p2-3,,,,,,,
+ruby,ruby,ruby,Interpreter of object-oriented scripting language Ruby (default version),,,1,1,,,,Section=ruby; Version=1:3.3+b1,,,,,,,
+ruby-nio4r,ruby-nio4r,ruby-nio4r,Ruby library providing a selector API for monitoring IO objects,,,1,1,,,,Section=ruby; Version=2.7.3-1+b2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+libruby3.3,libruby3.3,libruby3.3,Libraries necessary to run Ruby 3.3,,,1,1,,,,Section=libs; Version=3.3.8-2,,,,,,,
+libruby,libruby,libruby,Libraries necessary to run Ruby,,,1,1,,,,Section=libs; Version=1:3.3+b1,,,,,,,
+ruby-msgpack,ruby-msgpack,ruby-msgpack,Ruby library for MessagePack,,,1,1,,,,Section=ruby; Version=1.7.2-1.1+b2,,,,,,,
+ruby-columnize,ruby-columnize,ruby-columnize,Ruby library to format arrays as column-aligned strings,,,1,1,,,,Section=ruby; Version=0.9.0-1.1,,,,,,,
+libjs-jquery,libjs-jquery,libjs-jquery,JavaScript library for dynamic web applications,,,1,1,,,,Section=javascript; Version=3.6.1+dfsg+~3.5.14-1,,,,,,,
+libjs-jquery-ui,libjs-jquery-ui,libjs-jquery-ui,JavaScript UI library for dynamic web applications,,,1,1,,,,Section=javascript; Version=1.13.2+dfsg-1,,,,,,,
+ruby-addressable,ruby-addressable,ruby-addressable,alternative URI implementation for Ruby,,,1,1,,,,Section=ruby; Version=2.8.7-2,,,,,,,
+ruby-mini-mime,ruby-mini-mime,ruby-mini-mime,Lightweight mime type implementation,,,1,1,,,,Section=ruby; Version=1.1.5-1,,,,,,,
+ruby-nokogiri,ruby-nokogiri,ruby-nokogiri,"HTML, XML, SAX, and Reader parser for Ruby",,,1,1,,,,Section=ruby; Version=1.18.2+dfsg-1+b1,,,,,,,
+ruby-rack,ruby-rack,ruby-rack,modular Ruby webserver interface,,,1,1,,,,Section=ruby; Version=3.1.16-0.1,,,,,,,
+ruby-rack-test,ruby-rack-test,ruby-rack-test,Simple testing API built on Rack,,,1,1,,,,Section=ruby; Version=2.2.0-1,,,,,,,
+ruby-regexp-parser,ruby-regexp-parser,ruby-regexp-parser,"Scanner, lexer, parser for ruby's regular expressions",,,1,1,,,,Section=ruby; Version=2.6.1-1,,,,,,,
+ruby-xpath,ruby-xpath,ruby-xpath,Ruby library to generate XPath expressions,,,1,1,,,,Section=ruby; Version=3.2.0-1,,,,,,,
+ruby-multi-json,ruby-multi-json,ruby-multi-json,Ruby library to provide easy switching between different JSON backends,,,1,1,,,,Section=ruby; Version=1.15.0-1,,,,,,,
+ruby-rb-inotify,ruby-rb-inotify,ruby-rb-inotify,"Ruby wrapper for Linux's inotify, using FFI",,,1,1,,,,Section=ruby; Version=0.10.1-2,,,,,,,
+ruby-childprocess,ruby-childprocess,ruby-childprocess,Ruby library for controlling external programs running in the background,,,1,1,,,,Section=ruby; Version=4.1.0-3,,,,,,,
+ruby-zip,ruby-zip,ruby-zip,Ruby module for reading and writing zip files,,,1,1,,,,Section=ruby; Version=2.3.2-1,,,,,,,
+ruby-websocket,ruby-websocket,ruby-websocket,Universal Ruby library to handle WebSocket protocol,,,1,1,,,,Section=ruby; Version=1.2.9-3,,,,,,,
+chromium-driver,chromium-driver,chromium-driver,web browser - WebDriver support,,,1,1,,,,Section=web; Version=139.0.7258.154-1~deb13u1,,,,,,,
+ruby-mini-portile2,ruby-mini-portile2,ruby-mini-portile2,simplistic port-like solution for developers,,,1,1,,,,Section=ruby; Version=2.8.7-1,,,,,,,
+libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
+sqlite3,sqlite3,sqlite3,Command line interface for SQLite 3,,,1,1,,,,Section=database; Version=3.46.1-7,,,,,,,
+ruby-turbolinks-source,ruby-turbolinks-source,ruby-turbolinks-source,Provides Turbolinks as a ruby gem,,,1,1,,,,Section=ruby; Version=5.2.0+dfsg-2,,,,,,,
+ruby-bindex,ruby-bindex,ruby-bindex,bindings for Ruby exceptions,,,1,1,,,,Section=ruby; Version=0.8.1+ds-2+b2,,,,,,,
+nodejs:any,nodejs:any,nodejs:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+git,git,git,"fast, scalable, distributed revision control system",,,1,1,,,,Section=vcs; Version=1:2.47.3-0+deb13u1,,,,,,,
+node-tslib,node-tslib,node-tslib,Implementation of tslib for javascript,,,1,1,,,,Section=javascript; Version=2.4.1-1,,,,,,,
+node-clipanion,node-clipanion,node-clipanion,Type-safe CLI library with no runtime dependencies,,,1,1,,,,Section=javascript; Version=3.2.1+dfsg-2,,,,,,,
+node-lodash,node-lodash,node-lodash,Lo-dash is a Node.js utility library,,,1,1,,,,Section=javascript; Version=4.17.21+dfsg+~cs8.31.198.20210220-9,,,,,,,
+node-ci-info,node-ci-info,node-ci-info,Get details about the current Continuous Integration environment,,,1,1,,,,Section=javascript; Version=4.0.0+~cs1.1.0-1,,,,,,,
+node-enquirer,node-enquirer,node-enquirer,"Stylish cli prompts that are user-friendly, intuitive and easy to create",,,1,1,,,,Section=javascript; Version=2.3.6~ds-5,,,,,,,
+node-micromatch,node-micromatch,node-micromatch,Glob matching for javascript/node.js,,,1,1,,,,Section=javascript; Version=4.0.7+~4.0.9-1,,,,,,,
+node-semver,node-semver,node-semver,Semantic Versioning for Node.js,,,1,1,,,,Section=javascript; Version=7.6.1+~7.5.8-2,,,,,,,
+node-typanion,node-typanion,node-typanion,Static and runtime type assertion library with no dependencies,,,1,1,,,,Section=javascript; Version=3.14.0+dfsg-1,,,,,,,
+node-diff,node-diff,node-diff,javascript text differencing implementation,,,1,1,,,,Section=javascript; Version=5.0.0~dfsg+~5.0.1-4,,,,,,,
+node-react,node-react,node-react,Node.js library for building user interfaces,,,1,1,,,,Section=javascript; Version=18.2.0+dfsg+~cs88.72.123-1,,,,,,,
+node-zkochan-cmd-shim,node-zkochan-cmd-shim,node-zkochan-cmd-shim,This package is the cmd-shim used in npm,,,1,1,,,,Section=javascript; Version=5.3.1+~1.0.2-3,,,,,,,
+node-ssri,node-ssri,node-ssri,"Utility for parsing, serializing, generating and verifying  ssri metadata",,,1,1,,,,Section=javascript; Version=9.0.1-3,,,,,,,
+node-tar-stream,node-tar-stream,node-tar-stream,streaming tar parser and generator - Node.js module,,,1,1,,,,Section=javascript; Version=2.2.0+~cs3.2.2-1,,,,,,,
+node-p-limit,node-p-limit,node-p-limit,run multiple promise-returning & async functions,,,1,1,,,,Section=javascript; Version=4.0.0+~cs4.0.0-5,,,,,,,
+node-chalk,node-chalk,node-chalk,Terminal string styling for Node.js,,,1,1,,,,Section=javascript; Version=5.3.0-1,,,,,,,
+esbuild,esbuild,esbuild,extremely fast JavaScript bundler and minifier (program),,,1,1,,,,Section=javascript; Version=0.25.5-1+b1,,,,,,,
+node-camelcase,node-camelcase,node-camelcase,Convert a string to camelCase,,,1,1,,,,Section=javascript; Version=7.0.0-3,,,,,,,
+node-fast-glob,node-fast-glob,node-fast-glob,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+node-got,node-got,node-got,Simplified HTTP requests,,,1,1,,,,Section=javascript; Version=11.8.5+~cs58.13.36-5,,,,,,,
+node-strip-ansi,node-strip-ansi,node-strip-ansi,Strip ANSI escape codes,,,1,1,,,,Section=javascript; Version=6.0.1-2,,,,,,,
+node-tar,node-tar,node-tar,read and write portable tar archives module for Node.js,,,1,1,,,,Section=javascript; Version=6.2.1+~cs7.0.8-1,,,,,,,
+node-globby,node-globby,node-globby,Extends glob with promise API,,,1,1,,,,Section=javascript; Version=13.1.3+~cs16.25.40-3,,,,,,,
+node-typescript,node-typescript,node-typescript,TypeScript is a language for application scale JavaScript development,,,1,1,,,,Section=javascript; Version=4.9.5+ds1-2,,,,,,,
+node-js-yaml,node-js-yaml,node-js-yaml,YAML 1.2 parser and serializer,,,1,1,,,,Section=javascript; Version=4.1.0+dfsg+~4.0.5-7,,,,,,,
+node-ansi-styles,node-ansi-styles,node-ansi-styles,ANSI escape codes for styling strings in the terminal with Node.js,,,1,1,,,,Section=javascript; Version=6.2.1-3,,,,,,,
+node-is-fullwidth-code-point,node-is-fullwidth-code-point,node-is-fullwidth-code-point,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+node-ansi-escapes,node-ansi-escapes,node-ansi-escapes,ANSI escape codes for manipulating the terminal,,,1,1,,,,Section=javascript; Version=5.0.0+really.4.3.1-1,,,,,,,
+node-auto-bind,node-auto-bind,node-auto-bind,Automatically bind methods to their class instance,,,1,1,,,,Section=javascript; Version=4.0.0-2,,,,,,,
+node-cli-boxes,node-cli-boxes,node-cli-boxes,Boxes for use in the terminal,,,1,1,,,,Section=javascript; Version=3.0.0-1,,,,,,,
+node-cli-cursor,node-cli-cursor,node-cli-cursor,Toggle the CLI cursor,,,1,1,,,,Section=javascript; Version=4.0.0-3,,,,,,,
+node-cli-truncate,node-cli-truncate,node-cli-truncate,Truncate a string to a specific width in the terminal,,,1,1,,,,Section=javascript; Version=2.1.0-5,,,,,,,
+node-code-excerpt,node-code-excerpt,node-code-excerpt,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+node-indent-string,node-indent-string,node-indent-string,Indent each line in a string,,,1,1,,,,Section=javascript; Version=4.0.0-2,,,,,,,
+node-is-ci,node-is-ci,node-is-ci,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+node-is-lower-case,node-is-lower-case,node-is-lower-case,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+node-is-upper-case,node-is-upper-case,node-is-upper-case,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+node-react-reconciler,node-react-reconciler,node-react-reconciler,Experimental package for creating custom React renderers,,,1,1,,,,Section=javascript; Version=0.28.0~18.2.0+dfsg+~cs88.72.123-1,,,,,,,
+node-scheduler,node-scheduler,node-scheduler,JavaScript library for cooperative scheduling in a browser environment,,,1,1,,,,Section=javascript; Version=0.22.0~18.2.0+dfsg+~cs88.72.123-1,,,,,,,
+node-signal-exit,node-signal-exit,node-signal-exit,Fire an event no matter how a process exits,,,1,1,,,,Section=javascript; Version=4.1.0-7,,,,,,,
+node-slice-ansi,node-slice-ansi,node-slice-ansi,Slice a string with ANSI escape codes,,,1,1,,,,Section=javascript; Version=5.0.0+~cs9.0.0-5,,,,,,,
+node-stack-utils,node-stack-utils,node-stack-utils,Captures and cleans stack traces,,,1,1,,,,Section=javascript; Version=2.0.6+~2.0.1-1,,,,,,,
+node-string-width,node-string-width,node-string-width,Get the visual width of a string,,,1,1,,,,Section=javascript; Version=4.2.3+~cs13.2.3-1,,,,,,,
+node-type-fest,node-type-fest,node-type-fest,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+node-widest-line,node-widest-line,node-widest-line,Get the visual width of the widest line in a string -,,,1,1,,,,Section=javascript; Version=3.1.0-2,,,,,,,
+node-wrap-ansi,node-wrap-ansi,node-wrap-ansi,Wordwrap a string with ANSI escape codes,,,1,1,,,,Section=javascript; Version=8.0.1+~8.0.1-3,,,,,,,
+node-ws,node-ws,node-ws,RFC-6455 WebSocket implementation module for Node.js,,,1,1,,,,Section=javascript; Version=8.18.1+~cs14.18.2-1,,,,,,,
+,,,,,,,,,,,,ruby-rails,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,bundler,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,puma,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-bootsnap,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-byebug,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-capybara,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-jbuilder,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-listen,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-selenium-webdriver,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-spring,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-spring-watcher-listen,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-sqlite3,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-turbolinks,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-web-console,rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,yarnpkg,rails,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ruby-actioncable,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-actionmailbox,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-actionmailer,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-actionpack,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-actiontext,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-actionview,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-activejob,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-activemodel,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-activerecord,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-activestorage,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-activesupport,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-bundler,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-railties,ruby-rails,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-bundler,bundler,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,build-essential,bundler,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,less,bundler,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ruby-dev,bundler,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,sudo,bundler,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ruby,puma,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-nio4r,puma,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,puma,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,puma,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby3.3,puma,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,puma,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,puma,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby,ruby-bootsnap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-msgpack,ruby-bootsnap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,ruby-bootsnap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby3.3,ruby-bootsnap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-bootsnap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-bootsnap,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby,ruby-byebug,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-columnize,ruby-byebug,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,ruby-byebug,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby3.3,ruby-byebug,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-byebug,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-byebug,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-jquery,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjs-jquery-ui,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-addressable,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-mini-mime,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-nokogiri,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-rack,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-rack-test,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-regexp-parser,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-xpath,ruby-capybara,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-activesupport,ruby-jbuilder,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-actionview,ruby-jbuilder,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-multi-json,ruby-jbuilder,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby,ruby-listen,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-rb-inotify,ruby-listen,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-childprocess,ruby-selenium-webdriver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-zip,ruby-selenium-webdriver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-websocket,ruby-selenium-webdriver,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,chromium-driver,ruby-selenium-webdriver,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ruby,ruby-spring,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby,ruby-spring-watcher-listen,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-listen,ruby-spring-watcher-listen,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-listen,ruby-spring-watcher-listen,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-spring,ruby-spring-watcher-listen,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-spring,ruby-spring-watcher-listen,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-mini-portile2,ruby-sqlite3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,ruby-sqlite3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsqlite3-0,ruby-sqlite3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby3.3,ruby-sqlite3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-sqlite3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libruby,ruby-sqlite3,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,sqlite3,ruby-sqlite3,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,ruby-turbolinks-source,ruby-turbolinks,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-railties,ruby-web-console,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-activemodel,ruby-web-console,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-actionview,ruby-web-console,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ruby-bindex,ruby-web-console,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,nodejs:any,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,git,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-tslib,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-clipanion,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-lodash,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-ci-info,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-enquirer,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-micromatch,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-semver,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-typanion,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-diff,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-react,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-zkochan-cmd-shim,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-ssri,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-tar-stream,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-p-limit,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-chalk,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,esbuild,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-camelcase,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-fast-glob,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-got,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-strip-ansi,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-tar,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-globby,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-typescript,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-js-yaml,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-ansi-styles,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-is-fullwidth-code-point,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-ansi-escapes,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-auto-bind,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-cli-boxes,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-cli-cursor,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-cli-truncate,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-code-excerpt,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-indent-string,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-is-ci,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-is-lower-case,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-is-upper-case,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-react-reconciler,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-scheduler,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-signal-exit,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-slice-ansi,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-stack-utils,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-string-width,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-type-fest,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-widest-line,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-wrap-ansi,yarnpkg,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,node-ws,yarnpkg,Depends,#333,1,Depends,{}

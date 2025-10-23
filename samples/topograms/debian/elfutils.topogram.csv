@@ -1,76 +1,76 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"debuginfod","debuginfod","debuginfod","debuginfo-related http file-server daemon","","","1","1","","","","Section=devel; Version=0.192-4","","","","","",""
-"libdebuginfod1t64","libdebuginfod1t64","libdebuginfod1t64","library to interact with debuginfod (development files)","","","1","1","","","","Section=libs; Version=0.192-4","","","","","",""
-"libarchive13t64","libarchive13t64","libarchive13t64","Multi-format archive and compression library (shared library)","","","1","1","","","","Section=libs; Version=3.7.4-4","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libdw1t64","libdw1t64","libdw1t64","library that provides access to the DWARF debug information","","","1","1","","","","Section=libs; Version=0.192-4","","","","","",""
-"libelf1t64","libelf1t64","libelf1t64","library to read and write ELF files","","","1","1","","","","Section=libs; Version=0.192-4","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libjson-c5","libjson-c5","libjson-c5","JSON manipulation library - shared library","","","1","1","","","","Section=libs; Version=0.18+ds-1","","","","","",""
-"liblzma5","liblzma5","liblzma5","XZ-format compression library","","","1","1","","","","Section=libs; Version=5.8.1-1","","","","","",""
-"libmicrohttpd12t64","libmicrohttpd12t64","libmicrohttpd12t64","library embedding HTTP server functionality","","","1","1","","","","Section=libs; Version=1.0.1-4","","","","","",""
-"libsqlite3-0","libsqlite3-0","libsqlite3-0","SQLite 3 shared library","","","1","1","","","","Section=libs; Version=3.46.1-7","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libarchive-tools","libarchive-tools","libarchive-tools","FreeBSD implementations of 'tar' and 'cpio' and other archive tools","","","1","1","","","","Section=utils; Version=3.7.4-4","","","","","",""
-"libcurl3t64-gnutls","libcurl3t64-gnutls","libcurl3t64-gnutls","easy-to-use client-side URL transfer library (GnuTLS flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","",""
-"libdebuginfod-common","libdebuginfod-common","libdebuginfod-common","configuration to enable the Debian debug info server","","","1","1","","","","Section=devel; Version=0.192-4","","","","","",""
-"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"liblz4-1","liblz4-1","liblz4-1","Fast LZ compression algorithm library - runtime","","","1","1","","","","Section=libs; Version=1.10.0-4","","","","","",""
-"libnettle8t64","libnettle8t64","libnettle8t64","low level cryptographic library (symmetric and one-way cryptos)","","","1","1","","","","Section=libs; Version=3.10.1-1","","","","","",""
-"libxml2","libxml2","libxml2","GNOME XML library","","","1","1","","","","Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","",""
-"","","","","","","","","","","","","debuginfod","libdebuginfod1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libarchive13t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libdw1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libelf1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libjson-c5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libmicrohttpd12t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libsqlite3-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","debuginfod","libarchive-tools","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libdebuginfod1t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdebuginfod1t64","libcurl3t64-gnutls","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdebuginfod1t64","libelf1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdebuginfod1t64","libjson-c5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdebuginfod1t64","libdw1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdebuginfod1t64","libdebuginfod-common","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","libacl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","liblz4-1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","libnettle8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","libxml2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive13t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libdw1t64","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdw1t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdw1t64","libelf1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdw1t64","liblzma5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdw1t64","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdw1t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libelf1t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libelf1t64","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libelf1t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgcc-s1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjson-c5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblzma5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmicrohttpd12t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmicrohttpd12t64","libgnutls30t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsqlite3-0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive-tools","libarchive13t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libarchive-tools","libc6","Depends","#333","1","Depends","{}"
+debuginfod,debuginfod,debuginfod,debuginfo-related http file-server daemon,,,1,1,,,,Section=devel; Version=0.192-4,,,,,,,
+libdebuginfod1t64,libdebuginfod1t64,libdebuginfod1t64,library to interact with debuginfod (development files),,,1,1,,,,Section=libs; Version=0.192-4,,,,,,,
+libarchive13t64,libarchive13t64,libarchive13t64,Multi-format archive and compression library (shared library),,,1,1,,,,Section=libs; Version=3.7.4-4,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libdw1t64,libdw1t64,libdw1t64,library that provides access to the DWARF debug information,,,1,1,,,,Section=libs; Version=0.192-4,,,,,,,
+libelf1t64,libelf1t64,libelf1t64,library to read and write ELF files,,,1,1,,,,Section=libs; Version=0.192-4,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libjson-c5,libjson-c5,libjson-c5,JSON manipulation library - shared library,,,1,1,,,,Section=libs; Version=0.18+ds-1,,,,,,,
+liblzma5,liblzma5,liblzma5,XZ-format compression library,,,1,1,,,,Section=libs; Version=5.8.1-1,,,,,,,
+libmicrohttpd12t64,libmicrohttpd12t64,libmicrohttpd12t64,library embedding HTTP server functionality,,,1,1,,,,Section=libs; Version=1.0.1-4,,,,,,,
+libsqlite3-0,libsqlite3-0,libsqlite3-0,SQLite 3 shared library,,,1,1,,,,Section=libs; Version=3.46.1-7,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libarchive-tools,libarchive-tools,libarchive-tools,FreeBSD implementations of 'tar' and 'cpio' and other archive tools,,,1,1,,,,Section=utils; Version=3.7.4-4,,,,,,,
+libcurl3t64-gnutls,libcurl3t64-gnutls,libcurl3t64-gnutls,easy-to-use client-side URL transfer library (GnuTLS flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
+libdebuginfod-common,libdebuginfod-common,libdebuginfod-common,configuration to enable the Debian debug info server,,,1,1,,,,Section=devel; Version=0.192-4,,,,,,,
+libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+liblz4-1,liblz4-1,liblz4-1,Fast LZ compression algorithm library - runtime,,,1,1,,,,Section=libs; Version=1.10.0-4,,,,,,,
+libnettle8t64,libnettle8t64,libnettle8t64,low level cryptographic library (symmetric and one-way cryptos),,,1,1,,,,Section=libs; Version=3.10.1-1,,,,,,,
+libxml2,libxml2,libxml2,GNOME XML library,,,1,1,,,,Section=libs; Version=2.12.7+dfsg+really2.9.14-2.1+deb13u1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
+,,,,,,,,,,,,libdebuginfod1t64,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libarchive13t64,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdw1t64,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libelf1t64,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjson-c5,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmicrohttpd12t64,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsqlite3-0,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,debuginfod,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libarchive-tools,debuginfod,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libdebuginfod1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcurl3t64-gnutls,libdebuginfod1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libelf1t64,libdebuginfod1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjson-c5,libdebuginfod1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdw1t64,libdebuginfod1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdebuginfod-common,libdebuginfod1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libacl1,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblz4-1,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnettle8t64,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxml2,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libarchive13t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libbz2-1.0,libdw1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libdw1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libelf1t64,libdw1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblzma5,libdw1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libdw1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libdw1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libelf1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libelf1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libelf1t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgcc-s1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libjson-c5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,liblzma5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libmicrohttpd12t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnutls30t64,libmicrohttpd12t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libsqlite3-0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libarchive13t64,libarchive-tools,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libarchive-tools,Depends,#333,1,Depends,{}

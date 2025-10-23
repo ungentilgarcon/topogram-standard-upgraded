@@ -1,157 +1,157 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libqt5pdf5","libqt5pdf5","libqt5pdf5","Qt 5 PDF library","","","1","1","","","","Section=libs; Version=5.15.18+dfsg-2+b1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libfreetype6","libfreetype6","libfreetype6","FreeType 2 font engine, shared library files","","","1","1","","","","Section=libs; Version=2.13.3+dfsg-1","","","","","",""
-"libjpeg62-turbo","libjpeg62-turbo","libjpeg62-turbo","libjpeg-turbo JPEG runtime library","","","1","1","","","","Section=libs; Version=1:2.1.5-4","","","","","",""
-"liblcms2-2","liblcms2-2","liblcms2-2","Little CMS 2 color management library","","","1","1","","","","Section=libs; Version=2.16-2","","","","","",""
-"libopenjp2-7","libopenjp2-7","libopenjp2-7","JPEG 2000 image compression/decompression library","","","1","1","","","","Section=libs; Version=2.5.3-2.1~deb13u1","","","","","",""
-"libqt5core5t64","libqt5core5t64","libqt5core5t64","Qt 5 core module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5gui5t64","libqt5gui5t64","libqt5gui5t64","Qt 5 GUI module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libqt5network5t64","libqt5network5t64","libqt5network5t64","Qt 5 network module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"qtbase-abi-5-15-15","qtbase-abi-5-15-15","qtbase-abi-5-15-15","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"libpng16-16t64","libpng16-16t64","libpng16-16t64","PNG library - runtime (version 1.6)","","","1","1","","","","Section=libs; Version=1.6.48-1","","","","","",""
-"shared-mime-info","shared-mime-info","shared-mime-info","FreeDesktop.org shared MIME database and spec","","","1","1","","","","Section=misc; Version=2.4-5+b2","","","","","",""
-"libdouble-conversion3","libdouble-conversion3","libdouble-conversion3","routines to convert IEEE floats to and from strings","","","1","1","","","","Section=libs; Version=3.3.1-1","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"libicu76","libicu76","libicu76","International Components for Unicode","","","1","1","","","","Section=libs; Version=76.1-4","","","","","",""
-"libpcre2-16-0","libpcre2-16-0","libpcre2-16-0","New Perl Compatible Regular Expression Library - 16 bit runtime files","","","1","1","","","","Section=libs; Version=10.46-1~deb13u1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"qttranslations5-l10n","qttranslations5-l10n","qttranslations5-l10n","translations for Qt 5","","","1","1","","","","Section=localization; Version=5.15.15-2","","","","","",""
-"fontconfig","fontconfig","fontconfig","generic font configuration library - support binaries","","","1","1","","","","Section=fonts; Version=2.15.0-2.3","","","","","",""
-"libdrm2","libdrm2","libdrm2","Userspace interface to kernel DRM services -- runtime","","","1","1","","","","Section=libs; Version=2.4.124-2","","","","","",""
-"libegl1","libegl1","libegl1","Vendor neutral GL dispatch library -- EGL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libfontconfig1","libfontconfig1","libfontconfig1","generic font configuration library - runtime","","","1","1","","","","Section=libs; Version=2.15.0-2.3","","","","","",""
-"libgbm1","libgbm1","libgbm1","generic buffer management API -- runtime","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","",""
-"libgl1","libgl1","libgl1","Vendor neutral GL dispatch library -- legacy GL support","","","1","1","","","","Section=libs; Version=1.7.0-1+b2","","","","","",""
-"libharfbuzz0b","libharfbuzz0b","libharfbuzz0b","OpenType text shaping engine (shared library)","","","1","1","","","","Section=libs; Version=10.2.0-1+b1","","","","","",""
-"libice6","libice6","libice6","X11 Inter-Client Exchange library","","","1","1","","","","Section=libs; Version=2:1.1.1-1","","","","","",""
-"libinput10","libinput10","libinput10","input device management and event handling library - shared library","","","1","1","","","","Section=libs; Version=1.28.1-1","","","","","",""
-"libmd4c0","libmd4c0","libmd4c0","Markdown for C","","","1","1","","","","Section=libs; Version=0.5.2-2+b1","","","","","",""
-"libmtdev1t64","libmtdev1t64","libmtdev1t64","Multitouch Protocol Translation Library - shared library","","","1","1","","","","Section=libs; Version=1.1.7-1","","","","","",""
-"libqt5dbus5t64","libqt5dbus5t64","libqt5dbus5t64","Qt 5 D-Bus module","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"libsm6","libsm6","libsm6","X11 Session Management library","","","1","1","","","","Section=libs; Version=2:1.2.6-1","","","","","",""
-"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libx11-6","libx11-6","libx11-6","X11 client-side library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libx11-xcb1","libx11-xcb1","libx11-xcb1","Xlib/XCB interface library","","","1","1","","","","Section=libs; Version=2:1.8.12-1","","","","","",""
-"libxcb-glx0","libxcb-glx0","libxcb-glx0","X C Binding, glx extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-icccm4","libxcb-icccm4","libxcb-icccm4","utility libraries for X C Binding -- icccm","","","1","1","","","","Section=libs; Version=0.4.2-1","","","","","",""
-"libxcb-image0","libxcb-image0","libxcb-image0","utility libraries for X C Binding -- image","","","1","1","","","","Section=libs; Version=0.4.0-2+b2","","","","","",""
-"libxcb-keysyms1","libxcb-keysyms1","libxcb-keysyms1","utility libraries for X C Binding -- keysyms","","","1","1","","","","Section=libs; Version=0.4.1-1","","","","","",""
-"libxcb-randr0","libxcb-randr0","libxcb-randr0","X C Binding, randr extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-render-util0","libxcb-render-util0","libxcb-render-util0","utility libraries for X C Binding -- render-util","","","1","1","","","","Section=libs; Version=0.3.10-1","","","","","",""
-"libxcb-render0","libxcb-render0","libxcb-render0","X C Binding, render extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shape0","libxcb-shape0","libxcb-shape0","X C Binding, shape extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-shm0","libxcb-shm0","libxcb-shm0","X C Binding, shm extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-sync1","libxcb-sync1","libxcb-sync1","X C Binding, sync extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xfixes0","libxcb-xfixes0","libxcb-xfixes0","X C Binding, xfixes extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xinerama0","libxcb-xinerama0","libxcb-xinerama0","X C Binding, xinerama extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xinput0","libxcb-xinput0","libxcb-xinput0","X C Binding, xinput extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb-xkb1","libxcb-xkb1","libxcb-xkb1","X C Binding, XKEYBOARD extension","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxcb1","libxcb1","libxcb1","X C Binding","","","1","1","","","","Section=libs; Version=1.17.0-2+b1","","","","","",""
-"libxkbcommon-x11-0","libxkbcommon-x11-0","libxkbcommon-x11-0","library to create keymaps with the XKB X11 protocol","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"libxkbcommon0","libxkbcommon0","libxkbcommon0","library interface to the XKB compiler - shared library","","","1","1","","","","Section=libs; Version=1.7.0-2","","","","","",""
-"libxrender1","libxrender1","libxrender1","X Rendering Extension client library","","","1","1","","","","Section=libs; Version=1:0.9.12-1","","","","","",""
-"libqt5svg5","libqt5svg5","libqt5svg5","Qt 5 SVG module","","","1","1","","","","Section=libs; Version=5.15.15-2","","","","","",""
-"qt5-gtk-platformtheme","qt5-gtk-platformtheme","qt5-gtk-platformtheme","Qt 5 GTK+ 3 platform theme","","","1","1","","","","Section=libs; Version=5.15.15+dfsg-6","","","","","",""
-"qtwayland5","qtwayland5","qtwayland5","QtWayland platform plugin","","","1","1","","","","Section=libs; Version=5.15.15-3","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"gcc-14-base","gcc-14-base","gcc-14-base","GCC, the GNU Compiler Collection (base package)","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"","","","","","","","","","","","","libqt5pdf5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","liblcms2-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","libopenjp2-7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","libqt5gui5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5pdf5","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libfreetype6","libbrotli1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfreetype6","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfreetype6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfreetype6","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libfreetype6","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libjpeg62-turbo","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","liblcms2-2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libopenjp2-7","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","shared-mime-info","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libdouble-conversion3","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libicu76","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libpcre2-16-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5core5t64","qttranslations5-l10n","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","fontconfig","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libdrm2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libegl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libfontconfig1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libfreetype6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libgbm1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libgl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libglib2.0-0t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libharfbuzz0b","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libinput10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libjpeg62-turbo","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libmd4c0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libmtdev1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libpng16-16t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5network5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libsm6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libx11-6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libx11-xcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-glx0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-icccm4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-image0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-keysyms1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-randr0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-render-util0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-render0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-shape0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-shm0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-sync1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xfixes0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xinerama0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xinput0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb-xkb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxcb1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxkbcommon-x11-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxkbcommon0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libxrender1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","libqt5svg5","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","qt5-gtk-platformtheme","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5gui5t64","qtwayland5","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libqt5core5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libqt5dbus5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","qtbase-abi-5-15-15","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libqt5network5t64","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","gcc-14-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libstdc++6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","zlib1g","libc6","Depends","#333","1","Depends","{}"
+libqt5pdf5,libqt5pdf5,libqt5pdf5,Qt 5 PDF library,,,1,1,,,,Section=libs; Version=5.15.18+dfsg-2+b1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libfreetype6,libfreetype6,libfreetype6,"FreeType 2 font engine, shared library files",,,1,1,,,,Section=libs; Version=2.13.3+dfsg-1,,,,,,,
+libjpeg62-turbo,libjpeg62-turbo,libjpeg62-turbo,libjpeg-turbo JPEG runtime library,,,1,1,,,,Section=libs; Version=1:2.1.5-4,,,,,,,
+liblcms2-2,liblcms2-2,liblcms2-2,Little CMS 2 color management library,,,1,1,,,,Section=libs; Version=2.16-2,,,,,,,
+libopenjp2-7,libopenjp2-7,libopenjp2-7,JPEG 2000 image compression/decompression library,,,1,1,,,,Section=libs; Version=2.5.3-2.1~deb13u1,,,,,,,
+libqt5core5t64,libqt5core5t64,libqt5core5t64,Qt 5 core module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5gui5t64,libqt5gui5t64,libqt5gui5t64,Qt 5 GUI module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libqt5network5t64,libqt5network5t64,libqt5network5t64,Qt 5 network module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+qtbase-abi-5-15-15,qtbase-abi-5-15-15,qtbase-abi-5-15-15,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+libpng16-16t64,libpng16-16t64,libpng16-16t64,PNG library - runtime (version 1.6),,,1,1,,,,Section=libs; Version=1.6.48-1,,,,,,,
+shared-mime-info,shared-mime-info,shared-mime-info,FreeDesktop.org shared MIME database and spec,,,1,1,,,,Section=misc; Version=2.4-5+b2,,,,,,,
+libdouble-conversion3,libdouble-conversion3,libdouble-conversion3,routines to convert IEEE floats to and from strings,,,1,1,,,,Section=libs; Version=3.3.1-1,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+libicu76,libicu76,libicu76,International Components for Unicode,,,1,1,,,,Section=libs; Version=76.1-4,,,,,,,
+libpcre2-16-0,libpcre2-16-0,libpcre2-16-0,New Perl Compatible Regular Expression Library - 16 bit runtime files,,,1,1,,,,Section=libs; Version=10.46-1~deb13u1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+qttranslations5-l10n,qttranslations5-l10n,qttranslations5-l10n,translations for Qt 5,,,1,1,,,,Section=localization; Version=5.15.15-2,,,,,,,
+fontconfig,fontconfig,fontconfig,generic font configuration library - support binaries,,,1,1,,,,Section=fonts; Version=2.15.0-2.3,,,,,,,
+libdrm2,libdrm2,libdrm2,Userspace interface to kernel DRM services -- runtime,,,1,1,,,,Section=libs; Version=2.4.124-2,,,,,,,
+libegl1,libegl1,libegl1,Vendor neutral GL dispatch library -- EGL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libfontconfig1,libfontconfig1,libfontconfig1,generic font configuration library - runtime,,,1,1,,,,Section=libs; Version=2.15.0-2.3,,,,,,,
+libgbm1,libgbm1,libgbm1,generic buffer management API -- runtime,,,1,1,,,,Section=libs; Version=25.0.7-2,,,,,,,
+libgl1,libgl1,libgl1,Vendor neutral GL dispatch library -- legacy GL support,,,1,1,,,,Section=libs; Version=1.7.0-1+b2,,,,,,,
+libharfbuzz0b,libharfbuzz0b,libharfbuzz0b,OpenType text shaping engine (shared library),,,1,1,,,,Section=libs; Version=10.2.0-1+b1,,,,,,,
+libice6,libice6,libice6,X11 Inter-Client Exchange library,,,1,1,,,,Section=libs; Version=2:1.1.1-1,,,,,,,
+libinput10,libinput10,libinput10,input device management and event handling library - shared library,,,1,1,,,,Section=libs; Version=1.28.1-1,,,,,,,
+libmd4c0,libmd4c0,libmd4c0,Markdown for C,,,1,1,,,,Section=libs; Version=0.5.2-2+b1,,,,,,,
+libmtdev1t64,libmtdev1t64,libmtdev1t64,Multitouch Protocol Translation Library - shared library,,,1,1,,,,Section=libs; Version=1.1.7-1,,,,,,,
+libqt5dbus5t64,libqt5dbus5t64,libqt5dbus5t64,Qt 5 D-Bus module,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+libsm6,libsm6,libsm6,X11 Session Management library,,,1,1,,,,Section=libs; Version=2:1.2.6-1,,,,,,,
+libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libx11-6,libx11-6,libx11-6,X11 client-side library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libx11-xcb1,libx11-xcb1,libx11-xcb1,Xlib/XCB interface library,,,1,1,,,,Section=libs; Version=2:1.8.12-1,,,,,,,
+libxcb-glx0,libxcb-glx0,libxcb-glx0,"X C Binding, glx extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-icccm4,libxcb-icccm4,libxcb-icccm4,utility libraries for X C Binding -- icccm,,,1,1,,,,Section=libs; Version=0.4.2-1,,,,,,,
+libxcb-image0,libxcb-image0,libxcb-image0,utility libraries for X C Binding -- image,,,1,1,,,,Section=libs; Version=0.4.0-2+b2,,,,,,,
+libxcb-keysyms1,libxcb-keysyms1,libxcb-keysyms1,utility libraries for X C Binding -- keysyms,,,1,1,,,,Section=libs; Version=0.4.1-1,,,,,,,
+libxcb-randr0,libxcb-randr0,libxcb-randr0,"X C Binding, randr extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-render-util0,libxcb-render-util0,libxcb-render-util0,utility libraries for X C Binding -- render-util,,,1,1,,,,Section=libs; Version=0.3.10-1,,,,,,,
+libxcb-render0,libxcb-render0,libxcb-render0,"X C Binding, render extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shape0,libxcb-shape0,libxcb-shape0,"X C Binding, shape extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-shm0,libxcb-shm0,libxcb-shm0,"X C Binding, shm extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-sync1,libxcb-sync1,libxcb-sync1,"X C Binding, sync extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xfixes0,libxcb-xfixes0,libxcb-xfixes0,"X C Binding, xfixes extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xinerama0,libxcb-xinerama0,libxcb-xinerama0,"X C Binding, xinerama extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xinput0,libxcb-xinput0,libxcb-xinput0,"X C Binding, xinput extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb-xkb1,libxcb-xkb1,libxcb-xkb1,"X C Binding, XKEYBOARD extension",,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxcb1,libxcb1,libxcb1,X C Binding,,,1,1,,,,Section=libs; Version=1.17.0-2+b1,,,,,,,
+libxkbcommon-x11-0,libxkbcommon-x11-0,libxkbcommon-x11-0,library to create keymaps with the XKB X11 protocol,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+libxkbcommon0,libxkbcommon0,libxkbcommon0,library interface to the XKB compiler - shared library,,,1,1,,,,Section=libs; Version=1.7.0-2,,,,,,,
+libxrender1,libxrender1,libxrender1,X Rendering Extension client library,,,1,1,,,,Section=libs; Version=1:0.9.12-1,,,,,,,
+libqt5svg5,libqt5svg5,libqt5svg5,Qt 5 SVG module,,,1,1,,,,Section=libs; Version=5.15.15-2,,,,,,,
+qt5-gtk-platformtheme,qt5-gtk-platformtheme,qt5-gtk-platformtheme,Qt 5 GTK+ 3 platform theme,,,1,1,,,,Section=libs; Version=5.15.15+dfsg-6,,,,,,,
+qtwayland5,qtwayland5,qtwayland5,QtWayland platform plugin,,,1,1,,,,Section=libs; Version=5.15.15-3,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+gcc-14-base,gcc-14-base,gcc-14-base,"GCC, the GNU Compiler Collection (base package)",,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+,,,,,,,,,,,,libc6,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,liblcms2-2,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libopenjp2-7,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5gui5t64,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt5pdf5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libbrotli1,libfreetype6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,libfreetype6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libfreetype6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libfreetype6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libfreetype6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libjpeg62-turbo,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,liblcms2-2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libopenjp2-7,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,shared-mime-info,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdouble-conversion3,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libicu76,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpcre2-16-0,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt5core5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qttranslations5-l10n,libqt5core5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,fontconfig,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdrm2,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libegl1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfontconfig1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfreetype6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgbm1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgl1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libharfbuzz0b,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libinput10,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libjpeg62-turbo,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmd4c0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libmtdev1t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpng16-16t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5network5t64,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsm6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-6,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libx11-xcb1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-glx0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-icccm4,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-image0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-keysyms1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-randr0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render-util0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-render0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shape0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-shm0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-sync1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xfixes0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xinerama0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xinput0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb-xkb1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxcb1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon-x11-0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxkbcommon0,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxrender1,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt5gui5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5svg5,libqt5gui5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qt5-gtk-platformtheme,libqt5gui5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,qtwayland5,libqt5gui5t64,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libssl3t64,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5core5t64,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libqt5dbus5t64,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qtbase-abi-5-15-15,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libqt5network5t64,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gcc-14-base,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libstdc++6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,zlib1g,Depends,#333,1,Depends,{}

@@ -1,22 +1,22 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libsubid-dev","libsubid-dev","libsubid-dev","subordinate id handling library -- shared library","","","1","1","","","","Section=libdevel; Version=1:4.17.4-2","","","","","",""
-"libsubid5","libsubid5","libsubid5","subordinate id handling library -- shared library","","","1","1","","","","Section=libs; Version=1:4.17.4-2","","","","","",""
-"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","",""
-"libattr1","libattr1","libattr1","extended attribute handling - shared library","","","1","1","","","","Section=libs; Version=1:2.5.2-3","","","","","",""
-"libaudit1","libaudit1","libaudit1","Dynamic library for security auditing","","","1","1","","","","Section=libs; Version=1:4.0.2-2+b2","","","","","",""
-"libbsd0","libbsd0","libbsd0","utility functions from BSD systems - shared library","","","1","1","","","","Section=libs; Version=0.12.2-2","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcrypt1","libcrypt1","libcrypt1","libcrypt shared library","","","1","1","","","","Section=libs; Version=1:4.4.38-1","","","","","",""
-"libpam0g","libpam0g","libpam0g","Pluggable Authentication Modules library","","","1","1","","","","Section=libs; Version=1.7.0-5","","","","","",""
-"libselinux1","libselinux1","libselinux1","SELinux runtime shared libraries","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"libsemanage2","libsemanage2","libsemanage2","SELinux policy management library","","","1","1","","","","Section=libs; Version=3.8.1-1","","","","","",""
-"","","","","","","","","","","","","libsubid-dev","libsubid5","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libacl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libattr1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libaudit1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libbsd0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libcrypt1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libpam0g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libselinux1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsubid5","libsemanage2","Depends","#333","1","Depends","{}"
+libsubid-dev,libsubid-dev,libsubid-dev,subordinate id handling library -- shared library,,,1,1,,,,Section=libdevel; Version=1:4.17.4-2,,,,,,,
+libsubid5,libsubid5,libsubid5,subordinate id handling library -- shared library,,,1,1,,,,Section=libs; Version=1:4.17.4-2,,,,,,,
+libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
+libattr1,libattr1,libattr1,extended attribute handling - shared library,,,1,1,,,,Section=libs; Version=1:2.5.2-3,,,,,,,
+libaudit1,libaudit1,libaudit1,Dynamic library for security auditing,,,1,1,,,,Section=libs; Version=1:4.0.2-2+b2,,,,,,,
+libbsd0,libbsd0,libbsd0,utility functions from BSD systems - shared library,,,1,1,,,,Section=libs; Version=0.12.2-2,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcrypt1,libcrypt1,libcrypt1,libcrypt shared library,,,1,1,,,,Section=libs; Version=1:4.4.38-1,,,,,,,
+libpam0g,libpam0g,libpam0g,Pluggable Authentication Modules library,,,1,1,,,,Section=libs; Version=1.7.0-5,,,,,,,
+libselinux1,libselinux1,libselinux1,SELinux runtime shared libraries,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+libsemanage2,libsemanage2,libsemanage2,SELinux policy management library,,,1,1,,,,Section=libs; Version=3.8.1-1,,,,,,,
+,,,,,,,,,,,,libsubid5,libsubid-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libacl1,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libattr1,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libaudit1,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbsd0,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcrypt1,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpam0g,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libselinux1,libsubid5,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libsemanage2,libsubid5,Depends,#333,1,Depends,{}

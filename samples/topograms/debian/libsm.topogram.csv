@@ -1,23 +1,23 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libsm-dev","libsm-dev","libsm-dev","X11 Session Management library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.2.6-1","","","","","",""
-"libsm6","libsm6","libsm6","X11 Session Management library","","","1","1","","","","Section=libs; Version=2:1.2.6-1","","","","","",""
-"x11proto-dev","x11proto-dev","x11proto-dev","X11 extension protocols and auxiliary headers","","","1","1","","","","Section=x11; Version=2024.1-1","","","","","",""
-"libice-dev","libice-dev","libice-dev","X11 Inter-Client Exchange library (development headers)","","","1","1","","","","Section=libdevel; Version=2:1.1.1-1","","","","","",""
-"uuid-dev","uuid-dev","uuid-dev","Universally Unique ID library - headers and static libraries","","","1","1","","","","Section=libdevel; Version=2.41-5","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libice6","libice6","libice6","X11 Inter-Client Exchange library","","","1","1","","","","Section=libs; Version=2:1.1.1-1","","","","","",""
-"libuuid1","libuuid1","libuuid1","Universally Unique ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","",""
-"xorg-sgml-doctools","xorg-sgml-doctools","xorg-sgml-doctools","Common tools for building X.Org SGML documentation","","","1","1","","","","Section=x11; Version=1:1.11-1.1","","","","","",""
-"libc6-dev","libc6-dev","libc6-dev","GNU C Library: Development Libraries and Header Files","","","1","1","","","","Section=libdevel; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","libsm-dev","libsm6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsm-dev","x11proto-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsm-dev","libice-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsm-dev","uuid-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsm6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsm6","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libsm6","libuuid1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","x11proto-dev","xorg-sgml-doctools","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libice-dev","libice6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libice-dev","x11proto-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","uuid-dev","libc6-dev","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","uuid-dev","libuuid1","Depends","#333","1","Depends","{}"
+libsm-dev,libsm-dev,libsm-dev,X11 Session Management library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.2.6-1,,,,,,,
+libsm6,libsm6,libsm6,X11 Session Management library,,,1,1,,,,Section=libs; Version=2:1.2.6-1,,,,,,,
+x11proto-dev,x11proto-dev,x11proto-dev,X11 extension protocols and auxiliary headers,,,1,1,,,,Section=x11; Version=2024.1-1,,,,,,,
+libice-dev,libice-dev,libice-dev,X11 Inter-Client Exchange library (development headers),,,1,1,,,,Section=libdevel; Version=2:1.1.1-1,,,,,,,
+uuid-dev,uuid-dev,uuid-dev,Universally Unique ID library - headers and static libraries,,,1,1,,,,Section=libdevel; Version=2.41-5,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libice6,libice6,libice6,X11 Inter-Client Exchange library,,,1,1,,,,Section=libs; Version=2:1.1.1-1,,,,,,,
+libuuid1,libuuid1,libuuid1,Universally Unique ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
+xorg-sgml-doctools,xorg-sgml-doctools,xorg-sgml-doctools,Common tools for building X.Org SGML documentation,,,1,1,,,,Section=x11; Version=1:1.11-1.1,,,,,,,
+libc6-dev,libc6-dev,libc6-dev,GNU C Library: Development Libraries and Header Files,,,1,1,,,,Section=libdevel; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,libsm6,libsm-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,x11proto-dev,libsm-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice-dev,libsm-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,uuid-dev,libsm-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libsm6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice6,libsm6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuuid1,libsm6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,xorg-sgml-doctools,x11proto-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libice6,libice-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,x11proto-dev,libice-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6-dev,uuid-dev,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libuuid1,uuid-dev,Depends,#333,1,Depends,{}

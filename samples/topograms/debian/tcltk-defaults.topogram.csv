@@ -1,8 +1,8 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"tcl","tcl","tcl","Tool Command Language (default version) - shell","","","1","1","","","","Section=interpreters; Version=8.6.16","","","","","",""
-"tcl8.6","tcl8.6","tcl8.6","Tcl (the Tool Command Language) v8.6 - shell","","","1","1","","","","Section=interpreters; Version=8.6.16+dfsg-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libtcl8.6","libtcl8.6","libtcl8.6","Tcl (the Tool Command Language) v8.6 - run-time library files","","","1","1","","","","Section=libs; Version=8.6.16+dfsg-1","","","","","",""
-"","","","","","","","","","","","","tcl","tcl8.6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","tcl8.6","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","tcl8.6","libtcl8.6","Depends","#333","1","Depends","{}"
+tcl,tcl,tcl,Tool Command Language (default version) - shell,,,1,1,,,,Section=interpreters; Version=8.6.16,,,,,,,
+tcl8.6,tcl8.6,tcl8.6,Tcl (the Tool Command Language) v8.6 - shell,,,1,1,,,,Section=interpreters; Version=8.6.16+dfsg-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libtcl8.6,libtcl8.6,libtcl8.6,Tcl (the Tool Command Language) v8.6 - run-time library files,,,1,1,,,,Section=libs; Version=8.6.16+dfsg-1,,,,,,,
+,,,,,,,,,,,,tcl8.6,tcl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,tcl8.6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtcl8.6,tcl8.6,Depends,#333,1,Depends,{}

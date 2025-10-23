@@ -1,14 +1,14 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libmodule-runtime-perl","libmodule-runtime-perl","libmodule-runtime-perl","Perl module for runtime module handling","","","1","1","","","","Section=perl; Version=0.018-1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libparams-classify-perl","libparams-classify-perl","libparams-classify-perl","Perl module for argument type classification","","","1","1","","","","Section=perl; Version=0.015-2+b4","","","","","",""
-"libdevel-callchecker-perl","libdevel-callchecker-perl","libdevel-callchecker-perl","custom op checking attached to subroutines","","","1","1","","","","Section=perl; Version=0.009-2","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perlapi-5.40.0","perlapi-5.40.0","perlapi-5.40.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"","","","","","","","","","","","","libmodule-runtime-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libmodule-runtime-perl","libparams-classify-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libparams-classify-perl","libdevel-callchecker-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libparams-classify-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libparams-classify-perl","perlapi-5.40.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libparams-classify-perl","libc6","Depends","#333","1","Depends","{}"
+libmodule-runtime-perl,libmodule-runtime-perl,libmodule-runtime-perl,Perl module for runtime module handling,,,1,1,,,,Section=perl; Version=0.018-1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libparams-classify-perl,libparams-classify-perl,libparams-classify-perl,Perl module for argument type classification,,,1,1,,,,Section=perl; Version=0.015-2+b4,,,,,,,
+libdevel-callchecker-perl,libdevel-callchecker-perl,libdevel-callchecker-perl,custom op checking attached to subroutines,,,1,1,,,,Section=perl; Version=0.009-2,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perlapi-5.40.0,perlapi-5.40.0,perlapi-5.40.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+,,,,,,,,,,,,perl:any,libmodule-runtime-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libparams-classify-perl,libmodule-runtime-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libdevel-callchecker-perl,libparams-classify-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl,libparams-classify-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.0,libparams-classify-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libparams-classify-perl,Depends,#333,1,Depends,{}

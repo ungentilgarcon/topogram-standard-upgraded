@@ -1,10 +1,10 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"gir1.2-dbusmenu-glib-0.4","gir1.2-dbusmenu-glib-0.4","gir1.2-dbusmenu-glib-0.4","typelib file for libdbusmenu-glib4","","","1","1","","","","Section=introspection; Version=18.10.20180917~bzr492+repack1-4","","","","","",""
-"libdbusmenu-glib4","libdbusmenu-glib4","libdbusmenu-glib4","library for passing menus over DBus","","","1","1","","","","Section=libs; Version=18.10.20180917~bzr492+repack1-4","","","","","",""
-"gir1.2-gobject-2.0","gir1.2-gobject-2.0","gir1.2-gobject-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","",""
-"","","","","","","","","","","","","gir1.2-dbusmenu-glib-0.4","libdbusmenu-glib4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","gir1.2-dbusmenu-glib-0.4","gir1.2-gobject-2.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdbusmenu-glib4","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libdbusmenu-glib4","libglib2.0-0t64","Depends","#333","1","Depends","{}"
+gir1.2-dbusmenu-glib-0.4,gir1.2-dbusmenu-glib-0.4,gir1.2-dbusmenu-glib-0.4,typelib file for libdbusmenu-glib4,,,1,1,,,,Section=introspection; Version=18.10.20180917~bzr492+repack1-4,,,,,,,
+libdbusmenu-glib4,libdbusmenu-glib4,libdbusmenu-glib4,library for passing menus over DBus,,,1,1,,,,Section=libs; Version=18.10.20180917~bzr492+repack1-4,,,,,,,
+gir1.2-gobject-2.0,gir1.2-gobject-2.0,gir1.2-gobject-2.0,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libglib2.0-0t64,libglib2.0-0t64,libglib2.0-0t64,GLib library of C routines,,,1,1,,,,Section=libs; Version=2.84.4-3~deb13u1,,,,,,,
+,,,,,,,,,,,,libdbusmenu-glib4,gir1.2-dbusmenu-glib-0.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,gir1.2-gobject-2.0,gir1.2-dbusmenu-glib-0.4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libdbusmenu-glib4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglib2.0-0t64,libdbusmenu-glib4,Depends,#333,1,Depends,{}

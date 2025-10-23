@@ -1,110 +1,110 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"qemu-block-extra","qemu-block-extra","qemu-block-extra","extra block backend modules for qemu-system and qemu-utils","","","1","1","","","","Section=otherosfs; Version=1:10.0.3+ds-0+deb13u1","","","","","",""
-"libblkio1","libblkio1","libblkio1","Block device I/O library (runtime files)","","","1","1","","","","Section=libs; Version=1.5.0-2","","","","","",""
-"libbz2-1.0","libbz2-1.0","libbz2-1.0","high-quality block-sorting file compressor library - runtime","","","1","1","","","","Section=libs; Version=1.0.8-6","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libcurl3t64-gnutls","libcurl3t64-gnutls","libcurl3t64-gnutls","easy-to-use client-side URL transfer library (GnuTLS flavour)","","","1","1","","","","Section=libs; Version=8.14.1-2","","","","","",""
-"libgfapi0","libgfapi0","libgfapi0","GlusterFS gfapi shared library","","","1","1","","","","Section=libs; Version=11.1-6","","","","","",""
-"libiscsi7","libiscsi7","libiscsi7","iSCSI client shared library","","","1","1","","","","Section=libs; Version=1.20.0-4","","","","","",""
-"libnfs14","libnfs14","libnfs14","NFS client library (shared library)","","","1","1","","","","Section=libs; Version=5.0.2-1+b2","","","","","",""
-"librados2","librados2","librados2","RADOS distributed object store client library","","","1","1","","","","Section=libs; Version=18.2.7+ds-1","","","","","",""
-"librbd1","librbd1","librbd1","RADOS block device client library","","","1","1","","","","Section=libs; Version=18.2.7+ds-1","","","","","",""
-"libssh-4","libssh-4","libssh-4","tiny C SSH library (OpenSSL flavor)","","","1","1","","","","Section=libs; Version=0.11.2-1","","","","","",""
-"qemu-system-any","qemu-system-any","qemu-system-any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"libbrotli1","libbrotli1","libbrotli1","library implementing brotli encoder and decoder (shared libraries)","","","1","1","","","","Section=libs; Version=1.1.0-2+b7","","","","","",""
-"libgnutls30t64","libgnutls30t64","libgnutls30t64","GNU TLS library - main runtime library","","","1","1","","","","Section=libs; Version=3.8.9-3","","","","","",""
-"libgssapi-krb5-2","libgssapi-krb5-2","libgssapi-krb5-2","MIT Kerberos runtime libraries - krb5 GSS-API Mechanism","","","1","1","","","","Section=libs; Version=1.21.3-5","","","","","",""
-"libldap2","libldap2","libldap2","OpenLDAP libraries","","","1","1","","","","Section=libs; Version=2.6.10+dfsg-1","","","","","",""
-"libnettle8t64","libnettle8t64","libnettle8t64","low level cryptographic library (symmetric and one-way cryptos)","","","1","1","","","","Section=libs; Version=3.10.1-1","","","","","",""
-"libnghttp2-14","libnghttp2-14","libnghttp2-14","library implementing HTTP/2 protocol (shared library)","","","1","1","","","","Section=libs; Version=1.64.0-1.1","","","","","",""
-"libnghttp3-9","libnghttp3-9","libnghttp3-9","HTTP/3 library with QUIC and QPACK (library)","","","1","1","","","","Section=libs; Version=1.8.0-1","","","","","",""
-"libngtcp2-16","libngtcp2-16","libngtcp2-16","implementation of QUIC protocol (library)","","","1","1","","","","Section=libs; Version=1.11.0-1","","","","","",""
-"libngtcp2-crypto-gnutls8","libngtcp2-crypto-gnutls8","libngtcp2-crypto-gnutls8","implementation of QUIC protocol (library)","","","1","1","","","","Section=libs; Version=1.11.0-1","","","","","",""
-"libpsl5t64","libpsl5t64","libpsl5t64","Library for Public Suffix List (shared libraries)","","","1","1","","","","Section=libs; Version=0.21.2-1.1+b1","","","","","",""
-"librtmp1","librtmp1","librtmp1","toolkit for RTMP streams (shared library)","","","1","1","","","","Section=libs; Version=2.4+20151223.gitfa8646d.1-2+b5","","","","","",""
-"libssh2-1t64","libssh2-1t64","libssh2-1t64","SSH2 client-side library","","","1","1","","","","Section=libs; Version=1.11.1-1","","","","","",""
-"libzstd1","libzstd1","libzstd1","fast lossless compression algorithm","","","1","1","","","","Section=libs; Version=1.5.7+dfsg-1","","","","","",""
-"zlib1g","zlib1g","zlib1g","compression library - runtime","","","1","1","","","","Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1","","","","","",""
-"ca-certificates","ca-certificates","ca-certificates","Common CA certificates","","","1","1","","","","Section=misc; Version=20250419","","","","","",""
-"libacl1","libacl1","libacl1","access control list - shared library","","","1","1","","","","Section=libs; Version=2.3.2-2+b1","","","","","",""
-"libgfrpc0","libgfrpc0","libgfrpc0","GlusterFS libgfrpc shared library","","","1","1","","","","Section=libs; Version=11.1-6","","","","","",""
-"libgfxdr0","libgfxdr0","libgfxdr0","GlusterFS libgfxdr shared library","","","1","1","","","","Section=libs; Version=11.1-6","","","","","",""
-"libglusterfs0","libglusterfs0","libglusterfs0","GlusterFS shared library","","","1","1","","","","Section=libs; Version=11.1-6","","","","","",""
-"libtirpc3t64","libtirpc3t64","libtirpc3t64","transport-independent RPC library","","","1","1","","","","Section=libs; Version=1.3.6+ds-1","","","","","",""
-"libibverbs1","libibverbs1","libibverbs1","Library for direct userspace use of RDMA (InfiniBand/iWARP)","","","1","1","","","","Section=libs; Version=56.1-1","","","","","",""
-"librdmacm1t64","librdmacm1t64","librdmacm1t64","Library for managing RDMA connections","","","1","1","","","","Section=libs; Version=56.1-1","","","","","",""
-"libblkid1","libblkid1","libblkid1","block device ID library","","","1","1","","","","Section=libs; Version=2.41-5","","","","","",""
-"libboost-iostreams1.83.0","libboost-iostreams1.83.0","libboost-iostreams1.83.0","Boost.Iostreams Library","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","",""
-"libboost-thread1.83.0","libboost-thread1.83.0","libboost-thread1.83.0","portable C++ multi-threading","","","1","1","","","","Section=libs; Version=1.83.0-4.2","","","","","",""
-"libfmt10","libfmt10","libfmt10","fast type-safe C++ formatting library -- library","","","1","1","","","","Section=libs; Version=10.1.1+ds1-4","","","","","",""
-"libssl3t64","libssl3t64","libssl3t64","Secure Sockets Layer toolkit - shared libraries","","","1","1","","","","Section=libs; Version=3.5.1-1","","","","","",""
-"libstdc++6","libstdc++6","libstdc++6","GNU Standard C++ Library v3","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","",""
-"libcryptsetup12","libcryptsetup12","libcryptsetup12","disk encryption support - shared library","","","1","1","","","","Section=libs; Version=2:2.7.5-2","","","","","",""
-"","","","","","","","","","","","","qemu-block-extra","libblkio1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","libbz2-1.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","libcurl3t64-gnutls","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","libgfapi0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","libiscsi7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","libnfs14","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","librados2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","librbd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","libssh-4","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","qemu-block-extra","qemu-system-any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libblkio1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libblkio1","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libbz2-1.0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libbrotli1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libgnutls30t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libidn2-0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libldap2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libnettle8t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libnghttp2-14","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libnghttp3-9","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libngtcp2-16","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libngtcp2-crypto-gnutls8","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libpsl5t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","librtmp1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libssh2-1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","libzstd1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","zlib1g","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libcurl3t64-gnutls","ca-certificates","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgfapi0","libacl1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgfapi0","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgfapi0","libgfrpc0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgfapi0","libgfxdr0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgfapi0","libglusterfs0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libgfapi0","libtirpc3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libiscsi7","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libiscsi7","libibverbs1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libiscsi7","librdmacm1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libnfs14","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libblkid1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libboost-iostreams1.83.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libboost-thread1.83.0","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libfmt10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libibverbs1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","librdmacm1t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librados2","libudev1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librbd1","librados2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librbd1","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librbd1","libcryptsetup12","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librbd1","libfmt10","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librbd1","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librbd1","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","librbd1","libstdc++6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssh-4","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssh-4","libgssapi-krb5-2","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssh-4","libssl3t64","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libssh-4","zlib1g","Depends","#333","1","Depends","{}"
+qemu-block-extra,qemu-block-extra,qemu-block-extra,extra block backend modules for qemu-system and qemu-utils,,,1,1,,,,Section=otherosfs; Version=1:10.0.3+ds-0+deb13u1,,,,,,,
+libblkio1,libblkio1,libblkio1,Block device I/O library (runtime files),,,1,1,,,,Section=libs; Version=1.5.0-2,,,,,,,
+libbz2-1.0,libbz2-1.0,libbz2-1.0,high-quality block-sorting file compressor library - runtime,,,1,1,,,,Section=libs; Version=1.0.8-6,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libcurl3t64-gnutls,libcurl3t64-gnutls,libcurl3t64-gnutls,easy-to-use client-side URL transfer library (GnuTLS flavour),,,1,1,,,,Section=libs; Version=8.14.1-2,,,,,,,
+libgfapi0,libgfapi0,libgfapi0,GlusterFS gfapi shared library,,,1,1,,,,Section=libs; Version=11.1-6,,,,,,,
+libiscsi7,libiscsi7,libiscsi7,iSCSI client shared library,,,1,1,,,,Section=libs; Version=1.20.0-4,,,,,,,
+libnfs14,libnfs14,libnfs14,NFS client library (shared library),,,1,1,,,,Section=libs; Version=5.0.2-1+b2,,,,,,,
+librados2,librados2,librados2,RADOS distributed object store client library,,,1,1,,,,Section=libs; Version=18.2.7+ds-1,,,,,,,
+librbd1,librbd1,librbd1,RADOS block device client library,,,1,1,,,,Section=libs; Version=18.2.7+ds-1,,,,,,,
+libssh-4,libssh-4,libssh-4,tiny C SSH library (OpenSSL flavor),,,1,1,,,,Section=libs; Version=0.11.2-1,,,,,,,
+qemu-system-any,qemu-system-any,qemu-system-any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+libbrotli1,libbrotli1,libbrotli1,library implementing brotli encoder and decoder (shared libraries),,,1,1,,,,Section=libs; Version=1.1.0-2+b7,,,,,,,
+libgnutls30t64,libgnutls30t64,libgnutls30t64,GNU TLS library - main runtime library,,,1,1,,,,Section=libs; Version=3.8.9-3,,,,,,,
+libgssapi-krb5-2,libgssapi-krb5-2,libgssapi-krb5-2,MIT Kerberos runtime libraries - krb5 GSS-API Mechanism,,,1,1,,,,Section=libs; Version=1.21.3-5,,,,,,,
+libldap2,libldap2,libldap2,OpenLDAP libraries,,,1,1,,,,Section=libs; Version=2.6.10+dfsg-1,,,,,,,
+libnettle8t64,libnettle8t64,libnettle8t64,low level cryptographic library (symmetric and one-way cryptos),,,1,1,,,,Section=libs; Version=3.10.1-1,,,,,,,
+libnghttp2-14,libnghttp2-14,libnghttp2-14,library implementing HTTP/2 protocol (shared library),,,1,1,,,,Section=libs; Version=1.64.0-1.1,,,,,,,
+libnghttp3-9,libnghttp3-9,libnghttp3-9,HTTP/3 library with QUIC and QPACK (library),,,1,1,,,,Section=libs; Version=1.8.0-1,,,,,,,
+libngtcp2-16,libngtcp2-16,libngtcp2-16,implementation of QUIC protocol (library),,,1,1,,,,Section=libs; Version=1.11.0-1,,,,,,,
+libngtcp2-crypto-gnutls8,libngtcp2-crypto-gnutls8,libngtcp2-crypto-gnutls8,implementation of QUIC protocol (library),,,1,1,,,,Section=libs; Version=1.11.0-1,,,,,,,
+libpsl5t64,libpsl5t64,libpsl5t64,Library for Public Suffix List (shared libraries),,,1,1,,,,Section=libs; Version=0.21.2-1.1+b1,,,,,,,
+librtmp1,librtmp1,librtmp1,toolkit for RTMP streams (shared library),,,1,1,,,,Section=libs; Version=2.4+20151223.gitfa8646d.1-2+b5,,,,,,,
+libssh2-1t64,libssh2-1t64,libssh2-1t64,SSH2 client-side library,,,1,1,,,,Section=libs; Version=1.11.1-1,,,,,,,
+libzstd1,libzstd1,libzstd1,fast lossless compression algorithm,,,1,1,,,,Section=libs; Version=1.5.7+dfsg-1,,,,,,,
+zlib1g,zlib1g,zlib1g,compression library - runtime,,,1,1,,,,Section=libs; Version=1:1.3.dfsg+really1.3.1-1+b1,,,,,,,
+ca-certificates,ca-certificates,ca-certificates,Common CA certificates,,,1,1,,,,Section=misc; Version=20250419,,,,,,,
+libacl1,libacl1,libacl1,access control list - shared library,,,1,1,,,,Section=libs; Version=2.3.2-2+b1,,,,,,,
+libgfrpc0,libgfrpc0,libgfrpc0,GlusterFS libgfrpc shared library,,,1,1,,,,Section=libs; Version=11.1-6,,,,,,,
+libgfxdr0,libgfxdr0,libgfxdr0,GlusterFS libgfxdr shared library,,,1,1,,,,Section=libs; Version=11.1-6,,,,,,,
+libglusterfs0,libglusterfs0,libglusterfs0,GlusterFS shared library,,,1,1,,,,Section=libs; Version=11.1-6,,,,,,,
+libtirpc3t64,libtirpc3t64,libtirpc3t64,transport-independent RPC library,,,1,1,,,,Section=libs; Version=1.3.6+ds-1,,,,,,,
+libibverbs1,libibverbs1,libibverbs1,Library for direct userspace use of RDMA (InfiniBand/iWARP),,,1,1,,,,Section=libs; Version=56.1-1,,,,,,,
+librdmacm1t64,librdmacm1t64,librdmacm1t64,Library for managing RDMA connections,,,1,1,,,,Section=libs; Version=56.1-1,,,,,,,
+libblkid1,libblkid1,libblkid1,block device ID library,,,1,1,,,,Section=libs; Version=2.41-5,,,,,,,
+libboost-iostreams1.83.0,libboost-iostreams1.83.0,libboost-iostreams1.83.0,Boost.Iostreams Library,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
+libboost-thread1.83.0,libboost-thread1.83.0,libboost-thread1.83.0,portable C++ multi-threading,,,1,1,,,,Section=libs; Version=1.83.0-4.2,,,,,,,
+libfmt10,libfmt10,libfmt10,fast type-safe C++ formatting library -- library,,,1,1,,,,Section=libs; Version=10.1.1+ds1-4,,,,,,,
+libssl3t64,libssl3t64,libssl3t64,Secure Sockets Layer toolkit - shared libraries,,,1,1,,,,Section=libs; Version=3.5.1-1,,,,,,,
+libstdc++6,libstdc++6,libstdc++6,GNU Standard C++ Library v3,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libudev1,libudev1,libudev1,libudev shared library,,,1,1,,,,Section=libs; Version=257.8-1~deb13u1,,,,,,,
+libcryptsetup12,libcryptsetup12,libcryptsetup12,disk encryption support - shared library,,,1,1,,,,Section=libs; Version=2:2.7.5-2,,,,,,,
+,,,,,,,,,,,,libblkio1,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libbz2-1.0,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcurl3t64-gnutls,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgfapi0,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libiscsi7,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnfs14,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librados2,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librbd1,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssh-4,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,qemu-system-any,qemu-block-extra,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libblkio1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libblkio1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libbz2-1.0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libbrotli1,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgnutls30t64,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libldap2,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnettle8t64,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnghttp2-14,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libnghttp3-9,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libngtcp2-16,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libngtcp2-crypto-gnutls8,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libpsl5t64,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librtmp1,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssh2-1t64,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libzstd1,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libcurl3t64-gnutls,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,ca-certificates,libcurl3t64-gnutls,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libacl1,libgfapi0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libgfapi0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgfrpc0,libgfapi0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgfxdr0,libgfapi0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libglusterfs0,libgfapi0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libtirpc3t64,libgfapi0,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libiscsi7,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libibverbs1,libiscsi7,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librdmacm1t64,libiscsi7,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libnfs14,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libblkid1,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libboost-iostreams1.83.0,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libboost-thread1.83.0,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfmt10,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libibverbs1,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librdmacm1t64,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libudev1,librados2,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,librados2,librbd1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,librbd1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libcryptsetup12,librbd1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libfmt10,librbd1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,librbd1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,librbd1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libstdc++6,librbd1,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libssh-4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgssapi-krb5-2,libssh-4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libssl3t64,libssh-4,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,zlib1g,libssh-4,Depends,#333,1,Depends,{}

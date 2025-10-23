@@ -1,23 +1,23 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"libaudio-xmmsclient-perl","libaudio-xmmsclient-perl","libaudio-xmmsclient-perl","XMMS2 - Perl client library","","","1","1","","","","Section=perl; Version=0.8+dfsg-28+b1","","","","","",""
-"perl","perl","perl","Larry Wall's Practical Extraction and Report Language","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perlapi-5.40.1","perlapi-5.40.1","perlapi-5.40.1","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libxmmsclient6","libxmmsclient6","libxmmsclient6","XMMS2 - client library","","","1","1","","","","Section=libs; Version=0.8+dfsg-28+b1","","","","","",""
-"perl-base","perl-base","perl-base","minimal Perl system","","","1","1","","","","Section=perl; Version=5.40.1-6","","","","","",""
-"perl-modules-5.40","perl-modules-5.40","perl-modules-5.40","Core Perl modules","","","1","1","","","","Section=libs; Version=5.40.1-6","","","","","",""
-"libperl5.40","libperl5.40","libperl5.40","shared Perl library","","","1","1","","","","Section=libs; Version=5.40.1-6","","","","","",""
-"netbase","netbase","netbase","Basic TCP/IP networking system","","","1","1","","","","Section=admin; Version=6.5","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"","","","","","","","","","","","","libaudio-xmmsclient-perl","perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libaudio-xmmsclient-perl","perlapi-5.40.1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libaudio-xmmsclient-perl","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libaudio-xmmsclient-perl","libxmmsclient6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","perl","perl-base","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","perl","perl-modules-5.40","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","perl","libperl5.40","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","perl","netbase","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libxmmsclient6","libc6","Depends","#333","1","Depends","{}"
+libaudio-xmmsclient-perl,libaudio-xmmsclient-perl,libaudio-xmmsclient-perl,XMMS2 - Perl client library,,,1,1,,,,Section=perl; Version=0.8+dfsg-28+b1,,,,,,,
+perl,perl,perl,Larry Wall's Practical Extraction and Report Language,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perlapi-5.40.1,perlapi-5.40.1,perlapi-5.40.1,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libxmmsclient6,libxmmsclient6,libxmmsclient6,XMMS2 - client library,,,1,1,,,,Section=libs; Version=0.8+dfsg-28+b1,,,,,,,
+perl-base,perl-base,perl-base,minimal Perl system,,,1,1,,,,Section=perl; Version=5.40.1-6,,,,,,,
+perl-modules-5.40,perl-modules-5.40,perl-modules-5.40,Core Perl modules,,,1,1,,,,Section=libs; Version=5.40.1-6,,,,,,,
+libperl5.40,libperl5.40,libperl5.40,shared Perl library,,,1,1,,,,Section=libs; Version=5.40.1-6,,,,,,,
+netbase,netbase,netbase,Basic TCP/IP networking system,,,1,1,,,,Section=admin; Version=6.5,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+,,,,,,,,,,,,perl,libaudio-xmmsclient-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perlapi-5.40.1,libaudio-xmmsclient-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,libaudio-xmmsclient-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libxmmsclient6,libaudio-xmmsclient-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl-base,perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl-modules-5.40,perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libperl5.40,perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,netbase,perl,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libxmmsclient6,Depends,#333,1,Depends,{}

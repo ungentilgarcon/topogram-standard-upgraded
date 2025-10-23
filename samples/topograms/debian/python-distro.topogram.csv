@@ -1,6 +1,6 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"python3-distro","python3-distro","python3-distro","Linux OS platform information API","","","1","1","","","","Section=python; Version=1.9.0-1","","","","","",""
-"lsb-release","lsb-release","lsb-release","Linux Standard Base version reporting utility (minimal implementation)","","","1","1","","","","Section=misc; Version=12.1-1","","","","","",""
-"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"","","","","","","","","","","","","python3-distro","lsb-release","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","python3-distro","python3:any","Depends","#333","1","Depends","{}"
+python3-distro,python3-distro,python3-distro,Linux OS platform information API,,,1,1,,,,Section=python; Version=1.9.0-1,,,,,,,
+lsb-release,lsb-release,lsb-release,Linux Standard Base version reporting utility (minimal implementation),,,1,1,,,,Section=misc; Version=12.1-1,,,,,,,
+python3:any,python3:any,python3:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+,,,,,,,,,,,,lsb-release,python3-distro,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,python3:any,python3-distro,Depends,#333,1,Depends,{}

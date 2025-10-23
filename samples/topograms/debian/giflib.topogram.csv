@@ -1,15 +1,15 @@
 id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,extra
-"giflib-tools","giflib-tools","giflib-tools","library for GIF images (utilities)","","","1","1","","","","Section=utils; Version=5.2.2-1+b1","","","","","",""
-"libperl4-corelibs-perl","libperl4-corelibs-perl","libperl4-corelibs-perl","libraries historically supplied with Perl 4","","","1","1","","","","Section=perl; Version=0.005-1","","","","","",""
-"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","",""
-"libgif7","libgif7","libgif7","library for GIF images (library)","","","1","1","","","","Section=libs; Version=5.2.2-1+b1","","","","","",""
-"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","",""
-"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","",""
-"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","",""
-"","","","","","","","","","","","","giflib-tools","libperl4-corelibs-perl","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","giflib-tools","libc6","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","giflib-tools","libgif7","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libperl4-corelibs-perl","perl:any","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","{}"
-"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","{}"
-"","","","","","","","","","","","","libgif7","libc6","Depends","#333","1","Depends","{}"
+giflib-tools,giflib-tools,giflib-tools,library for GIF images (utilities),,,1,1,,,,Section=utils; Version=5.2.2-1+b1,,,,,,,
+libperl4-corelibs-perl,libperl4-corelibs-perl,libperl4-corelibs-perl,libraries historically supplied with Perl 4,,,1,1,,,,Section=perl; Version=0.005-1,,,,,,,
+libc6,libc6,libc6,GNU C Library: Shared libraries,,,1,1,,,,Section=libs; Version=2.41-12,,,,,,,
+libgif7,libgif7,libgif7,library for GIF images (library),,,1,1,,,,Section=libs; Version=5.2.2-1+b1,,,,,,,
+perl:any,perl:any,perl:any,unknown,,,1,1,,,,missing in Packages file,,,,,,,
+libgcc-s1,libgcc-s1,libgcc-s1,GCC support library,,,1,1,,,,Section=libs; Version=14.2.0-19,,,,,,,
+libidn2-0,libidn2-0,libidn2-0,Internationalized domain names (IDNA2008/TR46) library,,,1,1,,,,Section=libs; Version=2.3.8-2,,,,,,,
+,,,,,,,,,,,,libperl4-corelibs-perl,giflib-tools,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libc6,giflib-tools,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgif7,giflib-tools,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,perl:any,libperl4-corelibs-perl,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libgcc-s1,libc6,Depends,#333,1,Depends,{}
+,,,,,,,,,,,,libidn2-0,libc6,Recommends,#333,1,Recommends,{}
+,,,,,,,,,,,,libc6,libgif7,Depends,#333,1,Depends,{}
