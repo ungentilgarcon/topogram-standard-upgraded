@@ -69,7 +69,7 @@ Meteor.call('topograms.folderCounts', (_, list) => setFolderList(list))
 The Debian ingestion workflow uses `scripts/import_topograms_folder.py` which shells to `mongosh` for inserts. Key flags:
 
 ```
---dir <path>            # required — folder containing .topogram.csv files
+--dir <path>            # required — folder containing .topogram.csv/.topogram.xlsx/.topogram.ods files
 --folder <label>        # optional — explicit folder label (defaults to directory name)
 --clean-folder <label>  # optional — delete all docs for a folder before import
 --commit                # perform writes (omit to dry-run)
@@ -78,4 +78,9 @@ The Debian ingestion workflow uses `scripts/import_topograms_folder.py` which sh
 --port <number>         # alternate to mongo-url, e.g., 27017
 ```
 
-The script normalizes direction fields and ensures edge arrowheads are present when declared in the CSV (`enlightement = 'arrow'`).
+The script normalizes direction fields and ensures edge arrowheads are present when declared in the CSV (`enlightement = 'arrow'`). For spreadsheets (`.xlsx`, `.ods`), it will parse the first sheet by default, or, if present, dedicated sheets named `Nodes` and `Edges`.
+
+### Import UI (inside Meteor)
+
+- The user-facing import modal accepts CSV, XLSX, and ODS. Non-CSV files are uploaded directly and parsed server-side. CSV is lightly validated client-side.
+- Server import job detects the format by file extension and parses with Papa Parse (CSV) or SheetJS (XLSX/ODS). If an XLSX/ODS has `Nodes` and `Edges` sheets, both are ingested; otherwise the first sheet is treated as a unified rows table (edges are rows with `source`/`target`).

@@ -46,7 +46,11 @@ def find_topogram_files(root):
     rootp = Path(root)
     if not rootp.exists():
         raise SystemExit(f"Folder not found: {root}")
-    return sorted([str(p) for p in rootp.rglob('*.topogram.csv')])
+    patterns = ['*.topogram.csv', '*.topogram.xlsx', '*.topogram.ods']
+    out = []
+    for pat in patterns:
+        out.extend([str(p) for p in rootp.rglob(pat)])
+    return sorted(out)
 
 
 def parse_topogram_csv(path):
@@ -149,6 +153,96 @@ def parse_topogram_csv(path):
                 node['weight'] = weight
             nodes.append(node)
     return nodes, edges
+
+
+def parse_topogram_spreadsheet(path):
+    ext = Path(path).suffix.lower()
+    nodes, edges = [], []
+    # Try to use openpyxl for .xlsx and pyexcel_ods3 for .ods
+    if ext == '.xlsx':
+        try:
+            import openpyxl  # type: ignore
+        except Exception:
+            print(f"[WARN] openpyxl not installed; skipping {path} (pip install openpyxl)")
+            return nodes, edges
+        wb = openpyxl.load_workbook(path, read_only=True, data_only=True)
+        names = wb.sheetnames
+        lower = [n.lower() for n in names]
+        def sheet_to_rows(sh):
+            data = []
+            it = sh.iter_rows(values_only=True)
+            try:
+                header = next(it)
+            except StopIteration:
+                return data
+            header = [(str(c).strip() if c is not None else '') for c in header]
+            for row in it:
+                obj = {}
+                for i, h in enumerate(header):
+                    if not h:
+                        continue
+                    val = row[i] if i < len(row) else ''
+                    obj[h] = '' if val is None else val
+                if any(str(v).strip() for v in obj.values()):
+                    data.append(obj)
+            return data
+        if 'nodes' in lower or 'edges' in lower:
+            if 'nodes' in lower:
+                sh = wb[names[lower.index('nodes')]]
+                nodes = sheet_to_rows(sh)
+            if 'edges' in lower:
+                sh = wb[names[lower.index('edges')]]
+                edges = sheet_to_rows(sh)
+        elif names:
+            sh = wb[names[0]]
+            rows = sheet_to_rows(sh)
+            for r in rows:
+                keys = [k.lower() for k in r.keys()]
+                if 'source' in keys or 'target' in keys or 'from' in keys or 'to' in keys:
+                    edges.append(r)
+                else:
+                    nodes.append(r)
+        return nodes, edges
+    elif ext == '.ods':
+        try:
+            from pyexcel_ods3 import get_data  # type: ignore
+        except Exception:
+            print(f"[WARN] pyexcel-ods3 not installed; skipping {path} (pip install pyexcel-ods3)")
+            return nodes, edges
+        data = get_data(path)
+        names = list(data.keys())
+        lower = [n.lower() for n in names]
+        def rows_from_array(arr):
+            rows = []
+            if not arr:
+                return rows
+            header = [(str(c).strip() if c is not None else '') for c in (arr[0] or [])]
+            for r in arr[1:]:
+                obj = {}
+                for i, h in enumerate(header):
+                    if not h:
+                        continue
+                    val = r[i] if i < len(r) else ''
+                    obj[h] = '' if val is None else val
+                if any(str(v).strip() for v in obj.values()):
+                    rows.append(obj)
+            return rows
+        if 'nodes' in lower or 'edges' in lower:
+            if 'nodes' in lower:
+                nodes = rows_from_array(data[names[lower.index('nodes')]])
+            if 'edges' in lower:
+                edges = rows_from_array(data[names[lower.index('edges')]])
+        elif names:
+            rows = rows_from_array(data[names[0]])
+            for r in rows:
+                keys = [k.lower() for k in r.keys()]
+                if 'source' in keys or 'target' in keys or 'from' in keys or 'to' in keys:
+                    edges.append(r)
+                else:
+                    nodes.append(r)
+        return nodes, edges
+    else:
+        return nodes, edges
 
 
 def mongo_insert(target, js_expr, dry_run=True):
@@ -357,7 +451,10 @@ def main():
     total_edges = 0
     for fp in files:
         print('Parsing', fp)
-        nodes, edges = parse_topogram_csv(fp)
+        if fp.lower().endswith('.csv'):
+            nodes, edges = parse_topogram_csv(fp)
+        else:
+            nodes, edges = parse_topogram_spreadsheet(fp)
         print(f'  parsed nodes={len(nodes)}, edges={len(edges)}')
         total_nodes += len(nodes)
         total_edges += len(edges)

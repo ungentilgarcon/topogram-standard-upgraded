@@ -31,6 +31,12 @@ Pagination, Debian import workflow, and folder ergonomics.
 - Added minimal pagination controls and CSS; folder cards no longer stretch awkwardly.
 - Export dialog: added basic defaults and sanitization helper used for bundle ids.
 
+### Import formats (CSV → CSV/XLSX/ODS)
+- Import modal now accepts CSV, XLSX, and ODS. CSV is lightly validated client-side; spreadsheets are uploaded as binary and parsed server-side.
+- Server import job detects extension and uses Papa Parse for CSV and SheetJS for XLSX/ODS. If a workbook contains `Nodes` and `Edges` sheets, both are ingested; otherwise the first sheet is treated as a unified table.
+- Builder page can now open `.xlsx` and `.ods` files directly for preview/mapping, in addition to CSV/JSON.
+- CLI `scripts/import_topograms_folder.py` supports `.topogram.xlsx` and `.topogram.ods` alongside `.topogram.csv` (requires Python `openpyxl` for XLSX and `pyexcel-ods3` for ODS).
+
 ### Notes
 - Requires a Meteor server restart to pick up new publications and methods after pulling this branch.
 - Home debug panel shows subscription readiness and the number of non-folder items currently in the client cache.

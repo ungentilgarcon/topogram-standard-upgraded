@@ -2,6 +2,7 @@ import { Meteor } from 'meteor/meteor'
 import { Jobs } from '/imports/api/Jobs'
 import fs from 'fs'
 import Papa from 'papaparse'
+import XLSX from 'xlsx'
 import { Topograms, Nodes, Edges } from '/imports/api/collections'
 
 // Small helper to decode UTF-7 sequences (e.g. LibreOffice CSV exports
@@ -61,26 +62,57 @@ const processJob = async (job) => {
   await Jobs.updateAsync(job._id, { $set: { status: 'running', startedAt: new Date() } })
 
   try {
-    const fileText = fs.readFileSync(tmpPath, { encoding: 'utf8' })
-    let parsed = Papa.parse(fileText, { header: true, skipEmptyLines: true, comments: '#' })
-    // tolerate 'TooFewFields' by reparsing and padding rows
-    const hasFieldMismatch = parsed && parsed.errors && parsed.errors.some(e => e && e.code === 'TooFewFields')
-    if (hasFieldMismatch) {
-      const raw = Papa.parse(fileText, { header: false, skipEmptyLines: true, comments: '#' })
-      const rowsAll = raw && raw.data ? raw.data : []
-      if (rowsAll.length >= 2) {
-        const header = rowsAll[0]
-        const dataRows = rowsAll.slice(1).map(r => {
-          const row = Array.isArray(r) ? r.slice() : []
-          while (row.length < header.length) row.push('')
-          const obj = {}
-          for (let i = 0; i < header.length; i++) obj[header[i]] = row[i]
-          return obj
-        })
-        parsed = { data: dataRows, errors: [] }
+    const ext = (filename && filename.includes('.')) ? filename.split('.').pop().toLowerCase() : ''
+    const isSpreadsheet = ['xlsx','xls','ods'].includes(ext)
+    const fileBuf = fs.readFileSync(tmpPath)
+    let rows = []
+
+    if (isSpreadsheet) {
+      // Parse with SheetJS; prefer dedicated nodes/edges sheets if present
+      const wb = XLSX.read(fileBuf, { type: 'buffer' })
+      const names = wb.SheetNames || []
+      const lower = names.map(n => (n || '').toString())
+      const idxNodes = lower.findIndex(n => n.toLowerCase() === 'nodes')
+      const idxEdges = lower.findIndex(n => n.toLowerCase() === 'edges')
+      if (idxNodes !== -1 || idxEdges !== -1) {
+        if (idxNodes !== -1) {
+          const sh = wb.Sheets[names[idxNodes]]
+          const data = XLSX.utils.sheet_to_json(sh, { defval: '' })
+          rows.push(...data)
+        }
+        if (idxEdges !== -1) {
+          const sh = wb.Sheets[names[idxEdges]]
+          const data = XLSX.utils.sheet_to_json(sh, { defval: '' })
+          rows.push(...data.map(r => ({ ...r, __forceEdge: true })))
+        }
+      } else if (names.length) {
+        const sh = wb.Sheets[names[0]]
+        const data = XLSX.utils.sheet_to_json(sh, { defval: '' })
+        rows = data
       }
+    } else {
+      // CSV / text path
+      const fileText = fileBuf.toString('utf8')
+      let parsed = Papa.parse(fileText, { header: true, skipEmptyLines: true, comments: '#' })
+      // tolerate 'TooFewFields' by reparsing and padding rows
+      const hasFieldMismatch = parsed && parsed.errors && parsed.errors.some(e => e && e.code === 'TooFewFields')
+      if (hasFieldMismatch) {
+        const raw = Papa.parse(fileText, { header: false, skipEmptyLines: true, comments: '#' })
+        const rowsAll = raw && raw.data ? raw.data : []
+        if (rowsAll.length >= 2) {
+          const header = rowsAll[0]
+          const dataRows = rowsAll.slice(1).map(r => {
+            const row = Array.isArray(r) ? r.slice() : []
+            while (row.length < header.length) row.push('')
+            const obj = {}
+            for (let i = 0; i < header.length; i++) obj[header[i]] = row[i]
+            return obj
+          })
+          parsed = { data: dataRows, errors: [] }
+        }
+      }
+      rows = parsed.data || []
     }
-    let rows = parsed.data || []
     // If LibreOffice exported modified UTF-7 like +...- sequences in any cell,
     // decode those segments across all fields so subsequent normalization
     // (emoji extraction, etc.) sees proper Unicode.
@@ -102,7 +134,7 @@ const processJob = async (job) => {
     const nodes = []
     const edges = []
     rows.forEach((r, idx) => {
-      const hasEdge = r.source || r.target || r.from || r.to
+      const hasEdge = r.__forceEdge || r.source || r.target || r.from || r.to
       if (hasEdge) {
         edges.push(r)
       } else {
