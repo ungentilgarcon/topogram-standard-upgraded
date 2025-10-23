@@ -144,3 +144,22 @@
   color: var(--green-900);
 }
 .topogram-page h1 { color: var(--green-900); }
+
+/* Folder header and folder card styles */
+.folder-header { display:flex; align-items:center; gap:12px; cursor:pointer; padding:8px; }
+.folder-icon { font-size:22px; display:inline-block; width:28px; text-align:center }
+.folder-meta { display:flex; flex-direction:column }
+.folder-name { font-size:16px }
+.folder-count { color:var(--muted); font-size:13px }
+.folder-contents { margin-top:12px; display:grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap:12px }
+.folder-card { background: white; border-left: 6px solid var(--green-300); padding:12px; border-radius:10px; box-shadow:0 6px 18px rgba(16,88,56,0.04) }
+.folder-card .topogram-link { font-size:15px }
+
+/* Debug panel styles */
+.folder-debug-panel { margin-top:18px; padding:12px; background:rgba(255,255,255,0.9); border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.08); font-size:13px; color:var(--green-900); }
+.debug-header { display:flex; justify-content:space-between; align-items:center; }
+.debug-hide { border:none; background:transparent; color:var(--green-700); cursor:pointer; font-weight:600; }
+.debug-hide:hover { text-decoration:underline; }
+.debug-body { margin-top:8px; display:grid; gap:4px; }
+.debug-details { margin-top:8px; }
+.debug-details pre { max-height:260px; overflow:auto; background:#f3f8f5; padding:8px; border-radius:8px; }
