@@ -45,7 +45,8 @@ export default function Home() {
   // Pagination state for the main list
   const PER_PAGE_ALL = 200
   const [pageAll, setPageAll] = useState(1)
-  const isReady = useSubscribe('topograms.paginated', useMemo(() => ({ page: pageAll, limit: PER_PAGE_ALL }), [pageAll]))
+  // Subscribe only to topograms without any folder for the main list
+  const isReady = useSubscribe('topograms.paginated', useMemo(() => ({ noFolder: true, page: pageAll, limit: PER_PAGE_ALL }), [pageAll]))
   const tops = useFind(() => Topograms.find({}, { sort: { createdAt: -1 } }));
   const [totalAll, setTotalAll] = useState(0)
   const [importModalOpen, setImportModalOpen] = useState(false)
@@ -232,7 +233,8 @@ export default function Home() {
 
   // Fetch total count for pagination (main list)
   useEffect(() => {
-    Meteor.call('topograms.count', {}, (err, res) => {
+    // Count only documents without a folder for the main list pagination
+    Meteor.call('topograms.count', { noFolder: true }, (err, res) => {
       if (err) return console.warn('topograms.count failed', err)
       setTotalAll(res || 0)
     })
@@ -522,7 +524,7 @@ export default function Home() {
               </div>
               <div className="debug-body">
                 <div><strong>Subscription ready:</strong> {String(isReady())}</div>
-                <div><strong>topsList.length:</strong> {topsList.length}</div>
+                <div><strong>topsList.length:</strong> {topsList.length} <small>(no-folder shown: {noFolder.length})</small></div>
                 <div><strong>Folders:</strong> {folderList.map(f => f.name).join(', ') || '(none)'}</div>
               </div>
               <details className="debug-details">

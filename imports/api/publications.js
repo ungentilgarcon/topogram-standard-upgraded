@@ -60,14 +60,20 @@ Meteor.publish('allTopograms', function allTopograms() {
   return Topograms.find({}, { sort: { createdAt: -1 }, limit: 200 })
 })
 
-// Paginated topograms publication with optional folder filter
+// Paginated topograms publication with optional folder or no-folder filter
 Meteor.publish('topograms.paginated', function topogramsPaginated(options = {}) {
-  const { folder = null, page = 1, limit = 200 } = options || {}
+  const { folder = null, noFolder = false, page = 1, limit = 200 } = options || {}
   const safeLimit = Math.max(1, Math.min(parseInt(limit) || 1, 500))
   const safePage = Math.max(1, parseInt(page) || 1)
   const skip = (safePage - 1) * safeLimit
-  const query = folder ? { folder } : {}
-  console.debug && console.debug('topograms.paginated', { folder, page: safePage, limit: safeLimit, skip })
+  let query = {}
+  if (folder) {
+    query = { folder }
+  } else if (noFolder) {
+    // match docs where folder is missing, null or empty string
+    query = { $or: [ { folder: { $exists: false } }, { folder: null }, { folder: '' } ] }
+  }
+  console.debug && console.debug('topograms.paginated', { folder, noFolder, page: safePage, limit: safeLimit, skip })
   return Topograms.find(query, { sort: { createdAt: -1 }, limit: safeLimit, skip })
 })
 

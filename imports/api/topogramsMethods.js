@@ -2,8 +2,10 @@ import { Meteor } from 'meteor/meteor'
 import { Topograms } from './collections'
 
 Meteor.methods({
-  async 'topograms.count'({ folder } = {}) {
-    const query = folder ? { folder } : {}
+  async 'topograms.count'({ folder, noFolder } = {}) {
+    let query = {}
+    if (folder) query = { folder }
+    else if (noFolder) query = { $or: [ { folder: { $exists: false } }, { folder: null }, { folder: '' } ] }
     try {
       const col = Topograms.rawCollection()
       return await col.countDocuments(query)
