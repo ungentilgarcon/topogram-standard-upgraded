@@ -65,7 +65,7 @@ The server automatically provisions or updates an administrative user during sta
   ```
 
 ## Authentication and imports
-- The user-facing CSV import UI (`ImportCsvModal`) invokes the Meteor method `topogram.enqueueCsvImport`, which requires a logged-in user. Anonymous users receive `Meteor.Error('unauthorized', 'Must be logged in to import')`.
+- The user-facing import UI (`ImportCsvModal`) accepts CSV, XLSX, and ODS and invokes the Meteor method `topogram.enqueueCsvImport`, which requires a logged-in user. Anonymous users receive `Meteor.Error('unauthorized', 'Must be logged in to import')`.
 - The Python helper `import_topograms_folder.py` bypasses Meteor methods and writes directly to MongoDB. Use it only for trusted migration tasks and ensure it targets the same database instance that the app uses (match `MONGO_URL` vs `--port` or `.meteor/local`).
 
 ### Edge metadata and arrows
@@ -80,7 +80,7 @@ The server automatically provisions or updates an administrative user during sta
 - Ensure your shell user belongs to the `docker` group before invoking `docker` commands without `sudo` (`sudo groupadd docker`, `sudo usermod -aG docker $USER`, then re-login).
 
 ## Related scripts and references
-- `scripts/import_topograms_folder.py` — bulk importer for `.topogram.csv` datasets.
+- `scripts/import_topograms_folder.py` — bulk importer for `.topogram.csv`, `.topogram.xlsx`, and `.topogram.ods` datasets.
 - `scripts/export_meteor_mongo.sh` — exports all Meteor collections to gzipped JSONL files.
 - `imports/api/adminMethods.js` — admin-only Meteor methods (delete topograms, admin checks).
 - `imports/startup/server/accounts.js` — admin auto-creation and password update logic.
