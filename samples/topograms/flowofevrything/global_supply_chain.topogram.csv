@@ -1,0 +1,27 @@
+# Topogram: Global Supply Chain Graph of Everything (Smartphone sketch)
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra
+site-lithium-chile,Salar de Atacama (Lithium Mine),Salar de Atacama,Lithium brine extraction in Chile,#ff9800,#ffe0b2,10,10,-23.5,-68.3,,,,,,,,,,,,⛏️,
+site-cobalt-drc,Kolwezi (Cobalt Mine),Kolwezi,Cobalt extraction in DRC,#ff9800,#ffe0b2,8,8,-10.716,25.467,,,,,,,,,,,,⛏️,
+site-nickel-indo,Sulawesi (Nickel Mine),Sulawesi,Nickel extraction in Indonesia,#ff9800,#ffe0b2,9,9,-2.0,122.0,,,,,,,,,,,,⛏️,
+port-valparaiso,Port of Valparaiso,Valparaiso,Export hub for lithium shipments,#2196f3,#bbdefb,6,6,-33.035,-71.629,,,,,,,,,,,,🛳️,
+port-durban,Port of Durban,Durban,Export hub for cobalt shipments,#2196f3,#bbdefb,6,6,-29.871,31.045,,,,,,,,,,,,🛳️,
+port-tanjung-priok,Port of Tanjung Priok,Jakarta (Tanjung Priok),Export hub for nickel shipments,#2196f3,#bbdefb,6,6,-6.104,106.885,,,,,,,,,,,,🛳️,
+port-shanghai,Port of Shanghai,Shanghai,Major transshipment hub for raw materials,#2196f3,#bbdefb,12,12,31.230,121.473,,,,,,,,,,,,🛳️,
+factory-battery-shenzhen,Battery Plant (Shenzhen),Battery Plant,Cell and module manufacturing,#4caf50,#c8e6c9,15,15,22.543,114.057,,,,,,,,,,,,🏭,
+factory-assembly-shenzhen,Phone Assembly (Shenzhen),Assembly Factory,Final smartphone assembly,#4caf50,#c8e6c9,20,20,22.543,114.057,,,,,,,,,,,,🏭,
+port-yantian,Port of Yantian (Shenzhen),Yantian,Export terminal for finished goods,#2196f3,#bbdefb,10,10,22.561,114.278,,,,,,,,,,,,🛳️,
+port-losangeles,Port of Los Angeles,Los Angeles,US import gateway,#2196f3,#bbdefb,10,10,33.740,-118.271,,,,,,,,,,,,🛳️,
+retail-nyc,Flagship Retail (NYC),Retail,Urban retail outlet,#9c27b0,#e1bee7,5,5,40.756,-73.990,,,,,,,,,,,,🛍️,
+consumer-nyc,Consumer (NYC),Consumer,End customer in NYC,#616161,#eeeeee,1,1,40.7128,-74.0060,,,,,,,,,,,,🙂,
+,,,,,,,,,,,,,site-lithium-chile,port-valparaiso,export lithium ore,#795548,50,export lithium ore,arrow,,truck/rail
+,,,,,,,,,,,,,port-valparaiso,port-shanghai,lithium shipment (sea),#3f51b5,50,lithium shipment,arrow,,container ship
+,,,,,,,,,,,,,site-cobalt-drc,port-durban,export cobalt,#795548,30,export cobalt,arrow,,truck/rail
+,,,,,,,,,,,,,port-durban,port-shanghai,cobalt shipment (sea),#3f51b5,30,cobalt shipment,arrow,,container ship
+,,,,,,,,,,,,,site-nickel-indo,port-tanjung-priok,export nickel,#795548,40,export nickel,arrow,,truck/rail
+,,,,,,,,,,,,,port-tanjung-priok,port-shanghai,nickel shipment (sea),#3f51b5,40,nickel shipment,arrow,,container ship
+,,,,,,,,,,,,,port-shanghai,factory-battery-shenzhen,raw materials to battery plant,#607d8b,100,feedstock transfer,arrow,,feeder
+,,,,,,,,,,,,,factory-battery-shenzhen,factory-assembly-shenzhen,battery modules,#009688,100,battery modules,arrow,,line haul
+,,,,,,,,,,,,,factory-assembly-shenzhen,port-yantian,export smartphones,#9c27b0,200,export finished goods,arrow,,truck
+,,,,,,,,,,,,,port-yantian,port-losangeles,trans-pacific shipment,#2196f3,200,trans-pacific,arrow,,container ship
+,,,,,,,,,,,,,port-losangeles,retail-nyc,domestic logistics,#8bc34a,150,domestic distribution,arrow,,rail/truck
+,,,,,,,,,,,,,retail-nyc,consumer-nyc,purchase,#9e9e9e,1,purchase,arrow,,last mile

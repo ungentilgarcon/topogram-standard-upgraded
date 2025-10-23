@@ -1,0 +1,3 @@
+# Ignore editor/office lock files and temporary documents
+.~lock.*#
+*.odt

@@ -1,0 +1,68 @@
+﻿ 1. The Global Supply Chain Graph of Everything
+Idea:
+A live network showing how every major consumer product’s components move across the world — linking mines, factories, ports, and retailers.
+Why it’s astonishing:
+You’d see the hidden web of globalization — how a phone connects lithium mines in Chile to factories in Shenzhen to customers in New York.
+Each node = production site; edges = transport routes; color = industry sector.
+Data sources:
+    • UN Comtrade dataset (global trade flows)
+    • AIS (ship tracking) data
+    • Company supply-chain disclosures (e.g., Apple, Tesla, IKEA reports)
+    • OpenStreetMap for geolocation
+Wow factor:
+Animate it through time to see shocks (pandemic, Suez Canal blockage) ripple through the network.
+
+
+1. TRADE FLOWS (Edges Between Countries or Companies)
+These give you the macroscopic network — who trades with whom, and what they trade.
+🔹 Global trade datasets
+Source Description Access
+UN Comtrade The go-to source for global import/export data (by HS code, value, volume). Can trace flow of goods between any two countries. https://comtradeplus.un.org/
+OECD Trade in Value Added (TiVA) Links trade flows to value-added chains (shows how production is globally fragmented). https://stats.oecd.org/
+World Input-Output Database (WIOD) Connects industries and countries through input–output tables. Ideal for modeling dependencies between sectors. http://www.wiod.org/
+BACI (by CEPII) Harmonized version of Comtrade with improved consistency. https://www.cepii.fr/CEPII/en/bdd_modele/presentation.asp?id=37
+ITC Trade Map Visual trade flows and product breakdowns (limited open access). https://www.trademap.org/
+🏭 2. COMPANY-LEVEL SUPPLY CHAINS (Micro-Level Network)
+These datasets and disclosures link specific firms and their suppliers — crucial for connecting trade data to real-world companies and facilities.
+🔹 Corporate disclosures
+Source Description Access
+Open Supply Hub (formerly Open Apparel Registry) Open database of manufacturing facilities across industries (textiles, agriculture, etc.) with company ownership links. https://opensupplyhub.org/
+Refinitiv / FactSet supply-chain data Proprietary, but subsets are public via research collaborations. Shows supplier-customer relationships. Paid / API
+Apple, Tesla, IKEA Supplier Lists Many large firms publish supplier names and locations for transparency. Corporate websites
+CDP Supply Chain Program Companies self-report environmental impacts and supply chain links. https://www.cdp.net/
+U.S. SEC Filings (10-K, 20-F) Contain partial supplier information and logistics dependencies. https://www.sec.gov/edgar/search/
+🚢 3. LOGISTICS AND TRANSPORT (Edges = Real Shipments)
+This layer animates the network — how goods physically move across the world.
+🔹 Maritime & Air Transport
+Source Description Access
+MarineTraffic AIS / AISHub Real-time ship tracking via AIS data — vessel routes, cargo types, ports. https://www.marinetraffic.com/
+UNCTAD Port Calls Dataset Aggregated AIS data by port, showing trade intensity. https://unctadstat.unctad.org/
+OpenSky Network Open air traffic data — could link to air cargo movements. https://opensky-network.org/
+World Port Index (NOAA/NGA) Master list of global ports with location and characteristics. https://msi.nga.mil/Publications/WPI
+🗺️ 4. GEOLOCATION AND MAPPING (Coordinates & Context)
+To plot facilities, routes, and flows on a map.
+Source Description Access
+OpenStreetMap (OSM) Base map and geocoding of industrial sites, ports, roads, railways. https://www.openstreetmap.org/
+GeoNames Global database of place names and coordinates. https://www.geonames.org/
+Natural Earth / GADM Country and region boundaries for visualization. https://www.naturalearthdata.com/
+♻️ 5. MATERIAL FLOWS & INDUSTRIAL ECOLOGY
+For mapping how materials transform across the supply chain (e.g., lithium → battery → EV).
+Source Description Access
+Material Flow Analysis (UNEP IRP) Global datasets on flows of raw materials and resources. https://www.resourcepanel.org/
+U.S. Geological Survey (USGS) Production and reserves of raw materials by country. https://www.usgs.gov/centers/nmic
+FAOSTAT (for food chains) Production, trade, and consumption of agricultural products. https://www.fao.org/faostat/
+🧭 6. OPTIONAL: ESG + HUMAN IMPACT DATA
+To show not just movement, but impact (carbon, labor, deforestation).
+Source Description Access
+World Bank Climate Data CO₂ emissions, energy use, etc. https://data.worldbank.org/
+Global Forest Watch Deforestation and supply chain linkages (e.g., palm oil, soy). https://www.globalforestwatch.org/
+Trase Earth Trade-linked deforestation data by commodity. https://trase.earth/
+⚙️ Integration Strategy
+You could construct the graph in layers:
+ Start with trade flows between countries/sectors (UN Comtrade + TiVA).
+ Map known company supply chains (Open Supply Hub + corporate disclosures).
+ Attach logistics paths (AIS / ports).
+ Add impacts or metrics (CO₂, deforestation, labor risk).
+
+
+
