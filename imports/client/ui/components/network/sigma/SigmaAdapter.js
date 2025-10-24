@@ -799,15 +799,24 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const hidden = !!graph.getEdgeAttribute(edge, 'hidden');
           const out = Object.assign({}, data);
           if (hidden) out.hidden = true;
-          const size = Number(graph.getEdgeAttribute(edge, 'size'));
-          if (!Number.isNaN(size)) out.size = Math.max(0.5, size);
+          const baseSize = Number(graph.getEdgeAttribute(edge, 'size'));
+          if (!Number.isNaN(baseSize)) out.size = Math.max(0.5, baseSize);
           const label = graph.getEdgeAttribute(edge, 'label');
           if (typeof label === 'string' && label.trim().length) out.label = label;
           else if (out.label) delete out.label;
           if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
+          const selected = !!graph.getEdgeAttribute(edge, 'selected');
           if (manualCurveEdgeIds.has(edge)) {
-            out.color = 'rgba(0,0,0,0)';
-            out.size = Math.max(0.3, (out.size || 1) * 0.35);
+            if (selected) {
+              out.color = 'rgba(255,213,79,0.85)';
+              out.size = Math.max(2, baseSize ? baseSize * 1.4 : 2);
+            } else {
+              out.color = 'rgba(0,0,0,0.08)';
+              out.size = Math.max(0.4, baseSize ? baseSize * 0.45 : 0.4);
+            }
+          } else if (selected) {
+            out.color = '#FFD54F';
+            out.size = Math.max(out.size || 1, baseSize ? baseSize * 1.5 : 2);
           }
           return out;
         } catch (e) { return data; }
@@ -845,27 +854,194 @@ function SigmaAdapter(container, elements = [], options = {}) {
             }
           } catch (e) {}
         });
-  // click on an edge: toggle selection and inform SelectionManager
-        renderer.on('clickEdge', (evt) => {
+        const toggleEdgeSelection = (edgeId, evtObj) => {
           try {
-            try { console.debug && console.debug('SigmaAdapter: clickEdge evt:', evt); } catch (e) {}
-            const edgeId = evt && (evt.edge || evt.data && evt.data.edge) ? (evt.edge || (evt.data && evt.data.edge)) : null;
             if (!edgeId) return;
             const currently = !!graph.getEdgeAttribute(edgeId, 'selected');
             const src = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
             const tgt = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
             const json = { data: { id: String(edgeId), source: src, target: tgt } };
             const key = SelectionManager ? SelectionManager.canonicalKey(json) : `edge:${String(edgeId)}`;
-            // mark local origin to avoid SelectionManager echo loop
             _localSelKeys.add(key);
             if (currently) {
               try { if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected'); else graph.setEdgeAttribute(edgeId, 'selected', false); } catch (e) {}
               try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for edge', json); SelectionManager.unselect(json); } } catch (e) {}
+              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for edge', json, evtObj); SelectionManager.unselect(json); } } catch (e) {}
             } else {
-              try { if (typeof graph.setEdgeAttribute === 'function') graph.setEdgeAttribute(edgeId, 'selected', true); else graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
+              try { graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
               try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for edge', json); SelectionManager.select(json); } } catch (e) {}
+              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for edge', json, evtObj); SelectionManager.select(json); } } catch (e) {}
+            }
+          } catch (e) {}
+        };
+
+        const pointerFromEvent = (evt) => {
+          try {
+            if (!evt || !container) return null;
+            const rect = (typeof container.getBoundingClientRect === 'function') ? container.getBoundingClientRect() : { left: 0, top: 0 };
+            const base = (evt.event && (evt.event.original || evt.event)) || (evt.data && (evt.data.captor || evt.data)) || evt.originalEvent || evt;
+            let x = null; let y = null;
+            if (base) {
+              if (typeof base.offsetX === 'number' && typeof base.offsetY === 'number') {
+                x = base.offsetX; y = base.offsetY;
+              } else if (typeof base.layerX === 'number' && typeof base.layerY === 'number') {
+                x = base.layerX; y = base.layerY;
+              } else if (typeof base.x === 'number' && typeof base.y === 'number') {
+                x = base.x; y = base.y;
+              } else if (typeof base.clientX === 'number' && typeof base.clientY === 'number') {
+                x = base.clientX - rect.left; y = base.clientY - rect.top;
+              } else if (base.original && typeof base.original.clientX === 'number' && typeof base.original.clientY === 'number') {
+                x = base.original.clientX - rect.left; y = base.original.clientY - rect.top;
+              }
+            }
+            if (x == null || y == null) return null;
+            return { x, y };
+          } catch (e) { return null; }
+        };
+
+        const computeManualEdgeGeometryViewport = (edgeId) => {
+          try {
+            if (!renderer || typeof renderer.graphToViewport !== 'function') return null;
+            if (!graph.hasEdge(edgeId)) return null;
+            const source = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
+            const target = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
+            if (!source || !target) return null;
+            if (graph.getEdgeAttribute(edgeId, 'hidden')) return null;
+            if (graph.getNodeAttribute(source, 'hidden') || graph.getNodeAttribute(target, 'hidden')) return null;
+            const srcAttr = graph.getNodeAttributes(source) || {};
+            const tgtAttr = graph.getNodeAttributes(target) || {};
+            if (typeof srcAttr.x !== 'number' || typeof srcAttr.y !== 'number' || typeof tgtAttr.x !== 'number' || typeof tgtAttr.y !== 'number') return null;
+            const srcViewport = renderer.graphToViewport({ x: srcAttr.x, y: srcAttr.y });
+            const tgtViewport = renderer.graphToViewport({ x: tgtAttr.x, y: tgtAttr.y });
+            if (!srcViewport || !tgtViewport) return null;
+            const selfLoop = manualLoopEdgeIds.has(edgeId) || (!!graph.getEdgeAttribute(edgeId, 'selfLoop')) || String(source) === String(target);
+            if (selfLoop) {
+              const nodeData = renderer.getNodeDisplayData ? renderer.getNodeDisplayData(source) : null;
+              const nodeSizePx = nodeData && typeof nodeData.size === 'number' ? nodeData.size : Math.max(12, (srcAttr.size || 10));
+              const loopIndex = Number(graph.getEdgeAttribute(edgeId, 'parallelIndex') || 1);
+              const loopCount = Number(graph.getEdgeAttribute(edgeId, 'curveCount') || 1);
+              const centerAngle = (-Math.PI / 3) + (loopIndex - (loopCount - 1) / 2) * 0.35;
+              const baseRadius = Math.max(nodeSizePx * 2.4, 28);
+              const radius = baseRadius + loopIndex * (nodeSizePx * 0.6);
+              const startAngle = centerAngle - 0.95;
+              const endAngle = centerAngle + 0.95;
+              const start = {
+                x: srcViewport.x + Math.cos(startAngle) * nodeSizePx,
+                y: srcViewport.y + Math.sin(startAngle) * nodeSizePx
+              };
+              const end = {
+                x: srcViewport.x + Math.cos(endAngle) * nodeSizePx,
+                y: srcViewport.y + Math.sin(endAngle) * nodeSizePx
+              };
+              const control = {
+                x: srcViewport.x + Math.cos(centerAngle) * radius,
+                y: srcViewport.y + Math.sin(centerAngle) * radius
+              };
+              return { p0: start, p1: control, p2: end };
+            }
+            const dx = tgtViewport.x - srcViewport.x;
+            const dy = tgtViewport.y - srcViewport.y;
+            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+            const normX = -dy / dist;
+            const normY = dx / dist;
+            const curvature = Number(graph.getEdgeAttribute(edgeId, 'curvature')) || 0;
+            const offset = curvature * dist * 0.2;
+            const control = {
+              x: (srcViewport.x + tgtViewport.x) / 2 + normX * offset,
+              y: (srcViewport.y + tgtViewport.y) / 2 + normY * offset
+            };
+            return {
+              p0: { x: srcViewport.x, y: srcViewport.y },
+              p1: control,
+              p2: { x: tgtViewport.x, y: tgtViewport.y }
+            };
+          } catch (e) { return null; }
+        };
+
+        const bezierPoint = (p0, p1, p2, t) => {
+          const inv = 1 - t;
+          return {
+            x: inv * inv * p0.x + 2 * inv * t * p1.x + t * t * p2.x,
+            y: inv * inv * p0.y + 2 * inv * t * p1.y + t * t * p2.y
+          };
+        };
+
+        const distanceToBezier = (p0, p1, p2, point) => {
+          let min = Infinity;
+          const steps = 42;
+          for (let i = 0; i <= steps; i++) {
+            const t = i / steps;
+            const pos = bezierPoint(p0, p1, p2, t);
+            const dx = pos.x - point.x;
+            const dy = pos.y - point.y;
+            const d2 = dx * dx + dy * dy;
+            if (d2 < min) min = d2;
+          }
+          return Math.sqrt(min);
+        };
+
+        const findManualCurveHit = (pointer) => {
+          if (!pointer || !manualCurveEdgeIds || !manualCurveEdgeIds.size) return null;
+          let bestEdge = null;
+          let bestDist = 16;
+          manualCurveEdgeIds.forEach(edgeId => {
+            try {
+              const geom = computeManualEdgeGeometryViewport(edgeId);
+              if (!geom) return;
+              const minX = Math.min(geom.p0.x, geom.p1.x, geom.p2.x) - 16;
+              const maxX = Math.max(geom.p0.x, geom.p1.x, geom.p2.x) + 16;
+              const minY = Math.min(geom.p0.y, geom.p1.y, geom.p2.y) - 16;
+              const maxY = Math.max(geom.p0.y, geom.p1.y, geom.p2.y) + 16;
+              if (pointer.x < minX || pointer.x > maxX || pointer.y < minY || pointer.y > maxY) return;
+              const dist = distanceToBezier(geom.p0, geom.p1, geom.p2, pointer);
+              if (dist < bestDist) {
+                bestDist = dist;
+                bestEdge = edgeId;
+              }
+            } catch (err) {}
+          });
+          return bestEdge;
+        };
+
+        // click on an edge: toggle selection and inform SelectionManager
+        renderer.on('clickEdge', (evt) => {
+          try {
+            try { console.debug && console.debug('SigmaAdapter: clickEdge evt:', evt); } catch (e) {}
+            const edgeId = evt && (evt.edge || (evt.data && evt.data.edge)) ? (evt.edge || (evt.data && evt.data.edge)) : null;
+            toggleEdgeSelection(edgeId, evt);
+          } catch (e) {}
+        });
+        renderer.on('clickEdges', (evt) => {
+          try {
+            try { console.debug && console.debug('SigmaAdapter: clickEdges evt:', evt); } catch (e) {}
+            const edges = (evt && (evt.edges || (evt.data && evt.data.edges))) || [];
+            const list = Array.isArray(edges) ? edges : [edges];
+            const seen = new Set();
+            list.forEach(edgeEntry => {
+              try {
+                let edgeId = null;
+                if (typeof edgeEntry === 'string') edgeId = edgeEntry;
+                else if (edgeEntry && typeof edgeEntry === 'object') {
+                  if (edgeEntry.id) edgeId = edgeEntry.id;
+                  else if (edgeEntry.edge) edgeId = edgeEntry.edge;
+                  else if (edgeEntry.key) edgeId = edgeEntry.key;
+                  else if (edgeEntry.data && edgeEntry.data.edge) edgeId = edgeEntry.data.edge;
+                }
+                if (!edgeId || seen.has(edgeId)) return;
+                seen.add(edgeId);
+                toggleEdgeSelection(edgeId, evt);
+              } catch (inner) {}
+            });
+          } catch (e) {}
+        });
+        renderer.on('clickStage', (evt) => {
+          try {
+            if (!manualCurveEdgeIds || !manualCurveEdgeIds.size) return;
+            const pointer = pointerFromEvent(evt);
+            if (!pointer) return;
+            const hit = findManualCurveHit(pointer);
+            if (hit) {
+              toggleEdgeSelection(hit, evt);
             }
           } catch (e) {}
         });
@@ -915,11 +1091,23 @@ function SigmaAdapter(container, elements = [], options = {}) {
     },
     json: () => ({ data: { ...graph.getEdgeAttributes(id) } }),
     isNode: () => false,
-    hasClass: (cls) => { if (cls === 'hidden') return !!graph.getEdgeAttribute(id, 'hidden'); return false; },
-    addClass: (cls) => { if (cls === 'hidden') graph.setEdgeAttribute(id, 'hidden', true); },
-    removeClass: (cls) => { if (cls === 'hidden') graph.removeEdgeAttribute(id, 'hidden'); },
+    hasClass: (cls) => {
+      if (cls === 'hidden') return !!graph.getEdgeAttribute(id, 'hidden');
+      if (cls === 'selected') return !!graph.getEdgeAttribute(id, 'selected');
+      return false;
+    },
+    addClass: (cls) => {
+      if (cls === 'hidden') graph.setEdgeAttribute(id, 'hidden', true);
+      if (cls === 'selected') graph.setEdgeAttribute(id, 'selected', true);
+    },
+    removeClass: (cls) => {
+      if (cls === 'hidden') graph.removeEdgeAttribute(id, 'hidden');
+      if (cls === 'selected') graph.removeEdgeAttribute(id, 'selected');
+    },
     source: () => ({ id: () => graph.source(id) }),
-    target: () => ({ id: () => graph.target(id) })
+    target: () => ({ id: () => graph.target(id) }),
+    select: () => { graph.setEdgeAttribute(id, 'selected', true); },
+    unselect: () => { graph.removeEdgeAttribute(id, 'selected'); }
   });
 
   const adapter = {
@@ -1031,6 +1219,38 @@ function SigmaAdapter(container, elements = [], options = {}) {
                     const evName = newVal ? 'select' : 'unselect';
                     const handlers = adapter._events[evName] || [];
                     handlers.forEach(h => { try { h.handler({ type: evName, target: { id: edge } }); } catch (e) {} });
+                    // visual highlight adjustments mirroring node behaviour
+                    try {
+                      if (newVal) {
+                        try {
+                          const curColor = graph.getEdgeAttribute(edge, 'color');
+                          if (typeof curColor !== 'undefined') graph.setEdgeAttribute(edge, '__prev_color', curColor);
+                          graph.setEdgeAttribute(edge, 'color', '#FFD54F');
+                        } catch (e) {}
+                        try {
+                          const curSize = graph.getEdgeAttribute(edge, 'size');
+                          if (typeof curSize !== 'undefined') graph.setEdgeAttribute(edge, '__prev_size', curSize);
+                          const newSize = (typeof curSize === 'number' ? Math.max(1, curSize * 1.5) : 2);
+                          graph.setEdgeAttribute(edge, 'size', newSize);
+                        } catch (e) {}
+                      } else {
+                        try {
+                          const prevColor = graph.getEdgeAttribute(edge, '__prev_color');
+                          if (typeof prevColor !== 'undefined') {
+                            graph.setEdgeAttribute(edge, 'color', prevColor);
+                            graph.removeEdgeAttribute(edge, '__prev_color');
+                          }
+                        } catch (e) {}
+                        try {
+                          const prevSize = graph.getEdgeAttribute(edge, '__prev_size');
+                          if (typeof prevSize !== 'undefined') {
+                            graph.setEdgeAttribute(edge, 'size', prevSize);
+                            graph.removeEdgeAttribute(edge, '__prev_size');
+                          }
+                        } catch (e) {}
+                      }
+                    } catch (e) {}
+                    try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
                     // reflect into SelectionManager unless locally originated
                     try {
                       if (SelectionManager) {
@@ -1296,8 +1516,18 @@ function SigmaAdapter(container, elements = [], options = {}) {
         }
       };
     },
-    select(id) { try { if (graph.hasNode(id)) graph.setNodeAttribute(id, 'selected', true); } catch (e) {} },
-    unselect(id) { try { if (graph.hasNode(id)) graph.setNodeAttribute(id, 'selected', false); } catch (e) {} },
+    select(id) {
+      try {
+        if (graph.hasNode(id)) graph.setNodeAttribute(id, 'selected', true);
+        else if (graph.hasEdge && graph.hasEdge(id)) graph.setEdgeAttribute(id, 'selected', true);
+      } catch (e) {}
+    },
+    unselect(id) {
+      try {
+        if (graph.hasNode(id)) graph.setNodeAttribute(id, 'selected', false);
+        else if (graph.hasEdge && graph.hasEdge(id)) graph.removeEdgeAttribute(id, 'selected');
+      } catch (e) {}
+    },
     add(elementsToAdd) {
       const { nodes: n, edges: e } = cyElementsToGraphology(elementsToAdd || []);
       n.forEach(n1 => { if (!graph.hasNode(n1.id)) graph.addNode(n1.id, n1.attrs || {}); });
