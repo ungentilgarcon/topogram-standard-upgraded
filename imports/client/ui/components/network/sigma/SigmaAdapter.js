@@ -482,10 +482,11 @@ function SigmaAdapter(container, elements = [], options = {}) {
   edgeProgramClasses: edgeProgramClasses,
       settings: {
         // prefer WebGL GPU accelerated rendering when available
-        labelRenderedSizeThreshold: 6,
+  labelRenderedSizeThreshold: 0,
         renderLabels: true,
         renderEdgeLabels: true,
         edgeLabelRenderedSizeThreshold: 0,
+  defaultDrawNodeLabels: true,
         defaultNodeType: 'circle',
         // v3 uses a single flag to enable edge-related events
         enableEdgeHovering: true,
@@ -761,6 +762,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
             try { renderer.off('afterRender', manualCurveRenderHandler); } catch (e) {}
           }
         });
+        try {
+          // draw once immediately so edges are visible before any interaction
+          manualCurveRenderHandler();
+        } catch (e) {}
       }
 
       cleanupFns.push(() => teardownManualOverlay());
