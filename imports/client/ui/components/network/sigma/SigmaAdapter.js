@@ -807,13 +807,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
           if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
           const selected = !!graph.getEdgeAttribute(edge, 'selected');
           if (manualCurveEdgeIds.has(edge)) {
-            if (selected) {
-              out.color = 'rgba(255,213,79,0.85)';
-              out.size = Math.max(2, baseSize ? baseSize * 1.4 : 2);
-            } else {
-              out.color = 'rgba(0,0,0,0.08)';
-              out.size = Math.max(0.4, baseSize ? baseSize * 0.45 : 0.4);
-            }
+            // keep the WebGL/Canvas program almost transparent for manual curves;
+            // the visible stroke is rendered by the overlay, so avoid double lines.
+            out.color = 'rgba(0,0,0,0.02)';
+            out.size = Math.max(0.35, baseSize ? baseSize * 0.5 : 0.5);
           } else if (selected) {
             out.color = '#FFD54F';
             out.size = Math.max(out.size || 1, baseSize ? baseSize * 1.5 : 2);
