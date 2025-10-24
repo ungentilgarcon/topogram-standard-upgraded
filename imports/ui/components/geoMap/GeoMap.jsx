@@ -193,6 +193,9 @@ export default class GeoMap extends React.Component {
             width={width}
             height={height}
             handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
+            onFocusElement={onFocusElement}
+            onUnfocusElement={onUnfocusElement}
+            isolateMode={isolateMode}
             center={position}
             zoom={zoom}
             style={resolvedMapLibreStyle}
@@ -203,7 +206,18 @@ export default class GeoMap extends React.Component {
     if (renderer === 'cesium' && CesiumMap) {
       return (
         <div id={MAP_DIV_ID} style={containerStyle}>
-          <CesiumMap nodes={nodes} edges={edges} ui={this.props.ui} width={width} height={height} tileSpec={tileSpec} />
+          <CesiumMap
+            nodes={nodes}
+            edges={edges}
+            ui={this.props.ui}
+            width={width}
+            height={height}
+            tileSpec={tileSpec}
+            handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
+            onFocusElement={onFocusElement}
+            onUnfocusElement={onUnfocusElement}
+            isolateMode={isolateMode}
+          />
         </div>
       )
     }

@@ -40,6 +40,10 @@ function rasterStyleFromTileSpec(id, spec) {
   if (spec.attribution) source.attribution = spec.attribution
   return {
     version: 8,
+    // Provide a default glyphs endpoint so MapLibre can render text in any
+    // symbol layers we add on top of this raster basemap (edge/node labels).
+    // This URL is a public demo font endpoint compatible with MapLibre.
+    glyphs: 'https://demotiles.maplibre.org/font/{fontstack}/{range}.pbf',
     sources: {
       [sourceId]: source
     },

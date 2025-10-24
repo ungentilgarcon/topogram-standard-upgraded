@@ -12,6 +12,13 @@ export default class MapLibreMap extends React.Component {
     this.map = null
     this.container = React.createRef()
     this._markers = []
+    this._edgeInteractionBound = new Set()
+    this._emojiInteractionBound = false
+  this._nodeInteractionBound = new Set()
+    this._edgeEventHandlers = null
+    this._emojiSymbolHandlers = null
+  this._nodeLayerHandlers = null
+    this._hoverEdgeIndex = null
     // nonce to make image names unique per update (avoids sprite/name collisions)
     this._emojiNonce = 0
     // store canvases by image name so we can re-register them if style reloads
@@ -352,13 +359,25 @@ export default class MapLibreMap extends React.Component {
   }
 
   componentWillUnmount() {
+    this._unbindEdgeInteractions()
+    this._unbindEmojiSymbolInteractions()
+    this._unbindNodeInteractions()
     this._clearMarkers()
     try {
       if (this.map) {
         try { if (this.map.getLayer && this.map.getLayer('geo-edges-line')) this.map.removeLayer('geo-edges-line') } catch (e) {}
         try { if (this.map.getSource && this.map.getSource('geo-edges')) this.map.removeSource('geo-edges') } catch (e) {}
+        try { if (this.map.getLayer && this.map.getLayer('geo-edges-highlight')) this.map.removeLayer('geo-edges-highlight') } catch (e) {}
+  try { if (this.map.getLayer && this.map.getLayer('geo-edge-labels-symbol')) this.map.removeLayer('geo-edge-labels-symbol') } catch (e) {}
+  try { if (this.map.getSource && this.map.getSource('geo-edge-labels')) this.map.removeSource('geo-edge-labels') } catch (e) {}
+  try { if (this.map.getLayer && this.map.getLayer('geo-edge-emoji-symbol')) this.map.removeLayer('geo-edge-emoji-symbol') } catch (e) {}
+  try { if (this.map.getSource && this.map.getSource('geo-edge-emoji')) this.map.removeSource('geo-edge-emoji') } catch (e) {}
+        try { if (this.map.getLayer && this.map.getLayer('geo-node-highlight')) this.map.removeLayer('geo-node-highlight') } catch (e) {}
+        try { if (this.map.getSource && this.map.getSource('geo-node-highlight')) this.map.removeSource('geo-node-highlight') } catch (e) {}
         try { if (this.map.getLayer && this.map.getLayer('geo-nodes-circle')) this.map.removeLayer('geo-nodes-circle') } catch (e) {}
         try { if (this.map.getSource && this.map.getSource('geo-nodes')) this.map.removeSource('geo-nodes') } catch (e) {}
+        try { if (this.map.getLayer && this.map.getLayer('geo-emoji-symbol')) this.map.removeLayer('geo-emoji-symbol') } catch (e) {}
+        try { if (this.map.getSource && this.map.getSource('geo-emoji')) this.map.removeSource('geo-emoji') } catch (e) {}
         try { if (this.map.remove) this.map.remove() } catch (e) {}
       }
     } catch (e) {}
@@ -487,17 +506,31 @@ export default class MapLibreMap extends React.Component {
         try {
           if (!this.map) return
           const edges = this.props.edges || []
+          if (this._hoverEdgeIndex != null) {
+            const idx = Number(this._hoverEdgeIndex)
+            if (!isFinite(idx) || idx < 0 || idx >= edges.length) this._hoverEdgeIndex = null
+          }
           const features = (edges || []).map((e, i) => {
-            if (!e || !e.coords || e.coords.length !== 2) return null
+          if (!e || !e.coords || e.coords.length !== 2) return null
             const [[lat1, lng1], [lat2, lng2]] = e.coords
             const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
             if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return null
+            const selected = !!(e && e.data && e.data.selected)
+            const weightRaw = (e && e.data && e.data.weight != null) ? Number(e.data.weight) : 2
+            const weight = isFinite(weightRaw) ? weightRaw : 2
             return {
               type: 'Feature',
-              properties: { color: (e && e.data && e.data.color) || '#9f7aea', weight: (e && e.data && e.data.weight) || 2 },
+              properties: {
+                color: (e && e.data && e.data.color) || '#9f7aea',
+                weight,
+                edgeIndex: i,
+                edgeId: (e && e.data && e.data.id != null) ? String(e.data.id) : undefined,
+                selected
+              },
               geometry: { type: 'LineString', coordinates: [ [o1, a1], [o2, a2] ] }
             }
           }).filter(Boolean)
+
           const geo = { type: 'FeatureCollection', features }
           // Add or update source
           if (this.map.getSource && this.map.getSource('geo-edges')) {
@@ -515,6 +548,26 @@ export default class MapLibreMap extends React.Component {
             } catch (e) { console.warn('MapLibreMap: add layer failed', e) }
           }
           try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length} emoji:${(this._statusEl && this._statusEl._emojiCount) || 0}` } catch (e) {}
+
+          try {
+            if (this.map.getLayer && !this.map.getLayer('geo-edges-highlight')) {
+              const highlightLayer = {
+                id: 'geo-edges-highlight',
+                type: 'line',
+                source: 'geo-edges',
+                filter: ['==', ['get', 'selected'], true],
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: {
+                  'line-color': '#fcd34d',
+                  'line-width': ['+', ['coalesce', ['get', 'weight'], 2], 3],
+                  'line-opacity': 0.95
+                }
+              }
+              try { this.map.addLayer(highlightLayer) } catch (e) { console.warn('MapLibreMap: adding edge highlight layer failed', e) }
+            }
+            this._bindEdgeInteractions()
+            this._refreshEdgeHighlight()
+          } catch (e) { console.warn('MapLibreMap: edge highlight setup failed', e) }
 
           // Build and add/update edge relationship labels (midpoint symbols) only when UI allows
           try {
@@ -783,36 +836,36 @@ export default class MapLibreMap extends React.Component {
         try {
           if (!this.map) return
           const nodes = this.props.nodes || []
-              // Build vector circle features for non-emoji nodes, and separately
-              // build an emoji feature collection for nodes that contain emoji.
-              // Respect the ui.emojiVisible toggle: if emojiVisible is true,
-              // exclude emoji nodes from circle features; if false, draw circles
-              // for all nodes including those that have emoji.
-              const emojiToggle = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
-              const features = (nodes || []).map((n, i) => {
-                // exclude nodes from circle features only when they have emoji
-                // and the UI requests emoji rendering
-                if (n && n.data && n.data.emoji && emojiToggle) return null
+          // Build vector circle features for non-emoji nodes, and separately
+          // build an emoji feature collection for nodes that contain emoji.
+          // Respect the ui.emojiVisible toggle: if emojiVisible is true,
+          // exclude emoji nodes from circle features; if false, draw circles
+          // for all nodes including those that have emoji.
+          const emojiToggle = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+          const features = (nodes || []).map((n, i) => {
+            if (n && n.data && n.data.emoji && emojiToggle) return null
             const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
             const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
             if (!isFinite(lat) || !isFinite(lng)) return null
-            // compute radius consistent with Leaflet GeoNodes: weight->radius px
             const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+            const selected = !!(n && n.data && n.data.selected)
             return {
               type: 'Feature',
               properties: {
                 id: (n && n.data && n.data.id) || i,
+                nodeIndex: i,
                 color: (n && n.data && n.data.color) || (n && n.color) || '#1f2937',
-                radius: visualRadius
+                radius: visualRadius,
+                selected
               },
               geometry: { type: 'Point', coordinates: [lng, lat] }
             }
           }).filter(Boolean)
               // emoji features: nodes that have emoji
-              const emojiFeatures = (nodes || []).map((n, i) => {
-                  const emoji = this._getNodeEmoji(n)
-                  const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
-                  if (!emoji || !emojiEnabled) return null
+          const emojiFeatures = (nodes || []).map((n, i) => {
+            const emoji = this._getNodeEmoji(n)
+            const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+            if (!emoji || !emojiEnabled) return null
                 const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
                 const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
                 if (!isFinite(lat) || !isFinite(lng)) return null
@@ -827,10 +880,28 @@ export default class MapLibreMap extends React.Component {
                 return {
                   type: 'Feature',
                   // include nodeIndex so we can reliably reference the original node
-                  properties: { nodeIndex: i, id: (n && n.data && n.data.id) || i, icon: iconName, size: iconScale, _sizePx: computedSizePx },
+                  properties: { nodeIndex: i, id: (n && n.data && n.data.id) || i, icon: iconName, size: iconScale, _sizePx: computedSizePx, selected: !!(n && n.data && n.data.selected) },
                   geometry: { type: 'Point', coordinates: [lng, lat] }
                 }
-              }).filter(Boolean)
+          }).filter(Boolean)
+          const highlightFeatures = (nodes || []).map((n, i) => {
+            if (!n || !n.data || !n.data.selected) return null
+            const latRaw = (n && n.data && n.data.lat != null) ? n.data.lat : (n && n.data && n.data.latitude != null ? n.data.latitude : NaN)
+            const lngRaw = (n && n.data && n.data.lng != null) ? n.data.lng : (n && n.data && n.data.longitude != null ? n.data.longitude : NaN)
+            const lat = Number(latRaw)
+            const lng = Number(lngRaw)
+            if (!isFinite(lat) || !isFinite(lng)) return null
+            const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+            return {
+              type: 'Feature',
+              properties: {
+                id: (n && n.data && n.data.id) || i,
+                nodeIndex: i,
+                radius: visualRadius
+              },
+              geometry: { type: 'Point', coordinates: [lng, lat] }
+            }
+          }).filter(Boolean)
           const geo = { type: 'FeatureCollection', features }
           if (this.map.getSource && this.map.getSource('geo-nodes')) {
             try { this.map.getSource('geo-nodes').setData(geo) } catch (e) {}
@@ -842,28 +913,47 @@ export default class MapLibreMap extends React.Component {
                 type: 'circle',
                 source: 'geo-nodes',
                 paint: {
-                  'circle-color': ['get', 'color'],
+                  'circle-color': ['case', ['==', ['get', 'selected'], true], '#fcd34d', ['get', 'color']],
                   'circle-radius': ['get', 'radius'],
-                  'circle-stroke-color': '#ffffff',
-                  'circle-stroke-width': 1,
-                  'circle-opacity': 0.95
+                  'circle-stroke-color': ['case', ['==', ['get', 'selected'], true], '#f59e0b', '#ffffff'],
+                  'circle-stroke-width': ['case', ['==', ['get', 'selected'], true], 2, 1],
+                  'circle-opacity': ['case', ['==', ['get', 'selected'], true], 1, 0.95]
                 }
-              })
-              // click handling for nodes
-              this.map.on('click', 'geo-nodes-circle', (e) => {
-                try {
-                  const feat = e && e.features && e.features[0]
-                  if (feat && feat.properties && this.props.handleClickGeoElement) {
-                    const id = feat.properties.id
-                    // find the node by id and call handler
-                    const node = (this.props.nodes || []).find(n => String((n && n.data && n.data.id) || '') === String(id))
-                    if (node) this.props.handleClickGeoElement({ group: 'node', el: node })
-                  }
-                } catch (err) { console.warn('MapLibreMap: node click handler error', err) }
               })
             } catch (e) { console.warn('MapLibreMap: add nodes layer failed', e) }
           }
           try { console.info('MapLibreMap: nodes features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${features.length}` } catch (e) {}
+
+          try {
+            const highlightGeo = { type: 'FeatureCollection', features: highlightFeatures }
+            if (this.map.getSource && this.map.getSource('geo-node-highlight')) {
+              try { this.map.getSource('geo-node-highlight').setData(highlightGeo) } catch (e) {}
+            } else if (this.map.addSource) {
+              try { this.map.addSource('geo-node-highlight', { type: 'geojson', data: highlightGeo }) } catch (e) {}
+            }
+
+            if (this.map.getLayer && !this.map.getLayer('geo-node-highlight') && highlightFeatures.length) {
+              const beforeId = this.map.getLayer('geo-nodes-circle') ? 'geo-nodes-circle' : (this.map.getLayer('geo-emoji-symbol') ? 'geo-emoji-symbol' : undefined)
+              const highlightLayer = {
+                id: 'geo-node-highlight',
+                type: 'circle',
+                source: 'geo-node-highlight',
+                paint: {
+                  'circle-color': '#fcd34d',
+                  'circle-opacity': 0.3,
+                  'circle-radius': ['+', ['coalesce', ['get', 'radius'], 6], 6],
+                  'circle-stroke-color': '#f59e0b',
+                  'circle-stroke-width': 1.5
+                }
+              }
+              try {
+                if (beforeId) this.map.addLayer(highlightLayer, beforeId)
+                else this.map.addLayer(highlightLayer)
+              } catch (err) { console.warn('MapLibreMap: add node highlight layer failed', err) }
+            }
+
+            this._bindNodeInteractions()
+          } catch (e) { console.warn('MapLibreMap: node highlight setup failed', e) }
 
           // Add or update emoji source + symbol layer (images loaded from our canvas dataURLs)
           try {
@@ -904,12 +994,13 @@ export default class MapLibreMap extends React.Component {
                         'icon-image': ['get', 'icon'],
                         'icon-allow-overlap': true,
                         'icon-ignore-placement': true,
-                        'icon-size': ['get', 'size']
+                        'icon-size': ['case', ['==', ['get', 'selected'], true], ['*', ['get', 'size'], 1.15], ['get', 'size']]
                       }
                     })
                   } catch (e) { console.warn('MapLibreMap: add emoji layer failed', e) }
                 }
               } catch (e) { console.warn('MapLibreMap: emoji layer update failed', e) }
+              try { this._bindEmojiSymbolInteractions() } catch (e) {}
               // Fallback: for any images that didn't register, create DOM markers
               try {
                 results = results || []
@@ -931,12 +1022,20 @@ export default class MapLibreMap extends React.Component {
                     el.style.width = `${cvs.width}px`
                     el.style.height = `${cvs.height}px`
                     el.style.pointerEvents = 'auto'
+                    el.style.cursor = 'pointer'
                     const img = document.createElement('img')
                     img.src = dataUrl
                     img.style.width = '100%'
                     img.style.height = '100%'
                     img.style.display = 'block'
                     el.appendChild(img)
+                    el.addEventListener('click', (evt) => {
+                      try {
+                        evt.stopPropagation()
+                        const node = (this.props.nodes || [])[nodeIndex]
+                        if (node && this.props.handleClickGeoElement) this.props.handleClickGeoElement({ group: 'node', el: node })
+                      } catch (err) {}
+                    })
                     try {
                       const coords = f.geometry && f.geometry.coordinates
                       if (coords && coords.length === 2 && this._maplibregl) {
@@ -954,6 +1053,307 @@ export default class MapLibreMap extends React.Component {
         } catch (e) { console.warn('MapLibreMap: nodes layer update failed', e) }
       }
 
+  _setCursor(style) {
+    try {
+      const canvas = this.map && this.map.getCanvas && this.map.getCanvas()
+      if (canvas) canvas.style.cursor = style || ''
+    } catch (e) {}
+  }
+
+  _edgeFromFeature(feat) {
+    try {
+      if (!feat || !feat.properties) return null
+      const idxRaw = feat.properties.edgeIndex
+      if (idxRaw == null) return null
+      const idx = Number(idxRaw)
+      if (!isFinite(idx)) return null
+      const edges = this.props && this.props.edges ? this.props.edges : []
+      return edges[idx] || null
+    } catch (e) { return null }
+  }
+
+  _nodeFromFeature(feat) {
+    try {
+      if (!feat || !feat.properties) return null
+      const nodes = this.props && this.props.nodes ? this.props.nodes : []
+      if (feat.properties.nodeIndex != null) {
+        const idx = Number(feat.properties.nodeIndex)
+        if (isFinite(idx) && nodes[idx]) return nodes[idx]
+      }
+      if (feat.properties.id != null) {
+        const targetId = String(feat.properties.id)
+        return nodes.find(n => String(n && n.data && n.data.id) === targetId) || null
+      }
+      return null
+    } catch (e) { return null }
+  }
+
+  _handleEdgeClick(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const edge = this._edgeFromFeature(feat)
+      if (edge && this.props.handleClickGeoElement) {
+        this.props.handleClickGeoElement({ group: 'edge', el: edge })
+      }
+    } catch (e) { console.warn('MapLibreMap: edge click handler error', e) }
+  }
+
+  _handleEdgeMouseEnter(ev) {
+    this._setCursor('pointer')
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      if (feat && feat.properties && feat.properties.edgeIndex != null) {
+        const idx = Number(feat.properties.edgeIndex)
+        if (isFinite(idx)) {
+          this._hoverEdgeIndex = idx
+          this._refreshEdgeHighlight()
+        }
+      }
+    } catch (e) {}
+  }
+
+  _handleEdgeMouseLeave() {
+    this._setCursor('')
+    const hadHover = this._hoverEdgeIndex != null
+    this._hoverEdgeIndex = null
+    if (hadHover) this._refreshEdgeHighlight()
+    try {
+      if (this.props && this.props.isolateMode && this.props.onUnfocusElement) this.props.onUnfocusElement()
+    } catch (e) {}
+  }
+
+  _handleEdgeMouseDown(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      if (feat && feat.properties && feat.properties.edgeIndex != null) {
+        const idx = Number(feat.properties.edgeIndex)
+        if (isFinite(idx)) {
+          this._hoverEdgeIndex = idx
+          this._refreshEdgeHighlight()
+        }
+      }
+      if (this.props && this.props.isolateMode && this.props.onFocusElement) {
+        const edge = this._edgeFromFeature(feat)
+        if (edge) this.props.onFocusElement(edge)
+      }
+    } catch (e) {}
+  }
+
+  _handleEdgeMouseUp() {
+    if (this._hoverEdgeIndex != null) this._refreshEdgeHighlight()
+    if (!this.props || !this.props.isolateMode || !this.props.onUnfocusElement) return
+    try { this.props.onUnfocusElement() } catch (e) {}
+  }
+
+  _bindEdgeInteractions() {
+    if (!this.map) return
+    if (!this._edgeEventHandlers) {
+      this._edgeEventHandlers = {
+        click: (ev) => this._handleEdgeClick(ev),
+        mouseenter: (ev) => this._handleEdgeMouseEnter(ev),
+        mouseleave: () => this._handleEdgeMouseLeave(),
+        mousedown: (ev) => this._handleEdgeMouseDown(ev),
+        mouseup: () => this._handleEdgeMouseUp()
+      }
+    }
+    const layers = ['geo-edges-line', 'geo-edges-highlight']
+    layers.forEach((layerId) => {
+      if (!this.map.getLayer || !this.map.getLayer(layerId)) return
+      const handlers = this._edgeEventHandlers
+      if (this._edgeInteractionBound.has(layerId)) {
+        try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+        try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+        try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+        try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+        try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+        this._edgeInteractionBound.delete(layerId)
+      }
+      try { this.map.on('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.on('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.on('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.on('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.on('mouseup', layerId, handlers.mouseup) } catch (e) {}
+      this._edgeInteractionBound.add(layerId)
+    })
+  }
+
+  _refreshEdgeHighlight() {
+    try {
+      if (!this.map || !this.map.getLayer || !this.map.getLayer('geo-edges-highlight')) return
+      const hoverIdx = (this._hoverEdgeIndex != null && isFinite(this._hoverEdgeIndex)) ? Number(this._hoverEdgeIndex) : null
+      let filter
+      if (hoverIdx != null) {
+        filter = ['any', ['==', ['get', 'selected'], true], ['==', ['get', 'edgeIndex'], hoverIdx]]
+      } else {
+        filter = ['==', ['get', 'selected'], true]
+      }
+      this.map.setFilter('geo-edges-highlight', filter)
+    } catch (e) {}
+  }
+
+  _unbindEdgeInteractions() {
+    if (!this.map || !this._edgeEventHandlers || !this._edgeInteractionBound) return
+    const handlers = this._edgeEventHandlers
+    this._edgeInteractionBound.forEach((layerId) => {
+      try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+    })
+    this._edgeInteractionBound.clear()
+  }
+
+  _handleEmojiSymbolClick(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node && this.props.handleClickGeoElement) {
+        this.props.handleClickGeoElement({ group: 'node', el: node })
+      }
+    } catch (e) { console.warn('MapLibreMap: emoji symbol click handler error', e) }
+  }
+
+  _handleEmojiSymbolMouseLeave() {
+    this._setCursor('')
+    try {
+      if (this.props && this.props.isolateMode && this.props.onUnfocusElement) this.props.onUnfocusElement()
+    } catch (e) {}
+  }
+
+  _handleEmojiSymbolMouseDown(ev) {
+    if (!this.props || !this.props.isolateMode || !this.props.onFocusElement) return
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node) this.props.onFocusElement(node)
+    } catch (e) {}
+  }
+
+  _handleEmojiSymbolMouseUp() {
+    if (!this.props || !this.props.isolateMode || !this.props.onUnfocusElement) return
+    try { this.props.onUnfocusElement() } catch (e) {}
+  }
+
+  _handleNodeLayerClick(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node && this.props.handleClickGeoElement) {
+        this.props.handleClickGeoElement({ group: 'node', el: node })
+      }
+    } catch (e) { console.warn('MapLibreMap: node click handler error', e) }
+  }
+
+  _handleNodeLayerMouseEnter() {
+    this._setCursor('pointer')
+  }
+
+  _handleNodeLayerMouseLeave() {
+    this._setCursor('')
+    try {
+      if (this.props && this.props.isolateMode && this.props.onUnfocusElement) this.props.onUnfocusElement()
+    } catch (e) {}
+  }
+
+  _handleNodeLayerMouseDown(ev) {
+    if (!this.props || !this.props.isolateMode || !this.props.onFocusElement) return
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node) this.props.onFocusElement(node)
+    } catch (e) {}
+  }
+
+  _handleNodeLayerMouseUp() {
+    if (!this.props || !this.props.isolateMode || !this.props.onUnfocusElement) return
+    try { this.props.onUnfocusElement() } catch (e) {}
+  }
+
+  _bindEmojiSymbolInteractions() {
+    if (!this.map || !this.map.getLayer || !this.map.getLayer('geo-emoji-symbol')) return
+    if (!this._emojiSymbolHandlers) {
+      this._emojiSymbolHandlers = {
+        click: (ev) => this._handleEmojiSymbolClick(ev),
+        mouseenter: () => this._setCursor('pointer'),
+        mouseleave: () => this._handleEmojiSymbolMouseLeave(),
+        mousedown: (ev) => this._handleEmojiSymbolMouseDown(ev),
+        mouseup: () => this._handleEmojiSymbolMouseUp()
+      }
+    }
+    const handlers = this._emojiSymbolHandlers
+    if (this._emojiInteractionBound) {
+      try { this.map.off('click', 'geo-emoji-symbol', handlers.click) } catch (e) {}
+      try { this.map.off('mouseenter', 'geo-emoji-symbol', handlers.mouseenter) } catch (e) {}
+      try { this.map.off('mouseleave', 'geo-emoji-symbol', handlers.mouseleave) } catch (e) {}
+      try { this.map.off('mousedown', 'geo-emoji-symbol', handlers.mousedown) } catch (e) {}
+      try { this.map.off('mouseup', 'geo-emoji-symbol', handlers.mouseup) } catch (e) {}
+      this._emojiInteractionBound = false
+    }
+    try { this.map.on('click', 'geo-emoji-symbol', handlers.click) } catch (e) {}
+    try { this.map.on('mouseenter', 'geo-emoji-symbol', handlers.mouseenter) } catch (e) {}
+    try { this.map.on('mouseleave', 'geo-emoji-symbol', handlers.mouseleave) } catch (e) {}
+    try { this.map.on('mousedown', 'geo-emoji-symbol', handlers.mousedown) } catch (e) {}
+    try { this.map.on('mouseup', 'geo-emoji-symbol', handlers.mouseup) } catch (e) {}
+    this._emojiInteractionBound = true
+  }
+
+  _unbindEmojiSymbolInteractions() {
+    if (!this.map || !this._emojiInteractionBound || !this._emojiSymbolHandlers) return
+    const handlers = this._emojiSymbolHandlers
+    try { this.map.off('click', 'geo-emoji-symbol', handlers.click) } catch (e) {}
+    try { this.map.off('mouseenter', 'geo-emoji-symbol', handlers.mouseenter) } catch (e) {}
+    try { this.map.off('mouseleave', 'geo-emoji-symbol', handlers.mouseleave) } catch (e) {}
+    try { this.map.off('mousedown', 'geo-emoji-symbol', handlers.mousedown) } catch (e) {}
+    try { this.map.off('mouseup', 'geo-emoji-symbol', handlers.mouseup) } catch (e) {}
+    this._emojiInteractionBound = false
+  }
+
+  _bindNodeInteractions() {
+    if (!this.map) return
+    if (!this._nodeLayerHandlers) {
+      this._nodeLayerHandlers = {
+        click: (ev) => this._handleNodeLayerClick(ev),
+        mouseenter: () => this._handleNodeLayerMouseEnter(),
+        mouseleave: () => this._handleNodeLayerMouseLeave(),
+        mousedown: (ev) => this._handleNodeLayerMouseDown(ev),
+        mouseup: () => this._handleNodeLayerMouseUp()
+      }
+    }
+    const layers = ['geo-nodes-circle', 'geo-node-highlight']
+    layers.forEach((layerId) => {
+      if (!this.map.getLayer || !this.map.getLayer(layerId)) return
+      const handlers = this._nodeLayerHandlers
+      if (this._nodeInteractionBound.has(layerId)) {
+        try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+        try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+        try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+        try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+        try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+        this._nodeInteractionBound.delete(layerId)
+      }
+      try { this.map.on('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.on('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.on('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.on('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.on('mouseup', layerId, handlers.mouseup) } catch (e) {}
+      this._nodeInteractionBound.add(layerId)
+    })
+  }
+
+  _unbindNodeInteractions() {
+    if (!this.map || !this._nodeLayerHandlers || !this._nodeInteractionBound) return
+    const handlers = this._nodeLayerHandlers
+    this._nodeInteractionBound.forEach((layerId) => {
+      try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+    })
+    this._nodeInteractionBound.clear()
+  }
+
   render() {
     const { width = '100%', height = '100%' } = this.props
     return (<div style={{ width, height }} ref={this.container} />)
@@ -966,6 +1366,9 @@ MapLibreMap.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   handleClickGeoElement: PropTypes.func,
+  onFocusElement: PropTypes.func,
+  onUnfocusElement: PropTypes.func,
+  isolateMode: PropTypes.bool,
   center: PropTypes.array,
   zoom: PropTypes.number,
   style: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
