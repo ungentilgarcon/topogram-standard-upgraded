@@ -246,6 +246,13 @@ export default function TopogramDetail() {
   const [networkEdgeRelVisible, setNetworkEdgeRelVisible] = useState(true)
   // Default to true, but for large graphs we'll default to false unless user stored a preference
   const [geoEdgeRelVisible, setGeoEdgeRelVisible] = useState(true)
+  // Aggregate duplicate geomap edge labels (same source/target and same label/emoji) into a single label with a multiplier (e.g., " x3")
+  const [geoEdgeLabelAggregate, setGeoEdgeLabelAggregate] = useState(() => {
+    try {
+      const v = window.localStorage.getItem('topo.geoEdgeLabelAggregate')
+      return v === 'true'
+    } catch (e) { return false }
+  })
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
   const [chartsVisible, setChartsVisible] = useState(true)
@@ -600,6 +607,7 @@ export default function TopogramDetail() {
         if (key === 'debugVisible') { setDebugVisible(!!value); return }
           if (key === 'selectionPanelPinned') { setSelectionPanelPinned(!!value); return }
           if (key === 'nodeLabelMode') { setNodeLabelMode(value || 'both'); try { window.localStorage.setItem('topo.nodeLabelMode', value || 'both') } catch (e){}; return }
+          if (key === 'geoEdgeLabelAggregate') { setGeoEdgeLabelAggregate(!!value); try { window.localStorage.setItem('topo.geoEdgeLabelAggregate', !!value ? 'true' : 'false') } catch(e){}; return }
       } catch (e) {}
       setTimelineUI(prev => ({ ...prev, [key]: value }))
       return
@@ -620,6 +628,7 @@ export default function TopogramDetail() {
         if (typeof obj.geoEdgeRelVisible === 'boolean') { setGeoEdgeRelVisible(obj.geoEdgeRelVisible); try { window.localStorage.setItem('topo.geoEdgeRelVisible', obj.geoEdgeRelVisible ? 'true' : 'false') } catch(e){} }
         if (typeof obj.timeLineVisible === 'boolean') setTimeLineVisible(obj.timeLineVisible)
         if (typeof obj.debugVisible === 'boolean') setDebugVisible(obj.debugVisible)
+        if (typeof obj.geoEdgeLabelAggregate === 'boolean') { setGeoEdgeLabelAggregate(obj.geoEdgeLabelAggregate); try { window.localStorage.setItem('topo.geoEdgeLabelAggregate', obj.geoEdgeLabelAggregate ? 'true' : 'false') } catch(e){} }
       } catch (e) {}
       setTimelineUI(prev => ({ ...prev, ...obj }))
       return
@@ -1656,6 +1665,15 @@ export default function TopogramDetail() {
           <input type="checkbox" checked={geoEdgeRelVisible} onChange={e => updateUI('geoEdgeRelVisible', e.target.checked)} />
           <span style={{ fontSize: 12 }}>Show GeoMap relationship labels</span>
         </label>
+        {/* Geomap-only: aggregate duplicate edge labels into a single label with a multiplier */}
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          <input
+            type="checkbox"
+            checked={geoEdgeLabelAggregate}
+            onChange={e => updateUI('geoEdgeLabelAggregate', e.target.checked)}
+          />
+          <span style={{ fontSize: 12 }}>Aggregate GeoMap edge labels</span>
+        </label>
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           <input type="checkbox" checked={emojiVisible} onChange={e => { const val = !!e.target.checked; setEmojiVisible(val); try { window.localStorage.setItem('topo.emojiVisible', val ? 'true' : 'false') } catch (err) {} }} />
           <span style={{ fontSize: 12 }}>Show Geomap node emojis</span>
@@ -1895,7 +1913,7 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
+                    ui={{ selectedElements, geoEdgeRelVisible, geoEdgeLabelAggregate, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
                       width={'50vw'}
                       height={visualHeight}
                       selectElement={(json) => selectElement(json)}
@@ -1988,7 +2006,7 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                      ui={{ selectedElements, geoEdgeRelVisible, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
+                      ui={{ selectedElements, geoEdgeRelVisible, geoEdgeLabelAggregate, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
                   width={'100%'}
                   height={visualHeight}
                   selectElement={(json) => selectElement(json)}
