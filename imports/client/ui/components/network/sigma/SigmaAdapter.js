@@ -326,20 +326,32 @@ function SigmaAdapter(container, elements = [], options = {}) {
                   // Set attributes expected by @sigma/edge-curve's indexing helper
                   const mid = (list.length - 1) / 2;
                   const rawOffsets = list.map((_, idx) => idx - mid);
-                  const parallelIndices = rawOffsets.map((offset) => {
+                  const baseIndices = rawOffsets.map((offset) => {
                     if (offset > 0) return Math.ceil(offset);
                     if (offset < 0) return Math.floor(offset);
                     return 0;
                   });
-                  const minIndex = parallelIndices.reduce((acc, val) => Math.min(acc, val), parallelIndices[0] || 0);
-                  const maxIndex = parallelIndices.reduce((acc, val) => Math.max(acc, val), parallelIndices[0] || 0);
+                  const directedIndices = baseIndices.map((val, idx) => {
+                    const entry = list[idx];
+                    const src = String(entry.source);
+                    const tgt = String(entry.target);
+                    const forward = src <= tgt;
+                    const dirSign = forward ? 1 : -1;
+                    return val * dirSign;
+                  });
+                  const minIndex = directedIndices.reduce((acc, val) => Math.min(acc, val), directedIndices[0] || 0);
+                  const maxIndex = directedIndices.reduce((acc, val) => Math.max(acc, val), directedIndices[0] || 0);
                   const curveCount = list.length;
                   const baseCurvature = curveCount === 2 ? 0.7 : 0.45;
                   list.forEach((item, idx) => {
                     try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(item.id, 'type', 'curved'); } catch (e) {}
                     try {
-                      const parallelIndex = parallelIndices[idx];
-                      const curvature = parallelIndex === 0 ? 0 : parallelIndex * baseCurvature;
+                      const parallelIndex = directedIndices[idx];
+                      const src = String(item.source);
+                      const tgt = String(item.target);
+                      const forward = src <= tgt;
+                      const dirSign = forward ? 1 : -1;
+                      const curvature = parallelIndex === 0 ? (curveCount > 1 ? dirSign * baseCurvature * 0.65 : 0) : parallelIndex * baseCurvature;
                       graph.setEdgeAttribute(item.id, 'parallelIndex', parallelIndex);
                       graph.setEdgeAttribute(item.id, 'parallelMinIndex', minIndex);
                       graph.setEdgeAttribute(item.id, 'parallelMaxIndex', maxIndex);
