@@ -789,7 +789,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
           else if (out.label) delete out.label;
           if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
           if (manualCurveEdgeIds.has(edge)) {
-            out.color = 'rgba(0,0,0,0.08)';
+            out.color = 'rgba(0,0,0,0)';
             out.size = Math.max(0.3, (out.size || 1) * 0.35);
           }
           return out;
