@@ -42,7 +42,9 @@ export default class Popup extends React.Component {
   // Robust close: try the provided onClose, otherwise fallback to localStorage/event.
   _fallbackClose() {
     try {
-      if (typeof localStorage !== 'undefined') localStorage.setItem('topo.chartsVisible', 'false')
+      // Avoid writing topo.chartsVisible here; just dispatch the panel toggle event
+      // so listeners can react. Persisting here causes unwanted writes to localStorage.
+      // if (typeof localStorage !== 'undefined') localStorage.setItem('topo.chartsVisible', 'false')
     } catch (e) {}
     try {
       if (typeof console !== 'undefined') console.log('[Popup] _fallbackClose: setting localStorage and dispatching topo:panelToggle')

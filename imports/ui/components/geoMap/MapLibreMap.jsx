@@ -12,6 +12,13 @@ export default class MapLibreMap extends React.Component {
     this.map = null
     this.container = React.createRef()
     this._markers = []
+    this._edgeInteractionBound = new Set()
+    this._emojiInteractionBound = false
+  this._nodeInteractionBound = new Set()
+    this._edgeEventHandlers = null
+    this._emojiSymbolHandlers = null
+  this._nodeLayerHandlers = null
+    this._hoverEdgeIndex = null
     // nonce to make image names unique per update (avoids sprite/name collisions)
     this._emojiNonce = 0
     // store canvases by image name so we can re-register them if style reloads
@@ -38,22 +45,36 @@ export default class MapLibreMap extends React.Component {
   // Render an emoji into a PNG data URL for use as an <img> marker.
   _emojiToDataUrl(emoji, sizePx = 64, color = '#111') {
     try {
+      // Measure text width so multi-glyph emoji strings aren't clipped.
+      const fontPx = Math.round(sizePx * 0.7)
+      const pad = Math.max(2, Math.round(sizePx * 0.12))
+      const measure = document.createElement('canvas')
+      const mctx = measure.getContext && measure.getContext('2d')
+      if (!mctx) return null
+      mctx.font = `${fontPx}px sans-serif`
+      const text = String(emoji || '')
+      const metrics = mctx.measureText(text)
+      const textWidth = Math.ceil(metrics.width || sizePx)
+      // ensure canvas is at least sizePx wide, but expand for wider text
+      const drawWidth = Math.max(sizePx, textWidth)
       const cvs = document.createElement('canvas')
-      cvs.width = sizePx; cvs.height = sizePx
+      cvs.width = drawWidth + pad * 2
+      cvs.height = sizePx + pad * 2
       const ctx = cvs.getContext && cvs.getContext('2d')
       if (!ctx) return null
-      // clear
-      ctx.clearRect(0,0,sizePx,sizePx)
-      // draw a subtle white halo by stroking text
-      const fontPx = Math.round(sizePx * 0.7)
+      // clear full canvas
+      ctx.clearRect(0, 0, cvs.width, cvs.height)
+      // draw halo + fill centered in the padded canvas
       ctx.font = `${fontPx}px sans-serif`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
       ctx.strokeStyle = '#ffffff'
-      try { ctx.strokeText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      const cx = cvs.width / 2
+      const cy = cvs.height / 2
+      try { ctx.strokeText(text, cx, cy) } catch (e) {}
       ctx.fillStyle = color || '#111'
-      try { ctx.fillText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      try { ctx.fillText(text, cx, cy) } catch (e) {}
       return cvs.toDataURL('image/png')
     } catch (e) { return null }
   }
@@ -61,20 +82,33 @@ export default class MapLibreMap extends React.Component {
   // Return a canvas with the emoji drawn; useful to get ImageData synchronously
   _emojiCanvas(emoji, sizePx = 64, color = '#111') {
     try {
+      // Measure text width so multi-glyph emoji strings aren't clipped.
+      const fontPx = Math.round(sizePx * 0.7)
+      const pad = Math.max(2, Math.round(sizePx * 0.12))
+      const measure = document.createElement('canvas')
+      const mctx = measure.getContext && measure.getContext('2d')
+      if (!mctx) return null
+      const text = String(emoji || '')
+      mctx.font = `${fontPx}px sans-serif`
+      const metrics = mctx.measureText(text)
+      const textWidth = Math.ceil(metrics.width || sizePx)
+      const drawWidth = Math.max(sizePx, textWidth)
       const cvs = document.createElement('canvas')
-      cvs.width = sizePx; cvs.height = sizePx
+      cvs.width = drawWidth + pad * 2
+      cvs.height = sizePx + pad * 2
       const ctx = cvs.getContext && cvs.getContext('2d')
       if (!ctx) return null
-      ctx.clearRect(0,0,sizePx,sizePx)
-      const fontPx = Math.round(sizePx * 0.7)
+      ctx.clearRect(0, 0, cvs.width, cvs.height)
       ctx.font = `${fontPx}px sans-serif`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
       ctx.strokeStyle = '#ffffff'
-      try { ctx.strokeText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      const cx = cvs.width / 2
+      const cy = cvs.height / 2
+      try { ctx.strokeText(text, cx, cy) } catch (e) {}
       ctx.fillStyle = color || '#111'
-      try { ctx.fillText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      try { ctx.fillText(text, cx, cy) } catch (e) {}
       return cvs
     } catch (e) { return null }
   }
@@ -174,67 +208,82 @@ export default class MapLibreMap extends React.Component {
           // inject a small stylesheet for emoji marker positioning so img markers
           // render above map tiles and are centered correctly
           try {
-            if (!document.querySelector('style[data-maplibre-emoji-css]')) {
-              const s = document.createElement('style')
-              s.setAttribute('data-maplibre-emoji-css', '1')
-              s.innerHTML = `
-                .maplibre-emoji-marker { position: relative; display: inline-block; }
-                .maplibre-emoji-marker img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2000; pointer-events: auto; }
-              `
-              try { document.head.appendChild(s) } catch (e) { document.body.appendChild(s) }
-            }
+              if (!document.querySelector('style[data-maplibre-emoji-css]')) {
+                const s = document.createElement('style')
+                s.setAttribute('data-maplibre-emoji-css', '1')
+                // Use simpler CSS that lets the <img> fill the marker container
+                // and avoids absolute-centering which can lead to clipped rendering
+                // in some browsers / DPI settings. Also remove extra positioning so
+                // MapLibre's marker wrapper controls placement.
+                s.innerHTML = `
+                  .maplibre-emoji-marker { position: relative; display: inline-block; line-height: 0; }
+                  .maplibre-emoji-marker img { display: block; width: 100%; height: 100%; z-index: 2000; pointer-events: auto; }
+                `
+                try { document.head.appendChild(s) } catch (e) { document.body.appendChild(s) }
+              }
           } catch (e) {}
         } catch (e) {}
         this.map.on('load', () => { this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
         // re-register our generated canvas images if the style reloads and clears images
+        // Handler for MapLibre 'styleimagemissing' events: try to re-add the image
+        this._styleImageMissingHandler = (ev) => {
+          try {
+            if (!ev || !ev.id || !this._registeredEmojiImages) return
+            const name = ev.id
+            let cvs = this._registeredEmojiImages.get(name)
+            if (!cvs) {
+              for (const [k, v] of this._registeredEmojiImages.entries()) {
+                if (String(k).indexOf(name) === 0 || String(k).includes(name)) { cvs = v; break }
+              }
+            }
+            if (!cvs) return
+            if (typeof createImageBitmap === 'function') {
+              createImageBitmap(cvs).then((bm) => { try { this.map.addImage(name, bm) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed (bitmap)', name, err) } }).catch((err) => {
+                try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err2) { console.warn('MapLibreMap: addImage on styleimagemissing failed (canvas)', name, err2) }
+              })
+            } else {
+              try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err) {
+                try {
+                  const dataUrl = cvs.toDataURL('image/png')
+                  const img = new Image()
+                  img.crossOrigin = 'anonymous'
+                  img.onload = () => { try { this.map.addImage(name, img) } catch (err2) { console.warn('MapLibreMap: addImage on styleimagemissing failed (img)', name, err2) } }
+                  img.onerror = () => {}
+                  img.src = dataUrl
+                } catch (err2) { console.warn('MapLibreMap: addImage on styleimagemissing fallback failed', name, err2) }
+              }
+            }
+          } catch (e) { console.warn('MapLibreMap: styleimagemissing handler failed', e) }
+        }
+
+        // Handler for 'styledata' events: attempt to re-register any images we previously stored
         this._styleDataHandler = () => {
           try {
             if (!this.map || !this._registeredEmojiImages) return
             this._registeredEmojiImages.forEach((cvs, name) => {
               try {
                 if (this.map.hasImage && this.map.hasImage(name)) return
-                try {
-                  // prefer ImageBitmap where available
-                  if (typeof createImageBitmap === 'function') {
-                    createImageBitmap(cvs).then((bm) => {
-                      try { this.map.addImage(name, bm) } catch (ee) { console.warn('MapLibreMap: re-addImage(bitmap) failed', name, ee) }
-                    }).catch((ee) => {
-                      try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (e2) { console.warn('MapLibreMap: re-addImage(canvas) failed', name, e2) }
-                    })
-                  } else {
-                    try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (ee) { console.warn('MapLibreMap: re-addImage failed', name, ee) }
+                if (typeof createImageBitmap === 'function') {
+                  createImageBitmap(cvs).then((bm) => { try { this.map.addImage(name, bm) } catch (err) { console.warn('MapLibreMap: re-addImage(bitmap) failed', name, err) } }).catch((err) => {
+                    try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err2) { console.warn('MapLibreMap: re-addImage(canvas) failed', name, err2) }
+                  })
+                } else {
+                  try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err) {
+                    try {
+                      const dataUrl = cvs.toDataURL('image/png')
+                      const img = new Image()
+                      img.crossOrigin = 'anonymous'
+                      img.onload = () => { try { this.map.addImage(name, img) } catch (err2) { console.warn('MapLibreMap: re-addImage(img) failed', name, err2) } }
+                      img.onerror = () => {}
+                      img.src = dataUrl
+                    } catch (err2) { console.warn('MapLibreMap: re-addImage fallback failed', name, err2) }
                   }
-                } catch (ee) { console.warn('MapLibreMap: re-addImage error', name, ee) }
-              } catch (e) {}
-            })
-          } catch (e) {}
-        }
-        // re-register a specific missing image when style requests it
-        this._styleImageMissingHandler = (ev) => {
-          try {
-            const name = ev && ev.id
-            if (!name) return
-            // try exact match first
-            let cvs = (this._registeredEmojiImages && this._registeredEmojiImages.get(name)) || null
-            // if not found, try to locate a stored canvas whose registered key
-            // contains the requested base name (we register with a nonce suffix)
-            if (!cvs && this._registeredEmojiImages) {
-              try {
-                for (const [k, v] of this._registeredEmojiImages.entries()) {
-                  if (String(k).indexOf(name) === 0 || String(k).indexOf(name) > 0) { cvs = v; break }
                 }
-              } catch (ee) {}
-            }
-            if (!cvs) return
-            try {
-              if (typeof createImageBitmap === 'function') {
-                createImageBitmap(cvs).then((bm) => { try { this.map.addImage(name, bm) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed (bitmap)', name, err) } })
-              } else {
-                try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed', name, err) }
-              }
-            } catch (err) { console.warn('MapLibreMap: styleimagemissing re-add failed', name, err) }
-          } catch (e) {}
+              } catch (e) { console.warn('MapLibreMap: re-addImage error', name, e) }
+            })
+          } catch (e) { console.warn('MapLibreMap: styledata handler failed', e) }
         }
+
         try { this.map.on && this.map.on('styleimagemissing', this._styleImageMissingHandler) } catch (e) {}
         try { this.map.on && this.map.on('styledata', this._styleDataHandler) } catch (e) {}
         this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
@@ -281,6 +330,28 @@ export default class MapLibreMap extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    const styleChanged = this.props.style !== prevProps.style
+    if (styleChanged && this.map) {
+      const nextStyle = this.props.style || 'https://demotiles.maplibre.org/style.json'
+      const refreshOverlays = () => {
+        try {
+          this._clearMarkers()
+          this._renderMarkers()
+          this._updateNodesLayer()
+          this._updateEdgesLayer()
+        } catch (e) {}
+      }
+      try {
+        if (typeof this.map.once === 'function') {
+          this.map.once('styledata', () => { refreshOverlays() })
+        }
+        this.map.setStyle(nextStyle)
+        if (typeof this.map.once !== 'function') {
+          refreshOverlays()
+        }
+      } catch (e) { try { console.warn('MapLibreMap: setStyle failed', e) } catch (err) {} }
+      return
+    }
     // re-render markers when nodes/edges change
     if (this.props.nodes !== prevProps.nodes || this.props.edges !== prevProps.edges) {
       this._clearMarkers(); this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer()
@@ -288,13 +359,25 @@ export default class MapLibreMap extends React.Component {
   }
 
   componentWillUnmount() {
+    this._unbindEdgeInteractions()
+    this._unbindEmojiSymbolInteractions()
+    this._unbindNodeInteractions()
     this._clearMarkers()
     try {
       if (this.map) {
         try { if (this.map.getLayer && this.map.getLayer('geo-edges-line')) this.map.removeLayer('geo-edges-line') } catch (e) {}
         try { if (this.map.getSource && this.map.getSource('geo-edges')) this.map.removeSource('geo-edges') } catch (e) {}
+        try { if (this.map.getLayer && this.map.getLayer('geo-edges-highlight')) this.map.removeLayer('geo-edges-highlight') } catch (e) {}
+  try { if (this.map.getLayer && this.map.getLayer('geo-edge-labels-symbol')) this.map.removeLayer('geo-edge-labels-symbol') } catch (e) {}
+  try { if (this.map.getSource && this.map.getSource('geo-edge-labels')) this.map.removeSource('geo-edge-labels') } catch (e) {}
+  try { if (this.map.getLayer && this.map.getLayer('geo-edge-emoji-symbol')) this.map.removeLayer('geo-edge-emoji-symbol') } catch (e) {}
+  try { if (this.map.getSource && this.map.getSource('geo-edge-emoji')) this.map.removeSource('geo-edge-emoji') } catch (e) {}
+        try { if (this.map.getLayer && this.map.getLayer('geo-node-highlight')) this.map.removeLayer('geo-node-highlight') } catch (e) {}
+        try { if (this.map.getSource && this.map.getSource('geo-node-highlight')) this.map.removeSource('geo-node-highlight') } catch (e) {}
         try { if (this.map.getLayer && this.map.getLayer('geo-nodes-circle')) this.map.removeLayer('geo-nodes-circle') } catch (e) {}
         try { if (this.map.getSource && this.map.getSource('geo-nodes')) this.map.removeSource('geo-nodes') } catch (e) {}
+        try { if (this.map.getLayer && this.map.getLayer('geo-emoji-symbol')) this.map.removeLayer('geo-emoji-symbol') } catch (e) {}
+        try { if (this.map.getSource && this.map.getSource('geo-emoji')) this.map.removeSource('geo-emoji') } catch (e) {}
         try { if (this.map.remove) this.map.remove() } catch (e) {}
       }
     } catch (e) {}
@@ -361,20 +444,23 @@ export default class MapLibreMap extends React.Component {
               try {
                 const actual = marker && marker.getElement && marker.getElement()
                 if (actual) {
-              // ensure it's absolutely positioned and on top
+              // ensure it's positioned above tiles and accepts pointer events
               actual.style.position = actual.style.position || 'absolute'
               actual.style.zIndex = '9999'
               actual.style.pointerEvents = 'auto'
-              // if we inserted an <img> inside, make sure it is absolutely centered and above
+              // if we inserted a padded emoji image inside (.maplibre-emoji-marker img)
+              // ensure it fills its container instead of being absolutely centered
               try {
-                const img = actual.querySelector && actual.querySelector('img.maplibre-emoji-marker')
+                const img = actual.querySelector && actual.querySelector('.maplibre-emoji-marker img')
                 if (img) {
-                  img.style.position = 'absolute'
-                  img.style.left = '50%'
-                  img.style.top = '50%'
-                  img.style.transform = 'translate(-50%, -50%)'
+                  img.style.position = ''
+                  img.style.left = ''
+                  img.style.top = ''
+                  img.style.transform = ''
                   img.style.zIndex = '10000'
                   img.style.display = 'block'
+                  img.style.width = '100%'
+                  img.style.height = '100%'
                 }
               } catch (e) {}
               // debug: log presence
@@ -420,17 +506,31 @@ export default class MapLibreMap extends React.Component {
         try {
           if (!this.map) return
           const edges = this.props.edges || []
+          if (this._hoverEdgeIndex != null) {
+            const idx = Number(this._hoverEdgeIndex)
+            if (!isFinite(idx) || idx < 0 || idx >= edges.length) this._hoverEdgeIndex = null
+          }
           const features = (edges || []).map((e, i) => {
-            if (!e || !e.coords || e.coords.length !== 2) return null
+          if (!e || !e.coords || e.coords.length !== 2) return null
             const [[lat1, lng1], [lat2, lng2]] = e.coords
             const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
             if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return null
+            const selected = !!(e && e.data && e.data.selected)
+            const weightRaw = (e && e.data && e.data.weight != null) ? Number(e.data.weight) : 2
+            const weight = isFinite(weightRaw) ? weightRaw : 2
             return {
               type: 'Feature',
-              properties: { color: (e && e.data && e.data.color) || '#9f7aea', weight: (e && e.data && e.data.weight) || 2 },
+              properties: {
+                color: (e && e.data && e.data.color) || '#9f7aea',
+                weight,
+                edgeIndex: i,
+                edgeId: (e && e.data && e.data.id != null) ? String(e.data.id) : undefined,
+                selected
+              },
               geometry: { type: 'LineString', coordinates: [ [o1, a1], [o2, a2] ] }
             }
           }).filter(Boolean)
+
           const geo = { type: 'FeatureCollection', features }
           // Add or update source
           if (this.map.getSource && this.map.getSource('geo-edges')) {
@@ -449,13 +549,69 @@ export default class MapLibreMap extends React.Component {
           }
           try { console.info('MapLibreMap: edges features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${this._markers.length} edges:${features.length} emoji:${(this._statusEl && this._statusEl._emojiCount) || 0}` } catch (e) {}
 
+          try {
+            if (this.map.getLayer && !this.map.getLayer('geo-edges-highlight')) {
+              const highlightLayer = {
+                id: 'geo-edges-highlight',
+                type: 'line',
+                source: 'geo-edges',
+                filter: ['==', ['get', 'selected'], true],
+                layout: { 'line-join': 'round', 'line-cap': 'round' },
+                paint: {
+                  'line-color': '#fcd34d',
+                  'line-width': ['+', ['coalesce', ['get', 'weight'], 2], 3],
+                  'line-opacity': 0.95
+                }
+              }
+              try { this.map.addLayer(highlightLayer) } catch (e) { console.warn('MapLibreMap: adding edge highlight layer failed', e) }
+            }
+            this._bindEdgeInteractions()
+            this._refreshEdgeHighlight()
+          } catch (e) { console.warn('MapLibreMap: edge highlight setup failed', e) }
+
           // Build and add/update edge relationship labels (midpoint symbols) only when UI allows
           try {
             const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
             if (geoRelVisible) {
-              // bucket edges by canonical endpoint key so labels on identical
-              // routes can be stacked rather than rendered on top of each other
-              const edgesList = (this.props.edges || [])
+              // Optionally aggregate duplicate labels for edges sharing same endpoints and same label/emoji
+              const doAggregate = !!(this.props.ui && this.props.ui.geoEdgeLabelAggregate)
+              const originalEdges = (this.props.edges || [])
+              // Helper to compute rendered label string according to mode
+              const computeRelLabel = (e, edgeMode) => {
+                const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+                const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+                let relLabel = ''
+                if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+                else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+                else if (edgeMode === 'none') relLabel = ''
+                else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+                return { relLabel, relTextRaw, relEmojiRaw }
+              }
+              const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+              let edgesList = originalEdges
+              let groupCounts = null
+              if (doAggregate) {
+                groupCounts = new Map()
+                // Build counts keyed by source|target|relLabel
+                originalEdges.forEach((e) => {
+                  try {
+                    const s = String(e && e.data && e.data.source)
+                    const t = String(e && e.data && e.data.target)
+                    const { relLabel } = computeRelLabel(e, edgeMode)
+                    const key = `${s}|${t}|${relLabel}`
+                    const prev = groupCounts.get(key) || { count: 0, edge: e, s, t, relLabel }
+                    prev.count += 1
+                    // keep the first representative edge
+                    if (!prev.edge) prev.edge = e
+                    groupCounts.set(key, prev)
+                  } catch (_) {}
+                })
+                // Use representatives as edgeList
+                const reps = []
+                groupCounts.forEach((val) => { if (val && val.edge) reps.push(val.edge) })
+                edgesList = reps
+              }
+              // bucket edges (representatives when aggregated) by canonical endpoint key so labels stack cleanly
               const buckets = new Map()
               const canonicalKey = (e) => {
                 if (!e || !e.coords || e.coords.length !== 2) return ''
@@ -480,14 +636,19 @@ export default class MapLibreMap extends React.Component {
               const [[lat1, lng1], [lat2, lng2]] = e.coords
               const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
               if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return null
-              const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
-              const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
-              const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
-              let relLabel = ''
-              if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
-              else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
-              else if (edgeMode === 'none') relLabel = ''
-              else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+              const { relLabel: baseRelLabel, relTextRaw, relEmojiRaw } = computeRelLabel(e, edgeMode)
+              let relLabel = baseRelLabel
+              // If aggregating, append multiplier when there are duplicates for this pair/label
+              let count = 1
+              if (doAggregate && groupCounts) {
+                try {
+                  const s = String(e && e.data && e.data.source)
+                  const t = String(e && e.data && e.data.target)
+                  const key = `${s}|${t}|${baseRelLabel}`
+                  const info = groupCounts.get(key)
+                  if (info && info.count > 1) count = info.count
+                } catch (_) {}
+              }
               // Build both text and emoji features depending on mode
               const midLat = (a1 + a2) / 2
               let midLng = (o1 + o2) / 2
@@ -514,12 +675,14 @@ export default class MapLibreMap extends React.Component {
                 const edgeIconName = `edge-emoji-${i}@${computedEdgeSizePx}`
                 // store the emoji separately so registration uses the emoji char (not the text label)
                 // set the text label to the textual relationship only (don't place the emoji in the text-field)
-                labelFeatures.push({ type: 'Feature', properties: { label: String(relTextRaw || ''), _emoji: String(relEmojiRaw), id: i, offset: textOffset, icon: edgeIconName, size, iconOffsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                const lbl = String(relTextRaw || '') + (count > 1 ? ` x${count}` : '')
+                labelFeatures.push({ type: 'Feature', properties: { label: lbl, _emoji: String(relEmojiRaw), id: i, offset: textOffset, icon: edgeIconName, size, iconOffsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
               } else {
                 // text-only or emoji-as-text fallback
                 if (edgeMode === 'text' || (edgeMode === 'emoji' && !relEmojiRaw) || (edgeMode === 'both' && !relEmojiRaw)) {
-                  if (relLabel && String(relLabel).trim() !== '') {
-                    labelFeatures.push({ type: 'Feature', properties: { label: String(relLabel), id: i, offset: [0, offsetY] }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  const lbl = String(relLabel || '') + (count > 1 ? ` x${count}` : '')
+                  if (lbl && String(lbl).trim() !== '') {
+                    labelFeatures.push({ type: 'Feature', properties: { label: lbl, id: i, offset: [0, offsetY] }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
                   }
                 }
                 // emoji-only mode: separate emoji feature (icon only)
@@ -528,7 +691,12 @@ export default class MapLibreMap extends React.Component {
                   const computedEdgeSizePx = 64
                   const offsetPx = [0, offsetY * 12]
                   const edgeIconName = `edge-emoji-${i}@${computedEdgeSizePx}`
-                  emojiLabelFeatures.push({ type: 'Feature', properties: { label: String(relEmojiRaw), id: i, icon: edgeIconName, size, offsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  emojiLabelFeatures.push({ type: 'Feature', properties: { label: String(relEmojiRaw), id: i, icon: edgeIconName, size, offsetPx, _sizePx: computedEdgeSizePx, _count: count }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  // If aggregating and count>1, also add a tiny text-only label to the right showing xN
+                  if (count > 1) {
+                    const textLbl = ` x${count}`
+                    labelFeatures.push({ type: 'Feature', properties: { label: textLbl, id: `${i}-count`, offset: [0.9, offsetY] }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  }
                 }
               }
               return null
@@ -609,8 +777,9 @@ export default class MapLibreMap extends React.Component {
                       const dataUrl = cvs.toDataURL('image/png')
                       const el = document.createElement('div')
                       el.className = 'maplibre-emoji-marker'
-                      el.style.width = `${sizePx}px`
-                      el.style.height = `${sizePx}px`
+                      // size the marker to the actual canvas (includes padding)
+                      el.style.width = `${cvs.width}px`
+                      el.style.height = `${cvs.height}px`
                       el.style.pointerEvents = 'auto'
                       const img = document.createElement('img')
                       img.src = dataUrl
@@ -667,36 +836,36 @@ export default class MapLibreMap extends React.Component {
         try {
           if (!this.map) return
           const nodes = this.props.nodes || []
-              // Build vector circle features for non-emoji nodes, and separately
-              // build an emoji feature collection for nodes that contain emoji.
-              // Respect the ui.emojiVisible toggle: if emojiVisible is true,
-              // exclude emoji nodes from circle features; if false, draw circles
-              // for all nodes including those that have emoji.
-              const emojiToggle = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
-              const features = (nodes || []).map((n, i) => {
-                // exclude nodes from circle features only when they have emoji
-                // and the UI requests emoji rendering
-                if (n && n.data && n.data.emoji && emojiToggle) return null
+          // Build vector circle features for non-emoji nodes, and separately
+          // build an emoji feature collection for nodes that contain emoji.
+          // Respect the ui.emojiVisible toggle: if emojiVisible is true,
+          // exclude emoji nodes from circle features; if false, draw circles
+          // for all nodes including those that have emoji.
+          const emojiToggle = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+          const features = (nodes || []).map((n, i) => {
+            if (n && n.data && n.data.emoji && emojiToggle) return null
             const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
             const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
             if (!isFinite(lat) || !isFinite(lng)) return null
-            // compute radius consistent with Leaflet GeoNodes: weight->radius px
             const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+            const selected = !!(n && n.data && n.data.selected)
             return {
               type: 'Feature',
               properties: {
                 id: (n && n.data && n.data.id) || i,
+                nodeIndex: i,
                 color: (n && n.data && n.data.color) || (n && n.color) || '#1f2937',
-                radius: visualRadius
+                radius: visualRadius,
+                selected
               },
               geometry: { type: 'Point', coordinates: [lng, lat] }
             }
           }).filter(Boolean)
               // emoji features: nodes that have emoji
-              const emojiFeatures = (nodes || []).map((n, i) => {
-                  const emoji = this._getNodeEmoji(n)
-                  const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
-                  if (!emoji || !emojiEnabled) return null
+          const emojiFeatures = (nodes || []).map((n, i) => {
+            const emoji = this._getNodeEmoji(n)
+            const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
+            if (!emoji || !emojiEnabled) return null
                 const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
                 const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
                 if (!isFinite(lat) || !isFinite(lng)) return null
@@ -711,10 +880,28 @@ export default class MapLibreMap extends React.Component {
                 return {
                   type: 'Feature',
                   // include nodeIndex so we can reliably reference the original node
-                  properties: { nodeIndex: i, id: (n && n.data && n.data.id) || i, icon: iconName, size: iconScale, _sizePx: computedSizePx },
+                  properties: { nodeIndex: i, id: (n && n.data && n.data.id) || i, icon: iconName, size: iconScale, _sizePx: computedSizePx, selected: !!(n && n.data && n.data.selected) },
                   geometry: { type: 'Point', coordinates: [lng, lat] }
                 }
-              }).filter(Boolean)
+          }).filter(Boolean)
+          const highlightFeatures = (nodes || []).map((n, i) => {
+            if (!n || !n.data || !n.data.selected) return null
+            const latRaw = (n && n.data && n.data.lat != null) ? n.data.lat : (n && n.data && n.data.latitude != null ? n.data.latitude : NaN)
+            const lngRaw = (n && n.data && n.data.lng != null) ? n.data.lng : (n && n.data && n.data.longitude != null ? n.data.longitude : NaN)
+            const lat = Number(latRaw)
+            const lng = Number(lngRaw)
+            if (!isFinite(lat) || !isFinite(lng)) return null
+            const visualRadius = (n && n.data && n.data.weight) ? ((n.data.weight > 100) ? 167 : (n.data.weight * 5)) : 3
+            return {
+              type: 'Feature',
+              properties: {
+                id: (n && n.data && n.data.id) || i,
+                nodeIndex: i,
+                radius: visualRadius
+              },
+              geometry: { type: 'Point', coordinates: [lng, lat] }
+            }
+          }).filter(Boolean)
           const geo = { type: 'FeatureCollection', features }
           if (this.map.getSource && this.map.getSource('geo-nodes')) {
             try { this.map.getSource('geo-nodes').setData(geo) } catch (e) {}
@@ -726,28 +913,47 @@ export default class MapLibreMap extends React.Component {
                 type: 'circle',
                 source: 'geo-nodes',
                 paint: {
-                  'circle-color': ['get', 'color'],
+                  'circle-color': ['case', ['==', ['get', 'selected'], true], '#fcd34d', ['get', 'color']],
                   'circle-radius': ['get', 'radius'],
-                  'circle-stroke-color': '#ffffff',
-                  'circle-stroke-width': 1,
-                  'circle-opacity': 0.95
+                  'circle-stroke-color': ['case', ['==', ['get', 'selected'], true], '#f59e0b', '#ffffff'],
+                  'circle-stroke-width': ['case', ['==', ['get', 'selected'], true], 2, 1],
+                  'circle-opacity': ['case', ['==', ['get', 'selected'], true], 1, 0.95]
                 }
-              })
-              // click handling for nodes
-              this.map.on('click', 'geo-nodes-circle', (e) => {
-                try {
-                  const feat = e && e.features && e.features[0]
-                  if (feat && feat.properties && this.props.handleClickGeoElement) {
-                    const id = feat.properties.id
-                    // find the node by id and call handler
-                    const node = (this.props.nodes || []).find(n => String((n && n.data && n.data.id) || '') === String(id))
-                    if (node) this.props.handleClickGeoElement({ group: 'node', el: node })
-                  }
-                } catch (err) { console.warn('MapLibreMap: node click handler error', err) }
               })
             } catch (e) { console.warn('MapLibreMap: add nodes layer failed', e) }
           }
           try { console.info('MapLibreMap: nodes features', features.length); if (this._statusEl) this._statusEl.innerText = `MapLibre: loaded • nodes:${features.length}` } catch (e) {}
+
+          try {
+            const highlightGeo = { type: 'FeatureCollection', features: highlightFeatures }
+            if (this.map.getSource && this.map.getSource('geo-node-highlight')) {
+              try { this.map.getSource('geo-node-highlight').setData(highlightGeo) } catch (e) {}
+            } else if (this.map.addSource) {
+              try { this.map.addSource('geo-node-highlight', { type: 'geojson', data: highlightGeo }) } catch (e) {}
+            }
+
+            if (this.map.getLayer && !this.map.getLayer('geo-node-highlight') && highlightFeatures.length) {
+              const beforeId = this.map.getLayer('geo-nodes-circle') ? 'geo-nodes-circle' : (this.map.getLayer('geo-emoji-symbol') ? 'geo-emoji-symbol' : undefined)
+              const highlightLayer = {
+                id: 'geo-node-highlight',
+                type: 'circle',
+                source: 'geo-node-highlight',
+                paint: {
+                  'circle-color': '#fcd34d',
+                  'circle-opacity': 0.3,
+                  'circle-radius': ['+', ['coalesce', ['get', 'radius'], 6], 6],
+                  'circle-stroke-color': '#f59e0b',
+                  'circle-stroke-width': 1.5
+                }
+              }
+              try {
+                if (beforeId) this.map.addLayer(highlightLayer, beforeId)
+                else this.map.addLayer(highlightLayer)
+              } catch (err) { console.warn('MapLibreMap: add node highlight layer failed', err) }
+            }
+
+            this._bindNodeInteractions()
+          } catch (e) { console.warn('MapLibreMap: node highlight setup failed', e) }
 
           // Add or update emoji source + symbol layer (images loaded from our canvas dataURLs)
           try {
@@ -788,12 +994,13 @@ export default class MapLibreMap extends React.Component {
                         'icon-image': ['get', 'icon'],
                         'icon-allow-overlap': true,
                         'icon-ignore-placement': true,
-                        'icon-size': ['get', 'size']
+                        'icon-size': ['case', ['==', ['get', 'selected'], true], ['*', ['get', 'size'], 1.15], ['get', 'size']]
                       }
                     })
                   } catch (e) { console.warn('MapLibreMap: add emoji layer failed', e) }
                 }
               } catch (e) { console.warn('MapLibreMap: emoji layer update failed', e) }
+              try { this._bindEmojiSymbolInteractions() } catch (e) {}
               // Fallback: for any images that didn't register, create DOM markers
               try {
                 results = results || []
@@ -811,15 +1018,24 @@ export default class MapLibreMap extends React.Component {
                     const dataUrl = cvs.toDataURL('image/png')
                     const el = document.createElement('div')
                     el.className = 'maplibre-emoji-marker'
-                    el.style.width = `${sizePx}px`
-                    el.style.height = `${sizePx}px`
+                    // use the canvas actual dimensions (includes padding)
+                    el.style.width = `${cvs.width}px`
+                    el.style.height = `${cvs.height}px`
                     el.style.pointerEvents = 'auto'
+                    el.style.cursor = 'pointer'
                     const img = document.createElement('img')
                     img.src = dataUrl
                     img.style.width = '100%'
                     img.style.height = '100%'
                     img.style.display = 'block'
                     el.appendChild(img)
+                    el.addEventListener('click', (evt) => {
+                      try {
+                        evt.stopPropagation()
+                        const node = (this.props.nodes || [])[nodeIndex]
+                        if (node && this.props.handleClickGeoElement) this.props.handleClickGeoElement({ group: 'node', el: node })
+                      } catch (err) {}
+                    })
                     try {
                       const coords = f.geometry && f.geometry.coordinates
                       if (coords && coords.length === 2 && this._maplibregl) {
@@ -837,6 +1053,307 @@ export default class MapLibreMap extends React.Component {
         } catch (e) { console.warn('MapLibreMap: nodes layer update failed', e) }
       }
 
+  _setCursor(style) {
+    try {
+      const canvas = this.map && this.map.getCanvas && this.map.getCanvas()
+      if (canvas) canvas.style.cursor = style || ''
+    } catch (e) {}
+  }
+
+  _edgeFromFeature(feat) {
+    try {
+      if (!feat || !feat.properties) return null
+      const idxRaw = feat.properties.edgeIndex
+      if (idxRaw == null) return null
+      const idx = Number(idxRaw)
+      if (!isFinite(idx)) return null
+      const edges = this.props && this.props.edges ? this.props.edges : []
+      return edges[idx] || null
+    } catch (e) { return null }
+  }
+
+  _nodeFromFeature(feat) {
+    try {
+      if (!feat || !feat.properties) return null
+      const nodes = this.props && this.props.nodes ? this.props.nodes : []
+      if (feat.properties.nodeIndex != null) {
+        const idx = Number(feat.properties.nodeIndex)
+        if (isFinite(idx) && nodes[idx]) return nodes[idx]
+      }
+      if (feat.properties.id != null) {
+        const targetId = String(feat.properties.id)
+        return nodes.find(n => String(n && n.data && n.data.id) === targetId) || null
+      }
+      return null
+    } catch (e) { return null }
+  }
+
+  _handleEdgeClick(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const edge = this._edgeFromFeature(feat)
+      if (edge && this.props.handleClickGeoElement) {
+        this.props.handleClickGeoElement({ group: 'edge', el: edge })
+      }
+    } catch (e) { console.warn('MapLibreMap: edge click handler error', e) }
+  }
+
+  _handleEdgeMouseEnter(ev) {
+    this._setCursor('pointer')
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      if (feat && feat.properties && feat.properties.edgeIndex != null) {
+        const idx = Number(feat.properties.edgeIndex)
+        if (isFinite(idx)) {
+          this._hoverEdgeIndex = idx
+          this._refreshEdgeHighlight()
+        }
+      }
+    } catch (e) {}
+  }
+
+  _handleEdgeMouseLeave() {
+    this._setCursor('')
+    const hadHover = this._hoverEdgeIndex != null
+    this._hoverEdgeIndex = null
+    if (hadHover) this._refreshEdgeHighlight()
+    try {
+      if (this.props && this.props.isolateMode && this.props.onUnfocusElement) this.props.onUnfocusElement()
+    } catch (e) {}
+  }
+
+  _handleEdgeMouseDown(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      if (feat && feat.properties && feat.properties.edgeIndex != null) {
+        const idx = Number(feat.properties.edgeIndex)
+        if (isFinite(idx)) {
+          this._hoverEdgeIndex = idx
+          this._refreshEdgeHighlight()
+        }
+      }
+      if (this.props && this.props.isolateMode && this.props.onFocusElement) {
+        const edge = this._edgeFromFeature(feat)
+        if (edge) this.props.onFocusElement(edge)
+      }
+    } catch (e) {}
+  }
+
+  _handleEdgeMouseUp() {
+    if (this._hoverEdgeIndex != null) this._refreshEdgeHighlight()
+    if (!this.props || !this.props.isolateMode || !this.props.onUnfocusElement) return
+    try { this.props.onUnfocusElement() } catch (e) {}
+  }
+
+  _bindEdgeInteractions() {
+    if (!this.map) return
+    if (!this._edgeEventHandlers) {
+      this._edgeEventHandlers = {
+        click: (ev) => this._handleEdgeClick(ev),
+        mouseenter: (ev) => this._handleEdgeMouseEnter(ev),
+        mouseleave: () => this._handleEdgeMouseLeave(),
+        mousedown: (ev) => this._handleEdgeMouseDown(ev),
+        mouseup: () => this._handleEdgeMouseUp()
+      }
+    }
+    const layers = ['geo-edges-line', 'geo-edges-highlight']
+    layers.forEach((layerId) => {
+      if (!this.map.getLayer || !this.map.getLayer(layerId)) return
+      const handlers = this._edgeEventHandlers
+      if (this._edgeInteractionBound.has(layerId)) {
+        try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+        try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+        try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+        try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+        try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+        this._edgeInteractionBound.delete(layerId)
+      }
+      try { this.map.on('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.on('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.on('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.on('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.on('mouseup', layerId, handlers.mouseup) } catch (e) {}
+      this._edgeInteractionBound.add(layerId)
+    })
+  }
+
+  _refreshEdgeHighlight() {
+    try {
+      if (!this.map || !this.map.getLayer || !this.map.getLayer('geo-edges-highlight')) return
+      const hoverIdx = (this._hoverEdgeIndex != null && isFinite(this._hoverEdgeIndex)) ? Number(this._hoverEdgeIndex) : null
+      let filter
+      if (hoverIdx != null) {
+        filter = ['any', ['==', ['get', 'selected'], true], ['==', ['get', 'edgeIndex'], hoverIdx]]
+      } else {
+        filter = ['==', ['get', 'selected'], true]
+      }
+      this.map.setFilter('geo-edges-highlight', filter)
+    } catch (e) {}
+  }
+
+  _unbindEdgeInteractions() {
+    if (!this.map || !this._edgeEventHandlers || !this._edgeInteractionBound) return
+    const handlers = this._edgeEventHandlers
+    this._edgeInteractionBound.forEach((layerId) => {
+      try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+    })
+    this._edgeInteractionBound.clear()
+  }
+
+  _handleEmojiSymbolClick(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node && this.props.handleClickGeoElement) {
+        this.props.handleClickGeoElement({ group: 'node', el: node })
+      }
+    } catch (e) { console.warn('MapLibreMap: emoji symbol click handler error', e) }
+  }
+
+  _handleEmojiSymbolMouseLeave() {
+    this._setCursor('')
+    try {
+      if (this.props && this.props.isolateMode && this.props.onUnfocusElement) this.props.onUnfocusElement()
+    } catch (e) {}
+  }
+
+  _handleEmojiSymbolMouseDown(ev) {
+    if (!this.props || !this.props.isolateMode || !this.props.onFocusElement) return
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node) this.props.onFocusElement(node)
+    } catch (e) {}
+  }
+
+  _handleEmojiSymbolMouseUp() {
+    if (!this.props || !this.props.isolateMode || !this.props.onUnfocusElement) return
+    try { this.props.onUnfocusElement() } catch (e) {}
+  }
+
+  _handleNodeLayerClick(ev) {
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node && this.props.handleClickGeoElement) {
+        this.props.handleClickGeoElement({ group: 'node', el: node })
+      }
+    } catch (e) { console.warn('MapLibreMap: node click handler error', e) }
+  }
+
+  _handleNodeLayerMouseEnter() {
+    this._setCursor('pointer')
+  }
+
+  _handleNodeLayerMouseLeave() {
+    this._setCursor('')
+    try {
+      if (this.props && this.props.isolateMode && this.props.onUnfocusElement) this.props.onUnfocusElement()
+    } catch (e) {}
+  }
+
+  _handleNodeLayerMouseDown(ev) {
+    if (!this.props || !this.props.isolateMode || !this.props.onFocusElement) return
+    try {
+      const feat = ev && ev.features && ev.features[0]
+      const node = this._nodeFromFeature(feat)
+      if (node) this.props.onFocusElement(node)
+    } catch (e) {}
+  }
+
+  _handleNodeLayerMouseUp() {
+    if (!this.props || !this.props.isolateMode || !this.props.onUnfocusElement) return
+    try { this.props.onUnfocusElement() } catch (e) {}
+  }
+
+  _bindEmojiSymbolInteractions() {
+    if (!this.map || !this.map.getLayer || !this.map.getLayer('geo-emoji-symbol')) return
+    if (!this._emojiSymbolHandlers) {
+      this._emojiSymbolHandlers = {
+        click: (ev) => this._handleEmojiSymbolClick(ev),
+        mouseenter: () => this._setCursor('pointer'),
+        mouseleave: () => this._handleEmojiSymbolMouseLeave(),
+        mousedown: (ev) => this._handleEmojiSymbolMouseDown(ev),
+        mouseup: () => this._handleEmojiSymbolMouseUp()
+      }
+    }
+    const handlers = this._emojiSymbolHandlers
+    if (this._emojiInteractionBound) {
+      try { this.map.off('click', 'geo-emoji-symbol', handlers.click) } catch (e) {}
+      try { this.map.off('mouseenter', 'geo-emoji-symbol', handlers.mouseenter) } catch (e) {}
+      try { this.map.off('mouseleave', 'geo-emoji-symbol', handlers.mouseleave) } catch (e) {}
+      try { this.map.off('mousedown', 'geo-emoji-symbol', handlers.mousedown) } catch (e) {}
+      try { this.map.off('mouseup', 'geo-emoji-symbol', handlers.mouseup) } catch (e) {}
+      this._emojiInteractionBound = false
+    }
+    try { this.map.on('click', 'geo-emoji-symbol', handlers.click) } catch (e) {}
+    try { this.map.on('mouseenter', 'geo-emoji-symbol', handlers.mouseenter) } catch (e) {}
+    try { this.map.on('mouseleave', 'geo-emoji-symbol', handlers.mouseleave) } catch (e) {}
+    try { this.map.on('mousedown', 'geo-emoji-symbol', handlers.mousedown) } catch (e) {}
+    try { this.map.on('mouseup', 'geo-emoji-symbol', handlers.mouseup) } catch (e) {}
+    this._emojiInteractionBound = true
+  }
+
+  _unbindEmojiSymbolInteractions() {
+    if (!this.map || !this._emojiInteractionBound || !this._emojiSymbolHandlers) return
+    const handlers = this._emojiSymbolHandlers
+    try { this.map.off('click', 'geo-emoji-symbol', handlers.click) } catch (e) {}
+    try { this.map.off('mouseenter', 'geo-emoji-symbol', handlers.mouseenter) } catch (e) {}
+    try { this.map.off('mouseleave', 'geo-emoji-symbol', handlers.mouseleave) } catch (e) {}
+    try { this.map.off('mousedown', 'geo-emoji-symbol', handlers.mousedown) } catch (e) {}
+    try { this.map.off('mouseup', 'geo-emoji-symbol', handlers.mouseup) } catch (e) {}
+    this._emojiInteractionBound = false
+  }
+
+  _bindNodeInteractions() {
+    if (!this.map) return
+    if (!this._nodeLayerHandlers) {
+      this._nodeLayerHandlers = {
+        click: (ev) => this._handleNodeLayerClick(ev),
+        mouseenter: () => this._handleNodeLayerMouseEnter(),
+        mouseleave: () => this._handleNodeLayerMouseLeave(),
+        mousedown: (ev) => this._handleNodeLayerMouseDown(ev),
+        mouseup: () => this._handleNodeLayerMouseUp()
+      }
+    }
+    const layers = ['geo-nodes-circle', 'geo-node-highlight']
+    layers.forEach((layerId) => {
+      if (!this.map.getLayer || !this.map.getLayer(layerId)) return
+      const handlers = this._nodeLayerHandlers
+      if (this._nodeInteractionBound.has(layerId)) {
+        try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+        try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+        try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+        try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+        try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+        this._nodeInteractionBound.delete(layerId)
+      }
+      try { this.map.on('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.on('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.on('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.on('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.on('mouseup', layerId, handlers.mouseup) } catch (e) {}
+      this._nodeInteractionBound.add(layerId)
+    })
+  }
+
+  _unbindNodeInteractions() {
+    if (!this.map || !this._nodeLayerHandlers || !this._nodeInteractionBound) return
+    const handlers = this._nodeLayerHandlers
+    this._nodeInteractionBound.forEach((layerId) => {
+      try { this.map.off('click', layerId, handlers.click) } catch (e) {}
+      try { this.map.off('mouseenter', layerId, handlers.mouseenter) } catch (e) {}
+      try { this.map.off('mouseleave', layerId, handlers.mouseleave) } catch (e) {}
+      try { this.map.off('mousedown', layerId, handlers.mousedown) } catch (e) {}
+      try { this.map.off('mouseup', layerId, handlers.mouseup) } catch (e) {}
+    })
+    this._nodeInteractionBound.clear()
+  }
+
   render() {
     const { width = '100%', height = '100%' } = this.props
     return (<div style={{ width, height }} ref={this.container} />)
@@ -849,7 +1366,11 @@ MapLibreMap.propTypes = {
   width: PropTypes.string,
   height: PropTypes.string,
   handleClickGeoElement: PropTypes.func,
+  onFocusElement: PropTypes.func,
+  onUnfocusElement: PropTypes.func,
+  isolateMode: PropTypes.bool,
   center: PropTypes.array,
   zoom: PropTypes.number,
-  style: PropTypes.string
+  style: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  ui: PropTypes.object
 }

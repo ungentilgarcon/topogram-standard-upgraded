@@ -107,7 +107,42 @@ export default class GeoEdges extends React.Component {
     }
 
   const map = this.props.map
-  this.props.edges.forEach( (e,i) => {
+  // Optionally aggregate duplicate labels for edges sharing same endpoints and same label/emoji
+  const doAggregate = !!(this.props.ui && this.props.ui.geoEdgeLabelAggregate)
+  let edgeList = this.props.edges
+  let labelCounts = null
+  if (doAggregate) {
+      labelCounts = new Map()
+      const tmp = []
+      // Build counts keyed by source|target|labelKey
+      this.props.edges.forEach((e) => {
+        try {
+          const s = String(e && e.data && e.data.source)
+          const t = String(e && e.data && e.data.target)
+          // Determine label as it would be rendered based on mode
+          const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+          const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+          const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+          let relLabel = ''
+          if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+          else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+          else if (edgeMode === 'none') relLabel = ''
+          else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+          const key = `${s}|${t}|${relLabel}`
+          const prev = labelCounts.get(key) || { count: 0, edge: e }
+          prev.count += 1
+          prev.edge = e
+          labelCounts.set(key, prev)
+        } catch (err) { /* ignore */ }
+      })
+      // Take one representative edge per key
+      labelCounts.forEach((val, key) => {
+        if (val && val.edge) tmp.push(val.edge)
+      })
+      edgeList = tmp
+  }
+
+  edgeList.forEach( (e,i) => {
       const label = i + 1
       const color = e.selected ? 'yellow' : (e.data.color ? e.data.color : 'purple')
       const weight = e.data.weight ? (e.data.weight > 6 ? 20 : Math.pow(e.data.weight,2)) : 1
@@ -300,7 +335,18 @@ export default class GeoEdges extends React.Component {
               else if (edgeMode === 'none') relLabel = ''
               else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
             } catch (e) { relLabel = String(relTextRaw || '') }
-            const safeRel = String(relLabel).replace(/[<>]/g, '')
+            // If aggregating, append multiplier when there are duplicates for this pair/label
+            let suffix = ''
+            if (doAggregate && labelCounts) {
+              try {
+                const s = String(e && e.data && e.data.source)
+                const t = String(e && e.data && e.data.target)
+                const key = `${s}|${t}|${relLabel}`
+                const info = labelCounts.get(key)
+                if (info && info.count > 1) suffix = ` x${info.count}`
+              } catch (err) {}
+            }
+            const safeRel = (String(relLabel) + suffix).replace(/[<>]/g, '')
             // rotate the label so it follows the line angle but keep it
             // upright (avoid upside-down text).
             const normDeg = ((deg % 360) + 360) % 360

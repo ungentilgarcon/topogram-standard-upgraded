@@ -10,6 +10,15 @@ export default class CesiumMap extends React.Component {
     super(props)
     this.viewer = null
     this.container = React.createRef()
+    this._baseImageryLayer = null
+    this._currentTileId = null
+    this._removedDefaultLayer = false
+    // interaction state
+    this._eventHandler = null
+    this._hoverEdgeEnt = null
+    this._hoverNodePrim = null
+    this._edgeBaseStyle = new WeakMap()
+    this._nodeBaseStyle = new WeakMap()
   }
 
   componentDidMount() {
@@ -81,6 +90,7 @@ export default class CesiumMap extends React.Component {
           if (!Viewer) { console.warn('CesiumMap: CDN Cesium loaded but Viewer not found'); return }
           this.viewer = new Viewer(el, { animation: false, timeline: false })
           try { this._renderPoints() } catch (e) {}
+          try { this._bindInteractions() } catch (e) {}
           // Ensure Cesium's canvas is sized and visible inside the mount element
           try {
             const canvas = (this.viewer && this.viewer.scene && this.viewer.scene.canvas) || (this.viewer && this.viewer.canvas) || null
@@ -91,6 +101,7 @@ export default class CesiumMap extends React.Component {
               try { console.warn('CesiumMap: viewer canvas not found') } catch (e) {}
             }
           } catch (e) {}
+          try { this._applyTileSpec(this.props.tileSpec) } catch (e) {}
           try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
           try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
         } catch (e) { console.warn('CesiumMap: init after CDN load failed', e) }
@@ -114,7 +125,9 @@ export default class CesiumMap extends React.Component {
           this.Cesium = Cesium
           this.viewer = new Viewer(el, { animation: false, timeline: false })
           try { if (this._mountEl) { this._mountEl.setAttribute('data-cesium-state', 'viewer-created'); if (this._statusEl) this._statusEl.innerText = 'Cesium: viewer' } } catch (e) {}
+          try { this._applyTileSpec(this.props.tileSpec) } catch (e) {}
           try { this._renderPoints() } catch (e) {}
+          try { this._bindInteractions() } catch (e) {}
           try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
           try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
         } catch (err) { console.warn('CesiumMap: init error', err) }
@@ -247,6 +260,56 @@ export default class CesiumMap extends React.Component {
     })
   }
 
+  // Split a string or array into emoji grapheme clusters (handles ZWJ sequences)
+  _splitEmojis(input) {
+    try {
+      if (!input) return []
+      if (Array.isArray(input)) return input.map(String)
+      const s = String(input)
+      if (typeof Intl !== 'undefined' && Intl.Segmenter) {
+        const seg = new Intl.Segmenter(undefined, { granularity: 'grapheme' })
+        const out = []
+        for (const { segment } of seg.segment(s)) { if (segment) out.push(segment) }
+        return out
+      }
+      // basic fallback: spread by code units (may split complex emojis)
+      return Array.from(s)
+    } catch (e) { return [] }
+  }
+
+  // Create a canvas dataURL for one or more emojis laid out horizontally
+  _emojiCanvasFromList(emojis, baseFontPx, opts = {}) {
+    try {
+      const items = Array.isArray(emojis) ? emojis : this._splitEmojis(emojis)
+      const count = Math.max(1, items.length)
+      const fontPx = Math.max(10, Math.min(128, Math.round(baseFontPx)))
+      const pad = Math.round(fontPx * 0.25)
+      const glyphW = Math.round(fontPx * 1.0)
+      const glyphH = Math.round(fontPx * 1.2)
+      const cvsW = pad + count * (glyphW + pad)
+      const cvsH = glyphH + pad * 2
+      const cvs = document.createElement('canvas'); cvs.width = cvsW; cvs.height = cvsH
+      const ctx = cvs.getContext('2d')
+      if (ctx) {
+        ctx.clearRect(0, 0, cvsW, cvsH)
+        ctx.font = `${fontPx}px sans-serif`
+        ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
+        const strokeW = Math.max(2, Math.round(fontPx / 10))
+        ctx.lineWidth = strokeW
+        ctx.strokeStyle = opts.strokeStyle || '#ffffff'
+        ctx.fillStyle = opts.fillStyle || '#111111'
+        for (let i = 0; i < count; i++) {
+          const x = pad + i * (glyphW + pad) + Math.round(glyphW / 2)
+          const y = Math.round(cvsH / 2)
+          const glyph = String(items[i])
+          try { ctx.strokeText(glyph, x, y) } catch (e) {}
+          try { ctx.fillText(glyph, x, y) } catch (e) {}
+        }
+      }
+      return cvs.toDataURL()
+    } catch (e) { return null }
+  }
+
   componentDidUpdate(prevProps) {
     // Re-render points when nodes, edges or UI settings change. Previous
     // implementation only re-rendered on nodes which caused UI toggles to
@@ -254,6 +317,11 @@ export default class CesiumMap extends React.Component {
     if (this.props.nodes !== prevProps.nodes || this.props.edges !== prevProps.edges || this.props.ui !== prevProps.ui) {
       this._renderPoints()
     }
+    if (this.props.tileSpec !== prevProps.tileSpec) {
+      this._applyTileSpec(this.props.tileSpec)
+    }
+    // ensure interactions bound if viewer came up later
+    try { if (this.viewer && !this._eventHandler) this._bindInteractions() } catch (e) {}
   }
 
   componentWillUnmount() {
@@ -264,6 +332,7 @@ export default class CesiumMap extends React.Component {
         this._edgeEntities.forEach(en => { try { this.viewer.entities.remove(en) } catch (e) {} })
       }
     } catch (e) {}
+    try { if (this._eventHandler && this._eventHandler.destroy) this._eventHandler.destroy(); this._eventHandler = null } catch (e) {}
   }
 
   // Initialize the Cesium Viewer only when the mount element has a non-zero
@@ -342,7 +411,7 @@ export default class CesiumMap extends React.Component {
         return
       }
 
-      // Create both a PointPrimitiveCollection (for plain circles) and a
+  // Create both a PointPrimitiveCollection (for plain circles) and a
       // BillboardCollection which we'll use for emoji rendering. Always
       // create a billboard collection so emoji billboards can be added even
       // when point primitives are available.
@@ -396,7 +465,7 @@ export default class CesiumMap extends React.Component {
         }
       } catch (e) {}
 
-      nodes.forEach(n => {
+      nodes.forEach((n, nodeIndex) => {
         try {
           const lat = Number((n && n.data && (n.data.lat || n.data.latitude)) || NaN)
           const lng = Number((n && n.data && (n.data.lng || n.data.longitude)) || NaN)
@@ -414,43 +483,36 @@ export default class CesiumMap extends React.Component {
           const weightVal = (n && n.data && (typeof n.data.weight !== 'undefined')) ? Number(n.data.weight) : (degreeMap.get(String(n && n.data && n.data.id)) || 1)
           const visualRadius = (weightVal) ? ((weightVal > 100) ? 167 : (weightVal * 5)) : 3
           // reduce circle-rendered node size further (half again) so emoji and circle sizes align better
-          const pixelSize = Math.max(2, Math.round(visualRadius * 0.5))
+          let pixelSize = Math.max(2, Math.round(visualRadius * 0.5))
+          const isSelected = !!(n && (n.selected || (n.data && n.data.selected)))
+          if (isSelected) pixelSize = Math.round(pixelSize * 1.35)
           // emoji rendering: when UI allows and node has an emoji, draw it as a billboard
           const emojiEnabled = (this.props.ui && typeof this.props.ui.emojiVisible !== 'undefined') ? !!this.props.ui.emojiVisible : true
           const hasEmoji = emojiEnabled && n && n.data && n.data.emoji
           if (hasEmoji) {
             try {
-              const emoji = String(n.data.emoji)
-              // compute font size proportional to visualRadius so nodeSizeMode affects emoji
-              // visualRadius is in the same units used for non-emoji rendering
-              const baseFont = Math.max(10, Math.min(96, Math.round(visualRadius * 0.9)))
-              // canvas size should comfortably contain the glyph plus halo
-              const cvsSize = Math.max( Math.round(baseFont * 1.6), Math.max(24, Math.round(pixelSize * 2)) )
-              const cvs = document.createElement('canvas'); cvs.width = cvsSize; cvs.height = cvsSize
-              const ctx = cvs.getContext('2d'); if (ctx) {
-                ctx.clearRect(0,0,cvsSize,cvsSize)
-                ctx.font = `${baseFont}px sans-serif`
-                ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-                // draw a stronger white halo for readability
-                ctx.lineWidth = Math.max(2, Math.round(baseFont / 10))
-                ctx.strokeStyle = '#ffffff'
-                ctx.strokeText(emoji, cvsSize / 2, cvsSize / 2)
-                ctx.fillStyle = color || '#111'
-                ctx.fillText(emoji, cvsSize / 2, cvsSize / 2)
-              }
-              const image = cvs.toDataURL()
-              // choose a scale so the billboard's displayed pixel size matches pixelSize
-              // Note: Cesium billboards' scale multiplies the source image. We'll compute an approximate scale.
-              const scale = Math.max(0.25, (pixelSize * 1.0) / Math.max(8, Math.round(cvsSize / 2)))
-              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, scale: scale, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
+              const emojiInput = n.data.emoji
+              const baseFont = Math.max(12, Math.min(96, Math.round(visualRadius)))
+              const image = this._emojiCanvasFromList(emojiInput, baseFont, { fillStyle: color || '#111', strokeStyle: '#ffffff' })
+              // approximate billboard scale to map to desired pixel size for a single glyph; multi-glyphs will be wider
+              let scale = Math.max(0.25, (pixelSize * 1.0) / Math.max(10, Math.round(baseFont)))
+              if (isSelected) scale *= 1.2
+              try {
+                const bb = this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, scale: scale, disableDepthTestDistance: Number.POSITIVE_INFINITY, id: { tpType: 'node', node: n, nodeIndex } })
+                if (bb) {
+                  this._nodeBaseStyle.set(bb, { scale })
+                }
+              } catch (e2) {}
             } catch (e) { /* ignore emoji rendering errors */ }
           } else if (this._pointCollection) {
             try {
               const c = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString(color) : Cesium.Color.WHITE
               // add outline using outlineColor/outlineWidth when supported
-              const outlineWidth = Math.max(1, Math.round(pixelSize / 6))
+              let outlineWidth = Math.max(1, Math.round(pixelSize / 6))
+              const outlineColor = isSelected ? (Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString('#ffd166') : Cesium.Color.YELLOW) : Cesium.Color.BLACK
               // disable depth test for nodes so they render on top of ground-clamped polylines
-              this._pointCollection.add({ position: cart, color: c, pixelSize: pixelSize, outlineColor: Cesium.Color.BLACK, outlineWidth, disableDepthTestDistance: Number.POSITIVE_INFINITY })
+              const prim = this._pointCollection.add({ position: cart, color: c, pixelSize: pixelSize, outlineColor, outlineWidth, disableDepthTestDistance: Number.POSITIVE_INFINITY, id: { tpType: 'node', node: n, nodeIndex } })
+              if (prim) this._nodeBaseStyle.set(prim, { pixelSize, outlineColor })
             } catch (e) {
               // fallback to canvas billboard if color->Cesium.Color conversion fails
               const cvs = document.createElement('canvas'); cvs.width = pixelSize; cvs.height = pixelSize
@@ -460,7 +522,7 @@ export default class CesiumMap extends React.Component {
                 ctx.lineWidth = Math.max(1, Math.round(pixelSize / 8)); ctx.strokeStyle = '#000'; ctx.stroke()
               }
               const image = cvs.toDataURL()
-              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e2) {}
+              try { this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY, id: { tpType: 'node', node: n, nodeIndex } }) } catch (e2) {}
             }
           } else if (this._billboardCollection) {
             // create a small canvas texture for the billboard with black outline
@@ -470,7 +532,7 @@ export default class CesiumMap extends React.Component {
               ctx.lineWidth = Math.max(1, Math.round(pixelSize / 8)); ctx.strokeStyle = '#000'; ctx.stroke()
             }
             const image = cvs.toDataURL()
-            try { this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY }) } catch (e) {}
+            try { this._billboardCollection.add({ position: cart, image, disableDepthTestDistance: Number.POSITIVE_INFINITY, id: { tpType: 'node', node: n, nodeIndex } }) } catch (e) {}
           }
         } catch (e) { console.warn('CesiumMap: point add failed', e) }
       })
@@ -553,7 +615,7 @@ export default class CesiumMap extends React.Component {
         this._edgeEntities = []
         const edges = this.props.edges || []
         if (edges && edges.length && this.viewer && this.Cesium && this.viewer.entities) {
-          edges.forEach((e) => {
+          edges.forEach((e, edgeIndex) => {
             try {
               if (!e || !e.coords || !e.coords.length) return
               const coords = e.coords.map(pt => {
@@ -567,20 +629,36 @@ export default class CesiumMap extends React.Component {
               // compute weight using GeoEdges formula: if weight>6 -> 20 else squared, default 1
               const weightRaw = e && e.data && e.data.weight
               const weight = weightRaw ? ((weightRaw > 6) ? 20 : Math.pow(weightRaw, 2)) : 1
-              const widthPx = Math.min(Math.max(1, weight), 20)
+              let widthPx = Math.min(Math.max(1, weight), 20)
+              const isSelected = !!(e && (e.selected || (e.data && e.data.selected)))
+              const highlightColor = (this.Cesium.Color && this.Cesium.Color.fromCssColorString) ? this.Cesium.Color.fromCssColorString('#ffd166') : (this.Cesium.Color ? this.Cesium.Color.YELLOW : undefined)
+              const material = isSelected ? (highlightColor || cesColor) : (cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined))
+              if (isSelected) widthPx = Math.min(24, Math.round(widthPx * 1.6))
               try {
-                // Render only the colored polyline (no black outline) so edges
-                // are drawn as a single primitive. This avoids explicit outline
-                // drawing which the UI requested to undo.
+                // Visible edge polyline
                 const ent = this.viewer.entities.add({
                   polyline: {
                     positions: coords,
                     width: widthPx,
-                    material: cesColor || (this.Cesium.Color ? this.Cesium.Color.WHITE : undefined),
+                    material: material,
                     clampToGround: true
                   }
                 })
-                if (ent) this._edgeEntities.push(ent)
+                // Wide, nearly transparent hit polyline to improve picking
+                const hitWidth = Math.max(widthPx, 20)
+                const hitMat = (this.Cesium.Color && this.Cesium.Color.fromCssColorString) ? this.Cesium.Color.fromCssColorString('#000000').withAlpha(0.01) : (this.Cesium.Color ? this.Cesium.Color.BLACK.withAlpha(0.01) : undefined)
+                const entHit = this.viewer.entities.add({
+                  polyline: { positions: coords, width: hitWidth, material: hitMat, clampToGround: true }
+                })
+                if (ent) {
+                  ent.topo = { tpType: 'edge', edge: e, edgeIndex, isHit: false }
+                  this._edgeEntities.push(ent)
+                  this._edgeBaseStyle.set(ent, { width: widthPx, material: material })
+                }
+                if (entHit) {
+                  entHit.topo = { tpType: 'edge', edge: e, edgeIndex, isHit: true, vis: ent }
+                  this._edgeEntities.push(entHit)
+                }
               } catch (e) { /* ignore edge add errors */ }
             } catch (err) { console.warn('CesiumMap: add edge failed', err) }
           })
@@ -588,8 +666,42 @@ export default class CesiumMap extends React.Component {
           try {
             const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
             if (geoRelVisible) {
-              // build buckets of edges sharing the same canonical endpoints
-              const edgesList = (this.props.edges || [])
+              // Optionally aggregate duplicate labels for edges sharing same endpoints and same label/emoji
+              const doAggregate = !!(this.props.ui && this.props.ui.geoEdgeLabelAggregate)
+              const originalEdges = (this.props.edges || [])
+              const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+              const computeRelLabel = (e) => {
+                const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+                const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+                let relLabel = ''
+                if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+                else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+                else if (edgeMode === 'none') relLabel = ''
+                else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+                return { relLabel, relTextRaw, relEmojiRaw }
+              }
+              let edgesList = originalEdges
+              let groupCounts = null
+              if (doAggregate) {
+                groupCounts = new Map()
+                originalEdges.forEach((e) => {
+                  try {
+                    const s = String(e && e.data && e.data.source)
+                    const t = String(e && e.data && e.data.target)
+                    const { relLabel } = computeRelLabel(e)
+                    const key = `${s}|${t}|${relLabel}`
+                    const prev = groupCounts.get(key) || { count: 0, edge: e }
+                    prev.count += 1
+                    if (!prev.edge) prev.edge = e
+                    groupCounts.set(key, prev)
+                  } catch (_) {}
+                })
+                const reps = []
+                groupCounts.forEach((val) => { if (val && val.edge) reps.push(val.edge) })
+                edgesList = reps
+              }
+              // build buckets of edges (or representatives when aggregated) sharing the same canonical endpoints
+              const edgesListRef = edgesList
               const buckets = new Map()
               const canonicalKey = (ee) => {
                 if (!ee || !ee.coords || ee.coords.length !== 2) return ''
@@ -600,25 +712,30 @@ export default class CesiumMap extends React.Component {
                 const k2 = `${a2},${o2}`
                 return (k1 < k2) ? `${k1}|${k2}` : `${k2}|${k1}`
               }
-              edgesList.forEach((ee, idx) => { const k = canonicalKey(ee); if (!k) return; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(idx) })
+              edgesListRef.forEach((ee, idx) => { const k = canonicalKey(ee); if (!k) return; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(idx) })
               // screen-space placement helpers: track placed label rects to avoid overlaps
               const placedRects = [] // {x,y,w,h}
               let measureCtx = null
               try { if (typeof document !== 'undefined') { const mc = document.createElement('canvas'); measureCtx = mc.getContext('2d'); if (measureCtx) measureCtx.font = '11px sans-serif' } } catch (err) { measureCtx = null }
-              ;(this.props.edges || []).forEach((e, idx) => {
+              edgesListRef.forEach((e, idx) => {
               try {
                 if (!e || !e.coords || e.coords.length !== 2) return
                 const [[lat1, lng1], [lat2, lng2]] = e.coords
                 const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
                 if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return
-                const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
-                const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
-                const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
-                let relLabel = ''
-                if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
-                else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
-                else if (edgeMode === 'none') relLabel = ''
-                else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+                const { relLabel: baseRelLabel, relTextRaw, relEmojiRaw } = computeRelLabel(e)
+                let relLabel = baseRelLabel
+                // determine aggregate count for this group
+                let count = 1
+                if (doAggregate && groupCounts) {
+                  try {
+                    const s = String(e && e.data && e.data.source)
+                    const t = String(e && e.data && e.data.target)
+                    const key = `${s}|${t}|${baseRelLabel}`
+                    const info = groupCounts.get(key)
+                    if (info && info.count > 1) count = info.count
+                  } catch (_) {}
+                }
                 if (!relLabel || String(relLabel).trim() === '') return
                 // compute a geodesic midpoint (great-circle) between the two endpoints
                 let midLat = (a1 + a2) / 2
@@ -893,46 +1010,27 @@ export default class CesiumMap extends React.Component {
                     } catch (e) {}
                   }
                 } catch (e) {}
-                // If emoji mode is requested and relationshipEmoji exists, render emoji billboard slightly left
+                // If emoji mode is requested and relationshipEmoji exists, render emoji on the left (use label for robustness)
                 if ((edgeMode === 'emoji' || edgeMode === 'both') && relEmojiRaw) {
-                  try {
-                    const emoji = String(relEmojiRaw)
-                    const fontPx = Math.max(24, Math.min(96, Math.round(28 * 1.6)))
-                    const cvsSize = Math.max(48, Math.round(fontPx * 1.6))
-                    const cvs = document.createElement('canvas'); cvs.width = cvsSize; cvs.height = cvsSize
-                    const ctx = cvs.getContext('2d'); if (ctx) {
-                      ctx.clearRect(0,0,cvsSize,cvsSize)
-                      ctx.font = `${fontPx}px sans-serif`
-                      ctx.textAlign = 'center'; ctx.textBaseline = 'middle'
-                      ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
-                      ctx.strokeStyle = '#ffffff'
-                      ctx.strokeText(emoji, cvsSize / 2, cvsSize / 2)
-                      ctx.fillStyle = '#111'
-                      ctx.fillText(emoji, cvsSize / 2, cvsSize / 2)
-                    }
-                    const img = cvs.toDataURL()
-                    // place emoji billboard at the midpoint and rely on pixelOffset/horizontalOrigin
-                    // to position it a few screen pixels left of the text. This keeps placement
-                    // consistent across zoom/latitude instead of using degree offsets.
-                    // use the computed worldPos (which may be the geographic
-                    // midpoint or the camera-space adjusted point)
+                    const emojiText = Array.isArray(relEmojiRaw) ? relEmojiRaw.join('') : String(relEmojiRaw)
                     const emojiPos = worldPos
-                    try {
-                      // compute pixelOffset with vertical stacking applied. Prefer Cesium's
-                      // SceneTransforms.wgs84ToWindowCoordinates to determine accurate screen coords.
-                      const bbOffsetX = -12 + (ox || 0)
-                      const bbOffsetY = (oy || 0)
-                      const bb = this._billboardCollection && this._billboardCollection.add && this._billboardCollection.add({
-                        position: emojiPos,
-                        image: img,
-                        scale: 0.3,
-                        // shift the billboard a few pixels to the left of its anchor and align its origin to the right
-                        pixelOffset: (this.Cesium && this.Cesium.Cartesian2) ? new this.Cesium.Cartesian2(bbOffsetX, bbOffsetY) : undefined,
-                        horizontalOrigin: this.Cesium && this.Cesium.HorizontalOrigin ? this.Cesium.HorizontalOrigin.RIGHT : undefined,
-                        disableDepthTestDistance: Number.POSITIVE_INFINITY
-                      })
-                      if (bb) this._edgeEntities.push(bb)
-                    } catch (e) {}
+                    const labelOffsetXLeft = -12 + (ox || 0)
+                    const labelOffsetY = (oy || 0)
+                    const emojiEnt = this.viewer.entities.add({
+                      position: emojiPos,
+                      label: {
+                        text: emojiText,
+                        font: '14px sans-serif',
+                        fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
+                        outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
+                        outlineWidth: 3,
+                        style: this.Cesium.LabelStyle.FILL,
+                        pixelOffset: (this.Cesium && this.Cesium.Cartesian2) ? new this.Cesium.Cartesian2(labelOffsetXLeft, labelOffsetY) : undefined,
+                        horizontalOrigin: this.Cesium && this.Cesium.HorizontalOrigin ? this.Cesium.HorizontalOrigin.RIGHT : undefined
+                      },
+                      disableDepthTestDistance: Number.POSITIVE_INFINITY
+                    })
+                    if (emojiEnt) { emojiEnt.topo = { tpType: 'edge', edge: e, edgeIndex }; this._edgeEntities.push(emojiEnt) }
                     if (edgeMode === 'both' && relTextRaw) {
                       // text label at the same geographic midpoint; pixelOffset/horizontalOrigin
                       // will shift it a few screen pixels to the right so it appears after the emoji
@@ -942,7 +1040,7 @@ export default class CesiumMap extends React.Component {
                       const labelEnt = this.viewer.entities.add({
                         position: textPos,
                         label: {
-                          text: String(relTextRaw),
+                          text: String(relTextRaw) + (count > 1 ? ` x${count}` : ''),
                           font: '11px sans-serif',
                           fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
                           outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
@@ -953,9 +1051,29 @@ export default class CesiumMap extends React.Component {
                         },
                         disableDepthTestDistance: Number.POSITIVE_INFINITY
                       })
-                      if (labelEnt) this._edgeEntities.push(labelEnt)
+                      if (labelEnt) { labelEnt.topo = { tpType: 'edge', edge: e, edgeIndex }; this._edgeEntities.push(labelEnt) }
                     }
-                  } catch (e) {}
+                    // Emoji-only mode: if aggregating and count>1, place a small " xN" text to the right of the emoji
+                    if (edgeMode === 'emoji' && count > 1) {
+                        const textPos = worldPos
+                        const labelOffsetX = 12 + (ox || 0)
+                        const labelOffsetY = (oy || 0)
+                        const labelEnt2 = this.viewer.entities.add({
+                          position: textPos,
+                          label: {
+                            text: ` x${count}`,
+                            font: '11px sans-serif',
+                            fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
+                            outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
+                            outlineWidth: 2,
+                            style: this.Cesium.LabelStyle.FILL,
+                            pixelOffset: (this.Cesium && this.Cesium.Cartesian2) ? new this.Cesium.Cartesian2(labelOffsetX, labelOffsetY) : undefined,
+                            horizontalOrigin: this.Cesium && this.Cesium.HorizontalOrigin ? this.Cesium.HorizontalOrigin.LEFT : undefined
+                          },
+                          disableDepthTestDistance: Number.POSITIVE_INFINITY
+                        })
+                        if (labelEnt2) { labelEnt2.topo = { tpType: 'edge', edge: e, edgeIndex }; this._edgeEntities.push(labelEnt2) }
+                    }
                 } else {
                   try {
                     // For text-only mode, apply the same pixelOffset/horizontalOrigin
@@ -966,7 +1084,7 @@ export default class CesiumMap extends React.Component {
                     const labelEnt = this.viewer.entities.add({
                       position: worldPos,
                       label: {
-                        text: String(relLabel),
+                        text: String(relLabel) + (count > 1 ? ` x${count}` : ''),
                         font: '11px sans-serif',
                         // render white text with dark halo for visibility
                         fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
@@ -978,7 +1096,7 @@ export default class CesiumMap extends React.Component {
                       },
                       disableDepthTestDistance: Number.POSITIVE_INFINITY
                     })
-                    if (labelEnt) this._edgeEntities.push(labelEnt)
+                    if (labelEnt) { labelEnt.topo = { tpType: 'edge', edge: e, edgeIndex }; this._edgeEntities.push(labelEnt) }
                   } catch (e) { /* ignore label add errors */ }
                 }
               } catch (err) {}
@@ -988,6 +1106,210 @@ export default class CesiumMap extends React.Component {
         }
       } catch (e) { console.warn('CesiumMap: edges render failed', e) }
     } catch (e) { console.warn('CesiumMap: render points failed', e) }
+  }
+
+  _bindInteractions() {
+    if (!this.viewer || !this.Cesium) return
+    try { if (this._eventHandler && this._eventHandler.destroy) { this._eventHandler.destroy(); this._eventHandler = null } } catch (e) {}
+    const handler = new this.Cesium.ScreenSpaceEventHandler(this.viewer.scene.canvas)
+    this._eventHandler = handler
+    // helper: classify a pick into {type, node, edge}
+    const classifyPick = (picked) => {
+      if (!picked) return null
+      const ent = picked.id || null
+      const prim = picked.primitive || null
+      // edge entity or label entity we tagged
+      if (ent && ent.topo && ent.topo.tpType === 'edge') return { type: 'edge', edge: ent.topo.edge, ent }
+      // polyline entity without topo tag
+      if (ent && ent.polyline) return { type: 'edge', edge: null, ent }
+      // billboard/point primitive with id tag
+      const pid = (picked.id && picked.id.tpType) ? picked.id : (prim && prim.id && prim.id.tpType ? prim.id : null)
+      if (pid && pid.tpType === 'node') return { type: 'node', node: pid.node, prim: prim }
+      // as fallback, attempt to detect label we created for node — we didn't tag node labels, so ignore
+      return null
+    }
+    // click selection
+    handler.setInputAction((movement) => {
+      try {
+        if (!this.viewer || !this.viewer.scene || !this.viewer.scene.pick) return
+        const picked = this.viewer.scene.pick(movement.position)
+        let cls = classifyPick(picked)
+        // if we picked a hit entity, redirect to visible entity for highlighting
+        if (cls && cls.type === 'edge' && cls.ent && cls.ent.topo && cls.ent.topo.isHit && cls.ent.topo.vis) {
+          cls = { type: 'edge', edge: cls.ent.topo.edge, ent: cls.ent.topo.vis }
+        }
+        if (!cls) return
+        if (this.props && this.props.isolateMode) return // no selection in isolate mode
+        if (cls.type === 'node' && cls.node && this.props.handleClickGeoElement) {
+          this.props.handleClickGeoElement({ group: 'node', el: cls.node })
+        } else if (cls.type === 'edge' && cls.edge && this.props.handleClickGeoElement) {
+          this.props.handleClickGeoElement({ group: 'edge', el: cls.edge })
+        }
+      } catch (e) {}
+    }, this.Cesium.ScreenSpaceEventType.LEFT_CLICK)
+
+    // hover focus + hover highlight
+    handler.setInputAction((movement) => {
+      try {
+        if (!this.viewer || !this.viewer.scene || !this.viewer.scene.pick) return
+        const picked = this.viewer.scene.pick(movement.endPosition)
+        let cls = classifyPick(picked)
+        if (cls && cls.type === 'edge' && cls.ent && cls.ent.topo && cls.ent.topo.isHit && cls.ent.topo.vis) {
+          cls = { type: 'edge', edge: cls.ent.topo.edge, ent: cls.ent.topo.vis }
+        }
+        // focus callbacks when isolateMode enabled
+        if (this.props && this.props.isolateMode) {
+          if (cls && this.props.onFocusElement) {
+            if (cls.type === 'node' && cls.node) this.props.onFocusElement(cls.node)
+            if (cls.type === 'edge' && cls.edge) this.props.onFocusElement(cls.edge)
+          } else if (!cls && this.props.onUnfocusElement) {
+            this.props.onUnfocusElement()
+          }
+        }
+        // visual hover highlight for edges and nodes
+        this._applyHoverHighlight(cls)
+      } catch (e) {}
+    }, this.Cesium.ScreenSpaceEventType.MOUSE_MOVE)
+  }
+
+  _applyHoverHighlight(cls) {
+    try {
+      // reset previous edge hover
+      if (this._hoverEdgeEnt && this._hoverEdgeEnt.polyline) {
+        const base = this._edgeBaseStyle.get(this._hoverEdgeEnt)
+        try {
+          if (base && this._hoverEdgeEnt.polyline) {
+            if (this._hoverEdgeEnt.polyline.width) this._hoverEdgeEnt.polyline.width = base.width
+            if (this._hoverEdgeEnt.polyline.material) this._hoverEdgeEnt.polyline.material = base.material
+          }
+        } catch (e) {}
+      }
+      this._hoverEdgeEnt = null
+
+      // reset previous node hover
+      if (this._hoverNodePrim) {
+        const base = this._nodeBaseStyle.get(this._hoverNodePrim)
+        try {
+          if (base) {
+            if (typeof this._hoverNodePrim.pixelSize === 'number' && base.pixelSize) this._hoverNodePrim.pixelSize = base.pixelSize
+            if (this._hoverNodePrim.outlineColor && base.outlineColor) this._hoverNodePrim.outlineColor = base.outlineColor
+            if (typeof this._hoverNodePrim.scale === 'number' && base.scale) this._hoverNodePrim.scale = base.scale
+          }
+        } catch (e) {}
+      }
+      this._hoverNodePrim = null
+
+      if (!cls) return
+
+      // apply new hover
+      if (cls.type === 'edge' && cls.ent && cls.ent.polyline) {
+        const ent = cls.ent
+        try {
+          const base = this._edgeBaseStyle.get(ent) || { width: ent.polyline.width, material: ent.polyline.material }
+          this._edgeBaseStyle.set(ent, base)
+          const Cesium = this.Cesium
+          const highlightMat = (Cesium && Cesium.Color && Cesium.Color.fromCssColorString) ? Cesium.Color.fromCssColorString('#ffdd88') : (Cesium ? Cesium.Color.YELLOW : undefined)
+          if (ent.polyline.width) ent.polyline.width = Math.min(26, Math.round((base.width || 2) * 1.4))
+          if (ent.polyline.material) ent.polyline.material = highlightMat || ent.polyline.material
+          this._hoverEdgeEnt = ent
+        } catch (e) {}
+      } else if (cls.type === 'node') {
+        // node primitive or billboard
+        const prim = (cls.prim || (cls && cls.picked && cls.picked.primitive)) || (cls && cls.picked && cls.picked.id)
+        const p = prim || (cls && cls.node && null)
+        if (p) {
+          try {
+            const base = this._nodeBaseStyle.get(p) || { pixelSize: p.pixelSize, outlineColor: p.outlineColor, scale: p.scale }
+            this._nodeBaseStyle.set(p, base)
+            if (typeof p.pixelSize === 'number') p.pixelSize = Math.round(Math.max(3, (base.pixelSize || 6) * 1.3))
+            if (p.outlineColor && this.Cesium && this.Cesium.Color) p.outlineColor = (this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffd166') : this.Cesium.Color.YELLOW)
+            if (typeof p.scale === 'number') p.scale = (base.scale || 1) * 1.15
+            this._hoverNodePrim = p
+          } catch (e) {}
+        }
+      }
+      try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender() } catch (e) {}
+    } catch (e) {}
+  }
+
+  _applyTileSpec(spec) {
+    try {
+      if (!this.viewer || !this.Cesium) return
+      const Cesium = this.Cesium
+      const layers = this.viewer.imageryLayers
+      if (!layers) return
+      if (!this._removedDefaultLayer) {
+        try {
+          const firstLayer = layers.get && layers.get(0)
+          if (firstLayer) layers.remove(firstLayer, true)
+        } catch (e) {}
+        this._removedDefaultLayer = true
+      }
+      if (this._baseImageryLayer) {
+        try { layers.remove(this._baseImageryLayer, true) } catch (e) {}
+        this._baseImageryLayer = null
+      }
+      this._currentTileId = spec && spec.id ? spec.id : null
+      if (!spec || (!spec.url && !spec.cesiumProvider && !spec.cesiumIonAssetId)) {
+        try {
+          if (this.viewer.scene && this.viewer.scene.globe && Cesium.Color) {
+            const color = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString('#101826') : Cesium.Color.DARK_GRAY
+            this.viewer.scene.globe.baseColor = color
+          }
+        } catch (e) {}
+        return
+      }
+      const provider = this._createImageryProviderFromSpec(spec)
+      if (!provider) return
+      try {
+        this._baseImageryLayer = layers.addImageryProvider(provider, 0)
+        if (this.viewer.scene && this.viewer.scene.globe && Cesium.Color) {
+          this.viewer.scene.globe.baseColor = Cesium.Color.BLACK
+        }
+        if (this.viewer.scene && this.viewer.scene.requestRender) {
+          this.viewer.scene.requestRender(true)
+        }
+      } catch (e) { console.warn('CesiumMap: adding imagery layer failed', e) }
+    } catch (err) { console.warn('CesiumMap: apply tileSpec failed', err) }
+  }
+
+  _createImageryProviderFromSpec(spec) {
+    try {
+      const Cesium = this.Cesium
+      if (!Cesium || !spec) return null
+      if (typeof spec.cesiumProvider === 'function') {
+        const provided = spec.cesiumProvider(Cesium, spec, this.props)
+        if (provided) return provided
+      }
+      if (spec.cesiumIonAssetId) {
+        try {
+          if (spec.cesiumIonAccessToken && Cesium.Ion) {
+            Cesium.Ion.defaultAccessToken = spec.cesiumIonAccessToken
+          }
+        } catch (e) {}
+        if (Cesium.IonImageryProvider) {
+          return new Cesium.IonImageryProvider({ assetId: spec.cesiumIonAssetId, accessToken: spec.cesiumIonAccessToken })
+        }
+      }
+      if (spec.url && Cesium.UrlTemplateImageryProvider) {
+        const options = { url: spec.url }
+        if (spec.subdomains) options.subdomains = Array.isArray(spec.subdomains) ? spec.subdomains : String(spec.subdomains)
+        if (spec.maxZoom != null) options.maximumLevel = spec.maxZoom
+        if (spec.minZoom != null) options.minimumLevel = spec.minZoom
+        if (spec.tileSize != null) { options.tileWidth = spec.tileSize; options.tileHeight = spec.tileSize }
+        if (spec.attribution) {
+          try {
+            if (Cesium.Credit && Cesium.Credit.fromHtml) {
+              options.credit = Cesium.Credit.fromHtml(spec.attribution)
+            } else {
+              options.credit = spec.attribution
+            }
+          } catch (e) { options.credit = spec.attribution }
+        }
+        return new Cesium.UrlTemplateImageryProvider(options)
+      }
+    } catch (e) { console.warn('CesiumMap: create imagery provider failed', e) }
+    return null
   }
 
   render() {
@@ -1000,5 +1322,11 @@ CesiumMap.propTypes = {
   nodes: PropTypes.array,
   edges: PropTypes.array,
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
+  ui: PropTypes.object,
+  tileSpec: PropTypes.object,
+  handleClickGeoElement: PropTypes.func,
+  onFocusElement: PropTypes.func,
+  onUnfocusElement: PropTypes.func,
+  isolateMode: PropTypes.bool
 }

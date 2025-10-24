@@ -125,7 +125,10 @@ const PanelSettings = ({
           try {
             const cur = window.localStorage ? window.localStorage.getItem('topo.chartsVisible') === 'true' : false
             const next = !cur
-            window.localStorage && window.localStorage.setItem('topo.chartsVisible', String(next))
+            // Do NOT persist chartsVisible to localStorage. Only dispatch the event so
+            // UI state can update in-memory for this session. Persisting here causes
+            // the charts panel to reopen on load via the stored key.
+            // window.localStorage && window.localStorage.setItem('topo.chartsVisible', String(next))
             window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { chartsVisible: next } }))
           } catch (e) { console.warn('toggle chartsVisible failed', e) }
         }}
