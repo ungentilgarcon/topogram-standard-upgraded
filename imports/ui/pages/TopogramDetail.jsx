@@ -255,7 +255,9 @@ export default function TopogramDetail() {
   })
   const [timeLineVisible, setTimeLineVisible] = useState(true)
   const [debugVisible, setDebugVisible] = useState(false)
-  const [chartsVisible, setChartsVisible] = useState(true)
+  // Always start with Charts closed on initial load. Charts can still be
+  // opened by the side panel which dispatches the `topo:panelToggle` event.
+  const [chartsVisible, setChartsVisible] = useState(false)
   // Selection panel pinned/visible flag (persisted via localStorage)
   const [selectionPanelPinned, setSelectionPanelPinned] = useState(false)
   // Emoji rendering toggle (default: true; for large graphs default to false unless user override exists)
@@ -511,13 +513,16 @@ export default function TopogramDetail() {
         const g = window.localStorage.getItem('topo.geoMapVisible')
         const n = window.localStorage.getItem('topo.networkVisible')
         const t = window.localStorage.getItem('topo.timeLineVisible')
-        const c = window.localStorage.getItem('topo.chartsVisible')
+  // Do NOT auto-open charts from localStorage on load. The Charts panel
+  // should stay closed until the user explicitly opens it via the
+  // side-panel control. (We still keep other flags in localStorage.)
         const ner = window.localStorage.getItem('topo.networkEdgeRelVisible')
         const ger = window.localStorage.getItem('topo.geoEdgeRelVisible')
         if (g !== null) setGeoMapVisible(g === 'true')
         if (n !== null) setNetworkVisible(n !== 'false')
         if (t !== null) setTimeLineVisible(t === 'true')
-        if (c !== null) setChartsVisible(c === 'true')
+  // intentionally skip restoring topo.chartsVisible from localStorage
+  // so Charts are always closed on initial load.
         if (ner !== null) setNetworkEdgeRelVisible(ner === 'true')
         if (ger !== null) setGeoEdgeRelVisible(ger === 'true')
         const s = window.localStorage.getItem('topo.selectionPanelPinned')

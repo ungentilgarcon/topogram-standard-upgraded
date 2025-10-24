@@ -38,22 +38,36 @@ export default class MapLibreMap extends React.Component {
   // Render an emoji into a PNG data URL for use as an <img> marker.
   _emojiToDataUrl(emoji, sizePx = 64, color = '#111') {
     try {
+      // Measure text width so multi-glyph emoji strings aren't clipped.
+      const fontPx = Math.round(sizePx * 0.7)
+      const pad = Math.max(2, Math.round(sizePx * 0.12))
+      const measure = document.createElement('canvas')
+      const mctx = measure.getContext && measure.getContext('2d')
+      if (!mctx) return null
+      mctx.font = `${fontPx}px sans-serif`
+      const text = String(emoji || '')
+      const metrics = mctx.measureText(text)
+      const textWidth = Math.ceil(metrics.width || sizePx)
+      // ensure canvas is at least sizePx wide, but expand for wider text
+      const drawWidth = Math.max(sizePx, textWidth)
       const cvs = document.createElement('canvas')
-      cvs.width = sizePx; cvs.height = sizePx
+      cvs.width = drawWidth + pad * 2
+      cvs.height = sizePx + pad * 2
       const ctx = cvs.getContext && cvs.getContext('2d')
       if (!ctx) return null
-      // clear
-      ctx.clearRect(0,0,sizePx,sizePx)
-      // draw a subtle white halo by stroking text
-      const fontPx = Math.round(sizePx * 0.7)
+      // clear full canvas
+      ctx.clearRect(0, 0, cvs.width, cvs.height)
+      // draw halo + fill centered in the padded canvas
       ctx.font = `${fontPx}px sans-serif`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
       ctx.strokeStyle = '#ffffff'
-      try { ctx.strokeText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      const cx = cvs.width / 2
+      const cy = cvs.height / 2
+      try { ctx.strokeText(text, cx, cy) } catch (e) {}
       ctx.fillStyle = color || '#111'
-      try { ctx.fillText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      try { ctx.fillText(text, cx, cy) } catch (e) {}
       return cvs.toDataURL('image/png')
     } catch (e) { return null }
   }
@@ -61,20 +75,33 @@ export default class MapLibreMap extends React.Component {
   // Return a canvas with the emoji drawn; useful to get ImageData synchronously
   _emojiCanvas(emoji, sizePx = 64, color = '#111') {
     try {
+      // Measure text width so multi-glyph emoji strings aren't clipped.
+      const fontPx = Math.round(sizePx * 0.7)
+      const pad = Math.max(2, Math.round(sizePx * 0.12))
+      const measure = document.createElement('canvas')
+      const mctx = measure.getContext && measure.getContext('2d')
+      if (!mctx) return null
+      const text = String(emoji || '')
+      mctx.font = `${fontPx}px sans-serif`
+      const metrics = mctx.measureText(text)
+      const textWidth = Math.ceil(metrics.width || sizePx)
+      const drawWidth = Math.max(sizePx, textWidth)
       const cvs = document.createElement('canvas')
-      cvs.width = sizePx; cvs.height = sizePx
+      cvs.width = drawWidth + pad * 2
+      cvs.height = sizePx + pad * 2
       const ctx = cvs.getContext && cvs.getContext('2d')
       if (!ctx) return null
-      ctx.clearRect(0,0,sizePx,sizePx)
-      const fontPx = Math.round(sizePx * 0.7)
+      ctx.clearRect(0, 0, cvs.width, cvs.height)
       ctx.font = `${fontPx}px sans-serif`
       ctx.textAlign = 'center'
       ctx.textBaseline = 'middle'
       ctx.lineWidth = Math.max(4, Math.round(fontPx / 8))
       ctx.strokeStyle = '#ffffff'
-      try { ctx.strokeText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      const cx = cvs.width / 2
+      const cy = cvs.height / 2
+      try { ctx.strokeText(text, cx, cy) } catch (e) {}
       ctx.fillStyle = color || '#111'
-      try { ctx.fillText(emoji, sizePx/2, sizePx/2) } catch (e) {}
+      try { ctx.fillText(text, cx, cy) } catch (e) {}
       return cvs
     } catch (e) { return null }
   }
@@ -174,67 +201,82 @@ export default class MapLibreMap extends React.Component {
           // inject a small stylesheet for emoji marker positioning so img markers
           // render above map tiles and are centered correctly
           try {
-            if (!document.querySelector('style[data-maplibre-emoji-css]')) {
-              const s = document.createElement('style')
-              s.setAttribute('data-maplibre-emoji-css', '1')
-              s.innerHTML = `
-                .maplibre-emoji-marker { position: relative; display: inline-block; }
-                .maplibre-emoji-marker img { position: absolute; left: 50%; top: 50%; transform: translate(-50%, -50%); z-index: 2000; pointer-events: auto; }
-              `
-              try { document.head.appendChild(s) } catch (e) { document.body.appendChild(s) }
-            }
+              if (!document.querySelector('style[data-maplibre-emoji-css]')) {
+                const s = document.createElement('style')
+                s.setAttribute('data-maplibre-emoji-css', '1')
+                // Use simpler CSS that lets the <img> fill the marker container
+                // and avoids absolute-centering which can lead to clipped rendering
+                // in some browsers / DPI settings. Also remove extra positioning so
+                // MapLibre's marker wrapper controls placement.
+                s.innerHTML = `
+                  .maplibre-emoji-marker { position: relative; display: inline-block; line-height: 0; }
+                  .maplibre-emoji-marker img { display: block; width: 100%; height: 100%; z-index: 2000; pointer-events: auto; }
+                `
+                try { document.head.appendChild(s) } catch (e) { document.body.appendChild(s) }
+              }
           } catch (e) {}
         } catch (e) {}
         this.map.on('load', () => { this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer(); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: loaded' } catch (e) {} })
         // re-register our generated canvas images if the style reloads and clears images
+        // Handler for MapLibre 'styleimagemissing' events: try to re-add the image
+        this._styleImageMissingHandler = (ev) => {
+          try {
+            if (!ev || !ev.id || !this._registeredEmojiImages) return
+            const name = ev.id
+            let cvs = this._registeredEmojiImages.get(name)
+            if (!cvs) {
+              for (const [k, v] of this._registeredEmojiImages.entries()) {
+                if (String(k).indexOf(name) === 0 || String(k).includes(name)) { cvs = v; break }
+              }
+            }
+            if (!cvs) return
+            if (typeof createImageBitmap === 'function') {
+              createImageBitmap(cvs).then((bm) => { try { this.map.addImage(name, bm) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed (bitmap)', name, err) } }).catch((err) => {
+                try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err2) { console.warn('MapLibreMap: addImage on styleimagemissing failed (canvas)', name, err2) }
+              })
+            } else {
+              try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err) {
+                try {
+                  const dataUrl = cvs.toDataURL('image/png')
+                  const img = new Image()
+                  img.crossOrigin = 'anonymous'
+                  img.onload = () => { try { this.map.addImage(name, img) } catch (err2) { console.warn('MapLibreMap: addImage on styleimagemissing failed (img)', name, err2) } }
+                  img.onerror = () => {}
+                  img.src = dataUrl
+                } catch (err2) { console.warn('MapLibreMap: addImage on styleimagemissing fallback failed', name, err2) }
+              }
+            }
+          } catch (e) { console.warn('MapLibreMap: styleimagemissing handler failed', e) }
+        }
+
+        // Handler for 'styledata' events: attempt to re-register any images we previously stored
         this._styleDataHandler = () => {
           try {
             if (!this.map || !this._registeredEmojiImages) return
             this._registeredEmojiImages.forEach((cvs, name) => {
               try {
                 if (this.map.hasImage && this.map.hasImage(name)) return
-                try {
-                  // prefer ImageBitmap where available
-                  if (typeof createImageBitmap === 'function') {
-                    createImageBitmap(cvs).then((bm) => {
-                      try { this.map.addImage(name, bm) } catch (ee) { console.warn('MapLibreMap: re-addImage(bitmap) failed', name, ee) }
-                    }).catch((ee) => {
-                      try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (e2) { console.warn('MapLibreMap: re-addImage(canvas) failed', name, e2) }
-                    })
-                  } else {
-                    try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (ee) { console.warn('MapLibreMap: re-addImage failed', name, ee) }
+                if (typeof createImageBitmap === 'function') {
+                  createImageBitmap(cvs).then((bm) => { try { this.map.addImage(name, bm) } catch (err) { console.warn('MapLibreMap: re-addImage(bitmap) failed', name, err) } }).catch((err) => {
+                    try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err2) { console.warn('MapLibreMap: re-addImage(canvas) failed', name, err2) }
+                  })
+                } else {
+                  try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err) {
+                    try {
+                      const dataUrl = cvs.toDataURL('image/png')
+                      const img = new Image()
+                      img.crossOrigin = 'anonymous'
+                      img.onload = () => { try { this.map.addImage(name, img) } catch (err2) { console.warn('MapLibreMap: re-addImage(img) failed', name, err2) } }
+                      img.onerror = () => {}
+                      img.src = dataUrl
+                    } catch (err2) { console.warn('MapLibreMap: re-addImage fallback failed', name, err2) }
                   }
-                } catch (ee) { console.warn('MapLibreMap: re-addImage error', name, ee) }
-              } catch (e) {}
-            })
-          } catch (e) {}
-        }
-        // re-register a specific missing image when style requests it
-        this._styleImageMissingHandler = (ev) => {
-          try {
-            const name = ev && ev.id
-            if (!name) return
-            // try exact match first
-            let cvs = (this._registeredEmojiImages && this._registeredEmojiImages.get(name)) || null
-            // if not found, try to locate a stored canvas whose registered key
-            // contains the requested base name (we register with a nonce suffix)
-            if (!cvs && this._registeredEmojiImages) {
-              try {
-                for (const [k, v] of this._registeredEmojiImages.entries()) {
-                  if (String(k).indexOf(name) === 0 || String(k).indexOf(name) > 0) { cvs = v; break }
                 }
-              } catch (ee) {}
-            }
-            if (!cvs) return
-            try {
-              if (typeof createImageBitmap === 'function') {
-                createImageBitmap(cvs).then((bm) => { try { this.map.addImage(name, bm) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed (bitmap)', name, err) } })
-              } else {
-                try { this.map.addImage(name, cvs, { pixelRatio: 1 }) } catch (err) { console.warn('MapLibreMap: addImage on styleimagemissing failed', name, err) }
-              }
-            } catch (err) { console.warn('MapLibreMap: styleimagemissing re-add failed', name, err) }
-          } catch (e) {}
+              } catch (e) { console.warn('MapLibreMap: re-addImage error', name, e) }
+            })
+          } catch (e) { console.warn('MapLibreMap: styledata handler failed', e) }
         }
+
         try { this.map.on && this.map.on('styleimagemissing', this._styleImageMissingHandler) } catch (e) {}
         try { this.map.on && this.map.on('styledata', this._styleDataHandler) } catch (e) {}
         this.map.on('error', (err) => { console.warn('MapLibreMap: map error', err); try { if (this._statusEl) this._statusEl.innerText = 'MapLibre: error' } catch (e) {} })
@@ -361,20 +403,23 @@ export default class MapLibreMap extends React.Component {
               try {
                 const actual = marker && marker.getElement && marker.getElement()
                 if (actual) {
-              // ensure it's absolutely positioned and on top
+              // ensure it's positioned above tiles and accepts pointer events
               actual.style.position = actual.style.position || 'absolute'
               actual.style.zIndex = '9999'
               actual.style.pointerEvents = 'auto'
-              // if we inserted an <img> inside, make sure it is absolutely centered and above
+              // if we inserted a padded emoji image inside (.maplibre-emoji-marker img)
+              // ensure it fills its container instead of being absolutely centered
               try {
-                const img = actual.querySelector && actual.querySelector('img.maplibre-emoji-marker')
+                const img = actual.querySelector && actual.querySelector('.maplibre-emoji-marker img')
                 if (img) {
-                  img.style.position = 'absolute'
-                  img.style.left = '50%'
-                  img.style.top = '50%'
-                  img.style.transform = 'translate(-50%, -50%)'
+                  img.style.position = ''
+                  img.style.left = ''
+                  img.style.top = ''
+                  img.style.transform = ''
                   img.style.zIndex = '10000'
                   img.style.display = 'block'
+                  img.style.width = '100%'
+                  img.style.height = '100%'
                 }
               } catch (e) {}
               // debug: log presence
@@ -657,8 +702,9 @@ export default class MapLibreMap extends React.Component {
                       const dataUrl = cvs.toDataURL('image/png')
                       const el = document.createElement('div')
                       el.className = 'maplibre-emoji-marker'
-                      el.style.width = `${sizePx}px`
-                      el.style.height = `${sizePx}px`
+                      // size the marker to the actual canvas (includes padding)
+                      el.style.width = `${cvs.width}px`
+                      el.style.height = `${cvs.height}px`
                       el.style.pointerEvents = 'auto'
                       const img = document.createElement('img')
                       img.src = dataUrl
@@ -859,8 +905,9 @@ export default class MapLibreMap extends React.Component {
                     const dataUrl = cvs.toDataURL('image/png')
                     const el = document.createElement('div')
                     el.className = 'maplibre-emoji-marker'
-                    el.style.width = `${sizePx}px`
-                    el.style.height = `${sizePx}px`
+                    // use the canvas actual dimensions (includes padding)
+                    el.style.width = `${cvs.width}px`
+                    el.style.height = `${cvs.height}px`
                     el.style.pointerEvents = 'auto'
                     const img = document.createElement('img')
                     img.src = dataUrl
