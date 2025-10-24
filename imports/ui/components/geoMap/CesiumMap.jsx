@@ -10,6 +10,9 @@ export default class CesiumMap extends React.Component {
     super(props)
     this.viewer = null
     this.container = React.createRef()
+    this._baseImageryLayer = null
+    this._currentTileId = null
+    this._removedDefaultLayer = false
   }
 
   componentDidMount() {
@@ -91,6 +94,7 @@ export default class CesiumMap extends React.Component {
               try { console.warn('CesiumMap: viewer canvas not found') } catch (e) {}
             }
           } catch (e) {}
+          try { this._applyTileSpec(this.props.tileSpec) } catch (e) {}
           try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
           try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
         } catch (e) { console.warn('CesiumMap: init after CDN load failed', e) }
@@ -114,6 +118,7 @@ export default class CesiumMap extends React.Component {
           this.Cesium = Cesium
           this.viewer = new Viewer(el, { animation: false, timeline: false })
           try { if (this._mountEl) { this._mountEl.setAttribute('data-cesium-state', 'viewer-created'); if (this._statusEl) this._statusEl.innerText = 'Cesium: viewer' } } catch (e) {}
+          try { this._applyTileSpec(this.props.tileSpec) } catch (e) {}
           try { this._renderPoints() } catch (e) {}
           try { if (this.viewer && this.viewer.scene && this.viewer.scene.requestRender) this.viewer.scene.requestRender(true) } catch (e) {}
           try { window.dispatchEvent && window.dispatchEvent(new Event('resize')) } catch (e) {}
@@ -253,6 +258,9 @@ export default class CesiumMap extends React.Component {
     // leave stale placements in the Cesium scene.
     if (this.props.nodes !== prevProps.nodes || this.props.edges !== prevProps.edges || this.props.ui !== prevProps.ui) {
       this._renderPoints()
+    }
+    if (this.props.tileSpec !== prevProps.tileSpec) {
+      this._applyTileSpec(this.props.tileSpec)
     }
   }
 
@@ -1052,6 +1060,86 @@ export default class CesiumMap extends React.Component {
     } catch (e) { console.warn('CesiumMap: render points failed', e) }
   }
 
+  _applyTileSpec(spec) {
+    try {
+      if (!this.viewer || !this.Cesium) return
+      const Cesium = this.Cesium
+      const layers = this.viewer.imageryLayers
+      if (!layers) return
+      if (!this._removedDefaultLayer) {
+        try {
+          const firstLayer = layers.get && layers.get(0)
+          if (firstLayer) layers.remove(firstLayer, true)
+        } catch (e) {}
+        this._removedDefaultLayer = true
+      }
+      if (this._baseImageryLayer) {
+        try { layers.remove(this._baseImageryLayer, true) } catch (e) {}
+        this._baseImageryLayer = null
+      }
+      this._currentTileId = spec && spec.id ? spec.id : null
+      if (!spec || (!spec.url && !spec.cesiumProvider && !spec.cesiumIonAssetId)) {
+        try {
+          if (this.viewer.scene && this.viewer.scene.globe && Cesium.Color) {
+            const color = Cesium.Color.fromCssColorString ? Cesium.Color.fromCssColorString('#101826') : Cesium.Color.DARK_GRAY
+            this.viewer.scene.globe.baseColor = color
+          }
+        } catch (e) {}
+        return
+      }
+      const provider = this._createImageryProviderFromSpec(spec)
+      if (!provider) return
+      try {
+        this._baseImageryLayer = layers.addImageryProvider(provider, 0)
+        if (this.viewer.scene && this.viewer.scene.globe && Cesium.Color) {
+          this.viewer.scene.globe.baseColor = Cesium.Color.BLACK
+        }
+        if (this.viewer.scene && this.viewer.scene.requestRender) {
+          this.viewer.scene.requestRender(true)
+        }
+      } catch (e) { console.warn('CesiumMap: adding imagery layer failed', e) }
+    } catch (err) { console.warn('CesiumMap: apply tileSpec failed', err) }
+  }
+
+  _createImageryProviderFromSpec(spec) {
+    try {
+      const Cesium = this.Cesium
+      if (!Cesium || !spec) return null
+      if (typeof spec.cesiumProvider === 'function') {
+        const provided = spec.cesiumProvider(Cesium, spec, this.props)
+        if (provided) return provided
+      }
+      if (spec.cesiumIonAssetId) {
+        try {
+          if (spec.cesiumIonAccessToken && Cesium.Ion) {
+            Cesium.Ion.defaultAccessToken = spec.cesiumIonAccessToken
+          }
+        } catch (e) {}
+        if (Cesium.IonImageryProvider) {
+          return new Cesium.IonImageryProvider({ assetId: spec.cesiumIonAssetId, accessToken: spec.cesiumIonAccessToken })
+        }
+      }
+      if (spec.url && Cesium.UrlTemplateImageryProvider) {
+        const options = { url: spec.url }
+        if (spec.subdomains) options.subdomains = Array.isArray(spec.subdomains) ? spec.subdomains : String(spec.subdomains)
+        if (spec.maxZoom != null) options.maximumLevel = spec.maxZoom
+        if (spec.minZoom != null) options.minimumLevel = spec.minZoom
+        if (spec.tileSize != null) { options.tileWidth = spec.tileSize; options.tileHeight = spec.tileSize }
+        if (spec.attribution) {
+          try {
+            if (Cesium.Credit && Cesium.Credit.fromHtml) {
+              options.credit = Cesium.Credit.fromHtml(spec.attribution)
+            } else {
+              options.credit = spec.attribution
+            }
+          } catch (e) { options.credit = spec.attribution }
+        }
+        return new Cesium.UrlTemplateImageryProvider(options)
+      }
+    } catch (e) { console.warn('CesiumMap: create imagery provider failed', e) }
+    return null
+  }
+
   render() {
     const { width = '100%', height = '100%' } = this.props
     return (<div style={{ width, height }} ref={this.container} />)
@@ -1062,5 +1150,7 @@ CesiumMap.propTypes = {
   nodes: PropTypes.array,
   edges: PropTypes.array,
   width: PropTypes.string,
-  height: PropTypes.string
+  height: PropTypes.string,
+  ui: PropTypes.object,
+  tileSpec: PropTypes.object
 }

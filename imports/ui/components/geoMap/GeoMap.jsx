@@ -43,7 +43,8 @@ export default class GeoMap extends React.Component {
     unselectElement : PropTypes.func.isRequired,
     onFocusElement: PropTypes.func.isRequired,
     onUnfocusElement: PropTypes.func.isRequired,
-    ui: PropTypes.object
+    ui: PropTypes.object,
+    updateUI: PropTypes.func
   }
 
   handleClickGeoElement({ group, el }) {
@@ -162,8 +163,10 @@ export default class GeoMap extends React.Component {
       minZoom,
       maxZoom,
       subdomains: specSubdomains,
-      tms: specTms
+      tms: specTms,
+      maplibreStyle
     } = tileSpec
+    const leafletSubdomains = (specSubdomains === undefined || specSubdomains === null) ? [] : specSubdomains
     const fallbackAttribution = '© OpenStreetMap contributors'
     const tileAttribution = attribution || fallbackAttribution
     const tileKey = `${geoMapTile || 'default'}:${url || 'none'}`
@@ -177,10 +180,13 @@ export default class GeoMap extends React.Component {
     const controlPos = panelOpen ? 'bottomleft' : 'bottomright'
     // Choose renderer: default -> leaflet, 'maplibre' -> MapLibreMap (if available), 'cesium' -> CesiumMap (if available)
     const renderer = (this.props.ui && this.props.ui.geoMapRenderer) ? String(this.props.ui.geoMapRenderer) : 'leaflet'
+    const resolvedMapLibreStyle = typeof maplibreStyle === 'function' ? maplibreStyle() : maplibreStyle
+
     if (renderer === 'maplibre' && MapLibreMap) {
       return (
         <div id={MAP_DIV_ID} style={containerStyle}>
           <MapLibreMap
+            key={`maplibre-${tileKey}`}
             nodes={nodes}
             edges={edges}
             ui={this.props.ui}
@@ -189,7 +195,7 @@ export default class GeoMap extends React.Component {
             handleClickGeoElement={(e) => this.handleClickGeoElement(e)}
             center={position}
             zoom={zoom}
-            style={tileSpec && tileSpec.maplibreStyle}
+            style={resolvedMapLibreStyle}
           />
         </div>
       )
@@ -197,7 +203,7 @@ export default class GeoMap extends React.Component {
     if (renderer === 'cesium' && CesiumMap) {
       return (
         <div id={MAP_DIV_ID} style={containerStyle}>
-          <CesiumMap nodes={nodes} edges={edges} ui={this.props.ui} width={width} height={height} />
+          <CesiumMap nodes={nodes} edges={edges} ui={this.props.ui} width={width} height={height} tileSpec={tileSpec} />
         </div>
       )
     }
@@ -247,12 +253,13 @@ export default class GeoMap extends React.Component {
           }
           {url ? (
             <TileLayer
+              key={`tile-${tileKey}`}
               url={url}
               attribution={tileAttribution}
               minZoom={minZoom}
               maxZoom={maxZoom}
               crossOrigin={'anonymous'}
-              subdomains={specSubdomains}
+              subdomains={leafletSubdomains}
               errorTileUrl={"data:image/gif;base64,R0lGODlhAQABAAAAACw="}
               detectRetina={false}
               tms={specTms}

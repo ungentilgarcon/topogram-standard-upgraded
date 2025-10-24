@@ -7,6 +7,7 @@ import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 import cola from 'cytoscape-cola';
 import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
+import { getRendererTileOptions } from '/imports/ui/components/geoMap/mapTiles'
 import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
 import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 import '/imports/ui/styles/greenTheme.css'
@@ -663,28 +664,126 @@ export default function TopogramDetail() {
     return !hasTimeField
   }
 
+  const collectCandidateKeys = (value) => {
+    const results = new Set()
+    const addKey = (key) => {
+      if (!key) return
+      const str = String(key)
+      if (!str) return
+      results.add(str)
+      const trimmed = str.trim()
+      if (trimmed && trimmed !== str) results.add(trimmed)
+    }
+    if (value == null) return []
+    const type = typeof value
+    if (type === 'string' || type === 'number' || type === 'boolean') {
+      addKey(String(value))
+    } else if (Array.isArray(value)) {
+      value.forEach(entry => {
+        collectCandidateKeys(entry).forEach(addKey)
+      })
+    } else if (type === 'object') {
+      try { if (typeof value.toHexString === 'function') addKey(value.toHexString()) } catch (e) {}
+      try { if (value && value._str) addKey(value._str) } catch (e) {}
+      try { if (value && value.$oid) addKey(value.$oid) } catch (e) {}
+      try { if (value && value.id && typeof value.id === 'string') addKey(value.id) } catch (e) {}
+      try { if (value && value.value && typeof value.value === 'string') addKey(value.value) } catch (e) {}
+      try {
+        const nestedOid = value && value.$id && value.$id.$oid
+        if (nestedOid) addKey(nestedOid)
+      } catch (e) {}
+      try {
+        if (value && value.id && value.id._str) addKey(value.id._str)
+      } catch (e) {}
+      try {
+        const str = value && value.toString && value.toString !== Object.prototype.toString
+          ? String(value.toString())
+          : String(value)
+        if (str && str !== '[object Object]') addKey(str)
+      } catch (e) {}
+    } else {
+      addKey(String(value))
+    }
+    return Array.from(results)
+  }
+
+  const { nodeIdLookup, vizIdToNode } = React.useMemo(() => {
+    const idMap = new Map()
+    const vizMap = new Map()
+    const safeNodes = Array.isArray(nodes) ? nodes : []
+    const register = (value, vizId) => {
+      if (!vizId) return
+      try {
+        collectCandidateKeys(value).forEach(key => {
+          if (!key) return
+          idMap.set(key, String(vizId))
+        })
+      } catch (e) {}
+    }
+    safeNodes.forEach(node => {
+      if (!node) return
+      let vizId = null
+      try {
+        if (node.data && node.data.id != null && String(node.data.id).trim() !== '') vizId = String(node.data.id).trim()
+        else if (node.id != null && String(node.id).trim() !== '') vizId = String(node.id).trim()
+        else if (node._id != null) vizId = String(node._id)
+      } catch (e) {}
+      if (!vizId) {
+        try { vizId = node && node._id != null ? String(node._id) : '' } catch (e) { vizId = '' }
+      }
+      const finalVizId = vizId || (node && node._id != null ? String(node._id) : '')
+      if (finalVizId) vizMap.set(String(finalVizId), node)
+      register(finalVizId, finalVizId)
+      register(node && node._id, finalVizId)
+      register(node && node.id, finalVizId)
+      register(node && node.name, finalVizId)
+      register(node && node.label, finalVizId)
+      try { register(node && node.data && node.data.id, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data._id, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.name, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.label, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.slug, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.originalId, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.uuid, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.externalId, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.raw && node.data.raw.id, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.raw && node.data.raw.name, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.rawData && node.data.rawData.id, finalVizId) } catch (e) {}
+      try { register(node && node.data && node.data.rawData && node.data.rawData.name, finalVizId) } catch (e) {}
+    })
+    return { nodeIdLookup: idMap, vizIdToNode: vizMap }
+  }, [nodes])
+
+  const resolveNodeId = React.useCallback((value) => {
+    if (!value && value !== 0) return null
+    for (const key of collectCandidateKeys(value)) {
+      if (nodeIdLookup.has(key)) return nodeIdLookup.get(key)
+    }
+    return null
+  }, [nodeIdLookup])
+
   // Build cytoscape elements and pick a layout. Memoize the result so
   // prop identities passed to CytoscapeComponent remain stable while the
   // timeline only toggles classes. This avoids unnecessary remounts/updates
   // during playback (inspired by the original `topogram` project patterns).
   const { elements, layout, stylesheet } = React.useMemo(() => {
-    const nodeMap = new Map()
-    const vizIdToNode = new Map()
-    nodes.forEach(node => {
-      const vizId = node.data && node.data.id ? String(node.data.id) : String(node._id)
-      const candidates = new Set()
-      candidates.add(vizId)
-      candidates.add(String(node._id))
-      if (node.id) candidates.add(String(node.id))
-      if (node.data && node.data.id) candidates.add(String(node.data.id))
-      if (node.data && node.data.name) candidates.add(String(node.data.name))
-      if (node.name) candidates.add(String(node.name))
-      candidates.forEach(k => nodeMap.set(k, vizId))
-      vizIdToNode.set(String(vizId), node)
-    })
+    const getVizNode = (id) => {
+      if (!id && id !== 0) return null
+      return vizIdToNode.get(String(id)) || null
+    }
 
     const nodeEls = nodes.map(node => {
-      const vizId = nodeMap.get(String((node.data && node.data.id) || node.id || node._id)) || String(node._id)
+      let resolvedId = resolveNodeId((node && node.data && node.data.id) || (node && node.id) || (node && node._id))
+      if (!resolvedId && node && node.data && node.data.name) resolvedId = resolveNodeId(node.data.name)
+      if (!resolvedId) {
+        try {
+          const fallbackId = node && node._id != null ? String(node._id) : (node && node.id != null ? String(node.id) : null)
+          resolvedId = fallbackId || null
+        } catch (e) {
+          resolvedId = null
+        }
+      }
+      const vizId = resolvedId ? String(resolvedId) : (node && node._id != null ? String(node._id) : String((node && node.id) || ''))
       const label = (node.data && (node.data.name || node.data.label)) || node.name || node.label || node.id
       const color = (node.data && (node.data.color || node.data.fillColor || node.data.fill || node.data.backgroundColor || node.data.bg || node.data.colour || node.data.hex))
       const rawWeight = node.data && (node.data.weight || (node.data.rawData && node.data.rawData.weight))
@@ -718,10 +817,8 @@ export default function TopogramDetail() {
     edges.forEach(edge => {
       const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
       const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
-      const srcKey = rawSrc != null ? String(rawSrc) : null
-      const tgtKey = rawTgt != null ? String(rawTgt) : null
-      const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
-      const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
+      const resolvedSrc = resolveNodeId(rawSrc)
+      const resolvedTgt = resolveNodeId(rawTgt)
       if (!resolvedSrc || !resolvedTgt) return
       const key = `${resolvedSrc}||${resolvedTgt}`
       if (!grouped.has(key)) grouped.set(key, [])
@@ -733,10 +830,8 @@ export default function TopogramDetail() {
       groupEdges.forEach((edge, idx) => {
         const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
         const rawTgt = (edge.data && (edge.data.target || edge.data.to)) || edge.target || edge.to
-        const srcKey = rawSrc != null ? String(rawSrc) : null
-        const tgtKey = rawTgt != null ? String(rawTgt) : null
-        const resolvedSrc = srcKey ? nodeMap.get(srcKey) : null
-        const resolvedTgt = tgtKey ? nodeMap.get(tgtKey) : null
+        const resolvedSrc = resolveNodeId(rawSrc)
+        const resolvedTgt = resolveNodeId(rawTgt)
         if (!resolvedSrc || !resolvedTgt) return
         const rawEdgeColor = (() => {
           try {
@@ -790,8 +885,8 @@ export default function TopogramDetail() {
         } catch (e) { data._relVizLabel = data.relationship || data.name || '' }
         let visible = true
         try {
-          const srcNode = vizIdToNode.get(String(resolvedSrc))
-          const tgtNode = vizIdToNode.get(String(resolvedTgt))
+          const srcNode = getVizNode(resolvedSrc)
+          const tgtNode = getVizNode(resolvedTgt)
           if (srcNode && !isNodeInRange(srcNode)) visible = false
           if (tgtNode && !isNodeInRange(tgtNode)) visible = false
           const edgeHasTime = ['start','end','time','date','from','to'].some(f => edge.data && edge.data[f] != null)
@@ -892,7 +987,7 @@ export default function TopogramDetail() {
   stylesheet.push({ selector: 'edge.hidden', style: { 'visibility': 'hidden', 'opacity': 0, 'line-opacity': 0, 'text-opacity': 0, 'events': 'no' } })
 
     return { elements: allEls, layout, stylesheet }
-  }, [nodes, edges, nodeLabelMode, edgeRelLabelMode, titleSize, nodeSizeMode])
+  }, [nodes, edges, nodeLabelMode, edgeRelLabelMode, titleSize, nodeSizeMode, resolveNodeId, vizIdToNode])
 
   // Debug: log element counts so we can detect why network appears empty
   try {
@@ -1410,6 +1505,49 @@ export default function TopogramDetail() {
     } catch(e) { return 'cytoscape' }
   }
 
+  const persistedGeoMapRenderer = useMemo(() => {
+    try {
+      if (typeof window === 'undefined' || !window.localStorage) return null
+      return window.localStorage.getItem('topo.geoMapRenderer')
+    } catch (e) { return null }
+  }, [])
+
+  const persistedGeoMapTile = useMemo(() => {
+    try {
+      if (typeof window === 'undefined' || !window.localStorage) return null
+      return window.localStorage.getItem('topo.geoMapTile')
+    } catch (e) { return null }
+  }, [])
+
+  const effectiveGeoMapRenderer = (timelineUI && timelineUI.geoMapRenderer) || persistedGeoMapRenderer || 'leaflet'
+  const rawGeoMapTile = (timelineUI && timelineUI.geoMapTile) || persistedGeoMapTile || 'default'
+
+  const rendererTileOptions = useMemo(() => getRendererTileOptions(effectiveGeoMapRenderer), [effectiveGeoMapRenderer])
+
+  useEffect(() => {
+    try {
+      if (!Array.isArray(rendererTileOptions) || !rendererTileOptions.length) return
+      const found = rendererTileOptions.some(opt => opt && opt.id === rawGeoMapTile)
+      if (!found) {
+        const fallback = rendererTileOptions[0].id
+        updateUI('geoMapTile', fallback)
+        if (typeof window !== 'undefined' && window.localStorage) {
+          window.localStorage.setItem('topo.geoMapTile', fallback)
+        }
+      }
+    } catch (e) {}
+  }, [rendererTileOptions, rawGeoMapTile])
+
+  const effectiveGeoMapTile = useMemo(() => {
+    if (Array.isArray(rendererTileOptions) && rendererTileOptions.some(opt => opt && opt.id === rawGeoMapTile)) {
+      return rawGeoMapTile
+    }
+    if (Array.isArray(rendererTileOptions) && rendererTileOptions.length) {
+      return rendererTileOptions[0].id
+    }
+    return 'default'
+  }, [rendererTileOptions, rawGeoMapTile])
+
   // If the document is already present in the client cache (for example because
   // we published all topograms on the list page), render immediately instead
   // of waiting for subscriptions to report ready. This avoids an infinite
@@ -1557,7 +1695,6 @@ export default function TopogramDetail() {
   // and strip leading '#' characters so the comment line stays on a
   // single CSV line. Use CRLF for robust cross-platform parsing.
   const EOL = '\r\n'
-  const rawTitle = (top && (top.title || top.name || top._id)) ? String(top.title || top.name || top._id) : String(top && top._id)
   let safeTitleStr = rawTitle.replace(/\r?\n/g, ' ').replace(/\s+/g, ' ').trim()
   // remove any leading comment markers to avoid confusing parsers
   safeTitleStr = safeTitleStr.replace(/^\s*#+\s*/, '')
@@ -1589,6 +1726,8 @@ export default function TopogramDetail() {
       alert('Failed to export CSV: ' + String(e))
     }
   }
+
+  const rawTitle = (top && (top.title || top.name || top._id)) ? String(top.title || top.name || top._id) : String(top && top._id)
 
   return (<ErrorBoundary>
     <div className="topogram-page" style={{ paddingBottom: 'var(--timeline-offset, 12px)' }}>
@@ -1628,10 +1767,35 @@ export default function TopogramDetail() {
 
         <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
           Map renderer:
-          <select value={((timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) || 'leaflet')} onChange={e => { const v = e.target.value || 'leaflet'; try { updateUI('geoMapRenderer', v); if (window && window.localStorage) window.localStorage.setItem('topo.geoMapRenderer', v); } catch (err) {} }} style={{ minWidth: 120 }}>
+          <select value={effectiveGeoMapRenderer} onChange={e => { const v = e.target.value || 'leaflet'; try { updateUI('geoMapRenderer', v); if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoMapRenderer', v); } catch (err) {} }} style={{ minWidth: 120 }}>
             <option value="leaflet">Leaflet</option>
             <option value="maplibre">MapLibre</option>
             <option value="cesium">Cesium</option>
+          </select>
+        </label>
+
+        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
+          Map background:
+          <select
+            value={effectiveGeoMapTile}
+            onChange={e => {
+              const next = e.target.value || 'default'
+              try { updateUI('geoMapTile', next) } catch (err) {}
+              try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoMapTile', next) } catch (err) {}
+            }}
+            style={{ minWidth: 160 }}
+            disabled={!rendererTileOptions.length}
+            title={(rendererTileOptions.find(opt => opt && opt.id === effectiveGeoMapTile)?.description) || ''}
+          >
+            {
+              rendererTileOptions.length ? (
+                rendererTileOptions.map(opt => (
+                  <option key={opt.id} value={opt.id}>{opt.label}</option>
+                ))
+              ) : (
+                <option value="default">Default</option>
+              )
+            }
           </select>
         </label>
 
@@ -1815,10 +1979,12 @@ export default function TopogramDetail() {
           try {
             (edges || []).forEach(e => {
               try {
-                const s = e && e.data && (e.data.source || e.source)
-                const t = e && e.data && (e.data.target || e.target)
-                if (s != null) degreeMapForGeo.set(String(s), (degreeMapForGeo.get(String(s)) || 0) + 1)
-                if (t != null) degreeMapForGeo.set(String(t), (degreeMapForGeo.get(String(t)) || 0) + 1)
+                const sRaw = e && e.data && (e.data.source || e.source)
+                const tRaw = e && e.data && (e.data.target || e.target)
+                const sResolved = resolveNodeId(sRaw) || (sRaw != null ? String(sRaw) : null)
+                const tResolved = resolveNodeId(tRaw) || (tRaw != null ? String(tRaw) : null)
+                if (sResolved != null) degreeMapForGeo.set(String(sResolved), (degreeMapForGeo.get(String(sResolved)) || 0) + 1)
+                if (tResolved != null) degreeMapForGeo.set(String(tResolved), (degreeMapForGeo.get(String(tResolved)) || 0) + 1)
               } catch (err) {}
             })
           } catch (err) {}
@@ -1827,7 +1993,9 @@ export default function TopogramDetail() {
             .map(({n, coords}) => ({ n, coords }))
             .filter(x => isNodeInRange(x.n))
             .map(({n, coords}) => {
-              const vizId = (n.data && n.data.id) ? String(n.data.id) : String(n._id)
+              const nodePrimary = (n.data && n.data.id) || n.id || n._id
+              const resolvedVizId = resolveNodeId(nodePrimary) || (nodePrimary != null ? String(nodePrimary) : (n && n._id != null ? String(n._id) : null))
+              const vizId = resolvedVizId ? String(resolvedVizId) : (n && n._id != null ? String(n._id) : '')
               // Decide weight: prefer explicit n.data.weight; if nodeSizeMode === 'degree' use degreeMap
               let weightVal = (n && n.data && typeof n.data.weight !== 'undefined') ? Number(n.data.weight) : undefined
               try {
@@ -1843,10 +2011,25 @@ export default function TopogramDetail() {
           const geoEdges = edges.map(e => {
             const rawSrc = (e.data && (e.data.source || e.data.from)) || e.source || e.from
             const rawTgt = (e.data && (e.data.target || e.data.to)) || e.target || e.to
-            const srcKey = rawSrc != null ? String(rawSrc) : null
-            const tgtKey = rawTgt != null ? String(rawTgt) : null
+            const srcKey = resolveNodeId(rawSrc) || (rawSrc != null ? String(rawSrc) : null)
+            const tgtKey = resolveNodeId(rawTgt) || (rawTgt != null ? String(rawTgt) : null)
             // try to find nodes by id fields
-            const findNodeBy = (key) => geoNodes.find(n => n.data && (String(n.data.id) === String(key) || String(n._id) === String(key) || String(n.id) === String(key) || String(n.data && n.data.name) === String(key)))
+            const findNodeBy = (key) => {
+              if (!key && key !== 0) return null
+              const keyStr = String(key)
+              return geoNodes.find(n => {
+                try {
+                  if (!n || !n.data) return false
+                  if (String(n.data.id) === keyStr) return true
+                  const resolved = resolveNodeId(n.data.id)
+                  if (resolved && String(resolved) === keyStr) return true
+                  if (String(n._id) === keyStr) return true
+                  if (String(n.id) === keyStr) return true
+                  if (String(n.data.name) === keyStr) return true
+                } catch (e) {}
+                return false
+              })
+            }
             const s = srcKey ? findNodeBy(srcKey) : null
             const t = tgtKey ? findNodeBy(tgtKey) : null
             if (!s || !t) return null
@@ -1918,14 +2101,15 @@ export default function TopogramDetail() {
                   <TopogramGeoMap
                     nodes={geoNodes}
                     edges={geoEdges}
-                    ui={{ selectedElements, geoEdgeRelVisible, geoEdgeLabelAggregate, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
-                      width={'50vw'}
-                      height={visualHeight}
-                      selectElement={(json) => selectElement(json)}
-                      unselectElement={(json) => unselectElement(json)}
-                      onFocusElement={() => {}}
-                      onUnfocusElement={() => {}}
-                    />
+                    ui={{ selectedElements, geoEdgeRelVisible, geoEdgeLabelAggregate, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: effectiveGeoMapRenderer, geoMapTile: effectiveGeoMapTile }}
+                    width={'50vw'}
+                    height={visualHeight}
+                    selectElement={(json) => selectElement(json)}
+                    unselectElement={(json) => unselectElement(json)}
+                    onFocusElement={() => {}}
+                    onUnfocusElement={() => {}}
+                    updateUI={updateUI}
+                  />
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
@@ -2011,13 +2195,14 @@ export default function TopogramDetail() {
                 <TopogramGeoMap
                   nodes={geoNodes}
                   edges={geoEdges}
-                      ui={{ selectedElements, geoEdgeRelVisible, geoEdgeLabelAggregate, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: (timelineUI && timelineUI.geoMapRenderer) || (typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.geoMapRenderer') : null) }}
+                  ui={{ selectedElements, geoEdgeRelVisible, geoEdgeLabelAggregate, emojiVisible, edgeRelLabelMode, nodeLabelMode, nodeSizeMode, titleSize, geoMapRenderer: effectiveGeoMapRenderer, geoMapTile: effectiveGeoMapTile }}
                   width={'100%'}
                   height={visualHeight}
                   selectElement={(json) => selectElement(json)}
                   unselectElement={(json) => unselectElement(json)}
                   onFocusElement={() => {}}
                   onUnfocusElement={() => {}}
+                  updateUI={updateUI}
                 />
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>

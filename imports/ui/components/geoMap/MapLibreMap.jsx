@@ -323,6 +323,28 @@ export default class MapLibreMap extends React.Component {
   }
 
   componentDidUpdate(prevProps) {
+    const styleChanged = this.props.style !== prevProps.style
+    if (styleChanged && this.map) {
+      const nextStyle = this.props.style || 'https://demotiles.maplibre.org/style.json'
+      const refreshOverlays = () => {
+        try {
+          this._clearMarkers()
+          this._renderMarkers()
+          this._updateNodesLayer()
+          this._updateEdgesLayer()
+        } catch (e) {}
+      }
+      try {
+        if (typeof this.map.once === 'function') {
+          this.map.once('styledata', () => { refreshOverlays() })
+        }
+        this.map.setStyle(nextStyle)
+        if (typeof this.map.once !== 'function') {
+          refreshOverlays()
+        }
+      } catch (e) { try { console.warn('MapLibreMap: setStyle failed', e) } catch (err) {} }
+      return
+    }
     // re-render markers when nodes/edges change
     if (this.props.nodes !== prevProps.nodes || this.props.edges !== prevProps.edges) {
       this._clearMarkers(); this._renderMarkers(); this._updateNodesLayer(); this._updateEdgesLayer()
@@ -946,5 +968,6 @@ MapLibreMap.propTypes = {
   handleClickGeoElement: PropTypes.func,
   center: PropTypes.array,
   zoom: PropTypes.number,
-  style: PropTypes.string
+  style: PropTypes.oneOfType([PropTypes.string, PropTypes.object]),
+  ui: PropTypes.object
 }
