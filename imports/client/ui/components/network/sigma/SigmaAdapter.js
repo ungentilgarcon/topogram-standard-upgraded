@@ -75,6 +75,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
   }
 
   const graph = new GraphConstructor();
+  const needsManualCurves = !SigmaAdapter__EdgeCurveProgram;
+  const manualCurveEdgeIds = new Set();
+  const manualLoopEdgeIds = new Set();
+  const cleanupFns = [];
 
   // deterministic color helper (same approach as TopogramDetail)
   function _stringToColorHex(str) {
@@ -237,12 +241,28 @@ function SigmaAdapter(container, elements = [], options = {}) {
           // exposed to Sigma as the 'label' attribute and request forceLabel
           // so the label shows regardless of zoom if possible.
           try {
-            const maybeLabel = (a.label || a.relationship || a.emoji || a.title || a.name);
-            if (typeof maybeLabel !== 'undefined' && maybeLabel !== null) {
-              const lbl = (typeof maybeLabel === 'string') ? maybeLabel : String(maybeLabel);
-              try { graph.setEdgeAttribute(id, 'label', lbl); } catch (e) {}
+            let labelCandidate = null;
+            let override = false;
+            if (a && Object.prototype.hasOwnProperty.call(a, '_relVizLabel')) {
+              override = true;
+              const val = a._relVizLabel;
+              if (val !== undefined && val !== null && String(val).trim().length) {
+                labelCandidate = String(val);
+              }
+            }
+            if (!override) {
+              const maybeLabel = (a.label || a.relationship || a.emoji || a.title || a.name);
+              if (typeof maybeLabel !== 'undefined' && maybeLabel !== null && String(maybeLabel).trim().length) {
+                labelCandidate = String(maybeLabel);
+              }
+            }
+            if (labelCandidate != null) {
+              try { graph.setEdgeAttribute(id, 'label', labelCandidate); } catch (e) {}
               try { graph.setEdgeAttribute(id, 'forceLabel', true); } catch (e) {}
-              console.debug && console.debug('SigmaAdapter: edge label set', { id, label: lbl });
+              console.debug && console.debug('SigmaAdapter: edge label set', { id, label: labelCandidate });
+            } else {
+              try { graph.removeEdgeAttribute(id, 'label'); } catch (e) {}
+              try { graph.removeEdgeAttribute(id, 'forceLabel'); } catch (e) {}
             }
           } catch (e) {}
           // If edge carries an 'enlightement' === 'arrow' or arrow flag, set
@@ -305,21 +325,31 @@ function SigmaAdapter(container, elements = [], options = {}) {
                   // multiple edges between same unordered pair -> mark as curved when supported
                   // Set attributes expected by @sigma/edge-curve's indexing helper
                   const mid = (list.length - 1) / 2;
-                  const min = -mid;
-                  const max = mid;
+                  const rawOffsets = list.map((_, idx) => idx - mid);
+                  const parallelIndices = rawOffsets.map((offset) => {
+                    if (offset > 0) return Math.ceil(offset);
+                    if (offset < 0) return Math.floor(offset);
+                    return 0;
+                  });
+                  const minIndex = parallelIndices.reduce((acc, val) => Math.min(acc, val), parallelIndices[0] || 0);
+                  const maxIndex = parallelIndices.reduce((acc, val) => Math.max(acc, val), parallelIndices[0] || 0);
+                  const curveCount = list.length;
+                  const baseCurvature = curveCount === 2 ? 0.7 : 0.45;
                   list.forEach((item, idx) => {
                     try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(item.id, 'type', 'curved'); } catch (e) {}
                     try {
-                      const parallelIndex = Math.round(idx - mid);
+                      const parallelIndex = parallelIndices[idx];
+                      const curvature = parallelIndex === 0 ? 0 : parallelIndex * baseCurvature;
                       graph.setEdgeAttribute(item.id, 'parallelIndex', parallelIndex);
-                      graph.setEdgeAttribute(item.id, 'parallelMinIndex', min);
-                      graph.setEdgeAttribute(item.id, 'parallelMaxIndex', max);
+                      graph.setEdgeAttribute(item.id, 'parallelMinIndex', minIndex);
+                      graph.setEdgeAttribute(item.id, 'parallelMaxIndex', maxIndex);
                       // keep older names for compatibility
                       graph.setEdgeAttribute(item.id, 'curveIndex', idx);
-                      graph.setEdgeAttribute(item.id, 'curveCount', list.length);
+                      graph.setEdgeAttribute(item.id, 'curveCount', curveCount);
                       // provide a numeric curvature hint: centered around 0
-                      const curvature = (parallelIndex) * 0.7; // spacing factor
                       graph.setEdgeAttribute(item.id, 'curvature', curvature);
+                      graph.setEdgeAttribute(item.id, '__manualCurve', true);
+                      manualCurveEdgeIds.add(item.id);
                     } catch (e) {}
                   });
                 } else {
@@ -336,6 +366,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
                       graph.setEdgeAttribute(itm.id, 'curveCount', 1);
                       graph.setEdgeAttribute(itm.id, 'curvature', 2.5);
                       graph.setEdgeAttribute(itm.id, 'selfLoop', true);
+                      graph.setEdgeAttribute(itm.id, '__manualCurve', true);
+                      manualCurveEdgeIds.add(itm.id);
+                      manualLoopEdgeIds.add(itm.id);
                     } catch (e) {}
                   }
                 }
@@ -438,6 +471,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
       settings: {
         // prefer WebGL GPU accelerated rendering when available
         labelRenderedSizeThreshold: 6,
+        renderLabels: true,
+        renderEdgeLabels: true,
+        edgeLabelRenderedSizeThreshold: 0,
         defaultNodeType: 'circle',
         // v3 uses a single flag to enable edge-related events
         enableEdgeHovering: true,
@@ -471,8 +507,300 @@ function SigmaAdapter(container, elements = [], options = {}) {
 
   // local origin keys to avoid event loops when adapters and SelectionManager mirror
   let _localSelKeys = new Set();
-  // No SVG overlay: rely on Sigma's native curved-edge rendering (edge.type='curve')
+  const selectionManagerUnsubs = [];
+  let manualCurveOverlay = null;
+  let manualCurveCtx = null;
+  let manualCurveResizeObserver = null;
+  let manualCurveRenderHandler = null;
 
+  function ensureContainerPositioning() {
+    try {
+      if (!container) return;
+      const style = (typeof window !== 'undefined' && window.getComputedStyle) ? window.getComputedStyle(container) : null;
+      if (style && style.position === 'static') {
+        container.style.position = 'relative';
+      }
+    } catch (e) {}
+  }
+
+  function teardownManualOverlay() {
+    try {
+      if (manualCurveRenderHandler && renderer && typeof renderer.off === 'function') {
+        try { renderer.off('afterRender', manualCurveRenderHandler); } catch (e) {}
+      }
+    } catch (e) {}
+    manualCurveRenderHandler = null;
+    if (manualCurveResizeObserver && typeof manualCurveResizeObserver.disconnect === 'function') {
+      try { manualCurveResizeObserver.disconnect(); } catch (e) {}
+    }
+    manualCurveResizeObserver = null;
+    if (manualCurveOverlay && manualCurveOverlay.parentNode) {
+      try { manualCurveOverlay.parentNode.removeChild(manualCurveOverlay); } catch (e) {}
+    }
+    manualCurveOverlay = null;
+    manualCurveCtx = null;
+  }
+
+  function setupManualOverlay() {
+    try {
+      if (manualCurveOverlay || !container || !renderer) return;
+      ensureContainerPositioning();
+      manualCurveOverlay = document.createElement('canvas');
+      manualCurveOverlay.className = 'sigma-manual-curves-overlay';
+      manualCurveOverlay.style.position = 'absolute';
+      manualCurveOverlay.style.left = '0';
+      manualCurveOverlay.style.top = '0';
+      manualCurveOverlay.style.pointerEvents = 'none';
+      manualCurveOverlay.style.zIndex = '10';
+      container.appendChild(manualCurveOverlay);
+      manualCurveCtx = manualCurveOverlay.getContext ? manualCurveOverlay.getContext('2d') : null;
+      const resizeOverlay = () => {
+        if (!manualCurveOverlay || !container) return;
+        const ratio = (typeof window !== 'undefined' && window.devicePixelRatio) ? window.devicePixelRatio : 1;
+        const width = container.clientWidth || container.offsetWidth || 1;
+        const height = container.clientHeight || container.offsetHeight || 1;
+        manualCurveOverlay.width = Math.max(1, Math.round(width * ratio));
+        manualCurveOverlay.height = Math.max(1, Math.round(height * ratio));
+        manualCurveOverlay.style.width = `${width}px`;
+        manualCurveOverlay.style.height = `${height}px`;
+        if (manualCurveCtx && typeof manualCurveCtx.setTransform === 'function') {
+          manualCurveCtx.setTransform(ratio, 0, 0, ratio, 0, 0);
+        }
+      };
+      resizeOverlay();
+      if (typeof window !== 'undefined' && window.addEventListener) {
+        const resizeListener = () => resizeOverlay();
+        window.addEventListener('resize', resizeListener);
+        cleanupFns.push(() => { try { window.removeEventListener('resize', resizeListener); } catch (e) {} });
+      }
+      if (typeof window !== 'undefined' && window.ResizeObserver) {
+        manualCurveResizeObserver = new window.ResizeObserver(() => resizeOverlay());
+        try { manualCurveResizeObserver.observe(container); } catch (e) {}
+      }
+
+      manualCurveRenderHandler = () => {
+        try {
+          if (!manualCurveCtx || !manualCurveOverlay) return;
+          const ratio = (typeof window !== 'undefined' && window.devicePixelRatio) ? window.devicePixelRatio : 1;
+          manualCurveCtx.setTransform(1, 0, 0, 1, 0, 0);
+          manualCurveCtx.clearRect(0, 0, manualCurveOverlay.width, manualCurveOverlay.height);
+          manualCurveCtx.setTransform(ratio, 0, 0, ratio, 0, 0);
+          manualCurveCtx.lineCap = 'round';
+          manualCurveCtx.lineJoin = 'round';
+
+          graph.forEachEdge((edgeId, attr, source, target) => {
+            try {
+              const hasManualCurve = manualCurveEdgeIds.has(edgeId);
+              const hasLabel = (() => {
+                try {
+                  const lbl = graph.getEdgeAttribute(edgeId, 'label');
+                  return typeof lbl === 'string' && lbl.trim().length;
+                } catch (e) { return false; }
+              })();
+              if (!hasManualCurve && !hasLabel) return;
+              if (graph.getEdgeAttribute(edgeId, 'hidden')) return;
+              if (!source || !target) return;
+              if (graph.getNodeAttribute(source, 'hidden') || graph.getNodeAttribute(target, 'hidden')) return;
+
+              const srcAttr = graph.getNodeAttributes(source) || {};
+              const tgtAttr = graph.getNodeAttributes(target) || {};
+              const hasCoords = (typeof srcAttr.x === 'number' && typeof srcAttr.y === 'number' && typeof tgtAttr.x === 'number' && typeof tgtAttr.y === 'number');
+              if (!hasCoords) return;
+
+              const srcViewport = renderer.graphToViewport ? renderer.graphToViewport({ x: srcAttr.x, y: srcAttr.y }) : null;
+              const tgtViewport = renderer.graphToViewport ? renderer.graphToViewport({ x: tgtAttr.x, y: tgtAttr.y }) : null;
+              if (!srcViewport || !tgtViewport) return;
+
+              const selected = !!graph.getEdgeAttribute(edgeId, 'selected');
+              const color = selected ? '#FFD54F' : (graph.getEdgeAttribute(edgeId, 'color') || '#1f2937');
+              const alpha = selected ? 1 : 0.9;
+              const width = Math.max(1, Number(graph.getEdgeAttribute(edgeId, 'size')) || 1);
+              const selfLoop = manualLoopEdgeIds.has(edgeId) || (!!graph.getEdgeAttribute(edgeId, 'selfLoop')) || String(source) === String(target);
+
+              manualCurveCtx.globalAlpha = alpha;
+              manualCurveCtx.strokeStyle = color;
+              manualCurveCtx.lineWidth = selected ? Math.max(width * 1.8, width + 2) : width;
+
+              const label = graph.getEdgeAttribute(edgeId, 'label');
+
+              const drawArrow = (curvePoints) => {
+                try {
+                  const hasArrow = !!graph.getEdgeAttribute(edgeId, 'arrow') || String(graph.getEdgeAttribute(edgeId, 'enlightement')).toLowerCase() === 'arrow';
+                  if (!hasArrow) return;
+                  const size = Math.max(6, (manualCurveCtx.lineWidth || width) * 3);
+                  const arrowColor = selected ? '#FFD54F' : (graph.getEdgeAttribute(edgeId, 'targetArrowColor') || color);
+                  manualCurveCtx.fillStyle = arrowColor;
+                  const pointAt = (tt) => {
+                    const inv = 1 - tt;
+                    const x = inv * inv * curvePoints.p0.x + 2 * inv * tt * curvePoints.p1.x + tt * tt * curvePoints.p2.x;
+                    const y = inv * inv * curvePoints.p0.y + 2 * inv * tt * curvePoints.p1.y + tt * tt * curvePoints.p2.y;
+                    return { x, y };
+                  };
+                  const derivativeAt = (tt) => {
+                    const inv = 1 - tt;
+                    const dx = 2 * inv * (curvePoints.p1.x - curvePoints.p0.x) + 2 * tt * (curvePoints.p2.x - curvePoints.p1.x);
+                    const dy = 2 * inv * (curvePoints.p1.y - curvePoints.p0.y) + 2 * tt * (curvePoints.p2.y - curvePoints.p1.y);
+                    return { x: dx, y: dy };
+                  };
+                  const tip = pointAt(0.9);
+                  const back = pointAt(0.86);
+                  const dir = derivativeAt(0.9);
+                  const angle = Math.atan2(dir.y, dir.x);
+                  manualCurveCtx.beginPath();
+                  manualCurveCtx.moveTo(tip.x, tip.y);
+                  manualCurveCtx.lineTo(back.x - Math.cos(angle - Math.PI / 6) * size * 0.4, back.y - Math.sin(angle - Math.PI / 6) * size * 0.4);
+                  manualCurveCtx.lineTo(back.x - Math.cos(angle + Math.PI / 6) * size * 0.4, back.y - Math.sin(angle + Math.PI / 6) * size * 0.4);
+                  manualCurveCtx.closePath();
+                  manualCurveCtx.fill();
+                } catch (e) {}
+              };
+
+              if (selfLoop) {
+                const nodeData = renderer.getNodeDisplayData ? renderer.getNodeDisplayData(source) : null;
+                const nodeSizePx = nodeData && typeof nodeData.size === 'number' ? nodeData.size : Math.max(12, (srcAttr.size || 10));
+                const loopIndex = Number(graph.getEdgeAttribute(edgeId, 'parallelIndex') || 1);
+                const loopCount = Number(graph.getEdgeAttribute(edgeId, 'curveCount') || 1);
+                const centerAngle = (-Math.PI / 3) + (loopIndex - (loopCount - 1) / 2) * 0.35;
+                const baseRadius = Math.max(nodeSizePx * 2.4, 28);
+                const radius = baseRadius + loopIndex * (nodeSizePx * 0.6);
+                const startAngle = centerAngle - 0.95;
+                const endAngle = centerAngle + 0.95;
+                const start = {
+                  x: srcViewport.x + Math.cos(startAngle) * nodeSizePx,
+                  y: srcViewport.y + Math.sin(startAngle) * nodeSizePx
+                };
+                const end = {
+                  x: srcViewport.x + Math.cos(endAngle) * nodeSizePx,
+                  y: srcViewport.y + Math.sin(endAngle) * nodeSizePx
+                };
+                const control = {
+                  x: srcViewport.x + Math.cos(centerAngle) * radius,
+                  y: srcViewport.y + Math.sin(centerAngle) * radius
+                };
+
+                manualCurveCtx.beginPath();
+                manualCurveCtx.moveTo(start.x, start.y);
+                manualCurveCtx.quadraticCurveTo(control.x, control.y, end.x, end.y);
+                manualCurveCtx.stroke();
+
+                drawArrow({ p0: start, p1: control, p2: end });
+
+                if (label) {
+                  try {
+                    const inv = 0.5;
+                    const px = (1 - inv) * (1 - inv) * start.x + 2 * (1 - inv) * inv * control.x + inv * inv * end.x;
+                    const py = (1 - inv) * (1 - inv) * start.y + 2 * (1 - inv) * inv * control.y + inv * inv * end.y;
+                    manualCurveCtx.fillStyle = '#0f172a';
+                    manualCurveCtx.font = '12px "Segoe UI Emoji", "Apple Color Emoji", sans-serif';
+                    manualCurveCtx.textAlign = 'center';
+                    manualCurveCtx.textBaseline = 'middle';
+                    manualCurveCtx.fillText(String(label), px, py - Math.max(12, nodeSizePx * 0.3));
+                  } catch (e) {}
+                }
+                return;
+              }
+
+              const dx = tgtViewport.x - srcViewport.x;
+              const dy = tgtViewport.y - srcViewport.y;
+              const dist = Math.sqrt(dx * dx + dy * dy) || 1;
+              const normX = -dy / dist;
+              const normY = dx / dist;
+              const curvature = hasManualCurve ? (Number(graph.getEdgeAttribute(edgeId, 'curvature')) || 0) : 0;
+              const offset = curvature * dist * 0.2;
+              const control = {
+                x: (srcViewport.x + tgtViewport.x) / 2 + normX * offset,
+                y: (srcViewport.y + tgtViewport.y) / 2 + normY * offset
+              };
+
+              if (hasManualCurve) {
+                manualCurveCtx.beginPath();
+                manualCurveCtx.moveTo(srcViewport.x, srcViewport.y);
+                manualCurveCtx.quadraticCurveTo(control.x, control.y, tgtViewport.x, tgtViewport.y);
+                manualCurveCtx.stroke();
+                drawArrow({ p0: { x: srcViewport.x, y: srcViewport.y }, p1: control, p2: { x: tgtViewport.x, y: tgtViewport.y } });
+              }
+
+              if (label) {
+                try {
+                  const inv = 0.5;
+                  const mx = (1 - inv) * (1 - inv) * srcViewport.x + 2 * (1 - inv) * inv * control.x + inv * inv * tgtViewport.x;
+                  const my = (1 - inv) * (1 - inv) * srcViewport.y + 2 * (1 - inv) * inv * control.y + inv * inv * tgtViewport.y;
+                  const labelOffset = hasManualCurve ? 12 + Math.abs(offset) * 0.02 : 12;
+                  const lx = mx + normX * labelOffset;
+                  const ly = my + normY * labelOffset;
+                  manualCurveCtx.fillStyle = '#0f172a';
+                  manualCurveCtx.font = '12px "Segoe UI Emoji", "Apple Color Emoji", sans-serif';
+                  manualCurveCtx.textAlign = 'center';
+                  manualCurveCtx.textBaseline = 'middle';
+                  manualCurveCtx.fillText(String(label), lx, ly);
+                } catch (e) {}
+              }
+            } catch (err) {}
+          });
+
+          manualCurveCtx.globalAlpha = 1;
+        } catch (e) {}
+      };
+
+      if (renderer && typeof renderer.on === 'function') {
+        renderer.on('afterRender', manualCurveRenderHandler);
+        cleanupFns.push(() => {
+          if (renderer && typeof renderer.off === 'function' && manualCurveRenderHandler) {
+            try { renderer.off('afterRender', manualCurveRenderHandler); } catch (e) {}
+          }
+        });
+      }
+
+      cleanupFns.push(() => teardownManualOverlay());
+    } catch (e) {}
+  }
+
+  // Input events remain delegated to Sigma; manual overlay is purely visual when needed
+
+
+  try {
+    if (renderer && typeof renderer.setSetting === 'function') {
+      renderer.setSetting('nodeReducer', (node, data) => {
+        try {
+          const hidden = !!graph.getNodeAttribute(node, 'hidden');
+          const selected = !!graph.getNodeAttribute(node, 'selected');
+          const label = graph.getNodeAttribute(node, 'label');
+          const forceLabel = graph.getNodeAttribute(node, 'forceLabel');
+          const out = Object.assign({}, data);
+          if (hidden) out.hidden = true;
+          if (typeof label === 'string') out.label = label;
+          if (forceLabel) out.forceLabel = true;
+          if (selected) {
+            out.color = '#FFD54F';
+            out.highlighted = true;
+          }
+          return out;
+        } catch (e) { return data; }
+      });
+      renderer.setSetting('edgeReducer', (edge, data) => {
+        try {
+          const hidden = !!graph.getEdgeAttribute(edge, 'hidden');
+          const out = Object.assign({}, data);
+          if (hidden) out.hidden = true;
+          const size = Number(graph.getEdgeAttribute(edge, 'size'));
+          if (!Number.isNaN(size)) out.size = Math.max(0.5, size);
+          const label = graph.getEdgeAttribute(edge, 'label');
+          if (typeof label === 'string' && label.trim().length) out.label = label;
+          else if (out.label) delete out.label;
+          if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
+          if (manualCurveEdgeIds.has(edge)) {
+            out.color = 'rgba(0,0,0,0.08)';
+            out.size = Math.max(0.3, (out.size || 1) * 0.35);
+          }
+          return out;
+        } catch (e) { return data; }
+      });
+    }
+  } catch (e) {}
+
+  try {
+    setupManualOverlay();
+  } catch (e) {}
 
   // wire input events from the renderer to update graph selection state
   try {
@@ -581,6 +909,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
     impl: 'sigma',
     graph,
     renderer,
+    _cleanupFns: cleanupFns,
     getInstance() { return renderer; },
     // simple event registry to emulate Cytoscape's on(selector) semantics for 'select'/'unselect'
     _events: {},
@@ -955,11 +1284,46 @@ function SigmaAdapter(container, elements = [], options = {}) {
     add(elementsToAdd) {
       const { nodes: n, edges: e } = cyElementsToGraphology(elementsToAdd || []);
       n.forEach(n1 => { if (!graph.hasNode(n1.id)) graph.addNode(n1.id, n1.attrs || {}); });
-      e.forEach(e1 => { try { if (!graph.hasEdge(e1.id)) graph.addEdgeWithKey(e1.id || `${e1.source}-${e1.target}`, e1.source, e1.target, e1.attrs || {}); } catch (err) {} });
+      e.forEach(e1 => {
+        try {
+          const edgeId = e1.id || `${e1.source}-${e1.target}`;
+          if (!graph.hasEdge(edgeId)) {
+            graph.addEdgeWithKey(edgeId, e1.source, e1.target, e1.attrs || {});
+            if (String(e1.source) === String(e1.target)) {
+              manualCurveEdgeIds.add(edgeId);
+              manualLoopEdgeIds.add(edgeId);
+            }
+          }
+        } catch (err) {}
+      });
       try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (err) {}
     },
     remove(elementsToRemove) {
-      (elementsToRemove || []).forEach(el => { try { if (el && el.data && graph.hasNode(el.data.id)) graph.dropNode(el.data.id); } catch (err) {} });
+      (elementsToRemove || []).forEach(el => {
+        try {
+          if (!el || !el.data) return;
+          const data = el.data;
+          if (data.id != null && graph.hasNode(data.id)) {
+            // dropping a node will also drop incident edges; clear overlay caches
+            const incident = [];
+            graph.forEachEdge((edgeId, attr, source, target) => {
+              if (String(source) === String(data.id) || String(target) === String(data.id)) incident.push(edgeId);
+            });
+            incident.forEach(edgeId => {
+              manualCurveEdgeIds.delete(edgeId);
+              manualLoopEdgeIds.delete(edgeId);
+            });
+            graph.dropNode(data.id);
+            return;
+          }
+          const edgeId = data.id != null ? String(data.id) : (data.source != null && data.target != null ? `${data.source}-${data.target}` : null);
+          if (edgeId && graph.hasEdge(edgeId)) {
+            manualCurveEdgeIds.delete(edgeId);
+            manualLoopEdgeIds.delete(edgeId);
+            graph.dropEdge(edgeId);
+          }
+        } catch (err) {}
+      });
       try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (err) {}
     },
     filter(fn) { try { return graph.filterNodes(fn); } catch (e) { return []; } },
@@ -1084,8 +1448,84 @@ function SigmaAdapter(container, elements = [], options = {}) {
       } catch (e) { return []; }
     },
     removeListener: function(event, handler) { try { this.off(event, handler); } catch (e) {} },
-    destroy() { try { if (renderer && typeof renderer.kill === 'function') renderer.kill(); } catch (e) {} }
+    destroy() {
+      try {
+        selectionManagerUnsubs.forEach(fn => { try { if (typeof fn === 'function') fn(); } catch (e) {} });
+        selectionManagerUnsubs.length = 0;
+      } catch (e) {}
+      try { cleanupFns.forEach(fn => { try { fn(); } catch (err) {} }); cleanupFns.length = 0; } catch (e) {}
+      try { if (renderer && typeof renderer.kill === 'function') renderer.kill(); } catch (e) {}
+    }
   };
+
+  try {
+    if (SelectionManager && typeof SelectionManager.on === 'function') {
+      const handleSelect = ({ element } = {}) => {
+        try {
+          if (!element || !element.data) return;
+          const key = SelectionManager.canonicalKey(element);
+          if (key && _localSelKeys && _localSelKeys.has(key)) { try { _localSelKeys.delete(key); } catch (e) {} return; }
+          const data = element.data;
+          if (data.id != null && graph.hasNode(String(data.id))) {
+            graph.setNodeAttribute(String(data.id), 'selected', true);
+          } else if (data.source != null && data.target != null) {
+            const eid = data.id != null ? String(data.id) : `${data.source}-${data.target}`;
+            if (graph.hasEdge(eid)) {
+              graph.setEdgeAttribute(eid, 'selected', true);
+            } else {
+              graph.forEachEdge((edgeId, attr, source, target) => {
+                if (String(source) === String(data.source) && String(target) === String(data.target)) {
+                  graph.setEdgeAttribute(edgeId, 'selected', true);
+                }
+              });
+            }
+          }
+          if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
+        } catch (e) {}
+      };
+
+      const handleUnselect = ({ element } = {}) => {
+        try {
+          if (!element || !element.data) return;
+          const key = SelectionManager.canonicalKey(element);
+          if (key && _localSelKeys && _localSelKeys.has(key)) { try { _localSelKeys.delete(key); } catch (e) {} return; }
+          const data = element.data;
+          if (data.id != null && graph.hasNode(String(data.id))) {
+            if (graph.getNodeAttribute(String(data.id), 'selected')) graph.removeNodeAttribute(String(data.id), 'selected');
+          } else if (data.source != null && data.target != null) {
+            const eid = data.id != null ? String(data.id) : `${data.source}-${data.target}`;
+            if (graph.hasEdge(eid)) {
+              if (graph.getEdgeAttribute(eid, 'selected')) graph.removeEdgeAttribute(eid, 'selected');
+            } else {
+              graph.forEachEdge((edgeId, attr, source, target) => {
+                if (String(source) === String(data.source) && String(target) === String(data.target)) {
+                  if (graph.getEdgeAttribute(edgeId, 'selected')) graph.removeEdgeAttribute(edgeId, 'selected');
+                }
+              });
+            }
+          }
+          if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
+        } catch (e) {}
+      };
+
+      const handleClear = () => {
+        try {
+          if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
+          graph.forEachNode((id) => {
+            if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected');
+          });
+          graph.forEachEdge((id) => {
+            if (graph.getEdgeAttribute(id, 'selected')) graph.removeEdgeAttribute(id, 'selected');
+          });
+          if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
+        } catch (e) {}
+      };
+
+      selectionManagerUnsubs.push(SelectionManager.on('select', handleSelect));
+      selectionManagerUnsubs.push(SelectionManager.on('unselect', handleUnselect));
+      selectionManagerUnsubs.push(SelectionManager.on('clear', handleClear));
+    }
+  } catch (e) {}
 
   // layout runner matching cytoscape-like API: adapter.layout(layoutObj).run()
   adapter.layout = (layoutObj) => {
