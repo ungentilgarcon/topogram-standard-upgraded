@@ -1,0 +1,12 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,notes,extra
+USA,United States,United States,,,1,1,38.0,-97.0,,,,,,,,,,,,,,,
+CHN,China,China,,,1,1,35.8617,104.1954,,,,,,,,,,,,,,,
+DEU,Germany,Germany,,,1,1,51.1657,10.4515,,,,,,,,,,,,,,,
+,,,,,,,,,,,,,,USA,CHN,,,#,1,Supply,,📦,,
+,,,,,,,,,,,,,,USA,CHN,,,#,1,Supply,,📦,,
+,,,,,,,,,,,,,,USA,CHN,,,#,1,Supply,,📦,,
+,,,,,,,,,,,,,,USA,CHN,,,#,1,Trade,,,,,
+,,,,,,,,,,,,,,CHN,USA,,,#,1,Supply,,📦,,
+,,,,,,,,,,,,,,CHN,USA,,,#,1,Supply,,📦,,
+,,,,,,,,,,,,,,USA,DEU,,,#,1,Supply,,📦,,
+,,,,,,,,,,,,,,USA,CHN,,,#,1,Supply,,🚢,,

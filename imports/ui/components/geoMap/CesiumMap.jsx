@@ -588,8 +588,42 @@ export default class CesiumMap extends React.Component {
           try {
             const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
             if (geoRelVisible) {
-              // build buckets of edges sharing the same canonical endpoints
-              const edgesList = (this.props.edges || [])
+              // Optionally aggregate duplicate labels for edges sharing same endpoints and same label/emoji
+              const doAggregate = !!(this.props.ui && this.props.ui.geoEdgeLabelAggregate)
+              const originalEdges = (this.props.edges || [])
+              const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+              const computeRelLabel = (e) => {
+                const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+                const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+                let relLabel = ''
+                if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+                else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+                else if (edgeMode === 'none') relLabel = ''
+                else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+                return { relLabel, relTextRaw, relEmojiRaw }
+              }
+              let edgesList = originalEdges
+              let groupCounts = null
+              if (doAggregate) {
+                groupCounts = new Map()
+                originalEdges.forEach((e) => {
+                  try {
+                    const s = String(e && e.data && e.data.source)
+                    const t = String(e && e.data && e.data.target)
+                    const { relLabel } = computeRelLabel(e)
+                    const key = `${s}|${t}|${relLabel}`
+                    const prev = groupCounts.get(key) || { count: 0, edge: e }
+                    prev.count += 1
+                    if (!prev.edge) prev.edge = e
+                    groupCounts.set(key, prev)
+                  } catch (_) {}
+                })
+                const reps = []
+                groupCounts.forEach((val) => { if (val && val.edge) reps.push(val.edge) })
+                edgesList = reps
+              }
+              // build buckets of edges (or representatives when aggregated) sharing the same canonical endpoints
+              const edgesListRef = edgesList
               const buckets = new Map()
               const canonicalKey = (ee) => {
                 if (!ee || !ee.coords || ee.coords.length !== 2) return ''
@@ -600,25 +634,30 @@ export default class CesiumMap extends React.Component {
                 const k2 = `${a2},${o2}`
                 return (k1 < k2) ? `${k1}|${k2}` : `${k2}|${k1}`
               }
-              edgesList.forEach((ee, idx) => { const k = canonicalKey(ee); if (!k) return; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(idx) })
+              edgesListRef.forEach((ee, idx) => { const k = canonicalKey(ee); if (!k) return; if (!buckets.has(k)) buckets.set(k, []); buckets.get(k).push(idx) })
               // screen-space placement helpers: track placed label rects to avoid overlaps
               const placedRects = [] // {x,y,w,h}
               let measureCtx = null
               try { if (typeof document !== 'undefined') { const mc = document.createElement('canvas'); measureCtx = mc.getContext('2d'); if (measureCtx) measureCtx.font = '11px sans-serif' } } catch (err) { measureCtx = null }
-              ;(this.props.edges || []).forEach((e, idx) => {
+              edgesListRef.forEach((e, idx) => {
               try {
                 if (!e || !e.coords || e.coords.length !== 2) return
                 const [[lat1, lng1], [lat2, lng2]] = e.coords
                 const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
                 if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return
-                const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
-                const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
-                const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
-                let relLabel = ''
-                if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
-                else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
-                else if (edgeMode === 'none') relLabel = ''
-                else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+                const { relLabel: baseRelLabel, relTextRaw, relEmojiRaw } = computeRelLabel(e)
+                let relLabel = baseRelLabel
+                // determine aggregate count for this group
+                let count = 1
+                if (doAggregate && groupCounts) {
+                  try {
+                    const s = String(e && e.data && e.data.source)
+                    const t = String(e && e.data && e.data.target)
+                    const key = `${s}|${t}|${baseRelLabel}`
+                    const info = groupCounts.get(key)
+                    if (info && info.count > 1) count = info.count
+                  } catch (_) {}
+                }
                 if (!relLabel || String(relLabel).trim() === '') return
                 // compute a geodesic midpoint (great-circle) between the two endpoints
                 let midLat = (a1 + a2) / 2
@@ -942,7 +981,7 @@ export default class CesiumMap extends React.Component {
                       const labelEnt = this.viewer.entities.add({
                         position: textPos,
                         label: {
-                          text: String(relTextRaw),
+                          text: String(relTextRaw) + (count > 1 ? ` x${count}` : ''),
                           font: '11px sans-serif',
                           fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
                           outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
@@ -955,6 +994,29 @@ export default class CesiumMap extends React.Component {
                       })
                       if (labelEnt) this._edgeEntities.push(labelEnt)
                     }
+                    // Emoji-only mode: if aggregating and count>1, place a small " xN" text to the right of the emoji
+                    if (edgeMode === 'emoji' && count > 1) {
+                      try {
+                        const textPos = worldPos
+                        const labelOffsetX = 12 + (ox || 0)
+                        const labelOffsetY = (oy || 0)
+                        const labelEnt2 = this.viewer.entities.add({
+                          position: textPos,
+                          label: {
+                            text: ` x${count}`,
+                            font: '11px sans-serif',
+                            fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,
+                            outlineColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#111111') : this.Cesium.Color.BLACK,
+                            outlineWidth: 2,
+                            style: this.Cesium.LabelStyle.FILL,
+                            pixelOffset: (this.Cesium && this.Cesium.Cartesian2) ? new this.Cesium.Cartesian2(labelOffsetX, labelOffsetY) : undefined,
+                            horizontalOrigin: this.Cesium && this.Cesium.HorizontalOrigin ? this.Cesium.HorizontalOrigin.LEFT : undefined
+                          },
+                          disableDepthTestDistance: Number.POSITIVE_INFINITY
+                        })
+                        if (labelEnt2) this._edgeEntities.push(labelEnt2)
+                      } catch (e) {}
+                    }
                   } catch (e) {}
                 } else {
                   try {
@@ -966,7 +1028,7 @@ export default class CesiumMap extends React.Component {
                     const labelEnt = this.viewer.entities.add({
                       position: worldPos,
                       label: {
-                        text: String(relLabel),
+                        text: String(relLabel) + (count > 1 ? ` x${count}` : ''),
                         font: '11px sans-serif',
                         // render white text with dark halo for visibility
                         fillColor: this.Cesium.Color.fromCssColorString ? this.Cesium.Color.fromCssColorString('#ffffff') : this.Cesium.Color.WHITE,

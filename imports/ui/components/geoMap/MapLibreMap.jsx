@@ -453,9 +453,45 @@ export default class MapLibreMap extends React.Component {
           try {
             const geoRelVisible = !this.props.ui || typeof this.props.ui.geoEdgeRelVisible === 'undefined' ? true : !!this.props.ui.geoEdgeRelVisible
             if (geoRelVisible) {
-              // bucket edges by canonical endpoint key so labels on identical
-              // routes can be stacked rather than rendered on top of each other
-              const edgesList = (this.props.edges || [])
+              // Optionally aggregate duplicate labels for edges sharing same endpoints and same label/emoji
+              const doAggregate = !!(this.props.ui && this.props.ui.geoEdgeLabelAggregate)
+              const originalEdges = (this.props.edges || [])
+              // Helper to compute rendered label string according to mode
+              const computeRelLabel = (e, edgeMode) => {
+                const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
+                const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
+                let relLabel = ''
+                if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
+                else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
+                else if (edgeMode === 'none') relLabel = ''
+                else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+                return { relLabel, relTextRaw, relEmojiRaw }
+              }
+              const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
+              let edgesList = originalEdges
+              let groupCounts = null
+              if (doAggregate) {
+                groupCounts = new Map()
+                // Build counts keyed by source|target|relLabel
+                originalEdges.forEach((e) => {
+                  try {
+                    const s = String(e && e.data && e.data.source)
+                    const t = String(e && e.data && e.data.target)
+                    const { relLabel } = computeRelLabel(e, edgeMode)
+                    const key = `${s}|${t}|${relLabel}`
+                    const prev = groupCounts.get(key) || { count: 0, edge: e, s, t, relLabel }
+                    prev.count += 1
+                    // keep the first representative edge
+                    if (!prev.edge) prev.edge = e
+                    groupCounts.set(key, prev)
+                  } catch (_) {}
+                })
+                // Use representatives as edgeList
+                const reps = []
+                groupCounts.forEach((val) => { if (val && val.edge) reps.push(val.edge) })
+                edgesList = reps
+              }
+              // bucket edges (representatives when aggregated) by canonical endpoint key so labels stack cleanly
               const buckets = new Map()
               const canonicalKey = (e) => {
                 if (!e || !e.coords || e.coords.length !== 2) return ''
@@ -480,14 +516,19 @@ export default class MapLibreMap extends React.Component {
               const [[lat1, lng1], [lat2, lng2]] = e.coords
               const a1 = Number(lat1); const o1 = Number(lng1); const a2 = Number(lat2); const o2 = Number(lng2)
               if (!isFinite(a1) || !isFinite(o1) || !isFinite(a2) || !isFinite(o2)) return null
-              const relTextRaw = e && e.data ? (e.data.relationship || e.data.name || '') : ''
-              const relEmojiRaw = e && e.data ? (e.data.relationshipEmoji || '') : ''
-              const edgeMode = !this.props.ui || typeof this.props.ui.edgeRelLabelMode === 'undefined' ? 'text' : String(this.props.ui.edgeRelLabelMode)
-              let relLabel = ''
-              if (edgeMode === 'emoji') relLabel = relEmojiRaw ? String(relEmojiRaw) : String(relTextRaw || '')
-              else if (edgeMode === 'text') relLabel = String(relTextRaw || '')
-              else if (edgeMode === 'none') relLabel = ''
-              else relLabel = relEmojiRaw ? `${String(relEmojiRaw)} ${String(relTextRaw || '')}` : String(relTextRaw || '')
+              const { relLabel: baseRelLabel, relTextRaw, relEmojiRaw } = computeRelLabel(e, edgeMode)
+              let relLabel = baseRelLabel
+              // If aggregating, append multiplier when there are duplicates for this pair/label
+              let count = 1
+              if (doAggregate && groupCounts) {
+                try {
+                  const s = String(e && e.data && e.data.source)
+                  const t = String(e && e.data && e.data.target)
+                  const key = `${s}|${t}|${baseRelLabel}`
+                  const info = groupCounts.get(key)
+                  if (info && info.count > 1) count = info.count
+                } catch (_) {}
+              }
               // Build both text and emoji features depending on mode
               const midLat = (a1 + a2) / 2
               let midLng = (o1 + o2) / 2
@@ -514,12 +555,14 @@ export default class MapLibreMap extends React.Component {
                 const edgeIconName = `edge-emoji-${i}@${computedEdgeSizePx}`
                 // store the emoji separately so registration uses the emoji char (not the text label)
                 // set the text label to the textual relationship only (don't place the emoji in the text-field)
-                labelFeatures.push({ type: 'Feature', properties: { label: String(relTextRaw || ''), _emoji: String(relEmojiRaw), id: i, offset: textOffset, icon: edgeIconName, size, iconOffsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                const lbl = String(relTextRaw || '') + (count > 1 ? ` x${count}` : '')
+                labelFeatures.push({ type: 'Feature', properties: { label: lbl, _emoji: String(relEmojiRaw), id: i, offset: textOffset, icon: edgeIconName, size, iconOffsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
               } else {
                 // text-only or emoji-as-text fallback
                 if (edgeMode === 'text' || (edgeMode === 'emoji' && !relEmojiRaw) || (edgeMode === 'both' && !relEmojiRaw)) {
-                  if (relLabel && String(relLabel).trim() !== '') {
-                    labelFeatures.push({ type: 'Feature', properties: { label: String(relLabel), id: i, offset: [0, offsetY] }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  const lbl = String(relLabel || '') + (count > 1 ? ` x${count}` : '')
+                  if (lbl && String(lbl).trim() !== '') {
+                    labelFeatures.push({ type: 'Feature', properties: { label: lbl, id: i, offset: [0, offsetY] }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
                   }
                 }
                 // emoji-only mode: separate emoji feature (icon only)
@@ -528,7 +571,12 @@ export default class MapLibreMap extends React.Component {
                   const computedEdgeSizePx = 64
                   const offsetPx = [0, offsetY * 12]
                   const edgeIconName = `edge-emoji-${i}@${computedEdgeSizePx}`
-                  emojiLabelFeatures.push({ type: 'Feature', properties: { label: String(relEmojiRaw), id: i, icon: edgeIconName, size, offsetPx, _sizePx: computedEdgeSizePx }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  emojiLabelFeatures.push({ type: 'Feature', properties: { label: String(relEmojiRaw), id: i, icon: edgeIconName, size, offsetPx, _sizePx: computedEdgeSizePx, _count: count }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  // If aggregating and count>1, also add a tiny text-only label to the right showing xN
+                  if (count > 1) {
+                    const textLbl = ` x${count}`
+                    labelFeatures.push({ type: 'Feature', properties: { label: textLbl, id: `${i}-count`, offset: [0.9, offsetY] }, geometry: { type: 'Point', coordinates: [midLng, midLat] } })
+                  }
                 }
               }
               return null
