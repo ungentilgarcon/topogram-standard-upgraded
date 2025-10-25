@@ -2,6 +2,46 @@
 
 All notable changes for recent development (last ~3 weeks). This file summarizes commits merged across branches and the migration work for Meteor 3.
 
+## [implementing_debian_graphs] - 2025-10-23
+
+Pagination, Debian import workflow, and folder ergonomics.
+
+### Home pagination and folder behavior
+- Added a paginated publication `topograms.paginated` with support for an optional `{ folder }` filter and a `{ noFolder: true }` filter.
+- The Home page now shows only non-foldered topograms in the main list and paginates them at 200/page. Folder contents do not inflate the main page count when collapsed.
+- Inside each folder, a dedicated section subscribes to the same paginated publication filtered by folder and paginates at 50/page.
+- New server methods:
+	- `topograms.count({ folder?, noFolder? })` — returns a total matching the filter, implemented with `rawCollection().countDocuments` for Meteor 3 reliability.
+	- `topograms.folderCounts()` — returns `{ name, count }[]` via an aggregation pipeline (distinct+count fallback).
+- Registered the new methods at server startup so client calls work immediately after a restart.
+
+### Import script rebuild (Debian datasets)
+- Rewrote `scripts/import_topograms_folder.py` to support:
+	- `--dir` (required): directory containing `.topogram.csv` files to import.
+	- `--clean-folder <label>`: deletes all existing Topograms/Nodes/Edges in that folder before import.
+	- `--folder <label>`: label assigned to all imports from the directory (defaults to the directory name).
+	- `--limit N`: import at most N topograms.
+	- `--commit`: perform writes (omit for dry-run).
+	- `--mongo-url` or `--port`: explicit Mongo target; defaults to `mongodb://localhost:27017/meteor`.
+- Fixed embedded `mongosh` JavaScript templates inside Python f-strings by escaping braces so the script compiles and runs.
+- Normalized edge direction fields and ensured `enlightement = 'arrow'` is set when required so arrows render correctly.
+
+### UI polish
+- Removed legacy client-only cap of 200 items; all caps are now server-driven.
+- Added minimal pagination controls and CSS; folder cards no longer stretch awkwardly.
+- Export dialog: added basic defaults and sanitization helper used for bundle ids.
+
+### Import formats (CSV → CSV/XLSX/ODS)
+- Import modal now accepts CSV, XLSX, and ODS. CSV is lightly validated client-side; spreadsheets are uploaded as binary and parsed server-side.
+- Server import job detects extension and uses Papa Parse for CSV and SheetJS for XLSX/ODS. If a workbook contains `Nodes` and `Edges` sheets, both are ingested; otherwise the first sheet is treated as a unified table.
+- Builder page can now open `.xlsx` and `.ods` files directly for preview/mapping, in addition to CSV/JSON.
+- CLI `scripts/import_topograms_folder.py` supports `.topogram.xlsx` and `.topogram.ods` alongside `.topogram.csv` (requires Python `openpyxl` for XLSX and `pyexcel-ods3` for ODS).
+
+### Notes
+- Requires a Meteor server restart to pick up new publications and methods after pulling this branch.
+- Home debug panel shows subscription readiness and the number of non-folder items currently in the client cache.
+
+
 ## [Unreleased] - 2025-10-12
 
 ### GeoMap / Selection

@@ -5,6 +5,7 @@ import '/imports/api/nodesMethods'
 import '/imports/api/edgesMethods'
 import '/imports/api/commentsMethods'
 import '/imports/api/helpersMethods'
+import '/imports/api/topogramsMethods'
 
 // Additional server startup tasks (indexes, transforms) can be added here later.
 // CSV import job/methods
@@ -16,3 +17,4 @@ import '/imports/api/waitlistMethods'
 import '/imports/api/exportMethods'
 import '/imports/startup/server/exportsServer'
 import '/imports/startup/server/exportsCleanup'
+import '/imports/startup/server/accounts'

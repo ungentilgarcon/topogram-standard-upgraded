@@ -1,0 +1,9 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libx2go-config-perl","libx2go-config-perl","libx2go-config-perl","Perl X2Go::Config package","","","1","1","","","","Section=perl; Version=4.1.0.6-1.1","","","","","","","",""
+"x2goserver-common","x2goserver-common","x2goserver-common","X2Go Server (common files)","","","1","1","","","","Section=x11; Version=4.1.0.6-1.1","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"adduser","adduser","adduser","add and remove users and groups","","","1","1","","","","Section=admin; Version=3.152","","","","","","","",""
+"","","","","","","","","","","","","libx2go-config-perl","x2goserver-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx2go-config-perl","x2goserver-common","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libx2go-config-perl","perl:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","x2goserver-common","adduser","Depends","#333","1","Depends","arrow","{}"

@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libjs-sphinxdoc","libjs-sphinxdoc","libjs-sphinxdoc","JavaScript support for Sphinx documentation","","","1","1","","","","Section=javascript; Version=8.1.3-5","","","","","","","",""
+"libjs-jquery","libjs-jquery","libjs-jquery","JavaScript library for dynamic web applications","","","1","1","","","","Section=javascript; Version=3.6.1+dfsg+~3.5.14-1","","","","","","","",""
+"libjs-underscore","libjs-underscore","libjs-underscore","JavaScript's functional programming helper library","","","1","1","","","","Section=javascript; Version=1.13.4~dfsg+~1.11.4-3","","","","","","","",""
+"javascript-common","javascript-common","javascript-common","Base support for JavaScript library packages","","","1","1","","","","Section=javascript; Version=12+nmu1","","","","","","","",""
+"","","","","","","","","","","","","libjs-sphinxdoc","libjs-jquery","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-sphinxdoc","libjs-underscore","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libjs-jquery","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-underscore","javascript-common","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libjs-underscore","libjs-jquery","Recommends","#333","1","Recommends","arrow","{}"

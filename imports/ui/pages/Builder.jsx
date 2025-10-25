@@ -65,8 +65,11 @@ export default function Builder() {
     const f = e.target.files && e.target.files[0]
     if (!f) return
     setFileName(f.name)
-    const text = await f.text()
-    if (f.type === 'application/json' || f.name.match(/\.json$/i)) {
+    const lower = (f.name || '').toLowerCase()
+    const isJson = (f.type === 'application/json') || /\.json$/i.test(f.name || '')
+    const isSpreadsheet = /\.(xlsx|ods)$/i.test(lower)
+    if (isJson) {
+      const text = await f.text()
       try {
         const obj = JSON.parse(text)
         // accept array of nodes/edges or graph-like {nodes:[], edges:[]}
@@ -119,7 +122,50 @@ export default function Builder() {
       } catch (e) {
         alert('Invalid JSON: ' + e.message)
       }
+    } else if (isSpreadsheet) {
+      // Parse XLSX/ODS using SheetJS (lazy-loaded)
+      try {
+        const XLSX = (await import('xlsx')).default || (await import('xlsx'))
+        const buf = await f.arrayBuffer()
+        const wb = XLSX.read(buf, { type: 'array' })
+        const names = wb.SheetNames || []
+        const lowerNames = names.map(n => (n || '').toString().toLowerCase())
+        const idxNodes = lowerNames.indexOf('nodes')
+        const idxEdges = lowerNames.indexOf('edges')
+        let rows = []
+        let ns = []
+        let es = []
+        if (idxNodes !== -1 || idxEdges !== -1) {
+          if (idxNodes !== -1) ns = XLSX.utils.sheet_to_json(wb.Sheets[names[idxNodes]], { defval: '' })
+          if (idxEdges !== -1) es = XLSX.utils.sheet_to_json(wb.Sheets[names[idxEdges]], { defval: '' })
+          rows = [...ns, ...es]
+        } else if (names.length) {
+          rows = XLSX.utils.sheet_to_json(wb.Sheets[names[0]], { defval: '' })
+          rows.forEach(r => {
+            const hasEdge = (r.source || r.target || r.from || r.to)
+            if (hasEdge) es.push(r); else ns.push(r)
+          })
+        }
+        const keys = Array.from(new Set(rows.flatMap(r => Object.keys(r || {}))))
+        if ((nodes && nodes.length) || (edges && edges.length)) {
+          setPendingNodes(ns)
+          setPendingEdges(es)
+          setPendingRawRows(rows)
+          setPendingHeaders(keys)
+          setMergeOpen(true)
+        } else {
+          setHeaders(keys)
+          setRawRows(rows)
+          setNodes(ns)
+          setEdges(es)
+          tryAutoMap(rows)
+        }
+      } catch (err) {
+        console.error('Failed to parse spreadsheet', err)
+        alert('Failed to parse spreadsheet: ' + (err && err.message ? err.message : String(err)))
+      }
     } else {
+      const text = await f.text()
       // parse CSV
       const parsed = Papa.parse(text, { header: true, skipEmptyLines: true, comments: '#' })
       if (parsed && parsed.errors && parsed.errors.length) {
@@ -401,7 +447,7 @@ export default function Builder() {
         <Link to="/">← Back</Link>
       </div>
       <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12 }}>
-        <input type="file" accept="text/csv,application/json" onChange={handleFile} />
+        <input type="file" accept="text/csv,application/json,.xlsx,.ods,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.oasis.opendocument.spreadsheet" onChange={handleFile} />
         <TextField label="Topogram title" value={title} onChange={e=>setTitle(e.target.value)} size="small" />
         <Button variant="outlined" onClick={downloadCsv}>Download CSV</Button>
         <Button variant="contained" color="primary" onClick={enqueueImport}>Import to server</Button>

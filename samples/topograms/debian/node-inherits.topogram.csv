@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libjs-inherits","libjs-inherits","libjs-inherits","Browser library that exposes inherits function from Node.js environment","","","1","1","","","","Section=javascript; Version=2.0.4-6","","","","","","","",""

@@ -47,7 +47,21 @@
     "redux-thunk": "^3.1.0",
     "sigma": "^3.0.2",
     "simpl-schema": "^3.4.6",
-    "simple-statistics": "^7.8.8"
+    "simple-statistics": "^7.8.8",
+    "xlsx": "file:vendor/xlsx"
+  },
+  "overrides": {
+    "underscore": "1.13.6",
+    "minimongo-cache": {
+      "lodash": "4.17.21"
+    },
+    "ejson": {
+      "underscore": "1.13.6"
+    },
+    "ddp-client": {
+      "lodash": "4.17.21",
+      "underscore": "1.13.6"
+    }
   },
   "meteor": {
     "mainModule": {

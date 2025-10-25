@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"init","init","init","metapackage ensuring an init system is installed","","","1","1","","","","Section=metapackages; Version=1.69~deb13u1","","","","","","","",""

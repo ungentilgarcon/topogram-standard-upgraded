@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gir1.2-xdp-1.0","gir1.2-xdp-1.0","gir1.2-xdp-1.0","Flatpak portal library - introspection data","","","1","1","","","","Section=introspection; Version=0.9.1-1","","","","","","","",""
+"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libportal1","libportal1","libportal1","Flatpak portal library - non-GUI part","","","1","1","","","","Section=libs; Version=0.9.1-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"","","","","","","","","","","","","gir1.2-xdp-1.0","gir1.2-gio-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-xdp-1.0","libportal1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libportal1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libportal1","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"

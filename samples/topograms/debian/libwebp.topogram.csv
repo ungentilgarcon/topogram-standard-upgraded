@@ -1,0 +1,6 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libsharpyuv-dev","libsharpyuv-dev","libsharpyuv-dev","Library for sharp RGB to YUV conversion (development files)","","","1","1","","","","Section=libdevel; Version=1.5.0-0.1","","","","","","","",""
+"libsharpyuv0","libsharpyuv0","libsharpyuv0","Library for sharp RGB to YUV conversion","","","1","1","","","","Section=libs; Version=1.5.0-0.1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libsharpyuv-dev","libsharpyuv0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libsharpyuv0","libc6","Depends","#333","1","Depends","arrow","{}"

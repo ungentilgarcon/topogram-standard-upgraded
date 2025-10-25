@@ -1,0 +1,8 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libfuse-dev","libfuse-dev","libfuse-dev","Filesystem in Userspace (development)","","","1","1","","","","Section=libdevel; Version=2.9.9-9","","","","","","","",""
+"libfuse2t64","libfuse2t64","libfuse2t64","Filesystem in Userspace (library)","","","1","1","","","","Section=libs; Version=2.9.9-9","","","","","","","",""
+"libselinux-dev","libselinux-dev","libselinux-dev","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"","","","","","","","","","","","","libfuse-dev","libfuse2t64","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfuse-dev","libselinux-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libfuse2t64","libc6","Depends","#333","1","Depends","arrow","{}"

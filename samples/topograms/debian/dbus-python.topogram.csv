@@ -1,0 +1,12 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"python-dbus-dev","python-dbus-dev","python-dbus-dev","main loop integration development files for python3-dbus","","","1","1","","","","Section=python; Version=1.4.0-1","","","","","","","",""
+"libdbus-1-dev","libdbus-1-dev","libdbus-1-dev","simple interprocess messaging system (development headers)","","","1","1","","","","Section=libdevel; Version=1.16.2-2","","","","","","","",""
+"libdbus-1-3","libdbus-1-3","libdbus-1-3","simple interprocess messaging system (library)","","","1","1","","","","Section=libs; Version=1.16.2-2","","","","","","","",""
+"libsystemd-dev","libsystemd-dev","libsystemd-dev","systemd utility library - development files","","","1","1","","","","Section=libdevel; Version=257.8-1~deb13u1","","","","","","","",""
+"pkgconf","pkgconf","pkgconf","manage compile and link flags for libraries","","","1","1","","","","Section=devel; Version=1.8.1-4","","","","","","","",""
+"xml-core","xml-core","xml-core","XML infrastructure and XML catalog file support","","","1","1","","","","Section=text; Version=0.19","","","","","","","",""
+"","","","","","","","","","","","","python-dbus-dev","libdbus-1-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbus-1-dev","libdbus-1-3","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbus-1-dev","libsystemd-dev","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbus-1-dev","pkgconf","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libdbus-1-dev","xml-core","Depends","#333","1","Depends","arrow","{}"

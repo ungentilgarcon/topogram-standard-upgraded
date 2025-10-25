@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"emacsen-common","emacsen-common","emacsen-common","Common facilities for all emacsen","","","1","1","","","","Section=editors; Version=3.0.8","","","","","","","",""

@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"gir1.2-udisks-2.0","gir1.2-udisks-2.0","gir1.2-udisks-2.0","GObject based library to access udisks2 - introspection data","","","1","1","","","","Section=introspection; Version=2.10.1-12.1+deb13u1","","","","","","","",""
+"gir1.2-gio-2.0","gir1.2-gio-2.0","gir1.2-gio-2.0","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libudisks2-0","libudisks2-0","libudisks2-0","GObject based library to access udisks2","","","1","1","","","","Section=libs; Version=2.10.1-12.1+deb13u1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libglib2.0-0t64","libglib2.0-0t64","libglib2.0-0t64","GLib library of C routines","","","1","1","","","","Section=libs; Version=2.84.4-3~deb13u1","","","","","","","",""
+"","","","","","","","","","","","","gir1.2-udisks-2.0","gir1.2-gio-2.0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","gir1.2-udisks-2.0","libudisks2-0","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libudisks2-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libudisks2-0","libglib2.0-0t64","Depends","#333","1","Depends","arrow","{}"

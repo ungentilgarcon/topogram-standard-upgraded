@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"htslib-test","htslib-test","htslib-test","Test data for HTSlib","","","1","1","","","","Section=libs; Version=1.21+ds-1","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","htslib-test","perl:any","Depends","#333","1","Depends","arrow","{}"

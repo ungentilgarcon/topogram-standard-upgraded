@@ -7,6 +7,15 @@ import DialogActions from '@mui/material/DialogActions'
 import TextField from '@mui/material/TextField'
 import Papa from 'papaparse'
 
+// Lazy-load SheetJS only when needed (XLSX/ODS)
+let _xlsxPromise = null
+const getXLSX = () => {
+  if (!_xlsxPromise) {
+    _xlsxPromise = import('xlsx')
+  }
+  return _xlsxPromise
+}
+
 export default function ImportCsvModal({ open, onClose, onEnqueue }) {
   const [file, setFile] = useState(null)
   const [title, setTitle] = useState('')
@@ -47,39 +56,55 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
     setFile(f)
   }
 
+  const toBase64 = async (file) => {
+    // Robust base64 for both text (CSV) and binary (XLSX/ODS)
+    const buf = await file.arrayBuffer()
+    let binary = ''
+    const bytes = new Uint8Array(buf)
+    const chunk = 0x8000
+    for (let i = 0; i < bytes.length; i += chunk) {
+      binary += String.fromCharCode.apply(null, bytes.subarray(i, i + chunk))
+    }
+    return btoa(binary)
+  }
+
   const handleSubmit = async () => {
     if (!file) return
-    const text = await file.text()
-    // simple validation
-    let parsed = Papa.parse(text, { header: true, preview: 5, comments: '#', skipEmptyLines: true })
-    // If FieldMismatch errors occur (too few fields), try a tolerant fallback:
-    const hasFieldMismatch = parsed && parsed.errors && parsed.errors.some(e => e && e.code === 'TooFewFields')
-    if (hasFieldMismatch) {
-      try {
-        // Re-parse without header, pad rows to header length, then rebuild objects
-        const raw = Papa.parse(text, { header: false, comments: '#', skipEmptyLines: true })
-        const rows = raw && raw.data ? raw.data : []
-        if (rows.length >= 2) {
-          const header = rows[0].map(h => (h == null ? '' : String(h)))
-          const dataRows = rows.slice(1).map(r => {
-            const row = Array.isArray(r) ? r.slice() : []
-            while (row.length < header.length) row.push('')
-            const obj = {}
-            for (let i = 0; i < header.length; i++) obj[header[i]] = row[i]
-            return obj
-          })
-          parsed = { data: dataRows, errors: [] }
+    const lower = (file.name || '').toLowerCase()
+    const isCsvLike = lower.endsWith('.csv') || lower.endsWith('.txt')
+
+    // Optional lightweight validation for CSV only; XLSX/ODS handled server-side
+    if (isCsvLike) {
+      const text = await file.text()
+      let parsed = Papa.parse(text, { header: true, preview: 5, comments: '#', skipEmptyLines: true })
+      const hasFieldMismatch = parsed && parsed.errors && parsed.errors.some(e => e && e.code === 'TooFewFields')
+      if (hasFieldMismatch) {
+        try {
+          const raw = Papa.parse(text, { header: false, comments: '#', skipEmptyLines: true })
+          const rows = raw && raw.data ? raw.data : []
+          if (rows.length >= 2) {
+            const header = rows[0].map(h => (h == null ? '' : String(h)))
+            const dataRows = rows.slice(1).map(r => {
+              const row = Array.isArray(r) ? r.slice() : []
+              while (row.length < header.length) row.push('')
+              const obj = {}
+              for (let i = 0; i < header.length; i++) obj[header[i]] = row[i]
+              return obj
+            })
+            parsed = { data: dataRows, errors: [] }
+          }
+        } catch (e) {
+          // fall through
         }
-      } catch (e) {
-        // fall through to error below
+      }
+      if (parsed && parsed.errors && parsed.errors.length) {
+        alert('CSV parse errors: ' + JSON.stringify(parsed.errors.slice(0,3)))
+        return
       }
     }
-    if (parsed && parsed.errors && parsed.errors.length) {
-      alert('CSV parse errors: ' + JSON.stringify(parsed.errors.slice(0,3)))
-      return
-    }
-    // Base64 encode and send to server via method
-    const b64 = btoa(unescape(encodeURIComponent(text)))
+
+    // Base64 for upload (works for both CSV text and XLSX/ODS binaries)
+    const b64 = await toBase64(file)
     try {
       const res = await new Promise((resolve, reject) => {
         try {
@@ -143,10 +168,10 @@ export default function ImportCsvModal({ open, onClose, onEnqueue }) {
 
   return (
     <Dialog open={open} onClose={onClose}>
-      <DialogTitle>Import CSV</DialogTitle>
+      <DialogTitle>Import data (CSV, XLSX, ODS)</DialogTitle>
       <DialogContent>
         <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 8 }}>
-          <input type="file" accept="text/csv" onChange={handleFile} />
+          <input type="file" accept=".csv,.xlsx,.ods,text/csv,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.oasis.opendocument.spreadsheet" onChange={handleFile} />
           <Button onClick={downloadSample} variant="outlined">Download sample CSV</Button>
         </div>
         <div style={{ fontSize: 12, color: '#555', marginBottom: 8 }}>

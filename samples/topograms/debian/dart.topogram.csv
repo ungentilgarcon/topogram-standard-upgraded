@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"dart-doc","dart-doc","dart-doc","Kinematics Dynamics and Optimization Library - Documentation","","","1","1","","","","Section=doc; Version=6.13.2+ds-3","","","","","","","",""

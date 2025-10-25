@@ -1,0 +1,13 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libusb-1.0-0","libusb-1.0-0","libusb-1.0-0","userspace USB programming library","","","1","1","","","","Section=libs; Version=2:1.0.28-1","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"libudev1","libudev1","libudev1","libudev shared library","","","1","1","","","","Section=libs; Version=257.8-1~deb13u1","","","","","","","",""
+"libgcc-s1","libgcc-s1","libgcc-s1","GCC support library","","","1","1","","","","Section=libs; Version=14.2.0-19","","","","","","","",""
+"libidn2-0","libidn2-0","libidn2-0","Internationalized domain names (IDNA2008/TR46) library","","","1","1","","","","Section=libs; Version=2.3.8-2","","","","","","","",""
+"libcap2","libcap2","libcap2","POSIX 1003.1e capabilities (library)","","","1","1","","","","Section=libs; Version=1:2.75-10+b1","","","","","","","",""
+"","","","","","","","","","","","","libusb-1.0-0","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libusb-1.0-0","libudev1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libgcc-s1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libc6","libidn2-0","Recommends","#333","1","Recommends","arrow","{}"
+"","","","","","","","","","","","","libudev1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libudev1","libcap2","Depends","#333","1","Depends","arrow","{}"

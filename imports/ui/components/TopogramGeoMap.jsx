@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import GeoMap from './geoMap/GeoMap.jsx'
 
 export default function TopogramGeoMap(props) {
-  const { nodes, edges, ui, width='50vw', height='100%', selectElement, unselectElement, onFocusElement, onUnfocusElement } = props
+  const { nodes, edges, ui, width='50vw', height='100%', selectElement, unselectElement, onFocusElement, onUnfocusElement, updateUI } = props
   // Defensive runtime check: module imports sometimes resolve to a module
   // namespace object { default: Component } instead of the component itself.
   // Resolve that case and ensure we only try to render functions/classes.
@@ -46,6 +46,7 @@ export default function TopogramGeoMap(props) {
         onFocusElement={onFocusElement}
         onUnfocusElement={onUnfocusElement}
         ui={ui}
+        updateUI={updateUI}
       />
     </div>
   )
@@ -58,5 +59,6 @@ TopogramGeoMap.propTypes = {
   selectElement: PropTypes.func,
   unselectElement: PropTypes.func,
   onFocusElement: PropTypes.func,
-  onUnfocusElement: PropTypes.func
+  onUnfocusElement: PropTypes.func,
+  updateUI: PropTypes.func
 }

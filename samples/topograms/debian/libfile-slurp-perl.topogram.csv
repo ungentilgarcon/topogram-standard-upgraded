@@ -1,0 +1,4 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libfile-slurp-perl","libfile-slurp-perl","libfile-slurp-perl","single call read & write file routines","","","1","1","","","","Section=perl; Version=9999.32-2","","","","","","","",""
+"perl:any","perl:any","perl:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"","","","","","","","","","","","","libfile-slurp-perl","perl:any","Depends","#333","1","Depends","arrow","{}"

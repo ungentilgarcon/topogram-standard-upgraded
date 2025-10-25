@@ -1,0 +1,10 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libvulkan-dev","libvulkan-dev","libvulkan-dev","Vulkan loader library -- development files","","","1","1","","","","Section=libdevel; Version=1.4.309.0-1","","","","","","","",""
+"libvulkan1","libvulkan1","libvulkan1","Vulkan loader library","","","1","1","","","","Section=libs; Version=1.4.309.0-1","","","","","","","",""
+"python3:any","python3:any","python3:any","unknown","","","1","1","","","","missing in Packages file","","","","","","","",""
+"libc6","libc6","libc6","GNU C Library: Shared libraries","","","1","1","","","","Section=libs; Version=2.41-12","","","","","","","",""
+"mesa-vulkan-drivers","mesa-vulkan-drivers","mesa-vulkan-drivers","Mesa Vulkan graphics drivers","","","1","1","","","","Section=libs; Version=25.0.7-2","","","","","","","",""
+"","","","","","","","","","","","","libvulkan-dev","libvulkan1","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvulkan-dev","python3:any","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvulkan1","libc6","Depends","#333","1","Depends","arrow","{}"
+"","","","","","","","","","","","","libvulkan1","mesa-vulkan-drivers","Recommends","#333","1","Recommends","arrow","{}"

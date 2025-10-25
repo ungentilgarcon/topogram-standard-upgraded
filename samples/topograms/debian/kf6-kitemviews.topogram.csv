@@ -1,0 +1,2 @@
+id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,emoji,notes,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,extra
+"libkf6itemviews-data","libkf6itemviews-data","libkf6itemviews-data","Qt library with additional widgets for ItemModels","","","1","1","","","","Section=libs; Version=6.13.0-1","","","","","","","",""
