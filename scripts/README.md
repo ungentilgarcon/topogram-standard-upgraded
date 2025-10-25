@@ -8,7 +8,7 @@ build_debian_topogram.py
 build_full_dependency_graph.js
 - Parses the Topogram codebase (imports/, client/, server/, mapappbuilder/) with Babel
 - Extracts module-level imports, function declarations, call relationships and module↦function membership edges
-- Emits JSON/CSV under samples/ (dependency_graph_topogram_code*.{json,csv}) and supports CLI flags such as --target-nodes, --max-functions, --no-transitive, --output-suffix
+- Emits JSON/CSV under samples/ (dependency_graph_topogram_code*.{json,csv}) and supports CLI flags such as --target-nodes, --max-functions, --exclude-dir, --no-transitive, --output-suffix
 
 Usage examples:
 

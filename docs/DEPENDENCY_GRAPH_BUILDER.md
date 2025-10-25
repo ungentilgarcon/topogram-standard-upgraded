@@ -44,6 +44,7 @@ The default run keeps every discovered function node (10k+) and includes transit
 | `--output-base <name>` | Override the base filename (default `dependency_graph_topogram_code`). |
 | `--output-suffix <suffix>` | Append a suffix before the file extension (e.g. `_1000`). |
 | `--max-functions <n>` | Hard cap the number of function nodes kept; highest-scoring functions (exports, call hubs) stay first. |
+| `--exclude-dir <path>` | Skip a directory (relative to the repo root). Repeat or provide a comma-separated list, e.g. `--exclude-dir mapappbuilder/libs`. |
 | `--target-nodes <n>` | Aim for a total node budget (modules + packages + functions). Useful for producing inspectable subsets. |
 | `--no-functions` / `--include-functions=false` | Skip function nodes entirely (module/package graph only). |
 | `--no-transitive` / `--include-transitive=false` | Exclude transitive module edges. |

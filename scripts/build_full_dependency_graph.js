@@ -7,7 +7,6 @@
  * JSON file (Topogram-style { nodes, edges }) and a CSV compatible with
  * the existing sample datasets.
  */
-
 const fs = require('fs')
 const path = require('path')
 const parser = require('@babel/parser')
@@ -25,7 +24,8 @@ const DEFAULT_OPTIONS = {
 	includeTransitive: true,
 	transitiveDepth: 4,
 	maxFunctions: null,
-	targetNodes: null
+	targetNodes: null,
+	excludeDirs: []
 }
 
 const JS_EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs']
@@ -59,6 +59,7 @@ let anonymousFunctionCounter = 0
 function parseArgs(argv) {
 	const options = { ...DEFAULT_OPTIONS }
 	let helpRequested = false
+	const toExclude = []
 
 	const normalized = [...argv]
 	for (let i = 0; i < normalized.length; i += 1) {
@@ -85,6 +86,13 @@ function parseArgs(argv) {
 				break
 			case '--output-suffix':
 				options.outputSuffix = value || ''
+				break
+			case '--exclude-dir':
+			case '--exclude-dirs':
+				if (value !== undefined) {
+					const parts = value.split(',').map(part => part.trim()).filter(Boolean)
+					toExclude.push(...parts)
+				}
 				break
 			case '--include-functions':
 				options.includeFunctions = value !== 'false'
@@ -121,35 +129,62 @@ function parseArgs(argv) {
 		}
 	}
 
+	if (toExclude.length) {
+		const unique = new Set()
+		for (const rel of toExclude) {
+			const abs = path.resolve(PROJECT_ROOT, rel)
+			const withinProject = abs === PROJECT_ROOT || abs.startsWith(`${PROJECT_ROOT}${path.sep}`)
+			if (!withinProject) {
+				console.warn(`Skipping exclusion outside project root: ${rel}`)
+				continue
+			}
+			unique.add(abs)
+		}
+		options.excludeDirs = Array.from(unique)
+	}
+
 	return { options, helpRequested }
 }
 
 function printHelp() {
-	console.log(`Usage: node scripts/build_full_dependency_graph.js [options]\n\nOptions:\n  --output-base <name>        Base filename (default: ${DEFAULT_OUTPUT_BASE})\n  --output-suffix <suffix>    Suffix appended to the base name before extension\n  --max-functions <n>         Limit the number of function nodes included\n  --target-nodes <n>          Aim for at most N nodes (modules + packages + functions)\n  --no-functions              Exclude function nodes entirely\n  --include-functions=<bool>  Explicitly toggle function inclusion\n  --no-transitive             Skip transitive module edges\n  --include-transitive=<bool> Explicitly toggle transitive edges\n  --transitive-depth <n>      BFS depth for transitive module imports (default: 4)\n  -h, --help                  Show this help message\n`)
+	console.log(`Usage: node scripts/build_full_dependency_graph.js [options]\n\nOptions:\n  --output-base <name>        Base filename (default: ${DEFAULT_OUTPUT_BASE})\n  --output-suffix <suffix>    Suffix appended to the base name before extension\n  --exclude-dir <path>       Relative directory to exclude (repeat or comma-separate)\n  --max-functions <n>         Limit the number of function nodes included\n  --target-nodes <n>          Aim for at most N nodes (modules + packages + functions)\n  --no-functions              Exclude function nodes entirely\n  --include-functions=<bool>  Explicitly toggle function inclusion\n  --no-transitive             Skip transitive module edges\n  --include-transitive=<bool> Explicitly toggle transitive edges\n  --transitive-depth <n>      BFS depth for transitive module imports (default: 4)\n  -h, --help                  Show this help message\n`)
 }
 
-function collectSourceFiles() {
+function collectSourceFiles(options) {
 	const files = []
+	const excludedExact = new Set(options.excludeDirs || [])
+	const excludedPrefixes = new Set((options.excludeDirs || []).map(abs => abs.endsWith(path.sep) ? abs : `${abs}${path.sep}`))
+
+	const isExcluded = (absPath) => {
+		if (excludedExact.has(absPath)) return true
+		for (const prefix of excludedPrefixes) {
+			if (absPath.startsWith(prefix)) return true
+		}
+		return false
+	}
+
 	for (const root of SOURCE_ROOTS) {
 		const abs = path.join(PROJECT_ROOT, root)
 		if (!fs.existsSync(abs)) continue
+		if (isExcluded(abs)) continue
 		walk(abs, filePath => {
 			const ext = path.extname(filePath)
 			if (JS_EXTENSIONS.includes(ext)) {
 				files.push(filePath)
 			}
-		})
+		}, isExcluded)
 	}
 	return files
 }
 
-function walk(dir, onFile) {
+function walk(dir, onFile, isExcluded) {
 	const entries = fs.readdirSync(dir, { withFileTypes: true })
 	for (const entry of entries) {
 		if (IGNORED_DIRS.has(entry.name)) continue
 		const abs = path.join(dir, entry.name)
+		if (isExcluded(abs)) continue
 		if (entry.isDirectory()) {
-			walk(abs, onFile)
+			walk(abs, onFile, isExcluded)
 		} else if (entry.isFile()) {
 			onFile(abs)
 		}
@@ -254,11 +289,11 @@ function addCallEdge(moduleInfo, fromId, toId) {
 	fnInfo.calls.add(toId)
 }
 
-function buildGraph() {
+function buildGraph(options) {
 	const modules = new Map()
 	const packageNodes = new Map()
 
-	const files = collectSourceFiles()
+	const files = collectSourceFiles(options)
 
 	for (const absPath of files) {
 		const relPath = normalisePath(path.relative(PROJECT_ROOT, absPath))
@@ -770,7 +805,7 @@ function main() {
 		return
 	}
 
-	const data = buildGraph()
+	const data = buildGraph(options)
 	const { graph, stats } = emitGraph(data, options)
 	const outputBaseName = `${options.outputBase}${options.outputSuffix}`
 	const outputJsonPath = path.join(OUTPUT_DIR, `${outputBaseName}.json`)
