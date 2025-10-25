@@ -12,6 +12,7 @@ Files:
 - sample_nodes_edges.topogram.xlsx / .ods: spreadsheet with separate "Nodes" and "Edges" sheets (recommended sheet layout). Useful for verifying server/UI sheet detection.
 - sample_single_sheet.topogram.xlsx / .ods: spreadsheet with a single mixed sheet (nodes first, then edges). Useful for verifying mixed-sheet detection.
 - dependency_graph_topogram.json: merged dependency graph sample (nodes + edges) useful for quick network visualization and testing the import path for JSON files.
-- dependency_graph_topogram_code.json / .csv: fine-grained graph extracted from the Topogram codebase (modules, functions, package dependencies, transitive edges). Use the JSON for direct ingestion or the CSV for Builder imports.
+- dependency_graph_topogram_code.json / .csv: full graph extracted from the Topogram codebase (modules, functions, package dependencies, transitive edges). Use the JSON for direct ingestion or the CSV for Builder imports.
+- dependency_graph_topogram_code_1000.json / .csv: trimmed version (~1,000 nodes) keeping the highest-signal functions so the network stays inspectable while preserving module/package coverage.
 
 Use these files by opening the Builder page or the Home import modal and importing them to see mapping suggestions and merge behavior. The CLI importer also recognizes the `.topogram.xlsx` and `.topogram.ods` naming convention.

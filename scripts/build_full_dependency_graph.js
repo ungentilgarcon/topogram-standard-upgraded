@@ -15,9 +15,18 @@ const traverse = require('@babel/traverse').default
 const Papa = require('papaparse')
 
 const PROJECT_ROOT = path.join(__dirname, '..')
+const OUTPUT_DIR = path.join(PROJECT_ROOT, 'samples')
 const SOURCE_ROOTS = ['imports', 'client', 'server', 'mapappbuilder']
-const OUTPUT_JSON = path.join(PROJECT_ROOT, 'samples', 'dependency_graph_topogram_code.json')
-const OUTPUT_CSV = path.join(PROJECT_ROOT, 'samples', 'dependency_graph_topogram_code.csv')
+const DEFAULT_OUTPUT_BASE = 'dependency_graph_topogram_code'
+const DEFAULT_OPTIONS = {
+	outputBase: DEFAULT_OUTPUT_BASE,
+	outputSuffix: '',
+	includeFunctions: true,
+	includeTransitive: true,
+	transitiveDepth: 4,
+	maxFunctions: null,
+	targetNodes: null
+}
 
 const JS_EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs']
 const INDEX_FILES = JS_EXTENSIONS.map(ext => `index${ext}`)
@@ -46,6 +55,78 @@ const IGNORED_DIRS = new Set([
 ])
 
 let anonymousFunctionCounter = 0
+
+function parseArgs(argv) {
+	const options = { ...DEFAULT_OPTIONS }
+	let helpRequested = false
+
+	const normalized = [...argv]
+	for (let i = 0; i < normalized.length; i += 1) {
+		const raw = normalized[i]
+		if (!raw.startsWith('--')) {
+			console.warn(`Ignoring unexpected argument: ${raw}`)
+			continue
+		}
+		if (raw === '--help' || raw === '-h') {
+			helpRequested = true
+			continue
+		}
+
+		const [flag, valueFromEquals] = raw.split('=', 2)
+		let value = valueFromEquals
+		if (value === undefined && i + 1 < normalized.length && !normalized[i + 1].startsWith('--')) {
+			value = normalized[i + 1]
+			i += 1
+		}
+
+		switch (flag) {
+			case '--output-base':
+				if (value) options.outputBase = value
+				break
+			case '--output-suffix':
+				options.outputSuffix = value || ''
+				break
+			case '--include-functions':
+				options.includeFunctions = value !== 'false'
+				break
+			case '--no-functions':
+				options.includeFunctions = false
+				break
+			case '--max-functions':
+				if (value !== undefined) {
+					const parsed = Number.parseInt(value, 10)
+					if (!Number.isNaN(parsed)) options.maxFunctions = Math.max(parsed, 0)
+				}
+				break
+			case '--target-nodes':
+				if (value !== undefined) {
+					const parsedTarget = Number.parseInt(value, 10)
+					if (!Number.isNaN(parsedTarget)) options.targetNodes = Math.max(parsedTarget, 0)
+				}
+				break
+			case '--include-transitive':
+				options.includeTransitive = value !== 'false'
+				break
+			case '--no-transitive':
+				options.includeTransitive = false
+				break
+			case '--transitive-depth':
+				if (value !== undefined) {
+					const parsedDepth = Number.parseInt(value, 10)
+					if (!Number.isNaN(parsedDepth) && parsedDepth >= 1) options.transitiveDepth = parsedDepth
+				}
+				break
+			default:
+				console.warn(`Ignoring unknown flag: ${flag}`)
+		}
+	}
+
+	return { options, helpRequested }
+}
+
+function printHelp() {
+	console.log(`Usage: node scripts/build_full_dependency_graph.js [options]\n\nOptions:\n  --output-base <name>        Base filename (default: ${DEFAULT_OUTPUT_BASE})\n  --output-suffix <suffix>    Suffix appended to the base name before extension\n  --max-functions <n>         Limit the number of function nodes included\n  --target-nodes <n>          Aim for at most N nodes (modules + packages + functions)\n  --no-functions              Exclude function nodes entirely\n  --include-functions=<bool>  Explicitly toggle function inclusion\n  --no-transitive             Skip transitive module edges\n  --include-transitive=<bool> Explicitly toggle transitive edges\n  --transitive-depth <n>      BFS depth for transitive module imports (default: 4)\n  -h, --help                  Show this help message\n`)
+}
 
 function collectSourceFiles() {
 	const files = []
@@ -176,10 +257,6 @@ function addCallEdge(moduleInfo, fromId, toId) {
 function buildGraph() {
 	const modules = new Map()
 	const packageNodes = new Map()
-	const assetNodes = new Map()
-	const moduleEdges = new Set()
-	const packageEdges = new Set()
-	const unresolvedEdges = new Set()
 
 	const files = collectSourceFiles()
 
@@ -213,16 +290,12 @@ function buildGraph() {
 
 				if (resolved.type === 'module') {
 					moduleInfo.imports.add(resolved.target)
-					moduleEdges.add(`${moduleInfo.id}|module:${resolved.target}`)
 				} else if (resolved.type === 'package') {
 					packageNodes.set(resolved.target, {
 						id: `package:${resolved.target}`,
 						name: resolved.target,
 						type: 'package'
 					})
-					packageEdges.add(`${moduleInfo.id}|package:${resolved.target}`)
-				} else {
-					unresolvedEdges.add(`${moduleInfo.id}|${resolved.target}`)
 				}
 
 				if (pathNode.node.specifiers.length === 0) {
@@ -383,21 +456,15 @@ function buildGraph() {
 
 				if (targetFunctionId) {
 					addCallEdge(moduleInfo, fromId, targetFunctionId)
-				} else if (targetModuleId) {
-					moduleEdges.add(`${fromId}|${targetModuleId}`)
-				} else if (targetPackageId) {
-					packageEdges.add(`${fromId}|${targetPackageId}`)
-				} else if (targetUnresolved) {
-					unresolvedEdges.add(`${fromId}|${targetUnresolved}`)
 				}
 			}
 		})
 	}
 
-	return { modules, packageNodes, moduleEdges, packageEdges, unresolvedEdges }
+	return { modules, packageNodes }
 }
 
-function buildTransitiveEdges(modules) {
+function buildTransitiveEdges(modules, maxDepth) {
 	const direct = new Map()
 	for (const [relPath, moduleInfo] of modules) {
 		const fromId = moduleInfo.id
@@ -420,7 +487,7 @@ function buildTransitiveEdges(modules) {
 				transitive.push({ source: fromId, target, depth })
 			}
 			const next = direct.get(target)
-			if (next && depth < 4) {
+			if (next && depth < maxDepth) {
 				for (const neighbour of next) {
 					queue.push({ target: neighbour, depth: depth + 1 })
 				}
@@ -429,14 +496,75 @@ function buildTransitiveEdges(modules) {
 	}
 	return transitive
 }
-
-function emitGraph(data) {
+function emitGraph(data, options) {
 	const { modules, packageNodes } = data
+	const moduleInfos = Array.from(modules.values())
+	const packageInfos = Array.from(packageNodes.values())
+	const functionInfos = []
+	const functionInfoMap = new Map()
+
+	for (const moduleInfo of moduleInfos) {
+		for (const fnInfo of moduleInfo.functions.values()) {
+			const entry = {
+				moduleInfo,
+				fnInfo,
+				inDegree: 0,
+				outDegree: fnInfo.calls.size,
+				score: 0
+			}
+			functionInfos.push(entry)
+			functionInfoMap.set(fnInfo.id, entry)
+		}
+	}
+
+	for (const entry of functionInfos) {
+		for (const targetId of entry.fnInfo.calls) {
+			const targetEntry = functionInfoMap.get(targetId)
+			if (targetEntry) targetEntry.inDegree += 1
+		}
+	}
+
+	for (const entry of functionInfos) {
+		const { fnInfo, inDegree, outDegree } = entry
+		const exportedBoost = fnInfo.exported ? 5 : 0
+		const defaultBoost = fnInfo.isDefaultExport ? 2 : 0
+		entry.score = (outDegree * 2) + (inDegree * 1.5) + exportedBoost + defaultBoost
+	}
+
+	let selectedFunctionInfos = []
+	let appliedMaxFunctions = options.maxFunctions
+	if (options.includeFunctions) {
+		if (options.maxFunctions !== null) {
+			scopedSort(functionInfos)
+			selectedFunctionInfos = functionInfos.slice(0, options.maxFunctions)
+		} else {
+			selectedFunctionInfos = [...functionInfos]
+		}
+	} else {
+		selectedFunctionInfos = []
+		appliedMaxFunctions = 0
+	}
+
+	const baseNodeCount = moduleInfos.length + packageInfos.length
+	if (options.targetNodes !== null) {
+		const budget = Math.max(0, options.targetNodes - baseNodeCount)
+		if (appliedMaxFunctions === null) {
+			scopedSort(functionInfos)
+			selectedFunctionInfos = functionInfos.slice(0, budget)
+			appliedMaxFunctions = budget
+		} else {
+			const limit = Math.min(appliedMaxFunctions, budget)
+			selectedFunctionInfos = selectedFunctionInfos.slice(0, limit)
+			appliedMaxFunctions = limit
+		}
+	}
+
+	const selectedFunctionIds = new Set(selectedFunctionInfos.map(entry => entry.fnInfo.id))
+
 	const nodes = []
 	const edges = []
 
-	// Module nodes
-	for (const [relPath, moduleInfo] of modules) {
+	for (const moduleInfo of moduleInfos) {
 		nodes.push({
 			id: moduleInfo.id,
 			label: moduleInfo.path,
@@ -446,34 +574,64 @@ function emitGraph(data) {
 			hasDefaultExport: moduleInfo.hasDefaultExport,
 			errors: moduleInfo.errors
 		})
+	}
 
-		for (const fnInfo of moduleInfo.functions.values()) {
-			nodes.push({
-				id: fnInfo.id,
-				label: fnInfo.name,
-				type: 'function',
-				module: moduleInfo.id,
-				kind: fnInfo.kind,
-				exported: fnInfo.exported,
-				isDefaultExport: fnInfo.isDefaultExport,
-				calls: Array.from(fnInfo.calls)
+	for (const pkg of packageInfos) {
+		nodes.push({
+			id: pkg.id,
+			label: pkg.name,
+			type: 'package'
+		})
+	}
+
+	for (const entry of selectedFunctionInfos) {
+		const { fnInfo, moduleInfo, inDegree, outDegree, score } = entry
+		nodes.push({
+			id: fnInfo.id,
+			label: fnInfo.name,
+			type: 'function',
+			module: moduleInfo.id,
+			kind: fnInfo.kind,
+			exported: fnInfo.exported,
+			isDefaultExport: fnInfo.isDefaultExport,
+			inDegree,
+			outDegree,
+			score
+		})
+	}
+
+	const moduleHasFunctionEdgeSet = new Set()
+	for (const entry of selectedFunctionInfos) {
+		const { fnInfo, moduleInfo } = entry
+		const edgeId = `${moduleInfo.id}->${fnInfo.id}::contains`
+		if (moduleHasFunctionEdgeSet.has(edgeId)) continue
+		moduleHasFunctionEdgeSet.add(edgeId)
+		edges.push({
+			id: edgeId,
+			type: 'module-has-function',
+			source: moduleInfo.id,
+			target: fnInfo.id,
+			pathLength: 1
+		})
+	}
+
+	for (const entry of selectedFunctionInfos) {
+		const { fnInfo } = entry
+		for (const toId of fnInfo.calls) {
+			if (!selectedFunctionIds.has(toId)) continue
+			const edgeId = `${fnInfo.id}->${toId}`
+			edges.push({
+				id: edgeId,
+				type: 'function-call',
+				source: fnInfo.id,
+				target: toId,
+				pathLength: 1
 			})
-
-			for (const toId of fnInfo.calls) {
-				edges.push({
-					id: `${fnInfo.id}->${toId}`,
-					type: 'function-call',
-					source: fnInfo.id,
-					target: toId,
-					pathLength: 1
-				})
-			}
 		}
 	}
 
-	// Module import edges
 	const importEdgeSet = new Set()
-	for (const [relPath, moduleInfo] of modules) {
+	for (const moduleInfo of moduleInfos) {
 		for (const imported of moduleInfo.imports) {
 			const targetId = `module:${imported}`
 			const edgeId = `${moduleInfo.id}->${targetId}`
@@ -489,47 +647,54 @@ function emitGraph(data) {
 		}
 	}
 
-	// Package nodes and edges
-	for (const pkg of packageNodes.values()) {
-		nodes.push({
-			id: pkg.id,
-			label: pkg.name,
-			type: 'package'
-		})
-	}
-
-	// Deduce package edges from module import map
 	const packageEdgeSet = new Set()
-	for (const [relPath, moduleInfo] of modules) {
+	for (const moduleInfo of moduleInfos) {
 		for (const [, importInfo] of moduleInfo.importMap.entries()) {
-			if (importInfo.type === 'package') {
-				const pkgId = `package:${importInfo.target}`
-				const edgeId = `${moduleInfo.id}->${pkgId}`
-				if (packageEdgeSet.has(edgeId)) continue
-				packageEdgeSet.add(edgeId)
-				edges.push({
-					id: edgeId,
-					type: 'package-import',
-					source: moduleInfo.id,
-					target: pkgId,
-					pathLength: 1
-				})
-			}
+			if (importInfo.type !== 'package') continue
+			const pkgId = `package:${importInfo.target}`
+			const edgeId = `${moduleInfo.id}->${pkgId}`
+			if (packageEdgeSet.has(edgeId)) continue
+			packageEdgeSet.add(edgeId)
+			edges.push({
+				id: edgeId,
+				type: 'package-import',
+				source: moduleInfo.id,
+				target: pkgId,
+				pathLength: 1
+			})
 		}
 	}
 
-	const transitive = buildTransitiveEdges(modules)
-	for (const { source, target, depth } of transitive) {
-		edges.push({
-			id: `${source}->${target}::depth${depth}`,
-			type: 'module-import-transitive',
-			source,
-			target,
-			pathLength: depth
-		})
+	if (options.includeTransitive) {
+		const transitive = buildTransitiveEdges(modules, options.transitiveDepth)
+		for (const { source, target, depth } of transitive) {
+			edges.push({
+				id: `${source}->${target}::depth${depth}`,
+				type: 'module-import-transitive',
+				source,
+				target,
+				pathLength: depth
+			})
+		}
 	}
 
-	return { nodes, edges }
+	return {
+		graph: { nodes, edges },
+		stats: {
+			modules: moduleInfos.length,
+			packages: packageInfos.length,
+			functionsTotal: functionInfos.length,
+			functionsSelected: selectedFunctionInfos.length,
+			targetNodes: options.targetNodes,
+			maxFunctions: appliedMaxFunctions,
+			includeFunctions: options.includeFunctions,
+			includeTransitive: options.includeTransitive
+		}
+	}
+}
+
+function scopedSort(functionInfos) {
+	functionInfos.sort((a, b) => b.score - a.score)
 }
 
 function toTopogramCsv(graph) {
@@ -599,17 +764,29 @@ function toTopogramCsv(graph) {
 }
 
 function main() {
-	const data = buildGraph()
-	const graph = emitGraph(data)
+	const { options, helpRequested } = parseArgs(process.argv.slice(2))
+	if (helpRequested) {
+		printHelp()
+		return
+	}
 
-	fs.writeFileSync(OUTPUT_JSON, JSON.stringify(graph, null, 2), 'utf8')
+	const data = buildGraph()
+	const { graph, stats } = emitGraph(data, options)
+	const outputBaseName = `${options.outputBase}${options.outputSuffix}`
+	const outputJsonPath = path.join(OUTPUT_DIR, `${outputBaseName}.json`)
+	const outputCsvPath = path.join(OUTPUT_DIR, `${outputBaseName}.csv`)
+
+	fs.writeFileSync(outputJsonPath, JSON.stringify(graph, null, 2), 'utf8')
 	const csv = toTopogramCsv(graph)
-	fs.writeFileSync(OUTPUT_CSV, csv, 'utf8')
+	fs.writeFileSync(outputCsvPath, csv, 'utf8')
 
 	console.log(`Graph nodes: ${graph.nodes.length}`)
 	console.log(`Graph edges: ${graph.edges.length}`)
-	console.log(`JSON written to ${OUTPUT_JSON}`)
-	console.log(`CSV written to ${OUTPUT_CSV}`)
+	console.log(`Modules: ${stats.modules}, Packages: ${stats.packages}, Functions selected: ${stats.functionsSelected}/${stats.functionsTotal}`)
+	if (stats.targetNodes !== null) console.log(`Target nodes: ${stats.targetNodes}`)
+	if (stats.maxFunctions !== null) console.log(`Applied max functions: ${stats.maxFunctions}`)
+	console.log(`JSON written to ${outputJsonPath}`)
+	console.log(`CSV written to ${outputCsvPath}`)
 }
 
 main()
