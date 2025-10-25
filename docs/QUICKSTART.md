@@ -27,6 +27,11 @@ meteor run
 
 Open http://localhost:3000 in your browser. If you rely on a remote database or environment variables, set them before starting Meteor.
 
+Switch network renderer at runtime:
+
+- Append `?graph=cy`, `?graph=sigma`, or `?graph=reagraph` to the URL to toggle implementations.
+- Or pass `impl` to `GraphWrapper` if you embed it directly.
+
 4) Testing
 
 Run unit tests (Meteor test harness):
@@ -47,3 +52,4 @@ meteor test --once --driver-package meteortesting:mocha
 
 - Meteor complaining about `aldeed:simple-schema` vs `simpl-schema`: the repo uses a lightweight shim in `imports/schemas/SimpleSchema.js` to keep compatibility.
 - If selection on the GeoMap doesn't register: ensure `ui.selectedElements` is being synced between components — see `TopogramDetail.jsx`.
+- If Sigma edge labels don't show immediately: ensure edges carry a `label` (or `relationship`/`emoji` fallback) and that `@sigma/edge-curve` is installed for curved parallel edges; labels will still render on straight edges.

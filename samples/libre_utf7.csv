@@ -1,3 +1,4 @@
-id,name,emoji,notes
-1,Utf7Example,"+AceQ-","This row contains a +...- sequence that mimics LibreOffice modified UTF-7 segments."
-2,Normal,🎵,"Regular emoji row"
+"id","name","emoji","notes"
+"1","Utf7Example","+AceQ-","This row contains a +...- sequence that mimics LibreOffice modified UTF-7 segments."
+"2","Normal","🎵","Regular emoji row"
+

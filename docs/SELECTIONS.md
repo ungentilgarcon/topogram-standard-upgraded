@@ -105,6 +105,11 @@ From the current `multinetworkviewers` branch work we observed:
 - [ ] With Reagraph adapter: same checks as Sigma.
 - [ ] Charts: clicking donut/sparkline items selects nodes in the graph and updates SelectionPanel.
 
+Status (2025-10-25)
+
+- Sigma adapter: clean rewrite landed; edge labels (text/emoji) rendered on canvas with size/weight mapping; curved edges and arrowheads supported when `@sigma/edge-curve` is available; selection mirrors to SelectionManager and emits `select`/`unselect`.
+- Reagraph adapter: lightweight parity shim in `reagraph/ReagraphAdapter.js` implements the same surface for the static bundles and optional in-app use.
+
 ## Notes & references
 - `TopogramDetail.jsx` is the canonical integration point — it builds element JSON, applies timeline filtering, and mirrors selection.
 - `GeoMap` expects `selectElement`/`unselectElement` helpers and uses `ui.selectedElements` as the source of truth.

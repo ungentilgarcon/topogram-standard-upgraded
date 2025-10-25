@@ -4,6 +4,15 @@ Topogram turns messy event and relationship data into interactive network+map vi
 
 This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, timeline improvements, and Meteor 3 migration work.
 
+## Quick switch between network renderers
+
+You can switch the network implementation at runtime:
+
+- URL query: append `?graph=cy`, `?graph=sigma`, or `?graph=reagraph` to the page URL.
+- In code: `imports/client/ui/components/network/GraphWrapper.jsx` accepts an `impl` prop (`'cy' | 'sigma' | 'reagraph'`); when omitted it reads `?graph`.
+
+Adapters expose a Cytoscape-like API (select/unselect, nodes/edges/elements, fit/zoom/center/animate, layout events) so SelectionPanel, Charts, and GeoMap stay in sync across implementations.
+
 ## MapApp Builder — build portable mini map+network apps
 
 The `mapappbuilder/` workspace contains everything needed to export a single Topogram as
@@ -32,6 +41,17 @@ cd mapappbuilder
 See `mapappbuilder/README.md` and `mapappbuilder/DEPENDENCY_GRAPH.md` for a full
 workflow, renderer notes, and the dependency diagram that explains how templates,
 libs, and packaging interact.
+
+## Renderers and adapters
+
+- Cytoscape (legacy, full feature set) — retains plugins like `cytoscape-cola` and the stylesheet DSL.
+- Sigma v3 + Graphology (new) — clean adapter rewrite with:
+  - Edge labels (text and emoji), label visibility tuned; size/weight mapping.
+  - Parallel edges and self-loops rendered as curves when `@sigma/edge-curve` is present; arrowheads when `enlightement = 'arrow'` or `arrow = true`.
+  - Selection parity (`on('select'|'unselect')`, `.select(id)`, `.unselect(id)`), timeline-friendly `hidden` attributes and camera helpers.
+- Reagraph (React-first) — available in MapApp Builder and optionally in-app behind the same adapter contract.
+
+See also: `docs/ARCHITECTURE.md` and `docs/SELECTIONS.md`.
 
 ```markdown
 # Topogram (topogram-standard-upgraded)

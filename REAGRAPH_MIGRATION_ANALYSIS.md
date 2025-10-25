@@ -1,5 +1,11 @@
 Reagraph migration analysis
 
+Status (2025-10-25)
+
+- Adapters: `GraphWrapper.jsx` now mounts a lazy reagraph adapter facade (`graphAdapters/reagraphAdapter.js`) delegating to `reagraph/ReagraphAdapter.js`, a lightweight shim exposing a Cytoscape-like surface (`on/off`, `select/unselect`, `nodes/edges/elements`, `layout`, camera helpers).
+- Parity: Selection and timeline visibility parity validated against the in-app flow (SelectionPanel, Charts, GeoMap). The shim uses SVG for edges/nodes and HTML foreignObject labels for emoji fidelity.
+- MapApp Builder: Reagraph remains the primary network renderer for exported bundles with local UMD libs; loader favors local `presentation/lib/reagraph.*.js` before CDNs.
+
 Goal
 - Replace Cytoscape (and react-cytoscapejs) with Reagraph across the app gradually and safely.
 - Provide an adapter strategy so existing components keep working during an incremental migration.

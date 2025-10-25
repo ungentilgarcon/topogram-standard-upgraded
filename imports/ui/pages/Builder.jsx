@@ -80,9 +80,11 @@ export default function Builder() {
           const ns = []
           const es = []
           obj.forEach(r => {
-            const hasEdge = (r.source || r.target || r.from || r.to)
+            const hasEdge = (r && (r.source || r.target || r.from || r.to))
+            const hasNode = (r && (r.id || r.name))
+            // allow a row to represent both a node and an edge (mixed rows)
+            if (hasNode) ns.push(r)
             if (hasEdge) es.push(r)
-            else ns.push(r)
           })
           if ((nodes && nodes.length) || (edges && edges.length)) {
             // prompt user to merge or replace
@@ -142,8 +144,10 @@ export default function Builder() {
         } else if (names.length) {
           rows = XLSX.utils.sheet_to_json(wb.Sheets[names[0]], { defval: '' })
           rows.forEach(r => {
-            const hasEdge = (r.source || r.target || r.from || r.to)
-            if (hasEdge) es.push(r); else ns.push(r)
+            const hasEdge = (r && (r.source || r.target || r.from || r.to))
+            const hasNode = (r && (r.id || r.name))
+            if (hasNode) ns.push(r)
+            if (hasEdge) es.push(r)
           })
         }
         const keys = Array.from(new Set(rows.flatMap(r => Object.keys(r || {}))))
@@ -190,13 +194,14 @@ export default function Builder() {
       }
       const rows = parsed && parsed.data ? parsed.data : []
       const keys = Array.from(new Set(rows.flatMap(r => Object.keys(r || {}))))
-      // classify into nodes/edges
+      // classify into nodes/edges — allow rows to be both node and edge when they contain both kinds of fields
       const ns = []
       const es = []
       rows.forEach(r => {
-        const hasEdge = (r.source || r.target || r.from || r.to)
+        const hasEdge = (r && (r.source || r.target || r.from || r.to))
+        const hasNode = (r && (r.id || r.name))
+        if (hasNode) ns.push(r)
         if (hasEdge) es.push(r)
-        else ns.push(r)
       })
       if ((nodes && nodes.length) || (edges && edges.length)) {
         setPendingNodes(ns)
@@ -280,9 +285,10 @@ export default function Builder() {
     const ns = []
     const es = []
     rows.forEach(r => {
-      const hasEdge = (r.source || r.target || r.from || r.to)
+      const hasEdge = (r && (r.source || r.target || r.from || r.to))
+      const hasNode = (r && (r.id || r.name))
+      if (hasNode) ns.push(r)
       if (hasEdge) es.push(r)
-      else ns.push(r)
     })
     setNodes(ns)
     setEdges(es)

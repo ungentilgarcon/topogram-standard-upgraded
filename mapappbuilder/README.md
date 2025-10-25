@@ -52,6 +52,10 @@ Key runtime files inside `.sandboxapp/presentation/`:
 
 The workflow is filesystem-only: no Meteor server is required at runtime.
 
+Note on branches
+
+When you work on the `mapappbuilder` Git branch, keep changes scoped to `mapappbuilder/` and `.sandboxapp/`. Do not modify the core Topogram app in that branch — this ensures clean diffs and easy rebases with `main`. The builder is designed to evolve independently of the Meteor client/server.
+
 ## Configuration schema highlights
 
 `config.schema.json` documents every field. The most commonly used keys are:

@@ -1,4 +1,4 @@
-# API, endpoints and publications
+# API, endpoints, and adapter notes
 
 Where to find server-side integration points:
 
@@ -84,3 +84,28 @@ The script normalizes direction fields and ensures edge arrowheads are present w
 
 - The user-facing import modal accepts CSV, XLSX, and ODS. Non-CSV files are uploaded directly and parsed server-side. CSV is lightly validated client-side.
 - Server import job detects the format by file extension and parses with Papa Parse (CSV) or SheetJS (XLSX/ODS). If an XLSX/ODS has `Nodes` and `Edges` sheets, both are ingested; otherwise the first sheet is treated as a unified rows table (edges are rows with `source`/`target`).
+
+---
+
+## Client adapter API (Cytoscape-like)
+
+For renderer parity, network adapters implement a small Cytoscape-like imperative API. This lets `TopogramDetail`, Charts, and GeoMap work identically across Cytoscape, Sigma, and Reagraph.
+
+Surface used by the app:
+
+- Lifecycle & camera: `fit()`, `resize()`, `zoom(level?)`, `center()`, `animate({ zoom, center, duration })`, `destroy()`
+- Events: `on(event, handler)` and `on(event, selector, handler)` for `'select'|'unselect'` at minimum; `off`, `once`
+- Collections: `nodes()`, `edges()`, `elements()` — each returns a collection-like object `{ length, forEach, map, filter }` of wrappers with `id()`, `data(k?)`, `json()`, `select()`, `unselect()`, `hasClass()`, `addClass()`, `removeClass()` where relevant
+- Simple selectors: `$(':selected')`, `$('node')`, `$('edge')`, `$('node[id="..."]')`, `$('edge[id="..."]')`, and `$('edge[source="s"][target="t"]')`
+- Direct selection: `select(id)`, `unselect(id)`, and `unselectAll()` (optional)
+- Layout: `layout(layoutObj).run(); .on('layoutstop', cb)`
+
+Event shapes:
+
+- Selection handlers receive `{ type: 'select'|'unselect', target: { id } }` (nodes) or `{ type, target: { id, source, target } }` (edges)
+
+Timeline:
+
+- The timeline marks `hidden` on nodes/edges. Adapters must preserve attributes and refresh visuals; they should not drop elements.
+
+See `imports/client/ui/components/network/GraphWrapper.jsx` and `docs/SELECTIONS.md` for the contract and a validation checklist.

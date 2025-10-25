@@ -27,6 +27,11 @@ Files and code areas to update (non-exhaustive)
 - `imports/client/ui/components/network/Network.jsx` — consumer using cy for interactive behaviors; adapt to Sigma event callbacks and Graphology APIs.
 - Selection-related components and any other code that expect `ui.cy` or call `cy.*`.
 
+Status (2025-10-25)
+
+- Clean Sigma adapter rewrite is in place (`imports/client/ui/components/network/sigma/SigmaAdapter.js`). It builds a Graphology graph, coerces positions and sizes, maps weights→pixels, enables edge labels (text/emoji), supports arrows and parallel-curved edges when `@sigma/edge-curve` is present, and mirrors selection to SelectionManager while emitting Cytoscape-like `select`/`unselect` events.
+- `GraphWrapper.jsx` allows `?graph=sigma` switching; SelectionPanel/Charts/GeoMap parity validated.
+
 Recommended migration strategy (incremental, low-risk)
 1) Introduce an adapter layer (SigmaAdapter) that implements a small subset of the `cy` imperative API used by the app.
    - Implement a thin adapter object exposing methods: getInstance(), on(event, selector, handler), off(event, handler), fit(), resize(), zoom(level), center(), nodes(), edges(), add(elements), remove(elements), select(id), unselect(id), elements(), filter(selector).
