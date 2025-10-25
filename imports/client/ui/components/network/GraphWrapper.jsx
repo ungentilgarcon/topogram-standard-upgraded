@@ -53,9 +53,20 @@ export default function GraphWrapper(props) {
           });
         } catch (err) {
           console.error('GraphWrapper: failed to load reagraph adapter', err);
-          // fallback to local shim directly if lazy adapter fails
-          const Shim = (await import('./reagraph/ReagraphAdapter')).default;
-          adapterRef.current = await Shim.mount({ container: containerRef.current, elements, layout, stylesheet });
+          // fallback to local adapters directly if lazy adapter fails
+          try {
+            const RealShim = await import('./reagraph/RealReagraphAdapter');
+            const shimModule = RealShim && (RealShim.default || RealShim);
+            if (shimModule && typeof shimModule.mount === 'function') {
+              adapterRef.current = await shimModule.mount({ container: containerRef.current, elements, layout, stylesheet });
+            } else {
+              throw new Error('RealReagraphAdapter missing mount');
+            }
+          } catch (realErr) {
+            console.warn('GraphWrapper: RealReagraphAdapter fallback failed, using legacy shim', realErr);
+            const LegacyShim = (await import('./reagraph/ReagraphAdapter')).default;
+            adapterRef.current = await LegacyShim.mount({ container: containerRef.current, elements, layout, stylesheet });
+          }
         }
       } else {
         // default to Cytoscape wrapper which expects the same props
