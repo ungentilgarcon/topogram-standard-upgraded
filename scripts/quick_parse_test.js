@@ -27,5 +27,7 @@ testCsv(path.join(samplesDir, 'dependency_graph_mapappbuilder.csv'))
 testCsv(path.join(samplesDir, 'dependency_graph_main.csv'))
 testCsv(path.join(samplesDir, 'topogram-sample.csv'))
 testJson(path.join(samplesDir, 'dependency_graph_topogram.json'))
+testCsv(path.join(samplesDir, 'dependency_graph_topogram_code_1000.csv'))
+testJson(path.join(samplesDir, 'dependency_graph_topogram_code_1000.json'))
 
 console.log('quick_parse_test finished')

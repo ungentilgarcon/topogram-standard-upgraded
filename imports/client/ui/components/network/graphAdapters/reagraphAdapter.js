@@ -56,9 +56,16 @@ export default {
     // and renders an SVG in the container. Using it here gives the app the
     // expected behavior while we still exercise the npm package presence.
     try {
-      // Use relative import to ensure bundlers include the shim
-      const localShim = await import('../reagraph/ReagraphAdapter');
-      const shim = localShim && (localShim.default || localShim);
+      // Prefer the full React-based adapter, fall back to the lightweight shim
+      let shimModule = null;
+      try {
+        shimModule = await import('../reagraph/RealReagraphAdapter');
+      } catch (realErr) {
+        console.warn('graphAdapters/reagraphAdapter: RealReagraphAdapter missing, using legacy shim', realErr);
+        shimModule = await import('../reagraph/ReagraphAdapter');
+      }
+
+      const shim = shimModule && (shimModule.default || shimModule);
       if (!shim || typeof shim.mount !== 'function') {
         console.warn('graphAdapters/reagraphAdapter: local shim missing or invalid — falling back to disabled adapter');
         throw new Error('local reagraph shim missing');
