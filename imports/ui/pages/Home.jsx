@@ -5,7 +5,7 @@ import { Meteor } from 'meteor/meteor'
 import 'meteor/accounts-password'
 import { Link } from 'react-router-dom';
 import { Topograms } from '/imports/api/collections';
-import ImportCsvModal from '/imports/ui/components/ImportCsvModal'
+import ImportAllModal from '/imports/ui/components/ImportAllModal'
 import '/imports/ui/styles/greenTheme.css'
 import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
@@ -289,7 +289,7 @@ export default function Home() {
       <div className="controls-row">
           <div className="controls-left">
             <div className="ready-count"><strong>Subscription ready:</strong> {String(isReady())} <strong>count:</strong> {topsList.length}</div>
-          <button onClick={() => setImportModalOpen(true)} className="import-button">Import CSV</button>
+          <button onClick={() => setImportModalOpen(true)} className="import-button">Import</button>
           <Button component="a" href="/builder" variant="outlined" size="small" sx={{ ml: 1 }}>Builder</Button>
         </div>
         <div className="controls-right">
@@ -327,7 +327,7 @@ export default function Home() {
           <Button onClick={doSignup} variant="contained">Sign up</Button>
         </DialogActions>
       </Dialog>
-      <ImportCsvModal open={importModalOpen} onClose={() => setImportModalOpen(false)} onEnqueue={(jobId) => { console.info('CSV import job enqueued', jobId) }} />
+  <ImportAllModal open={importModalOpen} onClose={() => setImportModalOpen(false)} onEnqueue={(jobId) => { console.info('import job enqueued', jobId) }} />
       <Dialog open={exportOpen} onClose={closeExportDialog} fullWidth maxWidth="sm">
         <form onSubmit={handleExportSubmit}>
           <DialogTitle>Export topogram bundle</DialogTitle>

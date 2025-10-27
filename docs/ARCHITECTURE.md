@@ -6,7 +6,7 @@ Overview:
 
 - Platform: Meteor (server + client bundle) with React UI components.
 - Data storage: MongoDB collections (`Topograms`, `Nodes`, `Edges`, `Comments`, `Meteor.users`).
-- Visualization: Cytoscape (network view) + Leaflet/react-leaflet (geographic view) inside the main Meteor client. Charts are rendered with Recharts. The export workflow (`mapappbuilder/`) can additionally render the same data via Reagraph/Sigma when running as a static bundle.
+- Visualization: Network renderers are pluggable: Cytoscape (legacy), Sigma v3 + Graphology, and Reagraph. Geo renderers: Leaflet/react-leaflet (default), MapLibre and experimental Cesium. Charts are rendered with Recharts. The export workflow (`mapappbuilder/`) can additionally render the same data via Reagraph/Sigma when running as a static bundle.
 - State: Lightweight Redux store for UI; `cy` (Cytoscape instance) is used as the canonical network model for in-memory graph operations.
 
 Major components:
@@ -28,16 +28,27 @@ Major components:
 
 Design notes and decisions:
 
-- Canonical selection model: Cytoscape is treated as authoritative for network state. Map and charts dispatch canonical JSON objects ({ group: 'nodes'|'edges', data: { id } }) to selection handlers so the parent can reconcile with `cy` and DB objects.
+- Canonical selection model: Selection flows through a Cytoscape-like adapter contract implemented by each network renderer. Map and charts dispatch canonical JSON objects ({ group: 'nodes'|'edges', data: { id } }) to selection handlers so the parent can reconcile with `cy`/adapter and DB objects.
 - Persisted UI flags: small flags (panel pins etc.) are stored in `localStorage` under keys like `topo.selectionPanelPinned`.
 - CSV import/export: the project standardises on a 20-field CSV layout (see `DATASET.md`) with strict filename/title sanitization.
 
 Where to start reading the code
 
-1. `imports/pages/TopogramDetail.jsx` — main wiring and updateUI handler patterns.
-2. `imports/components/geoMap/*` — how the map translates clicks into canonical selection events.
-3. `imports/components/SelectionPanel/*` — export CSV and selection UI.
-4. `imports/api/*` — collections and schema files for the dataset structure.
+1. `imports/client/ui/components/network/GraphWrapper.jsx` — mounts Cytoscape, Sigma or Reagraph based on prop or `?graph`.
+2. `imports/pages/TopogramDetail.jsx` — main wiring and updateUI handler patterns.
+3. `imports/components/geoMap/*` — how the map translates clicks into canonical selection events.
+4. `imports/components/SelectionPanel/*` — export CSV and selection UI.
+5. `imports/api/*` — collections and schema files for the dataset structure.
+
+### GraphWrapper and adapters
+
+`GraphWrapper.jsx` is the single integration surface for network views. It accepts Cytoscape-style `elements`, an optional `layout`/`stylesheet`, and an `impl` override (or reads `?graph`). It mounts one of:
+
+- Cytoscape wrapper (legacy)
+- `sigma/SigmaAdapter.js` (Graphology + Sigma v3)
+- `graphAdapters/reagraphAdapter.js` (lazy facade) which delegates to `reagraph/ReagraphAdapter.js` (lightweight parity shim)
+
+All adapters expose a minimal Cytoscape-like imperative API used by the app: `on/off/once`, `nodes/edges/elements`, `$`-style filtering for simple selectors, `select/unselect`, `fit/zoom/center/animate`, and a `layout().run().on('layoutstop')` pattern. See `docs/SELECTIONS.md` for details and test plan.
 
 ## MapApp Builder (exported bundles)
 
