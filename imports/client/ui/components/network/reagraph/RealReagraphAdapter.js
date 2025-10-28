@@ -389,7 +389,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 
 	// Runtime flags via URL params
 	const runtimeFlags = (() => {
-		let flags = { aggregateEdges: true, noGraph: false };
+		let flags = { aggregateEdges: false, noGraph: false };
 		try {
 			if (typeof window !== 'undefined') {
 				const qs = new URLSearchParams(window.location.search || '');
@@ -398,13 +398,16 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 					const v = String(qs.get(k)).toLowerCase();
 					return v === '1' || v === 'true' || v === 'yes' || v === 'on';
 				};
-				// Defaults: aggregateEdges true; but if debug is enabled, default to false unless explicitly overridden
-				flags.aggregateEdges = readBool('reagraphAggregateEdges', readBool('aggregateEdges', isDebugEnabled ? false : true));
+				// Defaults: aggregateEdges OFF by default; allow explicit override via URL
+				flags.aggregateEdges = readBool('reagraphAggregateEdges', readBool('aggregateEdges', false));
 				flags.noGraph = readBool('reagraphNoGraph', readBool('noGraph', false));
 			}
 		} catch (e) {}
 		return flags;
 	})();
+
+	// Runtime mutable flag controlled by UI toggle (default off)
+	let aggregateEdgesEnabled = !!runtimeFlags.aggregateEdges;
 
 	function nodeIsHidden(id) {
 		const entry = nodeMeta.nodes.get(id);
@@ -650,7 +653,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			layout,
 			layoutType,
 			animated: !heavyGraph,
-			aggregateEdges: !!runtimeFlags.aggregateEdges,
+			aggregateEdges: !!aggregateEdgesEnabled,
 			labelType,
 			edgeLabelPosition: 'center',
 			graphVersion,
@@ -1074,6 +1077,15 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		impl: 'reagraph',
 		noop: false,
 		getInstance: () => canvasRef.current,
+		getAggregateEdges() { return !!aggregateEdgesEnabled; },
+		setAggregateEdges(value) {
+			try {
+				aggregateEdgesEnabled = !!value;
+				// Render with new prop value; no need for full sync
+				performRender(false);
+				return aggregateEdgesEnabled;
+			} catch (e) { return aggregateEdgesEnabled; }
+		},
 		on(event, handler) {
 			if (!handler || typeof handler !== 'function') return;
 			if (!eventHandlers[event]) eventHandlers[event] = [];

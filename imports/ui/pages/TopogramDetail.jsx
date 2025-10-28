@@ -201,6 +201,9 @@ export default function TopogramDetail() {
   }, [])
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
+  // Keep a ref to the active Reagraph adapter (raw) when impl === 'reagraph'
+  const reagraphAdapterRef = useRef(null)
+  const [reagraphAgg, setReagraphAgg] = useState(false)
   // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
   const [cyInstance, setCyInstance] = useState(null)
   // remember last visible nodes count to detect visibility changes
@@ -1903,6 +1906,11 @@ export default function TopogramDetail() {
                 impl={impl}
                 cyCallback={(adapter) => {
                   try {
+                    // Keep raw reagraph adapter so we can call reagraph-specific APIs from UI
+                    try {
+                      reagraphAdapterRef.current = (adapter && adapter.impl === 'reagraph') ? adapter : null
+                      if (reagraphAdapterRef.current) setReagraphAgg(false)
+                    } catch(e){}
                     // Wrap adapter in compat shim so legacy consumers (Charts, etc.)
                     // receive a cy-like object even when using non-cytoscape adapters.
                     const compat = makeCyCompat(adapter)
@@ -1956,6 +1964,25 @@ export default function TopogramDetail() {
                     <div className="cy-control-row">
                       <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
                     </div>
+                    {impl === 'reagraph' ? (
+                      <div className="cy-control-row">
+                        <button
+                          className="cy-control-btn"
+                          onClick={() => {
+                            try {
+                              const next = !reagraphAgg
+                              setReagraphAgg(next)
+                              if (reagraphAdapterRef.current && typeof reagraphAdapterRef.current.setAggregateEdges === 'function') {
+                                reagraphAdapterRef.current.setAggregateEdges(next)
+                              }
+                            } catch (e) {}
+                          }}
+                          title="Toggle aggregation of parallel edges (Reagraph only)"
+                        >
+                          {`Aggregate edges: ${reagraphAgg ? 'On' : 'Off'}`}
+                        </button>
+                      </div>
+                    ) : null}
                   </div>
                   {networkView}
                 </div>
@@ -2063,6 +2090,10 @@ export default function TopogramDetail() {
                         impl={impl}
                         cyCallback={(adapter) => {
                           try {
+                            try {
+                              reagraphAdapterRef.current = (adapter && adapter.impl === 'reagraph') ? adapter : null
+                              if (reagraphAdapterRef.current) setReagraphAgg(false)
+                            } catch(e){}
                             const compat = makeCyCompat(adapter)
                             cyRef.current = compat
                             if (setCyInstance) setCyInstance(compat)
@@ -2132,6 +2163,25 @@ export default function TopogramDetail() {
                     <div className="cy-control-row">
                       <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
                     </div>
+                    {impl === 'reagraph' ? (
+                      <div className="cy-control-row">
+                        <button
+                          className="cy-control-btn"
+                          onClick={() => {
+                            try {
+                              const next = !reagraphAgg
+                              setReagraphAgg(next)
+                              if (reagraphAdapterRef.current && typeof reagraphAdapterRef.current.setAggregateEdges === 'function') {
+                                reagraphAdapterRef.current.setAggregateEdges(next)
+                              }
+                            } catch (e) {}
+                          }}
+                          title="Toggle aggregation of parallel edges (Reagraph only)"
+                        >
+                          {`Aggregate edges: ${reagraphAgg ? 'On' : 'Off'}`}
+                        </button>
+                      </div>
+                    ) : null}
                   </div>
                   {
                     (impl === 'sigma' || impl === 'reagraph') ? (
@@ -2142,6 +2192,10 @@ export default function TopogramDetail() {
                         impl={impl}
                         cyCallback={(adapter) => {
                           try {
+                            try {
+                              reagraphAdapterRef.current = (adapter && adapter.impl === 'reagraph') ? adapter : null
+                              if (reagraphAdapterRef.current) setReagraphAgg(false)
+                            } catch(e){}
                             const compat = makeCyCompat(adapter)
                             cyRef.current = compat
                             if (setCyInstance) setCyInstance(compat)
