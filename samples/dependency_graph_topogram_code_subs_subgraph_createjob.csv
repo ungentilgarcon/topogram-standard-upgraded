@@ -1,4 +1,0 @@
-id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra
-function:imports/api/Jobs.js::createJob,createJob,createJob(),function,#2ca02c,#2ca02c,,,,,,,,,,,,,,,,,"{""module"":""module:imports/api/Jobs.js"",""score"":0}"
-module:imports/api/Jobs.js,imports/api/Jobs.js,imports/api/Jobs.js,module,#1f77b4,#1f77b4,1,1,,,,,,,,,,,,,,,"{""exports"":[],""functionCount"":1,""errors"":[]}"
-module:imports/api/Jobs.js->function:imports/api/Jobs.js::createJob::contains,,,,,,,,,,,,,,module:imports/api/Jobs.js,function:imports/api/Jobs.js::createJob,,#1f77b4,1,contains,,,"{""id"":""module:imports/api/Jobs.js->function:imports/api/Jobs.js::createJob::contains"",""type"":""module-has-function"",""source"":""module:imports/api/Jobs.js"",""target"":""function:imports/api/Jobs.js::createJob"",""pathLength"":1}"
