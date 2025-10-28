@@ -1,0 +1,86 @@
+{
+  "nodes": [
+    {
+      "id": "function:imports/api/adminMethods.js::collectIdVariants",
+      "label": "collectIdVariants",
+      "type": "function",
+      "module": "module:imports/api/adminMethods.js",
+      "kind": "function",
+      "exported": false,
+      "isDefaultExport": false,
+      "inDegree": 1,
+      "outDegree": 2,
+      "score": 5.5
+    },
+    {
+      "id": "function:imports/api/adminMethods.js::addVariant",
+      "label": "addVariant",
+      "type": "function",
+      "module": "module:imports/api/adminMethods.js",
+      "kind": "arrow",
+      "exported": false,
+      "isDefaultExport": false,
+      "inDegree": 1,
+      "outDegree": 0,
+      "score": 1.5
+    },
+    {
+      "id": "function:imports/api/adminMethods.js::stringToObjectId",
+      "label": "stringToObjectId",
+      "type": "function",
+      "module": "module:imports/api/adminMethods.js",
+      "kind": "function",
+      "exported": false,
+      "isDefaultExport": false,
+      "inDegree": 1,
+      "outDegree": 0,
+      "score": 1.5
+    },
+    {
+      "id": "module:imports/api/adminMethods.js",
+      "label": "imports/api/adminMethods.js",
+      "type": "module",
+      "exports": [],
+      "functionCount": 6,
+      "hasDefaultExport": false,
+      "errors": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "module:imports/api/adminMethods.js->function:imports/api/adminMethods.js::stringToObjectId::contains",
+      "type": "module-has-function",
+      "source": "module:imports/api/adminMethods.js",
+      "target": "function:imports/api/adminMethods.js::stringToObjectId",
+      "pathLength": 1
+    },
+    {
+      "id": "module:imports/api/adminMethods.js->function:imports/api/adminMethods.js::collectIdVariants::contains",
+      "type": "module-has-function",
+      "source": "module:imports/api/adminMethods.js",
+      "target": "function:imports/api/adminMethods.js::collectIdVariants",
+      "pathLength": 1
+    },
+    {
+      "id": "module:imports/api/adminMethods.js->function:imports/api/adminMethods.js::addVariant::contains",
+      "type": "module-has-function",
+      "source": "module:imports/api/adminMethods.js",
+      "target": "function:imports/api/adminMethods.js::addVariant",
+      "pathLength": 1
+    },
+    {
+      "id": "function:imports/api/adminMethods.js::collectIdVariants->function:imports/api/adminMethods.js::addVariant",
+      "type": "function-call",
+      "source": "function:imports/api/adminMethods.js::collectIdVariants",
+      "target": "function:imports/api/adminMethods.js::addVariant",
+      "pathLength": 1
+    },
+    {
+      "id": "function:imports/api/adminMethods.js::collectIdVariants->function:imports/api/adminMethods.js::stringToObjectId",
+      "type": "function-call",
+      "source": "function:imports/api/adminMethods.js::collectIdVariants",
+      "target": "function:imports/api/adminMethods.js::stringToObjectId",
+      "pathLength": 1
+    }
+  ]
+}

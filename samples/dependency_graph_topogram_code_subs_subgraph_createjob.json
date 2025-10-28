@@ -1,0 +1,34 @@
+{
+  "nodes": [
+    {
+      "id": "function:imports/api/Jobs.js::createJob",
+      "label": "createJob",
+      "type": "function",
+      "module": "module:imports/api/Jobs.js",
+      "kind": "arrow",
+      "exported": false,
+      "isDefaultExport": false,
+      "inDegree": 0,
+      "outDegree": 0,
+      "score": 0
+    },
+    {
+      "id": "module:imports/api/Jobs.js",
+      "label": "imports/api/Jobs.js",
+      "type": "module",
+      "exports": [],
+      "functionCount": 1,
+      "hasDefaultExport": false,
+      "errors": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "module:imports/api/Jobs.js->function:imports/api/Jobs.js::createJob::contains",
+      "type": "module-has-function",
+      "source": "module:imports/api/Jobs.js",
+      "target": "function:imports/api/Jobs.js::createJob",
+      "pathLength": 1
+    }
+  ]
+}

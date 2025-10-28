@@ -1,0 +1,34 @@
+{
+  "nodes": [
+    {
+      "id": "function:imports/api/adminMethods.js::getConfiguredAdmin",
+      "label": "getConfiguredAdmin",
+      "type": "function",
+      "module": "module:imports/api/adminMethods.js",
+      "kind": "function",
+      "exported": false,
+      "isDefaultExport": false,
+      "inDegree": 0,
+      "outDegree": 0,
+      "score": 0
+    },
+    {
+      "id": "module:imports/api/adminMethods.js",
+      "label": "imports/api/adminMethods.js",
+      "type": "module",
+      "exports": [],
+      "functionCount": 6,
+      "hasDefaultExport": false,
+      "errors": []
+    }
+  ],
+  "edges": [
+    {
+      "id": "module:imports/api/adminMethods.js->function:imports/api/adminMethods.js::getConfiguredAdmin::contains",
+      "type": "module-has-function",
+      "source": "module:imports/api/adminMethods.js",
+      "target": "function:imports/api/adminMethods.js::getConfiguredAdmin",
+      "pathLength": 1
+    }
+  ]
+}

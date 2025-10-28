@@ -25,7 +25,11 @@ const DEFAULT_OPTIONS = {
 	transitiveDepth: 4,
 	maxFunctions: null,
 	targetNodes: null,
-	excludeDirs: []
+	excludeDirs: [],
+	excludePackages: [],
+	subgraphs: false,
+	subgraphDepth: 3,
+	subgraphLimit: null
 }
 
 const JS_EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs']
@@ -92,6 +96,27 @@ function parseArgs(argv) {
 				if (value !== undefined) {
 					const parts = value.split(',').map(part => part.trim()).filter(Boolean)
 					toExclude.push(...parts)
+				}
+				break
+			case '--exclude-packages':
+				if (value !== undefined) {
+					const parts = value.split(',').map(part => part.trim()).filter(Boolean)
+					options.excludePackages.push(...parts)
+				}
+				break
+			case '--subgraphs':
+				options.subgraphs = value !== 'false'
+				break
+			case '--subgraph-depth':
+				if (value !== undefined) {
+					const pd = Number.parseInt(value, 10)
+					if (!Number.isNaN(pd) && pd >= 0) options.subgraphDepth = pd
+				}
+				break
+			case '--subgraph-limit':
+				if (value !== undefined) {
+					const pl = Number.parseInt(value, 10)
+					if (!Number.isNaN(pl) && pl >= 0) options.subgraphLimit = pl
 				}
 				break
 			case '--include-functions':
@@ -326,11 +351,14 @@ function buildGraph(options) {
 				if (resolved.type === 'module') {
 					moduleInfo.imports.add(resolved.target)
 				} else if (resolved.type === 'package') {
-					packageNodes.set(resolved.target, {
-						id: `package:${resolved.target}`,
-						name: resolved.target,
-						type: 'package'
-					})
+					// respect excludePackages option: do not create package nodes for excluded packages
+					if (!(options && Array.isArray(options.excludePackages) && options.excludePackages.includes(resolved.target))) {
+						packageNodes.set(resolved.target, {
+							id: `package:${resolved.target}`,
+							name: resolved.target,
+							type: 'package'
+						})
+					}
 				}
 
 				if (pathNode.node.specifiers.length === 0) {
@@ -686,6 +714,8 @@ function emitGraph(data, options) {
 	for (const moduleInfo of moduleInfos) {
 		for (const [, importInfo] of moduleInfo.importMap.entries()) {
 			if (importInfo.type !== 'package') continue
+			// skip package edges for excluded packages
+			if (options && Array.isArray(options.excludePackages) && options.excludePackages.includes(importInfo.target)) continue
 			const pkgId = `package:${importInfo.target}`
 			const edgeId = `${moduleInfo.id}->${pkgId}`
 			if (packageEdgeSet.has(edgeId)) continue
@@ -739,16 +769,70 @@ function toTopogramCsv(graph) {
 
 	const rows = []
 
+	// Build quick lookup maps to compute outgoing counts and node metadata
+	const nodeById = new Map()
+	for (const n of graph.nodes) nodeById.set(n.id, n)
+
+	const outgoingCount = new Map()
+	for (const n of graph.nodes) outgoingCount.set(n.id, 0)
+	for (const e of graph.edges) {
+		if (outgoingCount.has(e.source)) outgoingCount.set(e.source, outgoingCount.get(e.source) + 1)
+		else outgoingCount.set(e.source, 1)
+	}
+
+	function nodeColor(n) {
+		return n.type === 'module' ? '#1f77b4' : n.type === 'function' ? '#2ca02c' : '#7f7f7f'
+	}
+
+	function edgeColorByFile(edge) {
+		// Try to pick a file-based color: prefer module path from source or target
+		let modPath = null
+		const pickModuleFromId = id => {
+			if (!id) return null
+			if (id.startsWith('module:')) return id.replace(/^module:/, '')
+			if (id.startsWith('function:')) {
+				const node = nodeById.get(id)
+				if (node && node.module) return node.module.replace(/^module:/, '')
+			}
+			return null
+		}
+		modPath = pickModuleFromId(edge.source) || pickModuleFromId(edge.target)
+		if (!modPath) return ''
+		if (modPath.endsWith('.jsx') || modPath.includes('.jsx')) return '#9467bd'
+		if (modPath.endsWith('.tsx') || modPath.includes('.tsx')) return '#8c564b'
+		if (modPath.endsWith('.ts') || modPath.includes('.ts')) return '#8c564b'
+		if (modPath.endsWith('.js') || modPath.includes('.js')) return '#1f77b4'
+		return '#ff7f0e'
+	}
+
+	const RELATIONSHIP_MAP = {
+		'function-call': 'calls',
+		'module-import': 'imports',
+		'package-import': 'imports',
+		'module-has-function': 'contains',
+		'module-import-transitive': 'imports'
+	}
+
 	for (const node of graph.nodes) {
+		const color = nodeColor(node)
+		const count = outgoingCount.get(node.id) || 0
+		let extraVal = JSON.stringify(node)
+		if (node.type === 'function') {
+			// include module and score for functions as a compact extra
+			extraVal = JSON.stringify({ module: node.module, score: node.score })
+		} else if (node.type === 'module') {
+			extraVal = JSON.stringify({ exports: node.exports, functionCount: node.functionCount, errors: node.errors })
+		}
+
 		rows.push({
 			id: node.id,
 			name: node.label,
 			label: node.type === 'function' ? `${node.label}()` : node.label,
 			description: node.type,
-			color: node.type === 'module' ? '#1f77b4' : node.type === 'function' ? '#2ca02c' : '#7f7f7f',
-			fillColor: '',
-			weight: '',
-			rawWeight: '',
+			color: color,
+			fillColor: color,
+			weight: count || '',
+			rawWeight: count || '',
 			lat: '',
 			lng: '',
 			start: '',
@@ -761,19 +845,21 @@ function toTopogramCsv(graph) {
 			edgeColor: '',
 			edgeWeight: '',
 			relationship: '',
-			enlightement: node.type,
+			enlightement: '',
 			emoji: '',
-			extra: JSON.stringify(node)
+			extra: extraVal
 		})
 	}
 
 	for (const edge of graph.edges) {
+		// Per your desired mapping: keep name/label/description empty and map relationship to friendly labels
+		const eColor = edgeColorByFile(edge)
 		rows.push({
 			id: edge.id,
-			name: edge.type,
-			label: edge.type,
-			description: edge.type,
-			color: '#ff7f0e',
+			name: '',
+			label: '',
+			description: '',
+			color: '',
 			fillColor: '',
 			weight: '',
 			rawWeight: '',
@@ -785,17 +871,104 @@ function toTopogramCsv(graph) {
 			date: '',
 			source: edge.source,
 			target: edge.target,
-			edgeLabel: edge.type,
-			edgeColor: '#ff7f0e',
+			edgeLabel: '',
+			edgeColor: eColor,
 			edgeWeight: edge.pathLength,
-			relationship: edge.type,
-			enlightement: edge.type,
+			relationship: RELATIONSHIP_MAP[edge.type] || edge.type,
+			enlightement: '',
 			emoji: '',
 			extra: JSON.stringify(edge)
 		})
 	}
 
 	return Papa.unparse({ fields: header, data: rows.map(row => header.map(key => row[key] ?? '')) })
+}
+
+function sanitizeName(name) {
+	return name.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase()
+}
+
+function createSubgraphs(graph, options) {
+	// graph: { nodes, edges }
+	const nodesById = new Map(graph.nodes.map(n => [n.id, n]))
+	const edgesBySource = new Map()
+	for (const e of graph.edges) {
+		if (!edgesBySource.has(e.source)) edgesBySource.set(e.source, [])
+		edgesBySource.get(e.source).push(e)
+	}
+
+	// identify function nodes
+	const functionNodes = graph.nodes.filter(n => n.type === 'function')
+
+	const limit = options.subgraphLimit && Number.isFinite(options.subgraphLimit) ? options.subgraphLimit : functionNodes.length
+
+	let count = 0
+	for (const fn of functionNodes) {
+		if (count >= limit) break
+		const rootId = fn.id
+		const rootName = fn.label || rootId
+		// BFS over function-call edges
+		const maxDepth = options.subgraphDepth || 3
+		const visited = new Set([rootId])
+		const q = [{ id: rootId, depth: 0 }]
+		while (q.length) {
+			const { id, depth } = q.shift()
+			if (depth >= maxDepth) continue
+			const outs = edgesBySource.get(id) || []
+			for (const e of outs) {
+				// follow only function-call edges to other function nodes
+				if (e.type !== 'function-call') continue
+				const tgt = e.target
+				if (!visited.has(tgt)) {
+					visited.add(tgt)
+					q.push({ id: tgt, depth: depth + 1 })
+				}
+			}
+		}
+
+		// collect nodes: functions visited + their containing modules + package nodes if linked
+		const subNodes = []
+		const subNodeIds = new Set()
+		// include function nodes
+		for (const id of visited) {
+			const n = nodesById.get(id)
+			if (n) { subNodes.push(n); subNodeIds.add(id) }
+		}
+
+		// include module nodes that contain these functions (module-has-function edges have id like moduleId->functionId::contains)
+		for (const e of graph.edges) {
+			if (e.type === 'module-has-function' && subNodeIds.has(e.target)) {
+				if (!subNodeIds.has(e.source)) {
+					const mn = nodesById.get(e.source)
+					if (mn) { subNodes.push(mn); subNodeIds.add(e.source) }
+				}
+			}
+		}
+
+		// include inter-module import edges where both modules included
+		const subEdges = []
+		for (const e of graph.edges) {
+			if (e.type === 'function-call') {
+				if (subNodeIds.has(e.source) && subNodeIds.has(e.target)) subEdges.push(e)
+			} else if (e.type === 'module-has-function') {
+				if (subNodeIds.has(e.source) && subNodeIds.has(e.target)) subEdges.push(e)
+			} else if (e.type === 'module-import' || e.type === 'package-import' || e.type === 'module-import-transitive') {
+				if (subNodeIds.has(e.source) && subNodeIds.has(e.target)) subEdges.push(e)
+			}
+		}
+
+		const subgraph = { nodes: subNodes, edges: subEdges }
+		const safe = sanitizeName(rootName)
+		const base = `${options.outputBase}_subgraph_${safe || sanitizeName(fn.id)}`
+		const outJson = path.join(OUTPUT_DIR, `${base}.json`)
+		const outCsv = path.join(OUTPUT_DIR, `${base}.csv`)
+		fs.writeFileSync(outJson, JSON.stringify(subgraph, null, 2), 'utf8')
+		const csv = toTopogramCsv(subgraph)
+		fs.writeFileSync(outCsv, csv, 'utf8')
+		console.log(`Wrote subgraph ${base}: nodes=${subNodes.length} edges=${subEdges.length}`)
+
+		count += 1
+	}
 }
 
 function main() {
@@ -814,6 +987,11 @@ function main() {
 	fs.writeFileSync(outputJsonPath, JSON.stringify(graph, null, 2), 'utf8')
 	const csv = toTopogramCsv(graph)
 	fs.writeFileSync(outputCsvPath, csv, 'utf8')
+
+	if (options && options.subgraphs) {
+		console.log('Exporting subgraphs...')
+		createSubgraphs(graph, options)
+	}
 
 	console.log(`Graph nodes: ${graph.nodes.length}`)
 	console.log(`Graph edges: ${graph.edges.length}`)
