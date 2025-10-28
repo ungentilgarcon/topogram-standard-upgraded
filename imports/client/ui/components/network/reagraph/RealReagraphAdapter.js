@@ -1,12 +1,22 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
+import loadReagraphModule from './loadReagraph.js';
+let cachedReagraph = undefined;
+
+async function ensureReagraph(env = {}) {
+	if (env && env.reagraph) return env.reagraph;
+	if (cachedReagraph !== undefined) return cachedReagraph;
+	cachedReagraph = await loadReagraphModule();
+	return cachedReagraph;
+}
+
 
 let cyElementsToGraphology = null;
 
 async function ensureCyElementsToGraphology() {
 	if (typeof cyElementsToGraphology === 'function') return cyElementsToGraphology;
 	try {
-		const mod = await import('../utils/cyElementsToGraphology.js');
+		const mod = await import('../graphAdapters/cyElementsToGraphology.js');
 		cyElementsToGraphology = mod && (mod.default || mod);
 	} catch (err) {
 		cyElementsToGraphology = null;
@@ -237,7 +247,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	const { container, elements = [], layout = null } = opts;
 	if (!container) return { impl: 'reagraph', noop: true };
 
-	const GraphCanvas = env.reagraph && (env.reagraph.GraphCanvas || (env.reagraph.default && env.reagraph.default.GraphCanvas));
+	const runtimeReagraph = await ensureReagraph(env);
+	const GraphCanvas = runtimeReagraph && (runtimeReagraph.GraphCanvas || (runtimeReagraph.default && runtimeReagraph.default.GraphCanvas));
 	if (!GraphCanvas) return null;
 
 	const cyToGraph = await ensureCyElementsToGraphology();

@@ -10,17 +10,35 @@
 // semver/react renderer errors. It also provides a safe, fully-featured
 // imperative façade compatible with legacy consumers like `Charts`.
 
-async function tryImport(name) {
-  try {
-    return await import(/* webpackIgnore: true */ name);
-  } catch (err) {
+import loadReagraphModule from '../reagraph/loadReagraph.js';
+
+async function tryImport(name, extraSpecs = []) {
+  const attempts = [name, ...extraSpecs];
+  for (let i = 0; i < attempts.length; i += 1) {
+    const spec = attempts[i];
+    if (!spec) continue;
     try {
-      // Fallback to plain dynamic import without webpackIgnore for some bundlers
-      return await import(name);
-    } catch (err2) {
-      return null;
+      return await import(spec);
+    } catch (errImport) {
+      try {
+        if (typeof module !== 'undefined' && module && typeof module.dynamicImport === 'function') {
+          // Meteor exposes module.dynamicImport for runtime loading
+          return await module.dynamicImport(spec);
+        }
+      } catch (errDyn) {
+        // ignore
+      }
+      try {
+        if (typeof require === 'function') {
+          // eslint-disable-next-line global-require, import/no-dynamic-require
+          return require(spec);
+        }
+      } catch (errRequire) {
+        // ignore and try next specifier
+      }
     }
   }
+  return null;
 }
 
 export default {
@@ -28,21 +46,14 @@ export default {
   // Cytoscape-like imperative API expected by the app.
   async mount(opts = {}) {
     // Try to import npm packages lazily
-    let reagraphPkg = null;
-    let graphologyPkg = null;
-    try {
-      reagraphPkg = await tryImport('reagraph');
-    } catch (e) { reagraphPkg = null }
-    try {
-      graphologyPkg = await tryImport('graphology');
-    } catch (e) { graphologyPkg = null }
+    const reagraph = await loadReagraphModule();
+    const graphologyPkg = await tryImport('graphology', ['graphology/dist/graphology.cjs', 'graphology/dist/graphology.min.js']);
 
     // Normalize package objects (support default export)
-    const reagraph = reagraphPkg && (reagraphPkg.default || reagraphPkg) || null;
     const graphology = graphologyPkg && (graphologyPkg.default || graphologyPkg) || null;
 
     try {
-      const rver = reagraph && reagraph.version ? reagraph.version : (reagraphPkg && reagraphPkg.version) || (reagraphPkg && reagraphPkg.default && reagraphPkg.default.version) || null;
+      const rver = reagraph && reagraph.version ? reagraph.version : null;
       const gver = graphology && graphology.version ? graphology.version : (graphologyPkg && graphologyPkg.version) || null;
       console.info('graphAdapters/reagraphAdapter: reagraph pkg', !!reagraph, rver ? `v${rver}` : '(version unknown)');
       console.info('graphAdapters/reagraphAdapter: graphology pkg', !!graphology, gver ? `v${gver}` : '(version unknown)');
@@ -71,14 +82,14 @@ export default {
         throw new Error('local reagraph shim missing');
       }
 
-      // Call the shim's mount to get the fully-featured adapter
-      let adapter = await shim.mount(opts);
+  // Call the shim's mount to get the fully-featured adapter
+  let adapter = await shim.mount(opts, { reagraph, graphology });
       if (!adapter) adapter = { impl: 'reagraph', noop: true, container: opts.container };
 
       // Annotate adapter with info about npm package presence (safe guard)
       try {
         adapter._usesNpmReagraph = !!reagraph;
-        adapter._npmReagraphVersion = reagraph && (reagraph.version || (reagraphPkg && reagraphPkg.version)) || null;
+  adapter._npmReagraphVersion = reagraph && reagraph.version ? reagraph.version : null;
         adapter._npmGraphologyVersion = graphology && (graphology.version || (graphologyPkg && graphologyPkg.version)) || null;
       } catch (e) {
         // ignore
