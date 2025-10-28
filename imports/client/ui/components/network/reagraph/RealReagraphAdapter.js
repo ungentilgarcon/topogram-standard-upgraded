@@ -1,13 +1,22 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
 import loadReagraphModule from './loadReagraph.js';
+import loadGraphologyModule from './loadGraphology.js';
 let cachedReagraph = undefined;
+let cachedGraphology = undefined;
 
 async function ensureReagraph(env = {}) {
 	if (env && env.reagraph) return env.reagraph;
 	if (cachedReagraph !== undefined) return cachedReagraph;
 	cachedReagraph = await loadReagraphModule();
 	return cachedReagraph;
+}
+
+async function ensureGraphology(env = {}) {
+	if (env && env.graphology) return env.graphology;
+	if (cachedGraphology !== undefined) return cachedGraphology;
+	cachedGraphology = await loadGraphologyModule();
+	return cachedGraphology;
 }
 
 
@@ -87,6 +96,17 @@ function buildNodeMeta(rawNodes) {
 		if (!node || !node.id) return;
 		const id = String(node.id);
 		const attrs = { ...(node.attrs || {}) };
+		if (node.x != null || node.y != null) {
+			const nx = Number(node.x);
+			const ny = Number(node.y);
+			if (Number.isFinite(nx)) attrs.x = nx;
+			if (Number.isFinite(ny)) attrs.y = ny;
+			if (Number.isFinite(nx) || Number.isFinite(ny)) {
+				const px = Number.isFinite(nx) ? nx : 0;
+				const py = Number.isFinite(ny) ? ny : 0;
+				if (!attrs.position || typeof attrs.position !== 'object') attrs.position = { x: px, y: py };
+			}
+		}
 		if (attrs.weight != null) {
 			const w = Number(attrs.weight);
 			if (Number.isFinite(w)) weights.push(w);
@@ -251,12 +271,61 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	const GraphCanvas = runtimeReagraph && (runtimeReagraph.GraphCanvas || (runtimeReagraph.default && runtimeReagraph.default.GraphCanvas));
 	if (!GraphCanvas) return null;
 
+	const runtimeGraphology = await ensureGraphology(env);
+	const GraphCtorCandidate = runtimeGraphology && (runtimeGraphology.Graph || runtimeGraphology.default || runtimeGraphology);
+	const GraphCtor = typeof GraphCtorCandidate === 'function' ? GraphCtorCandidate : null;
+
 	const cyToGraph = await ensureCyElementsToGraphology();
 	if (typeof cyToGraph !== 'function') return null;
 
 	const { nodes: rawNodes, edges: rawEdges } = cyToGraph(elements || []);
 	const nodeMeta = buildNodeMeta(rawNodes);
 	const edgeMeta = buildEdgeMeta(rawEdges);
+
+	function buildGraphSnapshot(nodesArr, edgesArr) {
+		if (!GraphCtor) return null;
+		let graphInstance = null;
+		try {
+			graphInstance = new GraphCtor({ multi: true, allowSelfLoops: true, type: 'directed' });
+		} catch (err) {
+			try { graphInstance = new GraphCtor(); } catch (err2) { graphInstance = null; }
+		}
+		if (!graphInstance) return null;
+		(nodesArr || []).forEach((node) => {
+			const attrs = {
+				label: node.label,
+				size: node.size,
+				color: node.fill,
+				selected: node.data && node.data.selected,
+				...node.data,
+			};
+			if (node.position) {
+				attrs.position = { x: node.position.x, y: node.position.y };
+				if (node.position.x != null) attrs.x = node.position.x;
+				if (node.position.y != null) attrs.y = node.position.y;
+			}
+			try { graphInstance.addNode(node.id, attrs); } catch (err) {}
+		});
+		(edgesArr || []).forEach((edge) => {
+			if (!graphInstance.hasNode(edge.source) || !graphInstance.hasNode(edge.target)) return;
+			const attrs = {
+				label: edge.label,
+				size: edge.size,
+				color: edge.fill,
+				selected: edge.data && edge.data.selected,
+				...edge.data,
+			};
+			try {
+				graphInstance.addEdgeWithKey(edge.id, edge.source, edge.target, attrs);
+			} catch (err) {
+				try {
+					const fallbackKey = `${edge.id || 'edge'}#${Math.random().toString(36).slice(2, 8)}`;
+					graphInstance.addEdgeWithKey(fallbackKey, edge.source, edge.target, attrs);
+				} catch (err2) {}
+			}
+		});
+		return graphInstance;
+	}
 
 	const nodeWrappers = new Map();
 	const edgeWrappers = new Map();
@@ -295,15 +364,52 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	let renderQueued = false;
 	let disposed = false;
 
-	container.innerHTML = '';
-	const root = createRoot(container);
+	// Reuse a single React root per container to avoid double createRoot warnings
+	let root = container.__reagraphRoot || null;
+	if (!root) {
+		try { container.innerHTML = ''; } catch (e) {}
+		root = createRoot(container);
+		try { container.__reagraphRoot = root; } catch (e) {}
+	}
 
 	const supportsRaf = typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function';
 	const supportsIdle = typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function';
 
+	// Debug flag: enable by adding ?reagraphDebug=1 to URL or setting window.__REAGRAPH_DEBUG__ = true
+	const isDebugEnabled = (() => {
+		try {
+			if (typeof window !== 'undefined') {
+				if (window.__REAGRAPH_DEBUG__ === true) return true;
+				const qs = new URLSearchParams(window.location.search || '');
+				return qs.has('reagraphDebug') || qs.has('debugReagraph');
+			}
+			return false;
+		} catch (e) { return false; }
+	})();
+
+	// Runtime flags via URL params
+	const runtimeFlags = (() => {
+		let flags = { aggregateEdges: true, noGraph: false };
+		try {
+			if (typeof window !== 'undefined') {
+				const qs = new URLSearchParams(window.location.search || '');
+				const readBool = (k, d) => {
+					if (!qs.has(k)) return d;
+					const v = String(qs.get(k)).toLowerCase();
+					return v === '1' || v === 'true' || v === 'yes' || v === 'on';
+				};
+				// Defaults: aggregateEdges true; but if debug is enabled, default to false unless explicitly overridden
+				flags.aggregateEdges = readBool('reagraphAggregateEdges', readBool('aggregateEdges', isDebugEnabled ? false : true));
+				flags.noGraph = readBool('reagraphNoGraph', readBool('noGraph', false));
+			}
+		} catch (e) {}
+		return flags;
+	})();
+
 	function nodeIsHidden(id) {
 		const entry = nodeMeta.nodes.get(id);
-		if (!entry) return false;
+		// Treat missing nodes as hidden so dependent edges are filtered out
+		if (!entry) return true;
 		return !!entry.attrs.hidden || hiddenNodeIds.has(id);
 	}
 
@@ -312,6 +418,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		if (!entry) return true;
 		if (hiddenEdgeIds.has(id)) return true;
 		if (entry.attrs && entry.attrs.hidden) return true;
+		// Hide if either endpoint is missing or hidden
+		if (!nodeMeta.nodes.has(entry.source) || !nodeMeta.nodes.has(entry.target)) return true;
 		if (nodeIsHidden(entry.source) || nodeIsHidden(entry.target)) return true;
 		return false;
 	}
@@ -320,6 +428,11 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		const { attrs, data } = entry;
 		const label = deriveNodeLabel(attrs);
 		const selected = selectedNodeIds.has(id) || !!attrs.selected;
+		let pos = attrs && typeof attrs.position === 'object' ? attrs.position : null;
+		// Safety: ensure every node has a position object to avoid consumers reading undefined.position
+		if (!pos || typeof pos.x !== 'number' || typeof pos.y !== 'number') {
+			pos = { x: 0, y: 0 };
+		}
 		const record = {
 			id,
 			label,
@@ -329,6 +442,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			labelVisible: !!label,
 			cluster: attrs && attrs.cluster ? String(attrs.cluster) : undefined,
 			icon: attrs && attrs.icon ? attrs.icon : undefined,
+			position: { x: pos.x, y: pos.y },
 		};
 		return record;
 	}
@@ -365,13 +479,16 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	function rebuildEdgeRecords() {
 		edgeCacheIndices.clear();
 		edgeRecords = [];
+		let _skippedMissing = 0;
 		edgeMeta.edges.forEach((entry, id) => {
 			if (edgeIsHidden(id)) return;
+			if (!nodeMeta.nodes.has(entry.source) || !nodeMeta.nodes.has(entry.target)) { _skippedMissing += 1; return; }
 			const record = buildEdgeRecord(entry, id);
 			edgeCacheIndices.set(id, edgeRecords.length);
 			edgeRecords.push(record);
 		});
 		renderEdgeArray = edgeRecords;
+		try { if (_skippedMissing) console.debug && console.debug('ReagraphAdapter: skipped edges with missing endpoints', _skippedMissing); } catch (e) {}
 	}
 
 	function updateNodeRecord(id) {
@@ -469,18 +586,71 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		}
 		prepareRenderData();
 		const nodeCount = renderNodeArray.length;
-		const edgeCount = renderEdgeArray.length;
+		// Only render edges whose endpoints are currently visible nodes
+		const visibleNodeIds = new Set(renderNodeArray.map((n) => n.id));
+		let safeEdgeArray = renderEdgeArray.filter((e) => visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target));
+		const edgeCount = safeEdgeArray.length;
 		const heavyGraph = nodeCount > LARGE_NODE_THRESHOLD || edgeCount > LARGE_EDGE_THRESHOLD;
 		const layoutType = mapLayoutNameToReagraph(currentLayoutName);
 		const labelType = nodeCount > LABEL_SWITCH_THRESHOLD ? 'hover' : 'all';
+		const graphSnapshot = runtimeFlags.noGraph ? null : buildGraphSnapshot(renderNodeArray, safeEdgeArray);
+
+		// Debug diagnostics: validate edges/nodes and expose a snapshot for inspection
+		if (isDebugEnabled) {
+			try {
+				// Detect and log any invalid edges (should be none)
+				const allEdgeProblems = [];
+				renderEdgeArray.forEach((e) => {
+					if (!visibleNodeIds.has(e.source) || !visibleNodeIds.has(e.target)) {
+						allEdgeProblems.push({ id: e.id, source: e.source, target: e.target });
+					}
+				});
+				// Count nodes with preset positions
+				let nodesWithPos = 0;
+				let nodesWithDataPos = 0;
+				renderNodeArray.forEach((n) => {
+					if (n && n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number') nodesWithPos += 1;
+					if (n && n.data && typeof n.data.x === 'number' && typeof n.data.y === 'number') nodesWithDataPos += 1;
+				});
+				const debugObj = {
+					timestamp: Date.now(),
+					counts: { nodes: nodeCount, edges: edgeCount, allEdgesBeforeSafeFilter: renderEdgeArray.length },
+					positions: { nodesWithPos, nodesWithDataPos },
+					firstNodes: renderNodeArray.slice(0, 5).map((n) => ({ id: n.id, position: n.position })),
+					firstEdges: safeEdgeArray.slice(0, 5).map((e) => ({ id: e.id, source: e.source, target: e.target })),
+					invalidEdges: allEdgeProblems.slice(0, 20),
+					visibleNodeIdsSample: Array.from(visibleNodeIds).slice(0, 20),
+					layoutType,
+					heavyGraph,
+					graphVersion,
+				};
+				if (typeof window !== 'undefined') {
+					window.__REAGRAPH_DEBUG_LAST__ = debugObj;
+					if (!window.reagraphDebugDump) window.reagraphDebugDump = () => window.__REAGRAPH_DEBUG_LAST__;
+				}
+				if (allEdgeProblems.length) {
+					// Log once per render cycle for visibility
+					try { console.warn && console.warn('Reagraph DEBUG: edges referencing non-visible nodes', { count: allEdgeProblems.length, sample: debugObj.invalidEdges }); } catch (e) {}
+				}
+			} catch (e) {}
+		}
+		let layout = undefined;
+		try {
+			if (!runtimeFlags.noGraph && graphSnapshot && runtimeReagraph && typeof runtimeReagraph.layoutProvider === 'function') {
+				const iterations = heavyGraph ? 500 : 800;
+				layout = runtimeReagraph.layoutProvider({ type: layoutType, graph: graphSnapshot, iterations });
+			}
+		} catch (e) { layout = undefined; }
 		const element = React.createElement(GraphCanvas, {
-			key: 'real-reagraph-canvas',
+			key: `real-reagraph-canvas-${graphVersion}`,
 			ref: attachCanvasRef,
 			nodes: renderNodeArray,
-			edges: renderEdgeArray,
+			edges: safeEdgeArray,
+			graph: graphSnapshot || undefined,
+			layout,
 			layoutType,
 			animated: !heavyGraph,
-			aggregateEdges: true,
+			aggregateEdges: !!runtimeFlags.aggregateEdges,
 			labelType,
 			edgeLabelPosition: 'center',
 			graphVersion,
@@ -511,6 +681,22 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			},
 		});
 		root.render(element);
+
+		// Attach a WebGL context lost listener for debugging if possible
+		if (isDebugEnabled) {
+			try {
+				const canvas = container.querySelector('canvas');
+				if (canvas && !canvas.__reagraphCtxLostHook) {
+					canvas.addEventListener('webglcontextlost', (ev) => {
+						try { console.warn && console.warn('Reagraph DEBUG: WebGL context lost', ev); } catch (e) {}
+						if (typeof window !== 'undefined') {
+							window.__REAGRAPH_DEBUG_LAST__ = Object.assign({}, window.__REAGRAPH_DEBUG_LAST__ || {}, { webglContextLost: true, webglEvent: { type: ev && ev.type } });
+						}
+					});
+					canvas.__reagraphCtxLostHook = true;
+				}
+			} catch (e) {}
+		}
 	}
 
 	function scheduleRender(forceFullSync = false) {
@@ -955,6 +1141,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 				});
 				edges.forEach((e) => {
 					const id = String(e.id || `${e.source}-${e.target}`);
+					// Skip edges referencing endpoints that are not present
+					if (!nodeMeta.nodes.has(String(e.source)) || !nodeMeta.nodes.has(String(e.target))) return;
 					const attrs = { ...(e.attrs || {}) };
 					edgeMeta.edges.set(id, { id, source: String(e.source), target: String(e.target), attrs, data: { ...attrs } });
 				});
@@ -1001,7 +1189,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			disposed = true;
 			cancelScheduledRender();
 			try { selectionHandlers.forEach((off) => { if (typeof off === 'function') off(); }); } catch (err) {}
-			try { root.unmount(); } catch (err) {}
+			// Prefer clearing the rendered tree but keep the root attached to avoid duplicate createRoot warnings
+			try { setTimeout(() => { try { root.render(null); } catch (err) {} }, 0); } catch (err) {}
 		},
 	};
 

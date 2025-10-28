@@ -9,6 +9,11 @@ export function cyElementsToGraphology(elements) {
   const nodes = [];
   const edges = [];
 
+  const toNumber = (value) => {
+    const num = Number(value);
+    return Number.isFinite(num) ? num : null;
+  };
+
   function normalizeNode(entry) {
     const data = (entry && entry.data) ? { ...entry.data } : {};
     const pos = (entry && entry.position) ? entry.position : {};
@@ -19,14 +24,27 @@ export function cyElementsToGraphology(elements) {
     if (classes.length) attrs.classes = classes.join(' ');
     if ((entry && entry.selected) || classes.includes('selected')) attrs.selected = true;
     if (classes.includes('hidden') && attrs.hidden == null) attrs.hidden = true;
+
+    const position = {};
+    const px = pos && pos.x != null ? toNumber(pos.x) : null;
+    const py = pos && pos.y != null ? toNumber(pos.y) : null;
+    if (px != null) position.x = px;
+    if (py != null) position.y = py;
+    if (Object.keys(position).length) {
+      attrs.position = { ...position };
+      if (attrs.x == null && position.x != null) attrs.x = position.x;
+      if (attrs.y == null && position.y != null) attrs.y = position.y;
+    }
+
     const node = {
       id,
       attrs,
       data: attrs,
       ...attrs,
     };
-    if (pos && pos.x != null) node.x = pos.x;
-    if (pos && pos.y != null) node.y = pos.y;
+    if (attrs.position) node.position = { ...attrs.position };
+    if (attrs.x != null) node.x = attrs.x;
+    if (attrs.y != null) node.y = attrs.y;
     return node;
   }
 
@@ -41,10 +59,14 @@ export function cyElementsToGraphology(elements) {
     if (classes.length) attrs.classes = classes.join(' ');
     if ((entry && entry.selected) || classes.includes('selected')) attrs.selected = true;
     if (classes.includes('hidden') && attrs.hidden == null) attrs.hidden = true;
+    if (source != null) attrs.from = source;
+    if (target != null) attrs.to = target;
     const edge = {
       id,
       source,
       target,
+      from: source,
+      to: target,
       attrs,
       data: attrs,
       ...attrs,
