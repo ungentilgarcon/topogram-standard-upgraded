@@ -7,7 +7,7 @@
 // Translate cy-style elements to simple node/edge arrays
 let cyElementsToGraphology = null;
 try {
-  const mod = require('../utils/cyElementsToGraphology');
+  const mod = require('../graphAdapters/cyElementsToGraphology');
   cyElementsToGraphology = mod && (mod.default || mod);
 } catch (e) {
   cyElementsToGraphology = null;

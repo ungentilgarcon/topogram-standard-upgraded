@@ -1,2 +1,10 @@
 node_modules/
 csv_import_*
+
+# Ignore generated dependency graph artifacts
+samples/dependency_graph_topogram_code*.json
+samples/dependency_graph_topogram_code*.csv
+samples/*_subgraph_*.json
+samples/*_subgraph_*.csv
+samples/nodes_mapping_*.csv
+samples/edges_mapping_*.csv

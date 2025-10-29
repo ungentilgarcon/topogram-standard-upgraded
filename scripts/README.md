@@ -1,3 +1,20 @@
+#+ Scripts helper README
+
+This folder contains helper scripts used during development of Topogram. See the main documentation for the dependency graph tool:
+
+- docs/BUILD_FULL_DEPENDENCY_GRAPH.md — full reference for `scripts/build_full_dependency_graph.js` including options and examples.
+
+Quick commands
+
+- Regenerate dependency graph sample outputs (see `scripts/regenerate_dependency_graph.sh` for a runnable sequence):
+
+```bash
+bash scripts/regenerate_dependency_graph.sh
+```
+
+Notes
+
+- Large generated files produced by the dependency graph exporter are ignored by default in the repo; use the regenerate script to produce them locally when needed.
 Scripts for building Topogram-compatible datasets
 
 build_debian_topogram.py

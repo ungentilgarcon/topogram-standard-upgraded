@@ -51,6 +51,8 @@ export default function GraphWrapper(props) {
             layout,
             stylesheet,
           });
+          // ensure default aggregation OFF (UI default)
+          try { adapterRef.current && adapterRef.current.setAggregateEdges && adapterRef.current.setAggregateEdges(false); } catch (e) {}
         } catch (err) {
           console.error('GraphWrapper: failed to load reagraph adapter', err);
           // fallback to local adapters directly if lazy adapter fails
@@ -59,6 +61,7 @@ export default function GraphWrapper(props) {
             const shimModule = RealShim && (RealShim.default || RealShim);
             if (shimModule && typeof shimModule.mount === 'function') {
               adapterRef.current = await shimModule.mount({ container: containerRef.current, elements, layout, stylesheet });
+              try { adapterRef.current && adapterRef.current.setAggregateEdges && adapterRef.current.setAggregateEdges(false); } catch (e) {}
             } else {
               throw new Error('RealReagraphAdapter missing mount');
             }

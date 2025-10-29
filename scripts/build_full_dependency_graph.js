@@ -25,7 +25,19 @@ const DEFAULT_OPTIONS = {
 	transitiveDepth: 4,
 	maxFunctions: null,
 	targetNodes: null,
-	excludeDirs: []
+	excludeDirs: [],
+	excludePackages: [],
+	subgraphs: false,
+	subgraphDepth: 3,
+	subgraphLimit: null
+	,
+	chunkSize: null,
+	chunkOnly: false,
+	chunkBy: 'nodes', // 'nodes' (default contiguous) or 'module' (group by module)
+	collapseMinified: false,
+	minifiedNameMax: 4,
+	collapseModules: false,
+	collapseUmd: false
 }
 
 const JS_EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs']
@@ -94,6 +106,27 @@ function parseArgs(argv) {
 					toExclude.push(...parts)
 				}
 				break
+			case '--exclude-packages':
+				if (value !== undefined) {
+					const parts = value.split(',').map(part => part.trim()).filter(Boolean)
+					options.excludePackages.push(...parts)
+				}
+				break
+			case '--subgraphs':
+				options.subgraphs = value !== 'false'
+				break
+			case '--subgraph-depth':
+				if (value !== undefined) {
+					const pd = Number.parseInt(value, 10)
+					if (!Number.isNaN(pd) && pd >= 0) options.subgraphDepth = pd
+				}
+				break
+			case '--subgraph-limit':
+				if (value !== undefined) {
+					const pl = Number.parseInt(value, 10)
+					if (!Number.isNaN(pl) && pl >= 0) options.subgraphLimit = pl
+				}
+				break
 			case '--include-functions':
 				options.includeFunctions = value !== 'false'
 				break
@@ -124,6 +157,37 @@ function parseArgs(argv) {
 					if (!Number.isNaN(parsedDepth) && parsedDepth >= 1) options.transitiveDepth = parsedDepth
 				}
 				break
+			case '--chunk-size':
+				if (value !== undefined) {
+					const parsed = Number.parseInt(value, 10)
+					if (!Number.isNaN(parsed) && parsed > 0) options.chunkSize = parsed
+				}
+				break
+			case '--chunk-by':
+				if (value !== undefined) {
+					const v = String(value).toLowerCase()
+					if (v === 'nodes' || v === 'module') options.chunkBy = v
+				}
+				break
+			case '--collapse-minified':
+				options.collapseMinified = value !== 'false'
+				break
+			case '--minified-name-max':
+				if (value !== undefined) {
+					const parsed = Number.parseInt(value, 10)
+					if (!Number.isNaN(parsed) && parsed >= 0) options.minifiedNameMax = parsed
+				}
+				break
+			case '--collapse-umd':
+				options.collapseUmd = value !== 'false'
+				break
+			case '--collapse-modules':
+				options.collapseModules = value !== 'false'
+				break
+			case '--chunk-only':
+				// boolean flag, accept --chunk-only or --chunk-only=false
+				options.chunkOnly = value !== 'false'
+				break
 			default:
 				console.warn(`Ignoring unknown flag: ${flag}`)
 		}
@@ -147,7 +211,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-	console.log(`Usage: node scripts/build_full_dependency_graph.js [options]\n\nOptions:\n  --output-base <name>        Base filename (default: ${DEFAULT_OUTPUT_BASE})\n  --output-suffix <suffix>    Suffix appended to the base name before extension\n  --exclude-dir <path>       Relative directory to exclude (repeat or comma-separate)\n  --max-functions <n>         Limit the number of function nodes included\n  --target-nodes <n>          Aim for at most N nodes (modules + packages + functions)\n  --no-functions              Exclude function nodes entirely\n  --include-functions=<bool>  Explicitly toggle function inclusion\n  --no-transitive             Skip transitive module edges\n  --include-transitive=<bool> Explicitly toggle transitive edges\n  --transitive-depth <n>      BFS depth for transitive module imports (default: 4)\n  -h, --help                  Show this help message\n`)
+	console.log(`Usage: node scripts/build_full_dependency_graph.js [options]\n\nOptions:\n  --output-base <name>        Base filename (default: ${DEFAULT_OUTPUT_BASE})\n  --output-suffix <suffix>    Suffix appended to the base name before extension\n  --exclude-dir <path>       Relative directory to exclude (repeat or comma-separate)\n  --max-functions <n>         Limit the number of function nodes included\n  --target-nodes <n>          Aim for at most N nodes (modules + packages + functions)\n  --no-functions              Exclude function nodes entirely\n  --include-functions=<bool>  Explicitly toggle function inclusion\n  --no-transitive             Skip transitive module edges\n  --include-transitive=<bool> Explicitly toggle transitive edges\n  --transitive-depth <n>      BFS depth for transitive module imports (default: 4)\n  --chunk-size <n>           Split output into parts of at most N nodes (optional)\n  --chunk-by <nodes|module>  Chunking strategy (default: nodes)\n  --chunk-only               Only write chunked part files and skip full combined output\n  --collapse-minified        Collapse short/minified function names (useful for vendor libs)\n  --minified-name-max <n>    Max length for a name to be considered minified (default: 4)\n  --collapse-modules         Collapse whole modules (vendor bundles) into single module node\n  --collapse-umd             Treat UMD bundles as vendor/minified and collapse them when enabled\n  -h, --help                  Show this help message\n`)
 }
 
 function collectSourceFiles(options) {
@@ -280,13 +344,28 @@ function ensureFunction(moduleInfo, name, kind, loc, meta = {}) {
 	}
 	moduleInfo.functions.set(key, fnInfo)
 	return fnInfo
+
 }
 
-function addCallEdge(moduleInfo, fromId, toId) {
-	if (!fromId || !toId) return
-	if (!moduleInfo.functions.has(fromId)) return
-	const fnInfo = moduleInfo.functions.get(fromId)
-	fnInfo.calls.add(toId)
+function addCallEdge(moduleInfo, fromId, targetId) {
+	if (!fromId || !targetId) return
+	// fromId is usually a function id like 'function:...'; if it's a module id we skip
+	try {
+		if (moduleInfo.functions.has(fromId)) {
+			const fn = moduleInfo.functions.get(fromId)
+			fn.calls.add(targetId)
+		} else {
+			// fallback: attempt to find any function with matching id
+			for (const fn of moduleInfo.functions.values()) {
+				if (fn.id === fromId) {
+					fn.calls.add(targetId)
+					return
+				}
+			}
+		}
+	} catch (err) {
+		// ignore
+	}
 }
 
 function buildGraph(options) {
@@ -326,11 +405,14 @@ function buildGraph(options) {
 				if (resolved.type === 'module') {
 					moduleInfo.imports.add(resolved.target)
 				} else if (resolved.type === 'package') {
-					packageNodes.set(resolved.target, {
-						id: `package:${resolved.target}`,
-						name: resolved.target,
-						type: 'package'
-					})
+					// respect excludePackages option: do not create package nodes for excluded packages
+					if (!(options && Array.isArray(options.excludePackages) && options.excludePackages.includes(resolved.target))) {
+						packageNodes.set(resolved.target, {
+							id: `package:${resolved.target}`,
+							name: resolved.target,
+							type: 'package'
+						})
+					}
 				}
 
 				if (pathNode.node.specifiers.length === 0) {
@@ -594,6 +676,30 @@ function emitGraph(data, options) {
 		}
 	}
 
+	// Optionally collapse entire modules (vendor/minified) by removing their functions
+	const collapsedModuleIds = new Set()
+	if (options && options.collapseModules) {
+		for (const m of moduleInfos) {
+			if (isCollapsedModule(m, options)) collapsedModuleIds.add(m.id)
+		}
+		if (collapsedModuleIds.size) {
+			selectedFunctionInfos = selectedFunctionInfos.filter(e => !collapsedModuleIds.has(e.moduleInfo.id))
+		}
+	}
+
+	// Optionally collapse/minify noisy short-named functions from vendor/minified files
+	const minifiedFunctionIds = new Set()
+	if (options && options.collapseMinified) {
+		for (const entry of selectedFunctionInfos) {
+			if (isMinifiedFunction(entry.fnInfo, entry.moduleInfo, options)) {
+				minifiedFunctionIds.add(entry.fnInfo.id)
+			}
+		}
+		if (minifiedFunctionIds.size) {
+			selectedFunctionInfos = selectedFunctionInfos.filter(e => !minifiedFunctionIds.has(e.fnInfo.id))
+		}
+	}
+
 	const selectedFunctionIds = new Set(selectedFunctionInfos.map(entry => entry.fnInfo.id))
 
 	const nodes = []
@@ -650,18 +756,76 @@ function emitGraph(data, options) {
 		})
 	}
 
+	// Add normal function-call edges between included functions. If a call target
+	// is excluded (e.g., collapsed minified function), create an external-call
+	// edge from the caller function to the target's module node instead.
+	const externalEdgeSet = new Set()
 	for (const entry of selectedFunctionInfos) {
 		const { fnInfo } = entry
 		for (const toId of fnInfo.calls) {
-			if (!selectedFunctionIds.has(toId)) continue
-			const edgeId = `${fnInfo.id}->${toId}`
-			edges.push({
-				id: edgeId,
-				type: 'function-call',
-				source: fnInfo.id,
-				target: toId,
-				pathLength: 1
-			})
+			if (selectedFunctionIds.has(toId)) {
+				const edgeId = `${fnInfo.id}->${toId}`
+				edges.push({ id: edgeId, type: 'function-call', source: fnInfo.id, target: toId, pathLength: 1 })
+			} else {
+				// if target exists in functionInfoMap, link to its module instead
+				const targetEntry = functionInfoMap.get(toId)
+				if (targetEntry) {
+					const targetModuleId = targetEntry.moduleInfo.id
+					const edgeId = `${fnInfo.id}->${targetModuleId}::externalCall`
+					if (!externalEdgeSet.has(edgeId)) {
+						externalEdgeSet.add(edgeId)
+						edges.push({ id: edgeId, type: 'function-call-external', source: fnInfo.id, target: targetModuleId, pathLength: 1 })
+					}
+				}
+			}
+		}
+	}
+
+	// For minified functions that were collapsed (excluded), surface their calls
+	// as module -> function edges when they call included functions.
+	if (minifiedFunctionIds.size) {
+		for (const entry of functionInfos) {
+			if (selectedFunctionIds.has(entry.fnInfo.id)) continue
+			if (!isMinifiedFunction(entry.fnInfo, entry.moduleInfo, options)) continue
+			const srcModuleId = entry.moduleInfo.id
+			for (const toId of entry.fnInfo.calls) {
+				if (!selectedFunctionIds.has(toId)) continue
+				const edgeId = `${srcModuleId}->${toId}::externalFromMin`
+				if (!externalEdgeSet.has(edgeId)) {
+					externalEdgeSet.add(edgeId)
+					edges.push({ id: edgeId, type: 'function-call-external', source: srcModuleId, target: toId, pathLength: 1 })
+				}
+			}
+		}
+	}
+
+	// For functions in collapsed modules, surface their calls as module -> function or module->module edges
+	if (collapsedModuleIds.size) {
+		for (const entry of functionInfos) {
+			if (selectedFunctionIds.has(entry.fnInfo.id)) continue
+			if (!collapsedModuleIds.has(entry.moduleInfo.id)) continue
+			const srcModuleId = entry.moduleInfo.id
+			for (const toId of entry.fnInfo.calls) {
+				// if the target is an included function, create module -> function edge
+				if (selectedFunctionIds.has(toId)) {
+					const edgeId = `${srcModuleId}->${toId}::externalFromCollapsed`
+					if (!externalEdgeSet.has(edgeId)) {
+						externalEdgeSet.add(edgeId)
+						edges.push({ id: edgeId, type: 'function-call-external', source: srcModuleId, target: toId, pathLength: 1 })
+					}
+				} else {
+					// if the target is also in a collapsed module, create module->module edge
+					const targetEntry = functionInfoMap.get(toId)
+					if (targetEntry && collapsedModuleIds.has(targetEntry.moduleInfo.id) && targetEntry.moduleInfo.id !== srcModuleId) {
+						const tgtModule = targetEntry.moduleInfo.id
+						const edgeId = `${srcModuleId}->${tgtModule}::collapsedModuleCall`
+						if (!externalEdgeSet.has(edgeId)) {
+							externalEdgeSet.add(edgeId)
+							edges.push({ id: edgeId, type: 'function-call-external', source: srcModuleId, target: tgtModule, pathLength: 1 })
+						}
+					}
+				}
+			}
 		}
 	}
 
@@ -686,6 +850,8 @@ function emitGraph(data, options) {
 	for (const moduleInfo of moduleInfos) {
 		for (const [, importInfo] of moduleInfo.importMap.entries()) {
 			if (importInfo.type !== 'package') continue
+			// skip package edges for excluded packages
+			if (options && Array.isArray(options.excludePackages) && options.excludePackages.includes(importInfo.target)) continue
 			const pkgId = `package:${importInfo.target}`
 			const edgeId = `${moduleInfo.id}->${pkgId}`
 			if (packageEdgeSet.has(edgeId)) continue
@@ -728,6 +894,32 @@ function emitGraph(data, options) {
 	}
 }
 
+function isMinifiedFunction(fnInfo, moduleInfo, options) {
+	if (!options || !options.collapseMinified) return false
+	const maxLen = Number.isFinite(options.minifiedNameMax) ? options.minifiedNameMax : 4
+	const name = fnInfo && fnInfo.name ? String(fnInfo.name) : ''
+	if (!name || name.length > maxLen) return false
+	const p = moduleInfo && moduleInfo.path ? moduleInfo.path : ''
+	const low = p.toLowerCase()
+	if (low.includes('.min.') || low.includes('node_modules') || low.includes('/vendor/') ) return true
+	// treat UMD bundles as noisy if configured
+	if (options.collapseUmd && (low.includes('.umd.') || low.includes('/umd/') || low.includes('umd.min'))) return true
+	// allow explicit package name hints (e.g., maplibre)
+	if (low.includes('maplibre') || low.includes('mapbox') ) return true
+	return false
+}
+
+function isCollapsedModule(moduleInfo, options) {
+	if (!options || !options.collapseModules) return false
+	const p = moduleInfo && moduleInfo.path ? moduleInfo.path : ''
+	const low = String(p).toLowerCase()
+	if (low.includes('.min.') || low.includes('node_modules') || low.includes('/vendor/')) return true
+	// treat UMD bundles as vendors if configured
+	if (options.collapseUmd && (low.includes('.umd.') || low.includes('/umd/') || low.includes('umd.min'))) return true
+	if (low.includes('maplibre') || low.includes('mapbox')) return true
+	return false
+}
+
 function scopedSort(functionInfos) {
 	functionInfos.sort((a, b) => b.score - a.score)
 }
@@ -739,16 +931,71 @@ function toTopogramCsv(graph) {
 
 	const rows = []
 
+	// Build quick lookup maps to compute outgoing counts and node metadata
+	const nodeById = new Map()
+	for (const n of graph.nodes) nodeById.set(n.id, n)
+
+	const outgoingCount = new Map()
+	for (const n of graph.nodes) outgoingCount.set(n.id, 0)
+	for (const e of graph.edges) {
+		if (outgoingCount.has(e.source)) outgoingCount.set(e.source, outgoingCount.get(e.source) + 1)
+		else outgoingCount.set(e.source, 1)
+	}
+
+	function nodeColor(n) {
+		return n.type === 'module' ? '#1f77b4' : n.type === 'function' ? '#2ca02c' : '#7f7f7f'
+	}
+
+	function edgeColorByFile(edge) {
+		// Try to pick a file-based color: prefer module path from source or target
+		let modPath = null
+		const pickModuleFromId = id => {
+			if (!id) return null
+			if (id.startsWith('module:')) return id.replace(/^module:/, '')
+			if (id.startsWith('function:')) {
+				const node = nodeById.get(id)
+				if (node && node.module) return node.module.replace(/^module:/, '')
+			}
+			return null
+		}
+		modPath = pickModuleFromId(edge.source) || pickModuleFromId(edge.target)
+		if (!modPath) return ''
+		if (modPath.endsWith('.jsx') || modPath.includes('.jsx')) return '#9467bd'
+		if (modPath.endsWith('.tsx') || modPath.includes('.tsx')) return '#8c564b'
+		if (modPath.endsWith('.ts') || modPath.includes('.ts')) return '#8c564b'
+		if (modPath.endsWith('.js') || modPath.includes('.js')) return '#1f77b4'
+		return '#ff7f0e'
+	}
+
+	const RELATIONSHIP_MAP = {
+		'function-call': 'calls',
+		'function-call-external': 'calls',
+		'module-import': 'imports',
+		'package-import': 'imports',
+		'module-has-function': 'contains',
+		'module-import-transitive': 'imports'
+	}
+
 	for (const node of graph.nodes) {
+		const color = nodeColor(node)
+		const count = outgoingCount.get(node.id) || 0
+		let extraVal = JSON.stringify(node)
+		if (node.type === 'function') {
+			// include module and score for functions as a compact extra
+			extraVal = JSON.stringify({ module: node.module, score: node.score })
+		} else if (node.type === 'module') {
+			extraVal = JSON.stringify({ exports: node.exports, functionCount: node.functionCount, errors: node.errors })
+		}
+
 		rows.push({
 			id: node.id,
 			name: node.label,
 			label: node.type === 'function' ? `${node.label}()` : node.label,
 			description: node.type,
-			color: node.type === 'module' ? '#1f77b4' : node.type === 'function' ? '#2ca02c' : '#7f7f7f',
-			fillColor: '',
-			weight: '',
-			rawWeight: '',
+			color: color,
+			fillColor: color,
+			weight: count || '',
+			rawWeight: count || '',
 			lat: '',
 			lng: '',
 			start: '',
@@ -761,19 +1008,21 @@ function toTopogramCsv(graph) {
 			edgeColor: '',
 			edgeWeight: '',
 			relationship: '',
-			enlightement: node.type,
+			enlightement: '',
 			emoji: '',
-			extra: JSON.stringify(node)
+			extra: extraVal
 		})
 	}
 
 	for (const edge of graph.edges) {
+		// Per your desired mapping: keep name/label/description empty and map relationship to friendly labels
+		const eColor = edgeColorByFile(edge)
 		rows.push({
 			id: edge.id,
-			name: edge.type,
-			label: edge.type,
-			description: edge.type,
-			color: '#ff7f0e',
+			name: '',
+			label: '',
+			description: '',
+			color: '',
 			fillColor: '',
 			weight: '',
 			rawWeight: '',
@@ -785,17 +1034,211 @@ function toTopogramCsv(graph) {
 			date: '',
 			source: edge.source,
 			target: edge.target,
-			edgeLabel: edge.type,
-			edgeColor: '#ff7f0e',
+			edgeLabel: '',
+			edgeColor: eColor,
 			edgeWeight: edge.pathLength,
-			relationship: edge.type,
-			enlightement: edge.type,
+			relationship: RELATIONSHIP_MAP[edge.type] || edge.type,
+			enlightement: '',
 			emoji: '',
 			extra: JSON.stringify(edge)
 		})
 	}
 
 	return Papa.unparse({ fields: header, data: rows.map(row => header.map(key => row[key] ?? '')) })
+}
+
+function splitGraphIntoChunks(graph, chunkSize) {
+	const chunks = []
+	if (!Array.isArray(graph.nodes)) return chunks
+	for (let i = 0; i < graph.nodes.length; i += chunkSize) {
+		const chunkNodes = graph.nodes.slice(i, i + chunkSize)
+		const ids = new Set(chunkNodes.map(n => n.id))
+		const chunkEdges = graph.edges.filter(e => ids.has(e.source) && ids.has(e.target))
+		chunks.push({ nodes: chunkNodes, edges: chunkEdges })
+	}
+	return chunks
+}
+
+function splitGraphByModule(graph, chunkSize) {
+	const nodesById = new Map(graph.nodes.map(n => [n.id, n]))
+
+	// collect module nodes and their functions
+	const functionNodes = graph.nodes.filter(n => n.type === 'function')
+	const functionsByModule = new Map()
+	for (const fn of functionNodes) {
+		if (!fn.module) continue
+		const moduleId = fn.module
+		if (!functionsByModule.has(moduleId)) functionsByModule.set(moduleId, [])
+		functionsByModule.get(moduleId).push(fn)
+	}
+
+	// build groups: each group is { moduleId, moduleNode, fnNodes, size, packages }
+	const groups = []
+	for (const n of graph.nodes) {
+		if (n.type === 'module') {
+			const fnNodes = functionsByModule.get(n.id) || []
+			const groupNodes = [n, ...fnNodes]
+			// collect package deps for this module
+			const pkgs = new Set()
+			for (const e of graph.edges) {
+				if (e.type === 'package-import' && e.source === n.id) pkgs.add(e.target)
+			}
+			groups.push({ moduleId: n.id, moduleNode: n, fnNodes, size: groupNodes.length, nodes: groupNodes, packages: pkgs })
+		}
+	}
+
+	// first-fit-decreasing: sort groups by size descending
+	const sorted = groups.slice().sort((a, b) => {
+		if (b.size !== a.size) return b.size - a.size
+		return a.moduleId.localeCompare(b.moduleId)
+	})
+
+	// bins: array of { groups: [group], count }
+	const bins = []
+	for (const g of sorted) {
+		// try to place into first bin that fits (considering package nodes)
+		let placed = false
+		for (const bin of bins) {
+			// estimate additional packages introduced by adding this group
+			const combinedPkgs = new Set(bin.packages)
+			for (const p of g.packages) combinedPkgs.add(p)
+			const pkgIncrease = combinedPkgs.size - bin.packages.size
+			if (bin.count + g.size + pkgIncrease <= chunkSize) {
+				bin.groups.push(g)
+				bin.count += g.size
+				for (const p of g.packages) bin.packages.add(p)
+				placed = true
+				break
+			}
+		}
+		if (!placed) {
+			// create new bin; allow oversized group to occupy its own bin
+			const newBin = { groups: [g], count: g.size, packages: new Set(g.packages) }
+			bins.push(newBin)
+		}
+	}
+
+	// construct chunks from bins
+	const chunks = []
+	for (const bin of bins) {
+		const currentIds = new Set()
+		const partNodes = []
+		// order groups in bin by moduleId for determinism
+		const ordered = bin.groups.slice().sort((a, b) => a.moduleId.localeCompare(b.moduleId))
+		for (const grp of ordered) {
+			// push module then its functions
+			partNodes.push(grp.moduleNode)
+			currentIds.add(grp.moduleNode.id)
+			for (const fn of grp.fnNodes) {
+				partNodes.push(fn)
+				currentIds.add(fn.id)
+			}
+		}
+
+		// include package nodes referenced by modules in this chunk
+		const packageIdsToInclude = new Set()
+		for (const e of graph.edges) {
+			if (e.type === 'package-import' && currentIds.has(e.source)) {
+				packageIdsToInclude.add(e.target)
+			}
+		}
+		for (const pid of packageIdsToInclude) {
+			const pn = nodesById.get(pid)
+			if (pn) { partNodes.push(pn); currentIds.add(pid) }
+		}
+
+		const partEdges = graph.edges.filter(e => currentIds.has(e.source) && currentIds.has(e.target))
+		chunks.push({ nodes: partNodes, edges: partEdges })
+	}
+
+	return chunks
+}
+
+function sanitizeName(name) {
+	return name.replace(/[^a-z0-9]+/gi, '_').replace(/^_+|_+$/g, '').toLowerCase()
+}
+
+function createSubgraphs(graph, options) {
+	// graph: { nodes, edges }
+	const nodesById = new Map(graph.nodes.map(n => [n.id, n]))
+	const edgesBySource = new Map()
+	for (const e of graph.edges) {
+		if (!edgesBySource.has(e.source)) edgesBySource.set(e.source, [])
+		edgesBySource.get(e.source).push(e)
+	}
+
+	// identify function nodes
+	const functionNodes = graph.nodes.filter(n => n.type === 'function')
+
+	const limit = options.subgraphLimit && Number.isFinite(options.subgraphLimit) ? options.subgraphLimit : functionNodes.length
+
+	let count = 0
+	for (const fn of functionNodes) {
+		if (count >= limit) break
+		const rootId = fn.id
+		const rootName = fn.label || rootId
+		// BFS over function-call edges
+		const maxDepth = options.subgraphDepth || 3
+		const visited = new Set([rootId])
+		const q = [{ id: rootId, depth: 0 }]
+		while (q.length) {
+			const { id, depth } = q.shift()
+			if (depth >= maxDepth) continue
+			const outs = edgesBySource.get(id) || []
+			for (const e of outs) {
+				// follow only function-call edges to other function nodes
+				if (e.type !== 'function-call') continue
+				const tgt = e.target
+				if (!visited.has(tgt)) {
+					visited.add(tgt)
+					q.push({ id: tgt, depth: depth + 1 })
+				}
+			}
+		}
+
+		// collect nodes: functions visited + their containing modules + package nodes if linked
+		const subNodes = []
+		const subNodeIds = new Set()
+		// include function nodes
+		for (const id of visited) {
+			const n = nodesById.get(id)
+			if (n) { subNodes.push(n); subNodeIds.add(id) }
+		}
+
+		// include module nodes that contain these functions (module-has-function edges have id like moduleId->functionId::contains)
+		for (const e of graph.edges) {
+			if (e.type === 'module-has-function' && subNodeIds.has(e.target)) {
+				if (!subNodeIds.has(e.source)) {
+					const mn = nodesById.get(e.source)
+					if (mn) { subNodes.push(mn); subNodeIds.add(e.source) }
+				}
+			}
+		}
+
+		// include inter-module import edges where both modules included
+		const subEdges = []
+		for (const e of graph.edges) {
+			if (e.type === 'function-call') {
+				if (subNodeIds.has(e.source) && subNodeIds.has(e.target)) subEdges.push(e)
+			} else if (e.type === 'module-has-function') {
+				if (subNodeIds.has(e.source) && subNodeIds.has(e.target)) subEdges.push(e)
+			} else if (e.type === 'module-import' || e.type === 'package-import' || e.type === 'module-import-transitive') {
+				if (subNodeIds.has(e.source) && subNodeIds.has(e.target)) subEdges.push(e)
+			}
+		}
+
+		const subgraph = { nodes: subNodes, edges: subEdges }
+		const safe = sanitizeName(rootName)
+		const base = `${options.outputBase}_subgraph_${safe || sanitizeName(fn.id)}`
+		const outJson = path.join(OUTPUT_DIR, `${base}.json`)
+		const outCsv = path.join(OUTPUT_DIR, `${base}.csv`)
+		fs.writeFileSync(outJson, JSON.stringify(subgraph, null, 2), 'utf8')
+		const csv = toTopogramCsv(subgraph)
+		fs.writeFileSync(outCsv, csv, 'utf8')
+		console.log(`Wrote subgraph ${base}: nodes=${subNodes.length} edges=${subEdges.length}`)
+
+		count += 1
+	}
 }
 
 function main() {
@@ -805,15 +1248,54 @@ function main() {
 		return
 	}
 
+	// Force analysis roots to only the requested subtrees per user instruction
+	// Exclude the entire mapappbuilder folder as requested; analyze only imports, server, client
+	options.sourceRoots = ['imports', 'server', 'client']
+	// Also ensure mapappbuilder is excluded if present
+	const mbPath = path.join(PROJECT_ROOT, 'mapappbuilder')
+	if (fs.existsSync(mbPath)) {
+		options.excludeDirs = Array.from(new Set([...(options.excludeDirs || []), mbPath]))
+	}
+
 	const data = buildGraph(options)
 	const { graph, stats } = emitGraph(data, options)
 	const outputBaseName = `${options.outputBase}${options.outputSuffix}`
 	const outputJsonPath = path.join(OUTPUT_DIR, `${outputBaseName}.json`)
 	const outputCsvPath = path.join(OUTPUT_DIR, `${outputBaseName}.csv`)
 
+	// If chunking is requested, produce per-part JSON/CSV files.
+	if (options && Number.isFinite(options.chunkSize) && options.chunkSize > 0) {
+		let parts = []
+		if (options.chunkBy === 'module') {
+			parts = splitGraphByModule(graph, options.chunkSize)
+		} else {
+			parts = splitGraphIntoChunks(graph, options.chunkSize)
+		}
+		for (let i = 0; i < parts.length; i += 1) {
+			const part = parts[i]
+			const idx = String(i + 1).padStart(3, '0')
+			const base = `${outputBaseName}_part${idx}`
+			const outJson = path.join(OUTPUT_DIR, `${base}.json`)
+			const outCsv = path.join(OUTPUT_DIR, `${base}.csv`)
+			fs.writeFileSync(outJson, JSON.stringify(part, null, 2), 'utf8')
+			fs.writeFileSync(outCsv, toTopogramCsv(part), 'utf8')
+			console.log(`Wrote chunk ${base}: nodes=${part.nodes.length} edges=${part.edges.length}`)
+		}
+		if (options.chunkOnly) {
+			console.log('Chunk-only flag set — skipping combined full output.')
+			return
+		}
+	}
+
+	// Write combined full graph JSON and CSV
 	fs.writeFileSync(outputJsonPath, JSON.stringify(graph, null, 2), 'utf8')
 	const csv = toTopogramCsv(graph)
 	fs.writeFileSync(outputCsvPath, csv, 'utf8')
+
+	if (options && options.subgraphs) {
+		console.log('Exporting subgraphs...')
+		createSubgraphs(graph, options)
+	}
 
 	console.log(`Graph nodes: ${graph.nodes.length}`)
 	console.log(`Graph edges: ${graph.edges.length}`)

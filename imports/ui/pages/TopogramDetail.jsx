@@ -201,6 +201,9 @@ export default function TopogramDetail() {
   }, [])
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
+  // Keep a ref to the active Reagraph adapter (raw) when impl === 'reagraph'
+  const reagraphAdapterRef = useRef(null)
+  const [reagraphAgg, setReagraphAgg] = useState(false)
   // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
   const [cyInstance, setCyInstance] = useState(null)
   // remember last visible nodes count to detect visibility changes
@@ -1404,6 +1407,63 @@ export default function TopogramDetail() {
     } catch (e) { console.warn('reset failed', e) }
   }
 
+  // Export helpers (Reagraph)
+  const doExportReagraphPNG = async () => {
+    try {
+      const adapter = reagraphAdapterRef.current
+      if (!adapter || adapter.impl !== 'reagraph') return
+      // Fit all nodes into view so the export captures the whole graph
+      try { if (typeof adapter.fit === 'function') adapter.fit() } catch (e) {}
+      await new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(res)))
+
+      // Use the adapter's PNG exporter for crisp, high-res output
+      const dataUrl = (typeof adapter.exportPNG === 'function') ? adapter.exportPNG({ scale: 4, margin: 24, background: '#ffffff', drawLabels: true }) : null
+      if (dataUrl) {
+        const a = document.createElement('a')
+        const dt = new Date()
+        const ts = dt.toISOString().replace(/[:.]/g, '-')
+        a.href = dataUrl
+        a.download = `topogram-graph-${ts}.png`
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+      }
+    } catch (err) {
+      console.warn('Export PNG failed', err)
+    }
+  }
+
+  const doExportReagraphSVG = async () => {
+    try {
+      const adapter = reagraphAdapterRef.current
+      if (!adapter || adapter.impl !== 'reagraph') return
+      try { if (typeof adapter.fit === 'function') adapter.fit() } catch (e) {}
+      await new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(res)))
+      const result = (typeof adapter.exportSVG === 'function') ? adapter.exportSVG({ scale: 4, margin: 24, background: '#ffffff', drawLabels: true }) : null
+      if (!result) return
+      let href = null
+      let revoke = null
+      if (typeof result === 'string') {
+        href = result
+      } else if (result && result.blobUrl) {
+        href = result.blobUrl
+        revoke = result.revoke
+      }
+      if (!href) return
+      const a = document.createElement('a')
+      const dt = new Date()
+      const ts = dt.toISOString().replace(/[:.]/g, '-')
+      a.href = href
+      a.download = `topogram-graph-${ts}.svg`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      if (typeof revoke === 'function') setTimeout(() => { try { revoke() } catch (e) {} }, 1000)
+    } catch (err) {
+      console.warn('Export SVG failed', err)
+    }
+  }
+
   // Helper: apply timeline visibility when cyRef.current is a Sigma adapter
   const applyTimelineToSigmaAdapter = (adapter, vr, hasTimeInfo) => {
     try {
@@ -1903,6 +1963,11 @@ export default function TopogramDetail() {
                 impl={impl}
                 cyCallback={(adapter) => {
                   try {
+                    // Keep raw reagraph adapter so we can call reagraph-specific APIs from UI
+                    try {
+                      reagraphAdapterRef.current = (adapter && adapter.impl === 'reagraph') ? adapter : null
+                      if (reagraphAdapterRef.current) setReagraphAgg(false)
+                    } catch(e){}
                     // Wrap adapter in compat shim so legacy consumers (Charts, etc.)
                     // receive a cy-like object even when using non-cytoscape adapters.
                     const compat = makeCyCompat(adapter)
@@ -1956,8 +2021,32 @@ export default function TopogramDetail() {
                     <div className="cy-control-row">
                       <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
                     </div>
+                    {impl === 'reagraph' ? (
+                      <div className="cy-control-row">
+                        <button
+                          className="cy-control-btn"
+                          onClick={() => {
+                            try {
+                              const next = !reagraphAgg
+                              setReagraphAgg(next)
+                              if (reagraphAdapterRef.current && typeof reagraphAdapterRef.current.setAggregateEdges === 'function') {
+                                reagraphAdapterRef.current.setAggregateEdges(next)
+                              }
+                            } catch (e) {}
+                          }}
+                          title="Toggle aggregation of parallel edges (Reagraph only)"
+                        >
+                          {`Aggregate edges: ${reagraphAgg ? 'On' : 'Off'}`}
+                        </button>
+                      </div>
+                    ) : null}
                   </div>
                   {networkView}
+                  {impl === 'reagraph' ? (
+                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
+                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
+                    </div>
+                  ) : null}
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
@@ -2063,6 +2152,10 @@ export default function TopogramDetail() {
                         impl={impl}
                         cyCallback={(adapter) => {
                           try {
+                            try {
+                              reagraphAdapterRef.current = (adapter && adapter.impl === 'reagraph') ? adapter : null
+                              if (reagraphAdapterRef.current) setReagraphAgg(false)
+                            } catch(e){}
                             const compat = makeCyCompat(adapter)
                             cyRef.current = compat
                             if (setCyInstance) setCyInstance(compat)
@@ -2094,6 +2187,11 @@ export default function TopogramDetail() {
                       />
                     )
                   }
+                  {impl === 'reagraph' ? (
+                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
+                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
+                    </div>
+                  ) : null}
                 </div>
                 <div style={{ width: '50%', height: visualHeight, border: '1px solid #ccc' }}>
                   {/* debug: sample geoNodes weights passed to GeoMap */}
@@ -2132,6 +2230,25 @@ export default function TopogramDetail() {
                     <div className="cy-control-row">
                       <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
                     </div>
+                    {impl === 'reagraph' ? (
+                      <div className="cy-control-row">
+                        <button
+                          className="cy-control-btn"
+                          onClick={() => {
+                            try {
+                              const next = !reagraphAgg
+                              setReagraphAgg(next)
+                              if (reagraphAdapterRef.current && typeof reagraphAdapterRef.current.setAggregateEdges === 'function') {
+                                reagraphAdapterRef.current.setAggregateEdges(next)
+                              }
+                            } catch (e) {}
+                          }}
+                          title="Toggle aggregation of parallel edges (Reagraph only)"
+                        >
+                          {`Aggregate edges: ${reagraphAgg ? 'On' : 'Off'}`}
+                        </button>
+                      </div>
+                    ) : null}
                   </div>
                   {
                     (impl === 'sigma' || impl === 'reagraph') ? (
@@ -2142,6 +2259,10 @@ export default function TopogramDetail() {
                         impl={impl}
                         cyCallback={(adapter) => {
                           try {
+                            try {
+                              reagraphAdapterRef.current = (adapter && adapter.impl === 'reagraph') ? adapter : null
+                              if (reagraphAdapterRef.current) setReagraphAgg(false)
+                            } catch(e){}
                             const compat = makeCyCompat(adapter)
                             cyRef.current = compat
                             if (setCyInstance) setCyInstance(compat)
@@ -2177,6 +2298,11 @@ export default function TopogramDetail() {
                       />
                     )
                   }
+                  {impl === 'reagraph' ? (
+                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
+                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
+                    </div>
+                  ) : null}
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
