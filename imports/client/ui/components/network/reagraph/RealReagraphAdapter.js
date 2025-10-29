@@ -728,6 +728,460 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		run();
 	}
 
+	// Compute a fresh positions map using the same layout provider logic used for rendering,
+	// so exports reflect the actual layout rather than defaulting to {0,0}.
+	function computePositionsForExport() {
+		try {
+			prepareRenderData();
+			const nodes = renderNodeArray || [];
+			const visibleNodeIds = new Set(nodes.map((n) => n && n.id));
+			const edges = (renderEdgeArray || []).filter((e) => visibleNodeIds.has(e.source) && visibleNodeIds.has(e.target));
+			const nodeCount = nodes.length;
+			const edgeCount = edges.length;
+			const heavyGraph = nodeCount > LARGE_NODE_THRESHOLD || edgeCount > LARGE_EDGE_THRESHOLD;
+			const layoutType = mapLayoutNameToReagraph(currentLayoutName);
+			const graphSnapshot = runtimeFlags.noGraph ? null : buildGraphSnapshot(nodes, edges);
+			if (!graphSnapshot) {
+				// Fallback to record positions
+				const pos = new Map();
+				nodes.forEach((n) => { if (n && n.position) pos.set(String(n.id), { x: n.position.x || 0, y: n.position.y || 0 }); });
+				return { pos, edges };
+			}
+			// First attempt: try to read live positions from the canvas instance if available
+			const pos = new Map();
+			try {
+				const inst = canvasRef && canvasRef.current;
+				function readFromAny(store, id) {
+					if (!store) return null;
+					try {
+						if (typeof store.get === 'function') { const v = store.get(id); if (v) return v; }
+						if (typeof store === 'object' && id in store) return store[id];
+					} catch (e) { /* ignore */ }
+					return null;
+				}
+				if (inst) {
+					const candidateStores = [];
+					try { if (typeof inst.getPositions === 'function') candidateStores.push(inst.getPositions()); } catch (e) {}
+					try { if (typeof inst.getNodePositions === 'function') candidateStores.push(inst.getNodePositions()); } catch (e) {}
+					try { if (typeof inst.getLayout === 'function') candidateStores.push(inst.getLayout()); } catch (e) {}
+					try { if (inst.state && inst.state.positions) candidateStores.push(inst.state.positions); } catch (e) {}
+					try { if (inst._positions) candidateStores.push(inst._positions); } catch (e) {}
+					try { if (inst.layout && (inst.layout.positions || inst.layout.coords)) candidateStores.push(inst.layout.positions || inst.layout.coords); } catch (e) {}
+					nodes.forEach((n) => {
+						const id = String(n.id);
+						for (let i = 0; i < candidateStores.length; i += 1) {
+							const v = readFromAny(candidateStores[i], id);
+							if (!v) continue;
+							const x = Number(v.x != null ? v.x : (Array.isArray(v) ? v[0] : undefined));
+							const y = Number(v.y != null ? v.y : (Array.isArray(v) ? v[1] : undefined));
+							if (Number.isFinite(x) && Number.isFinite(y)) { pos.set(id, { x, y }); break; }
+						}
+					});
+				}
+			} catch (e) { /* ignore live positions path */ }
+
+			// Ask reagraph to produce a layout for this snapshot (secondary path)
+			let layoutObj = null;
+			try {
+				if (runtimeReagraph && typeof runtimeReagraph.layoutProvider === 'function') {
+					const iterations = heavyGraph ? 500 : 800;
+					layoutObj = runtimeReagraph.layoutProvider({ type: layoutType, graph: graphSnapshot, iterations });
+				}
+			} catch (e) { layoutObj = null; }
+			try {
+				graphSnapshot.forEachNode((id, attrs) => {
+					const x = Number(attrs && attrs.x);
+					const y = Number(attrs && attrs.y);
+					if (Number.isFinite(x) && Number.isFinite(y)) pos.set(String(id), { x, y });
+				});
+			} catch (e) {}
+
+			// Attempt to extract positions from layout object if graph attrs lacked them
+			function readFromLayout(lo, id) {
+				try {
+					if (!lo) return null;
+					// Map-like
+					if (typeof lo.get === 'function') {
+						const v = lo.get(id);
+						return v || null;
+					}
+					// common property names
+					const stores = [lo.positions, lo.coords, lo.coordinates, lo.nodePositions, lo.layout, lo.mapping, lo.map];
+					for (const store of stores) {
+						if (!store) continue;
+						if (typeof store.get === 'function') {
+							const v = store.get(id);
+							if (v) return v;
+						}
+						if (typeof store === 'object') {
+							const v = store[id];
+							if (v != null) return v;
+						}
+					}
+					// Direct indexed
+					if (typeof lo === 'object' && id in lo) return lo[id];
+				} catch (e) { return null; }
+				return null;
+			}
+
+			if (layoutObj) {
+				nodes.forEach((n) => {
+					if (!n) return; const id = String(n.id);
+					if (pos.has(id)) return;
+					const v = readFromLayout(layoutObj, id);
+					if (Array.isArray(v) && v.length >= 2) {
+						const x = Number(v[0]); const y = Number(v[1]);
+						if (Number.isFinite(x) && Number.isFinite(y)) pos.set(id, { x, y });
+					} else if (v && typeof v === 'object') {
+						const x = Number(v.x != null ? v.x : (v[0] != null ? v[0] : NaN));
+						const y = Number(v.y != null ? v.y : (v[1] != null ? v[1] : NaN));
+						if (Number.isFinite(x) && Number.isFinite(y)) pos.set(id, { x, y });
+					}
+				});
+			}
+
+			// If we still have many missing positions, compute a quick FR layout locally
+			const missing = nodes.filter((n) => n && !pos.has(String(n.id)));
+			if (missing.length > 0) {
+				const nodeList = nodes.map((n) => ({ id: String(n.id), x: (n && n.position && Number.isFinite(n.position.x)) ? Number(n.position.x) : null, y: (n && n.position && Number.isFinite(n.position.y)) ? Number(n.position.y) : null }));
+				const edgeList = edges.map((e) => ({ source: String(e.source), target: String(e.target) }));
+				const N = nodeList.length;
+				const P = {};
+				for (let i = 0; i < N; i += 1) {
+					const nd = nodeList[i];
+					P[nd.id] = {
+						x: (nd.x != null) ? nd.x : (Math.random() * 1000 - 500),
+						y: (nd.y != null) ? nd.y : (Math.random() * 1000 - 500),
+					};
+				}
+				const ideal = Math.sqrt((1000 * 1000) / Math.max(1, N));
+				const iters = Math.max(150, Math.min(600, heavyGraph ? 200 : 300));
+				for (let iter = 0; iter < iters; iter += 1) {
+					const disp = {};
+					for (let i = 0; i < N; i += 1) disp[nodeList[i].id] = { x: 0, y: 0 };
+					for (let i = 0; i < N; i += 1) {
+						for (let j = i + 1; j < N; j += 1) {
+							const a = nodeList[i].id; const b = nodeList[j].id;
+							const dx = P[a].x - P[b].x; const dy = P[a].y - P[b].y;
+							let dist = Math.sqrt(dx * dx + dy * dy) + 0.01;
+							const force = (ideal * ideal) / dist;
+							const ux = dx / dist; const uy = dy / dist;
+							disp[a].x += ux * force; disp[a].y += uy * force;
+							disp[b].x -= ux * force; disp[b].y -= uy * force;
+						}
+					}
+					for (let ei = 0; ei < edgeList.length; ei += 1) {
+						const e = edgeList[ei]; const s = e.source; const t = e.target;
+						const dx = P[s].x - P[t].x; const dy = P[s].y - P[t].y;
+						let dist = Math.sqrt(dx * dx + dy * dy) + 0.01;
+						const force = (dist * dist) / ideal;
+						const ux = dx / dist; const uy = dy / dist;
+						disp[s].x -= ux * force; disp[s].y -= uy * force;
+						disp[t].x += ux * force; disp[t].y += uy * force;
+					}
+					const temp = 10 * (1 - iter / iters);
+					for (let i = 0; i < N; i += 1) {
+						const id = nodeList[i].id; const dx = disp[id].x; const dy = disp[id].y;
+						const len = Math.sqrt(dx * dx + dy * dy) || 1;
+						P[id].x += (dx / len) * Math.min(len, temp);
+						P[id].y += (dy / len) * Math.min(len, temp);
+					}
+				}
+				// fill missing only, or all
+				nodes.forEach((n) => { if (!n) return; const id = String(n.id); if (!pos.has(id)) pos.set(id, { x: P[id].x, y: P[id].y }); });
+			}
+			// Fallback for any nodes without computed layout
+			nodes.forEach((n, idx) => {
+				if (!n) return;
+				const id = String(n.id);
+				if (!pos.has(id)) {
+					// place on a circle as a last resort so nodes don't stack
+					const angle = (idx / Math.max(1, nodes.length)) * Math.PI * 2;
+					const radius = Math.max(100, Math.sqrt(nodes.length) * 20);
+					pos.set(id, { x: Math.cos(angle) * radius, y: Math.sin(angle) * radius });
+				}
+			});
+			// Sanity check: if all positions collapse to a line/point, force a fresh FR layout over all nodes
+			(function ensureNonDegeneratePositions() {
+				let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+				pos.forEach((p) => { if (!p) return; if (p.x < minX) minX = p.x; if (p.x > maxX) maxX = p.x; if (p.y < minY) minY = p.y; if (p.y > maxY) maxY = p.y; });
+				const spanX = maxX - minX; const spanY = maxY - minY;
+				if (!Number.isFinite(spanX) || !Number.isFinite(spanY) || spanX < 1e-3 || spanY < 1e-3) {
+					// Recompute using FR for all nodes regardless of current pos
+					const nodeList = nodes.map((n) => ({ id: String(n.id) }));
+					const edgeList = edges.map((e) => ({ source: String(e.source), target: String(e.target) }));
+					const N = nodeList.length;
+					const P = {};
+					for (let i = 0; i < N; i += 1) {
+						const nd = nodeList[i];
+						P[nd.id] = { x: (Math.random() * 1000 - 500), y: (Math.random() * 1000 - 500) };
+					}
+					const ideal = Math.sqrt((1000 * 1000) / Math.max(1, N));
+					const iterations = Math.max(200, Math.min(600, heavyGraph ? 220 : 320));
+					for (let iter = 0; iter < iterations; iter += 1) {
+						const disp = {}; for (let i = 0; i < N; i += 1) disp[nodeList[i].id] = { x: 0, y: 0 };
+						for (let i = 0; i < N; i += 1) {
+							for (let j = i + 1; j < N; j += 1) {
+								const a = nodeList[i].id; const b = nodeList[j].id;
+								const dx = P[a].x - P[b].x; const dy = P[a].y - P[b].y;
+								let dist = Math.sqrt(dx * dx + dy * dy) + 0.01;
+								const force = (ideal * ideal) / dist;
+								const ux = dx / dist; const uy = dy / dist;
+								disp[a].x += ux * force; disp[a].y += uy * force;
+								disp[b].x -= ux * force; disp[b].y -= uy * force;
+							}
+						}
+						for (let ei = 0; ei < edgeList.length; ei += 1) {
+							const e = edgeList[ei]; const s = e.source; const t = e.target;
+							const dx = P[s].x - P[t].x; const dy = P[s].y - P[t].y;
+							let dist = Math.sqrt(dx * dx + dy * dy) + 0.01;
+							const force = (dist * dist) / ideal;
+							const ux = dx / dist; const uy = dy / dist;
+							disp[s].x -= ux * force; disp[s].y -= uy * force;
+							disp[t].x += ux * force; disp[t].y += uy * force;
+						}
+						const temp = 10 * (1 - iter / iterations);
+						for (let i = 0; i < N; i += 1) {
+							const id = nodeList[i].id; const dx = disp[id].x; const dy = disp[id].y;
+							const len = Math.sqrt(dx * dx + dy * dy) || 1;
+							P[id].x += (dx / len) * Math.min(len, temp);
+							P[id].y += (dy / len) * Math.min(len, temp);
+						}
+					}
+					pos.clear();
+					nodes.forEach((n) => { if (!n) return; const id = String(n.id); pos.set(id, { x: P[id].x, y: P[id].y }); });
+				}
+			})();
+
+			return { pos, edges };
+		} catch (err) {
+			// Worst-case: put everything at 0,0 to avoid crashes (caller should handle)
+			const pos = new Map();
+			(renderNodeArray || []).forEach((n) => { if (n) pos.set(String(n.id), { x: 0, y: 0 }); });
+			return { pos, edges: renderEdgeArray || [] };
+		}
+	}
+
+	// Export the full graph to a high-resolution PNG by drawing nodes/edges to
+	// an offscreen 2D canvas using the current render data (post-fit geometry).
+	// This avoids WebGL screenshot artifacts and gives crisp output.
+	function exportPNG(options = {}) {
+		try {
+			const scale = Number.isFinite(options.scale) ? Number(options.scale) : 4;
+			const margin = Number.isFinite(options.margin) ? Number(options.margin) : 24;
+			const bg = (options.background == null) ? '#ffffff' : String(options.background);
+			const drawLabels = options.drawLabels !== false;
+
+			const { pos, edges } = computePositionsForExport();
+			const ids = Array.from(pos.keys());
+			if (!ids.length) return null;
+
+			// Compute bounds from computed positions
+			let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+			ids.forEach((id) => {
+				const p = pos.get(id);
+				if (!p) return;
+				if (p.x < minX) minX = p.x; if (p.x > maxX) maxX = p.x;
+				if (p.y < minY) minY = p.y; if (p.y > maxY) maxY = p.y;
+			});
+			if (!Number.isFinite(minX) || !Number.isFinite(minY) || !Number.isFinite(maxX) || !Number.isFinite(maxY)) return null;
+
+			const widthUnits = Math.max(1, maxX - minX) + margin * 2;
+			const heightUnits = Math.max(1, maxY - minY) + margin * 2;
+			const outW = Math.round(widthUnits * scale);
+			const outH = Math.round(heightUnits * scale);
+
+			// Build a fast lookup for node positions in output space
+			const mapX = x => (x - minX + margin) * scale;
+			const mapY = y => (y - minY + margin) * scale;
+
+			const canvas = document.createElement('canvas');
+			canvas.width = outW; canvas.height = outH;
+			const ctx = canvas.getContext('2d', { alpha: true });
+			if (!ctx) return null;
+			ctx.imageSmoothingEnabled = true;
+			ctx.imageSmoothingQuality = 'high';
+
+			// Background
+			try { ctx.save(); ctx.fillStyle = bg; ctx.fillRect(0, 0, outW, outH); ctx.restore(); } catch (e) {}
+
+			// Map node id -> screen coords
+			const screenPos = new Map();
+			ids.forEach((id) => {
+				const p = pos.get(id);
+				if (!p) return; screenPos.set(id, { x: mapX(p.x), y: mapY(p.y) });
+			});
+
+			// Draw edges first
+			ctx.save();
+			edges.forEach(e => {
+				try {
+					const a = screenPos.get(String(e.source));
+					const b = screenPos.get(String(e.target));
+					if (!a || !b) return;
+					ctx.beginPath();
+					ctx.moveTo(a.x, a.y);
+					ctx.lineTo(b.x, b.y);
+					ctx.strokeStyle = e && e.fill ? String(e.fill) : 'rgba(30,41,59,0.6)';
+					const w = Number(e && e.size);
+					ctx.lineWidth = Number.isFinite(w) ? Math.max(1, w) * Math.max(1, scale / 2) : Math.max(1, scale);
+					ctx.stroke();
+				} catch (err) {}
+			});
+			ctx.restore();
+
+			// Draw nodes
+			(renderNodeArray || []).forEach(n => {
+				try {
+					const p = screenPos.get(String(n.id));
+					if (!p) return;
+					const rRaw = Number(n && n.size);
+					const r = Number.isFinite(rRaw) ? Math.max(2, rRaw) * Math.max(1, scale / 2) : 6 * Math.max(1, scale / 2);
+					ctx.beginPath();
+					ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
+					ctx.fillStyle = (n && n.fill) ? String(n.fill) : '#1f2937';
+					ctx.fill();
+					// subtle stroke to sharpen
+					ctx.lineWidth = Math.max(1, scale / 2);
+					ctx.strokeStyle = 'rgba(0,0,0,0.08)';
+					ctx.stroke();
+				} catch (err) {}
+			});
+
+			// Labels (optional)
+			if (drawLabels) {
+				ctx.save();
+				ctx.textBaseline = 'middle';
+				nodes.forEach(n => {
+					try {
+						if (!n || !n.label) return;
+						const p = pos.get(String(n.id));
+						if (!p) return;
+						const rRaw = Number(n && n.size);
+						const r = Number.isFinite(rRaw) ? Math.max(2, rRaw) * Math.max(1, scale / 2) : 6 * Math.max(1, scale / 2);
+						const fontPx = Math.max(10, Math.min(26, Math.round((n.size || 14) * 0.9))) * Math.max(1, scale / 2);
+						ctx.font = `${fontPx}px Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif`;
+						ctx.fillStyle = '#111827';
+						// halo to improve readability
+						ctx.strokeStyle = 'rgba(255,255,255,0.85)';
+						ctx.lineWidth = Math.max(2, Math.round(scale));
+						ctx.strokeText(String(n.label), p.x + r + 6 * Math.max(1, scale / 2), p.y);
+						ctx.fillText(String(n.label), p.x + r + 6 * Math.max(1, scale / 2), p.y);
+					} catch (err) {}
+				});
+				ctx.restore();
+			}
+
+			const dataUrl = (canvas.toDataURL && typeof canvas.toDataURL === 'function') ? canvas.toDataURL('image/png') : null;
+			return dataUrl;
+		} catch (err) { return null; }
+	}
+
+	// Export SVG representation of current graph render data (vector, crisp at any zoom)
+	function exportSVG(options = {}) {
+		try {
+			const scale = Number.isFinite(options.scale) ? Number(options.scale) : 4; // used to set width/height, not viewBox precision
+			const margin = Number.isFinite(options.margin) ? Number(options.margin) : 24;
+			const bg = (options.background == null) ? '#ffffff' : String(options.background);
+			const drawLabels = options.drawLabels !== false;
+
+			const { pos, edges } = computePositionsForExport();
+			const ids = Array.from(pos.keys());
+			if (!ids.length) return null;
+
+			// Compute bounds including an estimated node radius margin
+			let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
+			ids.forEach((id) => {
+				const p = pos.get(id);
+				if (!p) return;
+				if (p.x < minX) minX = p.x; if (p.x > maxX) maxX = p.x;
+				if (p.y < minY) minY = p.y; if (p.y > maxY) maxY = p.y;
+			});
+			const widthUnits = Math.max(1, maxX - minX) + margin * 2;
+			const heightUnits = Math.max(1, maxY - minY) + margin * 2;
+			const outW = Math.round(widthUnits * scale);
+			const outH = Math.round(heightUnits * scale);
+			const mapX = x => (x - minX + margin) * scale;
+			const mapY = y => (y - minY + margin) * scale;
+
+			function escapeXml(s) {
+				return String(s).replace(/[&<>"]/g, (ch) => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;' }[ch]));
+			}
+			function parseColor(c, fallback) {
+				try {
+					if (!c) return { color: fallback || '#1f2937', opacity: 1 };
+					const s = String(c).trim();
+					if (s.startsWith('#')) return { color: s, opacity: 1 };
+					const m = s.match(/rgba?\(([^)]+)\)/i);
+					if (m) {
+						const parts = m[1].split(',').map(x => x.trim());
+						const r = Math.max(0, Math.min(255, parseInt(parts[0], 10) || 0));
+						const g = Math.max(0, Math.min(255, parseInt(parts[1], 10) || 0));
+						const b = Math.max(0, Math.min(255, parseInt(parts[2], 10) || 0));
+						const a = parts[3] != null ? Math.max(0, Math.min(1, parseFloat(parts[3]) || 0)) : 1;
+						const hex = '#' + [r,g,b].map(v => v.toString(16).padStart(2, '0')).join('');
+						return { color: hex, opacity: a };
+					}
+					// named colors or others
+					return { color: s, opacity: 1 };
+				} catch (e) { return { color: fallback || '#1f2937', opacity: 1 }; }
+			}
+
+			const parts = [];
+			parts.push('<?xml version="1.0" encoding="UTF-8"?>');
+			parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${outW}" height="${outH}" viewBox="0 0 ${outW} ${outH}" version="1.1">`);
+			if (bg) parts.push(`<rect x="0" y="0" width="${outW}" height="${outH}" fill="${escapeXml(bg)}"/>`);
+
+			// Edges
+			parts.push('<g stroke-linecap="round" stroke-linejoin="round" fill="none">');
+			edges.forEach(e => {
+				try {
+					const a = pos.get(String(e.source));
+					const b = pos.get(String(e.target));
+					if (!a || !b) return;
+					const p1 = { x: mapX(a.x), y: mapY(a.y) };
+					const p2 = { x: mapX(b.x), y: mapY(b.y) };
+					const col = parseColor(e && e.fill, 'rgba(30,41,59,0.65)');
+					const w = Number.isFinite(e && e.size) ? Math.max(0.75, Number(e.size)) : 1.2;
+					parts.push(`<path d="M ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} L ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}" stroke="${col.color}" stroke-opacity="${col.opacity}" stroke-width="${(w * Math.max(1, scale/2)).toFixed(2)}"/>`);
+				} catch (err) {}
+			});
+			parts.push('</g>');
+
+			// Nodes
+			parts.push('<g>');
+			(renderNodeArray || []).forEach(n => {
+				try {
+					const p = pos.get(String(n.id)); if (!p) return;
+					const cx = mapX(p.x); const cy = mapY(p.y);
+					const r = Number.isFinite(n && n.size) ? Math.max(2, Number(n.size) * Math.max(1, scale/2)) : 6 * Math.max(1, scale/2);
+					const fillCol = parseColor(n && n.fill, '#1f2937');
+					const strokeCol = parseColor('rgba(0,0,0,0.08)', '#000000');
+					parts.push(`<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${r.toFixed(2)}" fill="${fillCol.color}" fill-opacity="${fillCol.opacity}" stroke="${strokeCol.color}" stroke-opacity="${strokeCol.opacity}" stroke-width="${Math.max(0.5, Math.round(scale/2))}"/>`);
+
+					if (drawLabels && n.label) {
+						const fontPx = Math.max(10, Math.min(26, Math.round((n.size || 14) * 0.9))) * Math.max(1, scale/2);
+						const tx = cx + r + 6 * Math.max(1, scale/2);
+						const ty = cy;
+						const text = escapeXml(String(n.label));
+						parts.push(`<text x="${tx.toFixed(2)}" y="${ty.toFixed(2)}" font-size="${fontPx}" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" dominant-baseline="middle" fill="#111827" stroke="#ffffff" stroke-width="${Math.max(2, Math.round(scale))}" paint-order="stroke fill">${text}</text>`);
+					}
+				} catch (err) {}
+			});
+			parts.push('</g>');
+
+			parts.push('</svg>');
+			const svg = parts.join('');
+			try {
+				const blob = new Blob([svg], { type: 'image/svg+xml;charset=utf-8' });
+				const url = URL.createObjectURL(blob);
+				return { blobUrl: url, revoke: () => { try { URL.revokeObjectURL(url); } catch (e) {} } };
+			} catch (e) {
+				return `data:image/svg+xml;charset=utf-8,${encodeURIComponent(svg)}`;
+			}
+		} catch (err) { return null; }
+	}
+
 	function attachCanvasRef(instance) {
 		canvasRef.current = instance;
 		if (!instance) return;
@@ -1077,6 +1531,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		impl: 'reagraph',
 		noop: false,
 		getInstance: () => canvasRef.current,
+		exportPNG,
+		exportSVG,
 		getAggregateEdges() { return !!aggregateEdgesEnabled; },
 		setAggregateEdges(value) {
 			try {

@@ -1407,6 +1407,63 @@ export default function TopogramDetail() {
     } catch (e) { console.warn('reset failed', e) }
   }
 
+  // Export helpers (Reagraph)
+  const doExportReagraphPNG = async () => {
+    try {
+      const adapter = reagraphAdapterRef.current
+      if (!adapter || adapter.impl !== 'reagraph') return
+      // Fit all nodes into view so the export captures the whole graph
+      try { if (typeof adapter.fit === 'function') adapter.fit() } catch (e) {}
+      await new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(res)))
+
+      // Use the adapter's PNG exporter for crisp, high-res output
+      const dataUrl = (typeof adapter.exportPNG === 'function') ? adapter.exportPNG({ scale: 4, margin: 24, background: '#ffffff', drawLabels: true }) : null
+      if (dataUrl) {
+        const a = document.createElement('a')
+        const dt = new Date()
+        const ts = dt.toISOString().replace(/[:.]/g, '-')
+        a.href = dataUrl
+        a.download = `topogram-graph-${ts}.png`
+        document.body.appendChild(a)
+        a.click()
+        document.body.removeChild(a)
+      }
+    } catch (err) {
+      console.warn('Export PNG failed', err)
+    }
+  }
+
+  const doExportReagraphSVG = async () => {
+    try {
+      const adapter = reagraphAdapterRef.current
+      if (!adapter || adapter.impl !== 'reagraph') return
+      try { if (typeof adapter.fit === 'function') adapter.fit() } catch (e) {}
+      await new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(res)))
+      const result = (typeof adapter.exportSVG === 'function') ? adapter.exportSVG({ scale: 4, margin: 24, background: '#ffffff', drawLabels: true }) : null
+      if (!result) return
+      let href = null
+      let revoke = null
+      if (typeof result === 'string') {
+        href = result
+      } else if (result && result.blobUrl) {
+        href = result.blobUrl
+        revoke = result.revoke
+      }
+      if (!href) return
+      const a = document.createElement('a')
+      const dt = new Date()
+      const ts = dt.toISOString().replace(/[:.]/g, '-')
+      a.href = href
+      a.download = `topogram-graph-${ts}.svg`
+      document.body.appendChild(a)
+      a.click()
+      document.body.removeChild(a)
+      if (typeof revoke === 'function') setTimeout(() => { try { revoke() } catch (e) {} }, 1000)
+    } catch (err) {
+      console.warn('Export SVG failed', err)
+    }
+  }
+
   // Helper: apply timeline visibility when cyRef.current is a Sigma adapter
   const applyTimelineToSigmaAdapter = (adapter, vr, hasTimeInfo) => {
     try {
@@ -1985,6 +2042,11 @@ export default function TopogramDetail() {
                     ) : null}
                   </div>
                   {networkView}
+                  {impl === 'reagraph' ? (
+                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
+                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
+                    </div>
+                  ) : null}
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
@@ -2125,6 +2187,11 @@ export default function TopogramDetail() {
                       />
                     )
                   }
+                  {impl === 'reagraph' ? (
+                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
+                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
+                    </div>
+                  ) : null}
                 </div>
                 <div style={{ width: '50%', height: visualHeight, border: '1px solid #ccc' }}>
                   {/* debug: sample geoNodes weights passed to GeoMap */}
@@ -2231,6 +2298,11 @@ export default function TopogramDetail() {
                       />
                     )
                   }
+                  {impl === 'reagraph' ? (
+                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
+                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
+                    </div>
+                  ) : null}
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
