@@ -364,6 +364,9 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	let renderQueued = false;
 	let disposed = false;
 
+	// One-shot override to force labels visible on next render (used for PNG export)
+	let forceLabelDrawAll = false;
+
 	// Reuse a single React root per container to avoid double createRoot warnings
 	let root = container.__reagraphRoot || null;
 	if (!root) {
@@ -595,7 +598,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		const edgeCount = safeEdgeArray.length;
 		const heavyGraph = nodeCount > LARGE_NODE_THRESHOLD || edgeCount > LARGE_EDGE_THRESHOLD;
 		const layoutType = mapLayoutNameToReagraph(currentLayoutName);
-		const labelType = nodeCount > LABEL_SWITCH_THRESHOLD ? 'hover' : 'all';
+		const labelType = forceLabelDrawAll ? 'all' : (nodeCount > LABEL_SWITCH_THRESHOLD ? 'hover' : 'all');
 		const graphSnapshot = runtimeFlags.noGraph ? null : buildGraphSnapshot(renderNodeArray, safeEdgeArray);
 
 		// Debug diagnostics: validate edges/nodes and expose a snapshot for inspection
@@ -684,6 +687,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			},
 		});
 		root.render(element);
+		// Consume one-shot label override after issuing this render
+		if (forceLabelDrawAll) forceLabelDrawAll = false;
 
 		// Attach a WebGL context lost listener for debugging if possible
 		if (isDebugEnabled) {
@@ -966,115 +971,147 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	// an offscreen 2D canvas using the current render data (post-fit geometry).
 	// This avoids WebGL screenshot artifacts and gives crisp output.
 	function exportPNG(options = {}) {
+		// Capture the current on-screen view by copying the visible WebGL canvas
+		// into a 2D canvas (works even when preserveDrawingBuffer=false in many
+		// browsers). Fill a white background to avoid transparent/black exports.
 		try {
-			const scale = Number.isFinite(options.scale) ? Number(options.scale) : 4;
-			const margin = Number.isFinite(options.margin) ? Number(options.margin) : 24;
-			const bg = (options.background == null) ? '#ffffff' : String(options.background);
-			const drawLabels = options.drawLabels !== false;
+			const list = container && container.querySelectorAll ? Array.from(container.querySelectorAll('canvas')) : [];
+			if (!list || !list.length) return null;
+			// pick the largest canvas by pixel area (some UIs have overlay canvases)
+			const sorted = list.slice().sort((a,b) => ((b.width*b.height) - (a.width*a.height)));
+			const tryCopy = (src) => {
+				if (!src || !src.width || !src.height) return null;
+				const out = document.createElement('canvas');
+				out.width = src.width;
+				out.height = src.height;
+				const ctx = out.getContext('2d', { alpha: false });
+				if (!ctx) return null;
+				ctx.fillStyle = (options && options.background) ? String(options.background) : '#ffffff';
+				ctx.fillRect(0, 0, out.width, out.height);
+				ctx.drawImage(src, 0, 0);
+				// sample a few points to detect pure white result (indicates blank copy)
+				try {
+					const pts = [
+						[Math.min(out.width-1, Math.floor(out.width*0.5)), Math.min(out.height-1, Math.floor(out.height*0.5))],
+						[Math.min(out.width-1, 4), Math.min(out.height-1, 4)],
+						[Math.min(out.width-1, out.width-5), Math.min(out.height-1, out.height-5)]
+					];
+					let nonWhite = 0;
+					pts.forEach(([x,y]) => {
+						const d = ctx.getImageData(x, y, 1, 1).data;
+						if (!(d[0] === 255 && d[1] === 255 && d[2] === 255)) nonWhite += 1;
+					});
+					if (nonWhite === 0) return null; // looked blank
+				} catch (e) { /* ignore sampling issues; assume good */ }
+				return out.toDataURL('image/png');
+			};
+			// Try main candidate then fallbacks
+			let dataUrl = null;
+			for (let i = 0; i < sorted.length; i += 1) {
+				dataUrl = tryCopy(sorted[i]);
+				if (dataUrl) break;
+			}
+			if (dataUrl) return dataUrl;
+		} catch (e) { /* ignore and fallback to vector */ }
 
+		// Fallback: draw using render data (with labels/emojis/arrows) to avoid a blank export.
+		// This won’t perfectly match pan/zoom but guarantees a complete PNG.
+		try {
 			const { pos, edges } = computePositionsForExport();
 			const ids = Array.from(pos.keys());
 			if (!ids.length) return null;
-
-			// Compute bounds from computed positions
 			let minX = Infinity, minY = Infinity, maxX = -Infinity, maxY = -Infinity;
 			ids.forEach((id) => {
-				const p = pos.get(id);
-				if (!p) return;
+				const p = pos.get(id); if (!p) return;
 				if (p.x < minX) minX = p.x; if (p.x > maxX) maxX = p.x;
 				if (p.y < minY) minY = p.y; if (p.y > maxY) maxY = p.y;
 			});
 			if (!Number.isFinite(minX) || !Number.isFinite(minY) || !Number.isFinite(maxX) || !Number.isFinite(maxY)) return null;
-
+			const margin = Number.isFinite(options.margin) ? Number(options.margin) : 24;
+			const scale = Number.isFinite(options.scale) ? Number(options.scale) : 2;
+			const bg = (options.background == null) ? '#ffffff' : String(options.background);
 			const widthUnits = Math.max(1, maxX - minX) + margin * 2;
 			const heightUnits = Math.max(1, maxY - minY) + margin * 2;
 			const outW = Math.round(widthUnits * scale);
 			const outH = Math.round(heightUnits * scale);
-
-			// Build a fast lookup for node positions in output space
-			const mapX = x => (x - minX + margin) * scale;
-			const mapY = y => (y - minY + margin) * scale;
-
+			const mapX = (x) => (x - minX + margin) * scale;
+			const mapY = (y) => (y - minY + margin) * scale;
 			const canvas = document.createElement('canvas');
 			canvas.width = outW; canvas.height = outH;
-			const ctx = canvas.getContext('2d', { alpha: true });
+			const ctx = canvas.getContext('2d', { alpha: false });
 			if (!ctx) return null;
-			ctx.imageSmoothingEnabled = true;
-			ctx.imageSmoothingQuality = 'high';
-
-			// Background
-			try { ctx.save(); ctx.fillStyle = bg; ctx.fillRect(0, 0, outW, outH); ctx.restore(); } catch (e) {}
-
-			// Map node id -> screen coords
-			const screenPos = new Map();
-			ids.forEach((id) => {
-				const p = pos.get(id);
-				if (!p) return; screenPos.set(id, { x: mapX(p.x), y: mapY(p.y) });
-			});
-
-			// Draw edges first
-			ctx.save();
-			edges.forEach(e => {
+			ctx.fillStyle = bg; ctx.fillRect(0, 0, outW, outH);
+			// edges + arrowheads
+			edges.forEach((e) => {
 				try {
-					const a = screenPos.get(String(e.source));
-					const b = screenPos.get(String(e.target));
-					if (!a || !b) return;
-					ctx.beginPath();
-					ctx.moveTo(a.x, a.y);
-					ctx.lineTo(b.x, b.y);
+					const a = pos.get(String(e.source)); const b = pos.get(String(e.target)); if (!a||!b) return;
+					const x1 = mapX(a.x), y1 = mapY(a.y); const x2 = mapX(b.x), y2 = mapY(b.y);
+					ctx.beginPath(); ctx.moveTo(x1, y1); ctx.lineTo(x2, y2);
 					ctx.strokeStyle = e && e.fill ? String(e.fill) : 'rgba(30,41,59,0.6)';
-					const w = Number(e && e.size);
-					ctx.lineWidth = Number.isFinite(w) ? Math.max(1, w) * Math.max(1, scale / 2) : Math.max(1, scale);
-					ctx.stroke();
-				} catch (err) {}
-			});
-			ctx.restore();
-
-			// Draw nodes
-			(renderNodeArray || []).forEach(n => {
-				try {
-					const p = screenPos.get(String(n.id));
-					if (!p) return;
-					const rRaw = Number(n && n.size);
-					const r = Number.isFinite(rRaw) ? Math.max(2, rRaw) * Math.max(1, scale / 2) : 6 * Math.max(1, scale / 2);
-					ctx.beginPath();
-					ctx.arc(p.x, p.y, r, 0, Math.PI * 2);
-					ctx.fillStyle = (n && n.fill) ? String(n.fill) : '#1f2937';
-					ctx.fill();
-					// subtle stroke to sharpen
-					ctx.lineWidth = Math.max(1, scale / 2);
-					ctx.strokeStyle = 'rgba(0,0,0,0.08)';
-					ctx.stroke();
-				} catch (err) {}
-			});
-
-			// Labels (optional)
-			if (drawLabels) {
-				ctx.save();
-				ctx.textBaseline = 'middle';
-				nodes.forEach(n => {
+					const w = Number(e && e.size); const lw = Number.isFinite(w) ? Math.max(1, w) : 1;
+					ctx.lineWidth = lw; ctx.stroke();
+					// arrowhead if enlightenment says so
 					try {
-						if (!n || !n.label) return;
-						const p = pos.get(String(n.id));
-						if (!p) return;
-						const rRaw = Number(n && n.size);
-						const r = Number.isFinite(rRaw) ? Math.max(2, rRaw) * Math.max(1, scale / 2) : 6 * Math.max(1, scale / 2);
-						const fontPx = Math.max(10, Math.min(26, Math.round((n.size || 14) * 0.9))) * Math.max(1, scale / 2);
-						ctx.font = `${fontPx}px Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif`;
-						ctx.fillStyle = '#111827';
-						// halo to improve readability
-						ctx.strokeStyle = 'rgba(255,255,255,0.85)';
-						ctx.lineWidth = Math.max(2, Math.round(scale));
-						ctx.strokeText(String(n.label), p.x + r + 6 * Math.max(1, scale / 2), p.y);
-						ctx.fillText(String(n.label), p.x + r + 6 * Math.max(1, scale / 2), p.y);
-					} catch (err) {}
-				});
-				ctx.restore();
-			}
-
-			const dataUrl = (canvas.toDataURL && typeof canvas.toDataURL === 'function') ? canvas.toDataURL('image/png') : null;
-			return dataUrl;
-		} catch (err) { return null; }
+						if (e && e.data && (e.data.enlightement === 'arrow' || e.data.enlightement === 'arrowhead')) {
+							const ang = Math.atan2(y2 - y1, x2 - x1);
+							const ah = Math.max(6, lw * 4);
+							ctx.beginPath();
+							ctx.moveTo(x2, y2);
+							ctx.lineTo(x2 - ah * Math.cos(ang - Math.PI / 6), y2 - ah * Math.sin(ang - Math.PI / 6));
+							ctx.lineTo(x2 - ah * Math.cos(ang + Math.PI / 6), y2 - ah * Math.sin(ang + Math.PI / 6));
+							ctx.closePath(); ctx.fillStyle = ctx.strokeStyle; ctx.fill();
+						}
+					} catch (er2) {}
+				} catch (er) {}
+			});
+			// nodes
+			(renderNodeArray || []).forEach((n) => {
+				try {
+					const p = pos.get(String(n.id)); if (!p) return;
+					const rRaw = Number(n && n.size); const r = Number.isFinite(rRaw) ? Math.max(2, rRaw) : 6;
+					const x = mapX(p.x), y = mapY(p.y);
+					ctx.beginPath(); ctx.arc(x, y, r, 0, Math.PI*2);
+					ctx.fillStyle = (n && n.fill) ? String(n.fill) : '#1f2937'; ctx.fill();
+					// subtle outline
+					ctx.lineWidth = 1; ctx.strokeStyle = 'rgba(0,0,0,0.08)'; ctx.stroke();
+					// node label/emoji
+					try {
+						const em = (n && n.data && n.data.emoji) ? String(n.data.emoji) : (n && n.icon ? String(n.icon) : '');
+						const base = n && n.label ? String(n.label) : '';
+						const text = (em ? `${em} ${base}` : base).trim();
+						if (text) {
+							ctx.font = `${Math.max(10, Math.min(26, Math.round((n.size || 14) * 0.9)))}px Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif`;
+							ctx.textBaseline = 'middle';
+							// halo
+							ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.strokeText(text, x + r + 6, y);
+							ctx.fillStyle = '#111827'; ctx.fillText(text, x + r + 6, y);
+						}
+					} catch (er3) {}
+				} catch (er) {}
+			});
+			// edge labels
+			edges.forEach((e) => {
+				try {
+					const a = pos.get(String(e.source)); const b = pos.get(String(e.target)); if (!a||!b) return;
+					const x1 = mapX(a.x), y1 = mapY(a.y); const x2 = mapX(b.x), y2 = mapY(b.y);
+					const mx = (x1 + x2)/2, my = (y1 + y2)/2;
+					const emoji = (e && e.data && e.data.relationshipEmoji) ? String(e.data.relationshipEmoji) : '';
+					const base = (e && e.label) ? String(e.label) : ((e && e.data && (e.data.relationship || e.data.name)) ? String(e.data.relationship || e.data.name) : '');
+					const text = (emoji ? `${emoji} ${base}` : base).trim(); if (!text) return;
+					ctx.save();
+					ctx.translate(mx, my);
+					ctx.rotate(Math.atan2(y2 - y1, x2 - x1));
+					ctx.font = `10px Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif`;
+					ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+					ctx.lineWidth = 3; ctx.strokeStyle = 'rgba(255,255,255,0.9)'; ctx.strokeText(text, 0, 0);
+					ctx.fillStyle = '#111827'; ctx.fillText(text, 0, 0);
+					ctx.restore();
+				} catch (er) {}
+			});
+			return canvas.toDataURL('image/png');
+		} catch (e) {
+			return null;
+		}
 	}
 
 	// Export SVG representation of current graph render data (vector, crisp at any zoom)
@@ -1130,6 +1167,10 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			const parts = [];
 			parts.push('<?xml version="1.0" encoding="UTF-8"?>');
 			parts.push(`<svg xmlns="http://www.w3.org/2000/svg" width="${outW}" height="${outH}" viewBox="0 0 ${outW} ${outH}" version="1.1">`);
+			// Arrowhead marker definition for edges with enlightenment "arrow"
+			parts.push('<defs>');
+			parts.push('<marker id="arrowhead" viewBox="0 0 10 10" refX="10" refY="5" markerWidth="8" markerHeight="8" orient="auto-start-reverse"><path d="M 0 0 L 10 5 L 0 10 z" fill="#000"/></marker>');
+			parts.push('</defs>');
 			if (bg) parts.push(`<rect x="0" y="0" width="${outW}" height="${outH}" fill="${escapeXml(bg)}"/>`);
 
 			// Edges
@@ -1143,10 +1184,21 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 					const p2 = { x: mapX(b.x), y: mapY(b.y) };
 					const col = parseColor(e && e.fill, 'rgba(30,41,59,0.65)');
 					const w = Number.isFinite(e && e.size) ? Math.max(0.75, Number(e.size)) : 1.2;
-					parts.push(`<path d="M ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} L ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}" stroke="${col.color}" stroke-opacity="${col.opacity}" stroke-width="${(w * Math.max(1, scale/2)).toFixed(2)}"/>`);
+					let extra = '';
+					try { if (e && e.data && (e.data.enlightement === 'arrow' || e.data.enlightement === 'arrowhead')) extra = ' marker-end="url(#arrowhead)"'; } catch (er) {}
+					parts.push(`<path d="M ${p1.x.toFixed(2)} ${p1.y.toFixed(2)} L ${p2.x.toFixed(2)} ${p2.y.toFixed(2)}" stroke="${col.color}" stroke-opacity="${col.opacity}" stroke-width="${(w * Math.max(1, scale/2)).toFixed(2)}"${extra}/>`);
 				} catch (err) {}
 			});
 			parts.push('</g>');
+
+			// Helper to pull a node emoji if present
+			function nodeEmoji(n) {
+				try {
+					if (n && n.data && n.data.emoji) return String(n.data.emoji);
+					if (n && n.icon) return String(n.icon);
+				} catch (e) {}
+				return '';
+			}
 
 			// Nodes
 			parts.push('<g>');
@@ -1159,16 +1211,39 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 					const strokeCol = parseColor('rgba(0,0,0,0.08)', '#000000');
 					parts.push(`<circle cx="${cx.toFixed(2)}" cy="${cy.toFixed(2)}" r="${r.toFixed(2)}" fill="${fillCol.color}" fill-opacity="${fillCol.opacity}" stroke="${strokeCol.color}" stroke-opacity="${strokeCol.opacity}" stroke-width="${Math.max(0.5, Math.round(scale/2))}"/>`);
 
-					if (drawLabels && n.label) {
+					if (drawLabels && (n.label || nodeEmoji(n))) {
 						const fontPx = Math.max(10, Math.min(26, Math.round((n.size || 14) * 0.9))) * Math.max(1, scale/2);
 						const tx = cx + r + 6 * Math.max(1, scale/2);
 						const ty = cy;
-						const text = escapeXml(String(n.label));
+						const em = nodeEmoji(n);
+						const base = n.label ? String(n.label) : '';
+						const text = escapeXml(em ? `${em} ${base}` : base);
 						parts.push(`<text x="${tx.toFixed(2)}" y="${ty.toFixed(2)}" font-size="${fontPx}" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" dominant-baseline="middle" fill="#111827" stroke="#ffffff" stroke-width="${Math.max(2, Math.round(scale))}" paint-order="stroke fill">${text}</text>`);
 					}
 				} catch (err) {}
 			});
 			parts.push('</g>');
+
+			// Edge labels (centered on each edge)
+			if (drawLabels) {
+				parts.push('<g>');
+				edges.forEach(e => {
+					try {
+						const a = pos.get(String(e.source)); const b = pos.get(String(e.target)); if (!a || !b) return;
+						const x1 = mapX(a.x), y1 = mapY(a.y); const x2 = mapX(b.x), y2 = mapY(b.y);
+						const mx = (x1 + x2) / 2; const my = (y1 + y2) / 2;
+						const dx = x2 - x1; const dy = y2 - y1; const angle = Math.atan2(dy, dx) * 180 / Math.PI;
+						const fontPx = 10 * Math.max(1, scale/2);
+						const emoji = (e && e.data && e.data.relationshipEmoji) ? String(e.data.relationshipEmoji) : '';
+						const base = (e && e.label) ? String(e.label) : ((e && e.data && (e.data.relationship || e.data.name)) ? String(e.data.relationship || e.data.name) : '');
+						const text = (emoji ? `${emoji} ` : '') + base;
+						if (!text || !text.trim()) return;
+						const esc = escapeXml(text);
+						parts.push(`<text x="${mx.toFixed(2)}" y="${my.toFixed(2)}" font-size="${fontPx}" font-family="Inter, system-ui, -apple-system, Segoe UI, Roboto, Helvetica, Arial, sans-serif" dominant-baseline="middle" text-anchor="middle" transform="rotate(${angle.toFixed(2)} ${mx.toFixed(2)} ${my.toFixed(2)})" fill="#111827" stroke="#ffffff" stroke-width="${Math.max(2, Math.round(scale))}" paint-order="stroke fill">${esc}</text>`);
+					} catch (er) {}
+				});
+				parts.push('</g>');
+			}
 
 			parts.push('</svg>');
 			const svg = parts.join('');
@@ -1533,6 +1608,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		getInstance: () => canvasRef.current,
 		exportPNG,
 		exportSVG,
+		// Allow callers to force labels visible for a single render before a capture
+		forceLabelsOnce() { try { forceLabelDrawAll = true; performRender(false); return true; } catch (e) { return false; } },
 		getAggregateEdges() { return !!aggregateEdgesEnabled; },
 		setAggregateEdges(value) {
 			try {
