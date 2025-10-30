@@ -3,7 +3,6 @@ import React from 'react'
 import PanelSelector from './panelSelector/PanelSelector.jsx'
 
 import NetworkOptions from './networkOptions/NetworkOptions.jsx'
-import GeoMapOptions from './geoMapOptions/GeoMapOptions.jsx'
 import Settings from './settings/Settings.jsx'
 
 const PanelSettings = ({
@@ -20,41 +19,7 @@ const PanelSettings = ({
   <span>
     <div style={{ fontSize: 14, fontWeight: 600, color: '#2e7d32', marginBottom: 8 }}>Settings</div>
 
-    {/* Option buttons (open the options panels) */}
-    <div style={{ display: 'flex', gap: 8, margin: '8px 0' }}>
-      <button
-        aria-pressed={false}
-        disabled={!hasGeoInfo}
-        onClick={() => {
-          try {
-            const cur = window.localStorage ? window.localStorage.getItem('topo.geoMapOptionsVisible') : null
-            const next = cur === 'true' ? false : true
-            window.localStorage && window.localStorage.setItem('topo.geoMapOptionsVisible', String(next))
-            window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { geoMapOptionsVisible: next } }))
-          } catch (e) { console.warn('toggle geoMapOptionsVisible failed', e) }
-        }}
-        style={{ background: hasGeoInfo ? '#2e7d32' : '#bdbdbd', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: hasGeoInfo ? 'pointer' : 'not-allowed' }}
-      >
-        { hasGeoInfo ? 'Geomap options' : 'No Geo' }
-      </button>
-
-      <button
-        aria-pressed={false}
-        onClick={() => {
-          try {
-            const cur = window.localStorage ? window.localStorage.getItem('topo.networkOptionsVisible') : null
-            const next = cur === 'true' ? false : true
-            window.localStorage && window.localStorage.setItem('topo.networkOptionsVisible', String(next))
-            window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { networkOptionsVisible: next } }))
-          } catch (e) { console.warn('toggle networkOptionsVisible failed', e) }
-        }}
-        style={{ background: '#2e7d32', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
-      >
-        Network options
-      </button>
-    </div>
-
-    {/* View show/hide buttons (show or hide the actual GeoMap / Network panes) */}
+    {/* View show/hide buttons (show or hide the actual panes) */}
     <div style={{ display: 'flex', gap: 8, margin: '8px 0' }}>
       <button
         aria-pressed={geoMapVisible}
@@ -102,6 +67,9 @@ const PanelSettings = ({
       >
         { (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('topo.timeLineVisible') === 'true') ? 'Hide Timeline' : 'Show Timeline' }
       </button>
+    </div>
+    {/* Second row: Selection, Charts, Debug */}
+    <div style={{ display: 'flex', gap: 8, margin: '8px 0' }}>
       {/* Selection panel show/hide button */}
       <button
         aria-pressed={typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.selectionPanelPinned') === 'true' : false}
@@ -159,8 +127,8 @@ const PanelSettings = ({
       hasGeoInfo={ hasGeoInfo }
     />
 
-    { geoMapVisible ? <GeoMapOptions/> : null }
-    <NetworkOptions/>
+    {/* Geomap options panel removed; consolidated into NetworkOptions */}
+    <NetworkOptions hasGeoInfo={hasGeoInfo} />
     {
       authorIsLoggedIn ?
       <Settings

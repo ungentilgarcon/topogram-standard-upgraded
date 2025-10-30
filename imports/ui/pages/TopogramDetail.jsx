@@ -503,6 +503,93 @@ export default function TopogramDetail() {
     return () => window.removeEventListener('topo:panelToggle', handler)
   }, [])
 
+  // Listen for network options changes dispatched by NetworkOptions inside the side panel
+  useEffect(() => {
+    const handler = (evt) => {
+      try {
+        const d = evt && evt.detail
+        if (!d) return
+        if (Object.prototype.hasOwnProperty.call(d, 'graphAdapter')) {
+          const v = d.graphAdapter || null
+          setGraphAdapter(v)
+          try { if (typeof window !== 'undefined' && window.localStorage) { if (v) window.localStorage.setItem('topo.graphAdapter', v); else window.localStorage.removeItem('topo.graphAdapter') } } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'layout')) {
+          const v = d.layout || 'auto'
+          setSelectedLayout(v)
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'titleSize')) {
+          const v = Number(d.titleSize) || 12
+          setTitleSize(v)
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'nodeSizeMode')) {
+          const v = d.nodeSizeMode || 'weight'
+          setNodeSizeMode(v)
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.nodeSizeMode', v) } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'nodeLabelMode')) {
+          const v = d.nodeLabelMode || 'name'
+          setNodeLabelMode(v)
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.nodeLabelMode', v) } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'edgeRelLabelMode')) {
+          const v = d.edgeRelLabelMode || 'text'
+          setEdgeRelLabelMode(v)
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.edgeRelLabelMode', v) } catch (e) {}
+        }
+
+        // Geo-related: delegate to updateUI and keep local state in sync when applicable
+        if (Object.prototype.hasOwnProperty.call(d, 'geoMapRenderer')) {
+          try { updateUI('geoMapRenderer', d.geoMapRenderer) } catch (e) {}
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoMapRenderer', d.geoMapRenderer) } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'geoMapTile')) {
+          try { updateUI('geoMapTile', d.geoMapTile) } catch (e) {}
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoMapTile', d.geoMapTile) } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'geoEdgeRelVisible')) {
+          const v = !!d.geoEdgeRelVisible
+          setGeoEdgeRelVisible(v)
+          try { updateUI('geoEdgeRelVisible', v) } catch (e) {}
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoEdgeRelVisible', String(v)) } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'geoEdgeLabelAggregate')) {
+          const v = !!d.geoEdgeLabelAggregate
+          try { updateUI('geoEdgeLabelAggregate', v) } catch (e) {}
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoEdgeLabelAggregate', String(v)) } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'emojiVisible')) {
+          const v = !!d.emojiVisible
+          setEmojiVisible(v)
+          try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.emojiVisible', String(v)) } catch (e) {}
+        }
+
+        // Advanced actions
+        if (Object.prototype.hasOwnProperty.call(d, 'aggregateEdges')) {
+          try {
+            if (reagraphAdapterRef.current && typeof reagraphAdapterRef.current.setAggregateEdges === 'function') {
+              reagraphAdapterRef.current.setAggregateEdges(!!d.aggregateEdges)
+            }
+          } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'exportSVG')) {
+          try { if (d.exportSVG) doExportReagraphSVG() } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'exportCSV')) {
+          try { if (d.exportCSV && typeof exportTopogramCsv === 'function') exportTopogramCsv() } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'fixView')) {
+          try { if (d.fixView) doFixView() } catch (e) {}
+        }
+        if (Object.prototype.hasOwnProperty.call(d, 'resetView')) {
+          try { if (d.resetView) doReset() } catch (e) {}
+        }
+      } catch (e) { console.warn('networkOptionsChanged handler error', e) }
+    }
+    window.addEventListener('topo:networkOptionsChanged', handler)
+    return () => window.removeEventListener('topo:networkOptionsChanged', handler)
+  }, [])
+
   // Cleanup any global cy exposure on unmount
   useEffect(() => {
     return () => { try { if (window && window._topoCy) delete window._topoCy } catch (e) {} }
@@ -1796,118 +1883,7 @@ export default function TopogramDetail() {
       <p><Link to="/">Back to list</Link></p>
       {/* controls row */}
 
-      <div style={{ marginBottom: 8, display: 'flex', gap: 12, alignItems: 'center' }}>
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Layout:
-          <select value={selectedLayout} onChange={e => setSelectedLayout(e.target.value)}>
-            <option value="auto">auto</option>
-            <option value="preset">preset</option>
-            <option value="cola">cola</option>
-            <option value="grid">grid</option>
-            <option value="breadthfirst">breadthfirst</option>
-            <option value="random">random</option>
-          </select>
-        </label>
-
-          {/* Import CSV moved to the main Home page */}
-          <button onClick={() => exportTopogramCsv && exportTopogramCsv()} className="export-button" style={{ marginLeft: 8 }}>Export CSV</button>
-          {/* Quick rescue: force a resize/center/fit when the network appears blank */}
-          <button onClick={() => { try { doFixView() } catch(e){} }} className="cy-control-btn" style={{ marginLeft: 8, padding: '4px 8px' }} title="Force Cytoscape to resize, center and fit">Fix view</button>
-
-        {/* Graph adapter selector: user choice overrides query param/defaults. Placed between Fix view and Title size */}
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Renderer:
-          <select value={graphAdapter || ''} onChange={e => { const v = e.target.value || null; setGraphAdapter(v); try { if (v) window.localStorage.setItem('topo.graphAdapter', v); else window.localStorage.removeItem('topo.graphAdapter'); } catch(e){} }} style={{ minWidth: 120 }}>
-            <option value="">(auto)</option>
-            <option value="cytoscape">cytoscape</option>
-            <option value="sigma">sigma</option>
-            <option value="reagraph">reagraph</option>
-          </select>
-        </label>
-
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Map renderer:
-          <select value={effectiveGeoMapRenderer} onChange={e => { const v = e.target.value || 'leaflet'; try { updateUI('geoMapRenderer', v); if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoMapRenderer', v); } catch (err) {} }} style={{ minWidth: 120 }}>
-            <option value="leaflet">Leaflet</option>
-            <option value="maplibre">MapLibre</option>
-            <option value="cesium">Cesium</option>
-          </select>
-        </label>
-
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Map background:
-          <select
-            value={effectiveGeoMapTile}
-            onChange={e => {
-              const next = e.target.value || 'default'
-              try { updateUI('geoMapTile', next) } catch (err) {}
-              try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.geoMapTile', next) } catch (err) {}
-            }}
-            style={{ minWidth: 160 }}
-            disabled={!rendererTileOptions.length}
-            title={(rendererTileOptions.find(opt => opt && opt.id === effectiveGeoMapTile)?.description) || ''}
-          >
-            {
-              rendererTileOptions.length ? (
-                rendererTileOptions.map(opt => (
-                  <option key={opt.id} value={opt.id}>{opt.label}</option>
-                ))
-              ) : (
-                <option value="default">Default</option>
-              )
-            }
-          </select>
-        </label>
-
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Title size:
-          <input type="range" min={8} max={36} value={titleSize} onChange={e => setTitleSize(Number(e.target.value))} />
-          <span style={{ minWidth: 36, textAlign: 'right' }}>{titleSize}px</span>
-        </label>
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Node size:
-          <select value={nodeSizeMode} onChange={e => { const v = e.target.value || 'weight'; setNodeSizeMode(v); try { window.localStorage.setItem('topo.nodeSizeMode', v) } catch (err) {} }}>
-            <option value="weight">by weight</option>
-            <option value="degree">by degree</option>
-          </select>
-          <span title="Choose how node size is computed: 'by weight' uses node.data.weight (often from import); 'by degree' sizes nodes by the number of incident edges." style={{ fontSize: 12, color: '#666', marginLeft: 6, cursor: 'help' }}>?
-          </span>
-        </label>
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Node labels:
-          <select value={nodeLabelMode} onChange={e => { const v = e.target.value; setNodeLabelMode(v); try { window.localStorage.setItem('topo.nodeLabelMode', v) } catch (err) {} }}>
-            <option value="name">Name</option>
-            <option value="emoji">Emoji</option>
-            <option value="both">Both</option>
-          </select>
-        </label>
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          Edge labels:
-          <select value={edgeRelLabelMode} onChange={e => { const v = e.target.value; setEdgeRelLabelMode(v); try { window.localStorage.setItem('topo.edgeRelLabelMode', v) } catch (err) {} }}>
-            <option value="text">Text</option>
-            <option value="emoji">Emoji</option>
-            <option value="both">Both</option>
-            <option value="none">None</option>
-          </select>
-        </label>
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <input type="checkbox" checked={geoEdgeRelVisible} onChange={e => updateUI('geoEdgeRelVisible', e.target.checked)} />
-          <span style={{ fontSize: 12 }}>Show GeoMap relationship labels</span>
-        </label>
-        {/* Geomap-only: aggregate duplicate edge labels into a single label with a multiplier */}
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <input
-            type="checkbox"
-            checked={geoEdgeLabelAggregate}
-            onChange={e => updateUI('geoEdgeLabelAggregate', e.target.checked)}
-          />
-          <span style={{ fontSize: 12 }}>Aggregate GeoMap edge labels</span>
-        </label>
-        <label style={{ display: 'flex', gap: 8, alignItems: 'center' }}>
-          <input type="checkbox" checked={emojiVisible} onChange={e => { const val = !!e.target.checked; setEmojiVisible(val); try { window.localStorage.setItem('topo.emojiVisible', val ? 'true' : 'false') } catch (err) {} }} />
-          <span style={{ fontSize: 12 }}>Show Geomap node emojis</span>
-        </label>
-      </div>
+    {/* controls moved into the side panel (Network options > Advanced) */}
 
       {/* If geo is present, render a split view: network on left, map on right */}
       {/** Decide if any node has geo coords **/}
@@ -2018,35 +1994,9 @@ export default function TopogramDetail() {
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
                     <button className="cy-control-btn" onClick={doFit}>Fit</button>
-                    <div className="cy-control-row">
-                      <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
-                    </div>
-                    {impl === 'reagraph' ? (
-                      <div className="cy-control-row">
-                        <button
-                          className="cy-control-btn"
-                          onClick={() => {
-                            try {
-                              const next = !reagraphAgg
-                              setReagraphAgg(next)
-                              if (reagraphAdapterRef.current && typeof reagraphAdapterRef.current.setAggregateEdges === 'function') {
-                                reagraphAdapterRef.current.setAggregateEdges(next)
-                              }
-                            } catch (e) {}
-                          }}
-                          title="Toggle aggregation of parallel edges (Reagraph only)"
-                        >
-                          {`Aggregate edges: ${reagraphAgg ? 'On' : 'Off'}`}
-                        </button>
-                      </div>
-                    ) : null}
                   </div>
                   {networkView}
-                  {impl === 'reagraph' ? (
-                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
-                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
-                    </div>
-                  ) : null}
+                  {/* Export/aggregate/reset moved to side panel (Advanced) */}
                 </div>
                 {(selectionPanelPinned || chartsVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
@@ -2141,9 +2091,6 @@ export default function TopogramDetail() {
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
                     <button className="cy-control-btn" onClick={doFit}>Fit</button>
-                    <div className="cy-control-row">
-                      <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
-                    </div>
                   </div>
                   {
                     (impl === 'sigma' || impl === 'reagraph') ? (
@@ -2189,11 +2136,7 @@ export default function TopogramDetail() {
                       />
                     )
                   }
-                  {impl === 'reagraph' ? (
-                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
-                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
-                    </div>
-                  ) : null}
+                  {/* Export moved to side panel (Advanced) */}
                 </div>
                 <div style={{ width: '50%', height: visualHeight, border: '1px solid #ccc' }}>
                   {/* debug: sample geoNodes weights passed to GeoMap */}
@@ -2229,28 +2172,6 @@ export default function TopogramDetail() {
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
                     <button className="cy-control-btn" onClick={doFit}>Fit</button>
-                    <div className="cy-control-row">
-                      <button className="cy-control-btn" onClick={() => { try { doReset() } catch(e){} }}>Reset</button>
-                    </div>
-                    {impl === 'reagraph' ? (
-                      <div className="cy-control-row">
-                        <button
-                          className="cy-control-btn"
-                          onClick={() => {
-                            try {
-                              const next = !reagraphAgg
-                              setReagraphAgg(next)
-                              if (reagraphAdapterRef.current && typeof reagraphAdapterRef.current.setAggregateEdges === 'function') {
-                                reagraphAdapterRef.current.setAggregateEdges(next)
-                              }
-                            } catch (e) {}
-                          }}
-                          title="Toggle aggregation of parallel edges (Reagraph only)"
-                        >
-                          {`Aggregate edges: ${reagraphAgg ? 'On' : 'Off'}`}
-                        </button>
-                      </div>
-                    ) : null}
                   </div>
                   {
                     (impl === 'sigma' || impl === 'reagraph') ? (
@@ -2300,11 +2221,7 @@ export default function TopogramDetail() {
                       />
                     )
                   }
-                  {impl === 'reagraph' ? (
-                    <div style={{ padding: 8, borderTop: '1px solid #eee', display: 'flex', gap: 8 }}>
-                      <button className="cy-control-btn" onClick={doExportReagraphSVG} title="Export the full graph as a vector SVG">Export SVG</button>
-                    </div>
-                  ) : null}
+                  {/* Export/aggregate/reset moved to side panel (Advanced) */}
                 </div>
                 {(selectionPanelPinned || chartsVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
