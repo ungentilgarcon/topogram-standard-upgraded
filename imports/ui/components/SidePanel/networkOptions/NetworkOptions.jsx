@@ -174,7 +174,10 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
             <input type="checkbox" checked={aggregateEdges} onChange={(e) => { const v = !!e.target.checked; setAggregateEdges(v); fire({ aggregateEdges: v }) }} disabled={graphAdapter !== 'reagraph'} />
             <span style={{ marginLeft: 6 }}>Aggregate edges (Reagraph only)</span>
           </label>
-          <button style={{ padding: '6px 8px', borderRadius: 4 }} onClick={() => fire({ exportSVG: true })} disabled={graphAdapter !== 'reagraph'}>Export SVG</button>
+          <div style={{ display: 'flex', gap: 8, flexWrap: 'wrap' }}>
+            <button style={{ padding: '6px 8px', borderRadius: 4 }} onClick={() => fire({ exportSVG: true })} disabled={graphAdapter !== 'reagraph'}>Export SVG</button>
+            <button style={{ padding: '6px 8px', borderRadius: 4 }} onClick={() => fire({ exportPNG: true })} disabled={graphAdapter !== 'reagraph'}>Export PNG</button>
+          </div>
           <div style={{ display: 'flex', gap: 8 }}>
             <button style={{ padding: '6px 8px', borderRadius: 4 }} onClick={() => fire({ fixView: true })}>Fix view</button>
             <button style={{ padding: '6px 8px', borderRadius: 4 }} onClick={() => fire({ resetView: true })}>Reset</button>

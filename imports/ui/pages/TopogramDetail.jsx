@@ -575,6 +575,9 @@ export default function TopogramDetail() {
         if (Object.prototype.hasOwnProperty.call(d, 'exportSVG')) {
           try { if (d.exportSVG) doExportReagraphSVG() } catch (e) {}
         }
+        if (Object.prototype.hasOwnProperty.call(d, 'exportPNG')) {
+          try { if (d.exportPNG) doExportReagraphPNG() } catch (e) {}
+        }
         if (Object.prototype.hasOwnProperty.call(d, 'exportCSV')) {
           try { if (d.exportCSV && typeof exportTopogramCsv === 'function') exportTopogramCsv() } catch (e) {}
         }
@@ -1499,12 +1502,11 @@ export default function TopogramDetail() {
     try {
       const adapter = reagraphAdapterRef.current
       if (!adapter || adapter.impl !== 'reagraph') return
-      // Fit all nodes into view so the export captures the whole graph
-      try { if (typeof adapter.fit === 'function') adapter.fit() } catch (e) {}
+      // Force labels to be visible for the capture frame, then wait a frame so the
+      // renderer updates, and finally snapshot the current view (no fit/resize)
+      try { if (typeof adapter.forceLabelsOnce === 'function') adapter.forceLabelsOnce() } catch (e) {}
       await new Promise((res) => requestAnimationFrame(() => requestAnimationFrame(res)))
-
-      // Use the adapter's PNG exporter for crisp, high-res output
-      const dataUrl = (typeof adapter.exportPNG === 'function') ? adapter.exportPNG({ scale: 4, margin: 24, background: '#ffffff', drawLabels: true }) : null
+      const dataUrl = (typeof adapter.exportPNG === 'function') ? adapter.exportPNG() : null
       if (dataUrl) {
         const a = document.createElement('a')
         const dt = new Date()
