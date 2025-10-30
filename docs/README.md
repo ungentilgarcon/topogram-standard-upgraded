@@ -11,8 +11,12 @@ Files:
 - `CONTRIBUTING.md` — contribution workflow, PR rules, and a sample pre-push hook.
 - `API.md` — where to find server endpoints, publications and methods; includes client adapter API notes.
 - `SELECTIONS.md` — adapter contract and how selection flows across GraphWrapper, Charts and GeoMap.
+- `SELECTIONS.md` — adapter contract and how selection flows across GraphWrapper, Charts and GeoMap.
+ - `RECENT_PROGRESS.md` — short summary of the last week's progress (2025-10-20 → 2025-10-30).
 - `../mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
 - `../mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
+ - `docs/mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
+ - `docs/mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
 
 Branch-specific notes:
 

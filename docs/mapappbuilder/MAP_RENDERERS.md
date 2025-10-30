@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 # Map renderers (exported presentation)
 
 This document explains how the exported presentation loader (`mapappbuilder/.sandboxapp/presentation/app.js`) loads and uses map renderers: Leaflet, MapLibre and Cesium.

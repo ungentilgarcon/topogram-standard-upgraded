@@ -2,6 +2,8 @@
 
 This document summarizes how node/edge selection worked in the original Topogram main-line code (behavior observed in `TopogramDetail.jsx`, `TopogramGeoMap`, `Charts`, `SelectionPanel`, and related components). It explains how selection is represented, how various panels interact with selection, timeline implications, and recommended fixes/notes for the `multinetworkviewers` branch adapters.
 
+See `RECENT_PROGRESS.md` for the week-ending 2025-10-30 summary of selection/export/documentation work.
+
 ## Canonical representation of selected elements
 
 - Selected elements (nodes and edges) are represented as plain element JSON objects (Cytoscape-style) and kept in React state: `TopogramDetail` stores `selectedElements` (array).

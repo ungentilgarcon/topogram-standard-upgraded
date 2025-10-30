@@ -20,13 +20,15 @@ If you need to add a new endpoint:
 
 ### Export bundles (MapApp Builder)
 
+See `RECENT_PROGRESS.md` for the latest export and builder improvements (week ending 2025-10-30).
+
 - Exporting a Topogram bundle is performed outside the Meteor runtime. The server is
 	responsible for writing two JSON files that satisfy `mapappbuilder/config.schema.json` and
 	the expected dataset shape (`presentation/data/topogram.json`).
 - The writer can reuse existing publications/methods to gather data, but no additional
 	Meteor-specific API is required by the builder itself.
-- See `mapappbuilder/README.md` for the complete packaging workflow and renderer adapters that
-	consume the exported JSON.
+	- See `docs/mapappbuilder/README.md` for the complete packaging workflow and renderer adapters that
+		consume the exported JSON.
 
 ## New on branch `implementing_debian_graphs`
 

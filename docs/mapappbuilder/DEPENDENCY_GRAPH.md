@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 # MapApp Builder Dependency Graph
 
 The diagram below captures how configuration sources, packaging scripts, the sandbox

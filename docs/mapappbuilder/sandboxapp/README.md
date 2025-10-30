@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 Sandbox app for quick testing
 =================================
 
@@ -29,3 +29,5 @@ Notes
 - The `sync_sandboxapp.sh` script uses `rsync` to mirror the template. Ensure `rsync` is installed.
 - The server script uses Python's `http.server` (python3) or `SimpleHTTPServer` (python2) as fallback.
 - Re-run `./sync_sandboxapp.sh` after you edit `presentation-template` to refresh the sandbox.
+
+```

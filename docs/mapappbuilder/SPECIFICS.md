@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 We are in the `mapappbuilder` branch of Topogram. This folder packages the artefacts that
 turn a Topogram dataset into a standalone static application. Use these notes as a quick
 orientation before modifying the builder.
@@ -25,10 +25,12 @@ Key points:
 - **Packaging:** `package.sh` expects `presentation/config.json` and
 	`presentation/data/topogram.json` to exist. It zips the template in-place; no build system
 	is invoked. Scripts interacting with it should copy their artefacts into `presentation/`
-	before running the package step.
+before running the package step.
 - **Testing:** `.sandboxapp/start_server.sh` launches a static server bound to port 3024 by
 	default. Use query parameters (`?network=reagraph&geomap=leaflet`) to toggle renderers at
 	runtime while debugging.
 
 Keep the builder focused: do not import Meteor client code or server-side helpers here.
 Instead, export JSON from the main app and drop it into the builder.
+
+```

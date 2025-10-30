@@ -1,5 +1,5 @@
-This file is deleted as part of the consolidation process.
-#+ Scripts helper README
+```markdown
+# Scripts helper README
 
 This folder contains helper scripts used during development of Topogram. See the main documentation for the dependency graph tool:
 

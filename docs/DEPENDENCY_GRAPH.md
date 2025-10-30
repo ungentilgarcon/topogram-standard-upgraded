@@ -76,5 +76,6 @@ flowchart TD
 ```
 
 Notes:
+- See `RECENT_PROGRESS.md` for a short summary of recent builder and export improvements (week ending 2025-10-30).
 - The graph above is simplified — publications and methods glue collections to the UI with server-side filtering for permissions and limits. On branch `implementing_debian_graphs`, the Home page consumes `topograms.paginated` and the `topograms.count`/`topograms.folderCounts` methods to paginate non-foldered items on the main list and folder contents separately.
-- The export workflow (`mapappbuilder/`) ships with a dedicated dependency diagram in `mapappbuilder/README.md` that focuses on the static bundle toolchain and sandbox.
+-- The export workflow (`mapappbuilder/`) ships with a dedicated dependency diagram in `docs/mapappbuilder/README.md` that focuses on the static bundle toolchain and sandbox.

@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 # Network renderers (exported presentation)
 
 This document collects how the exported presentation (in `mapappbuilder/.sandboxapp/presentation/app.js`) loads and calls the network renderers (Cytoscape, Sigma, Reagraph). Keep this file next to the `mapappbuilder` folder so you can edit the presentation loader or adapter easily.

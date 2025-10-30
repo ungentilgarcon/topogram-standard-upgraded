@@ -1,5 +1,5 @@
-This file is deleted as part of the consolidation process.
 # Graph renderer benchmark & A/B test
+
 
 This repository includes a simple `GraphWrapper` that can mount three implementations behind a query param.
 

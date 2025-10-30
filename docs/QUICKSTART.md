@@ -2,6 +2,8 @@
 
 These steps assume a Linux developer workstation (zsh/bash). They show how to run the Meteor-based Topogram app locally for development.
 
+Note: see `RECENT_PROGRESS.md` for a short summary of the week's export, UI and docs consolidation work (week ending 2025-10-30).
+
 1) Prerequisites
 
 - Node.js (LTS, e.g., 18.x or 20.x) — Meteor installs a compatible Node runtime during build, but having a system Node is convenient.

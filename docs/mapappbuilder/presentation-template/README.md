@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 Mapappbuilder presentation template bundler
 
 This folder contains a small bundler setup that packages `reagraph` and `graphology` into a single UMD file that can be included in the exported presentation template.

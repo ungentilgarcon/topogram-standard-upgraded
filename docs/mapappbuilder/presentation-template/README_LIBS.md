@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 Including local renderer libraries for offline bundles
 
 To make exported bundles runnable without CDN access, place minified copies
@@ -14,3 +14,5 @@ You can obtain these from the official releases or your package manager.
 After adding them to `lib/`, the exporter will copy `lib/` into each bundle
 and the presentation will prefer the local files instead of CDN-hosted
 assets.
+
+```

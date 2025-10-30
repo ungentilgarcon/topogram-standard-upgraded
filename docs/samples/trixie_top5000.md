@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 trixie_top5000.csv — Debian Trixie top-5000 reverse-dependency counts
 
 This file accompanies `samples/trixie_top5000.csv` which lists the top 5000 Debian source packages in the Trixie distribution (component `main`, architecture `amd64`) ordered by reverse-dependency count.

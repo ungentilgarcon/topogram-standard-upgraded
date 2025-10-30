@@ -1,4 +1,4 @@
-This file is deleted as part of the consolidation process.
+```markdown
 # MapApp Builder
 
 The `mapappbuilder/` workspace contains everything that is needed to turn a single Topogram
@@ -90,7 +90,7 @@ Use `sample.config.json` as a starting point; it exercises every section of the 
 - The loader now resolves the GraphCanvas component from `window.reagraph` (or
 	`window.reagraphBundle`) and renders it via `ReactDOMClient.createRoot` when available.
 - Graph data is built through `reagraph.buildGraph(...)`, using `graphology` when available
-	and falling back to Reagraph’s internal builder.
+and falling back to Reagraph’s internal builder.
 - Layout selection honours `networkOptions.layoutType` with a safe default
 	(`forceDirected2d`) and logs helpful debug output through `console.debug`.
 
@@ -107,7 +107,7 @@ Use `sample.config.json` as a starting point; it exercises every section of the 
 	through the `readField` helper so both flat and nested node structures work.
 - Leaflet is tuned for offline use by rewriting icon URLs to point at `presentation/lib/images`.
 - Cesium sets `window.CESIUM_BASE_URL` so the packaged assets resolve correctly when served
-	from any location.
+from any location.
 
 Refer to `NETWORK_RENDERERS.md` and `MAP_RENDERERS.md` for extensive per-renderer notes.
 
@@ -135,59 +135,11 @@ flowchart TD
 	subgraph Config
 		Schema[config.schema.json]
 		Sample[sample.config.json]
-	end
+	@end
 
-	subgraph Template
-		Loader[presentation-template/app.js]
-		Libs[presentation-template/lib/*]
-		Assets[presentation-template/assets]
-	end
-
-	subgraph Sandbox
-		Sync[sync_sandboxapp.sh]
-		Server[.sandboxapp/start_server.sh]
-		SandboxApp[.sandboxapp/presentation/app.js]
-	end
-
-	subgraph Packaging
-		Package[package.sh]
-		Dataset[data/topogram.json]
-		ConfigOut[presentation/config.json]
-	end
-
-	Schema --> Sample
-	Schema --> ConfigOut
-	Sample --> ConfigOut
-
-	Loader --> Libs
-	Loader --> Assets
-
-	Sync --> SandboxApp
-	SandboxApp --> Libs
-	Server --> SandboxApp
-
-	Package --> Loader
-	Package --> Libs
-	Package --> Assets
-	Package --> Dataset
-	Package --> ConfigOut
-
-	Loader -->|loads| NetworkPlugins[networkPlugins.*]
-	Loader -->|loads| MapPlugins[mapPlugins.*]
-	NetworkPlugins --> Libs
-	MapPlugins --> Libs
-```
-
-## Tips and gotchas
-
-- **Keep `presentation/lib/` in sync.** When upgrading Reagraph or React, rebuild the UMD
-	bundle and copy it to `presentation-template/lib/` as well as `.sandboxapp/presentation/lib/`.
-- **Mind configuration IDs.** Nodes and edges must resolve to string IDs. The loader already
-	normalises `_id` and nested `data.id` fields, but ensure your export preserves them.
-- **Use the debug logs.** The loader now emits `[reagraph]` logs with node/edge counts,
-	layout names and graphology detection — handy when comparing behaviour with the main app.
-- **Sandbox is authoritative.** Every change should be verified in `.sandboxapp/` before
-	packaging; `sync_sandboxapp.sh` is cheap to run and prevents stale assets from being zipped.
+... (truncated) ...
 
 For deeper dives, read the renderer notes (`NETWORK_RENDERERS.md`, `MAP_RENDERERS.md`) and the
 branch-specific guidelines in `mapappbuilder_specifics.md`.
+
+```

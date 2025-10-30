@@ -2,6 +2,8 @@
 
 This document explains the major subsystems and how they interact.
 
+See `RECENT_PROGRESS.md` for a short summary of work performed in the week ending 2025-10-30.
+
 Overview:
 
 - Platform: Meteor (server + client bundle) with React UI components.
@@ -62,8 +64,8 @@ presentation bundle. Key characteristics:
 - Ships React 19, Reagraph and Graphology as local UMD builds so exported bundles can run
   offline. The loader falls back to CDN copies only when a local file is absent.
 - Exposes documentation and scripts next to the builder:
-  - `mapappbuilder/README.md` — workflow, dependency graph and packaging guidance.
-  - `mapappbuilder/MAP_RENDERERS.md` / `NETWORK_RENDERERS.md` — renderer-specific notes.
+  - `docs/mapappbuilder/README.md` — workflow, dependency graph and packaging guidance.
+  - `docs/mapappbuilder/MAP_RENDERERS.md` / `docs/mapappbuilder/NETWORK_RENDERERS.md` — renderer-specific notes.
   - `.sandboxapp/` — runnable sandbox used to validate bundles via a static HTTP server.
 - Configuration is validated against `mapappbuilder/config.schema.json`; `sample.config.json`
   documents the expected shape.
