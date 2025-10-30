@@ -2048,10 +2048,12 @@ export default function TopogramDetail() {
                     </div>
                   ) : null}
                 </div>
-                <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
-                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
-                </div>
+                {(selectionPanelPinned || chartsVisible) ? (
+                  <div style={{ width: 320, alignSelf: 'flex-start' }}>
+                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
+                    { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
+                  </div>
+                ) : null}
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={false} hasTimeInfo={hasTimeInfo} />
               </div>
             )
@@ -2222,7 +2224,7 @@ export default function TopogramDetail() {
             const impl = getGraphImpl()
             return (
               <div style={{ display: 'flex', gap: 8, alignItems: 'stretch' }}>
-                <div className="cy-container" style={{ width: '70%', height: visualHeight, border: '1px solid #ccc' }}>
+                <div className="cy-container" style={{ flex: '1 1 auto', minWidth: 0, height: visualHeight, border: '1px solid #ccc' }}>
                   <div className="cy-controls">
                     <button className="cy-control-btn" onClick={doZoomIn}>Zoom +</button>
                     <button className="cy-control-btn" onClick={doZoomOut}>Zoom -</button>
@@ -2304,10 +2306,12 @@ export default function TopogramDetail() {
                     </div>
                   ) : null}
                 </div>
-                <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
-                  {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
-                </div>
+                {(selectionPanelPinned || chartsVisible) ? (
+                  <div style={{ width: 320, alignSelf: 'flex-start' }}>
+                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
+                    { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
+                  </div>
+                ) : null}
                 <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
               </div>
             )
