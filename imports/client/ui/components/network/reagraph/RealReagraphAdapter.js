@@ -448,6 +448,96 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		} catch (e) { return true; }
 	})();
 
+	// Lightweight event buffer for interactive debug traces (keep small)
+	if (typeof window !== 'undefined' && isDebugEnabled) {
+		if (!Array.isArray(window.__REAGRAPH_DEBUG_EVENTS__)) window.__REAGRAPH_DEBUG_EVENTS__ = [];
+	}
+
+	function pushDebugEvent(type, detail) {
+		if (!isDebugEnabled) return;
+		try {
+			if (typeof window === 'undefined') return;
+			const ev = { type: String(type), detail: detail || null, timestamp: Date.now(), graphVersion };
+			window.__REAGRAPH_DEBUG_EVENTS__.push(ev);
+			// keep buffer bounded
+			if (window.__REAGRAPH_DEBUG_EVENTS__.length > 500) window.__REAGRAPH_DEBUG_EVENTS__.shift();
+			console.debug && console.debug('Reagraph DEBUG EVENT:', ev);
+		} catch (e) {}
+	}
+
+	function captureQuickSnapshot(sampleLimit = 200) {
+		try {
+			const nodes = (renderNodeArray || []).slice(0, sampleLimit).map((n) => ({ id: n.id, pos: n.position, data: n.data }));
+			const edges = (renderEdgeArray || []).slice(0, sampleLimit).map((e) => ({ id: e.id, source: e.source, target: e.target, data: e.data }));
+			const positions = {};
+			try {
+				const inst = canvasRef && canvasRef.current;
+				if (inst) {
+					const candidateStores = [];
+					try { if (typeof inst.getPositions === 'function') candidateStores.push(inst.getPositions()); } catch (e) {}
+					try { if (typeof inst.getNodePositions === 'function') candidateStores.push(inst.getNodePositions()); } catch (e) {}
+					try { if (inst.state && inst.state.positions) candidateStores.push(inst.state.positions); } catch (e) {}
+					try { if (inst._positions) candidateStores.push(inst._positions); } catch (e) {}
+					for (let i = 0; i < candidateStores.length; i += 1) {
+						const store = candidateStores[i];
+						if (!store) continue;
+						try {
+							if (typeof store.get === 'function') {
+								const keys = Array.from(store.keys ? store.keys() : []);
+								for (let k = 0; k < keys.length && Object.keys(positions).length < 200; k += 1) {
+									const id = keys[k]; const v = store.get(id);
+									if (!v) continue;
+									positions[String(id)] = (v && v.x != null) ? { x: Number(v.x), y: Number(v.y) } : (Array.isArray(v) ? { x: Number(v[0] || 0), y: Number(v[1] || 0) } : null);
+								}
+							} else if (typeof store === 'object') {
+								const keys = Object.keys(store || {});
+								for (let k = 0; k < keys.length && Object.keys(positions).length < 200; k += 1) {
+									const id = keys[k]; const v = store[id];
+									positions[String(id)] = (v && v.x != null) ? { x: Number(v.x), y: Number(v.y) } : (Array.isArray(v) ? { x: Number(v[0] || 0), y: Number(v[1] || 0) } : null);
+								}
+							}
+						} catch (er) {}
+					}
+				}
+			} catch (e) {}
+			return { timestamp: Date.now(), graphVersion, counts: { nodes: renderNodeArray.length, edges: renderEdgeArray.length }, nodes, edges, positions };
+		} catch (e) { return { timestamp: Date.now(), graphVersion }; }
+	}
+
+	function recordInteraction(kind, payload) {
+		if (!isDebugEnabled) return;
+		try {
+			pushDebugEvent(kind + ':start', { payload });
+			const before = captureQuickSnapshot();
+			pushDebugEvent(kind + ':before_snapshot', before);
+			const start = Date.now();
+			let observedChange = false;
+			let lastPositionsHash = JSON.stringify(before.positions || {});
+			function pollUntilSettled() {
+				try {
+					const snap = captureQuickSnapshot();
+					const curHash = JSON.stringify(snap.positions || {});
+					if (curHash !== lastPositionsHash) {
+						if (!observedChange) {
+							observedChange = true;
+							pushDebugEvent(kind + ':animation:started', { since: Date.now(), graphVersion });
+						}
+						lastPositionsHash = curHash;
+					}
+					if (Date.now() - start < 2000) {
+						if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') window.requestAnimationFrame(pollUntilSettled);
+						else setTimeout(pollUntilSettled, 50);
+					} else {
+						if (observedChange) pushDebugEvent(kind + ':animation:ended', captureQuickSnapshot());
+						pushDebugEvent(kind + ':end', { duration: Date.now() - start });
+					}
+				} catch (e) { pushDebugEvent(kind + ':error', { error: String(e) }); }
+			}
+			if (typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function') window.requestAnimationFrame(pollUntilSettled);
+			else setTimeout(pollUntilSettled, 50);
+		} catch (e) { pushDebugEvent(kind + ':error', { error: String(e) }); }
+	}
+
 	// Runtime flags via URL params
 	const runtimeFlags = (() => {
 		let flags = { aggregateEdges: false, noGraph: false };
@@ -721,7 +811,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			}
 		} catch (e) { layout = undefined; }
 		const element = React.createElement(GraphCanvas, {
-			key: `real-reagraph-canvas-${graphVersion}`,
+			key: 'real-reagraph-canvas',
 			ref: attachCanvasRef,
 			nodes: renderNodeArray,
 			edges: safeEdgeArray,
@@ -735,20 +825,22 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			graphVersion,
 			contextMenu: renderSelectionContextMenu,
 			onNodeClick: (node) => {
-				try {
-					if (!node || !node.id) return;
-					const id = String(node.id);
-					if (selectedNodeIds.has(id)) unselectNode(id);
-					else selectNode(id);
-				} catch (err) {}
+						try {
+							if (!node || !node.id) return;
+							const id = String(node.id);
+							try { if (isDebugEnabled) recordInteraction('nodeClick', { id, payload: node }); } catch (e) {}
+							if (selectedNodeIds.has(id)) unselectNode(id);
+							else selectNode(id);
+						} catch (err) {}
 			},
 			onEdgeClick: (edge) => {
-				try {
-					if (!edge || !edge.id) return;
-					const id = String(edge.id);
-					if (selectedEdgeIds.has(id)) unselectEdge(id);
-					else selectEdge(id);
-				} catch (err) {}
+						try {
+							if (!edge || !edge.id) return;
+							const id = String(edge.id);
+							try { if (isDebugEnabled) recordInteraction('edgeClick', { id, payload: edge }); } catch (e) {}
+							if (selectedEdgeIds.has(id)) unselectEdge(id);
+							else selectEdge(id);
+						} catch (err) {}
 			},
 			onCanvasClick: () => {
 				clearSelection();

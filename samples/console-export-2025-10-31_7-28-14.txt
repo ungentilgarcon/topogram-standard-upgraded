@@ -1,0 +1,38 @@
+Reagraph DEBUG EVENT: 
+Object { type: "nodeClick:start", detail: {…}, timestamp: 1761892086391, graphVersion: 9 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:489:42
+Reagraph DEBUG EVENT: 
+Object { type: "nodeClick:before_snapshot", detail: {…}, timestamp: 1761892086391, graphVersion: 9 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:489:42
+Reagraph DEBUG: scheduleRender queued 
+Object { nodes: 16, edges: 15, graphVersion: 9 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:1033:46
+Reagraph DEBUG: SelectionManager.unselect received 
+Object { element: {…}, key: "node:r-cran-rwave" }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:2373:50
+Reagraph DEBUG: scheduleRender queued 
+Object { nodes: 0, edges: 0, graphVersion: 1 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:1033:46
+Reagraph DEBUG: SelectionManager.unselect received 
+Object { element: {…}, key: "node:r-cran-rwave" }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:2373:50
+Reagraph DEBUG: scheduleRender queued 
+Object { nodes: 16, edges: 0, graphVersion: 9 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:1033:46
+Reagraph DEBUG: performRender start 
+Object { timestamp: 1761892086397, nodeMetaSize: 16, edgeMetaSize: 15, nodesRequireFullSync: false, edgesRequireFullSync: false, graphVersion: 10 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:854:46
+Reagraph DEBUG: performRender start 
+Object { timestamp: 1761892086397, nodeMetaSize: 0, edgeMetaSize: 0, nodesRequireFullSync: false, edgesRequireFullSync: false, graphVersion: 1 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:854:46
+Reagraph DEBUG: performRender start 
+Object { timestamp: 1761892086398, nodeMetaSize: 16, edgeMetaSize: 0, nodesRequireFullSync: false, edgesRequireFullSync: false, graphVersion: 10 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:854:46
+WebGL context was lost. modules.js:15291:31
+THREE.WebGLRenderer: Context Lost. /node_modules/three/build/three.module.js:15748:12
+Reagraph DEBUG: WebGL context lost 
+webglcontextlost { target: canvas, isTrusted: true, srcElement: canvas, currentTarget: canvas, eventPhase: 2, bubbles: true, cancelable: true, returnValue: false, defaultPrevented: true, composed: false, … }
+<anonymous code>:1:145535
+Reagraph DEBUG EVENT: 
+Object { type: "nodeClick:end", detail: {…}, timestamp: 1761892088395, graphVersion: 10 }
+/imports/client/ui/components/network/reagraph/RealReagraphAdapter.js:489:42
