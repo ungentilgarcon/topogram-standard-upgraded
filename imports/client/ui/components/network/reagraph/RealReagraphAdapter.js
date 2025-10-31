@@ -393,6 +393,20 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	const localSelectionKeys = new Set();
 	let currentLayoutName = layout && layout.name ? String(layout.name) : null;
 
+	nodeMeta.nodes.forEach((entry, id) => {
+		if (entry && entry.attrs && entry.attrs.selected) selectedNodeIds.add(String(id));
+	});
+	edgeMeta.edges.forEach((entry, id) => {
+		if (entry && entry.attrs && entry.attrs.selected) selectedEdgeIds.add(String(id));
+	});
+
+	function getSelectionIds() {
+		const result = [];
+		selectedNodeIds.forEach((id) => result.push(String(id)));
+		selectedEdgeIds.forEach((id) => result.push(String(id)));
+		return result;
+	}
+
 	const nodeCacheIndices = new Map();
 	const edgeCacheIndices = new Map();
 	let nodeRecords = [];
@@ -763,6 +777,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		const layoutType = mapLayoutNameToReagraph(currentLayoutName);
 		const labelType = forceLabelDrawAll ? 'all' : (nodeCount > LABEL_SWITCH_THRESHOLD ? 'hover' : 'all');
 		const graphSnapshot = runtimeFlags.noGraph ? null : buildGraphSnapshot(renderNodeArray, safeEdgeArray);
+		const selectionIds = getSelectionIds();
 
 		// Debug diagnostics: validate edges/nodes and expose a snapshot for inspection
 		if (isDebugEnabled) {
@@ -819,6 +834,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			layout,
 			layoutType,
 			animated: !heavyGraph,
+			selections: selectionIds,
 			aggregateEdges: !!aggregateEdgesEnabled,
 			labelType,
 			edgeLabelPosition: 'center',
