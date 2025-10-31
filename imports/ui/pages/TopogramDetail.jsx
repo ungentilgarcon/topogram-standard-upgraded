@@ -1,4 +1,4 @@
-import React, { useState, useRef, useEffect, useMemo } from 'react';
+import React, { useState, useRef, useEffect, useMemo, useCallback } from 'react';
 import { useParams, Link } from 'react-router-dom';
 import { useSubscribe, useFind } from 'meteor/react-meteor-data';
 import { Topograms, Nodes, Edges } from '/imports/api/collections';
@@ -113,6 +113,103 @@ function makeCyCompat(adapter) {
   }
 
   return compat
+}
+
+const pickFirstDefined = (...values) => {
+  for (const value of values) {
+    if (value !== undefined && value !== null) return value
+  }
+  return null
+}
+
+const cloneElementJson = (json, fallbackGroup) => {
+  if (!json || typeof json !== 'object') return null
+  const clone = { ...json }
+  const dataSrc = json.data && typeof json.data === 'object' ? json.data : {}
+  clone.data = { ...dataSrc }
+  if (json.position && typeof json.position === 'object') clone.position = { ...json.position }
+  if (fallbackGroup && !clone.group) clone.group = fallbackGroup
+  return clone
+}
+
+const collectionToArray = (collection) => {
+  if (!collection) return []
+  if (Array.isArray(collection)) return collection
+  try {
+    if (typeof collection.toArray === 'function') {
+      const arr = collection.toArray()
+      if (Array.isArray(arr)) return arr
+    }
+  } catch (e) {}
+  const out = []
+  try {
+    if (typeof collection.forEach === 'function') {
+      collection.forEach(el => out.push(el))
+    }
+  } catch (e) {}
+  return out
+}
+
+const elementLikeToJson = (element, fallbackGroup) => {
+  if (!element) return null
+  try {
+    if (typeof element.json === 'function') {
+      const raw = element.json()
+      return cloneElementJson(raw, fallbackGroup)
+    }
+  } catch (e) {}
+
+  let data = null
+  try {
+    if (element.data) {
+      if (typeof element.data === 'function') data = element.data()
+      else if (typeof element.data === 'object') data = element.data
+    }
+  } catch (e) {}
+  if (!data && typeof element === 'object') data = element
+  if (!data) return null
+  const json = cloneElementJson({ data }, fallbackGroup)
+  if (element._id != null && json && json.data && json.data._id == null) json.data._id = element._id
+  if (element.id != null && json && json.data && json.data.id == null) json.data.id = element.id
+  return json
+}
+
+const nodeDocToJson = (doc) => {
+  if (!doc || typeof doc !== 'object') return null
+  const data = { ...(doc.data || {}) }
+  const idCandidate = pickFirstDefined(data.id, doc.id, doc._id)
+  if (idCandidate != null) data.id = idCandidate
+  if (doc.name != null && data.name == null) data.name = doc.name
+  if (doc.label != null && data.label == null) data.label = doc.label
+  return { data, group: 'nodes', _id: doc._id }
+}
+
+const edgeDocToJson = (doc) => {
+  if (!doc || typeof doc !== 'object') return null
+  const data = { ...(doc.data || {}) }
+  const idCandidate = pickFirstDefined(data.id, doc.id, doc._id)
+  if (idCandidate != null) data.id = idCandidate
+  const sourceCandidate = pickFirstDefined(data.source, data.from, doc.source, doc.from)
+  if (sourceCandidate != null) data.source = sourceCandidate
+  const targetCandidate = pickFirstDefined(data.target, data.to, doc.target, doc.to)
+  if (targetCandidate != null) data.target = targetCandidate
+  if (doc.label != null && data.label == null) data.label = doc.label
+  return { data, group: 'edges', _id: doc._id }
+}
+
+const extractNodeId = (json) => {
+  if (!json || typeof json !== 'object') return null
+  const data = json.data || {}
+  const id = pickFirstDefined(data.id, data._id, json._id, json.id)
+  return id != null ? String(id) : null
+}
+
+const extractEdgeEndpoints = (json) => {
+  if (!json || typeof json !== 'object') return [null, null]
+  const data = json.data || {}
+  const source = pickFirstDefined(data.source, data.from, json.source, json.from)
+  const target = pickFirstDefined(data.target, data.to, json.target, json.to)
+  return [source != null ? String(source) : null, target != null ? String(target) : null]
 }
 
 const sanitizeIdParam = (value) => {
@@ -262,8 +359,11 @@ export default function TopogramDetail() {
   // Always start with Charts closed on initial load. Charts can still be
   // opened by the side panel which dispatches the `topo:panelToggle` event.
   const [chartsVisible, setChartsVisible] = useState(false)
-  // Selection panel pinned/visible flag (persisted via localStorage)
+  // Selection panel pinned/visible flag (defaults closed; no persistence)
   const [selectionPanelPinned, setSelectionPanelPinned] = useState(false)
+  const handleSelectionPanelToggle = useCallback((next) => {
+    setSelectionPanelPinned(!!next)
+  }, [setSelectionPanelPinned])
   // Emoji rendering toggle (default: true; for large graphs default to false unless user override exists)
   const [emojiVisible, setEmojiVisible] = useState(() => {
     try {
@@ -434,6 +534,113 @@ export default function TopogramDetail() {
     try { const key = canonicalKey(json); if (!key) return; setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key)) } catch (e) {}
   }
   const onClearSelection = () => { setSelectedElements([]) }
+
+  const selectAdjacentElements = useCallback(() => {
+    try {
+      const currentSelection = SelectionManager.getSelection()
+      if (!Array.isArray(currentSelection) || !currentSelection.length) return
+
+      const existingKeys = new Set()
+      const selectedNodeIds = new Set()
+
+      currentSelection.forEach(item => {
+        try {
+          const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(item) : canonicalKey(item)
+          if (key) existingKeys.add(key)
+          const data = item && item.data
+          if (data && data.source == null && data.target == null) {
+            const nodeId = extractNodeId(item)
+            if (nodeId) selectedNodeIds.add(nodeId)
+          }
+        } catch (e) {}
+      })
+
+      if (!selectedNodeIds.size) return
+
+      const elementsToSelect = []
+      const pendingKeys = new Set()
+      const nodeMap = new Map()
+
+      const enqueue = (json, fallbackGroup) => {
+        const normalized = cloneElementJson(json, fallbackGroup)
+        if (!normalized) return
+        const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(normalized) : canonicalKey(normalized)
+        if (!key || existingKeys.has(key) || pendingKeys.has(key)) return
+        pendingKeys.add(key)
+        elementsToSelect.push(normalized)
+      }
+
+      const registerNode = (json) => {
+        const normalized = cloneElementJson(json, 'nodes')
+        if (!normalized) return
+        const nodeId = extractNodeId(normalized)
+        if (!nodeId) return
+        if (!nodeMap.has(nodeId)) nodeMap.set(nodeId, normalized)
+      }
+
+      const processEdge = (json) => {
+        const normalized = cloneElementJson(json, 'edges')
+        if (!normalized) return
+        const [src, tgt] = extractEdgeEndpoints(normalized)
+        const touches = (src && selectedNodeIds.has(src)) || (tgt && selectedNodeIds.has(tgt))
+        if (!touches) return
+        enqueue(normalized, 'edges')
+        if (src) {
+          const nodeJson = nodeMap.get(src)
+          if (nodeJson) enqueue(nodeJson, 'nodes')
+        }
+        if (tgt) {
+          const nodeJson = nodeMap.get(tgt)
+          if (nodeJson) enqueue(nodeJson, 'nodes')
+        }
+      }
+
+      let usedAdapter = false
+      const adapter = cyRef.current
+      if (adapter && typeof adapter.nodes === 'function' && typeof adapter.edges === 'function') {
+        try {
+          const adapterNodes = collectionToArray(adapter.nodes())
+          adapterNodes.forEach(el => {
+            const json = elementLikeToJson(el, 'nodes')
+            if (json) registerNode(json)
+          })
+          const adapterEdges = collectionToArray(adapter.edges())
+          adapterEdges.forEach(el => {
+            const json = elementLikeToJson(el, 'edges')
+            if (json) processEdge(json)
+          })
+          usedAdapter = true
+        } catch (e) {
+          usedAdapter = false
+        }
+      }
+
+      if (!usedAdapter) {
+        try {
+          (nodes || []).forEach(doc => {
+            const json = nodeDocToJson(doc)
+            if (json) registerNode(json)
+          })
+          (edges || []).forEach(doc => {
+            const json = edgeDocToJson(doc)
+            if (json) processEdge(json)
+          })
+        } catch (e) {}
+      }
+
+      if (!elementsToSelect.length) return
+
+      elementsToSelect.forEach(json => {
+        try {
+          if (SelectionManager && typeof SelectionManager.select === 'function') SelectionManager.select(json)
+        } catch (err) {
+          console.warn('selectAdjacentElements: SelectionManager.select failed', err)
+        }
+      })
+    } catch (err) {
+      console.warn('selectAdjacentElements failed', err)
+    }
+  }, [nodes, edges])
 
   // Keep Cytoscape event listeners in sync with state: when cy instance appears, attach select/unselect handlers
   useEffect(() => {
@@ -619,8 +826,7 @@ export default function TopogramDetail() {
   // so Charts are always closed on initial load.
         if (ner !== null) setNetworkEdgeRelVisible(ner === 'true')
         if (ger !== null) setGeoEdgeRelVisible(ger === 'true')
-        const s = window.localStorage.getItem('topo.selectionPanelPinned')
-        if (s !== null) setSelectionPanelPinned(s === 'true')
+        try { window.localStorage.removeItem('topo.selectionPanelPinned') } catch (e) {}
       }
     } catch (e) { /* ignore */ }
   }, [])
@@ -1927,7 +2133,14 @@ export default function TopogramDetail() {
               return (
                 <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative' }}>
                   <div>Both views hidden — use the settings panel to show Network or GeoMap.</div>
-                  <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={false} hasTimeInfo={hasTimeInfo} />
+                  <SidePanelWrapper
+                    geoMapVisible={geoMapVisible}
+                    networkVisible={networkVisible}
+                    hasGeoInfo={false}
+                    hasTimeInfo={hasTimeInfo}
+                    selectionPanelPinned={selectionPanelPinned}
+                    onToggleSelectionPanel={handleSelectionPanelToggle}
+                  />
                 </div>
               )
             }
@@ -2002,11 +2215,18 @@ export default function TopogramDetail() {
                 </div>
                 {(selectionPanelPinned || chartsVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
+                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} light={true} /> : null }
                     { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
                   </div>
                 ) : null}
-                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={false} hasTimeInfo={hasTimeInfo} />
+                <SidePanelWrapper
+                  geoMapVisible={geoMapVisible}
+                  networkVisible={networkVisible}
+                  hasGeoInfo={false}
+                  hasTimeInfo={hasTimeInfo}
+                  selectionPanelPinned={selectionPanelPinned}
+                  onToggleSelectionPanel={handleSelectionPanelToggle}
+                />
               </div>
             )
           }
@@ -2157,10 +2377,17 @@ export default function TopogramDetail() {
                   />
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
+                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} light={true} /> : null }
                   {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
-                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
+                <SidePanelWrapper
+                  geoMapVisible={geoMapVisible}
+                  networkVisible={networkVisible}
+                  hasGeoInfo={true}
+                  hasTimeInfo={hasTimeInfo}
+                  selectionPanelPinned={selectionPanelPinned}
+                  onToggleSelectionPanel={handleSelectionPanelToggle}
+                />
               </div>
             )
           }
@@ -2227,11 +2454,18 @@ export default function TopogramDetail() {
                 </div>
                 {(selectionPanelPinned || chartsVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} updateUI={updateUI} light={true} /> : null }
+                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} light={true} /> : null }
                     { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
                   </div>
                 ) : null}
-                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
+                <SidePanelWrapper
+                  geoMapVisible={geoMapVisible}
+                  networkVisible={networkVisible}
+                  hasGeoInfo={true}
+                  hasTimeInfo={hasTimeInfo}
+                  selectionPanelPinned={selectionPanelPinned}
+                  onToggleSelectionPanel={handleSelectionPanelToggle}
+                />
               </div>
             )
           }
@@ -2253,7 +2487,14 @@ export default function TopogramDetail() {
                   onUnfocusElement={() => {}}
                   updateUI={updateUI}
                 />
-                <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
+                <SidePanelWrapper
+                  geoMapVisible={geoMapVisible}
+                  networkVisible={networkVisible}
+                  hasGeoInfo={true}
+                  hasTimeInfo={hasTimeInfo}
+                  selectionPanelPinned={selectionPanelPinned}
+                  onToggleSelectionPanel={handleSelectionPanelToggle}
+                />
               </div>
             )
           }
@@ -2262,7 +2503,14 @@ export default function TopogramDetail() {
           return (
             <div style={{ width: '100%', height: visualHeight, border: '1px solid #ccc', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
               <div>Both views hidden — use the settings panel (top-right) to show them.</div>
-              <SidePanelWrapper geoMapVisible={geoMapVisible} networkVisible={networkVisible} hasGeoInfo={true} hasTimeInfo={hasTimeInfo} />
+              <SidePanelWrapper
+                geoMapVisible={geoMapVisible}
+                networkVisible={networkVisible}
+                hasGeoInfo={true}
+                hasTimeInfo={hasTimeInfo}
+                selectionPanelPinned={selectionPanelPinned}
+                onToggleSelectionPanel={handleSelectionPanelToggle}
+              />
             </div>
           )
         })()

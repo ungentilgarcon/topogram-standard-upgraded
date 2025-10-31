@@ -3,7 +3,7 @@ import Popup from '/imports/client/ui/components/common/Popup.jsx'
 
 // SelectionPanel: lightweight list of selected nodes/edges. Can be rendered
 // inline or as a floating popup (pop-out) via the Popup component.
-export default function SelectionPanel({ selectedElements = [], onUnselect = () => {}, onClear = () => {}, updateUI = null, light = true }) {
+export default function SelectionPanel({ selectedElements = [], onUnselect = () => {}, onClear = () => {}, onSelectAdjacent = null, updateUI = null, light = true }) {
   const nodes = selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))
   const edges = selectedElements.filter(e => e && e.data && (e.data.source != null || e.data.target != null))
   const [exportTitle, setExportTitle] = useState('')
@@ -136,6 +136,15 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
               style={{ marginRight: 8 }}
             />
             <button className="cy-control-btn" onClick={exportSelectedCsv}>Export CSV</button>
+            {onSelectAdjacent ? (
+              <button
+                className="cy-control-btn"
+                onClick={onSelectAdjacent}
+                disabled={!nodes.length}
+              >
+                Select adjacent
+              </button>
+            ) : null}
             <button className="cy-control-btn" onClick={onClear}>Clear</button>
           </div>
         </div>

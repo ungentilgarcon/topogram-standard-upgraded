@@ -2,8 +2,63 @@ import React from 'react';
 import { createRoot } from 'react-dom/client';
 import loadReagraphModule from './loadReagraph.js';
 import loadGraphologyModule from './loadGraphology.js';
+import ensureCameraControls from './loadCameraControls.js';
 let cachedReagraph = undefined;
 let cachedGraphology = undefined;
+
+const configuredCameraControls = new WeakSet();
+
+const contextMenuContainerStyle = Object.freeze({
+	minWidth: 192,
+	maxWidth: 256,
+	background: '#111827',
+	color: '#f9fafb',
+	boxShadow: '0 12px 24px rgba(15,23,42,0.28)',
+	borderRadius: 10,
+	padding: '12px 14px',
+	border: '1px solid rgba(148,163,184,0.32)',
+	display: 'flex',
+	flexDirection: 'column',
+	gap: '10px',
+});
+
+const contextMenuHeaderStyle = Object.freeze({
+	fontSize: '13px',
+	fontWeight: 600,
+	letterSpacing: '0.02em',
+	textTransform: 'uppercase',
+	opacity: 0.9,
+});
+
+const contextMenuSubtitleStyle = Object.freeze({
+	fontSize: '12px',
+	opacity: 0.7,
+	lineHeight: 1.4,
+});
+
+const contextMenuPrimaryButtonStyle = Object.freeze({
+	fontSize: '13px',
+	fontWeight: 600,
+	padding: '8px 10px',
+	borderRadius: 8,
+	border: 'none',
+	cursor: 'pointer',
+	background: '#22c55e',
+	color: '#052e16',
+	textAlign: 'left',
+});
+
+const contextMenuSecondaryButtonStyle = Object.freeze({
+	fontSize: '12px',
+	fontWeight: 500,
+	padding: '6px 8px',
+	borderRadius: 6,
+	border: '1px solid rgba(148,163,184,0.4)',
+	background: 'transparent',
+	color: '#cbd5f5',
+	cursor: 'pointer',
+	textAlign: 'left',
+});
 
 async function ensureReagraph(env = {}) {
 	if (env && env.reagraph) return env.reagraph;
@@ -271,6 +326,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	const GraphCanvas = runtimeReagraph && (runtimeReagraph.GraphCanvas || (runtimeReagraph.default && runtimeReagraph.default.GraphCanvas));
 	if (!GraphCanvas) return null;
 
+	const CameraControlsCtor = await ensureCameraControls(runtimeReagraph);
+
 	const runtimeGraphology = await ensureGraphology(env);
 	const GraphCtorCandidate = runtimeGraphology && (runtimeGraphology.Graph || runtimeGraphology.default || runtimeGraphology);
 	const GraphCtor = typeof GraphCtorCandidate === 'function' ? GraphCtorCandidate : null;
@@ -378,16 +435,17 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 	const supportsRaf = typeof window !== 'undefined' && typeof window.requestAnimationFrame === 'function';
 	const supportsIdle = typeof window !== 'undefined' && typeof window.requestIdleCallback === 'function';
 
-	// Debug flag: enable by adding ?reagraphDebug=1 to URL or setting window.__REAGRAPH_DEBUG__ = true
+	// Debug flag: FORCE full debug by default for main branch workflows.
+	// To explicitly disable in the browser set window.__REAGRAPH_DEBUG__ = false
 	const isDebugEnabled = (() => {
 		try {
 			if (typeof window !== 'undefined') {
-				if (window.__REAGRAPH_DEBUG__ === true) return true;
-				const qs = new URLSearchParams(window.location.search || '');
-				return qs.has('reagraphDebug') || qs.has('debugReagraph');
+				if (window.__REAGRAPH_DEBUG__ === false) return false; // opt-out
+				// default: enable full debugging
+				return true;
 			}
-			return false;
-		} catch (e) { return false; }
+			return true;
+		} catch (e) { return true; }
 	})();
 
 	// Runtime flags via URL params
@@ -591,6 +649,21 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			edgesRequireFullSync = true;
 		}
 		prepareRenderData();
+		// Extra debug: snapshot start of render cycle
+		if (isDebugEnabled) {
+			try {
+				const debugStart = {
+					timestamp: Date.now(),
+					nodeMetaSize: nodeMeta.nodes.size,
+					edgeMetaSize: edgeMeta.edges.size,
+					nodesRequireFullSync,
+					edgesRequireFullSync,
+					graphVersion,
+				};
+				console.debug && console.debug('Reagraph DEBUG: performRender start', debugStart);
+				if (typeof window !== 'undefined') window.__REAGRAPH_DEBUG_LAST__ = Object.assign({}, window.__REAGRAPH_DEBUG_LAST__ || {}, { lastRenderStart: debugStart });
+			} catch (e) {}
+		}
 		const nodeCount = renderNodeArray.length;
 		// Only render edges whose endpoints are currently visible nodes
 		const visibleNodeIds = new Set(renderNodeArray.map((n) => n.id));
@@ -660,6 +733,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			labelType,
 			edgeLabelPosition: 'center',
 			graphVersion,
+			contextMenu: renderSelectionContextMenu,
 			onNodeClick: (node) => {
 				try {
 					if (!node || !node.id) return;
@@ -714,6 +788,9 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			edgesRequireFullSync = true;
 		}
 		if (renderQueued) return;
+		if (isDebugEnabled) {
+			try { console.debug && console.debug('Reagraph DEBUG: scheduleRender queued', { nodes: nodeMeta.nodes.size, edges: edgeMeta.edges.size, graphVersion }); } catch (e) {}
+		}
 		renderQueued = true;
 		const run = () => {
 			renderQueued = false;
@@ -1257,14 +1334,127 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		} catch (err) { return null; }
 	}
 
+	function getControlsDistance(controls) {
+		if (!controls) return null;
+		try {
+			const direct = Number(controls.distance);
+			if (Number.isFinite(direct) && direct > 0) return direct;
+		} catch (err) {}
+		try {
+			if (typeof controls.getDistance === 'function') {
+				const value = Number(controls.getDistance());
+				if (Number.isFinite(value) && value > 0) return value;
+			}
+		} catch (err) {}
+		try {
+			if (controls._spherical && Number.isFinite(controls._spherical.radius)) {
+				return Number(controls._spherical.radius);
+			}
+		} catch (err) {}
+		return null;
+	}
+
+	function setControlsDistance(controls, distance) {
+		if (!controls || !Number.isFinite(distance)) return false;
+		try {
+			if (typeof controls.dollyTo === 'function') {
+				controls.dollyTo(distance, false);
+				if (typeof controls.update === 'function') controls.update(0);
+				return true;
+			}
+		} catch (err) {}
+		try {
+			controls.distance = distance;
+			if (typeof controls.update === 'function') controls.update(0);
+			return true;
+		} catch (err) {}
+		try {
+			if (controls._spherical) {
+				controls._spherical.radius = distance;
+				if (controls._sphericalEnd) controls._sphericalEnd.radius = distance;
+				if (typeof controls.update === 'function') controls.update(0);
+				return true;
+			}
+		} catch (err) {}
+		return false;
+	}
+
+	function clampDistance(distance, controls) {
+		if (!Number.isFinite(distance)) return distance;
+		let min = null;
+		let max = null;
+		try {
+			if (controls && Number.isFinite(controls.minDistance)) min = Number(controls.minDistance);
+		} catch (err) {}
+		try {
+			if (controls && Number.isFinite(controls.maxDistance)) max = Number(controls.maxDistance);
+		} catch (err) {}
+		const fallbackBase = baseDistance && Number.isFinite(baseDistance) ? baseDistance : 1;
+		if (!Number.isFinite(min) || min <= 0) min = fallbackBase * 0.02;
+		if (!Number.isFinite(max) || max <= 0) max = fallbackBase * 50;
+		if (min > max) {
+			const normalizedMin = Math.min(min, max);
+			const normalizedMax = Math.max(min, max) || normalizedMin * 10;
+			min = normalizedMin;
+			max = normalizedMax;
+		}
+		return Math.max(min, Math.min(max, distance));
+	}
+
+	function configureCameraControlsInstance(controls) {
+		if (!controls || configuredCameraControls.has(controls)) return;
+		configuredCameraControls.add(controls);
+		try {
+			if (typeof controls.infinityDolly === 'boolean') controls.infinityDolly = true;
+			if (typeof controls.dollyToCursor === 'boolean') controls.dollyToCursor = false;
+			if (typeof controls.smoothTime === 'number') controls.smoothTime = Math.max(0.08, Number(controls.smoothTime));
+			if (typeof controls.draggingSmoothTime === 'number') controls.draggingSmoothTime = Math.max(0.06, Number(controls.draggingSmoothTime));
+			if (typeof controls.minPolarAngle === 'number' && typeof controls.maxPolarAngle === 'number') {
+				const topDown = Math.PI / 2;
+				controls.minPolarAngle = topDown;
+				controls.maxPolarAngle = topDown;
+			}
+			if (CameraControlsCtor && CameraControlsCtor.ACTION && controls.mouseButtons && typeof controls.mouseButtons === 'object') {
+				const ACTION = CameraControlsCtor.ACTION;
+				let panAction = controls.mouseButtons.left;
+				if (ACTION.SCREEN_PAN !== undefined) panAction = ACTION.SCREEN_PAN;
+				else if (ACTION.TRUCK !== undefined) panAction = ACTION.TRUCK;
+				else if (ACTION.PAN !== undefined) panAction = ACTION.PAN;
+				controls.mouseButtons.left = panAction;
+				if (Object.prototype.hasOwnProperty.call(controls.mouseButtons, 'shiftLeft')) controls.mouseButtons.shiftLeft = panAction;
+				const disableAction = ACTION.NONE !== undefined ? ACTION.NONE : null;
+				if (Object.prototype.hasOwnProperty.call(controls.mouseButtons, 'right')) controls.mouseButtons.right = disableAction;
+				if (Object.prototype.hasOwnProperty.call(controls.mouseButtons, 'middle')) controls.mouseButtons.middle = disableAction;
+				if (Object.prototype.hasOwnProperty.call(controls.mouseButtons, 'wheel')) controls.mouseButtons.wheel = disableAction;
+			}
+			if (CameraControlsCtor && CameraControlsCtor.ACTION && controls.touches && typeof controls.touches === 'object') {
+				const ACTION = CameraControlsCtor.ACTION;
+				const disableAction = ACTION.NONE !== undefined ? ACTION.NONE : null;
+				let touchPan = controls.touches.one;
+				if (ACTION.TOUCH_TRUCK !== undefined) touchPan = ACTION.TOUCH_TRUCK;
+				else if (ACTION.TOUCH_PAN !== undefined) touchPan = ACTION.TOUCH_PAN;
+				if (Object.prototype.hasOwnProperty.call(controls.touches, 'one') && touchPan != null) controls.touches.one = touchPan;
+				['two', 'three'].forEach((key) => {
+					if (Object.prototype.hasOwnProperty.call(controls.touches, key)) controls.touches[key] = disableAction;
+				});
+			}
+		} catch (err) {
+			/* best effort configuration; ignore runtime issues */
+		}
+	}
+
 	function attachCanvasRef(instance) {
 		canvasRef.current = instance;
 		if (!instance) return;
 		try {
 			const controls = instance.getControls && instance.getControls();
-			if (controls && baseDistance == null) {
-				baseDistance = controls.distance || 1;
-				zoomLevel = 1;
+			if (controls) {
+				configureCameraControlsInstance(controls);
+				if (baseDistance == null) {
+					const dist = getControlsDistance(controls);
+					baseDistance = Number.isFinite(dist) && dist > 0 ? dist : 1;
+					zoomLevel = 1;
+				}
 			}
 		} catch (err) {
 			baseDistance = baseDistance || 1;
@@ -1273,14 +1463,23 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 
 	function getControls() {
 		if (!canvasRef.current || typeof canvasRef.current.getControls !== 'function') return null;
-		try { return canvasRef.current.getControls(); } catch (err) { return null; }
+		try {
+			const controls = canvasRef.current.getControls();
+			if (controls) configureCameraControlsInstance(controls);
+			return controls;
+		} catch (err) {
+			return null;
+		}
 	}
 
 	function getZoom() {
 		const controls = getControls();
 		if (controls) {
-			if (baseDistance == null) baseDistance = controls.distance || 1;
-			const dist = controls.distance || baseDistance || 1;
+			if (baseDistance == null) {
+				const fresh = getControlsDistance(controls);
+				baseDistance = Number.isFinite(fresh) && fresh > 0 ? fresh : 1;
+			}
+			const dist = getControlsDistance(controls) || baseDistance || 1;
 			const computed = baseDistance / dist;
 			if (Number.isFinite(computed) && computed > 0) zoomLevel = computed;
 		}
@@ -1295,13 +1494,15 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			zoomLevel = target;
 			return zoomLevel;
 		}
-		if (baseDistance == null) baseDistance = controls.distance || 1;
+		if (baseDistance == null) {
+			const dist = getControlsDistance(controls);
+			baseDistance = Number.isFinite(dist) && dist > 0 ? dist : 1;
+		}
 		const rawDist = baseDistance / target;
-		const clamped = Math.max(controls.minDistance || rawDist, Math.min(controls.maxDistance || rawDist, rawDist));
-		try {
-			controls.distance = clamped;
-		} catch (err) {}
-		zoomLevel = target;
+		const clamped = clampDistance(rawDist, controls);
+		setControlsDistance(controls, clamped);
+		zoomLevel = baseDistance / clamped;
+		try { scheduleRender(false); } catch (err) {}
 		return zoomLevel;
 	}
 
@@ -1418,6 +1619,60 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			try { SelectionManager.clear(); } catch (err) {}
 		}
 		scheduleRender();
+	}
+
+	function renderSelectionContextMenu(payload = {}) {
+		try {
+			const { data, onClose } = payload || {};
+			if (!data || typeof data !== 'object') return null;
+			const rawId = Object.prototype.hasOwnProperty.call(data, 'id') ? data.id : (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'id') ? data.data.id : null);
+			const id = rawId != null ? String(rawId) : null;
+			if (!id) return null;
+			const sourceVal = Object.prototype.hasOwnProperty.call(data, 'source') ? data.source : (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'source') ? data.data.source : null);
+			const targetVal = Object.prototype.hasOwnProperty.call(data, 'target') ? data.target : (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'target') ? data.data.target : null);
+			const isEdge = sourceVal != null && targetVal != null;
+			const labelText = isEdge ? 'Edge options' : 'Node options';
+			const addLabel = isEdge ? 'Add edge to selection' : 'Add node to selection';
+			let detail = null;
+			if (isEdge) {
+				const src = sourceVal != null ? String(sourceVal) : '';
+				const tgt = targetVal != null ? String(targetVal) : '';
+				detail = src && tgt ? `${src} -> ${tgt}` : id;
+			} else {
+				if (Object.prototype.hasOwnProperty.call(data, 'label') && data.label) detail = String(data.label);
+				else if (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'label') && data.data.label) detail = String(data.data.label);
+				else detail = id;
+			}
+
+			const handleAdd = () => {
+				try {
+					if (isEdge) selectEdge(id);
+					else selectNode(id);
+				} catch (err) {}
+				if (onClose && typeof onClose === 'function') {
+					try { onClose(); } catch (err) {}
+				}
+			};
+
+			const handleClose = () => {
+				if (onClose && typeof onClose === 'function') {
+					try { onClose(); } catch (err) {}
+				}
+			};
+
+			const children = [
+				React.createElement('div', { key: 'title', style: contextMenuHeaderStyle }, labelText),
+			];
+			if (detail) {
+				children.push(React.createElement('div', { key: 'detail', style: contextMenuSubtitleStyle }, detail));
+			}
+			children.push(React.createElement('button', { key: 'add', type: 'button', style: contextMenuPrimaryButtonStyle, onClick: handleAdd }, addLabel));
+			children.push(React.createElement('button', { key: 'close', type: 'button', style: contextMenuSecondaryButtonStyle, onClick: handleClose }, 'Cancel'));
+
+			return React.createElement('div', { style: contextMenuContainerStyle }, children);
+		} catch (err) {
+			return null;
+		}
 	}
 
 	function makeNodeWrapper(id) {
@@ -1563,6 +1818,10 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 				localSelectionKeys.delete(key);
 				return;
 			}
+
+			if (isDebugEnabled) {
+				try { console.debug && console.debug('Reagraph DEBUG: SelectionManager.select received', { element, key }); } catch (e) {}
+			}
 			if (element.data.source != null || element.data.target != null) {
 				const id = String(element.data.id || `${element.data.source}-${element.data.target}`);
 				selectEdge(id, { silent: true, force: true });
@@ -1578,6 +1837,10 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			if (key && localSelectionKeys.has(key)) {
 				localSelectionKeys.delete(key);
 				return;
+			}
+
+			if (isDebugEnabled) {
+				try { console.debug && console.debug('Reagraph DEBUG: SelectionManager.unselect received', { element, key }); } catch (e) {}
 			}
 			if (element.data.source != null || element.data.target != null) {
 				const id = String(element.data.id || `${element.data.source}-${element.data.target}`);
