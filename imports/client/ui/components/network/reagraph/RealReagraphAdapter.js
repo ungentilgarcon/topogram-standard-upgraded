@@ -8,58 +8,6 @@ let cachedGraphology = undefined;
 
 const configuredCameraControls = new WeakSet();
 
-const contextMenuContainerStyle = Object.freeze({
-	minWidth: 192,
-	maxWidth: 256,
-	background: '#111827',
-	color: '#f9fafb',
-	boxShadow: '0 12px 24px rgba(15,23,42,0.28)',
-	borderRadius: 10,
-	padding: '12px 14px',
-	border: '1px solid rgba(148,163,184,0.32)',
-	display: 'flex',
-	flexDirection: 'column',
-	gap: '10px',
-});
-
-const contextMenuHeaderStyle = Object.freeze({
-	fontSize: '13px',
-	fontWeight: 600,
-	letterSpacing: '0.02em',
-	textTransform: 'uppercase',
-	opacity: 0.9,
-});
-
-const contextMenuSubtitleStyle = Object.freeze({
-	fontSize: '12px',
-	opacity: 0.7,
-	lineHeight: 1.4,
-});
-
-const contextMenuPrimaryButtonStyle = Object.freeze({
-	fontSize: '13px',
-	fontWeight: 600,
-	padding: '8px 10px',
-	borderRadius: 8,
-	border: 'none',
-	cursor: 'pointer',
-	background: '#22c55e',
-	color: '#052e16',
-	textAlign: 'left',
-});
-
-const contextMenuSecondaryButtonStyle = Object.freeze({
-	fontSize: '12px',
-	fontWeight: 500,
-	padding: '6px 8px',
-	borderRadius: 6,
-	border: '1px solid rgba(148,163,184,0.4)',
-	background: 'transparent',
-	color: '#cbd5f5',
-	cursor: 'pointer',
-	textAlign: 'left',
-});
-
 async function ensureReagraph(env = {}) {
 	if (env && env.reagraph) return env.reagraph;
 	if (cachedReagraph !== undefined) return cachedReagraph;
@@ -839,7 +787,6 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			labelType,
 			edgeLabelPosition: 'center',
 			graphVersion,
-			contextMenu: renderSelectionContextMenu,
 			onNodeClick: (node) => {
 						try {
 							if (!node || !node.id) return;
@@ -1727,60 +1674,6 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 			try { SelectionManager.clear(); } catch (err) {}
 		}
 		scheduleRender();
-	}
-
-	function renderSelectionContextMenu(payload = {}) {
-		try {
-			const { data, onClose } = payload || {};
-			if (!data || typeof data !== 'object') return null;
-			const rawId = Object.prototype.hasOwnProperty.call(data, 'id') ? data.id : (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'id') ? data.data.id : null);
-			const id = rawId != null ? String(rawId) : null;
-			if (!id) return null;
-			const sourceVal = Object.prototype.hasOwnProperty.call(data, 'source') ? data.source : (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'source') ? data.data.source : null);
-			const targetVal = Object.prototype.hasOwnProperty.call(data, 'target') ? data.target : (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'target') ? data.data.target : null);
-			const isEdge = sourceVal != null && targetVal != null;
-			const labelText = isEdge ? 'Edge options' : 'Node options';
-			const addLabel = isEdge ? 'Add edge to selection' : 'Add node to selection';
-			let detail = null;
-			if (isEdge) {
-				const src = sourceVal != null ? String(sourceVal) : '';
-				const tgt = targetVal != null ? String(targetVal) : '';
-				detail = src && tgt ? `${src} -> ${tgt}` : id;
-			} else {
-				if (Object.prototype.hasOwnProperty.call(data, 'label') && data.label) detail = String(data.label);
-				else if (data && data.data && Object.prototype.hasOwnProperty.call(data.data, 'label') && data.data.label) detail = String(data.data.label);
-				else detail = id;
-			}
-
-			const handleAdd = () => {
-				try {
-					if (isEdge) selectEdge(id);
-					else selectNode(id);
-				} catch (err) {}
-				if (onClose && typeof onClose === 'function') {
-					try { onClose(); } catch (err) {}
-				}
-			};
-
-			const handleClose = () => {
-				if (onClose && typeof onClose === 'function') {
-					try { onClose(); } catch (err) {}
-				}
-			};
-
-			const children = [
-				React.createElement('div', { key: 'title', style: contextMenuHeaderStyle }, labelText),
-			];
-			if (detail) {
-				children.push(React.createElement('div', { key: 'detail', style: contextMenuSubtitleStyle }, detail));
-			}
-			children.push(React.createElement('button', { key: 'add', type: 'button', style: contextMenuPrimaryButtonStyle, onClick: handleAdd }, addLabel));
-			children.push(React.createElement('button', { key: 'close', type: 'button', style: contextMenuSecondaryButtonStyle, onClick: handleClose }, 'Cancel'));
-
-			return React.createElement('div', { style: contextMenuContainerStyle }, children);
-		} catch (err) {
-			return null;
-		}
 	}
 
 	function makeNodeWrapper(id) {
