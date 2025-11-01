@@ -820,11 +820,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
           try {
             if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected');
             else graph.setEdgeAttribute(edgeId, 'selected', false);
+            try {
+              if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, '__sigmaSelected');
+              else graph.setEdgeAttribute(edgeId, '__sigmaSelected', false);
+            } catch (e) {}
           } catch (e) {}
           try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
           try { if (SelectionManager) SelectionManager.unselect(json); } catch (e) {}
         } else {
           try { graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
+          try { graph.setEdgeAttribute(edgeId, '__sigmaSelected', true); } catch (e) {}
           try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
           try { if (SelectionManager) SelectionManager.select(json); } catch (e) {}
         }
@@ -903,6 +908,12 @@ function SigmaAdapter(container, elements = [], options = {}) {
             try {
               if (graph.getEdgeAttribute(id, '__sigmaHover')) {
                 try { graph.removeEdgeAttribute(id, '__sigmaHover'); } catch (e) {}
+              }
+              if (graph.getEdgeAttribute(id, '__sigmaSelected')) {
+                try {
+                  if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(id, '__sigmaSelected');
+                  else graph.setEdgeAttribute(id, '__sigmaSelected', false);
+                } catch (e) {}
               }
               if (!graph.getEdgeAttribute(id, 'selected')) return;
               if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(id, 'selected');
@@ -1026,15 +1037,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
               else if (out.label) delete out.label;
               if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
               const isHovered = !!graph.getEdgeAttribute(edge, '__sigmaHover');
-              const isSelected = !!graph.getEdgeAttribute(edge, 'selected');
+              const isSelected = !!graph.getEdgeAttribute(edge, '__sigmaSelected') || !!graph.getEdgeAttribute(edge, 'selected');
               const accentColor = '#FFD54F';
               const defaultColor = graph.getEdgeAttribute(edge, 'color') || out.color;
               const baseScaled = Math.max(1, baseSize ? baseSize * EDGE_VISUAL_SCALE : 1);
               if (isSelected || isHovered) {
-                const boost = isSelected ? 1.6 : 1.35;
+                const boosted = isSelected
+                  ? Math.max(baseScaled * 1.6, baseScaled + 0.6, 1.6)
+                  : Math.max(baseScaled * 1.3, baseScaled + 0.3, 1.2);
                 out.color = accentColor;
-                const boosted = baseSize ? baseSize * EDGE_VISUAL_SCALE * boost : boost;
-                out.size = Math.max(out.size || 1, boosted);
+                out.size = Math.max(out.size || baseScaled, boosted);
               } else {
                 out.color = defaultColor;
                 out.size = Math.max(out.size || 1, baseScaled);
@@ -1264,6 +1276,14 @@ function SigmaAdapter(container, elements = [], options = {}) {
                     handlers.forEach(h => { try { h.handler({ type: evName, target: { id: edge } }); } catch (e) {} });
                     // visual highlight adjustments mirroring node behaviour
                     try {
+                      if (newVal) {
+                        try { graph.setEdgeAttribute(edge, '__sigmaSelected', true); } catch (e) {}
+                      } else {
+                        try {
+                          if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edge, '__sigmaSelected');
+                          else graph.setEdgeAttribute(edge, '__sigmaSelected', false);
+                        } catch (e) {}
+                      }
                       if (newVal) {
                         try {
                           const curColor = graph.getEdgeAttribute(edge, 'color');
