@@ -105,6 +105,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
   let _isDraggingNode = false;
   const DRAGGING_ATTR = '__sigmaAdapterDragging';
   let adapterRef = null;
+  // Tracks selection keys originating from this adapter to avoid feedback loops with SelectionManager.
+  let _localSelKeys = new Set();
 
   const CURVE_META_KEYS = ['curvature', 'parallelIndex', 'parallelMinIndex', 'parallelMaxIndex', 'curveIndex', 'curveCount', 'selfLoop'];
 
@@ -672,6 +674,213 @@ function SigmaAdapter(container, elements = [], options = {}) {
       } catch (e) {}
     };
 
+    const scheduleRendererSoftRefresh = (localRenderer) => {
+      if (!localRenderer) return;
+      try {
+        setTimeout(() => {
+          try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+        }, 120);
+      } catch (e) {}
+      try {
+        requestAnimationFrame(() => {
+          requestAnimationFrame(() => {
+            try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          });
+        });
+      } catch (e) {}
+    };
+
+    const wireRendererInteractions = (localRenderer) => {
+      if (!localRenderer || typeof localRenderer.on !== 'function') return;
+
+      const register = (eventName, handler) => {
+        if (typeof handler !== 'function') return;
+        try {
+          localRenderer.on(eventName, handler);
+          cleanupFns.push(() => {
+            try { localRenderer.off && localRenderer.off(eventName, handler); } catch (e) {}
+          });
+        } catch (e) {}
+      };
+
+      const handleDragEnd = () => {
+        try { releaseDraggedNode(); } catch (e) {}
+        try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+      };
+
+      const handleDownNode = (evt) => {
+        try {
+          const nodeId = evt && (evt.node || (evt.data && evt.data.node));
+          if (!nodeId) return;
+          _isDraggingNode = true;
+          _draggedNodeId = nodeId;
+          try { if (adapterRef) { adapterRef._draggedNode = nodeId; adapterRef._isDragging = true; } } catch (e) {}
+          try {
+            const prevVal = graph.getNodeAttribute(nodeId, 'highlighted');
+            const hadHighlight = typeof prevVal !== 'undefined';
+            _dragMeta.set(nodeId, { hadHighlight, value: prevVal });
+            graph.setNodeAttribute(nodeId, 'highlighted', true);
+          } catch (e) {}
+          try { graph.setNodeAttribute(nodeId, DRAGGING_ATTR, true); } catch (e) {}
+        } catch (e) {}
+      };
+
+      const handleMoveBody = (evt) => {
+        try {
+          if (!_isDraggingNode || !_draggedNodeId) return;
+          const pointer = evt && evt.event ? evt.event : evt;
+          if (!pointer) return;
+          let coords = null;
+          try {
+            if (localRenderer && typeof localRenderer.viewportToGraph === 'function') {
+              const vx = (typeof pointer.x === 'number') ? pointer.x : (typeof pointer.clientX === 'number' ? pointer.clientX : pointer.pageX);
+              const vy = (typeof pointer.y === 'number') ? pointer.y : (typeof pointer.clientY === 'number' ? pointer.clientY : pointer.pageY);
+              if (typeof vx === 'number' && typeof vy === 'number') coords = localRenderer.viewportToGraph({ x: vx, y: vy });
+              else coords = localRenderer.viewportToGraph(pointer);
+            }
+          } catch (err) { coords = null; }
+          if (!coords || Number.isNaN(coords.x) || Number.isNaN(coords.y)) return;
+          try { graph.setNodeAttribute(_draggedNodeId, 'x', coords.x); } catch (e) {}
+          try { graph.setNodeAttribute(_draggedNodeId, 'y', coords.y); } catch (e) {}
+          const sigmaEvent = pointer && typeof pointer.preventSigmaDefault === 'function' ? pointer : null;
+          if (sigmaEvent) {
+            try { sigmaEvent.preventSigmaDefault(); } catch (e) {}
+          }
+          const original = pointer && (pointer.original || pointer);
+          if (original) {
+            try { if (typeof original.preventDefault === 'function') original.preventDefault(); } catch (e) {}
+            try { if (typeof original.stopPropagation === 'function') original.stopPropagation(); } catch (e) {}
+          }
+        } catch (e) {}
+      };
+
+      register('downNode', handleDownNode);
+      register('moveBody', handleMoveBody);
+      register('upNode', handleDragEnd);
+      register('upStage', handleDragEnd);
+      register('leaveStage', handleDragEnd);
+      cleanupFns.push(() => {
+        try { handleDragEnd(); } catch (e) {}
+      });
+
+      const toggleNodeSelection = (nodeId, evtObj) => {
+        if (!nodeId) return;
+        const currently = !!graph.getNodeAttribute(nodeId, 'selected');
+        const json = { data: { id: String(nodeId) } };
+        const key = SelectionManager ? SelectionManager.canonicalKey(json) : `node:${String(nodeId)}`;
+        if (key) _localSelKeys.add(key);
+        const maybePrevent = evtObj && typeof evtObj.preventSigmaDefault === 'function' ? evtObj : null;
+        if (maybePrevent) {
+          try { maybePrevent.preventSigmaDefault(); } catch (e) {}
+        }
+        const original = evtObj && (evtObj.original || evtObj.event && evtObj.event.original);
+        if (original) {
+          try { if (typeof original.preventDefault === 'function') original.preventDefault(); } catch (e) {}
+          try { if (typeof original.stopPropagation === 'function') original.stopPropagation(); } catch (e) {}
+        }
+        if (currently) {
+          try { graph.removeNodeAttribute(nodeId, 'selected'); } catch (e) {}
+          try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          try { if (SelectionManager) SelectionManager.unselect(json); } catch (e) {}
+        } else {
+          try { graph.setNodeAttribute(nodeId, 'selected', true); } catch (e) {}
+          try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          try { if (SelectionManager) SelectionManager.select(json); } catch (e) {}
+        }
+      };
+
+      const toggleEdgeSelection = (edgeId, evtObj) => {
+        if (!edgeId) return;
+        const currently = !!graph.getEdgeAttribute(edgeId, 'selected');
+        const src = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
+        const tgt = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
+        const json = { data: { id: String(edgeId), source: src, target: tgt } };
+        const key = SelectionManager ? SelectionManager.canonicalKey(json) : `edge:${String(edgeId)}`;
+        if (key) _localSelKeys.add(key);
+        const maybePrevent = evtObj && typeof evtObj.preventSigmaDefault === 'function' ? evtObj : null;
+        if (maybePrevent) {
+          try { maybePrevent.preventSigmaDefault(); } catch (e) {}
+        }
+        const original = evtObj && (evtObj.original || evtObj.event && evtObj.event.original);
+        if (original) {
+          try { if (typeof original.preventDefault === 'function') original.preventDefault(); } catch (e) {}
+          try { if (typeof original.stopPropagation === 'function') original.stopPropagation(); } catch (e) {}
+        }
+        if (currently) {
+          try {
+            if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected');
+            else graph.setEdgeAttribute(edgeId, 'selected', false);
+          } catch (e) {}
+          try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          try { if (SelectionManager) SelectionManager.unselect(json); } catch (e) {}
+        } else {
+          try { graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
+          try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          try { if (SelectionManager) SelectionManager.select(json); } catch (e) {}
+        }
+      };
+
+      register('clickNode', (evt) => {
+        try {
+          try { console.debug && console.debug('SigmaAdapter: clickNode evt:', evt); } catch (e) {}
+          const nodeId = evt && (evt.node || (evt.data && evt.data.node));
+          toggleNodeSelection(nodeId, evt);
+        } catch (e) {}
+      });
+
+      register('clickEdge', (evt) => {
+        try {
+          try { console.debug && console.debug('SigmaAdapter: clickEdge evt:', evt); } catch (e) {}
+          const edgeId = evt && (evt.edge || (evt.data && evt.data.edge));
+          toggleEdgeSelection(edgeId, evt);
+        } catch (e) {}
+      });
+
+      register('clickEdges', (evt) => {
+        try {
+          try { console.debug && console.debug('SigmaAdapter: clickEdges evt:', evt); } catch (e) {}
+          const edges = (evt && (evt.edges || (evt.data && evt.data.edges))) || [];
+          const list = Array.isArray(edges) ? edges : [edges];
+          const seen = new Set();
+          list.forEach((edgeEntry) => {
+            try {
+              let edgeId = null;
+              if (typeof edgeEntry === 'string') edgeId = edgeEntry;
+              else if (edgeEntry && typeof edgeEntry === 'object') {
+                if (edgeEntry.id) edgeId = edgeEntry.id;
+                else if (edgeEntry.edge) edgeId = edgeEntry.edge;
+                else if (edgeEntry.key) edgeId = edgeEntry.key;
+                else if (edgeEntry.data && edgeEntry.data.edge) edgeId = edgeEntry.data.edge;
+              }
+              if (!edgeId || seen.has(edgeId)) return;
+              seen.add(edgeId);
+              toggleEdgeSelection(edgeId, evt);
+            } catch (inner) {}
+          });
+        } catch (e) {}
+      });
+
+      register('clickStage', (evt) => {
+        try {
+          const left = LeftCtrl && typeof LeftCtrl.isLeftCtrlDown === 'function' ? LeftCtrl.isLeftCtrlDown() : false;
+          if (left) return;
+        } catch (e) {}
+        try {
+          if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
+          graph.forEachNode((id) => { try { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); } catch (e) {} });
+          graph.forEachEdge((id) => {
+            try {
+              if (!graph.getEdgeAttribute(id, 'selected')) return;
+              if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(id, 'selected');
+              else graph.setEdgeAttribute(id, 'selected', false);
+            } catch (e) {}
+          });
+          if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh();
+          try { if (SelectionManager && typeof SelectionManager.clear === 'function') SelectionManager.clear(); } catch (e) {}
+        } catch (e) {}
+      });
+    };
+
     const createRenderer = () => {
       const allowCurves = !_noCurvesFlag && !DEBUG_NO_CURVES && !!SigmaAdapter__EdgeCurveProgram;
       const { options: sigmaOptions, programClasses } = buildSigmaOptions(allowCurves);
@@ -687,6 +896,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
           restoreCurves = true;
         } catch (e) { restoreCurves = false; }
       }
+
+      try { runCleanupFns(); } catch (e) {}
 
       try {
         // If an existing renderer is present, attempt a clean shutdown first
@@ -794,166 +1005,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
         }
       } catch (e) {}
 
-      // wire events onto the new renderer instance (clickNode/clickEdge/clickStage etc.)
-      try {
-        if (renderer && typeof renderer.on === 'function') {
-          const localRenderer = renderer;
-          const handleDragEnd = () => {
-            try { releaseDraggedNode(); } catch (e) {}
-            try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-          };
-          const handleDownNode = (evt) => {
-            try {
-              const nodeId = evt && (evt.node || (evt.data && evt.data.node));
-              if (!nodeId) return;
-              _isDraggingNode = true;
-              _draggedNodeId = nodeId;
-              try { if (adapterRef) { adapterRef._draggedNode = nodeId; adapterRef._isDragging = true; } } catch (e) {}
-              try {
-                const prevVal = graph.getNodeAttribute(nodeId, 'highlighted');
-                const hadHighlight = typeof prevVal !== 'undefined';
-                _dragMeta.set(nodeId, { hadHighlight, value: prevVal });
-                graph.setNodeAttribute(nodeId, 'highlighted', true);
-              } catch (e) {}
-              try { graph.setNodeAttribute(nodeId, DRAGGING_ATTR, true); } catch (e) {}
-            } catch (e) {}
-          };
-          const handleMoveBody = (evt) => {
-            try {
-              if (!_isDraggingNode || !_draggedNodeId) return;
-              const pointer = evt && evt.event ? evt.event : evt;
-              if (!pointer) return;
-              let coords = null;
-              try {
-                if (renderer && typeof renderer.viewportToGraph === 'function') {
-                  const vx = (typeof pointer.x === 'number') ? pointer.x : (typeof pointer.clientX === 'number' ? pointer.clientX : pointer.pageX);
-                  const vy = (typeof pointer.y === 'number') ? pointer.y : (typeof pointer.clientY === 'number' ? pointer.clientY : pointer.pageY);
-                  if (typeof vx === 'number' && typeof vy === 'number') coords = renderer.viewportToGraph({ x: vx, y: vy });
-                  else coords = renderer.viewportToGraph(pointer);
-                }
-              } catch (err) { coords = null; }
-              if (!coords || Number.isNaN(coords.x) || Number.isNaN(coords.y)) return;
-              try { graph.setNodeAttribute(_draggedNodeId, 'x', coords.x); } catch (e) {}
-              try { graph.setNodeAttribute(_draggedNodeId, 'y', coords.y); } catch (e) {}
-              const sigmaEvent = pointer && typeof pointer.preventSigmaDefault === 'function' ? pointer : null;
-              if (sigmaEvent) {
-                try { sigmaEvent.preventSigmaDefault(); } catch (e) {}
-              }
-              const original = pointer && (pointer.original || pointer);
-              if (original) {
-                try { if (typeof original.preventDefault === 'function') original.preventDefault(); } catch (e) {}
-                try { if (typeof original.stopPropagation === 'function') original.stopPropagation(); } catch (e) {}
-              }
-            } catch (e) {}
-          };
-          try { renderer.on('downNode', handleDownNode); } catch (e) {}
-          try { renderer.on('moveBody', handleMoveBody); } catch (e) {}
-          try { renderer.on('upNode', handleDragEnd); } catch (e) {}
-          try { renderer.on('upStage', handleDragEnd); } catch (e) {}
-          try { renderer.on('leaveStage', handleDragEnd); } catch (e) {}
-          cleanupFns.push(() => {
-            try { handleDragEnd(); } catch (e) {}
-            try { localRenderer.off && localRenderer.off('downNode', handleDownNode); } catch (e) {}
-            try { localRenderer.off && localRenderer.off('moveBody', handleMoveBody); } catch (e) {}
-            try { localRenderer.off && localRenderer.off('upNode', handleDragEnd); } catch (e) {}
-            try { localRenderer.off && localRenderer.off('upStage', handleDragEnd); } catch (e) {}
-            try { localRenderer.off && localRenderer.off('leaveStage', handleDragEnd); } catch (e) {}
-          });
-
-          // click on a node: toggle selection and inform SelectionManager
-          renderer.on('clickNode', (evt) => {
-            try {
-              try { console.debug && console.debug('SigmaAdapter: clickNode evt:', evt); } catch (e) {}
-              const nodeId = evt && (evt.node || evt.data && evt.data.node) ? (evt.node || (evt.data && evt.data.node)) : null;
-              if (!nodeId) return;
-              const currently = !!graph.getNodeAttribute(nodeId, 'selected');
-              const json = { data: { id: String(nodeId) } };
-              const key = SelectionManager ? SelectionManager.canonicalKey(json) : `node:${String(nodeId)}`;
-              _localSelKeys.add(key);
-              if (currently) {
-                try { graph.removeNodeAttribute(nodeId, 'selected'); } catch (e) {}
-                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for node', json); SelectionManager.unselect(json); } } catch (e) {}
-              } else {
-                try { graph.setNodeAttribute(nodeId, 'selected', true); } catch (e) {}
-                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for node', json); SelectionManager.select(json); } } catch (e) {}
-              }
-            } catch (e) {}
-          });
-
-      // give Sigma a short moment to initialize GL resources then trigger a refresh
-      try { setTimeout(() => { try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {} }, 120); } catch (e) {}
-      try { requestAnimationFrame(() => { requestAnimationFrame(() => { try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {} }); }); } catch (e) {}
-      return renderer;
-          const toggleEdgeSelection = (edgeId, evtObj) => {
-            try {
-              if (!edgeId) return;
-              const currently = !!graph.getEdgeAttribute(edgeId, 'selected');
-              const src = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
-              const tgt = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
-              const json = { data: { id: String(edgeId), source: src, target: tgt } };
-              const key = SelectionManager ? SelectionManager.canonicalKey(json) : `edge:${String(edgeId)}`;
-              _localSelKeys.add(key);
-              if (currently) {
-                try { if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected'); else graph.setEdgeAttribute(edgeId, 'selected', false); } catch (e) {}
-                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for edge', json, evtObj); SelectionManager.unselect(json); } } catch (e) {}
-              } else {
-                try { graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
-                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for edge', json, evtObj); SelectionManager.select(json); } } catch (e) {}
-              }
-            } catch (e) {}
-          };
-
-          renderer.on('clickEdge', (evt) => {
-            try {
-              try { console.debug && console.debug('SigmaAdapter: clickEdge evt:', evt); } catch (e) {}
-              const edgeId = evt && (evt.edge || (evt.data && evt.data.edge)) ? (evt.edge || (evt.data && evt.data.edge)) : null;
-              toggleEdgeSelection(edgeId, evt);
-            } catch (e) {}
-          });
-          renderer.on('clickEdges', (evt) => {
-            try {
-              try { console.debug && console.debug('SigmaAdapter: clickEdges evt:', evt); } catch (e) {}
-              const edges = (evt && (evt.edges || (evt.data && evt.data.edges))) || [];
-              const list = Array.isArray(edges) ? edges : [edges];
-              const seen = new Set();
-              list.forEach(edgeEntry => {
-                try {
-                  let edgeId = null;
-                  if (typeof edgeEntry === 'string') edgeId = edgeEntry;
-                  else if (edgeEntry && typeof edgeEntry === 'object') {
-                    if (edgeEntry.id) edgeId = edgeEntry.id;
-                    else if (edgeEntry.edge) edgeId = edgeEntry.edge;
-                    else if (edgeEntry.key) edgeId = edgeEntry.key;
-                    else if (edgeEntry.data && edgeEntry.data.edge) edgeId = edgeEntry.data.edge;
-                  }
-                  if (!edgeId || seen.has(edgeId)) return;
-                  seen.add(edgeId);
-                  toggleEdgeSelection(edgeId, evt);
-                } catch (inner) {}
-              });
-            } catch (e) {}
-          });
-
-          // clickStage: clear selection unless physical LeftCtrl is down
-          renderer.on('clickStage', (evt) => {
-            try {
-              const left = LeftCtrl && typeof LeftCtrl.isLeftCtrlDown === 'function' ? LeftCtrl.isLeftCtrlDown() : false;
-              if (left) return;
-            } catch (e) {}
-            try {
-              if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
-              graph.forEachNode((id) => { try { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); } catch (e) {} });
-              graph.forEachEdge((id) => { try { if (graph.getEdgeAttribute(id, 'selected')) graph.removeEdgeAttribute(id, 'selected'); } catch (e) {} });
-              if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
-              try { if (SelectionManager && typeof SelectionManager.clear === 'function') SelectionManager.clear(); } catch (e) {}
-            } catch (e) {}
-          });
-        }
-      } catch (e) {}
+      // wire events onto the new renderer instance (dragging + selection)
+      try { wireRendererInteractions(renderer); } catch (e) {}
+      scheduleRendererSoftRefresh(renderer);
       return renderer;
     };
 
@@ -969,9 +1023,6 @@ function SigmaAdapter(container, elements = [], options = {}) {
     return makeNoopAdapter('renderer_failed');
   }
   try { console.debug('SigmaAdapter: renderer created', { renderer: !!renderer, graphOrder: graph.order, graphSize: graph.size }); } catch (e) { console.debug('SigmaAdapter: renderer created'); }
-
-  // local origin keys to avoid event loops when adapters and SelectionManager mirror
-  let _localSelKeys = new Set();
   const selectionManagerUnsubs = [];
   // Curved-edge rendering is performed by the registered WebGL program
   // (@sigma/edge-curve). The adapter sets attributes expected by that
@@ -1008,181 +1059,6 @@ function SigmaAdapter(container, elements = [], options = {}) {
   // Curved-edge rendering is performed by the registered WebGL program
   // and input events are delegated to Sigma; the adapter relies on the
   // renderer's built-in picking events.
-
-
-  try {
-    if (renderer && typeof renderer.setSetting === 'function') {
-      renderer.setSetting('nodeReducer', (node, data) => {
-        try {
-          const hidden = !!graph.getNodeAttribute(node, 'hidden');
-          const selected = !!graph.getNodeAttribute(node, 'selected');
-          const label = graph.getNodeAttribute(node, 'label');
-          const forceLabel = graph.getNodeAttribute(node, 'forceLabel');
-          const out = Object.assign({}, data);
-          if (hidden) out.hidden = true;
-          if (typeof label === 'string') out.label = label;
-          if (forceLabel) out.forceLabel = true;
-          if (selected) {
-            out.color = '#FFD54F';
-            out.highlighted = true;
-          }
-          return out;
-        } catch (e) { return data; }
-      });
-      renderer.setSetting('edgeReducer', (edge, data) => {
-        try {
-          const hidden = !!graph.getEdgeAttribute(edge, 'hidden');
-          const out = Object.assign({}, data);
-          if (hidden) out.hidden = true;
-          const baseSize = Number(graph.getEdgeAttribute(edge, 'size'));
-          if (!Number.isNaN(baseSize)) out.size = Math.max(1, baseSize * EDGE_VISUAL_SCALE);
-          const label = graph.getEdgeAttribute(edge, 'label');
-          if (typeof label === 'string' && label.trim().length) out.label = label;
-          else if (out.label) delete out.label;
-          if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
-          const selected = !!graph.getEdgeAttribute(edge, 'selected');
-          if (selected) {
-            out.color = '#FFD54F';
-            out.size = Math.max(out.size || 1, baseSize ? baseSize * EDGE_VISUAL_SCALE * 1.6 : 1.6);
-          } else {
-            out.color = graph.getEdgeAttribute(edge, 'color') || out.color;
-            out.size = Math.max(1, baseSize ? baseSize * EDGE_VISUAL_SCALE : 1);
-          }
-          return out;
-        } catch (e) { return data; }
-      });
-    }
-  } catch (e) {}
-
-  // No DOM overlay setup is required when the curved-edge program is registered.
-
-  // wire input events from the renderer to update graph selection state
-  try {
-    if (renderer && typeof renderer.on === 'function') {
-      try {
-        // click on a node: toggle selection and inform SelectionManager
-        renderer.on('clickNode', (evt) => {
-          try {
-            try { console.debug && console.debug('SigmaAdapter: clickNode evt:', evt); } catch (e) {}
-            const nodeId = evt && (evt.node || evt.data && evt.data.node) ? (evt.node || (evt.data && evt.data.node)) : null;
-            if (!nodeId) return;
-            const currently = !!graph.getNodeAttribute(nodeId, 'selected');
-            const json = { data: { id: String(nodeId) } };
-            const key = SelectionManager ? SelectionManager.canonicalKey(json) : `node:${String(nodeId)}`;
-            // mark local origin to avoid SelectionManager echo loop
-            _localSelKeys.add(key);
-            if (currently) {
-              try { graph.removeNodeAttribute(nodeId, 'selected'); } catch (e) {}
-              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for node', json); SelectionManager.unselect(json); } } catch (e) {}
-            } else {
-              try { graph.setNodeAttribute(nodeId, 'selected', true); } catch (e) {}
-              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for node', json); SelectionManager.select(json); } } catch (e) {}
-            }
-          } catch (e) {}
-        });
-        const toggleEdgeSelection = (edgeId, evtObj) => {
-          try {
-            if (!edgeId) return;
-            const currently = !!graph.getEdgeAttribute(edgeId, 'selected');
-            const src = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
-            const tgt = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
-            const json = { data: { id: String(edgeId), source: src, target: tgt } };
-            const key = SelectionManager ? SelectionManager.canonicalKey(json) : `edge:${String(edgeId)}`;
-            _localSelKeys.add(key);
-            if (currently) {
-              try { if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected'); else graph.setEdgeAttribute(edgeId, 'selected', false); } catch (e) {}
-              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for edge', json, evtObj); SelectionManager.unselect(json); } } catch (e) {}
-            } else {
-              try { graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
-              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-              try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for edge', json, evtObj); SelectionManager.select(json); } } catch (e) {}
-            }
-          } catch (e) {}
-        };
-
-  // Rely on the WebGL program's built-in picking and the renderer's
-  // 'clickEdge'/'clickEdges' events.
-
-        // click on an edge: toggle selection and inform SelectionManager
-        renderer.on('clickEdge', (evt) => {
-          try {
-            try { console.debug && console.debug('SigmaAdapter: clickEdge evt:', evt); } catch (e) {}
-            const edgeId = evt && (evt.edge || (evt.data && evt.data.edge)) ? (evt.edge || (evt.data && evt.data.edge)) : null;
-            toggleEdgeSelection(edgeId, evt);
-          } catch (e) {}
-        });
-        renderer.on('clickEdges', (evt) => {
-          try {
-            try { console.debug && console.debug('SigmaAdapter: clickEdges evt:', evt); } catch (e) {}
-            const edges = (evt && (evt.edges || (evt.data && evt.data.edges))) || [];
-            const list = Array.isArray(edges) ? edges : [edges];
-            const seen = new Set();
-            list.forEach(edgeEntry => {
-              try {
-                let edgeId = null;
-                if (typeof edgeEntry === 'string') edgeId = edgeEntry;
-                else if (edgeEntry && typeof edgeEntry === 'object') {
-                  if (edgeEntry.id) edgeId = edgeEntry.id;
-                  else if (edgeEntry.edge) edgeId = edgeEntry.edge;
-                  else if (edgeEntry.key) edgeId = edgeEntry.key;
-                  else if (edgeEntry.data && edgeEntry.data.edge) edgeId = edgeEntry.data.edge;
-                }
-                if (!edgeId || seen.has(edgeId)) return;
-                seen.add(edgeId);
-                toggleEdgeSelection(edgeId, evt);
-              } catch (inner) {}
-            });
-          } catch (e) {}
-        });
-        // Additional edge events per sigma docs: log them and expose the edge id
-        try {
-          ['enterEdge', 'leaveEdge', 'downEdge', 'rightClickEdge', 'doubleClickEdge', 'wheelEdge'].forEach((evName) => {
-            try {
-              renderer.on(evName, (evt) => {
-                try {
-                  const edgeId = evt && (evt.edge || (evt.data && evt.data.edge)) ? (evt.edge || (evt.data && evt.data.edge)) : null;
-                  try { console.debug && console.debug(`SigmaAdapter: ${evName}`, { edge: edgeId, evt }); } catch (e) {}
-                } catch (e) {}
-              });
-            } catch (e) {}
-          });
-        } catch (e) {}
-        // rely on canonical edge events only
-        // v3: rely on the canonical 'clickEdge' (and 'clickNode') events. Do not
-        // register additional debug-only edge handlers here to keep the adapter
-        // minimal and predictable.
-        // click on background/stage: clear selection unless the physical
-        // Left Control key is held. This implements the app-level behaviour
-        // at Sigma level so users can hold LeftCtrl to preserve selections
-        // while clicking empty canvas to perform additive selection flows.
-        try {
-          renderer.on('clickStage', (evt) => {
-            try {
-              const left = LeftCtrl && typeof LeftCtrl.isLeftCtrlDown === 'function' ? LeftCtrl.isLeftCtrlDown() : false;
-              // If left-Control is held, do not clear selection on empty-canvas clicks
-              if (left) return;
-            } catch (e) {}
-            try {
-              if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
-              graph.forEachNode((id) => { try { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); } catch (e) {} });
-              graph.forEachEdge((id) => { try { if (graph.getEdgeAttribute(id, 'selected')) graph.removeEdgeAttribute(id, 'selected'); } catch (e) {} });
-              if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
-              try { if (SelectionManager && typeof SelectionManager.clear === 'function') SelectionManager.clear(); } catch (e) {}
-            } catch (e) {}
-          });
-        } catch (e) {}
-      } catch (e) {
-        // some builds expose events under different names; try renderer.getMouseHandlers or container
-      }
-    }
-  } catch (e) {}
-
-  // Rely on Sigma edge events and the clickEdge handler above. If a build
-  // does not deliver clickEdge we can implement a fallback using Sigma's
-  // picking API instead of nearest-edge heuristics.
 
   const makeNodeWrapper = (id) => ({
     id: () => id,
