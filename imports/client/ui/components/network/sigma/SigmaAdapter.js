@@ -90,6 +90,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
   // renderer path for curved edges.
   const needsManualCurves = false;
   const cleanupFns = [];
+  const runCleanupFns = () => {
+    try {
+      if (!cleanupFns.length) return;
+      const fns = cleanupFns.splice(0, cleanupFns.length);
+      fns.forEach(fn => {
+        try { if (typeof fn === 'function') fn(); } catch (innerErr) {}
+      });
+    } catch (err) {}
+  };
+  const _edgeShapeCache = new Map();
   const _dragMeta = new Map();
   let _draggedNodeId = null;
   let _isDraggingNode = false;
@@ -659,6 +669,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
       }
       try { console.debug && console.debug('SigmaAdapter: renderer (re)created', { renderer: !!r, graphOrder: graph.order, graphSize: graph.size }); } catch (e) {}
       renderer = r;
+      try {
+        const cls = sigmaOpts && sigmaOpts.edgeProgramClasses;
+        if (cls && renderer && typeof renderer.registerEdgeProgram === 'function') {
+          Object.keys(cls).forEach((key) => {
+            const program = cls[key];
+            if (!program) return;
+            try { renderer.registerEdgeProgram(key, program); } catch (regErr) {}
+          });
+        }
+      } catch (err) {}
       // Attach WebGL context lost/restored handlers on the renderer container
       try {
         const cont = (renderer && typeof renderer.getContainer === 'function') ? renderer.getContainer() : container;
@@ -921,6 +941,298 @@ function SigmaAdapter(container, elements = [], options = {}) {
       }
     } catch (e) {}
   }
+
+  const applyEdgeCurveState = (disableCurves) => {
+    const g = graph;
+    if (!g || typeof g.forEachEdge !== 'function') return;
+
+    const canUseCurves = !disableCurves && !DEBUG_NO_CURVES && !!SigmaAdapter__EdgeCurveProgram;
+    const groups = new Map();
+    const assignments = new Map();
+
+    const cacheKey = (edgeId) => String(edgeId);
+    const rememberShape = (edgeId, attr) => {
+      try {
+        if (!attr) return;
+        const key = cacheKey(edgeId);
+        const maybeType = typeof attr.type === 'string' ? attr.type : null;
+        const maybeCurv = (typeof attr.curvature === 'number' && !Number.isNaN(attr.curvature)) ? attr.curvature : null;
+        const hasCurvedType = maybeType && maybeType !== 'edge';
+        const hasCurvature = maybeCurv != null && Math.abs(maybeCurv) > 1e-6;
+        if (!_edgeShapeCache.has(key)) {
+          if (maybeType != null || maybeCurv != null) {
+            _edgeShapeCache.set(key, {
+              type: maybeType,
+              curvature: maybeCurv,
+              parallelIndex: attr.parallelIndex,
+              parallelMinIndex: attr.parallelMinIndex,
+              parallelMaxIndex: attr.parallelMaxIndex,
+              curveIndex: attr.curveIndex,
+              curveCount: attr.curveCount,
+              selfLoop: attr.selfLoop
+            });
+          }
+          return;
+        }
+        if (hasCurvedType || hasCurvature) {
+          _edgeShapeCache.set(key, {
+            type: maybeType,
+            curvature: maybeCurv,
+            parallelIndex: attr.parallelIndex,
+            parallelMinIndex: attr.parallelMinIndex,
+            parallelMaxIndex: attr.parallelMaxIndex,
+            curveIndex: attr.curveIndex,
+            curveCount: attr.curveCount,
+            selfLoop: attr.selfLoop
+          });
+        }
+      } catch (err) {}
+    };
+
+    const pushToGroup = (edgeId, attr, source, target) => {
+      try {
+        rememberShape(edgeId, attr);
+        const src = source != null ? String(source) : String((typeof g.source === 'function') ? g.source(edgeId) : edgeId);
+        const tgt = target != null ? String(target) : String((typeof g.target === 'function') ? g.target(edgeId) : edgeId);
+        const key = `${src}|||${tgt}`;
+        if (!groups.has(key)) groups.set(key, []);
+        groups.get(key).push({ edgeId, attr: attr || {}, srcKey: src, tgtKey: tgt });
+      } catch (err) {}
+    };
+
+    try {
+      g.forEachEdge((edgeId, attr, source, target) => {
+        pushToGroup(edgeId, attr, source, target);
+      });
+    } catch (err) {
+      try {
+        g.forEachEdge((edgeId) => {
+          const attr = g.getEdgeAttributes ? g.getEdgeAttributes(edgeId) || {} : {};
+          const source = (typeof g.source === 'function') ? g.source(edgeId) : null;
+          const target = (typeof g.target === 'function') ? g.target(edgeId) : null;
+          pushToGroup(edgeId, attr, source, target);
+        });
+      } catch (fallbackErr) {}
+    }
+
+    const parallelIndex = (attr) => {
+      if (!attr) return null;
+      const candidates = [attr.parallelIndex, attr._parallelIndex, attr.curveIndex, attr.curve_index];
+      for (let i = 0; i < candidates.length; i += 1) {
+        const val = candidates[i];
+        if (typeof val === 'number' && !Number.isNaN(val)) return val;
+        if (typeof val === 'string' && val.trim().length) {
+          const parsed = Number(val);
+          if (!Number.isNaN(parsed)) return parsed;
+        }
+      }
+      return null;
+    };
+
+    groups.forEach((entries) => {
+      if (!entries || !entries.length) return;
+      try {
+        entries.sort((a, b) => {
+          const ai = parallelIndex(a.attr);
+          const bi = parallelIndex(b.attr);
+          if (ai != null && bi != null && ai !== bi) return ai - bi;
+          return String(a.edgeId).localeCompare(String(b.edgeId));
+        });
+      } catch (err) {}
+
+      const srcKey = entries[0].srcKey;
+      const tgtKey = entries[0].tgtKey;
+      const selfLoop = srcKey === tgtKey;
+      const count = entries.length;
+      const mid = (count - 1) / 2;
+      const rawOffsets = entries.map((_, idx) => idx - mid);
+      const baseIndices = rawOffsets.map((offset) => {
+        if (offset > 0) return Math.ceil(offset);
+        if (offset < 0) return Math.floor(offset);
+        return 0;
+      });
+      const directedIndices = baseIndices.map((val, idx) => {
+        const entry = entries[idx];
+        const forward = entry.srcKey <= entry.tgtKey;
+        const dirSign = forward ? 1 : -1;
+        return val * dirSign;
+      });
+      const minIndex = directedIndices.reduce((acc, val) => Math.min(acc, val), directedIndices[0] || 0);
+      const maxIndex = directedIndices.reduce((acc, val) => Math.max(acc, val), directedIndices[0] || 0);
+      const baseCurvature = count === 2 ? 0.7 : 0.45;
+
+      entries.forEach((entry, idx) => {
+        const parallelIdx = directedIndices[idx] || 0;
+        const forward = entry.srcKey <= entry.tgtKey;
+        const dirSign = forward ? 1 : -1;
+        let type = 'edge';
+        let curvature = 0;
+
+        if (canUseCurves) {
+          if (selfLoop) {
+            type = 'curved';
+            curvature = 2.5;
+          } else if (count > 1) {
+            type = 'curved';
+            if (parallelIdx === 0) curvature = dirSign * baseCurvature * 0.65;
+            else curvature = parallelIdx * baseCurvature;
+          }
+        }
+
+        if (disableCurves || !canUseCurves) curvature = 0;
+
+        assignments.set(entry.edgeId, {
+          type,
+          curvature,
+          parallelIndex: parallelIdx,
+          parallelMinIndex: minIndex,
+          parallelMaxIndex: maxIndex,
+          curveIndex: idx,
+          curveCount: count,
+          selfLoop
+        });
+      });
+    });
+
+    // ensure single edges not in groups still get defaults
+    try {
+      g.forEachEdge((edgeId, attr, source, target) => {
+        if (assignments.has(edgeId)) return;
+        const srcKey = source != null ? String(source) : '';
+        const tgtKey = target != null ? String(target) : '';
+        const selfLoop = srcKey === tgtKey && srcKey !== '';
+        let type = 'edge';
+        let curvature = 0;
+        if (canUseCurves && selfLoop) {
+          type = 'curved';
+          curvature = 2.5;
+        }
+        assignments.set(edgeId, {
+          type,
+          curvature,
+          parallelIndex: 0,
+          parallelMinIndex: 0,
+          parallelMaxIndex: 0,
+          curveIndex: 0,
+          curveCount: 1,
+          selfLoop
+        });
+      });
+    } catch (singleErr) {}
+
+    const summary = { disableCurves, canUseCurves, total: 0, curved: 0, straight: 0 };
+    const sample = [];
+
+    try {
+      g.forEachEdge((edgeId) => {
+        summary.total += 1;
+        let next = assignments.get(edgeId) || null;
+        if (!disableCurves && canUseCurves) {
+          const cached = _edgeShapeCache.get(cacheKey(edgeId));
+          if (cached) {
+            const { type: cachedType, curvature: cachedCurv } = cached;
+            next = {
+              type: (cachedType && cachedType !== 'edge') ? cachedType : (next && next.type ? next.type : 'curved'),
+              curvature: (typeof cachedCurv === 'number' && !Number.isNaN(cachedCurv)) ? cachedCurv : (next && typeof next.curvature === 'number' ? next.curvature : 0.45),
+              parallelIndex: typeof cached.parallelIndex !== 'undefined' ? cached.parallelIndex : (next && typeof next.parallelIndex !== 'undefined' ? next.parallelIndex : 0),
+              parallelMinIndex: typeof cached.parallelMinIndex !== 'undefined' ? cached.parallelMinIndex : (next && typeof next.parallelMinIndex !== 'undefined' ? next.parallelMinIndex : 0),
+              parallelMaxIndex: typeof cached.parallelMaxIndex !== 'undefined' ? cached.parallelMaxIndex : (next && typeof next.parallelMaxIndex !== 'undefined' ? next.parallelMaxIndex : 0),
+              curveIndex: typeof cached.curveIndex !== 'undefined' ? cached.curveIndex : (next && typeof next.curveIndex !== 'undefined' ? next.curveIndex : 0),
+              curveCount: typeof cached.curveCount !== 'undefined' ? cached.curveCount : (next && typeof next.curveCount !== 'undefined' ? next.curveCount : 1),
+              selfLoop: typeof cached.selfLoop !== 'undefined' ? cached.selfLoop : (next && typeof next.selfLoop !== 'undefined' ? next.selfLoop : false)
+            };
+          }
+        }
+        if (!next) next = { type: disableCurves ? 'edge' : 'edge', curvature: 0 };
+        const isCurved = next.type === 'curved' && typeof next.curvature === 'number' && !Number.isNaN(next.curvature) && Math.abs(next.curvature) > 1e-6;
+        if (!disableCurves && canUseCurves && isCurved) summary.curved += 1; else summary.straight += 1;
+
+        if (disableCurves || !canUseCurves) {
+          try {
+            if (typeof g.removeEdgeAttribute === 'function') g.removeEdgeAttribute(edgeId, 'type');
+            else g.setEdgeAttribute(edgeId, 'type', 'edge');
+          } catch (setTypeErr) {}
+          try {
+            if (typeof g.removeEdgeAttribute === 'function') g.removeEdgeAttribute(edgeId, 'curvature');
+            else g.setEdgeAttribute(edgeId, 'curvature', 0);
+          } catch (rmCurvErr) {}
+          if (typeof g.removeEdgeAttribute === 'function') {
+            try { g.removeEdgeAttribute(edgeId, 'parallelIndex'); } catch (rmAttrErr) {}
+            try { g.removeEdgeAttribute(edgeId, 'parallelMinIndex'); } catch (rmAttrErr) {}
+            try { g.removeEdgeAttribute(edgeId, 'parallelMaxIndex'); } catch (rmAttrErr) {}
+            try { g.removeEdgeAttribute(edgeId, 'curveIndex'); } catch (rmAttrErr) {}
+            try { g.removeEdgeAttribute(edgeId, 'curveCount'); } catch (rmAttrErr) {}
+            try { g.removeEdgeAttribute(edgeId, 'selfLoop'); } catch (rmAttrErr) {}
+          }
+        } else {
+          try { g.setEdgeAttribute(edgeId, 'type', next.type || 'edge'); } catch (setTypeErr) {}
+          try {
+            const val = (typeof next.curvature === 'number' && !Number.isNaN(next.curvature)) ? next.curvature : 0;
+            g.setEdgeAttribute(edgeId, 'curvature', val);
+            try {
+              if (typeof next.parallelIndex !== 'undefined') g.setEdgeAttribute(edgeId, 'parallelIndex', next.parallelIndex);
+            } catch (attrErr) {}
+            try {
+              if (typeof next.parallelMinIndex !== 'undefined') g.setEdgeAttribute(edgeId, 'parallelMinIndex', next.parallelMinIndex);
+            } catch (attrErr) {}
+            try {
+              if (typeof next.parallelMaxIndex !== 'undefined') g.setEdgeAttribute(edgeId, 'parallelMaxIndex', next.parallelMaxIndex);
+            } catch (attrErr) {}
+            try {
+              if (typeof next.curveIndex !== 'undefined') g.setEdgeAttribute(edgeId, 'curveIndex', next.curveIndex);
+            } catch (attrErr) {}
+            try {
+              if (typeof next.curveCount !== 'undefined') g.setEdgeAttribute(edgeId, 'curveCount', next.curveCount);
+            } catch (attrErr) {}
+            try {
+              if (typeof next.selfLoop !== 'undefined') g.setEdgeAttribute(edgeId, 'selfLoop', next.selfLoop); } catch (attrErr) {}
+            try {
+              const key = cacheKey(edgeId);
+              if ((next.type && next.type !== 'edge') || Math.abs(val) > 1e-6) {
+                _edgeShapeCache.set(key, {
+                  type: next.type || 'curved',
+                  curvature: val,
+                  parallelIndex: next.parallelIndex,
+                  parallelMinIndex: next.parallelMinIndex,
+                  parallelMaxIndex: next.parallelMaxIndex,
+                  curveIndex: next.curveIndex,
+                  curveCount: next.curveCount,
+                  selfLoop: next.selfLoop
+                });
+              } else if (_edgeShapeCache.has(key)) {
+                _edgeShapeCache.delete(key);
+              }
+            } catch (cacheErr) {}
+          } catch (setCurvErr) {}
+        }
+
+        if (typeof g.removeEdgeAttribute === 'function') {
+          try { g.removeEdgeAttribute(edgeId, '__topogramPrevEdgeType'); } catch (rmPrevTypeErr) {}
+          try { g.removeEdgeAttribute(edgeId, '__topogramPrevEdgeCurvature'); } catch (rmPrevCurvErr) {}
+        }
+
+        if (sample.length < 5) {
+          try {
+            const attrs = g.getEdgeAttributes ? g.getEdgeAttributes(edgeId) : null;
+            const entry = {
+              id: String(edgeId),
+              type: attrs && attrs.type,
+              curvature: attrs && attrs.curvature,
+              parallelIndex: attrs && attrs.parallelIndex,
+              curveCount: attrs && attrs.curveCount
+            };
+            if (attrs && typeof attrs.parallelIndex !== 'undefined') entry.parallelIndex = attrs.parallelIndex;
+            sample.push(entry);
+          } catch (sampleErr) {}
+        }
+      });
+    } catch (applyErr) {}
+
+    try {
+      summary.sample = sample;
+      console.debug && console.debug('SigmaAdapter: applyEdgeCurveState', summary);
+    } catch (logErr) {}
+  };
 
   // Curved-edge rendering is performed by the registered WebGL program
   // and input events are delegated to Sigma; the adapter relies on the
@@ -1735,187 +2047,24 @@ function SigmaAdapter(container, elements = [], options = {}) {
       const disableCurves = Boolean(value);
       adapter._noCurves = disableCurves;
 
-      const g = graph;
-      if (!g || typeof g.forEachEdge !== 'function') return;
-
-      const prevTypeKey = '__topogramPrevEdgeType';
-      const prevCurvKey = '__topogramPrevEdgeCurvature';
-      const canUseCurves = !disableCurves && !DEBUG_NO_CURVES && !!SigmaAdapter__EdgeCurveProgram;
-
-      const shouldEdgeBeCurved = (edgeId, attr) => {
-        if (!canUseCurves) return false;
-        try {
-          const src = typeof g.source === 'function' ? g.source(edgeId) : null;
-          const tgt = typeof g.target === 'function' ? g.target(edgeId) : null;
-          if (src != null && tgt != null && String(src) === String(tgt)) return true;
-        } catch (err) {}
-
-        const curveCount = attr && (attr.curveCount || attr.curve_count || attr._parallelCount);
-        if (curveCount && Number(curveCount) > 1) return true;
-
-        if (attr && (attr.parallelIndex != null || attr._parallelIndex != null || attr.curveIndex != null)) return true;
-
-        const minIdx = attr ? attr.parallelMinIndex : undefined;
-        const maxIdx = attr ? attr.parallelMaxIndex : undefined;
-        if (typeof minIdx !== 'undefined' && typeof maxIdx !== 'undefined' && Number(maxIdx) > Number(minIdx)) return true;
-        return false;
-      };
-
-      const computeCurvature = (edgeId, attr) => {
-        try {
-          if (attr && typeof attr[prevCurvKey] === 'number') return attr[prevCurvKey];
-          const src = typeof g.source === 'function' ? g.source(edgeId) : null;
-          const tgt = typeof g.target === 'function' ? g.target(edgeId) : null;
-          if (src != null && tgt != null && String(src) === String(tgt)) {
-            if (attr && typeof attr.curvature === 'number') return attr.curvature;
-            return 0.5;
-          }
-          const rawIndex = attr && (attr.parallelIndex != null ? attr.parallelIndex : (attr._parallelIndex != null ? attr._parallelIndex : (attr.curveIndex != null ? attr.curveIndex : 0)));
-          const index = Number(rawIndex) || 0;
-          const rawCount = attr && (attr.curveCount || attr.curve_count || attr._parallelCount);
-          const count = Number(rawCount) || 1;
-          if (count <= 1 && !index) {
-            if (attr && typeof attr.curvature === 'number') return attr.curvature;
-            return 0;
-          }
-          const base = count === 2 ? 0.7 : 0.45;
-          let direction = 1;
-          if (src != null && tgt != null) direction = String(src) <= String(tgt) ? 1 : -1;
-          if (!index) return direction * base * 0.65;
-          return index * base;
-        } catch (err) {
-          if (attr && typeof attr.curvature === 'number') return attr.curvature;
-          return 0;
-        }
-      };
-
-      try {
-        g.forEachEdge((edgeId) => {
-          try {
-            const attr = g.getEdgeAttributes ? g.getEdgeAttributes(edgeId) || {} : {};
-            if (disableCurves || !canUseCurves) {
-              if (attr && !Object.prototype.hasOwnProperty.call(attr, prevTypeKey) && attr.type && attr.type !== 'edge') {
-                try { g.setEdgeAttribute(edgeId, prevTypeKey, attr.type); } catch (err) {}
-              }
-              if (attr && !Object.prototype.hasOwnProperty.call(attr, prevCurvKey) && typeof attr.curvature !== 'undefined') {
-                try { g.setEdgeAttribute(edgeId, prevCurvKey, attr.curvature); } catch (err) {}
-              }
-              try { g.setEdgeAttribute(edgeId, 'type', 'edge'); } catch (err) {}
-              try { g.setEdgeAttribute(edgeId, 'curvature', 0); } catch (err) {}
-              return;
-            }
-
-            const storedType = attr ? attr[prevTypeKey] : undefined;
-            const storedCurv = attr ? attr[prevCurvKey] : undefined;
-
-            if (storedType) {
-              try { g.setEdgeAttribute(edgeId, 'type', storedType); } catch (err) {}
-            } else if (shouldEdgeBeCurved(edgeId, attr || {})) {
-              try { g.setEdgeAttribute(edgeId, 'type', 'curved'); } catch (err) {}
-            } else {
-              try { g.setEdgeAttribute(edgeId, 'type', 'edge'); } catch (err) {}
-            }
-
-            if (typeof storedCurv === 'number') {
-              try { g.setEdgeAttribute(edgeId, 'curvature', storedCurv); } catch (err) {}
-            } else if (shouldEdgeBeCurved(edgeId, attr || {})) {
-              try { g.setEdgeAttribute(edgeId, 'curvature', computeCurvature(edgeId, attr || {})); } catch (err) {}
-            } else {
-              try { g.setEdgeAttribute(edgeId, 'curvature', 0); } catch (err) {}
-            }
-
-            if (attr && Object.prototype.hasOwnProperty.call(attr, prevTypeKey)) {
-              try { g.removeEdgeAttribute(edgeId, prevTypeKey); } catch (err) {}
-            }
-            if (attr && Object.prototype.hasOwnProperty.call(attr, prevCurvKey)) {
-              try { g.removeEdgeAttribute(edgeId, prevCurvKey); } catch (err) {}
-            }
-          } catch (err) {
-            // keep iterating even if one edge fails
-          }
-        });
-      } catch (err) {}
-
-      if (typeof sigmaOpts !== 'undefined' && sigmaOpts) {
-        try {
-          sigmaOpts.edgeProgramClasses = canUseCurves ? _savedEdgeProgramClasses : null;
-        } catch (err) {}
+      try { applyEdgeCurveState(disableCurves); } catch (err) {
+        try { console.warn && console.warn('SigmaAdapter.setNoCurves: failed to recompute edge curvature', err); } catch (logErr) {}
       }
 
-      const applyProgramsInPlace = () => {
-        if (!renderer) return { touched: false, edgeProgramOk: false };
-        const saved = _savedEdgeProgramClasses && typeof _savedEdgeProgramClasses === 'object' ? _savedEdgeProgramClasses : {};
-        const keys = Object.keys(saved || {});
-        let touched = false;
-        let edgeProgramOk = false;
+      const canUseCurves = !disableCurves && !DEBUG_NO_CURVES && !!SigmaAdapter__EdgeCurveProgram;
 
-        if (disableCurves || !canUseCurves) {
-          if (typeof renderer.unregisterEdgeProgram === 'function') {
-            keys.forEach((key) => {
-              try { renderer.unregisterEdgeProgram(key); touched = true; } catch (err) {}
-            });
-          }
-          if (renderer.edgePrograms && typeof renderer.edgePrograms === 'object') {
-            keys.forEach((key) => {
-              const entry = renderer.edgePrograms[key];
-              if (!entry) return;
-              try { if (entry && typeof entry.kill === 'function') entry.kill(); } catch (err) {}
-              try { delete renderer.edgePrograms[key]; } catch (err) {}
-              touched = true;
-            });
-          }
-        } else if (keys.length && typeof renderer.registerEdgeProgram === 'function') {
-          keys.forEach((key) => {
-            const program = saved[key];
-            if (!program) return;
-            try { renderer.registerEdgeProgram(key, program); touched = true; } catch (err) {}
-          });
+      try {
+        if (typeof sigmaOpts !== 'undefined' && sigmaOpts) {
+          sigmaOpts.edgeProgramClasses = canUseCurves ? _savedEdgeProgramClasses : null;
         }
+      } catch (err) {}
 
-        const ensureEdgeProgram = () => {
-          if (!renderer.edgePrograms || typeof renderer.edgePrograms !== 'object') return false;
-          if (renderer.edgePrograms.edge) { edgeProgramOk = true; return true; }
-          const aliases = ['line', 'straight', 'arrow', 'default', 'fast', 'curved'];
-          for (let i = 0; i < aliases.length; i += 1) {
-            const key = aliases[i];
-            const entry = renderer.edgePrograms[key];
-            if (entry) {
-              try { renderer.edgePrograms.edge = entry; edgeProgramOk = true; } catch (err) {}
-              touched = true;
-              return true;
-            }
-          }
-          return false;
-        };
+      try { runCleanupFns(); } catch (err) {}
 
-        const firstPass = ensureEdgeProgram();
-        if (!disableCurves && !firstPass) ensureEdgeProgram();
-        if (!edgeProgramOk) {
-          try {
-            if (renderer.edgePrograms && typeof renderer.edgePrograms === 'object') {
-              const fallback = renderer.edgePrograms.edge;
-              edgeProgramOk = !!fallback;
-            }
-          } catch (err) {}
-        }
-
-        if (typeof _inspectEdgePrograms === 'function') {
-          try { _inspectEdgePrograms(renderer); } catch (err) {}
-        }
-
-        return { touched, edgeProgramOk };
-      };
-
-      let programResult = { touched: false, edgeProgramOk: false };
-      try { programResult = applyProgramsInPlace(); } catch (err) { programResult = { touched: false, edgeProgramOk: false }; }
-
-      if ((!programResult.edgeProgramOk || !programResult.touched) && typeof createRenderer === 'function') {
-        try {
-          createRenderer();
-          programResult = { touched: true, edgeProgramOk: true };
-        } catch (err) {
-          try { console.warn('SigmaAdapter.setNoCurves: renderer recreation failed', err); } catch (logErr) {}
-        }
+      try {
+        if (typeof createRenderer === 'function') createRenderer();
+      } catch (err) {
+        try { console.warn && console.warn('SigmaAdapter.setNoCurves: renderer recreation failed', err); } catch (logErr) {}
       }
 
       adapter.renderer = renderer;
@@ -1924,9 +2073,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
       if (cont) {
         try { cont.dataset.sigmaNoCurves = disableCurves ? 'true' : 'false'; } catch (err) {}
         try {
-          if (cont.classList && typeof cont.classList.toggle === 'function') {
-            cont.classList.toggle('sigma-no-curves', disableCurves);
-          }
+          if (cont.classList && typeof cont.classList.toggle === 'function') cont.classList.toggle('sigma-no-curves', disableCurves);
         } catch (err) {}
       }
 
@@ -1934,7 +2081,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
         try { renderer.refresh(); } catch (err) {}
         try {
           setTimeout(() => {
-            try { renderer.refresh(); } catch (errInner) {}
+            try { renderer.refresh(); } catch (innerErr) {}
           }, 160);
         } catch (err) {}
       }
