@@ -323,69 +323,77 @@ function SigmaAdapter(container, elements = [], options = {}) {
         edgeGroups.forEach((list) => {
           try {
             if (!list || !list.length) return;
-                if (list.length > 1) {
-                  // multiple edges between same unordered pair -> mark as curved when supported
-                  // Set attributes expected by @sigma/edge-curve's indexing helper
-                  const mid = (list.length - 1) / 2;
-                  const rawOffsets = list.map((_, idx) => idx - mid);
-                  const baseIndices = rawOffsets.map((offset) => {
-                    if (offset > 0) return Math.ceil(offset);
-                    if (offset < 0) return Math.floor(offset);
-                    return 0;
-                  });
-                  const directedIndices = baseIndices.map((val, idx) => {
-                    const entry = list[idx];
-                    const src = String(entry.source);
-                    const tgt = String(entry.target);
-                    const forward = src <= tgt;
-                    const dirSign = forward ? 1 : -1;
-                    return val * dirSign;
-                  });
-                  const minIndex = directedIndices.reduce((acc, val) => Math.min(acc, val), directedIndices[0] || 0);
-                  const maxIndex = directedIndices.reduce((acc, val) => Math.max(acc, val), directedIndices[0] || 0);
-                  const curveCount = list.length;
-                  const baseCurvature = curveCount === 2 ? 0.7 : 0.45;
-                  list.forEach((item, idx) => {
-                    try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(item.id, 'type', 'curved'); } catch (e) {}
-                    try {
-                      const parallelIndex = directedIndices[idx];
-                      const src = String(item.source);
-                      const tgt = String(item.target);
-                      const forward = src <= tgt;
-                      const dirSign = forward ? 1 : -1;
-                      const curvature = parallelIndex === 0 ? (curveCount > 1 ? dirSign * baseCurvature * 0.65 : 0) : parallelIndex * baseCurvature;
-                      graph.setEdgeAttribute(item.id, 'parallelIndex', parallelIndex);
-                      graph.setEdgeAttribute(item.id, 'parallelMinIndex', minIndex);
-                      graph.setEdgeAttribute(item.id, 'parallelMaxIndex', maxIndex);
-                      // keep older names for compatibility
-                      graph.setEdgeAttribute(item.id, 'curveIndex', idx);
-                      graph.setEdgeAttribute(item.id, 'curveCount', curveCount);
-                      // provide a numeric curvature hint: centered around 0
-                      graph.setEdgeAttribute(item.id, 'curvature', curvature);
-                      graph.setEdgeAttribute(item.id, '__manualCurve', true);
-                      manualCurveEdgeIds.add(item.id);
-                    } catch (e) {}
-                  });
+            if (list.length > 1) {
+              // multiple edges between same unordered pair -> mark as curved when supported
+              // Set attributes expected by @sigma/edge-curve's indexing helper
+              const mid = (list.length - 1) / 2;
+              const rawOffsets = list.map((_, idx) => idx - mid);
+              const baseIndices = rawOffsets.map((offset) => {
+                if (offset > 0) return Math.ceil(offset);
+                if (offset < 0) return Math.floor(offset);
+                return 0;
+              });
+              const directedIndices = baseIndices.map((val, idx) => {
+                const entry = list[idx];
+                const src = String(entry.source);
+                const tgt = String(entry.target);
+                const forward = src <= tgt;
+                const dirSign = forward ? 1 : -1;
+                return val * dirSign;
+              });
+              const minIndex = directedIndices.reduce((acc, val) => Math.min(acc, val), directedIndices[0] || 0);
+              const maxIndex = directedIndices.reduce((acc, val) => Math.max(acc, val), directedIndices[0] || 0);
+              const curveCount = list.length;
+              const baseCurvature = curveCount === 2 ? 0.7 : 0.45;
+              list.forEach((item, idx) => {
+                try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(item.id, 'type', 'curved'); } catch (e) {}
+                try {
+                  const parallelIndex = directedIndices[idx];
+                  const src = String(item.source);
+                  const tgt = String(item.target);
+                  const forward = src <= tgt;
+                  const dirSign = forward ? 1 : -1;
+                  const curvature = parallelIndex === 0 ? (curveCount > 1 ? dirSign * baseCurvature * 0.65 : 0) : parallelIndex * baseCurvature;
+                  graph.setEdgeAttribute(item.id, 'parallelIndex', parallelIndex);
+                  graph.setEdgeAttribute(item.id, 'parallelMinIndex', minIndex);
+                  graph.setEdgeAttribute(item.id, 'parallelMaxIndex', maxIndex);
+                  // keep older names for compatibility
+                  graph.setEdgeAttribute(item.id, 'curveIndex', idx);
+                  graph.setEdgeAttribute(item.id, 'curveCount', curveCount);
+                  // provide a numeric curvature hint: centered around 0
+                  graph.setEdgeAttribute(item.id, 'curvature', curvature);
+                  graph.setEdgeAttribute(item.id, '__manualCurve', true);
+                  manualCurveEdgeIds.add(item.id);
+                } catch (e) {}
+              });
+            } else {
+              // single edge: mark for manual-curve processing so it's selectable via
+              // the manual overlay (even if curvature is zero). If program is
+              // available, also set the 'curved' type so native program can be used.
+              const itm = list[0];
+              try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(itm.id, 'type', 'curved'); } catch (e) {}
+              try {
+                // default attributes for a single (non-parallel) edge
+                graph.setEdgeAttribute(itm.id, 'parallelIndex', 0);
+                graph.setEdgeAttribute(itm.id, 'parallelMinIndex', 0);
+                graph.setEdgeAttribute(itm.id, 'parallelMaxIndex', 0);
+                graph.setEdgeAttribute(itm.id, 'curveIndex', 0);
+                graph.setEdgeAttribute(itm.id, 'curveCount', 1);
+                // for plain single edges keep curvature at 0 so overlay draws a
+                // straight (but pickable) bezier; for self-loops we keep the
+                // larger curvature logic below.
+                if (String(itm.source) === String(itm.target)) {
+                  // self-loop: give a large curvature so the arc is visible
+                  graph.setEdgeAttribute(itm.id, 'curvature', 2.5);
+                  graph.setEdgeAttribute(itm.id, 'selfLoop', true);
+                  manualLoopEdgeIds.add(itm.id);
                 } else {
-                  // single edge: if it's a self-loop, mark as curved so Sigma shows a loop (only if program loaded)
-                  const itm = list[0];
-                  if (String(itm.source) === String(itm.target)) {
-                    try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(itm.id, 'type', 'curved'); } catch (e) {}
-                    try {
-                      // For self-loops, give a large curvature so the arc is visible
-                      graph.setEdgeAttribute(itm.id, 'parallelIndex', 1);
-                      graph.setEdgeAttribute(itm.id, 'parallelMinIndex', 1);
-                      graph.setEdgeAttribute(itm.id, 'parallelMaxIndex', 1);
-                      graph.setEdgeAttribute(itm.id, 'curveIndex', 0);
-                      graph.setEdgeAttribute(itm.id, 'curveCount', 1);
-                      graph.setEdgeAttribute(itm.id, 'curvature', 2.5);
-                      graph.setEdgeAttribute(itm.id, 'selfLoop', true);
-                      graph.setEdgeAttribute(itm.id, '__manualCurve', true);
-                      manualCurveEdgeIds.add(itm.id);
-                      manualLoopEdgeIds.add(itm.id);
-                    } catch (e) {}
-                  }
+                  graph.setEdgeAttribute(itm.id, 'curvature', 0);
                 }
+                graph.setEdgeAttribute(itm.id, '__manualCurve', true);
+                manualCurveEdgeIds.add(itm.id);
+              } catch (e) {}
+            }
           } catch (err) {}
         });
       } catch (e) {}
