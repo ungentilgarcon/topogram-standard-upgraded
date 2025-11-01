@@ -1,0 +1,121 @@
+HMR: websocket closed hot-module-replacement.js:329:15
+unreachable code after return statement app.js:1269:21
+TOPOGRAM-M3-APP: store created and exposed on window.__TOPOGRAM_STORE__ app.js:5056:69
+GET
+http://localhost:3000/favicon.ico
+[HTTP/1.1 404 Not Found 0ms]
+
+HMR: connected hot-module-replacement.js:340:13
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. <anonymous code>:1:145535
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. <anonymous code>:1:145535
+Erreur dans les liens source : Error: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+Stack in the worker:parseSourceMapInput@resource://devtools/client/shared/vendor/source-map/lib/util.js:163:15
+_factory@resource://devtools/client/shared/vendor/source-map/lib/source-map-consumer.js:1066:22
+SourceMapConsumer@resource://devtools/client/shared/vendor/source-map/lib/source-map-consumer.js:26:12
+_fetch@resource://devtools/client/shared/source-map-loader/utils/fetchSourceMap.js:83:19
+
+URL de la ressource : http://localhost:3000/t/%3Canonymous%20code%3E
+URL du lien source : installHook.js.map
+SigmaAdapter: @sigma/edge-curve NOT detected; curved edges will fall back to the default edge program app.js:296:25
+SigmaAdapter: populated graph 
+Object { nodeCount: 0, edgeCount: 0 }
+app.js:620:21
+SigmaAdapter: edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:978:21
+SigmaAdapter: renderer (re)created 
+Object { renderer: true, graphOrder: 0, graphSize: 0 }
+app.js:1090:42
+SigmaAdapter: renderer created 
+Object { renderer: true, graphOrder: 0, graphSize: 0 }
+app.js:1390:17
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+SigmaAdapter: @sigma/edge-curve detected and will be registered for curved edges app.js:294:25
+SigmaAdapter: populated graph 
+Object { nodeCount: 91, edgeCount: 0 }
+app.js:620:21
+SigmaAdapter: coerced numeric positions for nodes 
+Object { coercedCount: 91, sample: (5) […] }
+app.js:909:37
+SigmaAdapter: edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:978:21
+SigmaAdapter: renderer (re)created 
+Object { renderer: true, graphOrder: 91, graphSize: 0 }
+app.js:1090:42
+SigmaAdapter: renderer created 
+Object { renderer: true, graphOrder: 91, graphSize: 0 }
+app.js:1390:17
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+SigmaAdapter: @sigma/edge-curve detected and will be registered for curved edges app.js:294:25
+SigmaAdapter: populated graph 
+Object { nodeCount: 91, edgeCount: 236 }
+app.js:620:21
+SigmaAdapter: coerced numeric positions for nodes 
+Object { coercedCount: 91, sample: (5) […] }
+app.js:909:37
+SigmaAdapter: edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:978:21
+SigmaAdapter: renderer (re)created 
+Object { renderer: true, graphOrder: 91, graphSize: 236 }
+app.js:1090:42
+SigmaAdapter: renderer created 
+Object { renderer: true, graphOrder: 91, graphSize: 236 }
+app.js:1390:17
+TOPOGRAM: networkOptionsChanged sigmaNoCurves -> true 
+Object { cyRef: true, compatImpl: "sigma" }
+app.js:15788:54
+TOPOGRAM: calling compat.setNoCurves true app.js:15798:62
+SigmaAdapter.setNoCurves called true 
+Object { renderer: true, graphNodes: 91 }
+app.js:2682:46
+SigmaAdapter.setNoCurves: post-mutation edge types 
+Object { curved: 0, straight: 236, sample: (6) […] }
+app.js:2753:50
+SigmaAdapter.setNoCurves: preparing to recreate renderer to force program reindex app.js:2789:50
+SigmaAdapter.setNoCurves: sigmaOpts was missing; created minimal sigmaOpts for recreate 
+Object { savedProgramsKeys: null }
+app.js:2815:58
+SigmaAdapter.setNoCurves: renderer.registerEdgeProgram? function unregisterEdgeProgram? function edgePrograms? true app.js:2883:54
+SigmaAdapter.setNoCurves: unregistered edge programs via API 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:2895:66
+SigmaAdapter.setNoCurves: removed edgePrograms entries directly 
+Array [ "arrow", "line" ]
+app.js:2923:66
+SigmaAdapter.setNoCurves: renderer.edgePrograms keys 
+Array [ "arrow", "line" ]
+app.js:2963:62
+SigmaAdapter.setNoCurves: aliased edge->line program app.js:2978:74
+SigmaAdapter.setNoCurves: container flags 
+Object { dataset: "true", classList: (2) […] }
+app.js:3183:54
+TOPOGRAM: networkOptionsChanged sigmaNoCurves -> false 
+Object { cyRef: true, compatImpl: "sigma" }
+app.js:15788:54
+TOPOGRAM: calling compat.setNoCurves false app.js:15798:62
+SigmaAdapter.setNoCurves called false 
+Object { renderer: true, graphNodes: 91 }
+app.js:2682:46
+SigmaAdapter.setNoCurves: post-mutation edge types 
+Object { curved: 120, straight: 116, sample: (6) […] }
+app.js:2753:50
+SigmaAdapter.setNoCurves: preparing to recreate renderer to force program reindex app.js:2789:50
+SigmaAdapter.setNoCurves: renderer.registerEdgeProgram? function unregisterEdgeProgram? function edgePrograms? true app.js:2883:54
+SigmaAdapter.setNoCurves: re-registered edge programs via API 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:2904:66
+SigmaAdapter.setNoCurves: re-registered edge programs via API (post-direct-remove) 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:2934:70
+SigmaAdapter.setNoCurves: renderer.edgePrograms keys 
+Array(6) [ "arrow", "line", "edge", "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:2963:62
+SigmaAdapter.setNoCurves: container flags 
+Object { dataset: "false", classList: (1) […] }
+app.js:3183:54

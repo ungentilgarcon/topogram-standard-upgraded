@@ -90,6 +90,37 @@ function SigmaAdapter(container, elements = [], options = {}) {
   // renderer path for curved edges.
   const needsManualCurves = false;
   const cleanupFns = [];
+  const _dragMeta = new Map();
+  let _draggedNodeId = null;
+  let _isDraggingNode = false;
+  const DRAGGING_ATTR = '__sigmaAdapterDragging';
+  let adapterRef = null;
+
+  const releaseDraggedNode = () => {
+    if (!_draggedNodeId) {
+      _isDraggingNode = false;
+      try { if (adapterRef) { adapterRef._draggedNode = null; adapterRef._isDragging = false; } } catch (e) {}
+      return;
+    }
+    try { graph.removeNodeAttribute(_draggedNodeId, DRAGGING_ATTR); } catch (e) {}
+    try {
+      const meta = _dragMeta.get(_draggedNodeId);
+      if (meta) {
+        if (meta.hadHighlight) {
+          try { graph.setNodeAttribute(_draggedNodeId, 'highlighted', meta.value); } catch (e) {}
+        } else {
+          try { graph.removeNodeAttribute(_draggedNodeId, 'highlighted'); } catch (e) {}
+        }
+      } else {
+        try { graph.removeNodeAttribute(_draggedNodeId, 'highlighted'); } catch (e) {}
+      }
+    } catch (e) {}
+    _dragMeta.delete(_draggedNodeId);
+    _draggedNodeId = null;
+    _isDraggingNode = false;
+    try { if (adapterRef) { adapterRef._draggedNode = null; adapterRef._isDragging = false; } } catch (e) {}
+  };
+
   // Debug selector: allow forcing straight edges (no curved program) by
   // passing options.noCurves=true or adding `data-sigma-no-curves="true"`
   // or the class `sigma-no-curves` on the container element. Useful for
@@ -701,6 +732,69 @@ function SigmaAdapter(container, elements = [], options = {}) {
       // wire events onto the new renderer instance (clickNode/clickEdge/clickStage etc.)
       try {
         if (renderer && typeof renderer.on === 'function') {
+          const localRenderer = renderer;
+          const handleDragEnd = () => {
+            try { releaseDraggedNode(); } catch (e) {}
+            try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+          };
+          const handleDownNode = (evt) => {
+            try {
+              const nodeId = evt && (evt.node || (evt.data && evt.data.node));
+              if (!nodeId) return;
+              _isDraggingNode = true;
+              _draggedNodeId = nodeId;
+              try { if (adapterRef) { adapterRef._draggedNode = nodeId; adapterRef._isDragging = true; } } catch (e) {}
+              try {
+                const prevVal = graph.getNodeAttribute(nodeId, 'highlighted');
+                const hadHighlight = typeof prevVal !== 'undefined';
+                _dragMeta.set(nodeId, { hadHighlight, value: prevVal });
+                graph.setNodeAttribute(nodeId, 'highlighted', true);
+              } catch (e) {}
+              try { graph.setNodeAttribute(nodeId, DRAGGING_ATTR, true); } catch (e) {}
+            } catch (e) {}
+          };
+          const handleMoveBody = (evt) => {
+            try {
+              if (!_isDraggingNode || !_draggedNodeId) return;
+              const pointer = evt && evt.event ? evt.event : evt;
+              if (!pointer) return;
+              let coords = null;
+              try {
+                if (renderer && typeof renderer.viewportToGraph === 'function') {
+                  const vx = (typeof pointer.x === 'number') ? pointer.x : (typeof pointer.clientX === 'number' ? pointer.clientX : pointer.pageX);
+                  const vy = (typeof pointer.y === 'number') ? pointer.y : (typeof pointer.clientY === 'number' ? pointer.clientY : pointer.pageY);
+                  if (typeof vx === 'number' && typeof vy === 'number') coords = renderer.viewportToGraph({ x: vx, y: vy });
+                  else coords = renderer.viewportToGraph(pointer);
+                }
+              } catch (err) { coords = null; }
+              if (!coords || Number.isNaN(coords.x) || Number.isNaN(coords.y)) return;
+              try { graph.setNodeAttribute(_draggedNodeId, 'x', coords.x); } catch (e) {}
+              try { graph.setNodeAttribute(_draggedNodeId, 'y', coords.y); } catch (e) {}
+              const sigmaEvent = pointer && typeof pointer.preventSigmaDefault === 'function' ? pointer : null;
+              if (sigmaEvent) {
+                try { sigmaEvent.preventSigmaDefault(); } catch (e) {}
+              }
+              const original = pointer && (pointer.original || pointer);
+              if (original) {
+                try { if (typeof original.preventDefault === 'function') original.preventDefault(); } catch (e) {}
+                try { if (typeof original.stopPropagation === 'function') original.stopPropagation(); } catch (e) {}
+              }
+            } catch (e) {}
+          };
+          try { renderer.on('downNode', handleDownNode); } catch (e) {}
+          try { renderer.on('moveBody', handleMoveBody); } catch (e) {}
+          try { renderer.on('upNode', handleDragEnd); } catch (e) {}
+          try { renderer.on('upStage', handleDragEnd); } catch (e) {}
+          try { renderer.on('leaveStage', handleDragEnd); } catch (e) {}
+          cleanupFns.push(() => {
+            try { handleDragEnd(); } catch (e) {}
+            try { localRenderer.off && localRenderer.off('downNode', handleDownNode); } catch (e) {}
+            try { localRenderer.off && localRenderer.off('moveBody', handleMoveBody); } catch (e) {}
+            try { localRenderer.off && localRenderer.off('upNode', handleDragEnd); } catch (e) {}
+            try { localRenderer.off && localRenderer.off('upStage', handleDragEnd); } catch (e) {}
+            try { localRenderer.off && localRenderer.off('leaveStage', handleDragEnd); } catch (e) {}
+          });
+
           // click on a node: toggle selection and inform SelectionManager
           renderer.on('clickNode', (evt) => {
             try {
@@ -1063,6 +1157,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
     graph,
     renderer,
     _cleanupFns: cleanupFns,
+    _draggedNode: null,
+    _isDragging: false,
     getInstance() { return renderer; },
     // simple event registry to emulate Cytoscape's on(selector) semantics for 'select'/'unselect'
     _events: {},
@@ -1633,238 +1729,219 @@ function SigmaAdapter(container, elements = [], options = {}) {
       } catch (e) { return []; }
     },
     removeListener: function(event, handler) { try { this.off(event, handler); } catch (e) {} },
-    setNoCurves(v) {
-      try {
-        try { console.debug && console.debug('SigmaAdapter.setNoCurves called', v, { renderer: !!renderer, graphNodes: graph && typeof graph.nodes === 'function' ? (Array.isArray(graph.nodes()) ? graph.nodes().length : null) : null }) } catch (e) {}
-        adapter._noCurves = !!v;
-        const g = graph;
-        // mutate per-edge attributes
-        g.forEachEdge((eid) => {
-          try {
-            const attr = g.getEdgeAttributes ? g.getEdgeAttributes(eid) : (g.getEdgeAttributes && g.getEdgeAttributes(eid)) || {};
-            const src = (typeof g.source === 'function') ? g.source(eid) : null;
-            const tgt = (typeof g.target === 'function') ? g.target(eid) : null;
-            const isLoop = String(src) === String(tgt);
-            const curveCount = (attr && (attr.curveCount || attr.curve_count || attr._parallelCount)) || 1;
-            if (v) {
-              try { g.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
-              try { g.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
-            } else {
-              if (isLoop || (curveCount && Number(curveCount) > 1)) {
-                try { if (!DEBUG_NO_CURVES && SigmaAdapter__EdgeCurveProgram) g.setEdgeAttribute(eid, 'type', 'curved'); else g.setEdgeAttribute(eid, 'type', 'edge'); } catch (e) {}
-                try {
-                  if (typeof attr.curvature === 'undefined' || attr.curvature === null) {
-                    const parallelIndex = (attr && (typeof attr.parallelIndex !== 'undefined')) ? attr.parallelIndex : (attr && (attr._parallelIndex || attr.curveIndex) || 0);
-                    const cc = Number(curveCount) || 1;
-                    const base = cc === 2 ? 0.7 : 0.45;
-                    let curvature = parallelIndex === 0 ? (cc > 1 ? (String(src) <= String(tgt) ? base * 0.65 : -base * 0.65) : 0) : parallelIndex * base;
-                    try { g.setEdgeAttribute(eid, 'curvature', curvature) } catch (e) {}
-                  }
-                } catch (e) {}
-              } else {
-                try { g.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
-                try { g.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
-              }
-            }
-          } catch (e) {}
-        });
+    isDragging() { return _isDraggingNode; },
+    draggedNode() { return _draggedNodeId; },
+    setNoCurves(value) {
+      const disableCurves = Boolean(value);
+      adapter._noCurves = disableCurves;
 
-        // Additional diagnostics: count how many edges are marked 'curved' vs 'edge' and sample a few attrs
-        try {
-          let curved = 0; let straight = 0; const sample = [];
-          g.forEachEdge((eid) => {
-            try {
-              const a = g.getEdgeAttributes ? g.getEdgeAttributes(eid) : {};
-              const t = String(a && a.type || 'edge');
-              if (t === 'curved') curved++; else straight++;
-              if (sample.length < 6) sample.push({ id: eid, type: t, curvature: a && a.curvature, parallelIndex: a && a.parallelIndex, _parallelIndex: a && a._parallelIndex });
-            } catch (e) {}
-          });
-          try { console.debug && console.debug('SigmaAdapter.setNoCurves: post-mutation edge types', { curved, straight, sample }); } catch (e) {}
-        } catch (e) {}
+      const g = graph;
+      if (!g || typeof g.forEachEdge !== 'function') return;
 
-        // Try a simple refresh first. In many Sigma builds this is sufficient
-        // for attribute changes. If it doesn't visually update the curved-edge
-        // program we recreate the renderer to force a full program reinitialization.
-        try { if (renderer && typeof renderer.refresh === 'function') { renderer.refresh(); try { console.debug && console.debug('SigmaAdapter.setNoCurves: renderer.refresh called') } catch(e){} } } catch (e) {}
-        // Recreate renderer to ensure WebGL programs pick up mutated per-edge attributes.
-        // Additionally swap out custom curved edge programs when switching to
-        // "no curves" so Sigma will use the default straight-edge renderer.
-        try {
-          try { console.debug && console.debug('SigmaAdapter.setNoCurves: preparing to recreate renderer to force program reindex'); } catch (e) {}
-          try {
-            // Ensure sigmaOpts exists. In some timing paths (renderer injected,
-            // early calls, or after a context loss) sigmaOpts may be null/undefined
-            // even though we can still recreate the renderer. Create a minimal
-            // sigmaOpts object so createRenderer() has the edgeProgramClasses
-            // information it needs.
-            if (typeof sigmaOpts === 'undefined' || !sigmaOpts) {
-              try {
-                // Read saved classes defensively in case the symbol isn't present
-                // in some build/runtime paths. Avoid direct reference that can
-                // throw ReferenceError in certain compiled bundles.
-                let savedPrograms = null;
-                try { savedPrograms = (typeof _savedEdgeProgramClasses !== 'undefined') ? _savedEdgeProgramClasses : null; } catch (ee) { savedPrograms = null; }
-                sigmaOpts = { edgeProgramClasses: (v ? null : savedPrograms), render: { background: '#ffffff00' }, settings: {} };
-                console.debug && console.debug('SigmaAdapter.setNoCurves: sigmaOpts was missing; created minimal sigmaOpts for recreate', { savedProgramsKeys: savedPrograms ? Object.keys(savedPrograms) : null });
-              } catch (e) {
-                console.warn && console.warn('SigmaAdapter.setNoCurves: failed to create fallback sigmaOpts', e);
-              }
-            } else {
-              if (v) {
-                // disable custom edge program classes so renderer draws straight edges
-                sigmaOpts.edgeProgramClasses = null;
-              } else {
-                // restore original program classes (defensive access)
-                try {
-                  const _savedRef = (typeof _savedEdgeProgramClasses !== 'undefined') ? _savedEdgeProgramClasses : null;
-                  sigmaOpts.edgeProgramClasses = _savedRef;
-                } catch (e) { sigmaOpts.edgeProgramClasses = null; }
-              }
-            }
-          } catch (e) { console.warn('SigmaAdapter.setNoCurves: could not swap sigmaOpts.edgeProgramClasses', e); }
-          // If a renderer exists and exposes register/unregister hooks we can
-          // update its programs in-place. This is important when a renderer
-          // was injected via options.renderer: createRenderer will not create
-          // a new instance in that case, so we must directly unregister the
-          // curved programs instead of relying on recreation.
-          try {
-            let programKeys = ['curved', 'curvedArrow', 'curvedDoubleArrow'];
-            // Defensive access to saved classes which may not exist in some bundles
-            let savedProgramsRef = null;
-            try { savedProgramsRef = (typeof _savedEdgeProgramClasses !== 'undefined') ? _savedEdgeProgramClasses : null; } catch (ee) { savedProgramsRef = null; }
-            try { if (savedProgramsRef) programKeys = Object.keys(savedProgramsRef); } catch (ee) {}
-            try { console.debug && console.debug('SigmaAdapter.setNoCurves: renderer.registerEdgeProgram?', typeof (renderer && renderer.registerEdgeProgram), 'unregisterEdgeProgram?', typeof (renderer && renderer.unregisterEdgeProgram), 'edgePrograms?', !!(renderer && renderer.edgePrograms)); } catch (e) {}
-            if (renderer) {
-              // First try the documented API if available
-              if (typeof renderer.unregisterEdgeProgram === 'function') {
-                if (v) {
-                  programKeys.forEach(k => { try { renderer.unregisterEdgeProgram(k); } catch (e) {} });
-                  try { console.debug && console.debug('SigmaAdapter.setNoCurves: unregistered edge programs via API', programKeys); } catch (e) {}
-                } else {
-                  programKeys.forEach(k => { try { if (savedProgramsRef && savedProgramsRef[k]) renderer.registerEdgeProgram(k, savedProgramsRef[k]); } catch (e) {} });
-                  try { console.debug && console.debug('SigmaAdapter.setNoCurves: re-registered edge programs via API', programKeys); } catch (e) {}
-                }
-              }
-              // Then defensively mutate renderer.edgePrograms directly to ensure removal
-              try {
-                const eps = renderer.edgePrograms || {};
-                if (v) {
-                  programKeys.forEach(k => {
-                    try {
-                      if (eps[k] && typeof eps[k].kill === 'function') {
-                        try { eps[k].kill(); } catch (e) {}
-                      }
-                      if (k in eps) delete eps[k];
-                    } catch (e) {}
-                  });
-                  try { console.debug && console.debug('SigmaAdapter.setNoCurves: removed edgePrograms entries directly', Object.keys(eps || {})); } catch (e) {}
-                } else {
-                  // When re-enabling curves ensure register API is used if present
-                  if (typeof renderer.registerEdgeProgram === 'function') {
-                    programKeys.forEach(k => { try { if (savedProgramsRef && savedProgramsRef[k]) renderer.registerEdgeProgram(k, savedProgramsRef[k]); } catch (e) {} });
-                    try { console.debug && console.debug('SigmaAdapter.setNoCurves: re-registered edge programs via API (post-direct-remove)', programKeys); } catch (e) {}
-                  }
-                }
-              } catch (e) {}
-              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-            }
-          } catch (e) {}
+      const prevTypeKey = '__topogramPrevEdgeType';
+      const prevCurvKey = '__topogramPrevEdgeCurvature';
+      const canUseCurves = !disableCurves && !DEBUG_NO_CURVES && !!SigmaAdapter__EdgeCurveProgram;
 
-          // Fall back to full renderer recreation if in-place program toggling
-          // did not apply (or the renderer did not expose unregister). This
-          // covers builds where options.renderer was not injected and we can
-          // safely reconstruct Sigma with modified sigmaOpts.
-          try {
-            if (typeof createRenderer === 'function') {
-                try { createRenderer(); } catch (e) { console.warn('SigmaAdapter.setNoCurves: recreate failed', e); }
-              }
-              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
-            // Diagnostic: log renderer.edgePrograms keys when available to confirm program registration state
-            try {
-              if (renderer && renderer.edgePrograms) {
-                try { console.debug && console.debug('SigmaAdapter.setNoCurves: renderer.edgePrograms keys', Object.keys(renderer.edgePrograms || {})); } catch (e) {}
-                try { _inspectEdgePrograms && typeof _inspectEdgePrograms === 'function' ? _inspectEdgePrograms(renderer) : null; } catch (e) {}
-                // Defensive aliasing: some builds register straight-edge programs under
-                // names like 'line' or 'arrow' but edges may carry type 'edge'. If
-                // Sigma can't find a program for 'edge' we alias it to a known
-                // straight-edge program instance so rendering can proceed.
-                try {
-                  const eps = renderer.edgePrograms || {};
-                  if (renderer && eps && !("edge" in eps)) {
-                    if ("line" in eps) {
-                      try { eps.edge = eps.line; console.debug && console.debug('SigmaAdapter.setNoCurves: aliased edge->line program'); } catch (e) {}
-                    } else if ("arrow" in eps) {
-                      try { eps.edge = eps.arrow; console.debug && console.debug('SigmaAdapter.setNoCurves: aliased edge->arrow program'); } catch (e) {}
-                    }
-                  }
-                } catch (e) {}
-                // If we're trying to DISABLE curves (v === true) but curved programs
-                // are still registered, perform a forced clean remount of the
-                // renderer to ensure Sigma reconstructs program list from
-                // the (possibly modified) sigmaOpts. This handles builds where
-                // injected renderers or GL context state prevent in-place removal.
-                try {
-                  const keysNow = Object.keys(renderer.edgePrograms || {});
-                  const hasCurved = keysNow.some(k => k && k.indexOf('curved') !== -1);
-                  if (v && hasCurved) {
-                    try { console.debug && console.debug('SigmaAdapter.setNoCurves: curved programs still present after attempts, performing forced remount'); } catch (e) {}
-                    // Attempt a graceful kill first
-                    try { if (renderer && typeof renderer.kill === 'function') renderer.kill(); } catch (e) { }
-                    // Clear canvas children to ensure any stale GL canvases are removed
-                    try {
-                      const cont = renderer && typeof renderer.getContainer === 'function' ? renderer.getContainer() : (container || null);
-                      if (cont && cont.children) {
-                        // remove all children (Sigma will re-create canvases on new instance)
-                        while (cont.firstChild) cont.removeChild(cont.firstChild);
-                      }
-                    } catch (e) {}
-                    // If options.renderer was provided by a caller, temporarily unset it
-                    // so createRenderer will create a fresh Sigma instance bound to our
-                    // sigmaOpts. This is invasive but required to guarantee a fresh
-                    // program registration in cases where an injected renderer
-                    // cannot be reconstructed.
-                    let hadInjected = false;
-                    try {
-                      if (options && options.renderer) { hadInjected = true; options._injected_renderer_backup = options.renderer; options.renderer = null; }
-                    } catch (e) {}
-                    // Force recreate
-                    try { createRenderer(); } catch (e) { try { console.warn && console.warn('SigmaAdapter.setNoCurves: forced recreate failed', e); } catch (ee) {} }
-                    // Restore options.renderer only if we backed it up; we don't
-                    // attempt to reuse the killed renderer instance.
-                    try { if (hadInjected && options) delete options._injected_renderer_backup; } catch (e) {}
-                    try { console.debug && console.debug('SigmaAdapter.setNoCurves: post-forced-remount renderer.edgePrograms keys', Object.keys(renderer.edgePrograms || {})); } catch (e) {}
-                    try { _inspectEdgePrograms && typeof _inspectEdgePrograms === 'function' ? _inspectEdgePrograms(renderer) : null; } catch (e) {}
-                    // Also apply aliasing after a forced remount
-                    try {
-                      const eps2 = renderer.edgePrograms || {};
-                      if (renderer && eps2 && !("edge" in eps2)) {
-                        if ("line" in eps2) {
-                          try { eps2.edge = eps2.line; console.debug && console.debug('SigmaAdapter.setNoCurves: post-remount aliased edge->line program'); } catch (e) {}
-                        } else if ("arrow" in eps2) {
-                          try { eps2.edge = eps2.arrow; console.debug && console.debug('SigmaAdapter.setNoCurves: post-remount aliased edge->arrow program'); } catch (e) {}
-                        }
-                      }
-                    } catch (e) {}
-                  }
-                } catch (e) {}
-              }
-            } catch (e) {}
-          } catch (e) {}
-        } catch (e) {}
+      const shouldEdgeBeCurved = (edgeId, attr) => {
+        if (!canUseCurves) return false;
         try {
-          const cont = renderer && typeof renderer.getContainer === 'function' ? renderer.getContainer() : null;
-          if (cont) {
-            try { cont.dataset.sigmaNoCurves = v ? 'true' : 'false' } catch (e) {}
-            try { if (v) cont.classList.add('sigma-no-curves'); else cont.classList.remove('sigma-no-curves') } catch (e) {}
-            try { console.debug && console.debug('SigmaAdapter.setNoCurves: container flags', { dataset: cont.dataset && cont.dataset.sigmaNoCurves, classList: Array.from(cont.classList || []) }) } catch (e) {}
+          const src = typeof g.source === 'function' ? g.source(edgeId) : null;
+          const tgt = typeof g.target === 'function' ? g.target(edgeId) : null;
+          if (src != null && tgt != null && String(src) === String(tgt)) return true;
+        } catch (err) {}
+
+        const curveCount = attr && (attr.curveCount || attr.curve_count || attr._parallelCount);
+        if (curveCount && Number(curveCount) > 1) return true;
+
+        if (attr && (attr.parallelIndex != null || attr._parallelIndex != null || attr.curveIndex != null)) return true;
+
+        const minIdx = attr ? attr.parallelMinIndex : undefined;
+        const maxIdx = attr ? attr.parallelMaxIndex : undefined;
+        if (typeof minIdx !== 'undefined' && typeof maxIdx !== 'undefined' && Number(maxIdx) > Number(minIdx)) return true;
+        return false;
+      };
+
+      const computeCurvature = (edgeId, attr) => {
+        try {
+          if (attr && typeof attr[prevCurvKey] === 'number') return attr[prevCurvKey];
+          const src = typeof g.source === 'function' ? g.source(edgeId) : null;
+          const tgt = typeof g.target === 'function' ? g.target(edgeId) : null;
+          if (src != null && tgt != null && String(src) === String(tgt)) {
+            if (attr && typeof attr.curvature === 'number') return attr.curvature;
+            return 0.5;
           }
-        } catch (e) {}
-          // Give renderer a short moment to settle and then refresh and inspect
-          try { setTimeout(() => { try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {} try { _inspectEdgePrograms && typeof _inspectEdgePrograms === 'function' ? _inspectEdgePrograms(renderer) : null; } catch (e) {} }, 220); } catch (e) {}
-      } catch (e) {}
+          const rawIndex = attr && (attr.parallelIndex != null ? attr.parallelIndex : (attr._parallelIndex != null ? attr._parallelIndex : (attr.curveIndex != null ? attr.curveIndex : 0)));
+          const index = Number(rawIndex) || 0;
+          const rawCount = attr && (attr.curveCount || attr.curve_count || attr._parallelCount);
+          const count = Number(rawCount) || 1;
+          if (count <= 1 && !index) {
+            if (attr && typeof attr.curvature === 'number') return attr.curvature;
+            return 0;
+          }
+          const base = count === 2 ? 0.7 : 0.45;
+          let direction = 1;
+          if (src != null && tgt != null) direction = String(src) <= String(tgt) ? 1 : -1;
+          if (!index) return direction * base * 0.65;
+          return index * base;
+        } catch (err) {
+          if (attr && typeof attr.curvature === 'number') return attr.curvature;
+          return 0;
+        }
+      };
+
+      try {
+        g.forEachEdge((edgeId) => {
+          try {
+            const attr = g.getEdgeAttributes ? g.getEdgeAttributes(edgeId) || {} : {};
+            if (disableCurves || !canUseCurves) {
+              if (attr && !Object.prototype.hasOwnProperty.call(attr, prevTypeKey) && attr.type && attr.type !== 'edge') {
+                try { g.setEdgeAttribute(edgeId, prevTypeKey, attr.type); } catch (err) {}
+              }
+              if (attr && !Object.prototype.hasOwnProperty.call(attr, prevCurvKey) && typeof attr.curvature !== 'undefined') {
+                try { g.setEdgeAttribute(edgeId, prevCurvKey, attr.curvature); } catch (err) {}
+              }
+              try { g.setEdgeAttribute(edgeId, 'type', 'edge'); } catch (err) {}
+              try { g.setEdgeAttribute(edgeId, 'curvature', 0); } catch (err) {}
+              return;
+            }
+
+            const storedType = attr ? attr[prevTypeKey] : undefined;
+            const storedCurv = attr ? attr[prevCurvKey] : undefined;
+
+            if (storedType) {
+              try { g.setEdgeAttribute(edgeId, 'type', storedType); } catch (err) {}
+            } else if (shouldEdgeBeCurved(edgeId, attr || {})) {
+              try { g.setEdgeAttribute(edgeId, 'type', 'curved'); } catch (err) {}
+            } else {
+              try { g.setEdgeAttribute(edgeId, 'type', 'edge'); } catch (err) {}
+            }
+
+            if (typeof storedCurv === 'number') {
+              try { g.setEdgeAttribute(edgeId, 'curvature', storedCurv); } catch (err) {}
+            } else if (shouldEdgeBeCurved(edgeId, attr || {})) {
+              try { g.setEdgeAttribute(edgeId, 'curvature', computeCurvature(edgeId, attr || {})); } catch (err) {}
+            } else {
+              try { g.setEdgeAttribute(edgeId, 'curvature', 0); } catch (err) {}
+            }
+
+            if (attr && Object.prototype.hasOwnProperty.call(attr, prevTypeKey)) {
+              try { g.removeEdgeAttribute(edgeId, prevTypeKey); } catch (err) {}
+            }
+            if (attr && Object.prototype.hasOwnProperty.call(attr, prevCurvKey)) {
+              try { g.removeEdgeAttribute(edgeId, prevCurvKey); } catch (err) {}
+            }
+          } catch (err) {
+            // keep iterating even if one edge fails
+          }
+        });
+      } catch (err) {}
+
+      if (typeof sigmaOpts !== 'undefined' && sigmaOpts) {
+        try {
+          sigmaOpts.edgeProgramClasses = canUseCurves ? _savedEdgeProgramClasses : null;
+        } catch (err) {}
+      }
+
+      const applyProgramsInPlace = () => {
+        if (!renderer) return { touched: false, edgeProgramOk: false };
+        const saved = _savedEdgeProgramClasses && typeof _savedEdgeProgramClasses === 'object' ? _savedEdgeProgramClasses : {};
+        const keys = Object.keys(saved || {});
+        let touched = false;
+        let edgeProgramOk = false;
+
+        if (disableCurves || !canUseCurves) {
+          if (typeof renderer.unregisterEdgeProgram === 'function') {
+            keys.forEach((key) => {
+              try { renderer.unregisterEdgeProgram(key); touched = true; } catch (err) {}
+            });
+          }
+          if (renderer.edgePrograms && typeof renderer.edgePrograms === 'object') {
+            keys.forEach((key) => {
+              const entry = renderer.edgePrograms[key];
+              if (!entry) return;
+              try { if (entry && typeof entry.kill === 'function') entry.kill(); } catch (err) {}
+              try { delete renderer.edgePrograms[key]; } catch (err) {}
+              touched = true;
+            });
+          }
+        } else if (keys.length && typeof renderer.registerEdgeProgram === 'function') {
+          keys.forEach((key) => {
+            const program = saved[key];
+            if (!program) return;
+            try { renderer.registerEdgeProgram(key, program); touched = true; } catch (err) {}
+          });
+        }
+
+        const ensureEdgeProgram = () => {
+          if (!renderer.edgePrograms || typeof renderer.edgePrograms !== 'object') return false;
+          if (renderer.edgePrograms.edge) { edgeProgramOk = true; return true; }
+          const aliases = ['line', 'straight', 'arrow', 'default', 'fast', 'curved'];
+          for (let i = 0; i < aliases.length; i += 1) {
+            const key = aliases[i];
+            const entry = renderer.edgePrograms[key];
+            if (entry) {
+              try { renderer.edgePrograms.edge = entry; edgeProgramOk = true; } catch (err) {}
+              touched = true;
+              return true;
+            }
+          }
+          return false;
+        };
+
+        const firstPass = ensureEdgeProgram();
+        if (!disableCurves && !firstPass) ensureEdgeProgram();
+        if (!edgeProgramOk) {
+          try {
+            if (renderer.edgePrograms && typeof renderer.edgePrograms === 'object') {
+              const fallback = renderer.edgePrograms.edge;
+              edgeProgramOk = !!fallback;
+            }
+          } catch (err) {}
+        }
+
+        if (typeof _inspectEdgePrograms === 'function') {
+          try { _inspectEdgePrograms(renderer); } catch (err) {}
+        }
+
+        return { touched, edgeProgramOk };
+      };
+
+      let programResult = { touched: false, edgeProgramOk: false };
+      try { programResult = applyProgramsInPlace(); } catch (err) { programResult = { touched: false, edgeProgramOk: false }; }
+
+      if ((!programResult.edgeProgramOk || !programResult.touched) && typeof createRenderer === 'function') {
+        try {
+          createRenderer();
+          programResult = { touched: true, edgeProgramOk: true };
+        } catch (err) {
+          try { console.warn('SigmaAdapter.setNoCurves: renderer recreation failed', err); } catch (logErr) {}
+        }
+      }
+
+      adapter.renderer = renderer;
+
+      const cont = renderer && typeof renderer.getContainer === 'function' ? renderer.getContainer() : container;
+      if (cont) {
+        try { cont.dataset.sigmaNoCurves = disableCurves ? 'true' : 'false'; } catch (err) {}
+        try {
+          if (cont.classList && typeof cont.classList.toggle === 'function') {
+            cont.classList.toggle('sigma-no-curves', disableCurves);
+          }
+        } catch (err) {}
+      }
+
+      if (renderer && typeof renderer.refresh === 'function') {
+        try { renderer.refresh(); } catch (err) {}
+        try {
+          setTimeout(() => {
+            try { renderer.refresh(); } catch (errInner) {}
+          }, 160);
+        } catch (err) {}
+      }
     },
     destroy() {
+      try { releaseDraggedNode(); } catch (e) {}
+      try { adapterRef = null; } catch (e) {}
       try {
         selectionManagerUnsubs.forEach(fn => { try { if (typeof fn === 'function') fn(); } catch (e) {} });
         selectionManagerUnsubs.length = 0;
@@ -1873,6 +1950,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
       try { if (renderer && typeof renderer.kill === 'function') renderer.kill(); } catch (e) {}
     }
   };
+
+  try { adapterRef = adapter; } catch (e) {}
 
   try {
     if (SelectionManager && typeof SelectionManager.on === 'function') {
