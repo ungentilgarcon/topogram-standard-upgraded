@@ -565,8 +565,11 @@ function SigmaAdapter(container, elements = [], options = {}) {
       manualCurveOverlay.style.position = 'absolute';
       manualCurveOverlay.style.left = '0';
       manualCurveOverlay.style.top = '0';
-      manualCurveOverlay.style.pointerEvents = 'none';
-      manualCurveOverlay.style.zIndex = '10';
+  manualCurveOverlay.style.pointerEvents = 'none';
+  // Place the manual curved-edge canvas behind the Sigma canvases so
+  // curved strokes render under nodes. Use a negative z-index; container
+  // is positioned to create a stacking context so this is reliable.
+  manualCurveOverlay.style.zIndex = '-1';
       container.appendChild(manualCurveOverlay);
       manualCurveCtx = manualCurveOverlay.getContext ? manualCurveOverlay.getContext('2d') : null;
       const resizeOverlay = () => {
