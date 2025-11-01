@@ -33,6 +33,13 @@ try {
   SelectionManager = sm && (sm.default || sm);
 } catch (e) { SelectionManager = null }
 
+// Left-Control detector (physical LeftCtrl only)
+let LeftCtrl = null;
+try {
+  const lc = require('/imports/client/utils/leftCtrl');
+  LeftCtrl = lc && (lc.default || lc);
+} catch (e) { LeftCtrl = null }
+
 function SigmaAdapter(container, elements = [], options = {}) {
   let GraphConstructor = null;
   let SigmaCtor = null;
@@ -77,10 +84,21 @@ function SigmaAdapter(container, elements = [], options = {}) {
   const graph = new GraphConstructor();
   // Visual tuning: multiply raw edge 'size' by this for display. Lower = thinner.
   const EDGE_VISUAL_SCALE = 0.30;
-  const needsManualCurves = !SigmaAdapter__EdgeCurveProgram;
-  const manualCurveEdgeIds = new Set();
-  const manualLoopEdgeIds = new Set();
+  // We require the @sigma/edge-curve program to be present. If it's not
+  // available we'll abort init and return a noop adapter so the app can
+  // handle the missing capability explicitly. This enforces a pure WebGL
+  // renderer path for curved edges.
+  const needsManualCurves = false;
   const cleanupFns = [];
+  // Debug selector: allow forcing straight edges (no curved program) by
+  // passing options.noCurves=true or adding `data-sigma-no-curves="true"`
+  // or the class `sigma-no-curves` on the container element. Useful for
+  // debugging picking/hover issues when curved rendering may affect events.
+  const DEBUG_NO_CURVES = Boolean(
+    (options && options.noCurves) ||
+      (container && container.dataset && String(container.dataset.sigmaNoCurves) === 'true') ||
+      (container && container.classList && container.classList.contains('sigma-no-curves'))
+  );
 
   // deterministic color helper (same approach as TopogramDetail)
   function _stringToColorHex(str) {
@@ -118,6 +136,24 @@ function SigmaAdapter(container, elements = [], options = {}) {
     add() {}, remove() {}, select() {}, unselect() {}, filter() { return []; },
     layout() { return { run() {}, on() {} }; }, destroy() {}
   });
+
+  // Ensure the curved-edge program is present; make it mandatory for this
+  // SigmaAdapter implementation. Try a last-ditch require if we haven't
+  // already resolved it at module-load time. If we still can't find a
+  // callable program constructor, fail fast with a noop adapter so callers
+  // aren't surprised by missing rendering/picking behaviour.
+  try {
+    if (!SigmaAdapter__EdgeCurveProgram) {
+      try { SigmaAdapter__EdgeCurveModule = SigmaAdapter__EdgeCurveModule || require('@sigma/edge-curve'); } catch (e) { SigmaAdapter__EdgeCurveModule = null; }
+      let candidate = null;
+      if (SigmaAdapter__EdgeCurveModule) candidate = (SigmaAdapter__EdgeCurveModule.default || SigmaAdapter__EdgeCurveModule.EdgeCurveProgram || SigmaAdapter__EdgeCurveModule);
+      if (candidate && typeof candidate === 'function') SigmaAdapter__EdgeCurveProgram = candidate;
+    }
+  } catch (e) {}
+  if (!SigmaAdapter__EdgeCurveProgram) {
+    try { console.error('SigmaAdapter: @sigma/edge-curve is required but not available. Aborting SigmaAdapter init.'); } catch (e) {}
+    return makeNoopAdapter('edge-curve-missing');
+  }
 
   // populate graph from cy-like elements if provided
   try {
@@ -346,14 +382,18 @@ function SigmaAdapter(container, elements = [], options = {}) {
               const curveCount = list.length;
               const baseCurvature = curveCount === 2 ? 0.7 : 0.45;
               list.forEach((item, idx) => {
-                try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(item.id, 'type', 'curved'); } catch (e) {}
+                try {
+                  if (!DEBUG_NO_CURVES && SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(item.id, 'type', 'curved');
+                  else graph.setEdgeAttribute(item.id, 'type', 'edge');
+                } catch (e) {}
                 try {
                   const parallelIndex = directedIndices[idx];
                   const src = String(item.source);
                   const tgt = String(item.target);
                   const forward = src <= tgt;
                   const dirSign = forward ? 1 : -1;
-                  const curvature = parallelIndex === 0 ? (curveCount > 1 ? dirSign * baseCurvature * 0.65 : 0) : parallelIndex * baseCurvature;
+                  let curvature = parallelIndex === 0 ? (curveCount > 1 ? dirSign * baseCurvature * 0.65 : 0) : parallelIndex * baseCurvature;
+                  if (DEBUG_NO_CURVES) curvature = 0;
                   graph.setEdgeAttribute(item.id, 'parallelIndex', parallelIndex);
                   graph.setEdgeAttribute(item.id, 'parallelMinIndex', minIndex);
                   graph.setEdgeAttribute(item.id, 'parallelMaxIndex', maxIndex);
@@ -362,40 +402,57 @@ function SigmaAdapter(container, elements = [], options = {}) {
                   graph.setEdgeAttribute(item.id, 'curveCount', curveCount);
                   // provide a numeric curvature hint: centered around 0
                   graph.setEdgeAttribute(item.id, 'curvature', curvature);
-                  graph.setEdgeAttribute(item.id, '__manualCurve', true);
-                  manualCurveEdgeIds.add(item.id);
+                  // marked for curved rendering by the WebGL program (unless debug disabled)
                 } catch (e) {}
               });
             } else {
-              // single edge: mark for manual-curve processing so it's selectable via
-              // the manual overlay (even if curvature is zero). If program is
-              // available, also set the 'curved' type so native program can be used.
+              // single edge: set default parallel attributes. For self-loops
+              // request the curved program when available so they render as arcs.
               const itm = list[0];
-              try { if (SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(itm.id, 'type', 'curved'); } catch (e) {}
+              // For single edges, only request the curved program for self-loops.
               try {
-                // default attributes for a single (non-parallel) edge
+                if (String(itm.source) === String(itm.target)) {
+                  if (!DEBUG_NO_CURVES && SigmaAdapter__EdgeCurveProgram) graph.setEdgeAttribute(itm.id, 'type', 'curved');
+                  else graph.setEdgeAttribute(itm.id, 'type', 'edge');
+                }
+              } catch (e) {}
+                try {
+                  // default attributes for a single (non-parallel) edge
                 graph.setEdgeAttribute(itm.id, 'parallelIndex', 0);
                 graph.setEdgeAttribute(itm.id, 'parallelMinIndex', 0);
                 graph.setEdgeAttribute(itm.id, 'parallelMaxIndex', 0);
                 graph.setEdgeAttribute(itm.id, 'curveIndex', 0);
                 graph.setEdgeAttribute(itm.id, 'curveCount', 1);
-                // for plain single edges keep curvature at 0 so overlay draws a
-                // straight (but pickable) bezier; for self-loops we keep the
-                // larger curvature logic below.
+                // for plain single edges keep curvature at 0; for self-loops keep larger curvature
                 if (String(itm.source) === String(itm.target)) {
-                  // self-loop: give a large curvature so the arc is visible
-                  graph.setEdgeAttribute(itm.id, 'curvature', 2.5);
+                  // self-loop: give a large curvature so the arc is visible (unless debug disables curves)
+                  graph.setEdgeAttribute(itm.id, 'curvature', DEBUG_NO_CURVES ? 0 : 2.5);
                   graph.setEdgeAttribute(itm.id, 'selfLoop', true);
-                  manualLoopEdgeIds.add(itm.id);
                 } else {
                   graph.setEdgeAttribute(itm.id, 'curvature', 0);
                 }
-                graph.setEdgeAttribute(itm.id, '__manualCurve', true);
-                manualCurveEdgeIds.add(itm.id);
               } catch (e) {}
             }
           } catch (err) {}
         });
+      } catch (e) {}
+      // Dev-time assertion: warn if an edge is marked 'curved' but missing
+      // attributes that the curved-edge program expects (e.g. curvature,
+      // parallelIndex). This helps catch malformed input during development.
+      try {
+        if (typeof process !== 'undefined' && process && process.env && process.env.NODE_ENV !== 'production') {
+          graph.forEachEdge((id, attr) => {
+            try {
+              if (attr && String(attr.type) === 'curved') {
+                const hasCurv = typeof attr.curvature !== 'undefined' && attr.curvature !== null;
+                const hasIdx = typeof attr.parallelIndex !== 'undefined' && attr.parallelIndex !== null;
+                if (!hasCurv || !hasIdx) {
+                  try { console.warn('SigmaAdapter: malformed curved edge', id, { missing: (!hasIdx ? 'parallelIndex' : '') + ((!hasIdx && !hasCurv) ? ' and ' : '') + (!hasCurv ? 'curvature' : ''), attr }); } catch (e) {}
+                }
+              }
+            } catch (e) {}
+          });
+        }
       } catch (e) {}
   } catch (e) {
     console.warn('SigmaAdapter: failed to populate graph', e);
@@ -484,7 +541,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
   // Debug: list registered edge program keys to help diagnose missing program errors
   try { console.debug('SigmaAdapter: edgeProgramClasses keys', Object.keys(edgeProgramClasses)); } catch (e) {}
 
-  const sigmaOpts = {
+  let sigmaOpts = null;
+
+  sigmaOpts = {
       // WebGL context hints: prefer low power if available, but let browser decide
       // (sigma exposes renderer-related options in various builds; pass what we can)
       render: { background: '#ffffff00' },
@@ -499,9 +558,12 @@ function SigmaAdapter(container, elements = [], options = {}) {
   defaultDrawNodeLabels: true,
         defaultNodeType: 'circle',
         // v3 uses a single flag to enable edge-related events
-        enableEdgeHovering: true,
-        enableEdgeEvents: true,
-        enableEdgeClickEvents: true,
+    // enable edge events per sigma docs so payloads include an `edge` id
+  enableEdgeHovering: true,
+  enableEdgeHoverEvents: true,
+    enableEdgeEvents: true,
+    enableEdgeClickEvents: true,
+    enableEdgeWheelEvents: true,
         defaultDrawEdgeLabels: true,
         // explicit edge label settings to ensure labels (and emoji) render
         edgeLabelSize: 14,
@@ -509,18 +571,239 @@ function SigmaAdapter(container, elements = [], options = {}) {
         edgeLabelWeight: '600',
         edgeLabelColor: { color: '#000' },
         // make hover detection more permissive; edges need a size to be clickable
-        edgeHoverSizeRatio: 4
+        edgeHoverSizeRatio: 8
       }
     };
-    // attempt to pass options if SigmaCtor accepts them. If a renderer was
-    // injected via options.renderer earlier, skip construction here.
-    try {
-      if (!renderer) {
-        try { renderer = new SigmaCtor(graph, container, sigmaOpts); } catch (e) { renderer = new SigmaCtor(graph, container); }
+  // Remember original edgeProgramClasses so we can remove them when
+  // rendering without curved edges (that ensures Sigma falls back to the
+  // default straight-edge program rather than the curved custom program).
+  const _savedEdgeProgramClasses = sigmaOpts && sigmaOpts.edgeProgramClasses ? sigmaOpts.edgeProgramClasses : null;
+
+  // Helper to (re)create the Sigma renderer so we can force a full
+    // reinitialization when runtime flags change (for example toggling
+    // curved-edge rendering). Encapsulating creation logic here keeps
+    // initialization and recreation consistent.
+    // WebGL context event handlers (populated when a renderer/container exists)
+    let _handleWebGLLost = null;
+    let _handleWebGLRestored = null;
+
+    // Diagnostic helper: inspect renderer.edgePrograms entries and log constructor names
+    const _inspectEdgePrograms = (r) => {
+      try {
+        if (!r || !r.edgePrograms) { console.debug && console.debug('SigmaAdapter._inspectEdgePrograms: no renderer or edgePrograms'); return; }
+        const keys = Object.keys(r.edgePrograms || {});
+        const details = {};
+        keys.forEach(k => {
+          try {
+            const entry = r.edgePrograms[k];
+            if (!entry) { details[k] = null; return; }
+            const ctorName = (entry && entry.constructor && entry.constructor.name) || (entry && entry.programClass && (entry.programClass.name || entry.programClass.toString && entry.programClass.toString().slice(0,80))) || null;
+            const hasKill = !!(entry && typeof entry.kill === 'function');
+            details[k] = { ctorName, hasKill };
+          } catch (e) { details[k] = { error: String(e) }; }
+        });
+        try { console.debug && console.debug('SigmaAdapter._inspectEdgePrograms', details); } catch (e) {}
+      } catch (e) {}
+    };
+
+    const createRenderer = () => {
+      try {
+        // If an existing renderer is present, attempt a clean shutdown first
+        if (renderer && typeof renderer.kill === 'function') {
+          try { renderer.kill(); } catch (e) {}
+        }
+      } catch (e) {}
+      // construct a new renderer instance bound to the same graph/container
+      let r = null;
+      try {
+        if (options && options.renderer) {
+          // if a renderer was injected by caller, respect it (do not recreate)
+          r = options.renderer;
+        } else {
+          try { r = new SigmaCtor(graph, container, sigmaOpts); } catch (e) { r = new SigmaCtor(graph, container); }
+        }
+      } catch (err) {
+        // If construction fails and we have an injected renderer, proceed; else rethrow
+        if (!r) throw err;
       }
+      try { console.debug && console.debug('SigmaAdapter: renderer (re)created', { renderer: !!r, graphOrder: graph.order, graphSize: graph.size }); } catch (e) {}
+      renderer = r;
+      // Attach WebGL context lost/restored handlers on the renderer container
+      try {
+        const cont = (renderer && typeof renderer.getContainer === 'function') ? renderer.getContainer() : container;
+        if (cont && cont.addEventListener) {
+          // remove previous handlers if present
+          try { if (_handleWebGLLost && typeof _handleWebGLLost === 'function') cont.removeEventListener('webglcontextlost', _handleWebGLLost); } catch (e) {}
+          try { if (_handleWebGLRestored && typeof _handleWebGLRestored === 'function') cont.removeEventListener('webglcontextrestored', _handleWebGLRestored); } catch (e) {}
+          _handleWebGLLost = function(ev) {
+            try { console.warn && console.warn('SigmaAdapter: WebGL context lost on container', ev); } catch (e) {}
+            try { adapter._webglLost = true; } catch (e) {}
+            // avoid default to permit restore events in some browsers
+            try { if (ev && typeof ev.preventDefault === 'function') ev.preventDefault(); } catch (e) {}
+          };
+          _handleWebGLRestored = function(ev) {
+            try { console.info && console.info('SigmaAdapter: WebGL context restored', ev); } catch (e) {}
+            try { adapter._webglLost = false; } catch (e) {}
+            // Recreate renderer to ensure a clean GL state and program registration
+            try { if (typeof createRenderer === 'function') { createRenderer(); } } catch (e) { console.warn && console.warn('SigmaAdapter: recreate after webgl restore failed', e); }
+          };
+          try { cont.addEventListener('webglcontextlost', _handleWebGLLost, false); } catch (e) {}
+          try { cont.addEventListener('webglcontextrestored', _handleWebGLRestored, false); } catch (e) {}
+          // cleanup on destroy: remove listeners
+          try { cleanupFns.push(() => { try { cont.removeEventListener('webglcontextlost', _handleWebGLLost); } catch (e) {} try { cont.removeEventListener('webglcontextrestored', _handleWebGLRestored); } catch (e) {} }); } catch (e) {}
+        }
+      } catch (e) {}
+      // re-apply reducers and event wiring for the new renderer
+      try {
+        if (renderer && typeof renderer.setSetting === 'function') {
+          renderer.setSetting('nodeReducer', (node, data) => {
+            try {
+              const hidden = !!graph.getNodeAttribute(node, 'hidden');
+              const selected = !!graph.getNodeAttribute(node, 'selected');
+              const label = graph.getNodeAttribute(node, 'label');
+              const forceLabel = graph.getNodeAttribute(node, 'forceLabel');
+              const out = Object.assign({}, data);
+              if (hidden) out.hidden = true;
+              if (typeof label === 'string') out.label = label;
+              if (forceLabel) out.forceLabel = true;
+              if (selected) {
+                out.color = '#FFD54F';
+                out.highlighted = true;
+              }
+              return out;
+            } catch (e) { return data; }
+          });
+          renderer.setSetting('edgeReducer', (edge, data) => {
+            try {
+              const hidden = !!graph.getEdgeAttribute(edge, 'hidden');
+              const out = Object.assign({}, data);
+              if (hidden) out.hidden = true;
+              const baseSize = Number(graph.getEdgeAttribute(edge, 'size'));
+              if (!Number.isNaN(baseSize)) out.size = Math.max(1, baseSize * EDGE_VISUAL_SCALE);
+              const label = graph.getEdgeAttribute(edge, 'label');
+              if (typeof label === 'string' && label.trim().length) out.label = label;
+              else if (out.label) delete out.label;
+              if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
+              const selected = !!graph.getEdgeAttribute(edge, 'selected');
+              if (selected) {
+                out.color = '#FFD54F';
+                out.size = Math.max(out.size || 1, baseSize ? baseSize * EDGE_VISUAL_SCALE * 1.6 : 1.6);
+              } else {
+                out.color = graph.getEdgeAttribute(edge, 'color') || out.color;
+                out.size = Math.max(1, baseSize ? baseSize * EDGE_VISUAL_SCALE : 1);
+              }
+              return out;
+            } catch (e) { return data; }
+          });
+        }
+      } catch (e) {}
+
+      // wire events onto the new renderer instance (clickNode/clickEdge/clickStage etc.)
+      try {
+        if (renderer && typeof renderer.on === 'function') {
+          // click on a node: toggle selection and inform SelectionManager
+          renderer.on('clickNode', (evt) => {
+            try {
+              try { console.debug && console.debug('SigmaAdapter: clickNode evt:', evt); } catch (e) {}
+              const nodeId = evt && (evt.node || evt.data && evt.data.node) ? (evt.node || (evt.data && evt.data.node)) : null;
+              if (!nodeId) return;
+              const currently = !!graph.getNodeAttribute(nodeId, 'selected');
+              const json = { data: { id: String(nodeId) } };
+              const key = SelectionManager ? SelectionManager.canonicalKey(json) : `node:${String(nodeId)}`;
+              _localSelKeys.add(key);
+              if (currently) {
+                try { graph.removeNodeAttribute(nodeId, 'selected'); } catch (e) {}
+                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for node', json); SelectionManager.unselect(json); } } catch (e) {}
+              } else {
+                try { graph.setNodeAttribute(nodeId, 'selected', true); } catch (e) {}
+                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for node', json); SelectionManager.select(json); } } catch (e) {}
+              }
+            } catch (e) {}
+          });
+
+      // give Sigma a short moment to initialize GL resources then trigger a refresh
+      try { setTimeout(() => { try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {} }, 120); } catch (e) {}
+      try { requestAnimationFrame(() => { requestAnimationFrame(() => { try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {} }); }); } catch (e) {}
+      return renderer;
+          const toggleEdgeSelection = (edgeId, evtObj) => {
+            try {
+              if (!edgeId) return;
+              const currently = !!graph.getEdgeAttribute(edgeId, 'selected');
+              const src = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
+              const tgt = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
+              const json = { data: { id: String(edgeId), source: src, target: tgt } };
+              const key = SelectionManager ? SelectionManager.canonicalKey(json) : `edge:${String(edgeId)}`;
+              _localSelKeys.add(key);
+              if (currently) {
+                try { if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected'); else graph.setEdgeAttribute(edgeId, 'selected', false); } catch (e) {}
+                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.unselect for edge', json, evtObj); SelectionManager.unselect(json); } } catch (e) {}
+              } else {
+                try { graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
+                try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+                try { if (SelectionManager) { console.debug && console.debug('SigmaAdapter: Calling SelectionManager.select for edge', json, evtObj); SelectionManager.select(json); } } catch (e) {}
+              }
+            } catch (e) {}
+          };
+
+          renderer.on('clickEdge', (evt) => {
+            try {
+              try { console.debug && console.debug('SigmaAdapter: clickEdge evt:', evt); } catch (e) {}
+              const edgeId = evt && (evt.edge || (evt.data && evt.data.edge)) ? (evt.edge || (evt.data && evt.data.edge)) : null;
+              toggleEdgeSelection(edgeId, evt);
+            } catch (e) {}
+          });
+          renderer.on('clickEdges', (evt) => {
+            try {
+              try { console.debug && console.debug('SigmaAdapter: clickEdges evt:', evt); } catch (e) {}
+              const edges = (evt && (evt.edges || (evt.data && evt.data.edges))) || [];
+              const list = Array.isArray(edges) ? edges : [edges];
+              const seen = new Set();
+              list.forEach(edgeEntry => {
+                try {
+                  let edgeId = null;
+                  if (typeof edgeEntry === 'string') edgeId = edgeEntry;
+                  else if (edgeEntry && typeof edgeEntry === 'object') {
+                    if (edgeEntry.id) edgeId = edgeEntry.id;
+                    else if (edgeEntry.edge) edgeId = edgeEntry.edge;
+                    else if (edgeEntry.key) edgeId = edgeEntry.key;
+                    else if (edgeEntry.data && edgeEntry.data.edge) edgeId = edgeEntry.data.edge;
+                  }
+                  if (!edgeId || seen.has(edgeId)) return;
+                  seen.add(edgeId);
+                  toggleEdgeSelection(edgeId, evt);
+                } catch (inner) {}
+              });
+            } catch (e) {}
+          });
+
+          // clickStage: clear selection unless physical LeftCtrl is down
+          renderer.on('clickStage', (evt) => {
+            try {
+              const left = LeftCtrl && typeof LeftCtrl.isLeftCtrlDown === 'function' ? LeftCtrl.isLeftCtrlDown() : false;
+              if (left) return;
+            } catch (e) {}
+            try {
+              if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
+              graph.forEachNode((id) => { try { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); } catch (e) {} });
+              graph.forEachEdge((id) => { try { if (graph.getEdgeAttribute(id, 'selected')) graph.removeEdgeAttribute(id, 'selected'); } catch (e) {} });
+              if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
+              try { if (SelectionManager && typeof SelectionManager.clear === 'function') SelectionManager.clear(); } catch (e) {}
+            } catch (e) {}
+          });
+        }
+      } catch (e) {}
+      return renderer;
+    };
+
+    // attempt to pass options if SigmaCtor accepts them. Create the renderer via helper
+    try {
+      createRenderer();
     } catch (e) {
-      // If construction fails and we have an injected renderer, proceed; else rethrow
-      if (!renderer) throw e;
+      console.error('SigmaAdapter: failed to create Sigma renderer', e);
+      return makeNoopAdapter('renderer_failed');
     }
   } catch (err) {
     console.error('SigmaAdapter: failed to create Sigma renderer', err);
@@ -531,10 +814,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
   // local origin keys to avoid event loops when adapters and SelectionManager mirror
   let _localSelKeys = new Set();
   const selectionManagerUnsubs = [];
-  let manualCurveOverlay = null;
-  let manualCurveCtx = null;
-  let manualCurveResizeObserver = null;
-  let manualCurveRenderHandler = null;
+  // Curved-edge rendering is performed by the registered WebGL program
+  // (@sigma/edge-curve). The adapter sets attributes expected by that
+  // program so the renderer can draw and pick curved edges correctly.
 
   function ensureContainerPositioning() {
     try {
@@ -546,247 +828,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
     } catch (e) {}
   }
 
-  function teardownManualOverlay() {
-    try {
-      if (manualCurveRenderHandler && renderer && typeof renderer.off === 'function') {
-        try { renderer.off('afterRender', manualCurveRenderHandler); } catch (e) {}
-      }
-    } catch (e) {}
-    manualCurveRenderHandler = null;
-    if (manualCurveResizeObserver && typeof manualCurveResizeObserver.disconnect === 'function') {
-      try { manualCurveResizeObserver.disconnect(); } catch (e) {}
-    }
-    manualCurveResizeObserver = null;
-    if (manualCurveOverlay && manualCurveOverlay.parentNode) {
-      try { manualCurveOverlay.parentNode.removeChild(manualCurveOverlay); } catch (e) {}
-    }
-    manualCurveOverlay = null;
-    manualCurveCtx = null;
-  }
-
-  function setupManualOverlay() {
-    try {
-      if (manualCurveOverlay || !container || !renderer) return;
-      ensureContainerPositioning();
-      manualCurveOverlay = document.createElement('canvas');
-      manualCurveOverlay.className = 'sigma-manual-curves-overlay';
-      manualCurveOverlay.style.position = 'absolute';
-      manualCurveOverlay.style.left = '0';
-      manualCurveOverlay.style.top = '0';
-  manualCurveOverlay.style.pointerEvents = 'none';
-  // Place the manual curved-edge canvas behind the Sigma canvases so
-  // curved strokes render under nodes. Use a negative z-index; container
-  // is positioned to create a stacking context so this is reliable.
-  manualCurveOverlay.style.zIndex = '-1';
-      container.appendChild(manualCurveOverlay);
-      manualCurveCtx = manualCurveOverlay.getContext ? manualCurveOverlay.getContext('2d') : null;
-      const resizeOverlay = () => {
-        if (!manualCurveOverlay || !container) return;
-        const ratio = (typeof window !== 'undefined' && window.devicePixelRatio) ? window.devicePixelRatio : 1;
-        const width = container.clientWidth || container.offsetWidth || 1;
-        const height = container.clientHeight || container.offsetHeight || 1;
-        manualCurveOverlay.width = Math.max(1, Math.round(width * ratio));
-        manualCurveOverlay.height = Math.max(1, Math.round(height * ratio));
-        manualCurveOverlay.style.width = `${width}px`;
-        manualCurveOverlay.style.height = `${height}px`;
-        if (manualCurveCtx && typeof manualCurveCtx.setTransform === 'function') {
-          manualCurveCtx.setTransform(ratio, 0, 0, ratio, 0, 0);
-        }
-      };
-      resizeOverlay();
-      if (typeof window !== 'undefined' && window.addEventListener) {
-        const resizeListener = () => resizeOverlay();
-        window.addEventListener('resize', resizeListener);
-        cleanupFns.push(() => { try { window.removeEventListener('resize', resizeListener); } catch (e) {} });
-      }
-      if (typeof window !== 'undefined' && window.ResizeObserver) {
-        manualCurveResizeObserver = new window.ResizeObserver(() => resizeOverlay());
-        try { manualCurveResizeObserver.observe(container); } catch (e) {}
-      }
-
-      manualCurveRenderHandler = () => {
-        try {
-          if (!manualCurveCtx || !manualCurveOverlay) return;
-          const ratio = (typeof window !== 'undefined' && window.devicePixelRatio) ? window.devicePixelRatio : 1;
-          manualCurveCtx.setTransform(1, 0, 0, 1, 0, 0);
-          manualCurveCtx.clearRect(0, 0, manualCurveOverlay.width, manualCurveOverlay.height);
-          manualCurveCtx.setTransform(ratio, 0, 0, ratio, 0, 0);
-          manualCurveCtx.lineCap = 'round';
-          manualCurveCtx.lineJoin = 'round';
-
-          graph.forEachEdge((edgeId, attr, source, target) => {
-            try {
-              const hasManualCurve = manualCurveEdgeIds.has(edgeId);
-              const hasLabel = (() => {
-                try {
-                  const lbl = graph.getEdgeAttribute(edgeId, 'label');
-                  return typeof lbl === 'string' && lbl.trim().length;
-                } catch (e) { return false; }
-              })();
-              if (!hasManualCurve && !hasLabel) return;
-              if (graph.getEdgeAttribute(edgeId, 'hidden')) return;
-              if (!source || !target) return;
-              if (graph.getNodeAttribute(source, 'hidden') || graph.getNodeAttribute(target, 'hidden')) return;
-
-              const srcAttr = graph.getNodeAttributes(source) || {};
-              const tgtAttr = graph.getNodeAttributes(target) || {};
-              const hasCoords = (typeof srcAttr.x === 'number' && typeof srcAttr.y === 'number' && typeof tgtAttr.x === 'number' && typeof tgtAttr.y === 'number');
-              if (!hasCoords) return;
-
-              const srcViewport = renderer.graphToViewport ? renderer.graphToViewport({ x: srcAttr.x, y: srcAttr.y }) : null;
-              const tgtViewport = renderer.graphToViewport ? renderer.graphToViewport({ x: tgtAttr.x, y: tgtAttr.y }) : null;
-              if (!srcViewport || !tgtViewport) return;
-
-              const selected = !!graph.getEdgeAttribute(edgeId, 'selected');
-              const color = selected ? '#FFD54F' : (graph.getEdgeAttribute(edgeId, 'color') || '#1f2937');
-              const alpha = selected ? 1 : 0.9;
-              const raw = Number(graph.getEdgeAttribute(edgeId, 'size')) || 1;
-              const width = Math.max(0.5, raw * EDGE_VISUAL_SCALE);
-              const selfLoop = manualLoopEdgeIds.has(edgeId) || (!!graph.getEdgeAttribute(edgeId, 'selfLoop')) || String(source) === String(target);
-
-              manualCurveCtx.globalAlpha = alpha;
-              manualCurveCtx.strokeStyle = color;
-              manualCurveCtx.lineWidth = selected ? Math.max(width * 1.8, width + 2) : width;
-
-              const label = graph.getEdgeAttribute(edgeId, 'label');
-
-              const drawArrow = (curvePoints) => {
-                try {
-                  const hasArrow = !!graph.getEdgeAttribute(edgeId, 'arrow') || String(graph.getEdgeAttribute(edgeId, 'enlightement')).toLowerCase() === 'arrow';
-                  if (!hasArrow) return;
-                  const size = Math.max(6, (manualCurveCtx.lineWidth || width) * 3);
-                  const arrowColor = selected ? '#FFD54F' : (graph.getEdgeAttribute(edgeId, 'targetArrowColor') || color);
-                  manualCurveCtx.fillStyle = arrowColor;
-                  const pointAt = (tt) => {
-                    const inv = 1 - tt;
-                    const x = inv * inv * curvePoints.p0.x + 2 * inv * tt * curvePoints.p1.x + tt * tt * curvePoints.p2.x;
-                    const y = inv * inv * curvePoints.p0.y + 2 * inv * tt * curvePoints.p1.y + tt * tt * curvePoints.p2.y;
-                    return { x, y };
-                  };
-                  const derivativeAt = (tt) => {
-                    const inv = 1 - tt;
-                    const dx = 2 * inv * (curvePoints.p1.x - curvePoints.p0.x) + 2 * tt * (curvePoints.p2.x - curvePoints.p1.x);
-                    const dy = 2 * inv * (curvePoints.p1.y - curvePoints.p0.y) + 2 * tt * (curvePoints.p2.y - curvePoints.p1.y);
-                    return { x: dx, y: dy };
-                  };
-                  const tip = pointAt(0.9);
-                  const back = pointAt(0.86);
-                  const dir = derivativeAt(0.9);
-                  const angle = Math.atan2(dir.y, dir.x);
-                  manualCurveCtx.beginPath();
-                  manualCurveCtx.moveTo(tip.x, tip.y);
-                  manualCurveCtx.lineTo(back.x - Math.cos(angle - Math.PI / 6) * size * 0.4, back.y - Math.sin(angle - Math.PI / 6) * size * 0.4);
-                  manualCurveCtx.lineTo(back.x - Math.cos(angle + Math.PI / 6) * size * 0.4, back.y - Math.sin(angle + Math.PI / 6) * size * 0.4);
-                  manualCurveCtx.closePath();
-                  manualCurveCtx.fill();
-                } catch (e) {}
-              };
-
-              if (selfLoop) {
-                const nodeData = renderer.getNodeDisplayData ? renderer.getNodeDisplayData(source) : null;
-                const nodeSizePx = nodeData && typeof nodeData.size === 'number' ? nodeData.size : Math.max(12, (srcAttr.size || 10));
-                const loopIndex = Number(graph.getEdgeAttribute(edgeId, 'parallelIndex') || 1);
-                const loopCount = Number(graph.getEdgeAttribute(edgeId, 'curveCount') || 1);
-                const centerAngle = (-Math.PI / 3) + (loopIndex - (loopCount - 1) / 2) * 0.35;
-                const baseRadius = Math.max(nodeSizePx * 2.4, 28);
-                const radius = baseRadius + loopIndex * (nodeSizePx * 0.6);
-                const startAngle = centerAngle - 0.95;
-                const endAngle = centerAngle + 0.95;
-                const start = {
-                  x: srcViewport.x + Math.cos(startAngle) * nodeSizePx,
-                  y: srcViewport.y + Math.sin(startAngle) * nodeSizePx
-                };
-                const end = {
-                  x: srcViewport.x + Math.cos(endAngle) * nodeSizePx,
-                  y: srcViewport.y + Math.sin(endAngle) * nodeSizePx
-                };
-                const control = {
-                  x: srcViewport.x + Math.cos(centerAngle) * radius,
-                  y: srcViewport.y + Math.sin(centerAngle) * radius
-                };
-
-                manualCurveCtx.beginPath();
-                manualCurveCtx.moveTo(start.x, start.y);
-                manualCurveCtx.quadraticCurveTo(control.x, control.y, end.x, end.y);
-                manualCurveCtx.stroke();
-
-                drawArrow({ p0: start, p1: control, p2: end });
-
-                if (label) {
-                  try {
-                    const inv = 0.5;
-                    const px = (1 - inv) * (1 - inv) * start.x + 2 * (1 - inv) * inv * control.x + inv * inv * end.x;
-                    const py = (1 - inv) * (1 - inv) * start.y + 2 * (1 - inv) * inv * control.y + inv * inv * end.y;
-                    manualCurveCtx.fillStyle = '#0f172a';
-                    manualCurveCtx.font = '12px "Segoe UI Emoji", "Apple Color Emoji", sans-serif';
-                    manualCurveCtx.textAlign = 'center';
-                    manualCurveCtx.textBaseline = 'middle';
-                    manualCurveCtx.fillText(String(label), px, py - Math.max(12, nodeSizePx * 0.3));
-                  } catch (e) {}
-                }
-                return;
-              }
-
-              const dx = tgtViewport.x - srcViewport.x;
-              const dy = tgtViewport.y - srcViewport.y;
-              const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-              const normX = -dy / dist;
-              const normY = dx / dist;
-              const curvature = hasManualCurve ? (Number(graph.getEdgeAttribute(edgeId, 'curvature')) || 0) : 0;
-              const offset = curvature * dist * 0.2;
-              const control = {
-                x: (srcViewport.x + tgtViewport.x) / 2 + normX * offset,
-                y: (srcViewport.y + tgtViewport.y) / 2 + normY * offset
-              };
-
-              if (hasManualCurve) {
-                manualCurveCtx.beginPath();
-                manualCurveCtx.moveTo(srcViewport.x, srcViewport.y);
-                manualCurveCtx.quadraticCurveTo(control.x, control.y, tgtViewport.x, tgtViewport.y);
-                manualCurveCtx.stroke();
-                drawArrow({ p0: { x: srcViewport.x, y: srcViewport.y }, p1: control, p2: { x: tgtViewport.x, y: tgtViewport.y } });
-              }
-
-              if (label) {
-                try {
-                  const inv = 0.5;
-                  const mx = (1 - inv) * (1 - inv) * srcViewport.x + 2 * (1 - inv) * inv * control.x + inv * inv * tgtViewport.x;
-                  const my = (1 - inv) * (1 - inv) * srcViewport.y + 2 * (1 - inv) * inv * control.y + inv * inv * tgtViewport.y;
-                  const labelOffset = hasManualCurve ? 12 + Math.abs(offset) * 0.02 : 12;
-                  const lx = mx + normX * labelOffset;
-                  const ly = my + normY * labelOffset;
-                  manualCurveCtx.fillStyle = '#0f172a';
-                  manualCurveCtx.font = '12px "Segoe UI Emoji", "Apple Color Emoji", sans-serif';
-                  manualCurveCtx.textAlign = 'center';
-                  manualCurveCtx.textBaseline = 'middle';
-                  manualCurveCtx.fillText(String(label), lx, ly);
-                } catch (e) {}
-              }
-            } catch (err) {}
-          });
-
-          manualCurveCtx.globalAlpha = 1;
-        } catch (e) {}
-      };
-
-      if (renderer && typeof renderer.on === 'function') {
-        renderer.on('afterRender', manualCurveRenderHandler);
-        cleanupFns.push(() => {
-          if (renderer && typeof renderer.off === 'function' && manualCurveRenderHandler) {
-            try { renderer.off('afterRender', manualCurveRenderHandler); } catch (e) {}
-          }
-        });
-        try {
-          // draw once immediately so edges are visible before any interaction
-          manualCurveRenderHandler();
-        } catch (e) {}
-      }
-
-      cleanupFns.push(() => teardownManualOverlay());
-    } catch (e) {}
-  }
-
-  // Input events remain delegated to Sigma; manual overlay is purely visual when needed
+  // Curved-edge rendering is performed by the registered WebGL program
+  // and input events are delegated to Sigma; the adapter relies on the
+  // renderer's built-in picking events.
 
 
   try {
@@ -814,19 +858,18 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const out = Object.assign({}, data);
           if (hidden) out.hidden = true;
           const baseSize = Number(graph.getEdgeAttribute(edge, 'size'));
-          if (!Number.isNaN(baseSize)) out.size = Math.max(0.25, baseSize * EDGE_VISUAL_SCALE);
+          if (!Number.isNaN(baseSize)) out.size = Math.max(1, baseSize * EDGE_VISUAL_SCALE);
           const label = graph.getEdgeAttribute(edge, 'label');
           if (typeof label === 'string' && label.trim().length) out.label = label;
           else if (out.label) delete out.label;
           if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
           const selected = !!graph.getEdgeAttribute(edge, 'selected');
-          if (manualCurveEdgeIds.has(edge)) {
-            // overlay draws visible curve; keep renderer line very thin
-            out.color = 'rgba(0,0,0,0.02)';
-            out.size = Math.max(0.25, baseSize ? baseSize * EDGE_VISUAL_SCALE * 0.5 : 0.25);
-          } else if (selected) {
+          if (selected) {
             out.color = '#FFD54F';
-            out.size = Math.max(out.size || 0.5, baseSize ? baseSize * EDGE_VISUAL_SCALE * 1.4 : 0.5);
+            out.size = Math.max(out.size || 1, baseSize ? baseSize * EDGE_VISUAL_SCALE * 1.6 : 1.6);
+          } else {
+            out.color = graph.getEdgeAttribute(edge, 'color') || out.color;
+            out.size = Math.max(1, baseSize ? baseSize * EDGE_VISUAL_SCALE : 1);
           }
           return out;
         } catch (e) { return data; }
@@ -834,9 +877,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
     }
   } catch (e) {}
 
-  try {
-    setupManualOverlay();
-  } catch (e) {}
+  // No DOM overlay setup is required when the curved-edge program is registered.
 
   // wire input events from the renderer to update graph selection state
   try {
@@ -885,133 +926,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
           } catch (e) {}
         };
 
-        const pointerFromEvent = (evt) => {
-          try {
-            if (!evt || !container) return null;
-            const rect = (typeof container.getBoundingClientRect === 'function') ? container.getBoundingClientRect() : { left: 0, top: 0 };
-            const base = (evt.event && (evt.event.original || evt.event)) || (evt.data && (evt.data.captor || evt.data)) || evt.originalEvent || evt;
-            let x = null; let y = null;
-            if (base) {
-              if (typeof base.offsetX === 'number' && typeof base.offsetY === 'number') {
-                x = base.offsetX; y = base.offsetY;
-              } else if (typeof base.layerX === 'number' && typeof base.layerY === 'number') {
-                x = base.layerX; y = base.layerY;
-              } else if (typeof base.x === 'number' && typeof base.y === 'number') {
-                x = base.x; y = base.y;
-              } else if (typeof base.clientX === 'number' && typeof base.clientY === 'number') {
-                x = base.clientX - rect.left; y = base.clientY - rect.top;
-              } else if (base.original && typeof base.original.clientX === 'number' && typeof base.original.clientY === 'number') {
-                x = base.original.clientX - rect.left; y = base.original.clientY - rect.top;
-              }
-            }
-            if (x == null || y == null) return null;
-            return { x, y };
-          } catch (e) { return null; }
-        };
-
-        const computeManualEdgeGeometryViewport = (edgeId) => {
-          try {
-            if (!renderer || typeof renderer.graphToViewport !== 'function') return null;
-            if (!graph.hasEdge(edgeId)) return null;
-            const source = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
-            const target = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
-            if (!source || !target) return null;
-            if (graph.getEdgeAttribute(edgeId, 'hidden')) return null;
-            if (graph.getNodeAttribute(source, 'hidden') || graph.getNodeAttribute(target, 'hidden')) return null;
-            const srcAttr = graph.getNodeAttributes(source) || {};
-            const tgtAttr = graph.getNodeAttributes(target) || {};
-            if (typeof srcAttr.x !== 'number' || typeof srcAttr.y !== 'number' || typeof tgtAttr.x !== 'number' || typeof tgtAttr.y !== 'number') return null;
-            const srcViewport = renderer.graphToViewport({ x: srcAttr.x, y: srcAttr.y });
-            const tgtViewport = renderer.graphToViewport({ x: tgtAttr.x, y: tgtAttr.y });
-            if (!srcViewport || !tgtViewport) return null;
-            const selfLoop = manualLoopEdgeIds.has(edgeId) || (!!graph.getEdgeAttribute(edgeId, 'selfLoop')) || String(source) === String(target);
-            if (selfLoop) {
-              const nodeData = renderer.getNodeDisplayData ? renderer.getNodeDisplayData(source) : null;
-              const nodeSizePx = nodeData && typeof nodeData.size === 'number' ? nodeData.size : Math.max(12, (srcAttr.size || 10));
-              const loopIndex = Number(graph.getEdgeAttribute(edgeId, 'parallelIndex') || 1);
-              const loopCount = Number(graph.getEdgeAttribute(edgeId, 'curveCount') || 1);
-              const centerAngle = (-Math.PI / 3) + (loopIndex - (loopCount - 1) / 2) * 0.35;
-              const baseRadius = Math.max(nodeSizePx * 2.4, 28);
-              const radius = baseRadius + loopIndex * (nodeSizePx * 0.6);
-              const startAngle = centerAngle - 0.95;
-              const endAngle = centerAngle + 0.95;
-              const start = {
-                x: srcViewport.x + Math.cos(startAngle) * nodeSizePx,
-                y: srcViewport.y + Math.sin(startAngle) * nodeSizePx
-              };
-              const end = {
-                x: srcViewport.x + Math.cos(endAngle) * nodeSizePx,
-                y: srcViewport.y + Math.sin(endAngle) * nodeSizePx
-              };
-              const control = {
-                x: srcViewport.x + Math.cos(centerAngle) * radius,
-                y: srcViewport.y + Math.sin(centerAngle) * radius
-              };
-              return { p0: start, p1: control, p2: end };
-            }
-            const dx = tgtViewport.x - srcViewport.x;
-            const dy = tgtViewport.y - srcViewport.y;
-            const dist = Math.sqrt(dx * dx + dy * dy) || 1;
-            const normX = -dy / dist;
-            const normY = dx / dist;
-            const curvature = Number(graph.getEdgeAttribute(edgeId, 'curvature')) || 0;
-            const offset = curvature * dist * 0.2;
-            const control = {
-              x: (srcViewport.x + tgtViewport.x) / 2 + normX * offset,
-              y: (srcViewport.y + tgtViewport.y) / 2 + normY * offset
-            };
-            return {
-              p0: { x: srcViewport.x, y: srcViewport.y },
-              p1: control,
-              p2: { x: tgtViewport.x, y: tgtViewport.y }
-            };
-          } catch (e) { return null; }
-        };
-
-        const bezierPoint = (p0, p1, p2, t) => {
-          const inv = 1 - t;
-          return {
-            x: inv * inv * p0.x + 2 * inv * t * p1.x + t * t * p2.x,
-            y: inv * inv * p0.y + 2 * inv * t * p1.y + t * t * p2.y
-          };
-        };
-
-        const distanceToBezier = (p0, p1, p2, point) => {
-          let min = Infinity;
-          const steps = 42;
-          for (let i = 0; i <= steps; i++) {
-            const t = i / steps;
-            const pos = bezierPoint(p0, p1, p2, t);
-            const dx = pos.x - point.x;
-            const dy = pos.y - point.y;
-            const d2 = dx * dx + dy * dy;
-            if (d2 < min) min = d2;
-          }
-          return Math.sqrt(min);
-        };
-
-        const findManualCurveHit = (pointer) => {
-          if (!pointer || !manualCurveEdgeIds || !manualCurveEdgeIds.size) return null;
-          let bestEdge = null;
-          let bestDist = 16;
-          manualCurveEdgeIds.forEach(edgeId => {
-            try {
-              const geom = computeManualEdgeGeometryViewport(edgeId);
-              if (!geom) return;
-              const minX = Math.min(geom.p0.x, geom.p1.x, geom.p2.x) - 16;
-              const maxX = Math.max(geom.p0.x, geom.p1.x, geom.p2.x) + 16;
-              const minY = Math.min(geom.p0.y, geom.p1.y, geom.p2.y) - 16;
-              const maxY = Math.max(geom.p0.y, geom.p1.y, geom.p2.y) + 16;
-              if (pointer.x < minX || pointer.x > maxX || pointer.y < minY || pointer.y > maxY) return;
-              const dist = distanceToBezier(geom.p0, geom.p1, geom.p2, pointer);
-              if (dist < bestDist) {
-                bestDist = dist;
-                bestEdge = edgeId;
-              }
-            } catch (err) {}
-          });
-          return bestEdge;
-        };
+  // Rely on the WebGL program's built-in picking and the renderer's
+  // 'clickEdge'/'clickEdges' events.
 
         // click on an edge: toggle selection and inform SelectionManager
         renderer.on('clickEdge', (evt) => {
@@ -1044,30 +960,52 @@ function SigmaAdapter(container, elements = [], options = {}) {
             });
           } catch (e) {}
         });
-        renderer.on('clickStage', (evt) => {
-          try {
-            if (!manualCurveEdgeIds || !manualCurveEdgeIds.size) return;
-            const pointer = pointerFromEvent(evt);
-            if (!pointer) return;
-            const hit = findManualCurveHit(pointer);
-            if (hit) {
-              toggleEdgeSelection(hit, evt);
-            }
-          } catch (e) {}
-        });
+        // Additional edge events per sigma docs: log them and expose the edge id
+        try {
+          ['enterEdge', 'leaveEdge', 'downEdge', 'rightClickEdge', 'doubleClickEdge', 'wheelEdge'].forEach((evName) => {
+            try {
+              renderer.on(evName, (evt) => {
+                try {
+                  const edgeId = evt && (evt.edge || (evt.data && evt.data.edge)) ? (evt.edge || (evt.data && evt.data.edge)) : null;
+                  try { console.debug && console.debug(`SigmaAdapter: ${evName}`, { edge: edgeId, evt }); } catch (e) {}
+                } catch (e) {}
+              });
+            } catch (e) {}
+          });
+        } catch (e) {}
+        // rely on canonical edge events only
         // v3: rely on the canonical 'clickEdge' (and 'clickNode') events. Do not
         // register additional debug-only edge handlers here to keep the adapter
         // minimal and predictable.
+        // click on background/stage: clear selection unless the physical
+        // Left Control key is held. This implements the app-level behaviour
+        // at Sigma level so users can hold LeftCtrl to preserve selections
+        // while clicking empty canvas to perform additive selection flows.
+        try {
+          renderer.on('clickStage', (evt) => {
+            try {
+              const left = LeftCtrl && typeof LeftCtrl.isLeftCtrlDown === 'function' ? LeftCtrl.isLeftCtrlDown() : false;
+              // If left-Control is held, do not clear selection on empty-canvas clicks
+              if (left) return;
+            } catch (e) {}
+            try {
+              if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
+              graph.forEachNode((id) => { try { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); } catch (e) {} });
+              graph.forEachEdge((id) => { try { if (graph.getEdgeAttribute(id, 'selected')) graph.removeEdgeAttribute(id, 'selected'); } catch (e) {} });
+              if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
+              try { if (SelectionManager && typeof SelectionManager.clear === 'function') SelectionManager.clear(); } catch (e) {}
+            } catch (e) {}
+          });
+        } catch (e) {}
       } catch (e) {
         // some builds expose events under different names; try renderer.getMouseHandlers or container
       }
     }
   } catch (e) {}
 
-  // Removed fallback heuristics: rely on Sigma edge events and the clickEdge
-  // handler above. If your Sigma build still does not deliver clickEdge, we can
-  // implement a fallback that uses the Sigma picking API (preferred) instead of
-  // manual nearest-edge math.
+  // Rely on Sigma edge events and the clickEdge handler above. If a build
+  // does not deliver clickEdge we can implement a fallback using Sigma's
+  // picking API instead of nearest-edge heuristics.
 
   const makeNodeWrapper = (id) => ({
     id: () => id,
@@ -1546,10 +1484,6 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const edgeId = e1.id || `${e1.source}-${e1.target}`;
           if (!graph.hasEdge(edgeId)) {
             graph.addEdgeWithKey(edgeId, e1.source, e1.target, e1.attrs || {});
-            if (String(e1.source) === String(e1.target)) {
-              manualCurveEdgeIds.add(edgeId);
-              manualLoopEdgeIds.add(edgeId);
-            }
           }
         } catch (err) {}
       });
@@ -1561,22 +1495,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
           if (!el || !el.data) return;
           const data = el.data;
           if (data.id != null && graph.hasNode(data.id)) {
-            // dropping a node will also drop incident edges; clear overlay caches
+            // dropping a node will also drop incident edges; clear related caches
             const incident = [];
             graph.forEachEdge((edgeId, attr, source, target) => {
               if (String(source) === String(data.id) || String(target) === String(data.id)) incident.push(edgeId);
-            });
-            incident.forEach(edgeId => {
-              manualCurveEdgeIds.delete(edgeId);
-              manualLoopEdgeIds.delete(edgeId);
             });
             graph.dropNode(data.id);
             return;
           }
           const edgeId = data.id != null ? String(data.id) : (data.source != null && data.target != null ? `${data.source}-${data.target}` : null);
           if (edgeId && graph.hasEdge(edgeId)) {
-            manualCurveEdgeIds.delete(edgeId);
-            manualLoopEdgeIds.delete(edgeId);
             graph.dropEdge(edgeId);
           }
         } catch (err) {}
@@ -1705,6 +1633,237 @@ function SigmaAdapter(container, elements = [], options = {}) {
       } catch (e) { return []; }
     },
     removeListener: function(event, handler) { try { this.off(event, handler); } catch (e) {} },
+    setNoCurves(v) {
+      try {
+        try { console.debug && console.debug('SigmaAdapter.setNoCurves called', v, { renderer: !!renderer, graphNodes: graph && typeof graph.nodes === 'function' ? (Array.isArray(graph.nodes()) ? graph.nodes().length : null) : null }) } catch (e) {}
+        adapter._noCurves = !!v;
+        const g = graph;
+        // mutate per-edge attributes
+        g.forEachEdge((eid) => {
+          try {
+            const attr = g.getEdgeAttributes ? g.getEdgeAttributes(eid) : (g.getEdgeAttributes && g.getEdgeAttributes(eid)) || {};
+            const src = (typeof g.source === 'function') ? g.source(eid) : null;
+            const tgt = (typeof g.target === 'function') ? g.target(eid) : null;
+            const isLoop = String(src) === String(tgt);
+            const curveCount = (attr && (attr.curveCount || attr.curve_count || attr._parallelCount)) || 1;
+            if (v) {
+              try { g.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
+              try { g.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
+            } else {
+              if (isLoop || (curveCount && Number(curveCount) > 1)) {
+                try { if (!DEBUG_NO_CURVES && SigmaAdapter__EdgeCurveProgram) g.setEdgeAttribute(eid, 'type', 'curved'); else g.setEdgeAttribute(eid, 'type', 'edge'); } catch (e) {}
+                try {
+                  if (typeof attr.curvature === 'undefined' || attr.curvature === null) {
+                    const parallelIndex = (attr && (typeof attr.parallelIndex !== 'undefined')) ? attr.parallelIndex : (attr && (attr._parallelIndex || attr.curveIndex) || 0);
+                    const cc = Number(curveCount) || 1;
+                    const base = cc === 2 ? 0.7 : 0.45;
+                    let curvature = parallelIndex === 0 ? (cc > 1 ? (String(src) <= String(tgt) ? base * 0.65 : -base * 0.65) : 0) : parallelIndex * base;
+                    try { g.setEdgeAttribute(eid, 'curvature', curvature) } catch (e) {}
+                  }
+                } catch (e) {}
+              } else {
+                try { g.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
+                try { g.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
+              }
+            }
+          } catch (e) {}
+        });
+
+        // Additional diagnostics: count how many edges are marked 'curved' vs 'edge' and sample a few attrs
+        try {
+          let curved = 0; let straight = 0; const sample = [];
+          g.forEachEdge((eid) => {
+            try {
+              const a = g.getEdgeAttributes ? g.getEdgeAttributes(eid) : {};
+              const t = String(a && a.type || 'edge');
+              if (t === 'curved') curved++; else straight++;
+              if (sample.length < 6) sample.push({ id: eid, type: t, curvature: a && a.curvature, parallelIndex: a && a.parallelIndex, _parallelIndex: a && a._parallelIndex });
+            } catch (e) {}
+          });
+          try { console.debug && console.debug('SigmaAdapter.setNoCurves: post-mutation edge types', { curved, straight, sample }); } catch (e) {}
+        } catch (e) {}
+
+        // Try a simple refresh first. In many Sigma builds this is sufficient
+        // for attribute changes. If it doesn't visually update the curved-edge
+        // program we recreate the renderer to force a full program reinitialization.
+        try { if (renderer && typeof renderer.refresh === 'function') { renderer.refresh(); try { console.debug && console.debug('SigmaAdapter.setNoCurves: renderer.refresh called') } catch(e){} } } catch (e) {}
+        // Recreate renderer to ensure WebGL programs pick up mutated per-edge attributes.
+        // Additionally swap out custom curved edge programs when switching to
+        // "no curves" so Sigma will use the default straight-edge renderer.
+        try {
+          try { console.debug && console.debug('SigmaAdapter.setNoCurves: preparing to recreate renderer to force program reindex'); } catch (e) {}
+          try {
+            // Ensure sigmaOpts exists. In some timing paths (renderer injected,
+            // early calls, or after a context loss) sigmaOpts may be null/undefined
+            // even though we can still recreate the renderer. Create a minimal
+            // sigmaOpts object so createRenderer() has the edgeProgramClasses
+            // information it needs.
+            if (typeof sigmaOpts === 'undefined' || !sigmaOpts) {
+              try {
+                // Read saved classes defensively in case the symbol isn't present
+                // in some build/runtime paths. Avoid direct reference that can
+                // throw ReferenceError in certain compiled bundles.
+                let savedPrograms = null;
+                try { savedPrograms = (typeof _savedEdgeProgramClasses !== 'undefined') ? _savedEdgeProgramClasses : null; } catch (ee) { savedPrograms = null; }
+                sigmaOpts = { edgeProgramClasses: (v ? null : savedPrograms), render: { background: '#ffffff00' }, settings: {} };
+                console.debug && console.debug('SigmaAdapter.setNoCurves: sigmaOpts was missing; created minimal sigmaOpts for recreate', { savedProgramsKeys: savedPrograms ? Object.keys(savedPrograms) : null });
+              } catch (e) {
+                console.warn && console.warn('SigmaAdapter.setNoCurves: failed to create fallback sigmaOpts', e);
+              }
+            } else {
+              if (v) {
+                // disable custom edge program classes so renderer draws straight edges
+                sigmaOpts.edgeProgramClasses = null;
+              } else {
+                // restore original program classes (defensive access)
+                try {
+                  const _savedRef = (typeof _savedEdgeProgramClasses !== 'undefined') ? _savedEdgeProgramClasses : null;
+                  sigmaOpts.edgeProgramClasses = _savedRef;
+                } catch (e) { sigmaOpts.edgeProgramClasses = null; }
+              }
+            }
+          } catch (e) { console.warn('SigmaAdapter.setNoCurves: could not swap sigmaOpts.edgeProgramClasses', e); }
+          // If a renderer exists and exposes register/unregister hooks we can
+          // update its programs in-place. This is important when a renderer
+          // was injected via options.renderer: createRenderer will not create
+          // a new instance in that case, so we must directly unregister the
+          // curved programs instead of relying on recreation.
+          try {
+            let programKeys = ['curved', 'curvedArrow', 'curvedDoubleArrow'];
+            // Defensive access to saved classes which may not exist in some bundles
+            let savedProgramsRef = null;
+            try { savedProgramsRef = (typeof _savedEdgeProgramClasses !== 'undefined') ? _savedEdgeProgramClasses : null; } catch (ee) { savedProgramsRef = null; }
+            try { if (savedProgramsRef) programKeys = Object.keys(savedProgramsRef); } catch (ee) {}
+            try { console.debug && console.debug('SigmaAdapter.setNoCurves: renderer.registerEdgeProgram?', typeof (renderer && renderer.registerEdgeProgram), 'unregisterEdgeProgram?', typeof (renderer && renderer.unregisterEdgeProgram), 'edgePrograms?', !!(renderer && renderer.edgePrograms)); } catch (e) {}
+            if (renderer) {
+              // First try the documented API if available
+              if (typeof renderer.unregisterEdgeProgram === 'function') {
+                if (v) {
+                  programKeys.forEach(k => { try { renderer.unregisterEdgeProgram(k); } catch (e) {} });
+                  try { console.debug && console.debug('SigmaAdapter.setNoCurves: unregistered edge programs via API', programKeys); } catch (e) {}
+                } else {
+                  programKeys.forEach(k => { try { if (savedProgramsRef && savedProgramsRef[k]) renderer.registerEdgeProgram(k, savedProgramsRef[k]); } catch (e) {} });
+                  try { console.debug && console.debug('SigmaAdapter.setNoCurves: re-registered edge programs via API', programKeys); } catch (e) {}
+                }
+              }
+              // Then defensively mutate renderer.edgePrograms directly to ensure removal
+              try {
+                const eps = renderer.edgePrograms || {};
+                if (v) {
+                  programKeys.forEach(k => {
+                    try {
+                      if (eps[k] && typeof eps[k].kill === 'function') {
+                        try { eps[k].kill(); } catch (e) {}
+                      }
+                      if (k in eps) delete eps[k];
+                    } catch (e) {}
+                  });
+                  try { console.debug && console.debug('SigmaAdapter.setNoCurves: removed edgePrograms entries directly', Object.keys(eps || {})); } catch (e) {}
+                } else {
+                  // When re-enabling curves ensure register API is used if present
+                  if (typeof renderer.registerEdgeProgram === 'function') {
+                    programKeys.forEach(k => { try { if (savedProgramsRef && savedProgramsRef[k]) renderer.registerEdgeProgram(k, savedProgramsRef[k]); } catch (e) {} });
+                    try { console.debug && console.debug('SigmaAdapter.setNoCurves: re-registered edge programs via API (post-direct-remove)', programKeys); } catch (e) {}
+                  }
+                }
+              } catch (e) {}
+              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+            }
+          } catch (e) {}
+
+          // Fall back to full renderer recreation if in-place program toggling
+          // did not apply (or the renderer did not expose unregister). This
+          // covers builds where options.renderer was not injected and we can
+          // safely reconstruct Sigma with modified sigmaOpts.
+          try {
+            if (typeof createRenderer === 'function') {
+                try { createRenderer(); } catch (e) { console.warn('SigmaAdapter.setNoCurves: recreate failed', e); }
+              }
+              try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+            // Diagnostic: log renderer.edgePrograms keys when available to confirm program registration state
+            try {
+              if (renderer && renderer.edgePrograms) {
+                try { console.debug && console.debug('SigmaAdapter.setNoCurves: renderer.edgePrograms keys', Object.keys(renderer.edgePrograms || {})); } catch (e) {}
+                try { _inspectEdgePrograms && typeof _inspectEdgePrograms === 'function' ? _inspectEdgePrograms(renderer) : null; } catch (e) {}
+                // Defensive aliasing: some builds register straight-edge programs under
+                // names like 'line' or 'arrow' but edges may carry type 'edge'. If
+                // Sigma can't find a program for 'edge' we alias it to a known
+                // straight-edge program instance so rendering can proceed.
+                try {
+                  const eps = renderer.edgePrograms || {};
+                  if (renderer && eps && !("edge" in eps)) {
+                    if ("line" in eps) {
+                      try { eps.edge = eps.line; console.debug && console.debug('SigmaAdapter.setNoCurves: aliased edge->line program'); } catch (e) {}
+                    } else if ("arrow" in eps) {
+                      try { eps.edge = eps.arrow; console.debug && console.debug('SigmaAdapter.setNoCurves: aliased edge->arrow program'); } catch (e) {}
+                    }
+                  }
+                } catch (e) {}
+                // If we're trying to DISABLE curves (v === true) but curved programs
+                // are still registered, perform a forced clean remount of the
+                // renderer to ensure Sigma reconstructs program list from
+                // the (possibly modified) sigmaOpts. This handles builds where
+                // injected renderers or GL context state prevent in-place removal.
+                try {
+                  const keysNow = Object.keys(renderer.edgePrograms || {});
+                  const hasCurved = keysNow.some(k => k && k.indexOf('curved') !== -1);
+                  if (v && hasCurved) {
+                    try { console.debug && console.debug('SigmaAdapter.setNoCurves: curved programs still present after attempts, performing forced remount'); } catch (e) {}
+                    // Attempt a graceful kill first
+                    try { if (renderer && typeof renderer.kill === 'function') renderer.kill(); } catch (e) { }
+                    // Clear canvas children to ensure any stale GL canvases are removed
+                    try {
+                      const cont = renderer && typeof renderer.getContainer === 'function' ? renderer.getContainer() : (container || null);
+                      if (cont && cont.children) {
+                        // remove all children (Sigma will re-create canvases on new instance)
+                        while (cont.firstChild) cont.removeChild(cont.firstChild);
+                      }
+                    } catch (e) {}
+                    // If options.renderer was provided by a caller, temporarily unset it
+                    // so createRenderer will create a fresh Sigma instance bound to our
+                    // sigmaOpts. This is invasive but required to guarantee a fresh
+                    // program registration in cases where an injected renderer
+                    // cannot be reconstructed.
+                    let hadInjected = false;
+                    try {
+                      if (options && options.renderer) { hadInjected = true; options._injected_renderer_backup = options.renderer; options.renderer = null; }
+                    } catch (e) {}
+                    // Force recreate
+                    try { createRenderer(); } catch (e) { try { console.warn && console.warn('SigmaAdapter.setNoCurves: forced recreate failed', e); } catch (ee) {} }
+                    // Restore options.renderer only if we backed it up; we don't
+                    // attempt to reuse the killed renderer instance.
+                    try { if (hadInjected && options) delete options._injected_renderer_backup; } catch (e) {}
+                    try { console.debug && console.debug('SigmaAdapter.setNoCurves: post-forced-remount renderer.edgePrograms keys', Object.keys(renderer.edgePrograms || {})); } catch (e) {}
+                    try { _inspectEdgePrograms && typeof _inspectEdgePrograms === 'function' ? _inspectEdgePrograms(renderer) : null; } catch (e) {}
+                    // Also apply aliasing after a forced remount
+                    try {
+                      const eps2 = renderer.edgePrograms || {};
+                      if (renderer && eps2 && !("edge" in eps2)) {
+                        if ("line" in eps2) {
+                          try { eps2.edge = eps2.line; console.debug && console.debug('SigmaAdapter.setNoCurves: post-remount aliased edge->line program'); } catch (e) {}
+                        } else if ("arrow" in eps2) {
+                          try { eps2.edge = eps2.arrow; console.debug && console.debug('SigmaAdapter.setNoCurves: post-remount aliased edge->arrow program'); } catch (e) {}
+                        }
+                      }
+                    } catch (e) {}
+                  }
+                } catch (e) {}
+              }
+            } catch (e) {}
+          } catch (e) {}
+        } catch (e) {}
+        try {
+          const cont = renderer && typeof renderer.getContainer === 'function' ? renderer.getContainer() : null;
+          if (cont) {
+            try { cont.dataset.sigmaNoCurves = v ? 'true' : 'false' } catch (e) {}
+            try { if (v) cont.classList.add('sigma-no-curves'); else cont.classList.remove('sigma-no-curves') } catch (e) {}
+            try { console.debug && console.debug('SigmaAdapter.setNoCurves: container flags', { dataset: cont.dataset && cont.dataset.sigmaNoCurves, classList: Array.from(cont.classList || []) }) } catch (e) {}
+          }
+        } catch (e) {}
+          // Give renderer a short moment to settle and then refresh and inspect
+          try { setTimeout(() => { try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {} try { _inspectEdgePrograms && typeof _inspectEdgePrograms === 'function' ? _inspectEdgePrograms(renderer) : null; } catch (e) {} }, 220); } catch (e) {}
+      } catch (e) {}
+    },
     destroy() {
       try {
         selectionManagerUnsubs.forEach(fn => { try { if (typeof fn === 'function') fn(); } catch (e) {} });
@@ -1831,3 +1990,8 @@ SigmaAdapter.mount = async ({ container, elements = [], layout = null, styleshee
   // renderer/constructor (for example when using a react-sigma integration).
   return SigmaAdapter(container, elements, { layout, stylesheet, renderer, SigmaCtor });
 }
+
+// Add a convenience instance method on the adapter returned by SigmaAdapter
+// via its factory so callers can toggle curved-edge rendering at runtime
+// without reaching into adapter.graph directly.
+

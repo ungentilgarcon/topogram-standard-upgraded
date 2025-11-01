@@ -1,0 +1,56 @@
+TOPOGRAM: networkOptionsChanged sigmaNoCurves -> false 
+Object { cyRef: true, compatImpl: "sigma" }
+app.js:15203:54
+TOPOGRAM: calling compat.setNoCurves false app.js:15213:62
+SigmaAdapter.setNoCurves called false 
+Object { renderer: true, graphNodes: 91 }
+app.js:2493:46
+SigmaAdapter.setNoCurves: post-mutation edge types 
+Object { curved: 120, straight: 116, sample: (6) […] }
+app.js:2564:50
+SigmaAdapter.setNoCurves: recreating renderer to force program reindex app.js:2585:50
+SigmaAdapter.setNoCurves: container flags 
+Object { dataset: "false", classList: (1) […] }
+app.js:2609:54
+TOPOGRAM: networkOptionsChanged sigmaNoCurves -> true 
+Object { cyRef: true, compatImpl: "sigma" }
+app.js:15203:54
+TOPOGRAM: calling compat.setNoCurves true app.js:15213:62
+SigmaAdapter.setNoCurves called true 
+Object { renderer: true, graphNodes: 91 }
+app.js:2493:46
+SigmaAdapter.setNoCurves: post-mutation edge types 
+Object { curved: 0, straight: 236, sample: (6) […] }
+app.js:2564:50
+SigmaAdapter.setNoCurves: recreating renderer to force program reindex app.js:2585:50
+SigmaAdapter.setNoCurves: container flags 
+Object { dataset: "true", classList: (2) […] }
+app.js:2609:54
+TOPOGRAM: networkOptionsChanged sigmaNoCurves -> false 
+Object { cyRef: true, compatImpl: "sigma" }
+app.js:15203:54
+TOPOGRAM: calling compat.setNoCurves false app.js:15213:62
+SigmaAdapter.setNoCurves called false 
+Object { renderer: true, graphNodes: 91 }
+app.js:2493:46
+SigmaAdapter.setNoCurves: post-mutation edge types 
+Object { curved: 120, straight: 116, sample: (6) […] }
+app.js:2564:50
+SigmaAdapter.setNoCurves: recreating renderer to force program reindex app.js:2585:50
+SigmaAdapter.setNoCurves: container flags 
+Object { dataset: "false", classList: (1) […] }
+app.js:2609:54
+TOPOGRAM: networkOptionsChanged sigmaNoCurves -> true 
+Object { cyRef: true, compatImpl: "sigma" }
+app.js:15203:54
+TOPOGRAM: calling compat.setNoCurves true app.js:15213:62
+SigmaAdapter.setNoCurves called true 
+Object { renderer: true, graphNodes: 91 }
+app.js:2493:46
+SigmaAdapter.setNoCurves: post-mutation edge types 
+Object { curved: 0, straight: 236, sample: (6) […] }
+app.js:2564:50
+SigmaAdapter.setNoCurves: recreating renderer to force program reindex app.js:2585:50
+SigmaAdapter.setNoCurves: container flags 
+Object { dataset: "true", classList: (2) […] }
+app.js:2609:54
