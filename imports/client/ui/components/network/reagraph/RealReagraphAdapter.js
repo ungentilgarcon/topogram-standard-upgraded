@@ -375,6 +375,13 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		SelectionManager = null;
 	}
 
+	// left-Control detector (optional)
+	let LeftCtrl = null;
+	try {
+		const lc = require('/imports/client/utils/leftCtrl');
+		LeftCtrl = lc && (lc.default || lc);
+	} catch (e) { LeftCtrl = null; }
+
 	const canvasRef = { current: null };
 	let baseDistance = null;
 	let zoomLevel = 1;
@@ -805,9 +812,14 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 							else selectEdge(id);
 						} catch (err) {}
 			},
-			onCanvasClick: () => {
-				clearSelection();
-			},
+				onCanvasClick: () => {
+					try {
+						const left = LeftCtrl && typeof LeftCtrl.isLeftCtrlDown === 'function' ? LeftCtrl.isLeftCtrlDown() : false;
+						// If left-Control is held, do not clear selection on empty-canvas clicks
+						if (left) return;
+					} catch (e) {}
+					clearSelection();
+				},
 			onLassoEnd: (ids) => {
 				if (!ids || !ids.length) return;
 				ids.forEach((id) => {
