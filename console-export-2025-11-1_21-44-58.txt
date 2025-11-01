@@ -1,0 +1,110 @@
+HMR: websocket closed hot-module-replacement.js:329:15
+unreachable code after return statement app.js:1467:21
+TOPOGRAM-M3-APP: store created and exposed on window.__TOPOGRAM_STORE__ app.js:4822:69
+GET
+http://localhost:3000/favicon.ico
+[HTTP/1.1 404 Not Found 0ms]
+
+HMR: connected hot-module-replacement.js:340:13
+⚠️ React Router Future Flag Warning: React Router will begin wrapping state updates in `React.startTransition` in v7. You can use the `v7_startTransition` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_starttransition. <anonymous code>:1:145535
+⚠️ React Router Future Flag Warning: Relative route resolution within Splat routes is changing in v7. You can use the `v7_relativeSplatPath` future flag to opt-in early. For more information, see https://reactrouter.com/v6/upgrading/future#v7_relativesplatpath. <anonymous code>:1:145535
+Erreur dans les liens source : Error: JSON.parse: unexpected character at line 1 column 1 of the JSON data
+Stack in the worker:parseSourceMapInput@resource://devtools/client/shared/vendor/source-map/lib/util.js:163:15
+_factory@resource://devtools/client/shared/vendor/source-map/lib/source-map-consumer.js:1066:22
+SourceMapConsumer@resource://devtools/client/shared/vendor/source-map/lib/source-map-consumer.js:26:12
+_fetch@resource://devtools/client/shared/source-map-loader/utils/fetchSourceMap.js:83:19
+
+URL de la ressource : http://localhost:3000/t/%3Canonymous%20code%3E
+URL du lien source : installHook.js.map
+SigmaAdapter: @sigma/edge-curve detected and will be registered for curved edges app.js:316:25
+SigmaAdapter: populated graph 
+Object { nodeCount: 0, edgeCount: 0 }
+app.js:747:21
+SigmaAdapter: edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1017:21
+SigmaAdapter: createRenderer edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1115:42
+SigmaAdapter: createRenderer sigmaOptions edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1116:42
+SigmaAdapter: renderer (re)created 
+Object { renderer: true, graphOrder: 0, graphSize: 0 }
+app.js:1153:42
+SigmaAdapter._inspectEdgePrograms 
+Object { arrow: {…}, line: {…}, curved: {…}, curvedArrow: {…}, curvedDoubleArrow: {…} }
+app.js:1107:46
+SigmaAdapter: renderer created 
+Object { renderer: true, graphOrder: 0, graphSize: 0 }
+app.js:1588:17
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+SigmaAdapter: @sigma/edge-curve detected and will be registered for curved edges app.js:316:25
+SigmaAdapter: populated graph 
+Object { nodeCount: 91, edgeCount: 0 }
+app.js:747:21
+SigmaAdapter: coerced numeric positions for nodes 
+Object { coercedCount: 91, sample: (5) […] }
+app.js:939:37
+SigmaAdapter: edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1017:21
+SigmaAdapter: createRenderer edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1115:42
+SigmaAdapter: createRenderer sigmaOptions edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1116:42
+SigmaAdapter: renderer (re)created 
+Object { renderer: true, graphOrder: 91, graphSize: 0 }
+app.js:1153:42
+SigmaAdapter._inspectEdgePrograms 
+Object { arrow: {…}, line: {…}, curved: {…}, curvedArrow: {…}, curvedDoubleArrow: {…} }
+app.js:1107:46
+SigmaAdapter: renderer created 
+Object { renderer: true, graphOrder: 91, graphSize: 0 }
+app.js:1588:17
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+WebGL context was lost. modules.js:241846:128
+SigmaAdapter: @sigma/edge-curve detected and will be registered for curved edges app.js:316:25
+SigmaAdapter: populated graph 
+Object { nodeCount: 91, edgeCount: 236 }
+app.js:747:21
+SigmaAdapter: coerced numeric positions for nodes 
+Object { coercedCount: 91, sample: (5) […] }
+app.js:939:37
+SigmaAdapter: edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1017:21
+SigmaAdapter: createRenderer edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1115:42
+SigmaAdapter: createRenderer sigmaOptions edgeProgramClasses keys 
+Array(3) [ "curved", "curvedArrow", "curvedDoubleArrow" ]
+app.js:1116:42
+SigmaAdapter: failed to create Sigma renderer Error: Sigma: could not find a suitable program for edge type "edge"!
+    addEdgeToProgram modules.js:241672
+    process modules.js:240959
+    render modules.js:241365
+    refresh modules.js:242246
+    Sigma modules.js:240311
+    createRenderer1 SigmaAdapter.js:704
+    SigmaAdapter SigmaAdapter.js:962
+    mount SigmaAdapter.js:1987
+    asyncGeneratorStep modules.js:102417
+<anonymous code>:1:145535
+WebGL warning: readPixels: Framebuffer not complete. (status: 0x8cd7) 
+WebGL warning: readPixels: Framebuffer must be complete.
+WebGL warning: readPixels: Framebuffer not complete. (status: 0x8cd7) 
+WebGL warning: readPixels: Framebuffer must be complete.
+WebGL warning: readPixels: Framebuffer not complete. (status: 0x8cd7) 
+WebGL warning: readPixels: Framebuffer must be complete.
+WebGL warning: readPixels: Framebuffer not complete. (status: 0x8cd7) 
+WebGL warning: readPixels: Framebuffer must be complete.
+WebGL warning: readPixels: Framebuffer not complete. (status: 0x8cd7) 
+WebGL warning: readPixels: Framebuffer must be complete.
+WebGL warning: readPixels: Framebuffer not complete. (status: 0x8cd7) 
+WebGL warning: readPixels: Framebuffer must be complete.
