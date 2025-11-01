@@ -3,15 +3,49 @@ import Popup from '/imports/client/ui/components/common/Popup.jsx'
 
 // SelectionPanel: lightweight list of selected nodes/edges. Can be rendered
 // inline or as a floating popup (pop-out) via the Popup component.
-export default function SelectionPanel({ selectedElements = [], onUnselect = () => {}, onClear = () => {}, onSelectAdjacent = null, updateUI = null, light = true }) {
+export default function SelectionPanel({ selectedElements = [], onUnselect = () => {}, onClear = () => {}, onSelectAdjacent = null, updateUI = null, availableNodes = null, onAddNode = null, light = true }) {
   const nodes = selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))
   const edges = selectedElements.filter(e => e && e.data && (e.data.source != null || e.data.target != null))
   const [exportTitle, setExportTitle] = useState('')
+  const [searchQuery, setSearchQuery] = useState('')
+  const [suggestionsVisible, setSuggestionsVisible] = useState(false)
+
+  const matchesFor = (q) => {
+    if (!q || !availableNodes || !Array.isArray(availableNodes)) return []
+    const s = String(q).trim().toLowerCase()
+    if (!s) return []
+    const results = []
+    try {
+      for (let i = 0; i < availableNodes.length; i++) {
+        const n = availableNodes[i]
+        if (!n) continue
+        const d = n.data || {}
+        const cand = [String(d && d.name || ''), String(d && d.label || ''), String(d && d.id || ''), String(n._id || ''), String(n.id || '')].join(' ').toLowerCase()
+        if (cand.indexOf(s) !== -1) results.push(n)
+        if (results.length >= 40) break
+      }
+    } catch (e) {}
+    return results
+  }
+
+  const handlePick = (node) => {
+    try {
+      try { console.debug && console.debug('SelectionPanel.handlePick', { pickedNode: node && (node._id || node.id) }) } catch (e) {}
+      if (!node) return
+      if (typeof onAddNode === 'function') onAddNode(node)
+    } catch (e) {}
+    setSearchQuery('')
+    setSuggestionsVisible(false)
+  }
 
   const handleClose = () => {
     // Prefer consumer-provided updateUI to persist the panel hidden; otherwise fall back to noop
     try {
       if (updateUI) updateUI('selectionPanelPinned', false)
+      try {
+        if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.selectionPanelPinned', 'false')
+      } catch (e) {}
+      try { if (typeof window !== 'undefined' && typeof window.dispatchEvent === 'function') window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { selectionPanelPinned: false } })) } catch (e) {}
     } catch (e) {
       try { if (typeof console !== 'undefined') console.error('[SelectionPanel] updateUI threw', e) } catch (_) {}
     }
@@ -128,6 +162,28 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
         <div className="selection-header">
           <strong>Selection</strong>
           <div className="selection-actions">
+            {availableNodes && Array.isArray(availableNodes) ? (
+              <div style={{ display: 'inline-block', position: 'relative', marginRight: 8 }}>
+                <input
+                  className="selection-search-input"
+                  placeholder="Add node to selection..."
+                  value={searchQuery}
+                  onChange={e => { setSearchQuery(e.target.value); setSuggestionsVisible(true) }}
+                  onFocus={() => setSuggestionsVisible(true)}
+                  onBlur={() => setTimeout(() => setSuggestionsVisible(false), 150)}
+                  style={{ minWidth: 160 }}
+                />
+                {suggestionsVisible && searchQuery ? (
+                  <div className="selection-search-suggestions" style={{ position: 'absolute', left: 0, right: 0, zIndex: 1000, background: '#fff', border: '1px solid #ddd', maxHeight: 220, overflow: 'auto' }}>
+                    {matchesFor(searchQuery).length ? matchesFor(searchQuery).slice(0, 40).map((n, idx) => (
+                      <div key={idx} className="selection-suggestion-item" style={{ padding: '6px 8px', cursor: 'pointer' }} onClick={() => handlePick(n)}>
+                        {(n && n.data && (n.data.name || n.data.label)) || n.name || n.label || String(n._id || n.id || '')}
+                      </div>
+                    )) : <div style={{ padding: 8, color: '#666' }}>No matches</div>}
+                  </div>
+                ) : null}
+              </div>
+            ) : null}
             <input
               className="selection-export-title"
               placeholder="Export title (optional)"

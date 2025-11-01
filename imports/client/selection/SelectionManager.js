@@ -55,6 +55,7 @@ const SelectionManager = (() => {
       // store a shallow clone so callers can mutate their copy without
       // affecting the canonical store
       selectionMap.set(key, Object.assign({}, json));
+      try { console.debug && console.debug('SelectionManager.select', { key, size: selectionMap.size }) } catch (e) {}
       emit('select', { element: json });
       emit('change', { action: 'select', element: json, selected: getSelection() });
       return true;
@@ -68,6 +69,7 @@ const SelectionManager = (() => {
     if (selectionMap.has(key)) {
       const removed = selectionMap.get(key);
       selectionMap.delete(key);
+      try { console.debug && console.debug('SelectionManager.unselect', { key, size: selectionMap.size }) } catch (e) {}
       emit('unselect', { element: removed });
       emit('change', { action: 'unselect', element: removed, selected: getSelection() });
       return true;
@@ -85,6 +87,7 @@ const SelectionManager = (() => {
   function clear() {
     if (!selectionMap.size) return false;
     selectionMap.clear();
+    try { console.debug && console.debug('SelectionManager.clear', { size: selectionMap.size }) } catch (e) {}
     emit('clear', {});
     emit('change', { action: 'clear', selected: [] });
     return true;

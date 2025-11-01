@@ -531,9 +531,18 @@ export default function TopogramDetail() {
   }
 
   const onUnselect = (json) => {
-    try { const key = canonicalKey(json); if (!key) return; setSelectedElements(prev => prev.filter(e => canonicalKey(e) !== key)) } catch (e) {}
+    try {
+      const key = canonicalKey(json)
+      if (!key) return
+      // delegate to central SelectionManager so all subscribers receive the event
+      if (SelectionManager && typeof SelectionManager.unselect === 'function') SelectionManager.unselect(json)
+    } catch (e) {}
   }
-  const onClearSelection = () => { setSelectedElements([]) }
+  const onClearSelection = () => {
+    try {
+      if (SelectionManager && typeof SelectionManager.clear === 'function') SelectionManager.clear()
+    } catch (e) {}
+  }
 
   const selectAdjacentElements = useCallback(() => {
     try {
@@ -692,23 +701,70 @@ export default function TopogramDetail() {
     }
   }, [cyRef.current])
 
+  // Apply the current `selectedElements` onto the active graph instance so visuals update
+  useEffect(() => {
+    const cy = cyRef.current
+    if (!cy) return
+    try {
+      // Try to unselect everything first to keep visuals deterministic
+      try {
+        if (typeof cy.elements === 'function') {
+          const all = cy.elements()
+          if (all && typeof all.unselect === 'function') all.unselect()
+        } else if (Array.isArray(cy)) {
+          cy.forEach(el => { try { if (el && typeof el.unselect === 'function') el.unselect() } catch (e) {} })
+        }
+      } catch (e) {}
+
+      // Select each element present in selectedElements
+      (selectedElements || []).forEach(se => {
+        try {
+          const key = canonicalKey(se)
+          if (!key) return
+          if (key.startsWith('node:')) {
+            const id = key.slice(5).replace(/'/g, "\\'")
+            try {
+              const el = (typeof cy.filter === 'function') ? cy.filter(`node[id='${id}']`) : (cy.getElementById ? cy.getElementById(id) : null)
+              if (el && typeof el.select === 'function') el.select()
+            } catch (e) {}
+          } else if (key.startsWith('edge:')) {
+            const id = key.slice(5).replace(/'/g, "\\'")
+            try {
+              const el = (typeof cy.filter === 'function') ? cy.filter(`edge[id='${id}']`) : (cy.getElementById ? cy.getElementById(id) : null)
+              if (el && typeof el.select === 'function') el.select()
+            } catch (e) {}
+          }
+        } catch (e) {}
+      })
+    } catch (e) {}
+  }, [cyRef.current, selectedElements])
+
   // Listen for panel toggle events dispatched by PanelSettings
   useEffect(() => {
     const handler = (evt) => {
       try {
         const d = evt && evt.detail
         if (!d) return
+        // Debug: trace panel toggle events so we can diagnose charts visibility issues
+        try { console.debug && console.debug('TopogramDetail: topo:panelToggle received', d) } catch (e) {}
         if (typeof d.geoMapVisible === 'boolean') setGeoMapVisible(d.geoMapVisible)
         if (typeof d.networkVisible === 'boolean') setNetworkVisible(d.networkVisible)
         if (typeof d.timeLineVisible === 'boolean') setTimeLineVisible(d.timeLineVisible)
         if (typeof d.debugVisible === 'boolean') setDebugVisible(d.debugVisible)
         if (typeof d.chartsVisible === 'boolean') setChartsVisible(d.chartsVisible)
-          if (typeof d.selectionPanelPinned === 'boolean') setSelectionPanelPinned(d.selectionPanelPinned)
+        if (typeof d.selectionPanelPinned === 'boolean') setSelectionPanelPinned(d.selectionPanelPinned)
       } catch (e) { console.warn('panelToggle handler error', e) }
     }
     window.addEventListener('topo:panelToggle', handler)
     return () => window.removeEventListener('topo:panelToggle', handler)
   }, [])
+
+  // Keep a global in-memory flag that PanelSettings can read immediately
+  // to determine current charts visibility without relying on localStorage.
+  useEffect(() => {
+    try { if (typeof window !== 'undefined') window._topoChartsVisible = chartsVisible } catch (e) {}
+    return () => { try { if (typeof window !== 'undefined') delete window._topoChartsVisible } catch (e) {} }
+  }, [chartsVisible])
 
   // Listen for network options changes dispatched by NetworkOptions inside the side panel
   useEffect(() => {
@@ -910,7 +966,7 @@ export default function TopogramDetail() {
           if (key === 'geoEdgeRelVisible') { setGeoEdgeRelVisible(!!value); try { window.localStorage.setItem('topo.geoEdgeRelVisible', !!value ? 'true' : 'false') } catch(e){}; return }
         if (key === 'timeLineVisible') { setTimeLineVisible(!!value); return }
         if (key === 'debugVisible') { setDebugVisible(!!value); return }
-          if (key === 'selectionPanelPinned') { setSelectionPanelPinned(!!value); return }
+        if (key === 'selectionPanelPinned') { try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.selectionPanelPinned', !!value ? 'true' : 'false') } catch (e) {} ; setSelectionPanelPinned(!!value); return }
           if (key === 'nodeLabelMode') { setNodeLabelMode(value || 'both'); try { window.localStorage.setItem('topo.nodeLabelMode', value || 'both') } catch (e){}; return }
           if (key === 'geoEdgeLabelAggregate') { setGeoEdgeLabelAggregate(!!value); try { window.localStorage.setItem('topo.geoEdgeLabelAggregate', !!value ? 'true' : 'false') } catch(e){}; return }
       } catch (e) {}
@@ -2215,7 +2271,7 @@ export default function TopogramDetail() {
                 </div>
                 {(selectionPanelPinned || chartsVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} light={true} /> : null }
+                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} availableNodes={nodes} onAddNode={(node) => { try { const json = nodeDocToJson(node); try { console.debug && console.debug('SelectionPanel onAddNode picked node', { node: node && (node._id || node.id), jsonSample: json && json.data && { id: json.data.id, name: json.data.name } }) } catch (e) {} if (json) { try { if (json.data) { delete json.data.source; delete json.data.target } } catch (e) {} try { console.debug && console.debug('SelectionPanel onAddNode before select', { json }); } catch (e) {} try { selectElement(json) } catch (e) { console.warn && console.warn('SelectionPanel onAddNode: selectElement threw', e) } try { const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(json) : canonicalKey(json); const sel = SelectionManager && typeof SelectionManager.getSelection === 'function' ? SelectionManager.getSelection() : null; console.debug && console.debug('SelectionPanel onAddNode after select', { canonicalKey: key, selectionSize: sel ? sel.length : null, selectionSample: sel ? sel.slice(0,5).map(s => (SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(s) : canonicalKey(s))) : null }) } catch (e) {} } } catch (e) {} }} light={true} /> : null }
                     { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
                   </div>
                 ) : null}
@@ -2377,7 +2433,7 @@ export default function TopogramDetail() {
                   />
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} light={true} /> : null }
+                  { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} availableNodes={nodes} onAddNode={(node) => { try { const json = nodeDocToJson(node); try { console.debug && console.debug('SelectionPanel onAddNode picked node (both view)', { node: node && (node._id || node.id), jsonSample: json && json.data && { id: json.data.id, name: json.data.name } }) } catch (e) {} if (json) { try { if (json.data) { delete json.data.source; delete json.data.target } } catch (e) {} try { console.debug && console.debug('SelectionPanel onAddNode before select (both)', { json }); } catch (e) {} try { selectElement(json) } catch (e) { console.warn && console.warn('SelectionPanel onAddNode: selectElement threw (both)', e) } try { const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(json) : canonicalKey(json); const sel = SelectionManager && typeof SelectionManager.getSelection === 'function' ? SelectionManager.getSelection() : null; console.debug && console.debug('SelectionPanel onAddNode after select (both)', { canonicalKey: key, selectionSize: sel ? sel.length : null, selectionSample: sel ? sel.slice(0,5).map(s => (SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(s) : canonicalKey(s))) : null }) } catch (e) {} } } catch (e) {} }} light={true} /> : null }
                   {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
                 <SidePanelWrapper
@@ -2454,7 +2510,7 @@ export default function TopogramDetail() {
                 </div>
                 {(selectionPanelPinned || chartsVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
-                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} light={true} /> : null }
+                    { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} availableNodes={nodes} onAddNode={(node) => { try { const json = nodeDocToJson(node); try { console.debug && console.debug('SelectionPanel onAddNode picked node (onlyNetwork)', { node: node && (node._id || node.id), jsonSample: json && json.data && { id: json.data.id, name: json.data.name } }) } catch (e) {} if (json) { try { if (json.data) { delete json.data.source; delete json.data.target } } catch (e) {} try { console.debug && console.debug('SelectionPanel onAddNode before select (onlyNetwork)', { json }); } catch (e) {} try { selectElement(json) } catch (e) { console.warn && console.warn('SelectionPanel onAddNode: selectElement threw (onlyNetwork)', e) } try { const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(json) : canonicalKey(json); const sel = SelectionManager && typeof SelectionManager.getSelection === 'function' ? SelectionManager.getSelection() : null; console.debug && console.debug('SelectionPanel onAddNode after select (onlyNetwork)', { canonicalKey: key, selectionSize: sel ? sel.length : null, selectionSample: sel ? sel.slice(0,5).map(s => (SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(s) : canonicalKey(s))) : null }) } catch (e) {} } } catch (e) {} }} light={true} /> : null }
                     { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
                   </div>
                 ) : null}

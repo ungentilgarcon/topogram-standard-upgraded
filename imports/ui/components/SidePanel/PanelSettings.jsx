@@ -88,21 +88,22 @@ const PanelSettings = ({
       {/* Debug show/hide button (default hidden) */}
       {/* Charts show/hide button (default hidden) */}
       <button
-        aria-pressed={typeof window !== 'undefined' && window.localStorage ? window.localStorage.getItem('topo.chartsVisible') === 'true' : false}
+        aria-pressed={typeof window !== 'undefined' && (typeof window._topoChartsVisible !== 'undefined' ? !!window._topoChartsVisible : (window.localStorage ? window.localStorage.getItem('topo.chartsVisible') === 'true' : false))}
         onClick={() => {
           try {
-            const cur = window.localStorage ? window.localStorage.getItem('topo.chartsVisible') === 'true' : false
+            // prefer in-memory window flag if present, otherwise fall back to localStorage
+            const cur = (typeof window !== 'undefined' && typeof window._topoChartsVisible !== 'undefined') ? !!window._topoChartsVisible : (window.localStorage ? window.localStorage.getItem('topo.chartsVisible') === 'true' : false)
             const next = !cur
-            // Do NOT persist chartsVisible to localStorage. Only dispatch the event so
-            // UI state can update in-memory for this session. Persisting here causes
-            // the charts panel to reopen on load via the stored key.
-            // window.localStorage && window.localStorage.setItem('topo.chartsVisible', String(next))
+            // persist toggle to localStorage so the button label stays consistent
+            try { window.localStorage && window.localStorage.setItem('topo.chartsVisible', String(next)) } catch (e) {}
+            // update in-memory flag so other components reading it immediately reflect the change
+            try { if (typeof window !== 'undefined') window._topoChartsVisible = next } catch (e) {}
             window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { chartsVisible: next } }))
           } catch (e) { console.warn('toggle chartsVisible failed', e) }
         }}
         style={{ background: '#1b5e20', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
       >
-        { (typeof window !== 'undefined' && window.localStorage && window.localStorage.getItem('topo.chartsVisible') === 'true') ? 'Hide Charts' : 'Show Charts' }
+        { (typeof window !== 'undefined' && (typeof window._topoChartsVisible !== 'undefined' ? !!window._topoChartsVisible : (window.localStorage && window.localStorage.getItem('topo.chartsVisible') === 'true'))) ? 'Hide Charts' : 'Show Charts' }
       </button>
 
       <button

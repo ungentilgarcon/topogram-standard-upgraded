@@ -148,7 +148,8 @@ class Charts extends React.Component {
         const rawW = (cyEl && typeof cyEl.data === 'function') ? cyEl.data('weight') : (cyEl && cyEl.json && cyEl.json().data && cyEl.json().data.weight)
         const numW = Number(rawW)
         const w = isFinite(numW) ? numW : 1
-        if (String(w) === target) matches.push(cyEl.json())
+        const val = String(Math.round(w))
+        if (val === target) matches.push(cyEl.json())
       }
       this._toggleBatch(matches)
     } catch (_) {}
@@ -265,13 +266,12 @@ class Charts extends React.Component {
         for (let i = 0; i < cyEdges.length; i++) {
           const el = cyEdges[i]
           const rawW = (el && typeof el.data === 'function') ? el.data('weight') : (el && el.json && el.json().data && el.json().data.weight)
-          const w = Number(rawW)
+          const numW = Number(rawW)
           // If no numeric weight is present, treat the edge as weight 1 (count)
-          if (isFinite(w)) {
-            resweigEdges.push(w)
-          } else {
-            resweigEdges.push(1)
-          }
+          const w = isFinite(numW) ? numW : 1
+          // Normalize edge weight into an integer bin to avoid long decimal labels
+          const val = Math.round(w)
+          resweigEdges.push(val)
         }
         const nodesMap = {}
         resweig.forEach(v => { const k = String(v); nodesMap[k] = (nodesMap[k] || 0) + 1 })
@@ -404,7 +404,7 @@ class Charts extends React.Component {
             const raw = el.data.weight
             const num = Number(raw)
             const w = isFinite(num) ? num : 1
-            return String(w)
+            return String(Math.round(w))
           })
       )
       this._nodesBinsKey = Array.from(selectedNodeNames).sort().join(',')
