@@ -75,6 +75,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
   }
 
   const graph = new GraphConstructor();
+  // Visual tuning: multiply raw edge 'size' by this for display. Lower = thinner.
+  const EDGE_VISUAL_SCALE = 0.30;
   const needsManualCurves = !SigmaAdapter__EdgeCurveProgram;
   const manualCurveEdgeIds = new Set();
   const manualLoopEdgeIds = new Set();
@@ -627,7 +629,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
               const selected = !!graph.getEdgeAttribute(edgeId, 'selected');
               const color = selected ? '#FFD54F' : (graph.getEdgeAttribute(edgeId, 'color') || '#1f2937');
               const alpha = selected ? 1 : 0.9;
-              const width = Math.max(1, Number(graph.getEdgeAttribute(edgeId, 'size')) || 1);
+              const raw = Number(graph.getEdgeAttribute(edgeId, 'size')) || 1;
+              const width = Math.max(0.5, raw * EDGE_VISUAL_SCALE);
               const selfLoop = manualLoopEdgeIds.has(edgeId) || (!!graph.getEdgeAttribute(edgeId, 'selfLoop')) || String(source) === String(target);
 
               manualCurveCtx.globalAlpha = alpha;
@@ -800,20 +803,19 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const out = Object.assign({}, data);
           if (hidden) out.hidden = true;
           const baseSize = Number(graph.getEdgeAttribute(edge, 'size'));
-          if (!Number.isNaN(baseSize)) out.size = Math.max(0.5, baseSize);
+          if (!Number.isNaN(baseSize)) out.size = Math.max(0.25, baseSize * EDGE_VISUAL_SCALE);
           const label = graph.getEdgeAttribute(edge, 'label');
           if (typeof label === 'string' && label.trim().length) out.label = label;
           else if (out.label) delete out.label;
           if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
           const selected = !!graph.getEdgeAttribute(edge, 'selected');
           if (manualCurveEdgeIds.has(edge)) {
-            // keep the WebGL/Canvas program almost transparent for manual curves;
-            // the visible stroke is rendered by the overlay, so avoid double lines.
+            // overlay draws visible curve; keep renderer line very thin
             out.color = 'rgba(0,0,0,0.02)';
-            out.size = Math.max(0.35, baseSize ? baseSize * 0.5 : 0.5);
+            out.size = Math.max(0.25, baseSize ? baseSize * EDGE_VISUAL_SCALE * 0.5 : 0.25);
           } else if (selected) {
             out.color = '#FFD54F';
-            out.size = Math.max(out.size || 1, baseSize ? baseSize * 1.5 : 2);
+            out.size = Math.max(out.size || 0.5, baseSize ? baseSize * EDGE_VISUAL_SCALE * 1.4 : 0.5);
           }
           return out;
         } catch (e) { return data; }
