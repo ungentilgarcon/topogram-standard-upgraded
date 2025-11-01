@@ -599,52 +599,37 @@ function SigmaAdapter(container, elements = [], options = {}) {
       console.debug('SigmaAdapter: edgeProgramClasses keys', Object.keys(initialEdgeProgramClasses || {}));
     } catch (e) {}
 
-  const sigmaBaseOpts = {
-      // WebGL context hints: prefer low power if available, but let browser decide
-      // (sigma exposes renderer-related options in various builds; pass what we can)
-      render: { background: '#ffffff00' },
-      // expose program classes at top-level so Sigma can pick them up (e.g. { curved: EdgeCurveProgram })
-      settings: {
-        // prefer WebGL GPU accelerated rendering when available
-  labelRenderedSizeThreshold: 0,
-        renderLabels: true,
-        renderEdgeLabels: true,
-        edgeLabelRenderedSizeThreshold: 0,
-  defaultDrawNodeLabels: true,
-        defaultNodeType: 'circle',
-        // v3 uses a single flag to enable edge-related events
-    // enable edge events per sigma docs so payloads include an `edge` id
-  enableEdgeHovering: true,
-  enableEdgeHoverEvents: true,
+  const sigmaBaseSettings = {
+    // ensure labels (including edge labels) render regardless of zoom
+    renderLabels: true,
+    renderEdgeLabels: true,
+    labelRenderedSizeThreshold: 0,
+    edgeLabelFont: 'Arial, sans-serif',
+    edgeLabelSize: 14,
+    edgeLabelWeight: '600',
+    edgeLabelColor: { color: '#000' },
+    // edge interactions require explicit opt-in
     enableEdgeEvents: true,
-    enableEdgeClickEvents: true,
-    enableEdgeWheelEvents: true,
-        defaultDrawEdgeLabels: true,
-        // explicit edge label settings to ensure labels (and emoji) render
-        edgeLabelSize: 14,
-        edgeLabelFont: 'Arial, sans-serif',
-        edgeLabelWeight: '600',
-        edgeLabelColor: { color: '#000' },
-        // make hover detection more permissive; edges need a size to be clickable
-        edgeHoverSizeRatio: 8
-      }
-    };
+    // keep labels & edges visible while navigating for better feedback
+    hideLabelsOnMove: false,
+    hideEdgesOnMove: false
+  };
+
+  const edgeEvents = ['downEdge', 'clickEdge', 'rightClickEdge', 'doubleClickEdge', 'wheelEdge'];
+
     // Helper that yields a fresh program map whenever we need to re-enable curves
     const nextEdgeProgramClasses = () => cloneEdgeProgramClasses();
 
     const buildSigmaOptions = (allowCurves) => {
-      const opts = {
-        ...sigmaBaseOpts,
-        settings: { ...(sigmaBaseOpts.settings || {}) }
-      };
+      const settings = { ...sigmaBaseSettings };
       let programClasses = null;
       if (allowCurves) {
         programClasses = nextEdgeProgramClasses();
         if (programClasses && Object.keys(programClasses).length) {
-          opts.edgeProgramClasses = programClasses;
+          settings.edgeProgramClasses = { ...programClasses };
         }
       }
-      return { options: opts, programClasses };
+      return { settings, programClasses };
     };
 
   // Helper to (re)create the Sigma renderer so we can force a full
@@ -702,6 +687,31 @@ function SigmaAdapter(container, elements = [], options = {}) {
           });
         } catch (e) {}
       };
+      let hoveredEdgeId = null;
+      const logEvent = (eventName, kind, id) => {
+        try {
+          console.debug && console.debug(`SigmaAdapter: ${eventName}`, { kind, id });
+        } catch (e) {}
+      };
+      const setHoveredEdge = (edgeId) => {
+        if (hoveredEdgeId === edgeId) return;
+        try {
+          if (hoveredEdgeId) {
+            try { graph.removeEdgeAttribute(hoveredEdgeId, '__sigmaHover'); } catch (e) {}
+          }
+          hoveredEdgeId = edgeId || null;
+          if (hoveredEdgeId) {
+            try { graph.setEdgeAttribute(hoveredEdgeId, '__sigmaHover', true); } catch (e) {}
+          }
+        } catch (e) {}
+        try {
+          if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh();
+        } catch (e) {}
+      };
+      cleanupFns.push(() => {
+        try { setHoveredEdge(null); } catch (e) {}
+      });
+      
 
       const handleDragEnd = () => {
         try { releaseDraggedNode(); } catch (e) {}
@@ -828,12 +838,32 @@ function SigmaAdapter(container, elements = [], options = {}) {
         } catch (e) {}
       });
 
-      register('clickEdge', (evt) => {
+      register('enterEdge', (evt = {}) => {
         try {
-          try { console.debug && console.debug('SigmaAdapter: clickEdge evt:', evt); } catch (e) {}
-          const edgeId = evt && (evt.edge || (evt.data && evt.data.edge));
-          toggleEdgeSelection(edgeId, evt);
+          const edgeId = evt.edge || (evt.data && evt.data.edge) || null;
+          logEvent('enterEdge', 'edge', edgeId);
+          setHoveredEdge(edgeId);
         } catch (e) {}
+      });
+
+      register('leaveEdge', (evt = {}) => {
+        try {
+          const edgeId = evt.edge || (evt.data && evt.data.edge) || null;
+          logEvent('leaveEdge', 'edge', edgeId);
+          setHoveredEdge(null);
+        } catch (e) {}
+      });
+
+      edgeEvents.forEach((eventType) => {
+        register(eventType, (evt = {}) => {
+          try {
+            try { console.debug && console.debug(`SigmaAdapter: ${eventType} evt:`, evt); } catch (e) {}
+            const actionable = eventType === 'clickEdge' || eventType === 'doubleClickEdge' || eventType === 'rightClickEdge';
+            if (!actionable) return;
+            const edgeId = evt && (evt.edge || (evt.data && evt.data.edge));
+            toggleEdgeSelection(edgeId, evt);
+          } catch (e) {}
+        });
       });
 
       register('clickEdges', (evt) => {
@@ -866,10 +896,14 @@ function SigmaAdapter(container, elements = [], options = {}) {
           if (left) return;
         } catch (e) {}
         try {
+          setHoveredEdge(null);
           if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
           graph.forEachNode((id) => { try { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); } catch (e) {} });
           graph.forEachEdge((id) => {
             try {
+              if (graph.getEdgeAttribute(id, '__sigmaHover')) {
+                try { graph.removeEdgeAttribute(id, '__sigmaHover'); } catch (e) {}
+              }
               if (!graph.getEdgeAttribute(id, 'selected')) return;
               if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(id, 'selected');
               else graph.setEdgeAttribute(id, 'selected', false);
@@ -883,10 +917,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
 
     const createRenderer = () => {
       const allowCurves = !_noCurvesFlag && !DEBUG_NO_CURVES && !!SigmaAdapter__EdgeCurveProgram;
-      const { options: sigmaOptions, programClasses } = buildSigmaOptions(allowCurves);
+      const { settings: sigmaSettings, programClasses } = buildSigmaOptions(allowCurves);
       try {
         console.debug && console.debug('SigmaAdapter: createRenderer edgeProgramClasses keys', Object.keys(programClasses || {}));
-        console.debug && console.debug('SigmaAdapter: createRenderer sigmaOptions edgeProgramClasses keys', Object.keys((sigmaOptions && sigmaOptions.edgeProgramClasses) || {}));
+        console.debug && console.debug('SigmaAdapter: createRenderer sigmaSettings edgeProgramClasses keys', Object.keys((sigmaSettings && sigmaSettings.edgeProgramClasses) || {}));
       } catch (e) {}
 
       let restoreCurves = false;
@@ -912,7 +946,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
           // if a renderer was injected by caller, respect it (do not recreate)
           r = options.renderer;
         } else {
-          try { r = new SigmaCtor(graph, container, sigmaOptions); } catch (e) { r = new SigmaCtor(graph, container); }
+          try { r = new SigmaCtor(graph, container, sigmaSettings); } catch (e) { r = new SigmaCtor(graph, container); }
         }
       } catch (err) {
         // If construction fails and we have an injected renderer, proceed; else rethrow
@@ -991,13 +1025,19 @@ function SigmaAdapter(container, elements = [], options = {}) {
               if (typeof label === 'string' && label.trim().length) out.label = label;
               else if (out.label) delete out.label;
               if (graph.getEdgeAttribute(edge, 'forceLabel')) out.forceLabel = true;
-              const selected = !!graph.getEdgeAttribute(edge, 'selected');
-              if (selected) {
-                out.color = '#FFD54F';
-                out.size = Math.max(out.size || 1, baseSize ? baseSize * EDGE_VISUAL_SCALE * 1.6 : 1.6);
+              const isHovered = !!graph.getEdgeAttribute(edge, '__sigmaHover');
+              const isSelected = !!graph.getEdgeAttribute(edge, 'selected');
+              const accentColor = '#FFD54F';
+              const defaultColor = graph.getEdgeAttribute(edge, 'color') || out.color;
+              const baseScaled = Math.max(1, baseSize ? baseSize * EDGE_VISUAL_SCALE : 1);
+              if (isSelected || isHovered) {
+                const boost = isSelected ? 1.6 : 1.35;
+                out.color = accentColor;
+                const boosted = baseSize ? baseSize * EDGE_VISUAL_SCALE * boost : boost;
+                out.size = Math.max(out.size || 1, boosted);
               } else {
-                out.color = graph.getEdgeAttribute(edge, 'color') || out.color;
-                out.size = Math.max(1, baseSize ? baseSize * EDGE_VISUAL_SCALE : 1);
+                out.color = defaultColor;
+                out.size = Math.max(out.size || 1, baseScaled);
               }
               return out;
             } catch (e) { return data; }
