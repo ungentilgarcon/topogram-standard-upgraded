@@ -59,25 +59,50 @@ export default function LegendPanel({ ui = {}, updateUI = () => {} , light = tru
   }
 
   // Precompute sample sizes / widths and zoom-adjusted readouts for labels
-  const netSize1 = sizePxFor(1)
-  const netSize5 = sizePxFor(5)
-  const netSize1Adj = applyZoom(netSize1, networkZoom, networkImpl)
-  const netSize5Adj = applyZoom(netSize5, networkZoom, networkImpl)
+  // Decide which data values to sample for the legend: prefer min/max from props.
+  const netNodeLowValRaw = (minNodeWeight != null) ? Number(minNodeWeight) : NaN
+  const netNodeHighValRaw = (maxNodeWeight != null) ? Number(maxNodeWeight) : NaN
+  const netNodeLowVal = Number.isFinite(netNodeLowValRaw) ? netNodeLowValRaw : 1
+  let netNodeHighVal = Number.isFinite(netNodeHighValRaw) ? netNodeHighValRaw : (netNodeLowVal + 4)
+  if (netNodeHighVal === netNodeLowVal) netNodeHighVal = netNodeLowVal + 1
 
-  const geoSize1 = geoSizePxFor(1)
-  const geoSize5 = geoSizePxFor(5)
-  const geoSize1Adj = applyZoom(geoSize1, geoZoom, geoImpl)
-  const geoSize5Adj = applyZoom(geoSize5, geoZoom, geoImpl)
+  const netSizeLow = sizePxFor(netNodeLowVal)
+  const netSizeHigh = sizePxFor(netNodeHighVal)
+  const netSizeLowAdj = applyZoom(netSizeLow, networkZoom, networkImpl)
+  const netSizeHighAdj = applyZoom(netSizeHigh, networkZoom, networkImpl)
 
-  const netEdge1 = edgeWidthFor(1)
-  const netEdge5 = edgeWidthFor(5)
-  const netEdge1Adj = applyZoom(netEdge1, networkZoom, networkImpl)
-  const netEdge5Adj = applyZoom(netEdge5, networkZoom, networkImpl)
+  const geoNodeLowValRaw = (geoMinNodeWeight != null) ? Number(geoMinNodeWeight) : NaN
+  const geoNodeHighValRaw = (geoMaxNodeWeight != null) ? Number(geoMaxNodeWeight) : NaN
+  const geoNodeLowVal = Number.isFinite(geoNodeLowValRaw) ? geoNodeLowValRaw : netNodeLowVal
+  let geoNodeHighVal = Number.isFinite(geoNodeHighValRaw) ? geoNodeHighValRaw : netNodeHighVal
+  if (geoNodeHighVal === geoNodeLowVal) geoNodeHighVal = geoNodeLowVal + 1
 
-  const geoEdge1 = geoEdgeWidthFor(1)
-  const geoEdge5 = geoEdgeWidthFor(5)
-  const geoEdge1Adj = applyZoom(geoEdge1, geoZoom, geoImpl)
-  const geoEdge5Adj = applyZoom(geoEdge5, geoZoom, geoImpl)
+  const geoSizeLow = geoSizePxFor(geoNodeLowVal)
+  const geoSizeHigh = geoSizePxFor(geoNodeHighVal)
+  const geoSizeLowAdj = applyZoom(geoSizeLow, geoZoom, geoImpl)
+  const geoSizeHighAdj = applyZoom(geoSizeHigh, geoZoom, geoImpl)
+
+  const netEdgeLowValRaw = (minEdgeWeight != null) ? Number(minEdgeWeight) : NaN
+  const netEdgeHighValRaw = (maxEdgeWeight != null) ? Number(maxEdgeWeight) : NaN
+  const netEdgeLowVal = Number.isFinite(netEdgeLowValRaw) ? netEdgeLowValRaw : 1
+  let netEdgeHighVal = Number.isFinite(netEdgeHighValRaw) ? netEdgeHighValRaw : (netEdgeLowVal + 4)
+  if (netEdgeHighVal === netEdgeLowVal) netEdgeHighVal = netEdgeLowVal + 1
+
+  const netEdgeLow = edgeWidthFor(netEdgeLowVal)
+  const netEdgeHigh = edgeWidthFor(netEdgeHighVal)
+  const netEdgeLowAdj = applyZoom(netEdgeLow, networkZoom, networkImpl)
+  const netEdgeHighAdj = applyZoom(netEdgeHigh, networkZoom, networkImpl)
+
+  const geoEdgeLowValRaw = (geoMinEdgeWeight != null) ? Number(geoMinEdgeWeight) : NaN
+  const geoEdgeHighValRaw = (geoMaxEdgeWeight != null) ? Number(geoMaxEdgeWeight) : NaN
+  const geoEdgeLowVal = Number.isFinite(geoEdgeLowValRaw) ? geoEdgeLowValRaw : netEdgeLowVal
+  let geoEdgeHighVal = Number.isFinite(geoEdgeHighValRaw) ? geoEdgeHighValRaw : netEdgeHighVal
+  if (geoEdgeHighVal === geoEdgeLowVal) geoEdgeHighVal = geoEdgeLowVal + 1
+
+  const geoEdgeLow = geoEdgeWidthFor(geoEdgeLowVal)
+  const geoEdgeHigh = geoEdgeWidthFor(geoEdgeHighVal)
+  const geoEdgeLowAdj = applyZoom(geoEdgeLow, geoZoom, geoImpl)
+  const geoEdgeHighAdj = applyZoom(geoEdgeHigh, geoZoom, geoImpl)
 
   return (
     <Popup
@@ -100,15 +125,15 @@ export default function LegendPanel({ ui = {}, updateUI = () => {} , light = tru
             <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <svg width={80} height={40} style={{ display: 'block' }}>
-                  <circle cx={24} cy={20} r={Math.max(3, Math.round(sizePxFor(1) / 2))} fill="#666" />
+                  <circle cx={24} cy={20} r={Math.max(3, Math.round(netSizeLow / 2))} fill="#666" />
                 </svg>
-                <div style={{ fontSize: 12 }}>size = 1 — <span style={{ color: '#444' }}>≈ {netSize1Adj}px</span></div>
+                <div style={{ fontSize: 12 }}>value = {netNodeLowVal} — <span style={{ color: '#444' }}>≈ {netSizeLowAdj}px</span></div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <svg width={80} height={40} style={{ display: 'block' }}>
-                  <circle cx={24} cy={20} r={Math.max(3, Math.round(sizePxFor(5) / 2))} fill="#666" />
+                  <circle cx={24} cy={20} r={Math.max(3, Math.round(netSizeHigh / 2))} fill="#666" />
                 </svg>
-                <div style={{ fontSize: 12 }}>size = 5 — <span style={{ color: '#444' }}>≈ {netSize5Adj}px</span></div>
+                <div style={{ fontSize: 12 }}>value = {netNodeHighVal} — <span style={{ color: '#444' }}>≈ {netSizeHighAdj}px</span></div>
               </div>
             </div>
 
@@ -121,15 +146,15 @@ export default function LegendPanel({ ui = {}, updateUI = () => {} , light = tru
               <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <svg width={80} height={40} style={{ display: 'block' }}>
-                    <circle cx={24} cy={20} r={Math.max(3, Math.round(geoSizePxFor(1) / 2))} fill="#1f77b4" />
+                    <circle cx={24} cy={20} r={Math.max(3, Math.round(geoSizeLow / 2))} fill="#1f77b4" />
                   </svg>
-                  <div style={{ fontSize: 12 }}>size = 1 — <span style={{ color: '#444' }}>≈ {geoSize1Adj}px</span></div>
+                    <div style={{ fontSize: 12 }}>value = {geoNodeLowVal} — <span style={{ color: '#444' }}>≈ {geoSizeLowAdj}px</span></div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                  <svg width={80} height={40} style={{ display: 'block' }}>
-                    <circle cx={24} cy={20} r={Math.max(3, Math.round(geoSizePxFor(5) / 2))} fill="#1f77b4" />
-                  </svg>
-                  <div style={{ fontSize: 12 }}>size = 5 — <span style={{ color: '#444' }}>≈ {geoSize5Adj}px</span></div>
+                    <svg width={80} height={40} style={{ display: 'block' }}>
+                      <circle cx={24} cy={20} r={Math.max(3, Math.round(geoSizeHigh / 2))} fill="#1f77b4" />
+                    </svg>
+                    <div style={{ fontSize: 12 }}>value = {geoNodeHighVal} — <span style={{ color: '#444' }}>≈ {geoSizeHighAdj}px</span></div>
                 </div>
               </div>
               <div style={{ marginTop: 8, marginLeft: 4, fontSize: 12, color: '#444' }}>Scaled using current geomap presets</div>
@@ -151,15 +176,15 @@ export default function LegendPanel({ ui = {}, updateUI = () => {} , light = tru
             <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <svg width={84} height={28} style={{ display: 'block' }}>
-                  <line x1={8} y1={14} x2={64} y2={14} stroke="#333" strokeWidth={Math.max(0.5, edgeWidthFor(1))} strokeLinecap="round" />
+                  <line x1={8} y1={14} x2={64} y2={14} stroke="#333" strokeWidth={Math.max(0.5, netEdgeLow)} strokeLinecap="round" />
                 </svg>
-                <div style={{ fontSize: 12 }}>weight = 1 — <span style={{ color: '#444' }}>≈ {netEdge1Adj}px</span></div>
+                <div style={{ fontSize: 12 }}>value = {netEdgeLowVal} — <span style={{ color: '#444' }}>≈ {netEdgeLowAdj}px</span></div>
               </div>
               <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                 <svg width={84} height={28} style={{ display: 'block' }}>
-                  <line x1={8} y1={14} x2={64} y2={14} stroke="#333" strokeWidth={Math.max(0.5, edgeWidthFor(5))} strokeLinecap="round" />
+                  <line x1={8} y1={14} x2={64} y2={14} stroke="#333" strokeWidth={Math.max(0.5, netEdgeHigh)} strokeLinecap="round" />
                 </svg>
-                <div style={{ fontSize: 12 }}>weight = 5 — <span style={{ color: '#444' }}>≈ {netEdge5Adj}px</span></div>
+                <div style={{ fontSize: 12 }}>value = {netEdgeHighVal} — <span style={{ color: '#444' }}>≈ {netEdgeHighAdj}px</span></div>
               </div>
             </div>
             <div style={{ marginTop: 8, marginLeft: 4, fontSize: 12, color: '#444' }}>Scaled using current network edge presets</div>
@@ -171,15 +196,15 @@ export default function LegendPanel({ ui = {}, updateUI = () => {} , light = tru
               <div style={{ display: 'flex', gap: 12, alignItems: 'center' }}>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <svg width={84} height={28} style={{ display: 'block' }}>
-                    <line x1={8} y1={14} x2={64} y2={14} stroke="#1f77b4" strokeWidth={Math.max(0.5, geoEdgeWidthFor(1))} strokeLinecap="round" />
+                    <line x1={8} y1={14} x2={64} y2={14} stroke="#1f77b4" strokeWidth={Math.max(0.5, geoEdgeLow)} strokeLinecap="round" />
                   </svg>
-                  <div style={{ fontSize: 12 }}>weight = 1 — <span style={{ color: '#444' }}>≈ {geoEdge1Adj}px</span></div>
+                  <div style={{ fontSize: 12 }}>value = {geoEdgeLowVal} — <span style={{ color: '#444' }}>≈ {geoEdgeLowAdj}px</span></div>
                 </div>
                 <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
                   <svg width={84} height={28} style={{ display: 'block' }}>
-                    <line x1={8} y1={14} x2={64} y2={14} stroke="#1f77b4" strokeWidth={Math.max(0.5, geoEdgeWidthFor(5))} strokeLinecap="round" />
+                    <line x1={8} y1={14} x2={64} y2={14} stroke="#1f77b4" strokeWidth={Math.max(0.5, geoEdgeHigh)} strokeLinecap="round" />
                   </svg>
-                  <div style={{ fontSize: 12 }}>weight = 5 — <span style={{ color: '#444' }}>≈ {geoEdge5Adj}px</span></div>
+                  <div style={{ fontSize: 12 }}>value = {geoEdgeHighVal} — <span style={{ color: '#444' }}>≈ {geoEdgeHighAdj}px</span></div>
                 </div>
               </div>
               <div style={{ marginTop: 8, marginLeft: 4, fontSize: 12, color: '#444' }}>Scaled using current geomap edge presets</div>
