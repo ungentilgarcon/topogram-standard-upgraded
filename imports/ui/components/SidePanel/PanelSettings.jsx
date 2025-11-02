@@ -17,7 +17,27 @@ const PanelSettings = ({
   router
 }) => (
   <span>
-    <div style={{ fontSize: 14, fontWeight: 600, color: '#2e7d32', marginBottom: 8 }}>Settings</div>
+    <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
+      <div style={{ fontSize: 14, fontWeight: 600, color: '#2e7d32' }}>Settings</div>
+      {/* Legend toggle placed at top of the settings panel for quick access */}
+      <div>
+        <button
+          aria-pressed={(typeof window !== 'undefined' && typeof window._topoLegendVisible !== 'undefined') ? !!window._topoLegendVisible : (window.localStorage ? window.localStorage.getItem('topo.legendVisible') === 'true' : false)}
+          onClick={() => {
+            try {
+              const cur = (typeof window !== 'undefined' && typeof window._topoLegendVisible !== 'undefined') ? !!window._topoLegendVisible : (window.localStorage ? window.localStorage.getItem('topo.legendVisible') === 'true' : false)
+              const next = !cur
+              try { window.localStorage && window.localStorage.setItem('topo.legendVisible', String(next)) } catch (e) {}
+              try { if (typeof window !== 'undefined') window._topoLegendVisible = next } catch (e) {}
+              window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { legendVisible: next } }))
+            } catch (e) { console.warn('toggle legendVisible failed', e) }
+          }}
+          style={{ background: '#1b5e20', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
+        >
+          {(typeof window !== 'undefined' && typeof window._topoLegendVisible !== 'undefined') ? (window._topoLegendVisible ? 'Hide Legend' : 'Show Legend') : ((window.localStorage && window.localStorage.getItem('topo.legendVisible') === 'true') ? 'Hide Legend' : 'Show Legend')}
+        </button>
+      </div>
+    </div>
 
     {/* View show/hide buttons (show or hide the actual panes) */}
     <div style={{ display: 'flex', gap: 8, margin: '8px 0' }}>

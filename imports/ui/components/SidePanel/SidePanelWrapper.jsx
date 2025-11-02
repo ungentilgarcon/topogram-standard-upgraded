@@ -50,22 +50,6 @@ export default function SidePanelWrapper({ geoMapVisible=false, networkVisible=t
       aria-hidden={false}
     >
       <div style={{ position: 'absolute', top: 8, right: 8, display: 'flex', gap: 6 }}>
-        {/* Legend toggle (small) placed next to Settings */}
-        <div
-          style={{ ...handleStyle, background: '#1976D2' }}
-          title={open ? 'Legend' : 'Open Legend'}
-          onClick={(e) => {
-            try {
-              e.stopPropagation()
-              const cur = (typeof window !== 'undefined' && window.localStorage) ? window.localStorage.getItem('topo.legendVisible') === 'true' : false
-              const next = !cur
-              try { window.localStorage && window.localStorage.setItem('topo.legendVisible', String(next)) } catch (err) {}
-              try { window.dispatchEvent(new CustomEvent('topo:panelToggle', { detail: { legendVisible: next } })) } catch (err) {}
-            } catch (err) {}
-          }}
-        >
-          ℹ
-        </div>
         <div style={handleStyle} title={open ? 'Settings' : 'Open settings'}>
           ⚙
         </div>

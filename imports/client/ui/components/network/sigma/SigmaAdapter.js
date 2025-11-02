@@ -779,7 +779,41 @@ function SigmaAdapter(container, elements = [], options = {}) {
         try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
       };
 
-      const extraCleanup = [() => handleDragEnd(), () => setHoveredEdge(null)];
+      const extraCleanup = [() => handleDragEnd(), () => setHoveredEdge(null), () => dispatchHoverDetail(null)];
+
+      const logHoverDetail = (detail) => {
+        try {
+          if (typeof window !== 'undefined' && window._topoSigmaHoverDebug) {
+            console.info('SigmaAdapter: hover node', detail);
+          }
+        } catch (e) {}
+      };
+
+      const dispatchHoverDetail = (detail) => {
+        try {
+          if (typeof window === 'undefined') return;
+          try {
+            if (detail) window._topoSigmaHoverNode = detail;
+            else delete window._topoSigmaHoverNode;
+          } catch (e) {}
+          if (typeof window.dispatchEvent === 'function') {
+            const evtName = 'topo:sigmaHoverNode';
+            try {
+              if (typeof window.CustomEvent === 'function') {
+                window.dispatchEvent(new CustomEvent(evtName, { detail }));
+              } else if (typeof document !== 'undefined' && document.createEvent) {
+                const ev = document.createEvent('CustomEvent');
+                ev.initCustomEvent(evtName, false, false, detail);
+                window.dispatchEvent(ev);
+              } else {
+                window.dispatchEvent(new Event(evtName));
+              }
+            } catch (err) {
+              try { window.dispatchEvent(new Event(evtName)); } catch (fallbackErr) {}
+            }
+          }
+        } catch (e) {}
+      };
 
       const handleDownNode = (evt) => {
         try {
@@ -897,6 +931,40 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const nodeId = evt && (evt.node || (evt.data && evt.data.node));
           toggleNodeSelection(nodeId, evt);
         } catch (e) {}
+      });
+
+      register('enterNode', (evt = {}) => {
+        try {
+          const nodeId = evt.node || (evt.data && evt.data.node) || null;
+          logEvent('enterNode', 'node', nodeId);
+          if (!nodeId) {
+            dispatchHoverDetail(null);
+            return;
+          }
+          let weight = null;
+          let radius = null;
+          let degree = null;
+          try { weight = graph.getNodeAttribute(nodeId, 'weight'); } catch (e) { weight = null; }
+          try { radius = graph.getNodeAttribute(nodeId, 'size'); } catch (e) { radius = null; }
+          try {
+            if (typeof graph.degree === 'function') degree = graph.degree(nodeId);
+            else if (typeof graph.inDegree === 'function' && typeof graph.outDegree === 'function') degree = graph.inDegree(nodeId) + graph.outDegree(nodeId);
+          } catch (e) { degree = null; }
+          const detail = { id: String(nodeId) };
+          if (weight != null && !Number.isNaN(Number(weight))) detail.weight = Number(weight);
+          if (degree != null && Number.isFinite(Number(degree))) detail.degree = Number(degree);
+          if (radius != null && !Number.isNaN(Number(radius))) detail.radius = Number(radius);
+          logHoverDetail(detail);
+          dispatchHoverDetail(detail);
+        } catch (e) { dispatchHoverDetail(null); }
+      });
+
+      register('leaveNode', (evt = {}) => {
+        try {
+          const nodeId = evt.node || (evt.data && evt.data.node) || null;
+          logEvent('leaveNode', 'node', nodeId);
+        } catch (e) {}
+        dispatchHoverDetail(null);
       });
 
       register('enterEdge', (evt = {}) => {
