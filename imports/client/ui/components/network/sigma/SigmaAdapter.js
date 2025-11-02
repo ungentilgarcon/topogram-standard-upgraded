@@ -90,8 +90,34 @@ function SigmaAdapter(container, elements = [], options = {}) {
   // renderer path for curved edges.
   const needsManualCurves = false;
   const cleanupFns = [];
+  let _rendererBinding = null;
+
+  const detachRendererInteractions = () => {
+    try {
+      if (!_rendererBinding) return;
+      const { renderer: boundRenderer, handlers = [], clearHover, extraCleanup = [] } = _rendererBinding;
+      if (Array.isArray(extraCleanup)) {
+        extraCleanup.forEach(fn => { try { if (typeof fn === 'function') fn(); } catch (e) {} });
+      }
+      if (typeof clearHover === 'function') {
+        try { clearHover(); } catch (e) {}
+      }
+      if (boundRenderer) {
+        handlers.forEach(({ event, handler }) => {
+          if (!handler) return;
+          try {
+            if (typeof boundRenderer.off === 'function') boundRenderer.off(event, handler);
+            else if (typeof boundRenderer.removeListener === 'function') boundRenderer.removeListener(event, handler);
+          } catch (e) {}
+        });
+      }
+    } catch (err) {}
+    _rendererBinding = null;
+  };
+
   const runCleanupFns = () => {
     try {
+      detachRendererInteractions();
       if (!cleanupFns.length) return;
       const fns = cleanupFns.splice(0, cleanupFns.length);
       fns.forEach(fn => {
@@ -617,6 +643,45 @@ function SigmaAdapter(container, elements = [], options = {}) {
 
   const edgeEvents = ['downEdge', 'clickEdge', 'rightClickEdge', 'doubleClickEdge', 'wheelEdge'];
 
+  const markEdgeSelected = (edgeId) => {
+    if (!edgeId || !graph) return false;
+    if (graph.hasEdge && typeof graph.hasEdge === 'function' && !graph.hasEdge(edgeId)) return false;
+    let touched = false;
+    try { graph.setEdgeAttribute(edgeId, 'selected', true); touched = true; } catch (e) {}
+    try { graph.setEdgeAttribute(edgeId, '__sigmaSelected', true); touched = true; } catch (e) {}
+    return touched;
+  };
+
+  const clearEdgeSelected = (edgeId, options = {}) => {
+    if (!edgeId || !graph) return false;
+    if (graph.hasEdge && typeof graph.hasEdge === 'function' && !graph.hasEdge(edgeId)) return false;
+    let touched = false;
+    try {
+      if (typeof graph.getEdgeAttribute === 'function' && graph.getEdgeAttribute(edgeId, 'selected') !== undefined) {
+        if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected');
+        else graph.setEdgeAttribute(edgeId, 'selected', false);
+        touched = true;
+      }
+    } catch (e) {}
+    try {
+      if (typeof graph.getEdgeAttribute === 'function' && graph.getEdgeAttribute(edgeId, '__sigmaSelected') !== undefined) {
+        if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, '__sigmaSelected');
+        else graph.setEdgeAttribute(edgeId, '__sigmaSelected', false);
+        touched = true;
+      }
+    } catch (e) {}
+    if (options && options.clearHover) {
+      try {
+        if (typeof graph.getEdgeAttribute === 'function' && graph.getEdgeAttribute(edgeId, '__sigmaHover')) {
+          if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, '__sigmaHover');
+          else graph.setEdgeAttribute(edgeId, '__sigmaHover', false);
+          touched = true;
+        }
+      } catch (e) {}
+    }
+    return touched;
+  };
+
     // Helper that yields a fresh program map whenever we need to re-enable curves
     const nextEdgeProgramClasses = () => cloneEdgeProgramClasses();
 
@@ -677,22 +742,22 @@ function SigmaAdapter(container, elements = [], options = {}) {
 
     const wireRendererInteractions = (localRenderer) => {
       if (!localRenderer || typeof localRenderer.on !== 'function') return;
+      detachRendererInteractions();
 
+      const handlers = [];
       const register = (eventName, handler) => {
         if (typeof handler !== 'function') return;
         try {
           localRenderer.on(eventName, handler);
-          cleanupFns.push(() => {
-            try { localRenderer.off && localRenderer.off(eventName, handler); } catch (e) {}
-          });
+          handlers.push({ event: eventName, handler });
         } catch (e) {}
       };
-      let hoveredEdgeId = null;
       const logEvent = (eventName, kind, id) => {
         try {
           console.debug && console.debug(`SigmaAdapter: ${eventName}`, { kind, id });
         } catch (e) {}
       };
+      let hoveredEdgeId = null;
       const setHoveredEdge = (edgeId) => {
         if (hoveredEdgeId === edgeId) return;
         try {
@@ -708,15 +773,13 @@ function SigmaAdapter(container, elements = [], options = {}) {
           if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh();
         } catch (e) {}
       };
-      cleanupFns.push(() => {
-        try { setHoveredEdge(null); } catch (e) {}
-      });
-      
 
       const handleDragEnd = () => {
         try { releaseDraggedNode(); } catch (e) {}
         try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
       };
+
+      const extraCleanup = [() => handleDragEnd(), () => setHoveredEdge(null)];
 
       const handleDownNode = (evt) => {
         try {
@@ -769,9 +832,6 @@ function SigmaAdapter(container, elements = [], options = {}) {
       register('upNode', handleDragEnd);
       register('upStage', handleDragEnd);
       register('leaveStage', handleDragEnd);
-      cleanupFns.push(() => {
-        try { handleDragEnd(); } catch (e) {}
-      });
 
       const toggleNodeSelection = (nodeId, evtObj) => {
         if (!nodeId) return;
@@ -817,20 +877,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
           try { if (typeof original.stopPropagation === 'function') original.stopPropagation(); } catch (e) {}
         }
         if (currently) {
-          try {
-            if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, 'selected');
-            else graph.setEdgeAttribute(edgeId, 'selected', false);
-            try {
-              if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(edgeId, '__sigmaSelected');
-              else graph.setEdgeAttribute(edgeId, '__sigmaSelected', false);
-            } catch (e) {}
-          } catch (e) {}
-          try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          const changed = clearEdgeSelected(edgeId);
+          if (changed) {
+            try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          }
           try { if (SelectionManager) SelectionManager.unselect(json); } catch (e) {}
         } else {
-          try { graph.setEdgeAttribute(edgeId, 'selected', true); } catch (e) {}
-          try { graph.setEdgeAttribute(edgeId, '__sigmaSelected', true); } catch (e) {}
-          try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          const changed = markEdgeSelected(edgeId);
+          if (changed) {
+            try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
+          }
           try { if (SelectionManager) SelectionManager.select(json); } catch (e) {}
         }
       };
@@ -905,25 +961,19 @@ function SigmaAdapter(container, elements = [], options = {}) {
           if (_localSelKeys && typeof _localSelKeys.clear === 'function') _localSelKeys.clear();
           graph.forEachNode((id) => { try { if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected'); } catch (e) {} });
           graph.forEachEdge((id) => {
-            try {
-              if (graph.getEdgeAttribute(id, '__sigmaHover')) {
-                try { graph.removeEdgeAttribute(id, '__sigmaHover'); } catch (e) {}
-              }
-              if (graph.getEdgeAttribute(id, '__sigmaSelected')) {
-                try {
-                  if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(id, '__sigmaSelected');
-                  else graph.setEdgeAttribute(id, '__sigmaSelected', false);
-                } catch (e) {}
-              }
-              if (!graph.getEdgeAttribute(id, 'selected')) return;
-              if (typeof graph.removeEdgeAttribute === 'function') graph.removeEdgeAttribute(id, 'selected');
-              else graph.setEdgeAttribute(id, 'selected', false);
-            } catch (e) {}
+            try { clearEdgeSelected(id, { clearHover: true }); } catch (e) {}
           });
           if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh();
           try { if (SelectionManager && typeof SelectionManager.clear === 'function') SelectionManager.clear(); } catch (e) {}
         } catch (e) {}
       });
+
+      _rendererBinding = {
+        renderer: localRenderer,
+        handlers,
+        clearHover: () => { try { setHoveredEdge(null); } catch (e) {} },
+        extraCleanup
+      };
     };
 
     const createRenderer = () => {
@@ -948,6 +998,17 @@ function SigmaAdapter(container, elements = [], options = {}) {
         // If an existing renderer is present, attempt a clean shutdown first
         if (renderer && typeof renderer.kill === 'function') {
           try { renderer.kill(); } catch (e) {}
+        }
+      } catch (e) {}
+      try {
+        // After killing ensure container is cleared so stale canvas layers do not capture events
+        if (!options || !options.renderer) {
+          if (container && container.firstChild) {
+            while (container.firstChild) {
+              try { container.removeChild(container.firstChild); }
+              catch (err) { break; }
+            }
+          }
         }
       } catch (e) {}
       // construct a new renderer instance bound to the same graph/container
@@ -1058,7 +1119,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
       } catch (e) {}
 
       // wire events onto the new renderer instance (dragging + selection)
-      try { wireRendererInteractions(renderer); } catch (e) {}
+  try { wireRendererInteractions(renderer); } catch (e) {}
       scheduleRendererSoftRefresh(renderer);
       return renderer;
     };
@@ -1765,14 +1826,6 @@ function SigmaAdapter(container, elements = [], options = {}) {
         try { console.warn && console.warn('SigmaAdapter.setNoCurves: failed to recompute edge curvature', err); } catch (logErr) {}
       }
 
-      try { runCleanupFns(); } catch (err) {}
-
-      try {
-        if (typeof createRenderer === 'function') createRenderer();
-      } catch (err) {
-        try { console.warn && console.warn('SigmaAdapter.setNoCurves: renderer recreation failed', err); } catch (logErr) {}
-      }
-
       adapter.renderer = renderer;
 
       const cont = renderer && typeof renderer.getContainer === 'function' ? renderer.getContainer() : container;
@@ -1791,6 +1844,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
           }, 160);
         } catch (err) {}
       }
+
+      try { scheduleRendererSoftRefresh(renderer); } catch (err) {}
     },
     destroy() {
       try { releaseDraggedNode(); } catch (e) {}
@@ -1799,7 +1854,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
         selectionManagerUnsubs.forEach(fn => { try { if (typeof fn === 'function') fn(); } catch (e) {} });
         selectionManagerUnsubs.length = 0;
       } catch (e) {}
-      try { cleanupFns.forEach(fn => { try { fn(); } catch (err) {} }); cleanupFns.length = 0; } catch (e) {}
+      try { runCleanupFns(); } catch (e) {}
+      try { cleanupFns.length = 0; } catch (e) {}
       try { if (renderer && typeof renderer.kill === 'function') renderer.kill(); } catch (e) {}
     }
   };
@@ -1819,11 +1875,11 @@ function SigmaAdapter(container, elements = [], options = {}) {
           } else if (data.source != null && data.target != null) {
             const eid = data.id != null ? String(data.id) : `${data.source}-${data.target}`;
             if (graph.hasEdge(eid)) {
-              graph.setEdgeAttribute(eid, 'selected', true);
+              markEdgeSelected(eid);
             } else {
               graph.forEachEdge((edgeId, attr, source, target) => {
                 if (String(source) === String(data.source) && String(target) === String(data.target)) {
-                  graph.setEdgeAttribute(edgeId, 'selected', true);
+                  markEdgeSelected(edgeId);
                 }
               });
             }
@@ -1843,11 +1899,11 @@ function SigmaAdapter(container, elements = [], options = {}) {
           } else if (data.source != null && data.target != null) {
             const eid = data.id != null ? String(data.id) : `${data.source}-${data.target}`;
             if (graph.hasEdge(eid)) {
-              if (graph.getEdgeAttribute(eid, 'selected')) graph.removeEdgeAttribute(eid, 'selected');
+              clearEdgeSelected(eid, { clearHover: true });
             } else {
               graph.forEachEdge((edgeId, attr, source, target) => {
                 if (String(source) === String(data.source) && String(target) === String(data.target)) {
-                  if (graph.getEdgeAttribute(edgeId, 'selected')) graph.removeEdgeAttribute(edgeId, 'selected');
+                  clearEdgeSelected(edgeId, { clearHover: true });
                 }
               });
             }
@@ -1863,7 +1919,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
             if (graph.getNodeAttribute(id, 'selected')) graph.removeNodeAttribute(id, 'selected');
           });
           graph.forEachEdge((id) => {
-            if (graph.getEdgeAttribute(id, 'selected')) graph.removeEdgeAttribute(id, 'selected');
+            clearEdgeSelected(id, { clearHover: true });
           });
           if (renderer && typeof renderer.refresh === 'function') renderer.refresh();
         } catch (e) {}

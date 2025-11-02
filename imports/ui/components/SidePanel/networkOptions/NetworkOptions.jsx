@@ -31,7 +31,12 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
   const [aggregateEdges, setAggregateEdges] = useState(false)
 
   // Sigma debug: force straight edges (disable curved WebGL program) at runtime
-  const [sigmaNoCurves, setSigmaNoCurves] = useState(() => lsb('topo.sigmaNoCurves', false))
+  const [sigmaNoCurves, setSigmaNoCurves] = useState(false)
+
+  // Clear legacy persisted flag so the debug toggle defaults to off on reload.
+  useEffect(() => {
+    try { window.localStorage.removeItem('topo.sigmaNoCurves') } catch {}
+  }, [])
 
   // Persist some values when they change (match existing behavior)
   useEffect(() => { setLs('topo.graphAdapter', graphAdapter) }, [graphAdapter])
@@ -44,7 +49,6 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
   useEffect(() => { setLs('topo.geoEdgeRelVisible', geoEdgeRelVisible) }, [geoEdgeRelVisible])
   useEffect(() => { setLs('topo.geoEdgeLabelAggregate', geoEdgeLabelAggregate) }, [geoEdgeLabelAggregate])
   useEffect(() => { setLs('topo.emojiVisible', emojiVisible) }, [emojiVisible])
-  useEffect(() => { setLs('topo.sigmaNoCurves', sigmaNoCurves) }, [sigmaNoCurves])
 
   const section = (title, children, { defaultOpen = false } = {}) => (
     <details open={defaultOpen} style={{ marginTop: 10 }}>
