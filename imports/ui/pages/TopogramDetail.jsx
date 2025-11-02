@@ -111,6 +111,59 @@ function makeCyCompat(adapter) {
     select: (id) => { try { if (typeof adapter.select === 'function') return adapter.select(id); } catch (err) {} },
     unselect: (id) => { try { if (typeof adapter.unselect === 'function') return adapter.unselect(id); } catch (err) {} }
   }
+  // expose the raw underlying adapter so callers can access adapter-specific
+  // features (for example Sigma's `graph` and `renderer`) when needed.
+  try { compat._rawAdapter = adapter } catch (e) {}
+  // Expose a compat-layer API to toggle curved edges at runtime. Prefer
+  // calling the adapter-provided method when available; otherwise callers
+  // may mutate the underlying graph directly as a fallback.
+  try {
+    compat.setNoCurves = function(v) {
+      try {
+        if (adapter && typeof adapter.setNoCurves === 'function') {
+          try { return adapter.setNoCurves(!!v); } catch (e) {}
+        }
+        // fallback: mutate graph directly if the adapter exposes `graph`
+        if (adapter && adapter.graph) {
+          const graph = adapter.graph;
+          graph.forEachEdge((eid, attr, src, tgt) => {
+            try {
+              const isLoop = String(src) === String(tgt);
+              const curveCount = (attr && (attr.curveCount || attr.curve_count || attr._parallelCount)) || 1;
+              if (v) {
+                try { graph.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
+                try { graph.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
+              } else {
+                if (isLoop || (curveCount && Number(curveCount) > 1)) {
+                  try { graph.setEdgeAttribute(eid, 'type', 'curved') } catch (e) {}
+                  try {
+                    if (typeof attr.curvature === 'undefined' || attr.curvature === null) {
+                      const parallelIndex = (attr && (typeof attr.parallelIndex !== 'undefined')) ? attr.parallelIndex : (attr && (attr._parallelIndex || attr.curveIndex) || 0);
+                      const cc = Number(curveCount) || 1;
+                      const base = cc === 2 ? 0.7 : 0.45;
+                      let curvature = parallelIndex === 0 ? (cc > 1 ? (String(src) <= String(tgt) ? base * 0.65 : -base * 0.65) : 0) : parallelIndex * base;
+                      try { graph.setEdgeAttribute(eid, 'curvature', curvature) } catch (e) {}
+                    }
+                  } catch (e) {}
+                } else {
+                  try { graph.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
+                  try { graph.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
+                }
+              }
+            } catch (e) {}
+          });
+          try { if (adapter.renderer && typeof adapter.renderer.refresh === 'function') adapter.renderer.refresh(); } catch (e) {}
+          try {
+            const cont = adapter.renderer && typeof adapter.renderer.getContainer === 'function' ? adapter.renderer.getContainer() : null;
+            if (cont) {
+              try { cont.dataset.sigmaNoCurves = v ? 'true' : 'false' } catch (e) {}
+              try { if (v) cont.classList.add('sigma-no-curves'); else cont.classList.remove('sigma-no-curves') } catch (e) {}
+            }
+          } catch (e) {}
+        }
+      } catch (e) {}
+    }
+  } catch (e) {}
 
   return compat
 }
@@ -849,6 +902,66 @@ export default function TopogramDetail() {
         }
         if (Object.prototype.hasOwnProperty.call(d, 'resetView')) {
           try { if (d.resetView) doReset() } catch (e) {}
+        }
+        // Sigma runtime debug toggle: force straight edges (no curves)
+        if (Object.prototype.hasOwnProperty.call(d, 'sigmaNoCurves')) {
+          try {
+            const v = !!d.sigmaNoCurves;
+            try { console.debug && console.debug('TOPOGRAM: networkOptionsChanged sigmaNoCurves ->', v, { cyRef: !!cyRef.current, compatImpl: (cyRef.current && cyRef.current._rawAdapter) ? cyRef.current._rawAdapter.impl : (cyRef.current && cyRef.current.impl) }) } catch (e) {}
+            // Prefer the compat API if present so SigmaAdapter.setNoCurves runs
+            try {
+              const compat = cyRef.current;
+              if (compat && typeof compat.setNoCurves === 'function') {
+                try { console.debug && console.debug('TOPOGRAM: calling compat.setNoCurves', v) } catch (e) {}
+                try { compat.setNoCurves(v); } catch (e) { console.warn('TopogramDetail: compat.setNoCurves threw', e) }
+              } else {
+                // fallback: mutate the raw adapter/graph directly (existing behavior)
+                const adapter = (compat && compat._rawAdapter) ? compat._rawAdapter : compat;
+                try { console.debug && console.debug('TOPOGRAM: sigmaNoCurves adapter resolved', { adapterExists: !!adapter, impl: adapter && adapter.impl, hasGraph: !!(adapter && adapter.graph), hasRenderer: !!(adapter && adapter.renderer) }) } catch (e) {}
+                if (adapter && adapter.impl === 'sigma' && adapter.graph) {
+                  const graph = adapter.graph;
+                  graph.forEachEdge((eid, attr, src, tgt) => {
+                    try {
+                      const isLoop = String(src) === String(tgt);
+                      const curveCount = (attr && (attr.curveCount || attr.curve_count || attr._parallelCount)) || 1;
+                      if (v) {
+                        // disable curves: set straight edge and zero curvature
+                        try { graph.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
+                        try { graph.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
+                      } else {
+                        // enable curves where appropriate (multi-edge groups or self-loops)
+                        if (isLoop || (curveCount && Number(curveCount) > 1)) {
+                          try { graph.setEdgeAttribute(eid, 'type', 'curved') } catch (e) {}
+                          // restore or compute a curvature hint if missing
+                          try {
+                            if (typeof attr.curvature === 'undefined' || attr.curvature === null) {
+                              const parallelIndex = (attr && (typeof attr.parallelIndex !== 'undefined')) ? attr.parallelIndex : (attr && (attr._parallelIndex || attr.curveIndex) || 0);
+                              const cc = Number(curveCount) || 1;
+                              const base = cc === 2 ? 0.7 : 0.45;
+                              let curvature = parallelIndex === 0 ? (cc > 1 ? (String(src) <= String(tgt) ? base * 0.65 : -base * 0.65) : 0) : parallelIndex * base;
+                              try { graph.setEdgeAttribute(eid, 'curvature', curvature) } catch (e) {}
+                            }
+                          } catch (e) {}
+                        } else {
+                          try { graph.setEdgeAttribute(eid, 'type', 'edge') } catch (e) {}
+                          try { graph.setEdgeAttribute(eid, 'curvature', 0) } catch (e) {}
+                        }
+                      }
+                    } catch (e) {}
+                  });
+                  try { if (adapter.renderer && typeof adapter.renderer.refresh === 'function') { adapter.renderer.refresh(); try { console.debug && console.debug('TOPOGRAM: sigmaNoCurves called renderer.refresh') } catch(e){} } } catch (e) {}
+                  // also toggle container dataset/class so newly created adapters can pick it up
+                  try {
+                    const cont = adapter.renderer && typeof adapter.renderer.getContainer === 'function' ? adapter.renderer.getContainer() : null;
+                    if (cont) {
+                      try { cont.dataset.sigmaNoCurves = v ? 'true' : 'false' } catch (e) {}
+                      try { if (v) cont.classList.add('sigma-no-curves'); else cont.classList.remove('sigma-no-curves') } catch (e) {}
+                    }
+                  } catch (e) {}
+                }
+              }
+            } catch (e) {}
+          } catch (e) {}
         }
       } catch (e) { console.warn('networkOptionsChanged handler error', e) }
     }

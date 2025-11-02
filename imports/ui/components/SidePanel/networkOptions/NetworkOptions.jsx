@@ -30,6 +30,14 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
   // Reagraph-only advanced toggle
   const [aggregateEdges, setAggregateEdges] = useState(false)
 
+  // Sigma debug: force straight edges (disable curved WebGL program) at runtime
+  const [sigmaNoCurves, setSigmaNoCurves] = useState(false)
+
+  // Clear legacy persisted flag so the debug toggle defaults to off on reload.
+  useEffect(() => {
+    try { window.localStorage.removeItem('topo.sigmaNoCurves') } catch {}
+  }, [])
+
   // Persist some values when they change (match existing behavior)
   useEffect(() => { setLs('topo.graphAdapter', graphAdapter) }, [graphAdapter])
   useEffect(() => { setLs('topo.titleSize', titleSize) }, [titleSize])
@@ -182,6 +190,13 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
             <button style={{ padding: '6px 8px', borderRadius: 4 }} onClick={() => fire({ fixView: true })}>Fix view</button>
             <button style={{ padding: '6px 8px', borderRadius: 4 }} onClick={() => fire({ resetView: true })}>Reset</button>
           </div>
+          <label style={{ fontSize: 12 }} title="Developer debug: force straight edges instead of curved WebGL rendering (Sigma only)">
+            <input type="checkbox" checked={sigmaNoCurves}
+              disabled={graphAdapter !== 'sigma'}
+              onChange={(e) => { const v = !!e.target.checked; setSigmaNoCurves(v); fire({ sigmaNoCurves: v }) }}
+            />
+            <span style={{ marginLeft: 6 }}>{graphAdapter !== 'sigma' ? 'Disable curved edges (Sigma debug) — Sigma only' : 'Disable curved edges (Sigma debug)'}</span>
+          </label>
         </div>
       ))}
     </div>
