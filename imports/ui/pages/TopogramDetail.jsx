@@ -13,6 +13,7 @@ import TimeLine from '/imports/client/ui/components/timeLine/TimeLine.jsx'
 import '/imports/ui/styles/greenTheme.css'
 import SelectionPanel from '/imports/ui/components/SelectionPanel/SelectionPanel'
 import Charts from '/imports/ui/components/charts/Charts'
+import LegendPanel from '/imports/ui/components/LegendPanel/LegendPanel'
 import SelectionManager from '/imports/client/selection/SelectionManager'
 
 cytoscape.use(cola);
@@ -414,6 +415,9 @@ export default function TopogramDetail() {
   const [chartsVisible, setChartsVisible] = useState(false)
   // Selection panel pinned/visible flag (defaults closed; no persistence)
   const [selectionPanelPinned, setSelectionPanelPinned] = useState(false)
+  const [legendVisible, setLegendVisible] = useState(false)
+  const [networkZoom, setNetworkZoom] = useState(1)
+  const [geoZoom, setGeoZoom] = useState(1)
   const handleSelectionPanelToggle = useCallback((next) => {
     setSelectionPanelPinned(!!next)
   }, [setSelectionPanelPinned])
@@ -806,6 +810,7 @@ export default function TopogramDetail() {
         if (typeof d.debugVisible === 'boolean') setDebugVisible(d.debugVisible)
         if (typeof d.chartsVisible === 'boolean') setChartsVisible(d.chartsVisible)
         if (typeof d.selectionPanelPinned === 'boolean') setSelectionPanelPinned(d.selectionPanelPinned)
+        if (typeof d.legendVisible === 'boolean') setLegendVisible(d.legendVisible)
       } catch (e) { console.warn('panelToggle handler error', e) }
     }
     window.addEventListener('topo:panelToggle', handler)
@@ -816,8 +821,50 @@ export default function TopogramDetail() {
   // to determine current charts visibility without relying on localStorage.
   useEffect(() => {
     try { if (typeof window !== 'undefined') window._topoChartsVisible = chartsVisible } catch (e) {}
-    return () => { try { if (typeof window !== 'undefined') delete window._topoChartsVisible } catch (e) {} }
+    try { if (typeof window !== 'undefined') window._topoLegendVisible = legendVisible } catch (e) {}
+    return () => { try { if (typeof window !== 'undefined') { delete window._topoChartsVisible; delete window._topoLegendVisible } } catch (e) {} }
   }, [chartsVisible])
+
+  // Keep network/geo zoom in state so Legend can display approximate pixel sizes.
+  // Polling approach: when the legend is open, poll the current renderer instances for zoom.
+  useEffect(() => {
+    let id = null
+    const readZooms = () => {
+      try {
+        // Network zoom: prefer Cytoscape API, then Sigma/Reagraph renderer camera
+        let nz = 1
+        try {
+          const cy = cyRef.current
+          if (cy && typeof cy.zoom === 'function') {
+            nz = Number(cy.zoom()) || 1
+          } else if (cy && cy._rawAdapter && cy._rawAdapter.renderer) {
+            const rend = cy._rawAdapter.renderer
+            // Sigma v3 camera may expose .getCamera().ratio or .getState().ratio
+            try {
+              const cam = (typeof rend.getCamera === 'function') ? rend.getCamera() : (rend.getState && rend.getState())
+              if (cam && typeof cam.ratio === 'number') nz = Number(cam.ratio) || nz
+            } catch (e) {}
+          }
+        } catch (e) {}
+        // Geo zoom: try common globals that TopogramGeoMap may expose
+        let gz = 1
+        try {
+          if (typeof window !== 'undefined') {
+            if (window._topoGeoMap && typeof window._topoGeoMap.getZoom === 'function') gz = Number(window._topoGeoMap.getZoom()) || 1
+            else if (typeof window._topoGeoZoom !== 'undefined') gz = Number(window._topoGeoZoom) || 1
+            else if (window._topoGeoMaplibre && typeof window._topoGeoMaplibre.getZoom === 'function') gz = Number(window._topoGeoMaplibre.getZoom()) || 1
+          }
+        } catch (e) {}
+        setNetworkZoom(prev => (Number(nz) || 1))
+        setGeoZoom(prev => (Number(gz) || 1))
+      } catch (e) {}
+    }
+    if (legendVisible) {
+      readZooms()
+      id = setInterval(readZooms, 300)
+    }
+    return () => { try { if (id) clearInterval(id) } catch (e) {} }
+  }, [legendVisible, cyRef.current])
 
   // Listen for network options changes dispatched by NetworkOptions inside the side panel
   useEffect(() => {
@@ -995,6 +1042,8 @@ export default function TopogramDetail() {
   // so Charts are always closed on initial load.
         if (ner !== null) setNetworkEdgeRelVisible(ner === 'true')
         if (ger !== null) setGeoEdgeRelVisible(ger === 'true')
+    const l = window.localStorage.getItem('topo.legendVisible')
+    if (l !== null) setLegendVisible(l === 'true')
         try { window.localStorage.removeItem('topo.selectionPanelPinned') } catch (e) {}
       }
     } catch (e) { /* ignore */ }
@@ -1071,7 +1120,8 @@ export default function TopogramDetail() {
       if (value instanceof Date) value = value.getTime()
       // Special-case a few keys that belong to this component's state
       try {
-        if (key === 'chartsVisible') { setChartsVisible(!!value); return }
+  if (key === 'chartsVisible') { setChartsVisible(!!value); return }
+  if (key === 'legendVisible') { try { if (typeof window !== 'undefined' && window.localStorage) window.localStorage.setItem('topo.legendVisible', !!value ? 'true' : 'false') } catch (e) {} ; setLegendVisible(!!value); return }
         if (key === 'selectedElements') { setSelectedElements(Array.isArray(value) ? value : []) ; return }
         if (key === 'geoMapVisible') { setGeoMapVisible(!!value); return }
         if (key === 'networkVisible') { setNetworkVisible(!!value); return }
@@ -1094,7 +1144,8 @@ export default function TopogramDetail() {
       if (Array.isArray(obj.valueRange)) obj.valueRange = obj.valueRange.map(v => (v instanceof Date ? v.getTime() : v))
       // Apply object keys to known local state too
       try {
-        if (typeof obj.chartsVisible === 'boolean') setChartsVisible(obj.chartsVisible)
+  if (typeof obj.chartsVisible === 'boolean') setChartsVisible(obj.chartsVisible)
+  if (typeof obj.legendVisible === 'boolean') { setLegendVisible(obj.legendVisible); try { window.localStorage.setItem('topo.legendVisible', obj.legendVisible ? 'true' : 'false') } catch (e) {} }
         if (obj.selectedElements) setSelectedElements(Array.isArray(obj.selectedElements) ? obj.selectedElements : [])
         if (typeof obj.geoMapVisible === 'boolean') setGeoMapVisible(obj.geoMapVisible)
         if (typeof obj.networkVisible === 'boolean') setNetworkVisible(obj.networkVisible)
@@ -2143,6 +2194,16 @@ export default function TopogramDetail() {
   const minW = numericWeights.length ? Math.min(...numericWeights) : 1
   const maxW = numericWeights.length ? Math.max(...numericWeights) : (minW + 1)
 
+  // Compute edge weight min/max from elements so Legend can show samples
+  const numericEdgeWeightsForLegend = elements
+    .filter(el => el.data && (el.data.source != null || el.data.target != null))
+    .map(el => {
+      const val = Number((el.data && (el.data.weight || el.data.width)) || 1)
+      return (Number.isFinite(val) && val > 0) ? val : 1
+    })
+  const minEW = numericEdgeWeightsForLegend.length ? Math.min(...numericEdgeWeightsForLegend) : 1
+  const maxEW = numericEdgeWeightsForLegend.length ? Math.max(...numericEdgeWeightsForLegend) : (minEW + 1)
+
   // CSV exporter: produce the same 20-field layout used by the ImportCsvModal sample
   const _quote = (v) => {
     if (v === null || typeof v === 'undefined') return '""'
@@ -2382,8 +2443,9 @@ export default function TopogramDetail() {
                   {networkView}
                   {/* Export/aggregate/reset moved to side panel (Advanced) */}
                 </div>
-                {(selectionPanelPinned || chartsVisible) ? (
+                {(selectionPanelPinned || chartsVisible || legendVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
+                    { legendVisible ? <LegendPanel updateUI={updateUI} nodeSizeMode={nodeSizeMode} minNodeWeight={minW} maxNodeWeight={maxW} minEdgeWeight={minEW} maxEdgeWeight={maxEW} geoMapVisible={false} networkZoom={networkZoom} networkImpl={(cyRef.current && (cyRef.current.impl || (cyRef.current._rawAdapter && cyRef.current._rawAdapter.impl))) || getGraphImpl()} /> : null }
                     { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} availableNodes={nodes} onAddNode={(node) => { try { const json = nodeDocToJson(node); try { console.debug && console.debug('SelectionPanel onAddNode picked node', { node: node && (node._id || node.id), jsonSample: json && json.data && { id: json.data.id, name: json.data.name } }) } catch (e) {} if (json) { try { if (json.data) { delete json.data.source; delete json.data.target } } catch (e) {} try { console.debug && console.debug('SelectionPanel onAddNode before select', { json }); } catch (e) {} try { selectElement(json) } catch (e) { console.warn && console.warn('SelectionPanel onAddNode: selectElement threw', e) } try { const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(json) : canonicalKey(json); const sel = SelectionManager && typeof SelectionManager.getSelection === 'function' ? SelectionManager.getSelection() : null; console.debug && console.debug('SelectionPanel onAddNode after select', { canonicalKey: key, selectionSize: sel ? sel.length : null, selectionSample: sel ? sel.slice(0,5).map(s => (SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(s) : canonicalKey(s))) : null }) } catch (e) {} } } catch (e) {} }} light={true} /> : null }
                     { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
                   </div>
@@ -2546,6 +2608,16 @@ export default function TopogramDetail() {
                   />
                 </div>
                 <div style={{ width: 320, alignSelf: 'flex-start' }}>
+                  { (() => {
+                    // compute geo node weight range for legend scale
+                    const geoNumericWeights = (geoNodes || []).map(n => Number((n && n.data && n.data.weight) || 1))
+                    const geoMin = geoNumericWeights.length ? Math.min(...geoNumericWeights) : 1
+                    const geoMax = geoNumericWeights.length ? Math.max(...geoNumericWeights) : (geoMin + 1)
+                    const geoEdgeWeights = (geoEdges || []).map(e => Number((e && e.data && (e.data.weight || e.data.width)) || 1))
+                    const geoMinEW = geoEdgeWeights.length ? Math.min(...geoEdgeWeights) : 1
+                    const geoMaxEW = geoEdgeWeights.length ? Math.max(...geoEdgeWeights) : (geoMinEW + 1)
+                    return (legendVisible ? <LegendPanel updateUI={updateUI} nodeSizeMode={nodeSizeMode} minNodeWeight={minW} maxNodeWeight={maxW} geoMapVisible={geoMapVisible} geoMinNodeWeight={geoMin} geoMaxNodeWeight={geoMax} minEdgeWeight={minEW} maxEdgeWeight={maxEW} geoMinEdgeWeight={geoMinEW} geoMaxEdgeWeight={geoMaxEW} networkZoom={networkZoom} networkImpl={(cyRef.current && (cyRef.current.impl || (cyRef.current._rawAdapter && cyRef.current._rawAdapter.impl))) || getGraphImpl()} geoZoom={geoZoom} geoImpl={effectiveGeoMapRenderer} /> : null)
+                  })() }
                   { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={unselectElement} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} availableNodes={nodes} onAddNode={(node) => { try { const json = nodeDocToJson(node); try { console.debug && console.debug('SelectionPanel onAddNode picked node (both view)', { node: node && (node._id || node.id), jsonSample: json && json.data && { id: json.data.id, name: json.data.name } }) } catch (e) {} if (json) { try { if (json.data) { delete json.data.source; delete json.data.target } } catch (e) {} try { console.debug && console.debug('SelectionPanel onAddNode before select (both)', { json }); } catch (e) {} try { selectElement(json) } catch (e) { console.warn && console.warn('SelectionPanel onAddNode: selectElement threw (both)', e) } try { const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(json) : canonicalKey(json); const sel = SelectionManager && typeof SelectionManager.getSelection === 'function' ? SelectionManager.getSelection() : null; console.debug && console.debug('SelectionPanel onAddNode after select (both)', { canonicalKey: key, selectionSize: sel ? sel.length : null, selectionSample: sel ? sel.slice(0,5).map(s => (SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(s) : canonicalKey(s))) : null }) } catch (e) {} } } catch (e) {} }} light={true} /> : null }
                   {chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null}
                 </div>
@@ -2621,8 +2693,9 @@ export default function TopogramDetail() {
                   }
                   {/* Export/aggregate/reset moved to side panel (Advanced) */}
                 </div>
-                {(selectionPanelPinned || chartsVisible) ? (
+                {(selectionPanelPinned || chartsVisible || legendVisible) ? (
                   <div style={{ width: 320, alignSelf: 'flex-start' }}>
+                    { legendVisible ? <LegendPanel updateUI={updateUI} nodeSizeMode={nodeSizeMode} minNodeWeight={minW} maxNodeWeight={maxW} minEdgeWeight={minEW} maxEdgeWeight={maxEW} geoMapVisible={false} networkZoom={networkZoom} networkImpl={(cyRef.current && (cyRef.current.impl || (cyRef.current._rawAdapter && cyRef.current._rawAdapter.impl))) || getGraphImpl()} /> : null }
                     { selectionPanelPinned ? <SelectionPanel selectedElements={selectedElements} onUnselect={onUnselect} onClear={onClearSelection} onSelectAdjacent={selectAdjacentElements} updateUI={updateUI} availableNodes={nodes} onAddNode={(node) => { try { const json = nodeDocToJson(node); try { console.debug && console.debug('SelectionPanel onAddNode picked node (onlyNetwork)', { node: node && (node._id || node.id), jsonSample: json && json.data && { id: json.data.id, name: json.data.name } }) } catch (e) {} if (json) { try { if (json.data) { delete json.data.source; delete json.data.target } } catch (e) {} try { console.debug && console.debug('SelectionPanel onAddNode before select (onlyNetwork)', { json }); } catch (e) {} try { selectElement(json) } catch (e) { console.warn && console.warn('SelectionPanel onAddNode: selectElement threw (onlyNetwork)', e) } try { const key = SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(json) : canonicalKey(json); const sel = SelectionManager && typeof SelectionManager.getSelection === 'function' ? SelectionManager.getSelection() : null; console.debug && console.debug('SelectionPanel onAddNode after select (onlyNetwork)', { canonicalKey: key, selectionSize: sel ? sel.length : null, selectionSample: sel ? sel.slice(0,5).map(s => (SelectionManager && typeof SelectionManager.canonicalKey === 'function' ? SelectionManager.canonicalKey(s) : canonicalKey(s))) : null }) } catch (e) {} } } catch (e) {} }} light={true} /> : null }
                     { chartsVisible ? <Charts nodes={selectedElements.filter(e => e && e.data && (e.data.source == null && e.data.target == null))} ui={{ cy: cyInstance || cyRef.current, selectedElements, isolateMode: false }} updateUI={updateUI} /> : null }
                   </div>
