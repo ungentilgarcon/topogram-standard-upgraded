@@ -49,13 +49,36 @@ export default function LegendPanel({ ui = {}, updateUI = () => {} , light = tru
   // interpret "zoom" differently; this is a best-effort multiplier for the legend
   // readout so users get an approximate on-screen pixel size. If renderer-specific
   // transforms are needed, we should extend this with per-impl logic.
-  const applyZoom = (px, zoom, impl) => {
+  const applyZoom = (px, zoom, impl) => { 
+    // px: base pixel size computed from mapData mapping used by the renderers
+    // zoom: numeric zoom value reported by the renderer (may be camera ratio or zoom level)
+    // impl: string identifier for the renderer implementation (e.g. 'cytoscape', 'sigma', 'leaflet')
+    if (px == null) return 0
+    // If zoom is missing or not a number, just return the base px
+    const zNum = Number(zoom)
+    if (!isFinite(zNum) || zNum === 0 || !impl) return Math.round(px)
+
+    const implLow = String(impl).toLowerCase()
+
+    // Network renderers that expose a multiplicative zoom/camera ratio: apply multiplier
+    if (implLow.includes('cyto') || implLow.includes('cytoscape') || implLow.includes('sigma') || implLow.includes('reagraph') || implLow.includes('graph')) {
+      // These renderers use a zoom/camera ratio where size scales multiplicatively.
+      return Math.max(1, Math.round(px * zNum))
+    }
+
+    // Geo renderers usually already compute sizes in screen pixels.
+    // Leaflet CircleMarker radius is already pixels; MapLibre markers/symbols specify pixel sizes;
+    // Cesium pixel sizing is computed server-side using camera math and we rely on that.
+    if (implLow.includes('leaflet') || implLow.includes('maplibre') || implLow.includes('cesium') || implLow.includes('geo')) {
+      return Math.round(px)
+    }
+
+    // Fallback: apply numeric zoom multiplier when in doubt
     try {
-      const z = (typeof zoom === 'number' && isFinite(zoom)) ? Number(zoom) : 1
-      // conservative: don't allow absurd scaling in the legend display
-      const clamped = Math.max(0.1, Math.min(10, z))
-      return Math.round(px * clamped)
-    } catch (e) { return Math.round(px) }
+      return Math.max(1, Math.round(px * zNum))
+    } catch (e) {
+      return Math.round(px)
+    }
   }
 
   // Precompute sample sizes / widths and zoom-adjusted readouts for labels
