@@ -823,7 +823,7 @@ export default function TopogramDetail() {
     try { if (typeof window !== 'undefined') window._topoChartsVisible = chartsVisible } catch (e) {}
     try { if (typeof window !== 'undefined') window._topoLegendVisible = legendVisible } catch (e) {}
     return () => { try { if (typeof window !== 'undefined') { delete window._topoChartsVisible; delete window._topoLegendVisible } } catch (e) {} }
-  }, [chartsVisible])
+  }, [chartsVisible, legendVisible])
 
   // Keep network/geo zoom in state so Legend can display approximate pixel sizes.
   // Polling approach: when the legend is open, poll the current renderer instances for zoom.
