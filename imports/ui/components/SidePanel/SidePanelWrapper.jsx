@@ -49,7 +49,7 @@ export default function SidePanelWrapper({ geoMapVisible=false, networkVisible=t
       onMouseLeave={() => setOpen(false)}
       aria-hidden={false}
     >
-      <div style={{ position: 'absolute', top: 8, right: 8 }}>
+      <div style={{ position: 'absolute', top: 8, right: 8, display: 'flex', gap: 6 }}>
         <div style={handleStyle} title={open ? 'Settings' : 'Open settings'}>
           ⚙
         </div>
