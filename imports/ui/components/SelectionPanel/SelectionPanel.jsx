@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import Popup from '/imports/client/ui/components/common/Popup.jsx'
 
 // SelectionPanel: lightweight list of selected nodes/edges. Can be rendered
@@ -9,6 +9,36 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
   const [exportTitle, setExportTitle] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [suggestionsVisible, setSuggestionsVisible] = useState(false)
+  const [activeKey, setActiveKey] = useState(null)
+
+  const buildKey = (el, fallbackIndex, scope = 'generic') => {
+    if (!el) return `${scope}-null`
+    const data = el.data || {}
+    if (data.id != null) return `${scope}-data-${String(data.id)}`
+    if (data.source != null || data.target != null) {
+      const base = data.id != null ? String(data.id) : `${String(data.source || '')}->${String(data.target || '')}`
+      return `${scope}-edge-${base}`
+    }
+    if (el._id != null) return `${scope}-doc-${String(el._id)}`
+    if (el.id != null) return `${scope}-obj-${String(el.id)}`
+    return `${scope}-idx-${fallbackIndex}`
+  }
+
+  const nodeEntries = useMemo(() => nodes.map((n, idx) => ({ element: n, key: buildKey(n, idx, 'node') })), [nodes])
+  const edgeEntries = useMemo(() => edges.map((e, idx) => ({ element: e, key: buildKey(e, idx, 'edge') })), [edges])
+
+  const activeElement = useMemo(() => {
+    if (!activeKey) return null
+    const all = [...nodeEntries, ...edgeEntries]
+    const found = all.find(entry => entry.key === activeKey)
+    return found ? found.element : null
+  }, [activeKey, nodeEntries, edgeEntries])
+
+  useEffect(() => {
+    if (!activeKey) return
+    const stillExists = nodeEntries.some(entry => entry.key === activeKey) || edgeEntries.some(entry => entry.key === activeKey)
+    if (!stillExists) setActiveKey(null)
+  }, [activeKey, nodeEntries, edgeEntries])
 
   const matchesFor = (q) => {
     if (!q || !availableNodes || !Array.isArray(availableNodes)) return []
@@ -148,6 +178,54 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
     }
   }
 
+  const renderChipLabel = (element, type) => {
+    const data = element && element.data
+    if (type === 'edge') {
+      const name = data && (data.name || data.label || data.type || data.relation)
+      if (name) return name
+      const src = data && (data.source || data.from)
+      const tgt = data && (data.target || data.to)
+      if (src != null || tgt != null) return `${src || '?'} → ${tgt || '?'}`
+      return 'Edge'
+    }
+    return (data && (data.label || data.name)) || element._id || (data && data.id) || 'Node'
+  }
+
+  const renderValue = (value) => {
+    if (value == null || value === '') return <span className="selection-detail-empty">—</span>
+    if (Array.isArray(value) || (typeof value === 'object' && !(value instanceof Date))) {
+      try {
+        const formatted = JSON.stringify(value, null, 2)
+        return <pre>{formatted}</pre>
+      } catch (e) {
+        return <pre>{String(value)}</pre>
+      }
+    }
+    if (value instanceof Date) return value.toISOString()
+    return String(value)
+  }
+
+  const detailEntries = useMemo(() => {
+    if (!activeElement) return []
+    const data = activeElement.data || {}
+    const entries = []
+    if (activeElement._id != null) entries.push(['_id', activeElement._id])
+    if (activeElement.id != null) entries.push(['id', activeElement.id])
+    Object.keys(data).sort().forEach(key => {
+      entries.push([key, data[key]])
+    })
+    return entries
+  }, [activeElement])
+
+  const dismissDetail = () => setActiveKey(null)
+
+  const isActive = (entryKey) => activeKey === entryKey
+
+  const handleUnselect = (element, entryKey) => {
+    try { onUnselect(element) } catch (e) {}
+    if (entryKey && entryKey === activeKey) setActiveKey(null)
+  }
+
   return (
     <Popup
       light={light}
@@ -207,26 +285,50 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
         <div className="selection-body">
           <div className="selection-section">
             <div className="selection-section-title">Nodes ({nodes.length})</div>
-            <ul className="selection-list">
-              {nodes.map((n, idx) => (
-                <li key={idx} className="selection-item">
-                  <span className="selection-item-label">{(n.data && (n.data.label || n.data.name)) || n._id || (n.data && n.data.id)}</span>
-                  <button className="cy-control-btn" onClick={() => onUnselect(n)}>Remove</button>
-                </li>
-              ))}
-            </ul>
+            <div className="selection-chip-row">
+              {nodeEntries.length ? nodeEntries.map(({ element, key }) => (
+                <div key={key} className={`selection-chip${isActive(key) ? ' is-active' : ''}`} onClick={() => setActiveKey(key)} role="button" tabIndex={0} onKeyDown={ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); setActiveKey(key) } }}>
+                  <span className="selection-chip-label">{renderChipLabel(element, 'node')}</span>
+                  <button type="button" className="selection-chip-remove" aria-label="Remove node from selection" onClick={ev => { ev.stopPropagation(); handleUnselect(element, key) }}>×</button>
+                </div>
+              )) : <div className="selection-chip-empty">No nodes selected.</div>}
+            </div>
           </div>
           <div className="selection-section">
             <div className="selection-section-title">Edges ({edges.length})</div>
-            <ul className="selection-list">
-              {edges.map((e, idx) => (
-                <li key={idx} className="selection-item">
-                  <span className="selection-item-label">{(e.data && e.data.name) || `${e.data && e.data.source} → ${e.data && e.data.target}`}</span>
-                  <button className="cy-control-btn" onClick={() => onUnselect(e)}>Remove</button>
-                </li>
-              ))}
-            </ul>
+            <div className="selection-chip-row">
+              {edgeEntries.length ? edgeEntries.map(({ element, key }) => (
+                <div key={key} className={`selection-chip${isActive(key) ? ' is-active' : ''}`} onClick={() => setActiveKey(key)} role="button" tabIndex={0} onKeyDown={ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); setActiveKey(key) } }}>
+                  <span className="selection-chip-label">{renderChipLabel(element, 'edge')}</span>
+                  <button type="button" className="selection-chip-remove" aria-label="Remove edge from selection" onClick={ev => { ev.stopPropagation(); handleUnselect(element, key) }}>×</button>
+                </div>
+              )) : <div className="selection-chip-empty">No edges selected.</div>}
+            </div>
           </div>
+          {activeElement ? (
+            <div className="selection-detail-card">
+              <div className="selection-detail-header">
+                <div>
+                  <strong>{renderChipLabel(activeElement, activeElement && activeElement.data && (activeElement.data.source != null || activeElement.data.target != null) ? 'edge' : 'node')}</strong>
+                  <span className="selection-detail-subtitle">{(activeElement.data && (activeElement.data.source != null || activeElement.data.target != null)) ? 'Edge details' : 'Node details'}</span>
+                </div>
+                <button type="button" className="selection-detail-close" onClick={dismissDetail}>Close</button>
+              </div>
+              <dl className="selection-detail-grid">
+                {detailEntries.length ? detailEntries.map(([k, v]) => (
+                  <React.Fragment key={k}>
+                    <dt>{k}</dt>
+                    <dd>{renderValue(v)}</dd>
+                  </React.Fragment>
+                )) : (
+                  <React.Fragment>
+                    <dt>Info</dt>
+                    <dd className="selection-detail-empty">No additional data.</dd>
+                  </React.Fragment>
+                )}
+              </dl>
+            </div>
+          ) : null}
         </div>
       </div>
     </Popup>

@@ -20,24 +20,6 @@ cytoscape.use(cola);
 
 import GraphWrapper from '/imports/client/ui/components/network/GraphWrapper.jsx'
 import ErrorBoundary from '/imports/ui/components/ErrorBoundary.jsx'
-import NodeTooltipModule from '/imports/ui/components/network/NodeTooltip/NodeTooltip'
-// Safety: normalize potential module namespace objects / nested default exports.
-// Some Meteor builds surface `{ default: { default: Component } }` or other namespace
-// shapes. This resolver extracts the first callable export (preferring `default`).
-const ResolvedNodeTooltip = (() => {
-  const mod = NodeTooltipModule
-  if (!mod) return function EmptyNodeTooltip() { return null }
-  if (typeof mod === 'function') return mod
-  if (typeof mod.default === 'function') return mod.default
-  if (typeof mod.NodeTooltip === 'function') return mod.NodeTooltip
-  if (mod.default && typeof mod.default.default === 'function') return mod.default.default
-  if (typeof mod === 'object') {
-    const firstFn = Object.values(mod).find((val) => typeof val === 'function')
-    if (firstFn) return firstFn
-  }
-  return function EmptyNodeTooltip() { return null }
-})()
-
 const compatCache = typeof WeakMap !== 'undefined' ? new WeakMap() : null
 
 // Compatibility shim: adapt adapter objects (Reagraph/Sigma adapters) to a
@@ -775,27 +757,6 @@ export default function TopogramDetail() {
     }
     cy.on('select', 'node, edge', onSelect)
     cy.on('unselect', 'node, edge', onUnselect)
-    // normalized node hover events for shared tooltip overlay (Cytoscape)
-    const onNodeEnter = (evt) => {
-      try {
-        const targ = evt && (evt.target || evt.cyTarget || evt.element) ? (evt.target || evt.cyTarget || evt.element) : null
-        if (!targ) return
-        const data = (typeof targ.data === 'function') ? targ.data() : (targ && targ.json ? (targ.json() && targ.json().data) : (targ && targ.data ? targ.data : {}))
-        const orig = evt && evt.originalEvent ? evt.originalEvent : evt
-        const clientX = orig && (orig.clientX || (orig.touches && orig.touches[0] && orig.touches[0].clientX)) || null
-        const clientY = orig && (orig.clientY || (orig.touches && orig.touches[0] && orig.touches[0].clientY)) || null
-        const norm = { impl: 'cytoscape', id: (typeof targ.id === 'function' ? targ.id() : (targ && targ.data && targ.data.id) || null), data, screenX: clientX, screenY: clientY }
-        try { window._topoNodeHover = norm } catch (e) {}
-        try { window.dispatchEvent(new CustomEvent('topo:nodeHover', { detail: norm })) } catch (e) { try { window.dispatchEvent(new Event('topo:nodeHover')) } catch (e) {} }
-      } catch (e) {}
-    }
-    const onNodeLeave = (evt) => {
-      try {
-        try { if (window._topoNodeHover) delete window._topoNodeHover } catch (e) {}
-        try { window.dispatchEvent(new CustomEvent('topo:nodeHover', { detail: null })) } catch (e) { try { window.dispatchEvent(new Event('topo:nodeHover')) } catch (e) {} }
-      } catch (e) {}
-    }
-    try { cy.on && cy.on('mouseover', 'node', onNodeEnter); cy.on && cy.on('mouseout', 'node', onNodeLeave) } catch (e) {}
     // apply any currently selectedElements onto cy visuals
     try {
       selectedElements.forEach(se => {
@@ -814,8 +775,10 @@ export default function TopogramDetail() {
     } catch (e) {}
 
     return () => {
-      try { cy.removeListener('select', onSelect); cy.removeListener('unselect', onUnselect) } catch (e) {}
-      try { cy.removeListener && cy.removeListener('mouseover', onNodeEnter); cy.removeListener && cy.removeListener('mouseout', onNodeLeave) } catch (e) {}
+      try {
+        cy.removeListener('select', 'node, edge', onSelect)
+        cy.removeListener('unselect', 'node, edge', onUnselect)
+      } catch (e) {}
     }
   }, [cyRef.current])
 
@@ -2839,8 +2802,6 @@ export default function TopogramDetail() {
           </details>
         </div>
   ) : null }
-      {/* Global node tooltip overlay (listens to topo:nodeHover events) */}
-      <ResolvedNodeTooltip />
     </div></ErrorBoundary>
   );
 }
