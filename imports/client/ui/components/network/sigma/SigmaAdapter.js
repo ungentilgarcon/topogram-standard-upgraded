@@ -801,6 +801,12 @@ function SigmaAdapter(container, elements = [], options = {}) {
             try {
               if (typeof window.CustomEvent === 'function') {
                 window.dispatchEvent(new CustomEvent(evtName, { detail }));
+                // also dispatch a normalized nodeHover event for cross-renderer tooltips
+                try {
+                  const norm = detail ? { impl: 'sigma', id: detail.id, data: graph.getNodeAttributes(detail.id), screenX: (detail && detail.clientX) || (detail && detail.x) || null, screenY: (detail && detail.clientY) || (detail && detail.y) || null } : null
+                  window._topoNodeHover = norm || null
+                  window.dispatchEvent(new CustomEvent('topo:nodeHover', { detail: norm }))
+                } catch (e) {}
               } else if (typeof document !== 'undefined' && document.createEvent) {
                 const ev = document.createEvent('CustomEvent');
                 ev.initCustomEvent(evtName, false, false, detail);
@@ -954,6 +960,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
           if (weight != null && !Number.isNaN(Number(weight))) detail.weight = Number(weight);
           if (degree != null && Number.isFinite(Number(degree))) detail.degree = Number(degree);
           if (radius != null && !Number.isNaN(Number(radius))) detail.radius = Number(radius);
+          // best-effort: attach pointer screen coords when available so tooltips can position
+          try {
+            const pointer = evt && (evt.event || evt.original || evt);
+            if (pointer) {
+              const cx = (typeof pointer.clientX === 'number') ? pointer.clientX : (typeof pointer.x === 'number' ? pointer.x : null);
+              const cy = (typeof pointer.clientY === 'number') ? pointer.clientY : (typeof pointer.y === 'number' ? pointer.y : null);
+              if (cx != null) detail.clientX = cx;
+              if (cy != null) detail.clientY = cy;
+            }
+          } catch (e) {}
           logHoverDetail(detail);
           dispatchHoverDetail(detail);
         } catch (e) { dispatchHoverDetail(null); }

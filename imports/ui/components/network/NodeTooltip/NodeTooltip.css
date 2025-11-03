@@ -1,0 +1,25 @@
+.topo-node-tooltip {
+  background: rgba(16, 24, 40, 0.95);
+  color: #fff;
+  padding: 8px 10px;
+  border-radius: 6px;
+  box-shadow: 0 6px 18px rgba(2,6,23,0.45);
+  z-index: 200000;
+  min-width: 160px;
+  max-width: 360px;
+  font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
+  font-size: 12px;
+  pointer-events: none; /* tooltip should not capture pointer by default */
+}
+.topo-node-tooltip-header {
+  font-weight: 600;
+  margin-bottom: 6px;
+  font-size: 12px;
+}
+.topo-node-tooltip-body {
+  max-height: 360px;
+  overflow: auto;
+}
+.topo-node-tooltip-row { margin: 2px 0; }
+.topo-node-tooltip-row .k { color: #9ca3af; font-weight: 600; }
+.topo-node-tooltip-row .v { color: #f8fafc; }

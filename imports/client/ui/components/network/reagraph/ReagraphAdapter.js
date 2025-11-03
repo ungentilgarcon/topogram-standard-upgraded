@@ -670,6 +670,30 @@ const ReagraphAdapter = {
           circ.setAttribute('stroke-width', node.attrs && node.attrs.selected ? 2 : 0.5);
           circ.setAttribute('data-id', node.id);
           circ.style.cursor = 'pointer';
+          // pointer hover: emit a normalized node hover event for shared tooltip
+          try {
+            const dispatchNodeHover = (enter, ev) => {
+              try {
+                if (typeof window === 'undefined' || !window.dispatchEvent) return;
+                if (!enter) {
+                  try { if (window._topoNodeHover) delete window._topoNodeHover } catch(e) {}
+                  try { window.dispatchEvent(new CustomEvent('topo:nodeHover', { detail: null })) } catch(e) { try { window.dispatchEvent(new Event('topo:nodeHover')) } catch(e){} }
+                  return;
+                }
+                const clientX = ev && (ev.clientX || (ev.touches && ev.touches[0] && ev.touches[0].clientX)) || null;
+                const clientY = ev && (ev.clientY || (ev.touches && ev.touches[0] && ev.touches[0].clientY)) || null;
+                const data = node.attrs || {};
+                const norm = { impl: 'reagraph', id: node.id, data, screenX: clientX, screenY: clientY };
+                try { window._topoNodeHover = norm } catch(e) {}
+                try { window.dispatchEvent(new CustomEvent('topo:nodeHover', { detail: norm })) } catch(e) { try { window.dispatchEvent(new Event('topo:nodeHover')) } catch(e){} }
+              } catch(e){}
+            }
+            circ.addEventListener('mouseenter', (ev) => dispatchNodeHover(true, ev));
+            circ.addEventListener('mouseleave', (ev) => dispatchNodeHover(false, ev));
+            // pointer events for touch as well
+            circ.addEventListener('touchstart', (ev) => dispatchNodeHover(true, ev), { passive: true });
+            circ.addEventListener('touchend', (ev) => dispatchNodeHover(false, ev));
+          } catch (e) {}
           circ.addEventListener('click', (ev) => {
             try {
               try { console.debug && console.debug('ReagraphAdapter: node click', { nodeId: node.id, event: ev }); } catch (e) {}
