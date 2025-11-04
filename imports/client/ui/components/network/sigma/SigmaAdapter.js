@@ -1946,31 +1946,94 @@ function SigmaAdapter(container, elements = [], options = {}) {
     let callbacks = [];
     return {
       run: () => {
-        if (!layoutObj || layoutObj.name === 'preset') {
-          // immediate callback to simulate synchronous completion
-          setTimeout(() => { callbacks.forEach(cb => cb()); }, 0);
+        const name = (layoutObj && layoutObj.name) ? String(layoutObj.name).toLowerCase() : '';
+        // 'preset' or missing: fire callbacks immediately
+        if (!name || name === 'preset' || name === 'custom') {
+          setTimeout(() => { callbacks.forEach(cb => { try { cb(); } catch (e) {} }); }, 0);
           return;
         }
 
-        const nodes = graph.nodes().map(id => ({ id, x: graph.getNodeAttribute(id, 'x') || null, y: graph.getNodeAttribute(id, 'y') || null }));
-        const edgesList = graph.edges().map(id => ({ id, source: graph.source(id), target: graph.target(id) }));
-        const iterations = (layoutObj && layoutObj.maxSimulationTime) ? Math.max(100, Math.floor(layoutObj.maxSimulationTime / 5)) : 200;
+        const safeRequire = (id) => { try { return require(id); } catch (e) { return null; } };
+        const nodes = graph.nodes();
+        const hasXY = (() => { try { return nodes.some(id => Number.isFinite(graph.getNodeAttribute(id, 'x')) && Number.isFinite(graph.getNodeAttribute(id, 'y'))); } catch (e) { return false; } })();
+        const iterations = (() => {
+          if (layoutObj && Number.isFinite(layoutObj.iterations)) return Math.max(1, Number(layoutObj.iterations));
+          if (layoutObj && Number.isFinite(layoutObj.maxSimulationTime)) return Math.max(50, Math.floor(Number(layoutObj.maxSimulationTime) / 5));
+          return 200;
+        })();
 
-        const workerCode = `self.onmessage = function(e) { const {nodes, edges, iterations} = e.data; const N = nodes.length; const pos = {}; for (let i=0;i<N;i++) pos[nodes[i].id] = { x: nodes[i].x != null ? nodes[i].x : (Math.random()*1000-500), y: nodes[i].y != null ? nodes[i].y : (Math.random()*1000-500) }; const k = Math.sqrt(1000*1000/Math.max(1,N)); for (let iter=0; iter<iterations; iter++) { const disp = {}; for (let i=0;i<N;i++) disp[nodes[i].id]={x:0,y:0}; for (let i=0;i<N;i++) for (let j=i+1;j<N;j++) { const a=nodes[i].id,b=nodes[j].id; const dx=pos[a].x-pos[b].x, dy=pos[a].y-pos[b].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(k*k)/dist; const ux=dx/dist, uy=dy/dist; disp[a].x+=ux*force; disp[a].y+=uy*force; disp[b].x-=ux*force; disp[b].y-=uy*force; } for (let ei=0; ei<edges.length; ei++){ const e=edges[ei]; const s=e.source,t=e.target; const dx=pos[s].x-pos[t].x, dy=pos[s].y-pos[t].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(dist*dist)/k; const ux=dx/dist, uy=dy/dist; disp[s].x-=ux*force; disp[s].y-=uy*force; disp[t].x+=ux*force; disp[t].y+=uy*force; } const temp=10*(1-iter/iterations); for (let i=0;i<N;i++){ const id=nodes[i].id; const dx=disp[id].x, dy=disp[id].y; const len=Math.sqrt(dx*dx+dy*dy)||1; pos[id].x+=(dx/len)*Math.min(len,temp); pos[id].y+=(dy/len)*Math.min(len,temp); } } self.postMessage({positions:pos}); }`;
-
-        const blob = new Blob([workerCode], { type: 'application/javascript' });
-        const url = URL.createObjectURL(blob);
-        const w = new Worker(url);
-        w.onmessage = function(ev) {
-          const positions = ev.data.positions;
-          Object.keys(positions).forEach(id => {
-            try { if (graph.hasNode(id)) { graph.setNodeAttribute(id, 'x', positions[id].x); graph.setNodeAttribute(id, 'y', positions[id].y); } } catch (e) {}
-          });
+        const finish = () => {
           try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
           callbacks.forEach(cb => { try { cb(); } catch (e) {} });
-          w.terminate(); URL.revokeObjectURL(url);
         };
-        w.postMessage({ nodes, edges: edgesList, iterations });
+
+        const runWorkerFallback = () => {
+          const nodeArr = nodes.map(id => ({ id, x: graph.getNodeAttribute(id, 'x') || null, y: graph.getNodeAttribute(id, 'y') || null }));
+          const edgesList = graph.edges().map(id => ({ id, source: graph.source(id), target: graph.target(id) }));
+          const workerCode = `self.onmessage = function(e) { const {nodes, edges, iterations} = e.data; const N = nodes.length; const pos = {}; for (let i=0;i<N;i++) pos[nodes[i].id] = { x: nodes[i].x != null ? nodes[i].x : (Math.random()*1000-500), y: nodes[i].y != null ? nodes[i].y : (Math.random()*1000-500) }; const k = Math.sqrt(1000*1000/Math.max(1,N)); for (let iter=0; iter<iterations; iter++) { const disp = {}; for (let i=0;i<N;i++) disp[nodes[i].id]={x:0,y:0}; for (let i=0;i<N;i++) for (let j=i+1;j<N;j++) { const a=nodes[i].id,b=nodes[j].id; const dx=pos[a].x-pos[b].x, dy=pos[a].y-pos[b].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(k*k)/dist; const ux=dx/dist, uy=dy/dist; disp[a].x+=ux*force; disp[a].y+=uy*force; disp[b].x-=ux*force; disp[b].y-=uy*force; } for (let ei=0; ei<edges.length; ei++){ const e=edges[ei]; const s=e.source,t=e.target; const dx=pos[s].x-pos[t].x, dy=pos[s].y-pos[t].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(dist*dist)/k; const ux=dx/dist, uy=dy/dist; disp[s].x-=ux*force; disp[s].y-=uy*force; disp[t].x+=ux*force; disp[t].y+=uy*force; } const temp=10*(1-iter/iterations); for (let i=0;i<N;i++){ const id=nodes[i].id; const dx=disp[id].x, dy=disp[id].y; const len=Math.sqrt(dx*dx+dy*dy)||1; pos[id].x+=(dx/len)*Math.min(len,temp); pos[id].y+=(dy/len)*Math.min(len,temp); } } self.postMessage({positions:pos}); }`;
+          const blob = new Blob([workerCode], { type: 'application/javascript' });
+          const url = URL.createObjectURL(blob);
+          const w = new Worker(url);
+          w.onmessage = function(ev) {
+            const positions = ev.data.positions;
+            Object.keys(positions).forEach(id => {
+              try { if (graph.hasNode(id)) { graph.setNodeAttribute(id, 'x', positions[id].x); graph.setNodeAttribute(id, 'y', positions[id].y); } } catch (e) {}
+            });
+            try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+            callbacks.forEach(cb => { try { cb(); } catch (e) {} });
+            w.terminate(); URL.revokeObjectURL(url);
+          };
+          w.postMessage({ nodes: nodeArr, edges: edgesList, iterations });
+        };
+
+        // Implement renderer-specific names using graphology-layout when available
+        if (name === 'random') {
+          const glayout = safeRequire('graphology-layout');
+          if (glayout && glayout.random && typeof glayout.random.assign === 'function') {
+            try { glayout.random.assign(graph); finish(); return; } catch (e) {}
+          }
+          // fallback: simple random scatter
+          nodes.forEach(id => { try { graph.setNodeAttribute(id, 'x', (Math.random()*1000)-500); graph.setNodeAttribute(id, 'y', (Math.random()*1000)-500); } catch (e) {} });
+          finish();
+          return;
+        }
+        if (name === 'circular' || name === 'circle') {
+          const glayout = safeRequire('graphology-layout');
+          if (glayout && glayout.circular && typeof glayout.circular.assign === 'function') {
+            try { glayout.circular.assign(graph); finish(); return; } catch (e) {}
+          }
+          // fallback: ring approx
+          const N = nodes.length || 1; const R = 300; let i = 0;
+          nodes.forEach(id => { const t = (i++/N) * Math.PI*2; try { graph.setNodeAttribute(id, 'x', Math.cos(t)*R); graph.setNodeAttribute(id, 'y', Math.sin(t)*R); } catch (e) {} });
+          finish();
+          return;
+        }
+        if (name === 'noverlap') {
+          const noverlap = safeRequire('graphology-layout-noverlap');
+          if (noverlap && typeof noverlap.assign === 'function') {
+            try { noverlap.assign(graph, { settings: { margin: (layoutObj && Number(layoutObj.margin)) || 8 } }); finish(); return; } catch (e) {}
+          }
+          // No-op if library missing
+          finish();
+          return;
+        }
+        if (name === 'forceatlas2' || name === 'fa2' || name === 'force') {
+          const fa2 = safeRequire('graphology-layout-forceatlas2');
+          if (fa2 && typeof fa2.assign === 'function') {
+            try {
+              const settings = (layoutObj && layoutObj.settings) || { slowDown: 10, gravity: 1, scalingRatio: 10, strongGravityMode: false };
+              fa2.assign(graph, { iterations, settings });
+              finish();
+              return;
+            } catch (e) {}
+          }
+          // fallback to simple worker-based force layout
+          runWorkerFallback();
+          return;
+        }
+
+        // Unknown name: fallback to worker
+        runWorkerFallback();
       },
       on: (evt, cb) => { if (evt === 'layoutstop' && typeof cb === 'function') callbacks.push(cb); }
     };

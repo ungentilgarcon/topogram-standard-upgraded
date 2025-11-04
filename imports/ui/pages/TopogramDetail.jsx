@@ -6,6 +6,7 @@ import { Mongo } from 'meteor/mongo'
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 import cola from 'cytoscape-cola';
+import fcose from 'cytoscape-fcose';
 import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
 import { getRendererTileOptions } from '/imports/ui/components/geoMap/mapTiles'
 import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
@@ -17,6 +18,7 @@ import LegendPanel from '/imports/ui/components/LegendPanel/LegendPanel'
 import SelectionManager from '/imports/client/selection/SelectionManager'
 
 cytoscape.use(cola);
+try { cytoscape.use(fcose); } catch (e) { /* fcose optional */ }
 
 import GraphWrapper from '/imports/client/ui/components/network/GraphWrapper.jsx'
 import ErrorBoundary from '/imports/ui/components/ErrorBoundary.jsx'
@@ -1595,7 +1597,7 @@ export default function TopogramDetail() {
 
   // (stylesheet will be built after we compute numeric weights from nodes)
 
-  // When selectedLayout, node/edge counts or titleSize change, trigger the Cytoscape layout if we have an instance.
+  // When selectedLayout, node/edge counts or titleSize change, trigger the renderer layout.
   useEffect(() => {
     const cy = cyRef.current
     if (!cy) return
@@ -1608,11 +1610,23 @@ export default function TopogramDetail() {
       return { name }
     })()
     try {
+      // Prefer adapter layout when using non-Cytoscape renderers via compat layer
+      const raw = (cy && cy._rawAdapter) ? cy._rawAdapter : null
+      if (raw && typeof raw.layout === 'function') {
+        const runner = raw.layout(layoutObj)
+        if (runner && typeof runner.on === 'function') {
+          runner.on('layoutstop', () => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy) } catch (e) {} })
+        }
+        if (runner && typeof runner.run === 'function') runner.run()
+        // also schedule a delayed fit in case adapter doesn't emit layoutstop
+        setTimeout(() => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy) } catch (e) {} }, 150)
+        return
+      }
+      // Cytoscape instance path
       const runLayout = cy.layout(layoutObj)
       runLayout.run()
-      // fit after layout completes
-  runLayout.on && runLayout.on('layoutstop', () => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} })
-  setTimeout(() => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} }, 150)
+      runLayout.on && runLayout.on('layoutstop', () => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} })
+      setTimeout(() => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} }, 150)
     } catch (err) {
       console.warn('failed to run cy layout', err)
     }
