@@ -1,5 +1,50 @@
-import React, { useState } from 'react'
+import React, { useMemo, useState, useEffect } from 'react'
 import Popup from '/imports/client/ui/components/common/Popup.jsx'
+
+const PRIORITY_DATA_KEYS = [
+  'id',
+  'name',
+  'label',
+  'title',
+  'description',
+  'type',
+  'category',
+  'color',
+  'fillColor',
+  'weight',
+  'rawWeight',
+  'lat',
+  'lng',
+  'latitude',
+  'longitude',
+  'start',
+  'end',
+  'time',
+  'date',
+  'source',
+  'target',
+  'from',
+  'to',
+  'edgeLabel',
+  'edgeColor',
+  'edgeWeight',
+  'relationship',
+  'enlightement',
+  'emoji',
+  'notes',
+  'extra'
+]
+
+const isFilledValue = (value) => {
+  if (value === null || typeof value === 'undefined') return false
+  if (typeof value === 'number') return !Number.isNaN(value)
+  if (typeof value === 'boolean') return true
+  if (value instanceof Date) return true
+  if (typeof value === 'string') return value.trim().length > 0
+  if (Array.isArray(value)) return value.length > 0
+  if (typeof value === 'object') return Object.keys(value).length > 0
+  return true
+}
 
 // SelectionPanel: lightweight list of selected nodes/edges. Can be rendered
 // inline or as a floating popup (pop-out) via the Popup component.
@@ -9,6 +54,36 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
   const [exportTitle, setExportTitle] = useState('')
   const [searchQuery, setSearchQuery] = useState('')
   const [suggestionsVisible, setSuggestionsVisible] = useState(false)
+  const [activeKey, setActiveKey] = useState(null)
+
+  const buildKey = (el, fallbackIndex, scope = 'generic') => {
+    if (!el) return `${scope}-null`
+    const data = el.data || {}
+    if (data.id != null) return `${scope}-data-${String(data.id)}`
+    if (data.source != null || data.target != null) {
+      const base = data.id != null ? String(data.id) : `${String(data.source || '')}->${String(data.target || '')}`
+      return `${scope}-edge-${base}`
+    }
+    if (el._id != null) return `${scope}-doc-${String(el._id)}`
+    if (el.id != null) return `${scope}-obj-${String(el.id)}`
+    return `${scope}-idx-${fallbackIndex}`
+  }
+
+  const nodeEntries = useMemo(() => nodes.map((n, idx) => ({ element: n, key: buildKey(n, idx, 'node') })), [nodes])
+  const edgeEntries = useMemo(() => edges.map((e, idx) => ({ element: e, key: buildKey(e, idx, 'edge') })), [edges])
+
+  const activeElement = useMemo(() => {
+    if (!activeKey) return null
+    const all = [...nodeEntries, ...edgeEntries]
+    const found = all.find(entry => entry.key === activeKey)
+    return found ? found.element : null
+  }, [activeKey, nodeEntries, edgeEntries])
+
+  useEffect(() => {
+    if (!activeKey) return
+    const stillExists = nodeEntries.some(entry => entry.key === activeKey) || edgeEntries.some(entry => entry.key === activeKey)
+    if (!stillExists) setActiveKey(null)
+  }, [activeKey, nodeEntries, edgeEntries])
 
   const matchesFor = (q) => {
     if (!q || !availableNodes || !Array.isArray(availableNodes)) return []
@@ -148,6 +223,199 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
     }
   }
 
+  const renderChipLabel = (element, type) => {
+    const data = element && element.data
+    if (type === 'edge') {
+      const name = data && (data.name || data.label || data.type || data.relation)
+      if (name) return name
+      const src = data && (data.source || data.from)
+      const tgt = data && (data.target || data.to)
+      if (src != null || tgt != null) return `${src || '?'} → ${tgt || '?'}`
+      return 'Edge'
+    }
+    return (data && (data.label || data.name)) || element._id || (data && data.id) || 'Node'
+  }
+
+  const renderValue = (value) => {
+    if (value == null || value === '') return <span className="selection-detail-empty">—</span>
+    if (value instanceof Date) return value.toISOString()
+    if (Array.isArray(value) || (typeof value === 'object' && !(value instanceof Date))) {
+      try {
+        const formatted = JSON.stringify(value, null, 2)
+        return <pre>{formatted}</pre>
+      } catch (e) {
+        return <pre>{String(value)}</pre>
+      }
+    }
+    if (typeof value === 'string' && value.indexOf('\n') !== -1) {
+      return <div className="selection-detail-text">{value}</div>
+    }
+    return String(value)
+  }
+
+  const renderExtra = (value) => {
+    if (!isFilledValue(value)) return null
+    if (typeof value === 'string') {
+      const lines = String(value).split(/\r?\n/)
+      const blocks = []
+      let paragraph = []
+      let list = null
+
+      const flushParagraph = () => {
+        if (!paragraph.length) return
+        blocks.push({ type: 'paragraph', content: paragraph.join('\n') })
+        paragraph = []
+      }
+
+      const flushList = () => {
+        if (!list) return
+        blocks.push(list)
+        list = null
+      }
+
+      lines.forEach(line => {
+        const trimmed = line.trim()
+        if (!trimmed) {
+          flushParagraph()
+          flushList()
+          return
+        }
+        const headingMatch = trimmed.match(/^(#{1,6})\s+(.*)$/)
+        if (headingMatch) {
+          flushParagraph()
+          flushList()
+          blocks.push({ type: 'heading', level: headingMatch[1].length, content: headingMatch[2] })
+          return
+        }
+        const unorderedMatch = trimmed.match(/^([-*])\s+(.*)$/)
+        if (unorderedMatch) {
+          flushParagraph()
+          if (!list || list.kind !== 'ul') list = { kind: 'ul', items: [] }
+          list.items.push(unorderedMatch[2])
+          return
+        }
+        const orderedMatch = trimmed.match(/^(\d+)\.\s+(.*)$/)
+        if (orderedMatch) {
+          flushParagraph()
+          if (!list || list.kind !== 'ol') list = { kind: 'ol', items: [] }
+          list.items.push(orderedMatch[2])
+          return
+        }
+        if (list) {
+          const lastIdx = list.items.length - 1
+          list.items[lastIdx] = `${list.items[lastIdx]}\n${line}`
+          return
+        }
+        paragraph.push(line)
+      })
+
+      flushParagraph()
+      flushList()
+
+      return (
+        <div className="selection-detail-extra-body-text">
+          {blocks.length ? blocks.map((block, idx) => {
+            if (block.type === 'heading') {
+              const level = Math.min(block.level, 6)
+              return (
+                <div key={`extra-heading-${idx}`} className={`selection-detail-extra-heading level-${level}`}>
+                  {block.content}
+                </div>
+              )
+            }
+            if (block.kind === 'ul') {
+              return (
+                <ul key={`extra-ul-${idx}`} className="selection-detail-extra-list">
+                  {block.items.map((item, itemIdx) => (
+                    <li key={`extra-ul-item-${idx}-${itemIdx}`}>{item}</li>
+                  ))}
+                </ul>
+              )
+            }
+            if (block.kind === 'ol') {
+              return (
+                <ol key={`extra-ol-${idx}`} className="selection-detail-extra-list ordered">
+                  {block.items.map((item, itemIdx) => (
+                    <li key={`extra-ol-item-${idx}-${itemIdx}`}>{item}</li>
+                  ))}
+                </ol>
+              )
+            }
+            return (
+              <p key={`extra-paragraph-${idx}`} className="selection-detail-extra-paragraph">{block.content}</p>
+            )
+          }) : <p className="selection-detail-extra-paragraph">{value}</p>}
+        </div>
+      )
+    }
+    try {
+      const formatted = JSON.stringify(value, null, 2)
+      return <pre>{formatted}</pre>
+    } catch (e) {
+      return <pre>{String(value)}</pre>
+    }
+  }
+
+  const { detailEntries, extraContent } = useMemo(() => {
+    if (!activeElement) return { detailEntries: [], extraContent: null }
+    const data = activeElement.data || {}
+    const entries = []
+    const seen = new Set()
+    let extra = null
+
+    const pushEntry = (key, value) => {
+      const label = String(key)
+      if (seen.has(label)) return
+      if (!isFilledValue(value)) return
+      seen.add(label)
+      entries.push({ key: label, value })
+    }
+
+    pushEntry('group', activeElement.group)
+    if (!isFilledValue(data.id) && activeElement.id != null) pushEntry('id', activeElement.id)
+    if (activeElement._id != null) pushEntry('_id', activeElement._id)
+    if (isFilledValue(activeElement.position)) pushEntry('position', activeElement.position)
+
+    PRIORITY_DATA_KEYS.forEach(key => {
+      if (!Object.prototype.hasOwnProperty.call(data, key)) return
+      if (key === 'extra') {
+        if (isFilledValue(data.extra)) extra = data.extra
+        seen.add('extra')
+        return
+      }
+      pushEntry(key, data[key])
+    })
+
+    Object.keys(data).sort().forEach(key => {
+      if (seen.has(key)) return
+      const value = data[key]
+      if (key === 'extra') {
+        if (isFilledValue(value)) extra = value
+        seen.add('extra')
+        return
+      }
+      pushEntry(key, value)
+    })
+
+    Object.keys(activeElement).sort().forEach(key => {
+      if (['data', 'group', '_id', 'id', 'position'].includes(key)) return
+      if (typeof activeElement[key] === 'function') return
+      if (seen.has(key)) return
+      pushEntry(key, activeElement[key])
+    })
+
+    return { detailEntries: entries, extraContent: extra }
+  }, [activeElement])
+
+  const dismissDetail = () => setActiveKey(null)
+
+  const isActive = (entryKey) => activeKey === entryKey
+
+  const handleUnselect = (element, entryKey) => {
+    try { onUnselect(element) } catch (e) {}
+    if (entryKey && entryKey === activeKey) setActiveKey(null)
+  }
+
   return (
     <Popup
       light={light}
@@ -207,26 +475,57 @@ export default function SelectionPanel({ selectedElements = [], onUnselect = () 
         <div className="selection-body">
           <div className="selection-section">
             <div className="selection-section-title">Nodes ({nodes.length})</div>
-            <ul className="selection-list">
-              {nodes.map((n, idx) => (
-                <li key={idx} className="selection-item">
-                  <span className="selection-item-label">{(n.data && (n.data.label || n.data.name)) || n._id || (n.data && n.data.id)}</span>
-                  <button className="cy-control-btn" onClick={() => onUnselect(n)}>Remove</button>
-                </li>
-              ))}
-            </ul>
+            <div className="selection-chip-row">
+              {nodeEntries.length ? nodeEntries.map(({ element, key }) => (
+                <div key={key} className={`selection-chip${isActive(key) ? ' is-active' : ''}`} onClick={() => setActiveKey(key)} role="button" tabIndex={0} onKeyDown={ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); setActiveKey(key) } }}>
+                  <span className="selection-chip-label">{renderChipLabel(element, 'node')}</span>
+                  <button type="button" className="selection-chip-remove" aria-label="Remove node from selection" onClick={ev => { ev.stopPropagation(); handleUnselect(element, key) }}>×</button>
+                </div>
+              )) : <div className="selection-chip-empty">No nodes selected.</div>}
+            </div>
           </div>
           <div className="selection-section">
             <div className="selection-section-title">Edges ({edges.length})</div>
-            <ul className="selection-list">
-              {edges.map((e, idx) => (
-                <li key={idx} className="selection-item">
-                  <span className="selection-item-label">{(e.data && e.data.name) || `${e.data && e.data.source} → ${e.data && e.data.target}`}</span>
-                  <button className="cy-control-btn" onClick={() => onUnselect(e)}>Remove</button>
-                </li>
-              ))}
-            </ul>
+            <div className="selection-chip-row">
+              {edgeEntries.length ? edgeEntries.map(({ element, key }) => (
+                <div key={key} className={`selection-chip${isActive(key) ? ' is-active' : ''}`} onClick={() => setActiveKey(key)} role="button" tabIndex={0} onKeyDown={ev => { if (ev.key === 'Enter' || ev.key === ' ') { ev.preventDefault(); setActiveKey(key) } }}>
+                  <span className="selection-chip-label">{renderChipLabel(element, 'edge')}</span>
+                  <button type="button" className="selection-chip-remove" aria-label="Remove edge from selection" onClick={ev => { ev.stopPropagation(); handleUnselect(element, key) }}>×</button>
+                </div>
+              )) : <div className="selection-chip-empty">No edges selected.</div>}
+            </div>
           </div>
+          {activeElement ? (
+            <div className="selection-detail-card">
+              <div className="selection-detail-header">
+                <div>
+                  <strong>{renderChipLabel(activeElement, activeElement && activeElement.data && (activeElement.data.source != null || activeElement.data.target != null) ? 'edge' : 'node')}</strong>
+                  <span className="selection-detail-subtitle">{(activeElement.data && (activeElement.data.source != null || activeElement.data.target != null)) ? 'Edge details' : 'Node details'}</span>
+                </div>
+                <button type="button" className="selection-detail-close" onClick={dismissDetail}>Close</button>
+              </div>
+              {detailEntries.length ? (
+                <dl className="selection-detail-grid">
+                  {detailEntries.map(({ key, value }, idx) => (
+                    <React.Fragment key={`${key}-${idx}`}>
+                      <dt>{key}</dt>
+                      <dd>{renderValue(value)}</dd>
+                    </React.Fragment>
+                  ))}
+                </dl>
+              ) : (
+                <div className="selection-detail-empty">No additional data.</div>
+              )}
+              {isFilledValue(extraContent) ? (
+                <div className="selection-detail-extra">
+                  <div className="selection-detail-extra-title">Extra</div>
+                  <div className="selection-detail-extra-body">
+                    {renderExtra(extraContent)}
+                  </div>
+                </div>
+              ) : null}
+            </div>
+          ) : null}
         </div>
       </div>
     </Popup>

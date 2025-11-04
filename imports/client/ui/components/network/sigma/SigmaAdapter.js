@@ -565,6 +565,16 @@ function SigmaAdapter(container, elements = [], options = {}) {
     graph.forEachNode((id, attr) => {
       try {
         const a = attr || {};
+        try {
+          const deg = degreeMap[id] || 0;
+          let currentDeg;
+          try { currentDeg = typeof graph.getNodeAttribute === 'function' ? graph.getNodeAttribute(id, 'degree') : a.degree; }
+          catch (attrErr) { currentDeg = typeof a.degree === 'number' ? a.degree : undefined; }
+          if (currentDeg === undefined || currentDeg === null || Number.isNaN(currentDeg)) {
+            if (typeof graph.setNodeAttribute === 'function') graph.setNodeAttribute(id, 'degree', deg);
+            else a.degree = deg;
+          }
+        } catch (e) {}
         if (typeof a.size === 'undefined' || a.size === null) {
           const w = (typeof a.weight !== 'undefined' && a.weight !== null) ? Number(a.weight) : null;
           if (w != null && !Number.isNaN(w)) {
@@ -779,41 +789,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
         try { if (localRenderer && typeof localRenderer.refresh === 'function') localRenderer.refresh(); } catch (e) {}
       };
 
-      const extraCleanup = [() => handleDragEnd(), () => setHoveredEdge(null), () => dispatchHoverDetail(null)];
-
-      const logHoverDetail = (detail) => {
-        try {
-          if (typeof window !== 'undefined' && window._topoSigmaHoverDebug) {
-            console.info('SigmaAdapter: hover node', detail);
-          }
-        } catch (e) {}
-      };
-
-      const dispatchHoverDetail = (detail) => {
-        try {
-          if (typeof window === 'undefined') return;
-          try {
-            if (detail) window._topoSigmaHoverNode = detail;
-            else delete window._topoSigmaHoverNode;
-          } catch (e) {}
-          if (typeof window.dispatchEvent === 'function') {
-            const evtName = 'topo:sigmaHoverNode';
-            try {
-              if (typeof window.CustomEvent === 'function') {
-                window.dispatchEvent(new CustomEvent(evtName, { detail }));
-              } else if (typeof document !== 'undefined' && document.createEvent) {
-                const ev = document.createEvent('CustomEvent');
-                ev.initCustomEvent(evtName, false, false, detail);
-                window.dispatchEvent(ev);
-              } else {
-                window.dispatchEvent(new Event(evtName));
-              }
-            } catch (err) {
-              try { window.dispatchEvent(new Event(evtName)); } catch (fallbackErr) {}
-            }
-          }
-        } catch (e) {}
-      };
+      const extraCleanup = [() => handleDragEnd(), () => setHoveredEdge(null)];
 
       const handleDownNode = (evt) => {
         try {
@@ -931,40 +907,6 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const nodeId = evt && (evt.node || (evt.data && evt.data.node));
           toggleNodeSelection(nodeId, evt);
         } catch (e) {}
-      });
-
-      register('enterNode', (evt = {}) => {
-        try {
-          const nodeId = evt.node || (evt.data && evt.data.node) || null;
-          logEvent('enterNode', 'node', nodeId);
-          if (!nodeId) {
-            dispatchHoverDetail(null);
-            return;
-          }
-          let weight = null;
-          let radius = null;
-          let degree = null;
-          try { weight = graph.getNodeAttribute(nodeId, 'weight'); } catch (e) { weight = null; }
-          try { radius = graph.getNodeAttribute(nodeId, 'size'); } catch (e) { radius = null; }
-          try {
-            if (typeof graph.degree === 'function') degree = graph.degree(nodeId);
-            else if (typeof graph.inDegree === 'function' && typeof graph.outDegree === 'function') degree = graph.inDegree(nodeId) + graph.outDegree(nodeId);
-          } catch (e) { degree = null; }
-          const detail = { id: String(nodeId) };
-          if (weight != null && !Number.isNaN(Number(weight))) detail.weight = Number(weight);
-          if (degree != null && Number.isFinite(Number(degree))) detail.degree = Number(degree);
-          if (radius != null && !Number.isNaN(Number(radius))) detail.radius = Number(radius);
-          logHoverDetail(detail);
-          dispatchHoverDetail(detail);
-        } catch (e) { dispatchHoverDetail(null); }
-      });
-
-      register('leaveNode', (evt = {}) => {
-        try {
-          const nodeId = evt.node || (evt.data && evt.data.node) || null;
-          logEvent('leaveNode', 'node', nodeId);
-        } catch (e) {}
-        dispatchHoverDetail(null);
       });
 
       register('enterEdge', (evt = {}) => {

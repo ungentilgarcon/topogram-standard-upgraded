@@ -80,6 +80,9 @@ const ReagraphAdapter = {
             attrs.size = Math.max(8, Math.min(48, 8 + deg * 4));
           }
         }
+        if (!Object.prototype.hasOwnProperty.call(attrs, 'degree')) {
+          try { attrs.degree = degreeMap.get(String(n.id)) || 0; } catch (e) { attrs.degree = 0; }
+        }
         // persist possibly updated attrs back
         n.attrs = attrs;
       } catch (e) {}
@@ -673,7 +676,7 @@ const ReagraphAdapter = {
           circ.addEventListener('click', (ev) => {
             try {
               try { console.debug && console.debug('ReagraphAdapter: node click', { nodeId: node.id, event: ev }); } catch (e) {}
-              ev.stopPropagation();
+              if (ev && typeof ev.stopPropagation === 'function') ev.stopPropagation();
               // toggle selection locally
               try {
                 const cur = node.attrs && node.attrs.selected;
@@ -686,72 +689,72 @@ const ReagraphAdapter = {
               try { render(); } catch (e) {}
             } catch (e) {}
           });
-            // append collected loops after node labels so loops are visible above labels
-            try {
-              loopElements.forEach(({ path, hitD, edge, labelEl }) => {
-                try { viewport.appendChild(path); } catch (e) {}
-                try { if (labelEl) viewport.appendChild(labelEl); } catch (e) {}
-                try {
-                  const hit = document.createElementNS(svgNS, 'path');
-                  hit.setAttribute('d', hitD);
-                  const hitWidth = Math.max(8, Math.round((edge.attrs && edge.attrs.width) ? edge.attrs.width * 4 : (mappedWidth * 4)));
-                  hit.setAttribute('stroke', 'transparent');
-                  hit.setAttribute('stroke-width', hitWidth);
-                  hit.setAttribute('fill', 'none');
-                  hit.style.pointerEvents = 'stroke';
-                  hit.dataset.id = edge.id;
-                  hit.style.cursor = 'pointer';
-                  hit.addEventListener('click', (ev) => {
+          // append collected loops after node labels so loops are visible above labels
+          try {
+            loopElements.forEach(({ path, hitD, edge, labelEl }) => {
+              try { viewport.appendChild(path); } catch (e) {}
+              try { if (labelEl) viewport.appendChild(labelEl); } catch (e) {}
+              try {
+                const hit = document.createElementNS(svgNS, 'path');
+                hit.setAttribute('d', hitD);
+                const hitWidth = Math.max(8, Math.round((edge.attrs && edge.attrs.width) ? edge.attrs.width * 4 : (mappedWidth * 4)));
+                hit.setAttribute('stroke', 'transparent');
+                hit.setAttribute('stroke-width', hitWidth);
+                hit.setAttribute('fill', 'none');
+                hit.style.pointerEvents = 'stroke';
+                hit.dataset.id = edge.id;
+                hit.style.cursor = 'pointer';
+                hit.addEventListener('click', (ev) => {
+                  try {
+                    try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
+                    ev.stopPropagation();
+                    // toggle selection state locally
                     try {
-                      try { console.debug && console.debug('ReagraphAdapter: edge hit click', { edgeId: edge.id, event: ev }); } catch (e) {}
-                      ev.stopPropagation();
-                      // toggle selection state locally
-                      try {
-                        const cur = edge.attrs && edge.attrs.selected;
-                        if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
-                        const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
-                        const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
-                        try { _localSelKeys.add(k); } catch (e) {}
-                        try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
-                      } catch (e) {}
-                      try { render(); } catch (e) {}
+                      const cur = edge.attrs && edge.attrs.selected;
+                      if (cur) { if (edge.attrs) delete edge.attrs.selected; } else { if (!edge.attrs) edge.attrs = {}; edge.attrs.selected = true; }
+                      const j = { data: { id: edge.id, source: edge.source, target: edge.target } };
+                      const k = SelectionManager ? SelectionManager.canonicalKey(j) : `edge:${edge.id}`;
+                      try { _localSelKeys.add(k); } catch (e) {}
+                      try { if (SelectionManager) { console.debug && console.debug('ReagraphAdapter: calling SelectionManager', cur ? 'unselect' : 'select', j); if (cur) SelectionManager.unselect(j); else SelectionManager.select(j); } } catch (e) {}
                     } catch (e) {}
-                  });
-                  viewport.appendChild(hit);
-                } catch (e) {}
-              });
-            } catch (e) {}
-            try { arrowElements.forEach(a => { try { viewport.appendChild(a); } catch (e) {} }); } catch (e) {}
+                    try { render(); } catch (e) {}
+                  } catch (e) {}
+                });
+                viewport.appendChild(hit);
+              } catch (e) {}
+            });
+          } catch (e) {}
+          try { arrowElements.forEach(a => { try { viewport.appendChild(a); } catch (e) {} }); } catch (e) {}
           viewport.appendChild(circ);
-        // render label if present (use _vizLabel or label fields)
-        try {
-          const label = (node.attrs && (node.attrs._vizLabel || node.attrs.label || node.attrs.name)) || null;
-          if (label) {
-            try {
-              const foW = Math.max(80, Math.round(r * 3)); const foH = 20;
-              const fo = document.createElementNS(svgNS, 'foreignObject');
-              fo.setAttribute('x', String(Math.round(cx - foW / 2))); fo.setAttribute('y', String(Math.round(cy + r + 12 - foH / 2)));
-              fo.setAttribute('width', String(foW)); fo.setAttribute('height', String(foH));
-              fo.setAttribute('pointer-events', 'none');
-              const div = document.createElement('div');
-              div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
-              div.style.cssText = "font-size:12px; font-family: Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, 'Segoe UI Symbol', Arial, sans-serif; color: #0f172a; text-align:center; line-height:1;";
-              div.textContent = String(label);
-              fo.appendChild(div);
-              viewport.appendChild(fo);
-            } catch (e) {
-              const txt = document.createElementNS(svgNS, 'text');
-              txt.setAttribute('x', cx);
-              txt.setAttribute('y', cy + r + 12);
-              txt.setAttribute('fill', '#0f172a');
-              txt.setAttribute('font-size', '12');
-              txt.setAttribute('text-anchor', 'middle');
-              txt.setAttribute('pointer-events', 'none');
-              txt.textContent = String(label);
-              viewport.appendChild(txt);
+          // render label if present (use _vizLabel or label fields)
+          try {
+            const label = (node.attrs && (node.attrs._vizLabel || node.attrs.label || node.attrs.name)) || null;
+            if (label) {
+              try {
+                const foW = Math.max(80, Math.round(r * 3)); const foH = 20;
+                const fo = document.createElementNS(svgNS, 'foreignObject');
+                fo.setAttribute('x', String(Math.round(cx - foW / 2))); fo.setAttribute('y', String(Math.round(cy + r + 12 - foH / 2)));
+                fo.setAttribute('width', String(foW)); fo.setAttribute('height', String(foH));
+                fo.setAttribute('pointer-events', 'none');
+                const div = document.createElement('div');
+                div.setAttribute('xmlns', 'http://www.w3.org/1999/xhtml');
+                div.style.cssText = "font-size:12px; font-family: Segoe UI Emoji, Apple Color Emoji, Noto Color Emoji, 'Segoe UI Symbol', Arial, sans-serif; color: #0f172a; text-align:center; line-height:1;";
+                div.textContent = String(label);
+                fo.appendChild(div);
+                viewport.appendChild(fo);
+              } catch (e) {
+                const txt = document.createElementNS(svgNS, 'text');
+                txt.setAttribute('x', cx);
+                txt.setAttribute('y', cy + r + 12);
+                txt.setAttribute('fill', '#0f172a');
+                txt.setAttribute('font-size', '12');
+                txt.setAttribute('text-anchor', 'middle');
+                txt.setAttribute('pointer-events', 'none');
+                txt.textContent = String(label);
+                viewport.appendChild(txt);
+              }
             }
-          }
-        } catch (e) {}
+          } catch (e) {}
         } catch (e) {}
       });
       // re-apply transform after rendering

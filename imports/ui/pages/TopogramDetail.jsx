@@ -20,6 +20,7 @@ cytoscape.use(cola);
 
 import GraphWrapper from '/imports/client/ui/components/network/GraphWrapper.jsx'
 import ErrorBoundary from '/imports/ui/components/ErrorBoundary.jsx'
+const compatCache = typeof WeakMap !== 'undefined' ? new WeakMap() : null
 
 // Compatibility shim: adapt adapter objects (Reagraph/Sigma adapters) to a
 // minimal Cytoscape-like API expected by legacy components (Charts, etc.).
@@ -28,8 +29,13 @@ import ErrorBoundary from '/imports/ui/components/ErrorBoundary.jsx'
 // or adapter.nodes()/adapter.edges().
 function makeCyCompat(adapter) {
   if (!adapter) return null
+  const cacheable = typeof adapter === 'object' && adapter !== null
+  if (compatCache && cacheable && compatCache.has(adapter)) return compatCache.get(adapter)
   // If this already looks like a Cytoscape instance (has filter/nodes/edges), return as-is
-  if (typeof adapter.filter === 'function' && typeof adapter.nodes === 'function' && typeof adapter.edges === 'function') return adapter
+  if (typeof adapter.filter === 'function' && typeof adapter.nodes === 'function' && typeof adapter.edges === 'function') {
+    if (compatCache && cacheable) compatCache.set(adapter, adapter)
+    return adapter
+  }
 
   // Helper to normalize collections into arrays of element wrappers
   const toArray = (coll) => {
@@ -115,6 +121,7 @@ function makeCyCompat(adapter) {
   // expose the raw underlying adapter so callers can access adapter-specific
   // features (for example Sigma's `graph` and `renderer`) when needed.
   try { compat._rawAdapter = adapter } catch (e) {}
+  if (compatCache && cacheable) compatCache.set(adapter, compat)
   // Expose a compat-layer API to toggle curved edges at runtime. Prefer
   // calling the adapter-provided method when available; otherwise callers
   // may mutate the underlying graph directly as a fallback.
@@ -352,11 +359,23 @@ export default function TopogramDetail() {
   }, [])
   // Keep a ref to the Cytoscape instance so we can trigger layouts on demand
   const cyRef = useRef(null)
+  const selectionSyncGuardRef = useRef(false)
   // Keep a ref to the active Reagraph adapter (raw) when impl === 'reagraph'
   const reagraphAdapterRef = useRef(null)
   const [reagraphAgg, setReagraphAgg] = useState(false)
   // Also keep the Cytoscape instance in state so React re-renders consumers when it becomes available
   const [cyInstance, setCyInstance] = useState(null)
+  const cyInstanceRef = useRef(null)
+  const updateCyInstance = useCallback((inst) => {
+    if (cyInstanceRef.current === inst) return
+    cyInstanceRef.current = inst
+    setCyInstance(inst)
+  }, [])
+  useEffect(() => {
+    return () => {
+      cyInstanceRef.current = null
+    }
+  }, [])
   // remember last visible nodes count to detect visibility changes
   const lastVisibleCountRef = useRef(null)
   // remember last timeline range so we can detect which side moved
@@ -713,6 +732,7 @@ export default function TopogramDetail() {
     const cy = cyRef.current
     if (!cy) return
     const onSelect = (evt) => {
+      if (selectionSyncGuardRef.current) return
       try {
         // Snapshot the current Cytoscape selection and mirror it into React state
         const sel = cy.$(':selected').toArray().map(el => {
@@ -724,6 +744,7 @@ export default function TopogramDetail() {
       } catch (e) { console.warn('cy select handler error', e) }
     }
     const onUnselect = (evt) => {
+      if (selectionSyncGuardRef.current) return
       try {
         // Mirror current selection after an unselect event
         const sel = cy.$(':selected').toArray().map(el => {
@@ -754,7 +775,10 @@ export default function TopogramDetail() {
     } catch (e) {}
 
     return () => {
-      try { cy.removeListener('select', onSelect); cy.removeListener('unselect', onUnselect) } catch (e) {}
+      try {
+        cy.removeListener('select', 'node, edge', onSelect)
+        cy.removeListener('unselect', 'node, edge', onUnselect)
+      } catch (e) {}
     }
   }, [cyRef.current])
 
@@ -762,6 +786,7 @@ export default function TopogramDetail() {
   useEffect(() => {
     const cy = cyRef.current
     if (!cy) return
+    selectionSyncGuardRef.current = true
     try {
       // Try to unselect everything first to keep visuals deterministic
       try {
@@ -794,6 +819,9 @@ export default function TopogramDetail() {
         } catch (e) {}
       })
     } catch (e) {}
+    finally {
+      selectionSyncGuardRef.current = false
+    }
   }, [cyRef.current, selectedElements])
 
   // Listen for panel toggle events dispatched by PanelSettings
@@ -2393,7 +2421,7 @@ export default function TopogramDetail() {
                     // receive a cy-like object even when using non-cytoscape adapters.
                     const compat = makeCyCompat(adapter)
                     cyRef.current = compat
-                    if (setCyInstance) setCyInstance(compat)
+                    updateCyInstance(compat)
                   } catch (e) { console.warn('GraphWrapper cyCallback error', e) }
                 }}
               />
@@ -2405,7 +2433,7 @@ export default function TopogramDetail() {
                 stylesheet={stylesheet}
                 cy={(cy) => {
                   cyRef.current = cy
-                  try { if (setCyInstance) setCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (no-geo)', e) }
+                  try { updateCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (no-geo)', e) }
                   try {
                     if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
                     if (typeof cy.selectionType === 'function') cy.selectionType('additive')
@@ -2560,7 +2588,7 @@ export default function TopogramDetail() {
                             } catch(e){}
                             const compat = makeCyCompat(adapter)
                             cyRef.current = compat
-                            if (setCyInstance) setCyInstance(compat)
+                            updateCyInstance(compat)
                             try { window._topoCy = compat } catch (err) {}
                           } catch (e) {
                             console.warn && console.warn('GraphWrapper cyCallback error (both)', e)
@@ -2575,7 +2603,7 @@ export default function TopogramDetail() {
                         stylesheet={stylesheet}
                         cy={(cy) => {
                           cyRef.current = cy
-                          try { setCyInstance && setCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (both)', e) }
+                          try { updateCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (both)', e) }
                           try { window._topoCy = cy } catch (err) {}
                           try {
                             if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
@@ -2658,7 +2686,7 @@ export default function TopogramDetail() {
                             } catch(e){}
                             const compat = makeCyCompat(adapter)
                             cyRef.current = compat
-                            if (setCyInstance) setCyInstance(compat)
+                            updateCyInstance(compat)
                           } catch (e) {
                             console.warn && console.warn('GraphWrapper cyCallback error (onlyNetwork)', e)
                           }
@@ -2672,7 +2700,7 @@ export default function TopogramDetail() {
                         stylesheet={stylesheet}
                         cy={(cy) => {
                           cyRef.current = cy
-                          try { if (setCyInstance) setCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (onlyNetwork)', e) }
+                          try { updateCyInstance(cy) } catch (e) { console.warn && console.warn('setCyInstance failed (onlyNetwork)', e) }
                           try {
                             if (typeof cy.boxSelectionEnabled === 'function') cy.boxSelectionEnabled(true)
                             if (typeof cy.selectionType === 'function') cy.selectionType('additive')
