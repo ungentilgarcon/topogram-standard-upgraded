@@ -2039,6 +2039,100 @@ function SigmaAdapter(container, elements = [], options = {}) {
     };
   };
 
+  // --- Extra position layer (positionx/positiony) ---------------------------------
+  try {
+    // Ensure container can host absolute overlays
+    try { if (container && (!container.style || !container.style.position || container.style.position === '')) container.style.position = 'relative'; } catch (e) {}
+
+    // Build list of overlay points from elements (nodes only)
+    const overlayPoints = [];
+    try {
+      (elements || []).forEach((el) => {
+        try {
+          if (!el || !el.data) return;
+          const d = el.data;
+          const isNode = d && (d.source == null && d.target == null);
+          if (!isNode) return;
+          const px = (d.positionx != null) ? Number(d.positionx) : (d.posx != null ? Number(d.posx) : (d.xPos != null ? Number(d.xPos) : null));
+          const py = (d.positiony != null) ? Number(d.positiony) : (d.posy != null ? Number(d.posy) : (d.yPos != null ? Number(d.yPos) : null));
+          if (!Number.isFinite(px) || !Number.isFinite(py)) return;
+          overlayPoints.push({ id: String(d.id != null ? d.id : ''), x: px, y: py });
+        } catch (e) {}
+      });
+    } catch (e) {}
+
+    if (overlayPoints.length) {
+      // Create canvas overlay
+      const overlay = document.createElement('canvas');
+      overlay.style.position = 'absolute';
+      overlay.style.left = '0';
+      overlay.style.top = '0';
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.pointerEvents = 'none';
+      overlay.style.zIndex = '5';
+      container.appendChild(overlay);
+
+      const pad = 8;
+      const ext = overlayPoints.reduce((acc, p) => ({
+        minX: Math.min(acc.minX, p.x),
+        maxX: Math.max(acc.maxX, p.x),
+        minY: Math.min(acc.minY, p.y),
+        maxY: Math.max(acc.maxY, p.y),
+      }), { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity });
+
+      const draw = () => {
+        try {
+          const w = container.clientWidth || 0;
+          const h = container.clientHeight || 0;
+          if (!w || !h) return;
+          // set canvas pixel size to match CSS size
+          overlay.width = w;
+          overlay.height = h;
+          const ctx = overlay.getContext('2d');
+          if (!ctx) return;
+          ctx.clearRect(0, 0, w, h);
+          if (!Number.isFinite(ext.minX) || !Number.isFinite(ext.maxX) || !Number.isFinite(ext.minY) || !Number.isFinite(ext.maxY)) return;
+          const spanX = (ext.maxX - ext.minX) || 1;
+          const spanY = (ext.maxY - ext.minY) || 1;
+          const sx = (w - pad * 2) / spanX;
+          const sy = (h - pad * 2) / spanY;
+          ctx.fillStyle = 'rgba(30, 136, 229, 0.35)';
+          const r = 3;
+          overlayPoints.forEach((p) => {
+            const vx = pad + (p.x - ext.minX) * sx;
+            const vy = pad + (p.y - ext.minY) * sy;
+            ctx.beginPath();
+            ctx.arc(vx, h - vy, r, 0, Math.PI * 2); // flip Y so increasing y goes up
+            ctx.fill();
+          });
+        } catch (e) {}
+      };
+
+      // Resize observer to keep canvas in sync
+      let ro = null;
+      try {
+        if (typeof ResizeObserver !== 'undefined') {
+          ro = new ResizeObserver(() => draw());
+          ro.observe(container);
+        } else {
+          window.addEventListener('resize', draw);
+        }
+      } catch (e) {}
+
+      // initial draw and on next frame to avoid layout thrash
+      try { draw(); requestAnimationFrame(draw); } catch (e) {}
+
+      // cleanup overlay on adapter destroy
+      try {
+        cleanupFns.push(() => {
+          try { if (ro && ro.disconnect) ro.disconnect(); } catch (e) {}
+          try { if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay); } catch (e) {}
+        });
+      } catch (e) {}
+    }
+  } catch (e) {}
+
   return adapter;
 }
 

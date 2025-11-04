@@ -27,9 +27,14 @@ export default function ImportAllModal({ open, onClose, onEnqueue }) {
   }
 
   // Same sample header as the importer expects.
-  const sampleHeaderArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','enlightement','emoji','extra']
+  // Updated order to include absolute canvas positions (positionx, positiony)
+  // id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,positionx,positiony,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra
+  const sampleHeaderArr = [
+    'id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','positionx','positiony','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','enlightement','emoji','extra'
+  ]
   const sampleRowsArr = [
-    ['1','Alice','Alice A','Node with geo & time','#ff5722','#ffccbc','10','10','40.7128','-74.0060','2020-01-01','2020-12-31','2020-06-15','2020-06-15','','','','','','','','','notes for alice']
+    // Example node row: includes geo (lat,lng) and normalized absolute position (positionx,positiony in [0,1])
+    ['1','Alice','Alice A','Node with geo & time','#ff5722','#ffccbc','10','10','40.7128','-74.0060','0.42','0.66','2020-01-01','2020-12-31','2020-06-15','2020-06-15','','','','','','','','','notes for alice']
   ]
   const sampleCsv = ['# Topogram: Sample Topogram', sampleHeaderArr.map(_quote).join(',')].concat(sampleRowsArr.map(r => r.map(_quote).join(','))).join('\n')
 
@@ -166,26 +171,28 @@ export default function ImportAllModal({ open, onClose, onEnqueue }) {
             if (n.rawWeight != null) r[7] = String(n.rawWeight)
             if (n.lat != null) r[8] = String(n.lat)
             if (n.lng != null) r[9] = String(n.lng)
-            if (n.start != null) r[10] = String(n.start)
-            if (n.end != null) r[11] = String(n.end)
-            if (n.time != null) r[12] = String(n.time)
-            if (n.date != null) r[13] = String(n.date)
-            if (n.emoji != null) r[21] = String(n.emoji)
-            if (n.extra != null) r[22] = typeof n.extra === 'string' ? n.extra : JSON.stringify(n.extra)
+            if (n.positionx != null) r[10] = String(n.positionx)
+            if (n.positiony != null) r[11] = String(n.positiony)
+            if (n.start != null) r[12] = String(n.start)
+            if (n.end != null) r[13] = String(n.end)
+            if (n.time != null) r[14] = String(n.time)
+            if (n.date != null) r[15] = String(n.date)
+            if (n.emoji != null) r[23] = String(n.emoji)
+            if (n.extra != null) r[24] = typeof n.extra === 'string' ? n.extra : JSON.stringify(n.extra)
             rows.push(r)
           })
         }
         if (Array.isArray(parsed.edges)) {
           parsed.edges.forEach(e => {
             const r = headerArr.map(h => '')
-            if (e.source != null) r[14] = String(e.source)
-            if (e.target != null) r[15] = String(e.target)
-            if (e.edgeLabel != null) r[16] = String(e.edgeLabel)
-            if (e.edgeColor != null) r[17] = String(e.edgeColor)
-            if (e.edgeWeight != null) r[18] = String(e.edgeWeight)
-            if (e.relationship != null) r[19] = String(e.relationship)
-            if (e.enlightement != null) r[20] = String(e.enlightement)
-            if (e.extra != null) r[22] = typeof e.extra === 'string' ? e.extra : JSON.stringify(e.extra)
+            if (e.source != null) r[16] = String(e.source)
+            if (e.target != null) r[17] = String(e.target)
+            if (e.edgeLabel != null) r[18] = String(e.edgeLabel)
+            if (e.edgeColor != null) r[19] = String(e.edgeColor)
+            if (e.edgeWeight != null) r[20] = String(e.edgeWeight)
+            if (e.relationship != null) r[21] = String(e.relationship)
+            if (e.enlightement != null) r[22] = String(e.enlightement)
+            if (e.extra != null) r[24] = typeof e.extra === 'string' ? e.extra : JSON.stringify(e.extra)
             rows.push(r)
           })
         }
