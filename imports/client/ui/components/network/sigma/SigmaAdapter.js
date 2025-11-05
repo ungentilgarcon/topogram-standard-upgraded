@@ -84,6 +84,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
   const graph = new GraphConstructor();
   // Visual tuning: multiply raw edge 'size' by this for display. Lower = thinner.
   const EDGE_VISUAL_SCALE = 0.30;
+  const EDGE_WIDTH_MIN = 2;
+  const EDGE_WIDTH_MAX = 12;
   // We require the @sigma/edge-curve program to be present. If it's not
   // available we'll abort init and return a noop adapter so the app can
   // handle the missing capability explicitly. This enforces a pure WebGL
@@ -394,7 +396,21 @@ function SigmaAdapter(container, elements = [], options = {}) {
     try { console.debug('SigmaAdapter: populated graph', { nodeCount: graph.order, edgeCount: graph.size }); } catch (e) { console.debug('SigmaAdapter: populated graph (counts unavailable)'); }
 
     // Determine edge weight range and map weights -> visual width (pixels)
-    const edgeWeights = (edges || []).map(e => Number((e.attrs && (e.attrs.weight != null ? e.attrs.weight : (e.attrs && e.attrs.width != null ? e.attrs.width : 1))) || 1));
+    const coercePositiveNumber = (value) => {
+      if (value === null || typeof value === 'undefined') return null;
+      if (typeof value === 'number' && Number.isFinite(value) && value > 0) return value;
+      const num = Number(value);
+      if (!Number.isFinite(num) || num <= 0) return null;
+      return num;
+    };
+    const edgeWeights = (edges || []).map((e) => {
+      const attrs = e && e.attrs ? e.attrs : {};
+      const primary = coercePositiveNumber(attrs.weight);
+      if (primary != null) return primary;
+      const viaWidth = coercePositiveNumber(attrs.width);
+      if (viaWidth != null) return viaWidth;
+      return 1;
+    });
     const minEW = edgeWeights.length ? Math.min(...edgeWeights) : 1;
     const maxEW = edgeWeights.length ? Math.max(...edgeWeights) : (minEW + 1);
     function mapDataLocal(value, dmin, dmax, rmin, rmax) {
@@ -419,6 +435,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const a = attr || {};
           // prefer explicit numeric size
           let sizeVal = null;
+          let numericWeight = coercePositiveNumber(a.weight);
+          if (numericWeight == null) numericWeight = coercePositiveNumber(a.width);
+          if (numericWeight == null) numericWeight = 1;
           if (typeof a.size === 'number' && !Number.isNaN(a.size)) {
             sizeVal = Math.max(1, a.size);
           } else if (typeof a.size === 'string') {
@@ -426,15 +445,12 @@ function SigmaAdapter(container, elements = [], options = {}) {
             if (!Number.isNaN(parsed)) sizeVal = Math.max(1, parsed);
           }
           if (sizeVal === null) {
-            const w = (typeof a.width === 'number') ? a.width : (a.weight != null ? Number(a.weight) : null);
-            if (w != null && !Number.isNaN(w)) {
-              // map data domain [minEW, maxEW] to visual width [1,6] pixels
-              const visualW = mapDataLocal(w, minEW, maxEW, 1, 6);
-              sizeVal = Math.max(1, visualW);
-            } else {
-              sizeVal = 1;
-            }
+            const visualW = (minEW === maxEW)
+              ? (EDGE_WIDTH_MIN + EDGE_WIDTH_MAX) / 2
+              : mapDataLocal(numericWeight, minEW, maxEW, EDGE_WIDTH_MIN, EDGE_WIDTH_MAX);
+            sizeVal = Math.max(EDGE_WIDTH_MIN, Math.min(EDGE_WIDTH_MAX, visualW));
           }
+          try { graph.setEdgeAttribute(id, 'weight', numericWeight); } catch (e) {}
           try { graph.setEdgeAttribute(id, 'size', sizeVal); } catch (e) {}
             // ensure edge color exists
             try {
