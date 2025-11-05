@@ -846,7 +846,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
       const toggleNodeSelection = (nodeId, evtObj) => {
         if (!nodeId) return;
         const currently = !!graph.getNodeAttribute(nodeId, 'selected');
-        const json = { data: { id: String(nodeId) } };
+        // Build a richer selection payload mirroring Cytoscape element.json()
+        let nodeAttrs = {};
+        try { nodeAttrs = Object.assign({}, graph.getNodeAttributes(nodeId) || {}); } catch (e) {}
+        const json = { data: Object.assign({}, nodeAttrs, { id: String(nodeId) }) };
         const key = SelectionManager ? SelectionManager.canonicalKey(json) : `node:${String(nodeId)}`;
         if (key) _localSelKeys.add(key);
         const maybePrevent = evtObj && typeof evtObj.preventSigmaDefault === 'function' ? evtObj : null;
@@ -874,7 +877,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
         const currently = !!graph.getEdgeAttribute(edgeId, 'selected');
         const src = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
         const tgt = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
-        const json = { data: { id: String(edgeId), source: src, target: tgt } };
+        // Include full edge attributes in selection payload
+        let edgeAttrs = {};
+        try { edgeAttrs = Object.assign({}, graph.getEdgeAttributes(edgeId) || {}); } catch (e) {}
+        const json = { data: Object.assign({}, edgeAttrs, { id: String(edgeId), source: src, target: tgt }) };
         const key = SelectionManager ? SelectionManager.canonicalKey(json) : `edge:${String(edgeId)}`;
         if (key) _localSelKeys.add(key);
         const maybePrevent = evtObj && typeof evtObj.preventSigmaDefault === 'function' ? evtObj : null;
@@ -1259,7 +1265,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
             // Accept a variety of Graphology event signatures. Some versions
             // call listeners as (node, attrName, newVal, oldVal), others as
             // (node, attributesObject). We normalize and handle selected changes.
-            this._attrListener = function() {
+                this._attrListener = function() {
               try {
                 const args = Array.prototype.slice.call(arguments);
                 const node = args[0];
@@ -1309,7 +1315,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
                 // Reflect selection into SelectionManager (unless we originated it locally)
                 try {
                   if (SelectionManager) {
-                    const j = { data: { id: node } };
+                    // Build payload using node attributes so SelectionPanel gets full data
+                    const attrs = graph.getNodeAttributes(node) || {};
+                    const j = { data: Object.assign({}, attrs, { id: node }) };
                     const k = SelectionManager.canonicalKey(j);
                     if (_localSelKeys && _localSelKeys.has(k)) {
                       // this change originated from this adapter; remove local marker
@@ -1386,19 +1394,21 @@ function SigmaAdapter(container, elements = [], options = {}) {
                     } catch (e) {}
                     try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
                     // reflect into SelectionManager unless locally originated
-                    try {
-                      if (SelectionManager) {
-                        const src = (typeof graph.source === 'function') ? graph.source(edge) : null;
-                        const tgt = (typeof graph.target === 'function') ? graph.target(edge) : null;
-                        const j = { data: { id: edge, source: src, target: tgt } };
-                        const k = SelectionManager.canonicalKey(j);
-                        if (_localSelKeys && _localSelKeys.has(k)) {
-                          try { _localSelKeys.delete(k); } catch (e) {}
-                        } else {
-                          if (newVal) SelectionManager.select(j); else SelectionManager.unselect(j);
+                      try {
+                        if (SelectionManager) {
+                          const src = (typeof graph.source === 'function') ? graph.source(edge) : null;
+                          const tgt = (typeof graph.target === 'function') ? graph.target(edge) : null;
+                          let edgeAttrs = {};
+                          try { edgeAttrs = Object.assign({}, graph.getEdgeAttributes(edge) || {}); } catch (e) {}
+                          const j = { data: Object.assign({}, edgeAttrs, { id: edge, source: src, target: tgt }) };
+                          const k = SelectionManager.canonicalKey(j);
+                          if (_localSelKeys && _localSelKeys.has(k)) {
+                            try { _localSelKeys.delete(k); } catch (e) {}
+                          } else {
+                            if (newVal) SelectionManager.select(j); else SelectionManager.unselect(j);
+                          }
                         }
-                      }
-                    } catch (e) {}
+                      } catch (e) {}
                   } catch (e) {}
                 } catch (e) {}
               };

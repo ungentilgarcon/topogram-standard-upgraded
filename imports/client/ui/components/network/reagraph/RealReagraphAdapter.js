@@ -1691,7 +1691,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		entry.data.selected = true;
 		markNodeDirty(id);
 		if (!opts.silent && SelectionManager) {
-			const payload = makeSelectionPayload(id, 'node');
+			// Build a rich payload containing all node data (so SelectionPanel gets full info)
+			const payload = { data: Object.assign({}, entry.data || {}, { id: String(id) }) };
 			const key = SelectionManager.canonicalKey ? SelectionManager.canonicalKey(payload) : `node:${id}`;
 			if (key) {
 				localSelectionKeys.add(key);
@@ -1711,7 +1712,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		if (entry.data) delete entry.data.selected;
 		markNodeDirty(id);
 		if (!opts.silent && SelectionManager) {
-			const payload = makeSelectionPayload(id, 'node');
+			const payload = { data: Object.assign({}, entry.data || {}, { id: String(id) }) };
 			const key = SelectionManager.canonicalKey ? SelectionManager.canonicalKey(payload) : `node:${id}`;
 			if (key) {
 				localSelectionKeys.add(key);
@@ -1731,7 +1732,8 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		entry.data.selected = true;
 		markEdgeDirty(id);
 		if (!opts.silent && SelectionManager) {
-			const payload = makeSelectionPayload(id, 'edge', entry);
+			// Build rich payload including edge data + source/target
+			const payload = { data: Object.assign({}, entry.data || {}, { id: String(entry.id || id), source: String(entry.source), target: String(entry.target) }) };
 			const key = SelectionManager.canonicalKey ? SelectionManager.canonicalKey(payload) : `edge:${id}`;
 			if (key) {
 				localSelectionKeys.add(key);
@@ -1751,7 +1753,7 @@ export async function mountRealReagraphAdapter(opts = {}, env = {}) {
 		if (entry.data) delete entry.data.selected;
 		markEdgeDirty(id);
 		if (!opts.silent && SelectionManager) {
-			const payload = makeSelectionPayload(id, 'edge', entry);
+			const payload = { data: Object.assign({}, entry.data || {}, { id: String(entry.id || id), source: String(entry.source), target: String(entry.target) }) };
 			const key = SelectionManager.canonicalKey ? SelectionManager.canonicalKey(payload) : `edge:${id}`;
 			if (key) {
 				localSelectionKeys.add(key);
