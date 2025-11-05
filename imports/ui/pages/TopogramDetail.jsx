@@ -1604,10 +1604,11 @@ export default function TopogramDetail() {
     const hasPositions = nodes.some(n => n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number')
     // determine layout name: auto -> preset when positions exist otherwise cola
     const name = selectedLayout === 'auto' ? (hasPositions ? 'preset' : 'cola') : selectedLayout
+    const baseLayoutOpts = { animate: false, animationDuration: 0, animationEasing: undefined };
     const layoutObj = (() => {
-      if (name === 'preset') return { name: 'preset' }
-      if (name === 'cola') return { name: 'cola', nodeSpacing: 5, avoidOverlap: true, randomize: true, maxSimulationTime: 1500 }
-      return { name }
+      if (name === 'preset') return { name: 'preset', ...baseLayoutOpts };
+      if (name === 'cola') return { name: 'cola', nodeSpacing: 5, avoidOverlap: true, randomize: true, maxSimulationTime: 1500, ...baseLayoutOpts };
+      return { name, ...baseLayoutOpts };
     })()
     try {
       // Prefer adapter layout when using non-Cytoscape renderers via compat layer
