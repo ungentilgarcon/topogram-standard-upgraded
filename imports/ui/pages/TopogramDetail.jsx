@@ -1374,7 +1374,7 @@ export default function TopogramDetail() {
       grouped.get(key).push(edge)
     })
 
-    const edgeEls = []
+  const edgeEls = []
     grouped.forEach((groupEdges, key) => {
       groupEdges.forEach((edge, idx) => {
         const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
@@ -1417,6 +1417,21 @@ export default function TopogramDetail() {
         } catch (e) { data.weight = 1 }
         data._parallelIndex = idx
         data._parallelCount = groupEdges.length
+        	// Precompute values that Cytoscape doesn't accept as mapData in some properties
+        	try {
+        	  // control-point-step-size: mapData(_parallelIndex, 0, _parallelCount, 10, 40)
+        	  data._controlPointStepSize = (data._parallelCount === 0)
+        	    ? 10
+        	    : (data._parallelCount === 1)
+        	      ? 10
+        	      : mapDataLocal(data._parallelIndex, 0, data._parallelCount, 10, 40);
+        	} catch (e) { data._controlPointStepSize = 10 }
+        	try {
+        	  // text-margin-y: mapData(_parallelIndex, 0, _parallelCount, -18, 18)
+        	  data._textMarginY = (data._parallelCount === 0)
+        	    ? 0
+        	    : mapDataLocal(data._parallelIndex, 0, data._parallelCount, -18, 18);
+        	} catch (e) { data._textMarginY = 0 }
         const hasExplicitColor = typeof ecolor === 'string' ? ecolor.trim() !== '' : (ecolor != null)
         if (hasExplicitColor) {
           data.color = typeof ecolor === 'string' ? ecolor.trim() : ecolor
@@ -1506,7 +1521,8 @@ export default function TopogramDetail() {
     const stylesheet = [
       { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
       { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-      { selector: 'edge', style: { 'width': edgeWidthStyle, 'line-color': 'data(color)', 'target-arrow-color': 'data(color)', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
+      // Use precomputed numeric data fields for properties that don't accept mapData in some Cytoscape builds
+      { selector: 'edge', style: { 'width': edgeWidthStyle, 'line-color': 'data(color)', 'target-arrow-color': 'data(color)', 'curve-style': 'bezier', 'control-point-step-size': 'data(_controlPointStepSize)' } },
       { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
       { selector: 'edge[relationship], edge', style: {
         'label': 'data(_relVizLabel)',
@@ -1517,7 +1533,7 @@ export default function TopogramDetail() {
         'text-background-color': '#ffffff',
         'text-background-opacity': 0.85,
         'text-background-padding': 3,
-        'text-margin-y': `mapData(_parallelIndex, 0, _parallelCount, -18, 18)`
+        'text-margin-y': 'data(_textMarginY)'
       } },
     ]
 
