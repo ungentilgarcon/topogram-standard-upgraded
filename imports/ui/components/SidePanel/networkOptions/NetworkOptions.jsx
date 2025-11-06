@@ -84,20 +84,56 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
               <option value="reagraph">reagraph</option>
             </select>
           ))}
-          {row('Layout', (
-            <select
-              value={layout}
-              onChange={(e) => { const v = e.target.value; setLayout(v); fire({ layout: v }) }}
-              style={{ width: '100%' }}
-            >
-              <option value="auto">auto</option>
-              <option value="preset">preset</option>
-              <option value="cola">cola</option>
-              <option value="grid">grid</option>
-              <option value="breadthfirst">breadthfirst</option>
-              <option value="random">random</option>
-            </select>
-          ))}
+          {row('Layout', (() => {
+            // Renderer-specific layout options
+            const adapter = String(graphAdapter || '').toLowerCase();
+            let options = [ { v: 'auto', t: 'auto' }, { v: 'preset', t: 'preset' } ];
+            if (adapter === 'cytoscape' || adapter === 'cy') {
+              options = [
+                { v: 'auto', t: 'auto' },
+                { v: 'preset', t: 'preset' },
+                { v: 'grid', t: 'grid' },
+                { v: 'circle', t: 'circle' },
+                { v: 'concentric', t: 'concentric' },
+                { v: 'breadthfirst', t: 'breadthfirst' },
+                { v: 'cose', t: 'cose' },
+                { v: 'cola', t: 'cola' },
+                { v: 'fcose', t: 'fcose' },
+              ];
+            } else if (adapter === 'sigma') {
+              options = [
+                { v: 'auto', t: 'auto' },
+                { v: 'preset', t: 'preset' },
+                { v: 'random', t: 'random' },
+                { v: 'circular', t: 'circular' },
+                { v: 'forceatlas2', t: 'forceatlas2' },
+                { v: 'noverlap', t: 'noverlap' },
+              ];
+            } else if (adapter === 'reagraph') {
+              options = [
+                { v: 'auto', t: 'auto' },
+                { v: 'preset', t: 'preset' },
+                { v: 'forceatlas2', t: 'forceatlas2' },
+                { v: 'circular', t: 'circular' },
+                { v: 'concentric', t: 'concentric' },
+                { v: 'radial', t: 'radial' },
+                { v: 'nooverlap', t: 'nooverlap' },
+                { v: 'force-directed', t: 'force-directed' },
+                { v: 'breadthfirst', t: 'tree' },
+              ];
+            }
+            return (
+              <select
+                value={layout}
+                onChange={(e) => { const v = e.target.value; setLayout(v); fire({ layout: v }) }}
+                style={{ width: '100%' }}
+              >
+                {options.map(opt => (
+                  <option key={opt.v} value={opt.v}>{opt.t}</option>
+                ))}
+              </select>
+            );
+          })())}
         </>
       ), { defaultOpen: true })}
 

@@ -6,6 +6,7 @@ import { Mongo } from 'meteor/mongo'
 import CytoscapeComponent from 'react-cytoscapejs';
 import cytoscape from 'cytoscape';
 import cola from 'cytoscape-cola';
+import fcose from 'cytoscape-fcose';
 import TopogramGeoMap from '/imports/ui/components/TopogramGeoMap'
 import { getRendererTileOptions } from '/imports/ui/components/geoMap/mapTiles'
 import SidePanelWrapper from '/imports/ui/components/SidePanel/SidePanelWrapper'
@@ -17,6 +18,7 @@ import LegendPanel from '/imports/ui/components/LegendPanel/LegendPanel'
 import SelectionManager from '/imports/client/selection/SelectionManager'
 
 cytoscape.use(cola);
+try { cytoscape.use(fcose); } catch (e) { /* fcose optional */ }
 
 import GraphWrapper from '/imports/client/ui/components/network/GraphWrapper.jsx'
 import ErrorBoundary from '/imports/ui/components/ErrorBoundary.jsx'
@@ -1372,7 +1374,7 @@ export default function TopogramDetail() {
       grouped.get(key).push(edge)
     })
 
-    const edgeEls = []
+  const edgeEls = []
     grouped.forEach((groupEdges, key) => {
       groupEdges.forEach((edge, idx) => {
         const rawSrc = (edge.data && (edge.data.source || edge.data.from)) || edge.source || edge.from
@@ -1415,6 +1417,21 @@ export default function TopogramDetail() {
         } catch (e) { data.weight = 1 }
         data._parallelIndex = idx
         data._parallelCount = groupEdges.length
+        	// Precompute values that Cytoscape doesn't accept as mapData in some properties
+        	try {
+        	  // control-point-step-size: mapData(_parallelIndex, 0, _parallelCount, 10, 40)
+        	  data._controlPointStepSize = (data._parallelCount === 0)
+        	    ? 10
+        	    : (data._parallelCount === 1)
+        	      ? 10
+        	      : mapDataLocal(data._parallelIndex, 0, data._parallelCount, 10, 40);
+        	} catch (e) { data._controlPointStepSize = 10 }
+        	try {
+        	  // text-margin-y: mapData(_parallelIndex, 0, _parallelCount, -18, 18)
+        	  data._textMarginY = (data._parallelCount === 0)
+        	    ? 0
+        	    : mapDataLocal(data._parallelIndex, 0, data._parallelCount, -18, 18);
+        	} catch (e) { data._textMarginY = 0 }
         const hasExplicitColor = typeof ecolor === 'string' ? ecolor.trim() !== '' : (ecolor != null)
         if (hasExplicitColor) {
           data.color = typeof ecolor === 'string' ? ecolor.trim() : ecolor
@@ -1504,7 +1521,8 @@ export default function TopogramDetail() {
     const stylesheet = [
       { selector: 'node', style: { 'label': 'data(_vizLabel)', 'background-color': '#666', 'text-valign': 'center', 'color': '#fff', 'text-outline-width': 2, 'text-outline-color': '#000', 'width': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'height': `mapData(weight, ${minW}, ${maxW}, 12, 60)`, 'font-size': `${titleSize}px` } },
       { selector: 'node[color]', style: { 'background-color': 'data(color)' } },
-      { selector: 'edge', style: { 'width': edgeWidthStyle, 'line-color': 'data(color)', 'target-arrow-color': 'data(color)', 'curve-style': 'bezier', 'control-point-step-size': 'mapData(_parallelIndex, 0, _parallelCount, 10, 40)' } },
+      // Use precomputed numeric data fields for properties that don't accept mapData in some Cytoscape builds
+      { selector: 'edge', style: { 'width': edgeWidthStyle, 'line-color': 'data(color)', 'target-arrow-color': 'data(color)', 'curve-style': 'bezier', 'control-point-step-size': 'data(_controlPointStepSize)' } },
       { selector: 'edge[enlightement = "arrow"]', style: { 'target-arrow-shape': 'triangle', 'target-arrow-color': 'data(color)', 'target-arrow-fill': 'filled' } },
       { selector: 'edge[relationship], edge', style: {
         'label': 'data(_relVizLabel)',
@@ -1515,7 +1533,7 @@ export default function TopogramDetail() {
         'text-background-color': '#ffffff',
         'text-background-opacity': 0.85,
         'text-background-padding': 3,
-        'text-margin-y': `mapData(_parallelIndex, 0, _parallelCount, -18, 18)`
+        'text-margin-y': 'data(_textMarginY)'
       } },
     ]
 
@@ -1595,24 +1613,37 @@ export default function TopogramDetail() {
 
   // (stylesheet will be built after we compute numeric weights from nodes)
 
-  // When selectedLayout, node/edge counts or titleSize change, trigger the Cytoscape layout if we have an instance.
+  // When selectedLayout, node/edge counts or titleSize change, trigger the renderer layout.
   useEffect(() => {
     const cy = cyRef.current
     if (!cy) return
     const hasPositions = nodes.some(n => n.position && typeof n.position.x === 'number' && typeof n.position.y === 'number')
     // determine layout name: auto -> preset when positions exist otherwise cola
     const name = selectedLayout === 'auto' ? (hasPositions ? 'preset' : 'cola') : selectedLayout
+    const baseLayoutOpts = { animate: false, animationDuration: 0, animationEasing: undefined };
     const layoutObj = (() => {
-      if (name === 'preset') return { name: 'preset' }
-      if (name === 'cola') return { name: 'cola', nodeSpacing: 5, avoidOverlap: true, randomize: true, maxSimulationTime: 1500 }
-      return { name }
+      if (name === 'preset') return { name: 'preset', ...baseLayoutOpts };
+      if (name === 'cola') return { name: 'cola', nodeSpacing: 5, avoidOverlap: true, randomize: true, maxSimulationTime: 1500, ...baseLayoutOpts };
+      return { name, ...baseLayoutOpts };
     })()
     try {
+      // Prefer adapter layout when using non-Cytoscape renderers via compat layer
+      const raw = (cy && cy._rawAdapter) ? cy._rawAdapter : null
+      if (raw && typeof raw.layout === 'function') {
+        const runner = raw.layout(layoutObj)
+        if (runner && typeof runner.on === 'function') {
+          runner.on('layoutstop', () => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy) } catch (e) {} })
+        }
+        if (runner && typeof runner.run === 'function') runner.run()
+        // also schedule a delayed fit in case adapter doesn't emit layoutstop
+        setTimeout(() => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy) } catch (e) {} }, 150)
+        return
+      }
+      // Cytoscape instance path
       const runLayout = cy.layout(layoutObj)
       runLayout.run()
-      // fit after layout completes
-  runLayout.on && runLayout.on('layoutstop', () => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} })
-  setTimeout(() => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} }, 150)
+      runLayout.on && runLayout.on('layoutstop', () => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} })
+      setTimeout(() => { try { if (typeof cy.resize === 'function') cy.resize(); safeFit(cy); } catch (e) {} }, 150)
     } catch (err) {
       console.warn('failed to run cy layout', err)
     }

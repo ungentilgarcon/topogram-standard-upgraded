@@ -1,14 +1,11 @@
-// Lazy Reagraph adapter (safe):
+// Lazy Reagraph adapter (npm-backed):
 // - Dynamically imports `reagraph` and `graphology` when `mount()` is called.
 // - Logs package versions for debugging.
-// - Delegates rendering and the imperative Cytoscape-like API to the local
-//   dependency-free shim at `./reagraph/ReagraphAdapter` which already
-//   implements the expected nodes/edges/filter/select/unselect interface.
+// - Delegates rendering and the imperative Cytoscape-like API to the full
+//   React-based adapter at `./reagraph/RealReagraphAdapter`.
 //
-// This approach ensures the npm packages are used (presence detected and
-// logged) while avoiding bundle-time evaluation that previously triggered
-// semver/react renderer errors. It also provides a safe, fully-featured
-// imperative façade compatible with legacy consumers like `Charts`.
+// This ensures npm packages are used while avoiding bundle-time evaluation.
+// The returned adapter remains compatible with legacy consumers (Charts, etc.).
 
 import loadReagraphModule from '../reagraph/loadReagraph.js';
 
@@ -62,24 +59,15 @@ export default {
       // ignore logging errors
     }
 
-    // Delegate rendering and imperative API to the local safe shim. That shim
-    // already implements a Cytoscape-like adapter (nodes/edges/filter/select/...)
-    // and renders an SVG in the container. Using it here gives the app the
-    // expected behavior while we still exercise the npm package presence.
+    // Delegate rendering and imperative API to the full React-based adapter.
     try {
-      // Prefer the full React-based adapter, fall back to the lightweight shim
-      let shimModule = null;
-      try {
-        shimModule = await import('../reagraph/RealReagraphAdapter');
-      } catch (realErr) {
-        console.warn('graphAdapters/reagraphAdapter: RealReagraphAdapter missing, using legacy shim', realErr);
-        shimModule = await import('../reagraph/ReagraphAdapter');
-      }
+      // Load the real adapter only
+      const shimModule = await import('../reagraph/RealReagraphAdapter');
 
       const shim = shimModule && (shimModule.default || shimModule);
       if (!shim || typeof shim.mount !== 'function') {
-        console.warn('graphAdapters/reagraphAdapter: local shim missing or invalid — falling back to disabled adapter');
-        throw new Error('local reagraph shim missing');
+        console.error('graphAdapters/reagraphAdapter: RealReagraphAdapter missing or invalid');
+        throw new Error('RealReagraphAdapter missing');
       }
 
   // Call the shim's mount to get the fully-featured adapter
@@ -97,7 +85,7 @@ export default {
 
       return adapter;
     } catch (err) {
-      console.error('graphAdapters/reagraphAdapter: failed to mount local shim', err);
+      console.error('graphAdapters/reagraphAdapter: failed to mount RealReagraphAdapter', err);
       // Return a no-op adapter to avoid crashing the caller
       return { impl: 'reagraph', noop: true };
     }

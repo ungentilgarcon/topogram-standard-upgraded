@@ -54,8 +54,8 @@ export default function GraphWrapper(props) {
           // ensure default aggregation OFF (UI default)
           try { adapterRef.current && adapterRef.current.setAggregateEdges && adapterRef.current.setAggregateEdges(false); } catch (e) {}
         } catch (err) {
-          console.error('GraphWrapper: failed to load reagraph adapter', err);
-          // fallback to local adapters directly if lazy adapter fails
+          console.error('GraphWrapper: failed to load reagraph adapter facade, trying RealReagraphAdapter directly', err);
+          // fallback to local real adapter directly if lazy facade fails
           try {
             const RealShim = await import('./reagraph/RealReagraphAdapter');
             const shimModule = RealShim && (RealShim.default || RealShim);
@@ -66,9 +66,9 @@ export default function GraphWrapper(props) {
               throw new Error('RealReagraphAdapter missing mount');
             }
           } catch (realErr) {
-            console.warn('GraphWrapper: RealReagraphAdapter fallback failed, using legacy shim', realErr);
-            const LegacyShim = (await import('./reagraph/ReagraphAdapter')).default;
-            adapterRef.current = await LegacyShim.mount({ container: containerRef.current, elements, layout, stylesheet });
+            console.error('GraphWrapper: RealReagraphAdapter direct load failed', realErr);
+            // provide a no-op adapter so callers can continue without crashing
+            adapterRef.current = { impl: 'reagraph', noop: true };
           }
         }
       } else {

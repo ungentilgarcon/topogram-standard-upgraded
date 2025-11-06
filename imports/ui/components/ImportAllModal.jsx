@@ -27,9 +27,41 @@ export default function ImportAllModal({ open, onClose, onEnqueue }) {
   }
 
   // Same sample header as the importer expects.
-  const sampleHeaderArr = ['id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','enlightement','emoji','extra']
+  // Updated order to include absolute canvas positions (positionx, positiony)
+  // id,name,label,description,color,fillColor,weight,rawWeight,lat,lng,positionx,positiony,start,end,time,date,source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra
+  const sampleHeaderArr = [
+    'id','name','label','description','color','fillColor','weight','rawWeight','lat','lng','positionx','positiony','start','end','time','date','source','target','edgeLabel','edgeColor','edgeWeight','relationship','enlightement','emoji','extra'
+  ]
   const sampleRowsArr = [
-    ['1','Alice','Alice A','Node with geo & time','#ff5722','#ffccbc','10','10','40.7128','-74.0060','2020-01-01','2020-12-31','2020-06-15','2020-06-15','','','','','','','','','notes for alice']
+    // Example node row: includes geo (lat,lng) and normalized absolute position (positionx,positiony in [0,1])
+    ['1','Alice','Alice A','Node with geo & time','#ff5722','#ffccbc','10','10','40.7128','-74.0060','0.42','0.66','2020-01-01','2020-12-31','2020-06-15','2020-06-15','','','','','','','','','## Alice — **Data node**. Location: NYC. [Profile](https://example.com/alice)'],
+    ['2','Bob','Bob B','Connector node','#2196f3','#bbdefb','5','5','37.7749','-122.4194','0.58','0.47','','','','','','','','','','','','','## Bob — **Connector**. Useful for bridging clusters.'],
+    ['3','Carol','Carol C','Peripheral node','#4caf50','#c8e6c9','3','3','51.5074','-0.1278','0.12','0.78','','','','','','','','','','','','','## Carol — _Peripheral_. Research subject; see notes.'],
+    ['4','Dave','Dave D','Hub node','#9c27b0','#e1bee7','12','12','48.8566','2.3522','0.72','0.33','','','','','','','','','','','','','## Dave — **Hub**. Main hub node. `hub-id:4`'],
+    ['5','Eve','Eve E','Geo node','#ff9800','#ffe0b2','8','8','34.0522','-118.2437','0.61','0.52','','','','','','','','','','','','','## Eve — Geo data source (LA).'],
+    ['6','Frank','Frank F','Timeline node','#795548','#d7ccc8','6','6','52.52','13.4050','0.33','0.21','2019-05-01','2020-05-01','2019-11-11','2019-11-11','','','','','','','','','## Frank — Timeline node. Range: 2019-05-01 → 2020-05-01'],
+    ['7','Grace','Grace G','Emoji node','#e91e63','#f8bbd0','4','4','35.6895','139.6917','0.88','0.44','','','','','','','','','','','','','## Grace — Visual marker: 🌟'],
+    ['8','Heidi','Heidi H','Low weight','#607d8b','#cfd8dc','1','1','-33.8688','151.2093','0.25','0.85','','','','','','','','','','','','','## Heidi — Low-weight sample entry.'],
+    ['9','Ivan','Ivan I','Bridge','#8bc34a','#f1f8e9','7','7','41.9028','12.4964','0.52','0.12','','','','','','','','','','','','','## Ivan — Bridge node between clusters.'],
+    ['10','Judy','Judy J','Isolated','#03a9f4','#b3e5fc','2','2','55.7558','37.6173','0.15','0.35','','','','','','','','','','','','','## Judy — Isolated node. Short note.'],
+    // edges (empty node columns, then source,target,edgeLabel,edgeColor,edgeWeight,relationship,enlightement,emoji,extra)
+    ['','','','','','','','','','','','','','','','','1','2','friend','#9e9e9e','1','undirected','','','', '*Edge:* **friend**'],
+    ['','','','','','','','','','','','','','','','','1','3','colleague','#ffab00','2','directed','arrow','','', '*Edge:* **colleague** — works on `project-x`'],
+    ['','','','','','','','','','','','','','','','','2','3','follows','#4caf50','1','directed','','','', ''],
+    ['','','','','','','','','','','','','','','','','2','4','reports','#2196f3','3','directed','arrow','','', ''],
+    ['','','','','','','','','','','','','','','','','3','5','mentions','#ff5722','1','undirected','','','', ''],
+    ['','','','','','','','','','','','','','','','','4','5','links','#607d8b','2','undirected','','','', ''],
+    ['','','','','','','','','','','','','','','','','4','6','relates','#9c27b0','2','directed','arrow','','', ''],
+    ['','','','','','','','','','','','','','','','','5','7','observes','#795548','1','directed','','','', ''],
+    ['','','','','','','','','','','','','','','','','6','7','connects','#8bc34a','2','undirected','','','', ''],
+    ['','','','','','','','','','','','','','','','','7','8','supports','#e91e63','1','directed','','','', ''],
+    ['','','','','','','','','','','','','','','','','8','9','transfers','#03a9f4','3','directed','arrow','','', ''],
+    ['','','','','','','','','','','','','','','','','9','10','assists','#ff9800','1','undirected','','','', ''],
+    ['','','','','','','','','','','','','','','','','10','1','references','#4caf50','2','directed','','','', ''],
+    ['','','','','','','','','','','','','','','','','3','9','mentions','#9e9e9e','1','undirected','','','', ''],
+    ['','','','','','','','','','','','','','','','','2','9','follows','#2196f3','2','directed','','','', ''],
+    ['','','','','','','','','','','','','','','','','5','10','links','#607d8b','2','undirected','','','', ''],
+    ['','','','','','','','','','','','','','','','','6','10','cites','#9c27b0','3','directed','arrow','','', '']
   ]
   const sampleCsv = ['# Topogram: Sample Topogram', sampleHeaderArr.map(_quote).join(',')].concat(sampleRowsArr.map(r => r.map(_quote).join(','))).join('\n')
 
@@ -166,26 +198,28 @@ export default function ImportAllModal({ open, onClose, onEnqueue }) {
             if (n.rawWeight != null) r[7] = String(n.rawWeight)
             if (n.lat != null) r[8] = String(n.lat)
             if (n.lng != null) r[9] = String(n.lng)
-            if (n.start != null) r[10] = String(n.start)
-            if (n.end != null) r[11] = String(n.end)
-            if (n.time != null) r[12] = String(n.time)
-            if (n.date != null) r[13] = String(n.date)
-            if (n.emoji != null) r[21] = String(n.emoji)
-            if (n.extra != null) r[22] = typeof n.extra === 'string' ? n.extra : JSON.stringify(n.extra)
+            if (n.positionx != null) r[10] = String(n.positionx)
+            if (n.positiony != null) r[11] = String(n.positiony)
+            if (n.start != null) r[12] = String(n.start)
+            if (n.end != null) r[13] = String(n.end)
+            if (n.time != null) r[14] = String(n.time)
+            if (n.date != null) r[15] = String(n.date)
+            if (n.emoji != null) r[23] = String(n.emoji)
+            if (n.extra != null) r[24] = typeof n.extra === 'string' ? n.extra : JSON.stringify(n.extra)
             rows.push(r)
           })
         }
         if (Array.isArray(parsed.edges)) {
           parsed.edges.forEach(e => {
             const r = headerArr.map(h => '')
-            if (e.source != null) r[14] = String(e.source)
-            if (e.target != null) r[15] = String(e.target)
-            if (e.edgeLabel != null) r[16] = String(e.edgeLabel)
-            if (e.edgeColor != null) r[17] = String(e.edgeColor)
-            if (e.edgeWeight != null) r[18] = String(e.edgeWeight)
-            if (e.relationship != null) r[19] = String(e.relationship)
-            if (e.enlightement != null) r[20] = String(e.enlightement)
-            if (e.extra != null) r[22] = typeof e.extra === 'string' ? e.extra : JSON.stringify(e.extra)
+            if (e.source != null) r[16] = String(e.source)
+            if (e.target != null) r[17] = String(e.target)
+            if (e.edgeLabel != null) r[18] = String(e.edgeLabel)
+            if (e.edgeColor != null) r[19] = String(e.edgeColor)
+            if (e.edgeWeight != null) r[20] = String(e.edgeWeight)
+            if (e.relationship != null) r[21] = String(e.relationship)
+            if (e.enlightement != null) r[22] = String(e.enlightement)
+            if (e.extra != null) r[24] = typeof e.extra === 'string' ? e.extra : JSON.stringify(e.extra)
             rows.push(r)
           })
         }

@@ -84,6 +84,8 @@ function SigmaAdapter(container, elements = [], options = {}) {
   const graph = new GraphConstructor();
   // Visual tuning: multiply raw edge 'size' by this for display. Lower = thinner.
   const EDGE_VISUAL_SCALE = 0.30;
+  const EDGE_WIDTH_MIN = 2;
+  const EDGE_WIDTH_MAX = 12;
   // We require the @sigma/edge-curve program to be present. If it's not
   // available we'll abort init and return a noop adapter so the app can
   // handle the missing capability explicitly. This enforces a pure WebGL
@@ -394,7 +396,21 @@ function SigmaAdapter(container, elements = [], options = {}) {
     try { console.debug('SigmaAdapter: populated graph', { nodeCount: graph.order, edgeCount: graph.size }); } catch (e) { console.debug('SigmaAdapter: populated graph (counts unavailable)'); }
 
     // Determine edge weight range and map weights -> visual width (pixels)
-    const edgeWeights = (edges || []).map(e => Number((e.attrs && (e.attrs.weight != null ? e.attrs.weight : (e.attrs && e.attrs.width != null ? e.attrs.width : 1))) || 1));
+    const coercePositiveNumber = (value) => {
+      if (value === null || typeof value === 'undefined') return null;
+      if (typeof value === 'number' && Number.isFinite(value) && value > 0) return value;
+      const num = Number(value);
+      if (!Number.isFinite(num) || num <= 0) return null;
+      return num;
+    };
+    const edgeWeights = (edges || []).map((e) => {
+      const attrs = e && e.attrs ? e.attrs : {};
+      const primary = coercePositiveNumber(attrs.weight);
+      if (primary != null) return primary;
+      const viaWidth = coercePositiveNumber(attrs.width);
+      if (viaWidth != null) return viaWidth;
+      return 1;
+    });
     const minEW = edgeWeights.length ? Math.min(...edgeWeights) : 1;
     const maxEW = edgeWeights.length ? Math.max(...edgeWeights) : (minEW + 1);
     function mapDataLocal(value, dmin, dmax, rmin, rmax) {
@@ -419,6 +435,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
           const a = attr || {};
           // prefer explicit numeric size
           let sizeVal = null;
+          let numericWeight = coercePositiveNumber(a.weight);
+          if (numericWeight == null) numericWeight = coercePositiveNumber(a.width);
+          if (numericWeight == null) numericWeight = 1;
           if (typeof a.size === 'number' && !Number.isNaN(a.size)) {
             sizeVal = Math.max(1, a.size);
           } else if (typeof a.size === 'string') {
@@ -426,15 +445,12 @@ function SigmaAdapter(container, elements = [], options = {}) {
             if (!Number.isNaN(parsed)) sizeVal = Math.max(1, parsed);
           }
           if (sizeVal === null) {
-            const w = (typeof a.width === 'number') ? a.width : (a.weight != null ? Number(a.weight) : null);
-            if (w != null && !Number.isNaN(w)) {
-              // map data domain [minEW, maxEW] to visual width [1,6] pixels
-              const visualW = mapDataLocal(w, minEW, maxEW, 1, 6);
-              sizeVal = Math.max(1, visualW);
-            } else {
-              sizeVal = 1;
-            }
+            const visualW = (minEW === maxEW)
+              ? (EDGE_WIDTH_MIN + EDGE_WIDTH_MAX) / 2
+              : mapDataLocal(numericWeight, minEW, maxEW, EDGE_WIDTH_MIN, EDGE_WIDTH_MAX);
+            sizeVal = Math.max(EDGE_WIDTH_MIN, Math.min(EDGE_WIDTH_MAX, visualW));
           }
+          try { graph.setEdgeAttribute(id, 'weight', numericWeight); } catch (e) {}
           try { graph.setEdgeAttribute(id, 'size', sizeVal); } catch (e) {}
             // ensure edge color exists
             try {
@@ -846,7 +862,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
       const toggleNodeSelection = (nodeId, evtObj) => {
         if (!nodeId) return;
         const currently = !!graph.getNodeAttribute(nodeId, 'selected');
-        const json = { data: { id: String(nodeId) } };
+        // Build a richer selection payload mirroring Cytoscape element.json()
+        let nodeAttrs = {};
+        try { nodeAttrs = Object.assign({}, graph.getNodeAttributes(nodeId) || {}); } catch (e) {}
+        const json = { data: Object.assign({}, nodeAttrs, { id: String(nodeId) }) };
         const key = SelectionManager ? SelectionManager.canonicalKey(json) : `node:${String(nodeId)}`;
         if (key) _localSelKeys.add(key);
         const maybePrevent = evtObj && typeof evtObj.preventSigmaDefault === 'function' ? evtObj : null;
@@ -874,7 +893,10 @@ function SigmaAdapter(container, elements = [], options = {}) {
         const currently = !!graph.getEdgeAttribute(edgeId, 'selected');
         const src = (typeof graph.source === 'function') ? graph.source(edgeId) : null;
         const tgt = (typeof graph.target === 'function') ? graph.target(edgeId) : null;
-        const json = { data: { id: String(edgeId), source: src, target: tgt } };
+        // Include full edge attributes in selection payload
+        let edgeAttrs = {};
+        try { edgeAttrs = Object.assign({}, graph.getEdgeAttributes(edgeId) || {}); } catch (e) {}
+        const json = { data: Object.assign({}, edgeAttrs, { id: String(edgeId), source: src, target: tgt }) };
         const key = SelectionManager ? SelectionManager.canonicalKey(json) : `edge:${String(edgeId)}`;
         if (key) _localSelKeys.add(key);
         const maybePrevent = evtObj && typeof evtObj.preventSigmaDefault === 'function' ? evtObj : null;
@@ -1259,7 +1281,7 @@ function SigmaAdapter(container, elements = [], options = {}) {
             // Accept a variety of Graphology event signatures. Some versions
             // call listeners as (node, attrName, newVal, oldVal), others as
             // (node, attributesObject). We normalize and handle selected changes.
-            this._attrListener = function() {
+                this._attrListener = function() {
               try {
                 const args = Array.prototype.slice.call(arguments);
                 const node = args[0];
@@ -1309,7 +1331,9 @@ function SigmaAdapter(container, elements = [], options = {}) {
                 // Reflect selection into SelectionManager (unless we originated it locally)
                 try {
                   if (SelectionManager) {
-                    const j = { data: { id: node } };
+                    // Build payload using node attributes so SelectionPanel gets full data
+                    const attrs = graph.getNodeAttributes(node) || {};
+                    const j = { data: Object.assign({}, attrs, { id: node }) };
                     const k = SelectionManager.canonicalKey(j);
                     if (_localSelKeys && _localSelKeys.has(k)) {
                       // this change originated from this adapter; remove local marker
@@ -1386,19 +1410,21 @@ function SigmaAdapter(container, elements = [], options = {}) {
                     } catch (e) {}
                     try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
                     // reflect into SelectionManager unless locally originated
-                    try {
-                      if (SelectionManager) {
-                        const src = (typeof graph.source === 'function') ? graph.source(edge) : null;
-                        const tgt = (typeof graph.target === 'function') ? graph.target(edge) : null;
-                        const j = { data: { id: edge, source: src, target: tgt } };
-                        const k = SelectionManager.canonicalKey(j);
-                        if (_localSelKeys && _localSelKeys.has(k)) {
-                          try { _localSelKeys.delete(k); } catch (e) {}
-                        } else {
-                          if (newVal) SelectionManager.select(j); else SelectionManager.unselect(j);
+                      try {
+                        if (SelectionManager) {
+                          const src = (typeof graph.source === 'function') ? graph.source(edge) : null;
+                          const tgt = (typeof graph.target === 'function') ? graph.target(edge) : null;
+                          let edgeAttrs = {};
+                          try { edgeAttrs = Object.assign({}, graph.getEdgeAttributes(edge) || {}); } catch (e) {}
+                          const j = { data: Object.assign({}, edgeAttrs, { id: edge, source: src, target: tgt }) };
+                          const k = SelectionManager.canonicalKey(j);
+                          if (_localSelKeys && _localSelKeys.has(k)) {
+                            try { _localSelKeys.delete(k); } catch (e) {}
+                          } else {
+                            if (newVal) SelectionManager.select(j); else SelectionManager.unselect(j);
+                          }
                         }
-                      }
-                    } catch (e) {}
+                      } catch (e) {}
                   } catch (e) {}
                 } catch (e) {}
               };
@@ -1946,35 +1972,192 @@ function SigmaAdapter(container, elements = [], options = {}) {
     let callbacks = [];
     return {
       run: () => {
-        if (!layoutObj || layoutObj.name === 'preset') {
-          // immediate callback to simulate synchronous completion
-          setTimeout(() => { callbacks.forEach(cb => cb()); }, 0);
+        const name = (layoutObj && layoutObj.name) ? String(layoutObj.name).toLowerCase() : '';
+        // 'preset' or missing: fire callbacks immediately
+        if (!name || name === 'preset' || name === 'custom') {
+          setTimeout(() => { callbacks.forEach(cb => { try { cb(); } catch (e) {} }); }, 0);
           return;
         }
 
-        const nodes = graph.nodes().map(id => ({ id, x: graph.getNodeAttribute(id, 'x') || null, y: graph.getNodeAttribute(id, 'y') || null }));
-        const edgesList = graph.edges().map(id => ({ id, source: graph.source(id), target: graph.target(id) }));
-        const iterations = (layoutObj && layoutObj.maxSimulationTime) ? Math.max(100, Math.floor(layoutObj.maxSimulationTime / 5)) : 200;
+        const safeRequire = (id) => { try { return require(id); } catch (e) { return null; } };
+        const nodes = graph.nodes();
+        const hasXY = (() => { try { return nodes.some(id => Number.isFinite(graph.getNodeAttribute(id, 'x')) && Number.isFinite(graph.getNodeAttribute(id, 'y'))); } catch (e) { return false; } })();
+        const iterations = (() => {
+          if (layoutObj && Number.isFinite(layoutObj.iterations)) return Math.max(1, Number(layoutObj.iterations));
+          if (layoutObj && Number.isFinite(layoutObj.maxSimulationTime)) return Math.max(50, Math.floor(Number(layoutObj.maxSimulationTime) / 5));
+          return 200;
+        })();
 
-        const workerCode = `self.onmessage = function(e) { const {nodes, edges, iterations} = e.data; const N = nodes.length; const pos = {}; for (let i=0;i<N;i++) pos[nodes[i].id] = { x: nodes[i].x != null ? nodes[i].x : (Math.random()*1000-500), y: nodes[i].y != null ? nodes[i].y : (Math.random()*1000-500) }; const k = Math.sqrt(1000*1000/Math.max(1,N)); for (let iter=0; iter<iterations; iter++) { const disp = {}; for (let i=0;i<N;i++) disp[nodes[i].id]={x:0,y:0}; for (let i=0;i<N;i++) for (let j=i+1;j<N;j++) { const a=nodes[i].id,b=nodes[j].id; const dx=pos[a].x-pos[b].x, dy=pos[a].y-pos[b].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(k*k)/dist; const ux=dx/dist, uy=dy/dist; disp[a].x+=ux*force; disp[a].y+=uy*force; disp[b].x-=ux*force; disp[b].y-=uy*force; } for (let ei=0; ei<edges.length; ei++){ const e=edges[ei]; const s=e.source,t=e.target; const dx=pos[s].x-pos[t].x, dy=pos[s].y-pos[t].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(dist*dist)/k; const ux=dx/dist, uy=dy/dist; disp[s].x-=ux*force; disp[s].y-=uy*force; disp[t].x+=ux*force; disp[t].y+=uy*force; } const temp=10*(1-iter/iterations); for (let i=0;i<N;i++){ const id=nodes[i].id; const dx=disp[id].x, dy=disp[id].y; const len=Math.sqrt(dx*dx+dy*dy)||1; pos[id].x+=(dx/len)*Math.min(len,temp); pos[id].y+=(dy/len)*Math.min(len,temp); } } self.postMessage({positions:pos}); }`;
-
-        const blob = new Blob([workerCode], { type: 'application/javascript' });
-        const url = URL.createObjectURL(blob);
-        const w = new Worker(url);
-        w.onmessage = function(ev) {
-          const positions = ev.data.positions;
-          Object.keys(positions).forEach(id => {
-            try { if (graph.hasNode(id)) { graph.setNodeAttribute(id, 'x', positions[id].x); graph.setNodeAttribute(id, 'y', positions[id].y); } } catch (e) {}
-          });
+        const finish = () => {
           try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
           callbacks.forEach(cb => { try { cb(); } catch (e) {} });
-          w.terminate(); URL.revokeObjectURL(url);
         };
-        w.postMessage({ nodes, edges: edgesList, iterations });
+
+        const runWorkerFallback = () => {
+          const nodeArr = nodes.map(id => ({ id, x: graph.getNodeAttribute(id, 'x') || null, y: graph.getNodeAttribute(id, 'y') || null }));
+          const edgesList = graph.edges().map(id => ({ id, source: graph.source(id), target: graph.target(id) }));
+          const workerCode = `self.onmessage = function(e) { const {nodes, edges, iterations} = e.data; const N = nodes.length; const pos = {}; for (let i=0;i<N;i++) pos[nodes[i].id] = { x: nodes[i].x != null ? nodes[i].x : (Math.random()*1000-500), y: nodes[i].y != null ? nodes[i].y : (Math.random()*1000-500) }; const k = Math.sqrt(1000*1000/Math.max(1,N)); for (let iter=0; iter<iterations; iter++) { const disp = {}; for (let i=0;i<N;i++) disp[nodes[i].id]={x:0,y:0}; for (let i=0;i<N;i++) for (let j=i+1;j<N;j++) { const a=nodes[i].id,b=nodes[j].id; const dx=pos[a].x-pos[b].x, dy=pos[a].y-pos[b].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(k*k)/dist; const ux=dx/dist, uy=dy/dist; disp[a].x+=ux*force; disp[a].y+=uy*force; disp[b].x-=ux*force; disp[b].y-=uy*force; } for (let ei=0; ei<edges.length; ei++){ const e=edges[ei]; const s=e.source,t=e.target; const dx=pos[s].x-pos[t].x, dy=pos[s].y-pos[t].y; let dist=Math.sqrt(dx*dx+dy*dy)+0.01; const force=(dist*dist)/k; const ux=dx/dist, uy=dy/dist; disp[s].x-=ux*force; disp[s].y-=uy*force; disp[t].x+=ux*force; disp[t].y+=uy*force; } const temp=10*(1-iter/iterations); for (let i=0;i<N;i++){ const id=nodes[i].id; const dx=disp[id].x, dy=disp[id].y; const len=Math.sqrt(dx*dx+dy*dy)||1; pos[id].x+=(dx/len)*Math.min(len,temp); pos[id].y+=(dy/len)*Math.min(len,temp); } } self.postMessage({positions:pos}); }`;
+          const blob = new Blob([workerCode], { type: 'application/javascript' });
+          const url = URL.createObjectURL(blob);
+          const w = new Worker(url);
+          w.onmessage = function(ev) {
+            const positions = ev.data.positions;
+            Object.keys(positions).forEach(id => {
+              try { if (graph.hasNode(id)) { graph.setNodeAttribute(id, 'x', positions[id].x); graph.setNodeAttribute(id, 'y', positions[id].y); } } catch (e) {}
+            });
+            try { if (renderer && typeof renderer.refresh === 'function') renderer.refresh(); } catch (e) {}
+            callbacks.forEach(cb => { try { cb(); } catch (e) {} });
+            w.terminate(); URL.revokeObjectURL(url);
+          };
+          w.postMessage({ nodes: nodeArr, edges: edgesList, iterations });
+        };
+
+        // Implement renderer-specific names using graphology-layout when available
+        if (name === 'random') {
+          const glayout = safeRequire('graphology-layout');
+          if (glayout && glayout.random && typeof glayout.random.assign === 'function') {
+            try { glayout.random.assign(graph); finish(); return; } catch (e) {}
+          }
+          // fallback: simple random scatter
+          nodes.forEach(id => { try { graph.setNodeAttribute(id, 'x', (Math.random()*1000)-500); graph.setNodeAttribute(id, 'y', (Math.random()*1000)-500); } catch (e) {} });
+          finish();
+          return;
+        }
+        if (name === 'circular' || name === 'circle') {
+          const glayout = safeRequire('graphology-layout');
+          if (glayout && glayout.circular && typeof glayout.circular.assign === 'function') {
+            try { glayout.circular.assign(graph); finish(); return; } catch (e) {}
+          }
+          // fallback: ring approx
+          const N = nodes.length || 1; const R = 300; let i = 0;
+          nodes.forEach(id => { const t = (i++/N) * Math.PI*2; try { graph.setNodeAttribute(id, 'x', Math.cos(t)*R); graph.setNodeAttribute(id, 'y', Math.sin(t)*R); } catch (e) {} });
+          finish();
+          return;
+        }
+        if (name === 'noverlap') {
+          const noverlap = safeRequire('graphology-layout-noverlap');
+          if (noverlap && typeof noverlap.assign === 'function') {
+            try { noverlap.assign(graph, { settings: { margin: (layoutObj && Number(layoutObj.margin)) || 8 } }); finish(); return; } catch (e) {}
+          }
+          // No-op if library missing
+          finish();
+          return;
+        }
+        if (name === 'forceatlas2' || name === 'fa2' || name === 'force') {
+          const fa2 = safeRequire('graphology-layout-forceatlas2');
+          if (fa2 && typeof fa2.assign === 'function') {
+            try {
+              const settings = (layoutObj && layoutObj.settings) || { slowDown: 10, gravity: 1, scalingRatio: 10, strongGravityMode: false };
+              fa2.assign(graph, { iterations, settings });
+              finish();
+              return;
+            } catch (e) {}
+          }
+          // fallback to simple worker-based force layout
+          runWorkerFallback();
+          return;
+        }
+
+        // Unknown name: fallback to worker
+        runWorkerFallback();
       },
       on: (evt, cb) => { if (evt === 'layoutstop' && typeof cb === 'function') callbacks.push(cb); }
     };
   };
+
+  // --- Extra position layer (positionx/positiony) ---------------------------------
+  try {
+    // Ensure container can host absolute overlays
+    try { if (container && (!container.style || !container.style.position || container.style.position === '')) container.style.position = 'relative'; } catch (e) {}
+
+    // Build list of overlay points from elements (nodes only)
+    const overlayPoints = [];
+    try {
+      (elements || []).forEach((el) => {
+        try {
+          if (!el || !el.data) return;
+          const d = el.data;
+          const isNode = d && (d.source == null && d.target == null);
+          if (!isNode) return;
+          const px = (d.positionx != null) ? Number(d.positionx) : (d.posx != null ? Number(d.posx) : (d.xPos != null ? Number(d.xPos) : null));
+          const py = (d.positiony != null) ? Number(d.positiony) : (d.posy != null ? Number(d.posy) : (d.yPos != null ? Number(d.yPos) : null));
+          if (!Number.isFinite(px) || !Number.isFinite(py)) return;
+          overlayPoints.push({ id: String(d.id != null ? d.id : ''), x: px, y: py });
+        } catch (e) {}
+      });
+    } catch (e) {}
+
+    if (overlayPoints.length) {
+      // Create canvas overlay
+      const overlay = document.createElement('canvas');
+      overlay.style.position = 'absolute';
+      overlay.style.left = '0';
+      overlay.style.top = '0';
+      overlay.style.width = '100%';
+      overlay.style.height = '100%';
+      overlay.style.pointerEvents = 'none';
+      overlay.style.zIndex = '5';
+      container.appendChild(overlay);
+
+      const pad = 8;
+      const ext = overlayPoints.reduce((acc, p) => ({
+        minX: Math.min(acc.minX, p.x),
+        maxX: Math.max(acc.maxX, p.x),
+        minY: Math.min(acc.minY, p.y),
+        maxY: Math.max(acc.maxY, p.y),
+      }), { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity });
+
+      const draw = () => {
+        try {
+          const w = container.clientWidth || 0;
+          const h = container.clientHeight || 0;
+          if (!w || !h) return;
+          // set canvas pixel size to match CSS size
+          overlay.width = w;
+          overlay.height = h;
+          const ctx = overlay.getContext('2d');
+          if (!ctx) return;
+          ctx.clearRect(0, 0, w, h);
+          if (!Number.isFinite(ext.minX) || !Number.isFinite(ext.maxX) || !Number.isFinite(ext.minY) || !Number.isFinite(ext.maxY)) return;
+          const spanX = (ext.maxX - ext.minX) || 1;
+          const spanY = (ext.maxY - ext.minY) || 1;
+          const sx = (w - pad * 2) / spanX;
+          const sy = (h - pad * 2) / spanY;
+          ctx.fillStyle = 'rgba(30, 136, 229, 0.35)';
+          const r = 3;
+          overlayPoints.forEach((p) => {
+            const vx = pad + (p.x - ext.minX) * sx;
+            const vy = pad + (p.y - ext.minY) * sy;
+            ctx.beginPath();
+            ctx.arc(vx, h - vy, r, 0, Math.PI * 2); // flip Y so increasing y goes up
+            ctx.fill();
+          });
+        } catch (e) {}
+      };
+
+      // Resize observer to keep canvas in sync
+      let ro = null;
+      try {
+        if (typeof ResizeObserver !== 'undefined') {
+          ro = new ResizeObserver(() => draw());
+          ro.observe(container);
+        } else {
+          window.addEventListener('resize', draw);
+        }
+      } catch (e) {}
+
+      // initial draw and on next frame to avoid layout thrash
+      try { draw(); requestAnimationFrame(draw); } catch (e) {}
+
+      // cleanup overlay on adapter destroy
+      try {
+        cleanupFns.push(() => {
+          try { if (ro && ro.disconnect) ro.disconnect(); } catch (e) {}
+          try { if (overlay && overlay.parentNode) overlay.parentNode.removeChild(overlay); } catch (e) {}
+        });
+      } catch (e) {}
+    }
+  } catch (e) {}
 
   return adapter;
 }
