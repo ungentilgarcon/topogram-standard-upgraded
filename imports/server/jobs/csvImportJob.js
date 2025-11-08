@@ -293,7 +293,14 @@ const processJob = async (job) => {
       await Jobs.updateAsync(job._id, { $inc: { processed: originalCount, inserted: batchInserted } })
     }
 
-  await Jobs.updateAsync(job._id, { $set: { status: 'done', finishedAt: new Date(), inserted: inserted + edgeInserted } })
+    // Persist denormalized counts onto the Topogram document so clients can read them
+    try {
+      await Topograms.updateAsync({ _id: topogramId }, { $set: { nodeCount: inserted, edgeCount: edgeInserted } })
+    } catch (e) {
+      // don't let failure to update counts block job completion
+      console.warn && console.warn('Failed to persist topogram counts', e)
+    }
+    await Jobs.updateAsync(job._id, { $set: { status: 'done', finishedAt: new Date(), inserted: inserted + edgeInserted } })
 
     // cleanup
     try { fs.unlinkSync(tmpPath) } catch (e) {}
