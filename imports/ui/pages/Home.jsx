@@ -11,6 +11,7 @@ import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
+import AboutDialog from '/imports/ui/components/AboutDialog/AboutDialog.jsx'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import FormControl from '@mui/material/FormControl'
@@ -64,6 +65,8 @@ export default function Home() {
   const [exportLoading, setExportLoading] = useState(false)
   const [exportError, setExportError] = useState(null)
   const [exportResult, setExportResult] = useState(null)
+  const [aboutOpen, setAboutOpen] = useState(false)
+  const [aboutRaw, setAboutRaw] = useState('')
 
   const { userId, user } = useTracker(() => {
     // Guard in case Meteor.userId/user are not available as functions in this runtime
@@ -448,6 +451,7 @@ export default function Home() {
             <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify(tops.slice(0, 5), null, 2)}</pre>
           </details>
         </div>
+        
       ) : (
         <div>
           <ul className="topogram-list">
@@ -485,6 +489,7 @@ export default function Home() {
                     isAdmin={isAdmin}
                     onDeleteTopogram={handleDeleteTopogram}
                     onExport={openExportDialog}
+                    onAbout={(md) => { setAboutRaw(md); setAboutOpen(true) }}
                   />
                 ) : null}
               </li>
@@ -494,10 +499,14 @@ export default function Home() {
               const docId = normalizeId(t && t._id)
               const keyId = docId || String(t && t._id || '')
               const route = docId ? `/t/${docId}` : `/t/${encodeURIComponent(String(t && t._id || ''))}`
-              return (
+                return (
                 <li key={keyId} className="topogram-item">
                   <Link to={route} className="topogram-link">{t.title || t.name || docId || String(t && t._id)}</Link>
                   {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
+                  {/* About button shown only when graph_desc exists on the topogram */}
+                  {t && t.graph_desc ? (
+                    <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => { console.debug && console.debug('About clicked (no-folder)', t && t._id); setAboutRaw(t.graph_desc); setAboutOpen(true) }}>About</Button>
+                  ) : null}
                   {isAdmin ? (
                     <div className="topogram-admin-actions">
                       <Button size="small" color="error" variant="outlined" onClick={() => handleDeleteTopogram(t)}>Delete</Button>
@@ -533,13 +542,15 @@ export default function Home() {
               </details>
             </div>
           ) : null}
-        </div>
+  {/* Global About dialog (always mounted) */}
+  <AboutDialog open={aboutOpen} onClose={() => setAboutOpen(false)} markdown={aboutRaw} />
+  </div>
       )}
     </div>
   );
 }
 
-function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport }) {
+function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport, onAbout }) {
   const [page, setPage] = useState(1)
   const ready = useSubscribe('topograms.paginated', useMemo(() => ({ folder: name, page, limit: perPage }), [name, page, perPage]))
   const items = useFind(() => Topograms.find({ folder: name }, { sort: { createdAt: -1 } }))
@@ -562,6 +573,9 @@ function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport
           <div key={keyId} className="topogram-item folder-card">
             <Link to={route} className="topogram-link">{t.title || t.name || docId || String(t && t._id)}</Link>
             {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
+            {t && t.graph_desc ? (
+                    <Button size="small" variant="outlined" sx={{ mt: 1 }} onClick={() => { console.debug && console.debug('About clicked (folder)', t && t._id); if (typeof onAbout === 'function') onAbout(t.graph_desc) }}>About</Button>
+            ) : null}
             {isAdmin ? (
               <div className="topogram-admin-actions">
                 <Button size="small" color="error" variant="outlined" onClick={() => onDeleteTopogram(t)}>Delete</Button>
@@ -571,6 +585,7 @@ function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport
           </div>
         )
       })}
+      {/* FolderSection delegates About dialog handling to parent via onAbout */}
       <div className="pagination-bar">
         <button type="button" className="page-btn" disabled={page <= 1} onClick={() => setPage(p => Math.max(1, p - 1))}>Previous</button>
         <span className="page-info">Page {page} / {totalPages}</span>

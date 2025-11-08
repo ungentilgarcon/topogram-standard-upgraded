@@ -7,13 +7,8 @@ import PanelSelector from './panelSelector/PanelSelector.jsx'
 
 import NetworkOptions from './networkOptions/NetworkOptions.jsx'
 import Settings from './settings/Settings.jsx'
-import Dialog from '@mui/material/Dialog'
-import DialogTitle from '@mui/material/DialogTitle'
-import DialogContent from '@mui/material/DialogContent'
-import DialogActions from '@mui/material/DialogActions'
+import AboutDialog from '/imports/ui/components/AboutDialog/AboutDialog.jsx'
 import Button from '@mui/material/Button'
-import { marked } from 'marked'
-import DOMPurify from 'dompurify'
 
 const PanelSettings = ({
   geoMapVisible,
@@ -38,13 +33,6 @@ const PanelSettings = ({
   const graphDesc = top && (top.graph_desc || top.description || top.desc || (top.data && (top.data.graph_desc || top.data.description))) ? (top.graph_desc || top.description || top.desc || (top.data && (top.data.graph_desc || top.data.description))) : ''
 
   const [aboutOpen, setAboutOpen] = useState(false)
-  const safeHtml = useMemo(() => {
-    try {
-      const raw = String(graphDesc || '')
-      const html = marked.parse(raw || '')
-      return DOMPurify.sanitize(html)
-    } catch (e) { return '' }
-  }, [graphDesc])
 
   return (
     <span>
@@ -69,7 +57,7 @@ const PanelSettings = ({
         </button>
         {/* About this map button - opens a dialog rendering markdown from Topogram.graph_desc */}
         <button
-          onClick={() => setAboutOpen(true)}
+          onClick={() => { console.debug && console.debug('SidePanel About clicked', routeId || topogramId); setAboutOpen(true) }}
           style={{ marginLeft: 8, background: '#2e7d32', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
         >
           About this map
@@ -199,20 +187,8 @@ const PanelSettings = ({
       :
       null
     }
-    {/* About dialog - render sanitized HTML converted from markdown */}
-    <Dialog open={aboutOpen} onClose={() => setAboutOpen(false)} maxWidth="md" fullWidth>
-      <DialogTitle>About this map</DialogTitle>
-      <DialogContent dividers>
-        { safeHtml ? (
-          <div style={{ fontSize: 14, lineHeight: 1.45 }} dangerouslySetInnerHTML={{ __html: safeHtml }} />
-        ) : (
-          <div style={{ color: '#666', fontStyle: 'italic' }}>No description available for this map.</div>
-        ) }
-      </DialogContent>
-      <DialogActions>
-        <Button onClick={() => setAboutOpen(false)} color="primary">Close</Button>
-      </DialogActions>
-    </Dialog>
+    {/* Shared About dialog - use centralized component */}
+    <AboutDialog open={aboutOpen} onClose={() => setAboutOpen(false)} markdown={graphDesc} />
   </span>
   )
 }
