@@ -2,6 +2,23 @@
 
 All notable changes for recent development (last ~3 weeks). This file summarizes commits merged across branches and the migration work for Meteor 3.
 
+## [topodeschandling → main] - 2025-11-08
+
+### Home experience and admin tooling
+- Added an "About" dialog that renders `graph_desc` Markdown for each Topogram; Home cards and the detail view share the same component.
+- Home cards were rescaled into the new elevated style with stacked action buttons (About / Move / Delete / Export) and tightened pagination controls.
+- Folder headers now display a green SVG folder icon, counts, and an admin-only Delete button that opens a confirmation dialog (remove metadata or delete maps).
+- Implemented folder create/move/delete flows with undo toasts and refreshed `topograms.folderCounts` to keep UI lists in sync.
+
+### Data and backend
+- Persisted `graph_desc` on import and denormalised `nodeCount`/`edgeCount` onto Topogram documents.
+- Node/edge create & delete methods `$inc` the stored counts; a startup backfill script populates missing counts for legacy documents.
+- Added audit-friendly folder server methods (`topograms.createFolder`, `topogram.moveToFolder`, `topograms.deleteFolderMeta`, `topogram.deleteFolder`).
+
+### Styling and documentation
+- Compacted paddings across the Home view, added elevated card shadows, and ensured long titles wrap instead of stretching cards.
+- Refreshed `README.md`, `docs/README.md`, and `docs/RECENT_PROGRESS.md`; generated `docs/CHANGELOG_FULL.md` containing every commit (including merged branches) since project inception.
+
 ## [implementing_debian_graphs] - 2025-10-23
 
 Pagination, Debian import workflow, and folder ergonomics.

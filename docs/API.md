@@ -47,6 +47,20 @@ See `RECENT_PROGRESS.md` for the latest export and builder improvements (week en
 
 - `Meteor.call('topograms.folderCounts') -> Array<{ name: string, count: number }>`
 	- Aggregation pipeline groups by `folder` (excluding `null`/missing) and returns a sorted array of folder names with counts.
+	- Includes explicit `Folders` documents created via the admin UI.
+
+- `Meteor.call('topograms.createFolder', { name })`
+	- Creates/ensures a folder metadata document. Admin-only (checked on the server).
+
+- `Meteor.call('topogram.moveToFolder', { topogramId, folder })`
+	- Moves a Topogram into a folder (`folder` may be `null`/empty to unassign).
+	- Emits audit logs and updates denormalised folder counts on the client once the method resolves.
+
+- `Meteor.call('topograms.deleteFolderMeta', { folder })`
+	- Removes the folder metadata entry and unsets the `folder` field on matching Topograms (maps return to root). Admin-only.
+
+- `Meteor.call('topogram.deleteFolder', { folder })`
+	- Destructive action that deletes all Topograms (and cascading nodes/edges) in the folder before removing metadata. Admin-only.
 
 ### Client usage example (Home page)
 

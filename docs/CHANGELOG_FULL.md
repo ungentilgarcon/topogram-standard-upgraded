@@ -1,0 +1,350 @@
+- 0e1ec5b 2025-11-08 Merge pull request #29 from ungentilgarcon/topodeschandling
+- ee97fb1 2025-11-08 improving styling
+- e2d629f 2025-11-08 improving home desc management
+- e0622cf 2025-11-08 showing graph_desc
+- f68b778 2025-11-08 working graph_desc
+- 85ec5ae 2025-11-08 adding mddesc
+- d8f3f59 2025-11-06 Merge pull request #28 from ungentilgarcon/betterlayouts
+- ecd0577 2025-11-06 clean
+- b07e429 2025-11-05 fixed typos in cyto
+- ef828d5 2025-11-05 disabled cyto animations
+- 1b7191e 2025-11-05 fixed sigma edge size
+- 0eaa452 2025-11-05 preparing better layout implementation #2 implemented, needs testing#4 (chore)
+- 8e710e0 2025-11-04 preparing better layout implementation #2 implemented, needs testing#3
+- c7ff1be 2025-11-04 preparing better layout implementation #2 implemented, needs testing#2
+- de7e04f 2025-11-04 preparing better layout implementation #2 implemented, needs testing
+- 0b344b2 2025-11-04 preparing better layout implementation
+- 37938c1 2025-11-04 Merge pull request #27 from ungentilgarcon/descandextrahandling
+- e8136af 2025-11-04 adding node detail viz
+- 93497a5 2025-11-03 adding node detail viz
+- e00fd13 2025-11-03 fixing cy issues
+- b2332be 2025-11-03 Merge pull request #26 from ungentilgarcon/legends
+- 699c0ea 2025-11-02 legends are ok
+- 928f30c 2025-11-02 legends are ok
+- 2234668 2025-11-02 Legend: renderer-specific zoom->pixel conversion for accurate px readouts
+- cfeabcf 2025-11-02 Legend: sample node/edge visuals follow dataset min/max; show value and approx px readouts
+- 4a1bbe1 2025-11-02 Legend: show approximate pixel readouts for node/edge samples; accept zoom/impl props
+- c0f2143 2025-11-02 Legend: show approximate pixel readouts for node/edge samples; accept zoom/impl props
+- 6cdde36 2025-11-02 cleaning logs
+- 2433fa1 2025-11-02 Merge pull request #25 from ungentilgarcon/purewebglsigma
+- bb5107b 2025-11-02 perfect webgl sigma
+- 2f45972 2025-11-01 working on highlighting EDGE selection  in sigma this time fullwebgl,need fixing:clear/remove not removing highlighting,toggling straght/curved edges looses edgehover events
+- b7b237d 2025-11-01 readding EDGE selection TOO in sigma this time fullwebgl
+- 30081dd 2025-11-01 readding selection in sigma this time fullwebgl
+- f44875d 2025-11-01 working toggling edge sigma
+- 0701012 2025-11-01 debug working one way
+- 5496e01 2025-11-01 draggables nodes in sigma
+- 42da998 2025-11-01 sigma: add no-curves toggle, WebGL context handlers, diagnostics and defensive aliasing
+- dbbfa8a 2025-11-01 all edges on sigma are now selectable
+- 4c76b0b 2025-11-01 adding leftctrl prevent deselect on click on reagraph
+- 640cc8d 2025-11-01 sigma edges behind nodes
+- 02b50dd 2025-11-01 thinner sigma edges
+- 2b029a3 2025-11-01 fix windows bug logic and more robust select adjacent
+- 6431d7c 2025-11-01 fixed a few bugs in window openings
+- c205bd7 2025-10-31 better selection in reagraph
+- e0717be 2025-10-31 better selection in reagraph
+- 2ac91d1 2025-10-31 adjacency implmented
+- cae1091 2025-10-31 adjacency implmented
+- 54f73d3 2025-10-30 fixing doc
+- a83b389 2025-10-30 cleaning
+- 9848be5 2025-10-30 Merge pull request #24 from ungentilgarcon/ImprovingNetworkView
+- 90e69b5 2025-10-30 fixed SVG png exports to perfection
+- 1efc7b8 2025-10-30 fixed menus
+- b13305b 2025-10-30 fixed network view not using all
+- 697bfa5 2025-10-29 Merge pull request #23 from ungentilgarcon/bettertopodepgrah
+- e5a5a25 2025-10-29 we finalized a working SVG export
+- 1fe52bf 2025-10-29 beautiful! reagraph at last
+- d171328 2025-10-29 fixing reagraph...again #2 only debug so far
+- f71b85f 2025-10-28 fixing reagraph...again
+- 03e9028 2025-10-28 finally
+- 5ae8173 2025-10-28 missing MD
+- 13f1aa5 2025-10-28 Remove generated dependency graph artifacts from repo; add regenerate helper and docs link
+- 86083cd 2025-10-28 Improve dependency graph exporter: mapping, subgraphs, package exclusion, and generator script
+- d329f13 2025-10-28 fixing analyse cscript
+- 34ed5cb 2025-10-27 Merge pull request #22 from ungentilgarcon/main
+- cc9a6ad 2025-10-27 Merge pull request #21 from ungentilgarcon/depgraph
+- 8790fa5 2025-10-25 dependencygraphbuilder #2
+- 0df67f6 2025-10-25 dependencygraphbuilder
+- b36899e 2025-10-25 dependencygraphbuilder
+- cf75ce9 2025-10-25 Add code dependency graph builder docs and assets
+- b76aace 2025-10-25 full depgraph of topogram
+- e6d15a6 2025-10-25 Merge pull request #16 from ungentilgarcon/main
+- 499bece 2025-10-24 Merge pull request #20 from ungentilgarcon/improveviz
+- f8553bc 2025-10-24 almost perfect sigma now with edge selectability fixing artifacts2
+- 94cd9ff 2025-10-24 almost perfect sigma now with edge selectability fixing artifacts
+- 2146e80 2025-10-24 almost perfect sigma now with edge selectability
+- 228ff1e 2025-10-24 almost perfect sigma
+- 7fe23fa 2025-10-24 almost perfect sigma
+- fa5b617 2025-10-24 better but not perfect sigma
+- 5807790 2025-10-24 not yet working
+- b9c4883 2025-10-24 Cesium selection working but small delay
+- ab60358 2025-10-24 adding maplibre node/edge selection
+- cec0ba4 2025-10-24 fix
+- 7944d83 2025-10-24 fixing vulenrabilities
+- 49a61a1 2025-10-24 fix
+- 1afe533 2025-10-24 geomap: add edge label aggregation to MapLibre and Cesium; add test sample to validate xN behavior across renderers
+- be0e643 2025-10-24 geomap: add edge label aggregation to MapLibre and Cesium; add test sample to validate xN behavior across renderers
+- 6232555 2025-10-23 Merge pull request #19 from ungentilgarcon/importxlsxods
+- 14c3470 2025-10-23 feat(import): add XLSX/ODS support across UI, server job, Builder, and CLI\n\n- UI: Import modal now accepts CSV/XLSX/ODS; robust base64 for binary; updated title and accept types.\n- Server: csvImportJob detects spreadsheets and parses with SheetJS; supports Nodes/Edges sheets or mixed-sheet classification; improved UTF-7 segment decoding; batches inserts.\n- Builder: can open .xlsx/.ods; lazy-load SheetJS; sheet detection; mapping and classification preserved.\n- CLI: import_topograms_folder.py discovers .topogram.xlsx/.ods; parses via openpyxl/pyexcel-ods3 when available.\n- Samples: add sample XLSX/ODS (Nodes+Edges and single-sheet) and a generator script.\n- Deps: pin "xlsx" to 0.18.5 and add dependency.\n\ndocs: update API and Meteor usage; samples README; CHANGELOG entry
+- c976fd3 2025-10-23 Merge pull request #18 from ungentilgarcon/implementing_debian_graphs
+- 487d873 2025-10-23 done implementing debian graphs and enhanced homepage UI
+- 3c8440a 2025-10-23 done implementing debian graphs and enhanced homepage UI
+- 5c9be87 2025-10-23 fixing
+- 994aba5 2025-10-23 fix: register topograms methods, robust counts, and noFolder mapping; resolves missing methods and ReferenceError
+- f28dc28 2025-10-23 feat: pagination for home (200/page) and folders (50/page); add paginated publication and count methods; minimal UI & styles
+- dbf36b2 2025-10-23 fixing home view for large collections
+- a522df0 2025-10-23 imp deb graphs: in db but not visible, why?
+- 2672a5f 2025-10-23 fix(data): swap source/target columns in existing Topogram CSVs so arrows point to dependency (backup in /tmp)
+- e007ad9 2025-10-23 fix(scripts): write edges as source=dependent,target=dependency so arrows point to dependency
+- 37174f0 2025-10-23 data(debian): add top-1000 Topogram CSVs generated from trixie_top5000.csv
+- 5621afc 2025-10-23 data(debian): add top-500 Topogram CSVs generated from trixie_top5000.csv
+- 55304cb 2025-10-23 feat(scripts): add batch builder to create Topogram CSVs for a list of source packages
+- 2667901 2025-10-23 docs(samples): add README describing trixie_top5000.csv and regeneration steps
+- 1cafb24 2025-10-23 data: add Debian Trixie top-5000 reverse-dependency counts (source_package,count)
+- 4f6c473 2025-10-23 feat(scripts): add Debian→Topogram CSV builder (BFS)
+- aecbae5 2025-10-23 docs: add MapApp Builder overview and quick workflow to top-level README
+- 6f0a79c 2025-10-22 Merge pull request #17 from ungentilgarcon/mapappbuilder
+- e0c62aa 2025-10-22 docs(mapappbuilder): add dependency graph, CSV exports and metadata; enrich samples
+- 05a787f 2025-10-22 working REAGRAPH YOUPI
+- 8763f3d 2025-10-22 fixed reagraph?
+- 3aefe3f 2025-10-22 working on reagraph implementation
+- 6d5b5a2 2025-10-21 trying to fix reagraph implementation in mappbuilder
+- 8bac1e0 2025-10-20 chore: regenerate package-lock to include merged deps
+- 597bb6a 2025-10-20 merge(fixreagraph -> mapappbuilder): merge fixreagraph into mapappbuilder, resolved package-lock conflict (choose mapappbuilder version)
+- 8fd7b65 2025-10-20 Merge pull request #15 from ungentilgarcon/fixreagraph
+- 7a48202 2025-10-20 fix(reagraph): lazy import and compatibility fixes to restore charts
+- 967fac5 2025-10-20 chore(reagraph): add runtime info/assert to confirm npm reagraph + graphology are used
+- 2798c1a 2025-10-20 chore(reagraph): wire adapters to require reagraph + graphology (no global fallback)
+- 0794f3e 2025-10-20 chore: lock reagraph@4.27.0
+- 45daebc 2025-10-20 chore: lock reagraph@4.27.0
+- 8f0f0cc 2025-10-20 deps: add reagraph@4.27.0
+- 3ce7a59 2025-10-20 mapappbuilder: sandbox fixes — DOCTYPE, reagraph shim, Cesium local base + loader tweaks; start_server robustness
+- c80c1d0 2025-10-20 mapappbuilder: hide sandbox by renaming to .sandboxapp to avoid Meteor scanning
+- 43bb5e7 2025-10-20 mapappbuilder: add local copies of maplibre, cesium assets, sigma for offline sandbox (force added)
+- 4db5bc5 2025-10-20 mapappbuilder: include Leaflet default marker images in presentation-template/lib/images (force add)
+- bbc8978 2025-10-20 mapappbuilder: render index.html into sandbox and include sample data/config for quick testing
+- 76d9281 2025-10-20 mapappbuilder: add sandboxapp & sync scripts for fast local testing of presentation-template
+- 7bc939b 2025-10-20 adding the new files
+- 7c74796 2025-10-20 mapappbuilder: fix leaflet edge drawing, robust id matching, and pass edges to map plugins
+- 27dedd7 2025-10-20 IN PROGRESS: mapappbuilder export & presentation improvements
+- 89f943e 2025-10-20 fix(export): use archiver to package bundles instead of external package.sh
+- 3fcef91 2025-10-20 chore(deps): add archiver to create zip bundles without external script
+- 642f387 2025-10-20 feat(ui): prefill export dialog with full realistic config (timeline, labeling, networkOptions, geoOptions)
+- 099cfb5 2025-10-20 chore(template): ensure only index.html.tpl is tracked to avoid Meteor static-html
+- ca13f2a 2025-10-20 fix(export): avoid Meteor static-html by using index.html.tpl and materialize index.html with DOCTYPE at package time
+- f5a265a 2025-10-20 fix(template): remove DOCTYPE to satisfy Meteor static-html processing
+- fa10715 2025-10-20 fix(ui): remove unavailable JSONEditor dependency and use TextField fallback
+- d09a553 2025-10-20 chore(samples): flesh out sample.config.json with timeline, labeling, geoOptions and networkOptions
+- 02a9785 2025-10-20 chore(deps): add ajv and ajv-formats for config validation
+- 2406f34 2025-10-20 chore(export): validate bundle config with AJV and return structured errors
+- 15f6f20 2025-10-20 chore(schema): expand mapappbuilder config schema with detailed renderer, timeline, labeling and emoji options
+- 6d9c353 2025-10-20 feat(export): server exportBundle method, exports route and admin UI to package Topogram bundles
+- de92ce7 2025-10-20 chore(mapappbuilder): add skeleton packaging and config schema
+- 6d48db4 2025-10-20 docs: move punchline to top and mention multiple network/geomap implementations
+- 22424f7 2025-10-20 Merge pull request #14 from ungentilgarcon/import/export
+- adf0ed9 2025-10-20 feat(import): add builder, admin delete, server-side import limits, waitlist and client UI
+- fd37891 2025-10-19 Merge pull request #13 from ungentilgarcon/multigeomapviewers
+- 1f1f91c 2025-10-19 chore: comment temporary debug logs in CesiumMap/MapLibreMap/TopogramDetail
+- f955b18 2025-10-19 MapLibre: include emoji nodes in circle features when emojiVisible is false
+- 25968c0 2025-10-19 MapLibre: respect ui.emojiVisible toggle for node emoji
+- 6c14119 2025-10-19 MapLibre: emoji sizing follow visualRadius (nodeSizeMode)
+- 14dc0cf 2025-10-19 FIXED node size
+- cff3eff 2025-10-19 FIXED node size
+- 6c783fb 2025-10-19 FIXED edge labels not in place
+- 0aa9a7d 2025-10-19 fixing emojis in maplibre
+- c8c90fb 2025-10-19 fixing emojis in maplibre
+- 0173c7e 2025-10-19 fixing emojis in maplibre
+- cdd7c88 2025-10-19 maplibre: force absolute positioning and high z-index on markers and emoji <img>; log actual marker element for debugging
+- c294788 2025-10-19 maplibre: render emoji markers as canvas-generated PNG <img> for reliable display; fallback to text
+- 0275475 2025-10-19 maplibre: mark emoji DOM markers with data attribute and use it when counting; ensure textContent set
+- fef50d0 2025-10-19 maplibre: detect emoji candidates, add class to emoji DOM markers, and log sample emoji nodes for debugging
+- 967fe5f 2025-10-19 maplibre: don't draw vector circles for emoji nodes so DOM emoji markers are visible; ensure nodes layer updates on change
+- 4128851 2025-10-19 geomap: force-show and enlarge node emojis in MapLibre and Cesium
+- 80cdf07 2025-10-19 debug(geomap): report emoji marker/billboard counts in MapLibre and Cesium adapters
+- 9f409bd 2025-10-19 MapLibre/Cesium: stack edge labels for identical paths (slot offsets)
+- 7b1c8fe 2025-10-19 GeoMap: pass ui prop to MapLibreMap and CesiumMap so toggles are respected
+- 6cbb9fd 2025-10-19 MapLibre/Cesium: respect geoEdgeRelVisible and render Cesium labels white with dark halo
+- 1d5cbb7 2025-10-19 MapLibre/Cesium: enable edge relationship labels and node emoji rendering
+- 491e886 2025-10-19 Cesium: remove black edge outline (render colored polylines only)
+- 414fa81 2025-10-19 Cesium: use PolylineOutlineMaterialProperty for edge outlines; ensure nodes render on top
+- 2327c67 2025-10-19 Cesium: ensure nodes render on top by disabling depth test for point/billboards
+- d7ce345 2025-10-19 Cesium: add black outlines for nodes and edges
+- 96103e1 2025-10-19 MapLibre: add vector nodes layer, click handling, and cleanup
+- 977602a 2025-10-19 MapLibre: add debug/status and ensure edges layer update on load
+- 715bfaf 2025-10-19 WORKING CESIUM
+- 51e9736 2025-10-19 WORKING CESIUM
+- 22c2d3e 2025-10-19 geo: set temporary minHeight on parent container when its computed height is zero to avoid 0x0 Cesium canvas
+- 7281f0e 2025-10-19 geo: add on-screen Cesium status badge and set camera to first node on init
+- f590c41 2025-10-19 geo: delay Cesium Viewer init until mount has non-zero size (retry) to avoid 0x0 canvas
+- 1401531 2025-10-19 geo: ensure Cesium canvas fills mount element and log canvas size after init
+- 6918355 2025-10-19 geo: ensure Cesium mount is absolutely positioned on top to avoid being obscured by other map canvases
+- a7b00c4 2025-10-19 geo: prefer CDN UMD for Cesium in Meteor runtime; otherwise dynamic import with CDN fallback
+- c6dd2d9 2025-10-19 geo: mount Cesium into a dedicated inner div to avoid DOM/canvas conflicts when switching renderers
+- f45c50c 2025-10-19 geo: Cesium CDN URL trailing slash + crossOrigin on injected assets
+- 3cc394e 2025-10-19 geo: CesiumMap - clear container before init, request render/resize after init, clean container on unmount
+- d36dcc4 2025-10-19 revert: undo last CesiumMap change per request
+- fcdf616 2025-10-19 geo: CesiumMap - enable depthTestAgainstTerrain, altitude offset for points, set heightReference for point primitives
+- cee6d36 2025-10-19 geo: CesiumMap use PointPrimitiveCollection when available + verbose debug logs
+- 5c35ea4 2025-10-19 geo: normalize cesium version for CDN URL and log CDN path
+- 6cd0616 2025-10-19 geo: use node color for Cesium and MapLibre markers; add MapLibre CDN UMD fallback
+- 0151ca1 2025-10-18 geo: CesiumMap CDN UMD fallback + single BillboardCollection and camera framing
+- 5f6e721 2025-10-18 ui: add Map renderer selector (leaflet|maplibre|cesium) and persist choice
+- 183ae90 2025-10-18 geo: dynamic-import MapLibre and Cesium adapters to avoid Meteor import.meta bundling
+- 77158b2 2025-10-18 geo: add MapLibre and Cesium adapters and renderer selection in GeoMap
+- ba6f935 2025-10-18 Merge pull request #12 from ungentilgarcon/multinetworkviewers
+- f6c486b 2025-10-18 ui: add tooltip/help icon for Node size selector
+- 08e5d95 2025-10-18 ui: node size selector (weight|degree) and degree-based sizing
+- 6b2f7ce 2025-10-18 network: default deterministic colors for nodes/edges across Cytoscape, Sigma, Reagraph
+- 4fc9769 2025-10-17 sigma: support @sigma/edge-curve (curved, curvedArrow), set parallel/self-loop attributes, restore labels/arrows, force edge size
+- d69b717 2025-10-17 sigma: support @sigma/edge-curve (curved, curvedArrow), set parallel/self-loop attributes, restore labels/arrows, force edge size
+- b1e2182 2025-10-17 reagraph: loop/curvature/size tweaks; sigma: size fallback
+- 6be2512 2025-10-15 reagraph: increase spacing for parallel-edge curves to reduce overlap
+- c0b90c9 2025-10-15 reagraph: render parallel edges as curved offsets (avoid overlapping)
+- 43cc1fb 2025-10-15 reagraph: use client->SVG coordinate conversion for selection box hit testing
+- ecb134b 2025-10-15 reagraph: add Ctrl/Meta+drag selection box (additive with modifier)
+- 4846be1 2025-10-15 reagraph: add background drag-to-pan (mouse & touch) and suppress click after pan
+- 29b4151 2025-10-15 reagraph: make self-loop start at node perimeter so loop appears to pass by node
+- 64e84d2 2025-10-15 reagraph: ensure self-loop paths are appended after nodes (on-top) and increase loop size
+- 5d94c8d 2025-10-15 reagraph: offset self-loop geometry away from node (top-right) to avoid overlap
+- 4403e32 2025-10-15 reagraph: render self-loop edges as curved SVG loops with hit area and highlight
+- fe19022 2025-10-15 reagraph: use bright yellow highlight and thicker stroke for selected edges
+- 7bfaebe 2025-10-15 reagraph: visually highlight selected edges (stroke color/width/opacity)
+- 46e6602 2025-10-15 Charts: normalize element.group when computing matchKeys so toggle logic matches selectedElements
+- 9ddc744 2025-10-15 Charts: log current selectedElements, currKeys and matchKeys for diagnosing adapter selection toggles
+- e210ebc 2025-10-15 Charts: add runtime debug & robust filter select/unselect fallbacks for adapters
+- b5e2403 2025-10-15 sigma/reagraph: return collection-like objects from filter() so cy.filter(...).select/unselect/data work
+- 9264a77 2025-10-15 sigma/reagraph: add Cytoscape-like data(k) and collection data setters for Charts compatibility
+- 8396df4 2025-10-15 wire SelectionManager to Sigma/Reagraph adapters; remove duplicate block
+- 2910f2d 2025-10-15 better nodes in sigma
+- 9f45063 2025-10-15 multinetworkviewers: add renderer selector and fix Sigma adapter camera API; Reagraph render fix
+- 3542f43 2025-10-15 reagraph: implement SVG viewport transforms and support fit/resize/zoom/center/animate for pan/zoom controls
+- 83474ab 2025-10-15 theme: switch sigma & reagraph to light theme (whitish background, dark nodes/edges)
+- b622b96 2025-10-15 reagraph: fix SVG sizing and rendering; auto-assign positions when missing
+- 85fcbfe 2025-10-15 reagraph: implement lightweight ReagraphAdapter SVG shim with cy-like API
+- adb3cfc 2025-10-15 sigma: fix adapter imports/coords and API; add ErrorBoundary and GeoMap import fix; GPU-friendly sigma styling
+- 7aed8df 2025-10-15 cleaning reports
+- 6e2956b 2025-10-15 Merge pull request #11 from ungentilgarcon/betternetworkwindow
+- 00e4cbe 2025-10-15 timeLine: wire next/stop buttons; change labels to 'next year of data' and 'Stop/1rst year of data' and implement toggle behavior
+- 12c4e6b 2025-10-15 ui: add 'none' edge-label option and large-graph conservative defaults; respect 'none' in Cytoscape and GeoMap rendering
+- 28d3346 2025-10-14 fixing CRLF
+- 7671584 2025-10-13 Timeline: mount full graph once; set initial hidden classes from timeline range; compute edge visibility from endpoints or edge time
+- 34e9f6b 2025-10-13 Timeline visibility: toggle 'hidden' class on cy nodes/edges instead of remounting or resizing; add stylesheet rules for node.hidden/edge.hidden
+- ca9a6de 2025-10-13 Timeline: do not remount Cytoscape on each tick; stop calling resize/fit during playback (timeline should only hide/show elements)
+- a44fcac 2025-10-13 Timeline: throttle cy.resize/safeFit to ~15FPS; ensure cy.resize() on mount and after layout stop
+- 752d65c 2025-10-13 Trigger cy.resize()/safeFit on timeline valueRange updates so network redraws while playing
+- 1965169 2025-10-13 Trigger cy.resize() and safeFit on panel toggles and window resize so Cytoscape redraws to fill container
+- 7147db2 2025-10-13 Make .cy-container flex so Cytoscape fills available height like GeoMap
+- 1e7be71 2025-10-13 Make network/geo panels responsive and expand to full window when other panes closed; pass dynamic visual height to map
+- e54719d 2025-10-13 docs: add recent emoji & edge-relationship features to README and CHANGELOG
+- 61ae467 2025-10-13 Merge pull request #10 from ungentilgarcon/edgerelationshipasemoji
+- 3ffe8ac 2025-10-13 feat(multi-emoji): concatenate up to 3 grapheme-cluster emojis (no spaces); add sample notes about UTF-8/BOM
+- 84315ca 2025-10-13 feat(multi-emoji): allow up to 3 grapheme-cluster emojis for node and edge emoji fields; add multi-emoji samples
+- 05fa068 2025-10-13 Merge pull request #9 from ungentilgarcon/edgerelationshipasemoji
+- 4eeb026 2025-10-13 emojis UTF8 in nodes and edges!!!
+- 88180de 2025-10-13 fix(import): decode LibreOffice +...- sequences across CSV fields before processing
+- a9224b7 2025-10-13 fix(import): support LibreOffice +...- encoded emoji segments when importing CSV
+- 1732127 2025-10-13 chore(sample): add edge emojis to sample CSV and include UTF-8 BOM/CRLF for emoji compatibility
+- 2c029e3 2025-10-13 feat(edge-emoji): import relationship emoji, UI selector and render as edge relationship label in network and geomap
+- 00b5539 2025-10-13 Merge pull request #8 from ungentilgarcon/emojinodes
+- 02b6f37 2025-10-13 fixed typo
+- 8496154 2025-10-13 Merge pull request #7 from ungentilgarcon/emojinodes
+- a00719d 2025-10-13 done adding emojis as node
+- 6b23b97 2025-10-13 feat(ui): add node label mode selector (name|emoji|both) and compute per-node _vizLabel
+- 32df65a 2025-10-13 feat(ui): add emoji rendering toggle and wire through GeoMap/Cytoscape
+- 0c6ba08 2025-10-13 fix typos
+- 376ab64 2025-10-13 feat(emojis): add emoji field to CSV import/export and visualize nodes with emoji in Cytoscape and GeoMap
+- 644b990 2025-10-13 Merge pull request #6 from ungentilgarcon/arrowed-links
+- 955ec7a 2025-10-13 docs: add recent commits summary for branch 'arrowed-links' to README and CHANGELOG
+- 82335c0 2025-10-13 working enough3
+- bbb50c8 2025-10-13 working enough2
+- 2aa742a 2025-10-13 working enough
+- 7ca2a0f 2025-10-13 Revert "Cytoscape: precompute per-edge numeric style fields and restrict color mappings to avoid mapData/mapping warnings"
+- dc2d38a 2025-10-13 Cytoscape: precompute per-edge numeric style fields and restrict color mappings to avoid mapData/mapping warnings
+- 865cbf3 2025-10-13 Geo: pass ui and map refs to GeoEdges/GeoNodes so UI toggles affect map layers
+- c0e079d 2025-10-13 Geo: increase pixel-space label separation (larger normal offset, more jitter)
+- 2aebb63 2025-10-13 Geo: pixel-space tangent/normal offsets and longitudinal jitter for midpoint labels
+- fadde57 2025-10-13 Geo: use map.project/unproject for pixel-space midpoint label placement; pass map ref to GeoEdges
+- efd9298 2025-10-13 Geo: alternate midpoint label placement above/below edge and reduce distance
+- d2ab429 2025-10-13 Geo: increase midpoint label offsets and jitter to reduce overlap
+- 186553e 2025-10-13 Geo: jitter midpoint labels to reduce overlap; Cytoscape parallel-edge styling and propagate edge fields
+- 3ff2e4e 2025-10-13 arrows
+- 3032d73 2025-10-13 feat(ui/geo): wire geoEdgeRelVisible into GeoMap and add toggle; rotate midpoint relationship label to follow edge angle
+- 89a3fc9 2025-10-13 fix(ui): replace undefined NodeCharts with existing Charts component to avoid ReferenceError when toggling GeoMap
+- 4eb879b 2025-10-13 feat(geo): show edge relationship midpoint labels on GeoMap when enabled (geoEdgeRelVisible)
+- 864e612 2025-10-13 feat: render edge relationship labels in cytoscape and include relationship in CSV export
+- e913145 2025-10-12 clean
+- f28d7ef 2025-10-12 Add csv_import_* to .gitignore
+- 3d6ec0b 2025-10-12 docs: add docs/ (architecture, dataset, dependency graph, quickstart, contributing, API) and sample pre-push hook
+- 9d8d638 2025-10-12 docs: add CHANGELOG summarizing recent changes
+- b612e3c 2025-10-12 docs: append upgrade/migration branch summaries to README
+- 7ae0d63 2025-10-12 docs: add README summarizing recent changes across branches (last 3 weeks)
+- 8e9f5a9 2025-10-12 Merge pull request #5 from ungentilgarcon/selectviageomap
+- 5cf3255 2025-10-12 GeoMap: ensure node json has no source/target fields to avoid misclassification as edges
+- cad7d86 2025-10-12 GeoMap: pass canonical node/edge json (group + data.id) to selection handlers to avoid misclassification
+- 49bb68d 2025-10-12 GeoMap: make hit-area markers interactive (fillOpacity) for more reliable clicks
+- 30c0fb1 2025-10-12 GeoMap: ensure geoNodes carry viz id (data.id) matching Cytoscape to improve selection resolution
+- fb1a1ae 2025-10-12 GeoMap: add invisible hit-area CircleMarker for small nodes to improve clickability
+- b9440be 2025-10-12 GeoMap: toggle selection via ui.selectedElements instead of requiring cy; enable selectability in map
+- d2dd40c 2025-10-12 Merge pull request #4 from ungentilgarcon/exporttopotocsv
+- 27717d6 2025-10-12 SelectionPanel: add Export CSV for selected nodes/edges with customizable title
+- f09269d 2025-10-12 SelectionPanel: wire show/hide toggle and parent-controlled mounting; persist selectionPanelPinned in localStorage
+- e5b65f3 2025-10-12 export: truncate sanitized filename to 24 chars to avoid ENAMETOOLONG
+- 41ee95f 2025-10-12 export: use CRLF and stricter title sanitization to guarantee single-line comment
+- 88ff0ca 2025-10-12 export: sanitize title (single-line) and normalize date fields to ISO for reimport
+- 58663f8 2025-10-12 export: sanitize title (single-line) and normalize date fields to ISO for reimport
+- 1a79fb5 2025-10-12 feat: CSV exporter button + exportTopogramCsv (matches ImportCsvModal sample format)
+- c9586ab 2025-10-12 Merge pull request #3 from ungentilgarcon/chartsandselection
+- 4c04870 2025-10-12 charts: highlight edge donut slice when selected; compute selectedEdgeNames using numeric fallback (1)
+- bd9e409 2025-10-12 cytoscape: add selected styles for nodes and edges to improve highlight when charts select elements
+- 4b3e569 2025-10-12 charts: edge click matching uses numeric weight fallback (1) like donut builder
+- bdda2f0 2025-10-12 charts: select/unselect via cy.select()/unselect(); normalize element group for toggle
+- c3d7850 2025-10-12 updateUI: handle chartsVisible, selectedElements and other panel flags locally
+- f82f721 2025-10-12 debug: add console logs to Popup safeClose and Charts Popup handlers
+- 695c982 2025-10-12 Popup: robust close handlers, popout light theme, ensure onClose invoked or fallback to localStorage+event
+- 452b454 2025-10-12 Popup: stop drag on close click; make popout honor light theme and add close control
+- 16e7f37 2025-10-12 fix typo
+- 8313537 2025-10-11 ui: light charts popup; fix popup close; expose cy for debugging
+- 719e5b4 2025-10-11 charts: remove decorator; pass ui/updateUI; handle missing edge weight; add debug info and cy exposure; ensure charts render
+- 862bda0 2025-10-11 refactor: make Cytoscape authoritative for selection; add Charts wrapper; SelectionPanel calls cy-driven unselect
+- 512e095 2025-10-11 feat: enable boxSelection and additive selection mode in Cytoscape instances
+- 4c65b40 2025-10-11 fix: mirror Cytoscape multiple selection into React state (use cy.)
+- bcfdf10 2025-10-11 feat: wire SelectionPanel and NodeCharts into TopogramDetail (selection bin + charts)
+- 9f788df 2025-10-11 feat: add selection panel and node charts components
+- 9d46b1e 2025-10-11 Merge pull request #2 from ungentilgarcon/style/green-main
+- 07b4d00 2025-10-11 fix: make cytoscape zoom controls robust (animate fallback, helpers)
+- 63dccc6 2025-10-11 feat: add pan/zoom controls overlay to Cytoscape network views
+- 9a2ba17 2025-10-11 style: polish main list UI — header, controls, grid and card spacing (green theme)
+- b7dbf18 2025-10-11 fix: avoid mixing padding shorthand with paddingBottom — use explicit side paddings
+- a3edca8 2025-10-11 style: green classy theme for Home and Topogram pages (greenTheme.css, classNames)
+- 3d2741a 2025-10-11 Merge pull request #1 from ungentilgarcon/CSV_import
+- d47a55c 2025-10-11 CSV import: robust node id mapping, edge label/color persistence, job error logging; fix async collection calls
+- 306c5fe 2025-10-11 server: register csvImport method and worker at startup
+- e79a970 2025-10-11 CSV import: add sample CSV download and server/client parser comment support; update modal
+- 99840fe 2025-10-11 missing files
+- b665211 2025-10-11 chore: stage remaining local edits to legacyUi and TopogramDetail
+- 821f402 2025-10-10 feat(timeline): implement play/pause/next/stop with speed multiplier
+- 3f92afb 2025-10-10 fix(timeline): slider selects sub-range only (update valueRange, do not change min/max)
+- 33d764b 2025-10-10 fix(timeline): replace remaining nodeInRange with isNodeInRange
+- 055d6c9 2025-10-10 fix(timeline): make node-in-range helper available to geo builder (fix ReferenceError)
+- fcbfc52 2025-10-10 fix(styles): avoid data() mappings on elements without data.color; filter node/geo lists by time range
+- c2a7bf7 2025-10-10 feat(timeline): persist slider selection to timelineUI and filter nodes/edges by range
+- 78c491f 2025-10-10 style(timeline): purple range slider; ensure debug panel renders below overlays
+- 1254270 2025-10-10 fix(ui-hoc): respect parent-provided ui prop; improve timeline debug logs
+- 54301d5 2025-10-10 fix(ui-hoc): prefer ownProps.ui over Redux state and improve timeline debug logs
+- 43e4a2a 2025-10-10 feat(store): add minimal Redux store and wrap root with Provider; fix thunk middleware export
+- df59e3d 2025-10-10 feat(timeline): add TimeLine and TimeSlider placeholder for migration
+- 5c4dc05 2025-10-10 fix(sidepanel): pass networkVisible to PanelSettings to avoid undefined reference
+- 227fe04 2025-10-10 feat(view): add show/hide behavior for GeoMap and Network panes and wire side panel
+- c3dc651 2025-10-10 feat(ui): rename option buttons and add show/hide GeoMap & Network view buttons
+- 78244ba 2025-10-10 chore(ui): add GeoMapOptions and Settings fallbacks; fix PanelSettings imports
+- 56edf99 2025-10-10 chore(ui): add minimal NetworkOptions fallback to avoid missing import
+- 214e48c 2025-10-10 fix(import): correct PanelSelector import path
+- 18069c2 2025-10-10 chore(ui): add minimal PanelSelector fallback to avoid missing import
+- 0d9f855 2025-10-10 chore(ui): remove legacy material-ui Subheader import, use local green-styled header
+- e19472a 2025-10-10 feat(ui): add hover-side panel wrapper and render it in TopogramDetail
+- 5e1caf2 2025-10-10 feat(ui): add side-panel green toggles for GeoMap/network and wire TopogramDetail to listen
+- b08dc0a 2025-10-10 fix(layout): make GeoMap container relative so it sits inside page layout instead of fixed
+- a6f38ab 2025-10-10 feat(sync): two-way selection sync between Cytoscape and GeoMap
+- 31eba02 2025-10-10 fix(geo): ensure TileLayer receives resolved subdomains/tms from tile spec to avoid undefined
+- 645fc68 2025-10-10 feat(geo): add Leaflet GeoMap components and conditional geomap view in TopogramDetail
+- 9d923d2 2025-10-10 migrate: Topogram Meteor3 client fixes — cytoscape presets, color & weight normalization, layout selector and title-size UI; publications & mappings adjusted

@@ -13,9 +13,13 @@ Fields (Topograms.schema):
 - `title` (String) — human readable title of the topogram.
 - `slug` (String) — safe short name.
 - `sharedPublic` (Boolean) — whether the topogram is publicly visible.
-- `description` (String, optional) — description text.
+- `description` (String, optional) — short card description.
+- `graph_desc` (String, optional) — Markdown string rendered by the new About dialog. Persisted from import (`options.graph_desc`).
+- `folder` (String, optional) — name of the folder shown on Home. Null/undefined means “no folder”.
+- `nodeCount`, `edgeCount` (Number, optional, default `0`) — denormalised counts kept in sync by import jobs and node/edge mutations.
 - `userId` (String, optional) — Meteor user id (RegEx.Id).
 - `createdAt` (Date) — creation timestamp.
+- `updatedAt` (Date, optional) — maintained by server methods when metadata changes.
 
 ### Nodes
 
@@ -34,6 +38,7 @@ Schema highlights (Nodes.schema):
   - `data.color` (String, optional)
   - `data.group` (String, optional)
   - `data.notes` (String, optional)
+  - `data.emoji` (String, optional) — up to 3 grapheme-cluster emojis preserved across renderers.
 - `group` (String) — defaults to `'nodes'`.
 - `position` — `{ x, y }` (Numbers) used by Cytoscape layout.
 - `owner`, `updatedAt`, `createdAt` — metadata.
@@ -49,6 +54,7 @@ Schema highlights (Edges.schema):
 - `data.source` (String) — source node's `data.id` (should match a Nodes.data.id)
 - `data.target` (String) — target node's `data.id`
 - `data.name`, `data.starred`, `data.start`, `data.end`, `data.weight`, `data.color`, `data.group`, `data.notes` — optional fields mirroring nodes
+- `data.relationshipEmoji` (String, optional) — up to 3 grapheme-cluster emojis rendered on network + geomap midpoint labels.
 - `group` = `'edges'` by default
 - `owner`, `updatedAt`, `createdAt`
 

@@ -1,30 +1,26 @@
-# Project documentation index
+# Documentation index
 
-This folder contains the core documentation for the Topogram application (Meteor + React client). The files below explain the architecture, data model, dependency graph, run instructions and contribution guidelines.
+The `docs/` directory groups the canonical documentation for Topogram’s Meteor 3 stack, renderer adapters, data model, and workflows. Start with `QUICKSTART.md`, then drill into architecture and feature-specific guides as needed.
 
-Files:
+## Core guides
+- [`QUICKSTART.md`](QUICKSTART.md) – install dependencies, run the development server, and import your first dataset.
+- [`ARCHITECTURE.md`](ARCHITECTURE.md) – system overview, renderer adapter contract, and the relationship between network, map, charts, and timeline surfaces.
+- [`DATASET.md`](DATASET.md) – Topograms/Nodes/Edges schema reference, denormalised `nodeCount`/`edgeCount`, and folder metadata fields.
+- [`API.md`](API.md) – publications, methods (including the new folder administration helpers), and adapter helper APIs.
+- [`SELECTIONS.md`](SELECTIONS.md) – how selection propagates across Cytoscape, Sigma, Reagraph, MapLibre, Leaflet, and Cesium.
+- [`RECENT_PROGRESS.md`](RECENT_PROGRESS.md) – rolling summary of the latest week’s work.
 
-- `ARCHITECTURE.md` — high-level architecture and component responsibilities.
-- `DEPENDENCY_GRAPH.md` — mermaid-based dependency graph showing collections, server startup pieces and UI components.
-- `DATASET.md` — collection schemas and field descriptions (Topograms, Nodes, Edges).
-- `QUICKSTART.md` — how to run the app locally for development.
-- `CONTRIBUTING.md` — contribution workflow, PR rules, and a sample pre-push hook.
-- `API.md` — where to find server endpoints, publications and methods; includes client adapter API notes.
-- `SELECTIONS.md` — adapter contract and how selection flows across GraphWrapper, Charts and GeoMap.
-- `SELECTIONS.md` — adapter contract and how selection flows across GraphWrapper, Charts and GeoMap.
- - `RECENT_PROGRESS.md` — short summary of the last week's progress (2025-10-20 → 2025-10-30).
-- `../mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
-- `../mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
- - `docs/mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
- - `docs/mapappbuilder/README.md` — export bundle workflow, renderer adapters and packaging details living next to the builder sources.
+## Dependency and tooling references
+- [`DEPENDENCY_GRAPH.md`](DEPENDENCY_GRAPH.md) – high-level dependency diagram for the Meteor app.
+- [`DEPENDENCY_GRAPH_BUILDER.md`](DEPENDENCY_GRAPH_BUILDER.md) – scripts/assets for generating code dependency graphs.
+- [`BRANCH_IMPLEMENTING_DEBIAN_GRAPHS.md`](BRANCH_IMPLEMENTING_DEBIAN_GRAPHS.md) – pagination, folder counts, and Debian import workflow background.
 
-Branch-specific notes:
+## Builder & exports
+- [`../mapappbuilder/README.md`](../mapappbuilder/README.md) – MapApp Builder workflow for packaging a single Topogram into a static bundle.
+- [`docs/mapappbuilder/README.md`](mapappbuilder/README.md) – supporting notes, dependency graphs, and sandbox instructions for MapApp Builder.
 
-- `BRANCH_IMPLEMENTING_DEBIAN_GRAPHS.md` — Debian imports, server-driven pagination, and the
-	Home page folder ergonomics introduced on that branch. Start here if you pulled that branch.
+## Project process
+- [`CONTRIBUTING.md`](CONTRIBUTING.md) – contribution workflow, branch naming, pre-push hook.
+- [`CHANGELOG_FULL.md`](CHANGELOG_FULL.md) – machine-generated log of every commit (including merged branches) since the project’s creation.
 
-Start with `QUICKSTART.md` to run the project, then read:
-
-- `ARCHITECTURE.md` for the big picture and adapters
-- `SELECTIONS.md` to understand the Cytoscape-like adapter API
-- `API.md` if you need publications/methods or adapter event shapes
+Looking for something else? Browse the remaining Markdown files in this folder or raise a documentation issue in the repository tracker.

@@ -1,207 +1,55 @@
-# Topogram (topogram-standard-upgraded)
+# Topogram
 
-Topogram turns messy event and relationship data into interactive network+map visualizations for exploration and publishing. We now support multiple network visualization implementations (eg. Cytoscape, Sigma/Reagraph variants) and multiple GeoMap implementations (MapLibre, Leaflet-based layers, and experimental Cesium integrations). Since 2025 we've focused on making ingestion reliable and safe (an easy-to-use Builder UI, strict import quotas, and a waitlist to avoid overload), while finishing the Meteor 3 migration and tightening GeoMap <-> Cytoscape integration so maps and networks behave as a single, consistent exploration surface.
+Topogram turns raw event, dependency, and relationship spreadsheets into interactive network + map explorations you can browse, administer, and export. The project now runs on Meteor 3 with a React front-end, exposes multiple interchangeable renderers (Cytoscape, Sigma, Reagraph), and lets you deliver finished stories through the MapApp Builder static exporter.
 
-This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, timeline improvements, and Meteor 3 migration work.
+## Highlights (November 2025)
+- **About this map everywhere** – Topogram documents now persist `graph_desc` from imports. Cards on the Home page and the Topogram detail side panel expose an _About_ dialog that renders the Markdown safely so analysts can surface context without leaving the app.
+- **Home page folder administration** – Admin users can create folders, move maps between folders, and delete folders with a two-step confirmation (either drop metadata or cascade-delete maps). Folder headers display compact counts, an inline green folder icon, and tidy action buttons.
+- **Denormalised statistics** – `nodeCount` and `edgeCount` are stored with each Topogram. Import jobs write the counts, node/edge create & delete methods keep them up to date, and a server backfill script populates legacy documents at startup so the UI never has to count elements on the fly.
+- **Card readability overhaul** – Home cards and folder cards use the new “elevated + clean” style (soft border, gentle hover lift, left accent). Typography, spacing, and pagination controls were tightened to show 33% more information per view without losing legibility.
+- **Builder & import ergonomics** – CSV/XLSX/ODS ingestion, emoji and relationship-label handling, and waitlisted import controls remain available. Exports reuse the same schema and can now be packaged into static bundles through MapApp Builder.
+- **Renderer parity** – Selection stays synchronised across Cytoscape, Sigma, Reagraph, MapLibre, Leaflet, and Cesium adapters. Timeline controls, legends, charts, and selection exports all speak a shared adapter contract.
 
-## Quick switch between network renderers
+## Feature tour
 
-You can switch the network implementation at runtime:
+### Multi-surface visualisation
+- Switch network renderers on the fly (`?graph=cy|sigma|reagraph`) or through the in-app selector. Each adapter exposes a Cytoscape-like API (select / unselect / fit / animate) so charts, selection panel, and timelines behave consistently.
+- Geo visualisations use Leaflet by default, but MapLibre and Cesium adapters are available for dense or 3D storytelling. Relationship labels, emojis, arrowheads, and selection state mirror the network view.
+- The Side Panel centralises layer toggles, renderer selectors, export actions, and the new About dialog.
 
-- URL query: append `?graph=cy`, `?graph=sigma`, or `?graph=reagraph` to the page URL.
-- In code: `imports/client/ui/components/network/GraphWrapper.jsx` accepts an `impl` prop (`'cy' | 'sigma' | 'reagraph'`); when omitted it reads `?graph`.
+### Imports, data and governance
+- Builder UI maps columns to Topogram fields, enqueues server-side jobs, and enforces quotas. CSV, XLSX, and ODS are supported, including multi-sheet (“Nodes” + “Edges”) workbooks.
+- Node and edge emojis (up to three grapheme clusters) and relationship emojis are normalised during import and respected by every renderer.
+- Folders organise large installations. Admin-only methods (`topograms.createFolder`, `topogram.moveToFolder`, `topograms.deleteFolderMeta`, `topogram.deleteFolder`) power the Home page tools and audit logging.
 
-Adapters expose a Cytoscape-like API (select/unselect, nodes/edges/elements, fit/zoom/center/animate, layout events) so SelectionPanel, Charts, and GeoMap stay in sync across implementations.
+### Exporting and sharing
+- **CSV exports** mirror the import schema for full datasets or current selections.
+- **MapApp Builder** (the `mapappbuilder/` workspace) packages a single Topogram into a static bundle with configurable presentation chrome, renderer presets, and bundled assets (Sigma/Reagraph, MapLibre, Cesium). See [`mapappbuilder/README.md`](mapappbuilder/README.md) for the workflow.
+- **PNG/SVG** exports capture the current network state, preserving emojis, labels, and arrowheads. Reagraph falls back to a deterministic 2D render for consistent imagery.
 
-## MapApp Builder — build portable mini map+network apps
+## Getting started
+1. Follow [`docs/QUICKSTART.md`](docs/QUICKSTART.md) to install Meteor, dependencies, and start the dev server.
+2. Import a sample from [`samples/`](samples/) using the Builder UI.
+3. Open the generated Topogram, explore the network/map views, try the About dialog, move the map into a folder, and verify node / edge counts on the Home page.
 
-The `mapappbuilder/` workspace contains everything needed to export a single Topogram as
-a self-contained static presentation that can be served anywhere (CDN, static host, or
-file server). Each exported bundle includes the serialized dataset, a configurable
-presentation shell, and the runtime UMD libraries required to render network and map
-views offline.
+## Documentation map
+| Topic | Where to read |
+| --- | --- |
+| Architecture, adapters, data flow | [`docs/ARCHITECTURE.md`](docs/ARCHITECTURE.md) |
+| Collections & field reference | [`docs/DATASET.md`](docs/DATASET.md) |
+| API (publications, methods, adapter APIs) | [`docs/API.md`](docs/API.md) |
+| Selection contract & renderer notes | [`docs/SELECTIONS.md`](docs/SELECTIONS.md) |
+| Dependency graphs & code maps | [`docs/DEPENDENCY_GRAPH.md`](docs/DEPENDENCY_GRAPH.md), [`docs/DEPENDENCY_GRAPH_BUILDER.md`](docs/DEPENDENCY_GRAPH_BUILDER.md) |
+| Weekly progress snapshots | [`docs/RECENT_PROGRESS.md`](docs/RECENT_PROGRESS.md) |
+| Contribution workflow | [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) |
+| Builder & export templates | [`mapappbuilder/README.md`](mapappbuilder/README.md), [`docs/mapappbuilder/README.md`](docs/mapappbuilder/README.md) |
 
-Key files and quick workflow:
+## Changelog and history
+- `CHANGELOG.md` now summarises recent releases and feature themes.
+- `docs/CHANGELOG_FULL.md` lists every commit (including merged branches) since the project’s inception, generated directly from `git log --reverse`.
 
-- `mapappbuilder/config.schema.json` — JSON Schema for the bundle configuration.
-- `mapappbuilder/presentation-template/` — HTML+JS template copied into each export.
-- `mapappbuilder/.sandboxapp/` — local test harness mirroring the template for QA.
-- `mapappbuilder/package.sh <output.zip>` — packaging helper that injects `config.json`
-  and `data/topogram.json`, preserves `lib/` and zips the presentation.
+## Contributing & support
+- Read [`docs/CONTRIBUTING.md`](docs/CONTRIBUTING.md) for branch strategy, linting, and the pre-push hook.
+- File issues or ideas in the repository tracker. If you add a renderer or importer, document the contract in `docs/ARCHITECTURE.md` and reference it from the README table above.
 
-Quick test flow:
-
-```bash
-cd mapappbuilder
-./sync_sandboxapp.sh            # copy presentation-template → .sandboxapp/presentation
-./.sandboxapp/start_server.sh   # serve sandbox on http://localhost:3024 (defaults to Reagraph)
-./package.sh ./exported-presentation.zip
-```
-
-See `mapappbuilder/README.md` and `mapappbuilder/DEPENDENCY_GRAPH.md` for a full
-workflow, renderer notes, and the dependency diagram that explains how templates,
-libs, and packaging interact.
-
-## Renderers and adapters
-
-- Cytoscape (legacy, full feature set) — retains plugins like `cytoscape-cola` and the stylesheet DSL.
-- Sigma v3 + Graphology (new) — clean adapter rewrite with:
-  - Edge labels (text and emoji), label visibility tuned; size/weight mapping.
-  - Parallel edges and self-loops rendered as curves when `@sigma/edge-curve` is present; arrowheads when `enlightement = 'arrow'` or `arrow = true`.
-  - Selection parity (`on('select'|'unselect')`, `.select(id)`, `.unselect(id)`), timeline-friendly `hidden` attributes and camera helpers.
-- Reagraph (React-first) — available in MapApp Builder and optionally in-app behind the same adapter contract.
-
-See also: `docs/ARCHITECTURE.md` and `docs/SELECTIONS.md`.
-
-```markdown
-# Topogram (topogram-standard-upgraded)
-
-This README summarizes recent development activity (last ~3 weeks) across branches. It focuses on UI selection sync, GeoMap/Cytoscape integration, CSV import/export, charts, timeline improvements, and Meteor 3 migration work.
-
-## Overview of recent changes (last 3 weeks)
-
-Summary of notable commits (titles and context):
-
-- GeoMap selection and clickability fixes (branch: `selectviageomap` / merged to `main`) — multiple commits:
-  - `GeoMap: toggle selection via ui.selectedElements instead of requiring cy` — make map selection work even when `cy` isn't passed.
-  - `GeoMap: add invisible hit-area CircleMarker for small nodes` — improve clickability for small markers.
-  - `GeoMap: make hit-area markers interactive (fillOpacity) for more reliable clicks` — ensure Leaflet reliably dispatches clicks.
-  - `GeoMap: ensure geoNodes carry viz id (data.id) matching Cytoscape` — align map node IDs with Cytoscape ids.
-  - `GeoMap: pass canonical node/edge json (group + data.id) to selection handlers` — ensure parent receives canonical JSON.
-  - `GeoMap: ensure node json has no source/target fields to avoid misclassification as edges` — remove stray edge-like fields on node JSON.
-
-- Selection panel and export (branch: `exporttopotocsv` / merged to `main`):
-  - `SelectionPanel: add Export CSV for selected nodes/edges with customizable title` — export selected elements as CSV matching ImportCsvModal layout.
-  - `SelectionPanel: wire show/hide toggle and parent-controlled mounting; persist selectionPanelPinned in localStorage` — settings toggle, persistent pin state, parent-controlled mounting so popup close works.
-  - Several `export:` commits improving filename sanitization, CRLF usage, and title sanitization.
-
-- Charts and selection integration (branch: `chartsandselection` / merged):
-  - `charts: highlight edge donut slice when selected` and related commits — charts now reflect selection and drive Cytoscape selection/unselection.
-  - `cytoscape: add selected styles for nodes and edges` — visual improvements.
-
-- Popup and UI behavior
-  - Multiple fixes and improvements to `Popup` to make pop-out, close handling, drag/stop behavior, and light theme consistent.
-
-- CSV import and server
-  - `CSV import: robust node id mapping, edge label/color persistence, job error logging; fix async collection calls` and server worker registration.
-
-- Timeline and UI wiring
-  - Timeline play/pause/step controls, slider persistence, timeline filtering, and timeline UI wiring into TopogramDetail.
-
-## Files and components touched
-
-- `imports/ui/components/geoMap/*` (GeoMap, GeoNodes, GeoEdges) — selection handling, interactive hit areas, JSON canonicalization.
-- `imports/ui/components/SelectionPanel/SelectionPanel.jsx` — Export CSV UI; export logic reusing Topogram CSV format.
-- `imports/ui/pages/TopogramDetail.jsx` — glue between Cytoscape, GeoMap, SelectionPanel, Charts; ensures `data.id` alignment, selection state, timeline filtering.
-- `imports/ui/components/charts/*` — updates to reflect selection and drive cytoscape selection.
-- `imports/client/helpers` & server endpoints for CSV import/export.
-- `imports/ui/components/common/Popup.jsx` — popout/close improvements.
-
-## Recent edits (2025-10-13)
-
-- Emoji & edge-relationship support:
-  - CSV import now accepts an `emoji` (or `em`/`icon`) column for both nodes and edges. The importer normalizes LibreOffice-encoded segments, extracts up to 3 grapheme-cluster emojis, and stores them on documents (`node.data.emoji`, `edge.data.relationshipEmoji`).
-  - Network UI: added selectors to choose how node labels and edge relationship labels are displayed (Name | Emoji | Both for nodes; Text | Emoji | Both for edges). Labels update immediately in the network view without remounting Cytoscape.
-  - GeoMap: midpoint relationship labels follow the selected edge label mode and can show emoji, text, or both. Chevrons remain a global drawing convention and per-edge arrowheads (CSV `enlightement = 'arrow'`) are respected.
-  - Sample CSV: the sample now includes multi-emoji examples and the download is prefixed with a UTF-8 BOM so LibreOffice and Excel detect UTF-8 and show emoji correctly. A short note appears in the import dialog describing this.
-  - Branch: changes were developed on branch `edgerelationshipasemoji` and pushed for review.
-
-## Upgrade branches (migration / Meteor 3 prep)
-
-Additional commits on upgrade/migration branches that were part of the Meteor 3 port and preparatory work. The branches include `upgrade/m3-port`, `upgrade/m3-prep`, and `topogram-m3-migration`.
-
-- `upgrade/m3-port` (examples from recent commits)
-  - `fix(sanitize): clamp numeric node/edge fields on ingest + add migration to sanitize existing docs` — data sanitization and migration scripts to clean legacy numeric fields when importing under Meteor 3.
-  - `feat(router): add /t/:id route, Home list with links, and detail view` — scaffolding for routes, publications and methods (topograms/nodes/edges).
-  - `chore: scaffold Meteor 3 app with upgraded stack deps and dev scripts` — initial Meteor 3 scaffolding.
-
-- `upgrade/m3-prep` (migration prep and historic upstream commits)
-  - `chore(migration): add plan and dev env scaffolding` — migration plan and developer environment scaffolding.
-  - This branch also contains historic Topogram commits preserved during the prep step (many UI and timeline-related improvements dating back to earlier upstream work).
-
-- `topogram-m3-migration`
-  - `migrate: Topogram Meteor3 client fixes` — client-side adjustments for Meteor 3: Cytoscape presets, color & weight normalization, layout selector, title-size UI, and adjusted publications/mappings.
-  - Timeline and UI wiring for migration: TimeLine placeholders, minimal Redux/store wiring, geo/network view toggles and side-panel wiring.
-
-## Recent commits (branch: arrowed-links)
-
-The most recent work on branch `arrowed-links` focuses on GeoMap midpoint label placement, UI prop propagation, and minor polish for geo/network arrow rendering:
-
-- 82335c0 working enough3
-- bbb50c8 working enough2
-- 2aa742a working enough
-- 7ca2a0f Revert "Cytoscape: precompute per-edge numeric style fields and restrict color mappings to avoid mapData/mapping warnings"
-- dc2d38a Cytoscape: precompute per-edge numeric style fields and restrict color mappings to avoid mapData/mapping warnings
-- 865cbf3 Geo: pass ui and map refs to GeoEdges/GeoNodes so UI toggles affect map layers
-- c0e079d Geo: increase pixel-space label separation (larger normal offset, more jitter)
-- 2aebb63 Geo: pixel-space tangent/normal offsets and longitudinal jitter for midpoint labels
-- fadde57 Geo: use map.project/unproject for pixel-space midpoint label placement; pass map ref to GeoEdges
-- efd9298 Geo: alternate midpoint label placement above/below edge and reduce distance
-- d2ab429 Geo: increase midpoint label offsets and jitter to reduce overlap
-- 186553e Geo: jitter midpoint labels to reduce overlap; Cytoscape parallel-edge styling and propagate edge fields
-
-Please see `CHANGELOG.md` for a concise entry (appended there as well).
-
-These branches represent the migration effort to prepare the app for Meteor 3 and sanitize legacy data. They include scaffolding, router updates, migration scripts, and compatibility fixes.
-
-## Testing notes / how to verify
-
-1. Start the app locally (Meteor): ensure dependencies are installed and run the Meteor app as in the project instructions.
-2. Open a Topogram that contains geo nodes and network nodes.
-   - Verify split view (network + map): selecting nodes in the network highlights on the map and vice versa.
-   - Click small nodes on the map — selection should reliably register (increased hit-area).
-   - Selected items should appear under the Selection panel under the correct category (Nodes vs Edges).
-3. Export behavior:
-   - Use the Export CSV from the main Topogram view to download a full CSV (title + header + rows).
-   - Use SelectionPanel -> Export CSV to export only selected nodes/edges. Provide an optional title and verify filename sanitization and the CSV format.
-4. Charts:
-   - Select nodes/edges in charts (donut slices) and observe Cytoscape selection and the selection panel updating.
-
-## Branches / PRs of interest
-
-# Topogram — interactive networks + geomaps (overview)
-
-Topogram turns messy relationship and event data into interactive, publishable network and map visualizations. It's designed for exploration, storytelling, and lightweight static exports.
-
-Core promises
-
-- Multiple network renderers supported (Cytoscape, Sigma/Graphology, Reagraph) so you can pick between feature completeness and React-native performance.
-- Geo visualizations via Leaflet/MapLibre (and experimental Cesium) with midpoint edge labels and robust label aggregation for high-density maps.
-- A Builder workflow to prepare/import datasets (CSV/ODS/XLSX/JSON), map columns, and enqueue server-side imports with operational quotas and an optional waitlist for fair sharing.
-- Exports: vector (SVG) and pixel (PNG) exports that aim to match the live view (labels, emojis, and arrowheads preserved where possible).
-
-Why Topogram exists — punchlines
-
-- Turn messy, mixed spreadsheets into graphs you can explore and publish without writing code.
-- Keep UI parity between network and map: selection, labels and exports behave consistently across renderers.
-- Make exports reliable: when live WebGL snapshots are unreliable, we fall back to a deterministic 2D renderer so the exported image still represents the visible layout.
-
-Quick facts
-
-- Stack: Meteor (server) + React client. The project has been migrated toward Meteor 3 compatibility and ongoing work reduces surface area that depends on Meteor‑specific runtime patterns.
-- Adapters: each network renderer exposes a small Cytoscape-like API (select/unselect, fit/zoom/center, layout events) so other UI pieces (SelectionPanel, Charts, GeoMap) are renderer-agnostic.
-- Builder: a UI to assemble, validate and enqueue dataset imports. Server enforces per-import and per-user caps and surfaces a waitlist when needed.
-
-Try it locally (quick)
-
-1. Install deps and run the app in development: follow `docs/QUICKSTART.md` for exact commands for your environment.
-2. Log in, open Home → Builder, import a sample CSV from `samples/`, verify the mapping and click Enqueue.
-3. Open a Topogram, switch between Network and Geo views, test selection sync and use Export → SVG/PNG from the Side Panel.
-
-Recent progress (week of 2025-10-20 → 2025-10-30)
-
-- UI: moved on-canvas controls to the Side Panel and consolidated toggles. Export PNG was added beside Export SVG and wired into the Reagraph export flow.
-- Exporting: Reagraph adapter now prefers a live-canvas snapshot (double RAF + label force) and falls back to a deterministic offscreen 2D render when necessary; SVG exports now better preserve emojis, edge labels and arrowheads.
-- Stability: timeline and network mount fixes reduce blank/missing render cases; selection flow is unified through the adapter contract to keep charts, map and network in sync.
-- Docs: initial consolidation into `docs/` with mapappbuilder materials moved to `docs/mapappbuilder/` and a set of samples and scripts documented next to `docs/`.
-
-Where to read more
-
-- Overview and how-to: `docs/README.md`
-- Architecture and adapters: `docs/ARCHITECTURE.md`
-- Developer scripts and dependency graph: `docs/DEPENDENCY_GRAPH.md` and `docs/DEPENDENCY_GRAPH_BUILDER.md`
-- Import/Builder details: `docs/QUICKSTART.md` and `docs/core/README.md`
-
-If you'd like I can prepare a concise PR that lists all moved/edited docs, runs a link-check, and includes a short checklist of remaining manual edits (small path fixes and ambiguous references). Apply that PR now? 
-
-Generated: 2025-10-30
+Happy graphing!
