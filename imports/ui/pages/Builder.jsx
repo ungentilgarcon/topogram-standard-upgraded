@@ -34,6 +34,7 @@ export default function Builder() {
   const [pendingHeaders, setPendingHeaders] = useState([])
   const [title, setTitle] = useState('')
   const [fileName, setFileName] = useState('')
+  const [descriptionMd, setDescriptionMd] = useState('')
   const [waitlistInfo, setWaitlistInfo] = useState(null)
   const [polling, setPolling] = useState(false)
   const navigate = useNavigate()
@@ -66,8 +67,38 @@ export default function Builder() {
     if (!f) return
     setFileName(f.name)
     const lower = (f.name || '').toLowerCase()
+    const isMarkdown = f.type === 'text/markdown' || /\.md$/i.test(lower)
     const isJson = (f.type === 'application/json') || /\.json$/i.test(f.name || '')
     const isSpreadsheet = /\.(xlsx|ods)$/i.test(lower)
+    if (isMarkdown) {
+      try {
+        const text = await f.text()
+        setDescriptionMd(text)
+        // Try to extract a sensible title from the markdown: frontmatter title or first h1
+        try {
+          let extracted = null
+          if (/^---\s*\n/.test(text)) {
+            const fmMatch = text.match(/^---\s*\n([\s\S]*?)\n---\s*\n/)
+            if (fmMatch && fmMatch[1]) {
+              const titleMatch = fmMatch[1].match(/(^|\n)title\s*:\s*(.+)/i)
+              if (titleMatch) extracted = titleMatch[2].trim().replace(/^['"]|['"]$/g, '')
+            }
+          }
+          if (!extracted) {
+            const lines = text.split(/\r?\n/)
+            for (const L of lines) {
+              const m = L.match(/^#\s+(.+)/)
+              if (m) { extracted = m[1].trim(); break }
+            }
+          }
+          if (extracted && (!title || title.trim() === '')) setTitle(extracted)
+        } catch (e) {}
+      } catch (err) {
+        console.error('Failed to read markdown', err)
+        alert('Failed to read markdown file: ' + (err && err.message ? err.message : String(err)))
+      }
+      return
+    }
     if (isJson) {
       const text = await f.text()
       try {
@@ -453,7 +484,7 @@ export default function Builder() {
         <Link to="/">← Back</Link>
       </div>
       <div style={{ display: 'flex', gap: 12, alignItems: 'center', marginBottom: 12 }}>
-        <input type="file" accept="text/csv,application/json,.xlsx,.ods,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.oasis.opendocument.spreadsheet" onChange={handleFile} />
+        <input type="file" accept="text/csv,application/json,.xlsx,.ods,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/vnd.oasis.opendocument.spreadsheet,text/markdown,.md" onChange={handleFile} />
         <TextField label="Topogram title" value={title} onChange={e=>setTitle(e.target.value)} size="small" />
         <Button variant="outlined" onClick={downloadCsv}>Download CSV</Button>
         <Button variant="contained" color="primary" onClick={enqueueImport}>Import to server</Button>
@@ -483,6 +514,16 @@ export default function Builder() {
                 ))}
               </tbody>
             </table>
+          </div>
+        </div>
+      ) : null}
+
+      {/* Markdown description preview */}
+      {descriptionMd ? (
+        <div style={{ marginTop: 12, marginBottom: 12 }}>
+          <h3>Description (imported from Markdown)</h3>
+          <div style={{ maxHeight: 300, overflow: 'auto', border: '1px solid #eee', padding: 12, whiteSpace: 'pre-wrap', fontFamily: 'inherit' }}>
+            {descriptionMd}
           </div>
         </div>
       ) : null}
