@@ -399,7 +399,7 @@ export default function Builder() {
     try {
       const res = await new Promise((resolve, reject) => {
         try {
-          Meteor.call('topogram.enqueueCsvImport', { filename: fileName || (title ? title.replace(/\s+/g,'_') + '.csv' : 'builder_import.csv'), contentBase64: b64, mapping: {}, options: { topogramTitle: title } }, (err, result) => {
+          Meteor.call('topogram.enqueueCsvImport', { filename: fileName || (title ? title.replace(/\s+/g,'_') + '.csv' : 'builder_import.csv'), contentBase64: b64, mapping: {}, options: { topogramTitle: title, graph_desc: descriptionMd } }, (err, result) => {
             if (err) return reject(err)
             resolve(result)
           })

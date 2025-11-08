@@ -144,7 +144,12 @@ const processJob = async (job) => {
 
     // Create topogram
     const topogramTitle = options.topogramTitle || `Imported ${filename} ${new Date().toISOString()}`
-  const topogramId = await Topograms.insertAsync({ title: topogramTitle, userId: job.userId, createdAt: new Date(), importMeta: { filename } })
+    // Prepare topogram document; persist graph_desc from options when provided
+    const topogramDoc = { title: topogramTitle, userId: job.userId, createdAt: new Date(), importMeta: { filename } }
+    if (options && options.graph_desc && typeof options.graph_desc === 'string' && options.graph_desc.trim() !== '') {
+      topogramDoc.graph_desc = options.graph_desc
+    }
+    const topogramId = await Topograms.insertAsync(topogramDoc)
 
     // Insert nodes in batches
     const BATCH = 500
