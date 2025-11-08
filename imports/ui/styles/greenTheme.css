@@ -214,16 +214,23 @@
   border-left: 6px solid var(--green-300);
   box-shadow: 0 6px 18px rgba(16, 88, 56, 0.04);
 }
-.folder-header { position: relative; flex-wrap: wrap; }
-/* Allow folder name to shrink/wrap instead of pushing controls out of the container */
-.folder-header > div:nth-child(1) {
-  flex: 1 1 auto;
-  min-width: 0;
-  word-break: break-word;
+.folder-header { position: relative; flex-wrap: wrap; display: flex; align-items: center; }
+/* Icon fixed size, meta grows and can wrap, controls remain fixed */
+.folder-header > .folder-icon { flex: 0 0 auto; }
+.folder-header > .folder-meta { flex: 1 1 auto; min-width: 0; word-break: break-word; }
+.folder-header > div:last-child { flex: 0 0 auto; margin-left: 8px; }
+.folder-icon {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+  color: var(--green-700); /* SVG uses currentColor */
+  background: transparent;
 }
-.folder-header > div:nth-child(2) { flex: 0 0 auto; }
-.folder-header > div:nth-child(3) { flex: 0 0 auto; margin-left: 8px; }
-.folder-icon { font-size:22px; display:inline-block; width:28px; text-align:center }
+.folder-icon svg { display: block; width: 20px; height: 20px; }
 .folder-meta { display:flex; flex-direction:column }
 .folder-name { font-size:16px }
 .folder-count { color:var(--muted); font-size:13px }
@@ -245,6 +252,44 @@
   box-shadow: 0 6px 18px rgba(16,88,56,0.04);
 }
 .folder-card .topogram-link { font-size:15px }
+
+/* Option 1: Elevated & clean card styling */
+.topogram-item,
+.folder-card {
+  background: #ffffff;
+  border: 1px solid rgba(16,88,56,0.06);
+  box-shadow: 0 8px 20px rgba(16,88,56,0.06);
+  border-radius: 12px;
+  padding: 14px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.topogram-item::before,
+.folder-card::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 6px;
+  background: var(--green-300);
+  border-radius: 6px;
+  opacity: 0.95;
+}
+
+.topogram-item:hover,
+.folder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(16,88,56,0.08);
+}
+
+/* Ensure content doesn't overlap the left accent */
+.topogram-item > div, .folder-card > div { margin-left: 12px; }
+
+/* Keyboard focus for accessibility */
+.topogram-item:focus-within, .folder-card:focus-within { box-shadow: 0 0 0 3px rgba(42,168,118,0.08); }
 
 /* Debug panel styles */
 .folder-debug-panel { margin-top:18px; padding:12px; background:rgba(255,255,255,0.9); border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.08); font-size:13px; color:var(--green-900); }

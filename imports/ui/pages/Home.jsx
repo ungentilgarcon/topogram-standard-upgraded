@@ -573,9 +573,16 @@ export default function Home() {
               if (!folderName) return null
               return (
                 <li key={`folder-${folderName}`} className="topogram-item folder-item">
-                  <div className="folder-header" onClick={() => toggleFolder(folderName)} style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
-                    <div style={{ fontWeight: 600 }}>{folderName}</div>
-                    <div style={{ fontSize: 12, color: '#666', marginLeft: 8 }}>{typeof count === 'number' ? `${count} map${count === 1 ? '' : 's'}` : ''}</div>
+                  <div className="folder-header" onClick={() => toggleFolder(folderName)}>
+                    <div className="folder-icon" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M10 4H4C2.895 4 2 4.895 2 6V18C2 19.105 2.895 20 4 20H20C21.105 20 22 19.105 22 18V8C22 6.895 21.105 6 20 6H12L10 4Z" />
+                      </svg>
+                    </div>
+                    <div className="folder-meta">
+                      <div className="folder-name">{folderName}</div>
+                      <div className="folder-count">{typeof count === 'number' ? `${count} map${count === 1 ? '' : 's'}` : ''}</div>
+                    </div>
                     {isAdmin ? (
                       <div style={{ marginLeft: 'auto' }}>
                         <Button size="small" variant="outlined" onClick={(e) => { e.stopPropagation(); setFolderDeleteTarget(folderName); setFolderDeleteCount(typeof count === 'number' ? count : 0); setFolderDeleteDialogOpen(true); }}>Delete folder</Button>
