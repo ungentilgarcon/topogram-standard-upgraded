@@ -18,3 +18,5 @@ import '/imports/api/exportMethods'
 import '/imports/startup/server/exportsServer'
 import '/imports/startup/server/exportsCleanup'
 import '/imports/startup/server/accounts'
+// Backfill denormalized counts for existing topograms (safe to run repeatedly)
+import '/imports/startup/server/backfillCounts'

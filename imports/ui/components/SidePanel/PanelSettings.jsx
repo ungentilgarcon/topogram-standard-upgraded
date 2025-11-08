@@ -1,9 +1,14 @@
-import React from 'react'
+import React, { useState, useMemo } from 'react'
+import { useParams } from 'react-router-dom'
+import { useSubscribe, useFind } from 'meteor/react-meteor-data'
+import { Topograms } from '/imports/api/collections'
 
 import PanelSelector from './panelSelector/PanelSelector.jsx'
 
 import NetworkOptions from './networkOptions/NetworkOptions.jsx'
 import Settings from './settings/Settings.jsx'
+import AboutDialog from '/imports/ui/components/AboutDialog/AboutDialog.jsx'
+import Button from '@mui/material/Button'
 
 const PanelSettings = ({
   geoMapVisible,
@@ -15,8 +20,22 @@ const PanelSettings = ({
   hasTimeInfo,
   hasGeoInfo,
   router
-}) => (
-  <span>
+}) => {
+  // route id -> attempt to load the topogram doc so we can show graph_desc
+  const { id: routeId } = useParams()
+  // subscribe to the topogram publication (harmless if parent already subscribes)
+  useSubscribe('topogram', routeId)
+  const tops = useFind(() => {
+    if (!routeId) return Topograms.find({ _id: '__none__' })
+    return Topograms.find({ _id: routeId })
+  }, [routeId])
+  const top = (Array.isArray(tops) && tops.length) ? tops[0] : null
+  const graphDesc = top && (top.graph_desc || top.description || top.desc || (top.data && (top.data.graph_desc || top.data.description))) ? (top.graph_desc || top.description || top.desc || (top.data && (top.data.graph_desc || top.data.description))) : ''
+
+  const [aboutOpen, setAboutOpen] = useState(false)
+
+  return (
+    <span>
     <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', marginBottom: 8 }}>
       <div style={{ fontSize: 14, fontWeight: 600, color: '#2e7d32' }}>Settings</div>
       {/* Legend toggle placed at top of the settings panel for quick access */}
@@ -35,6 +54,13 @@ const PanelSettings = ({
           style={{ background: '#1b5e20', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
         >
           {(typeof window !== 'undefined' && typeof window._topoLegendVisible !== 'undefined') ? (window._topoLegendVisible ? 'Hide Legend' : 'Show Legend') : ((window.localStorage && window.localStorage.getItem('topo.legendVisible') === 'true') ? 'Hide Legend' : 'Show Legend')}
+        </button>
+        {/* About this map button - opens a dialog rendering markdown from Topogram.graph_desc */}
+        <button
+          onClick={() => { console.debug && console.debug('SidePanel About clicked', routeId || topogramId); setAboutOpen(true) }}
+          style={{ marginLeft: 8, background: '#2e7d32', color: 'white', border: 'none', padding: '6px 10px', borderRadius: 4, cursor: 'pointer' }}
+        >
+          About this map
         </button>
       </div>
     </div>
@@ -161,7 +187,10 @@ const PanelSettings = ({
       :
       null
     }
+    {/* Shared About dialog - use centralized component */}
+    <AboutDialog open={aboutOpen} onClose={() => setAboutOpen(false)} markdown={graphDesc} />
   </span>
-)
+  )
+}
 
 export default PanelSettings

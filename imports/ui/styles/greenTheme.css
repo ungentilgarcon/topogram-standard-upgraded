@@ -9,13 +9,16 @@
 }
 
 .home-container {
-  padding: 28px 32px;
+  /* Reduced outer white space: roughly half the previous padding */
+  padding: 14px 16px;
   background: linear-gradient(180deg, rgba(243,250,247,1) 0%, rgba(255,255,255,1) 30%);
   color: var(--green-900);
   font-family: Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial;
   max-width: 1300px;
   margin: 0 auto;
 }
+/* prevent horizontal overflow from nested grids/buttons */
+.home-container { box-sizing: border-box; }
 .home-title {
   margin: 0 0 4px 0;
   color: var(--green-900);
@@ -76,21 +79,30 @@
   grid-template-columns: repeat(4, 1fr);
   gap: 18px 20px;
 }
+.topogram-list { width: 100%; box-sizing: border-box; }
 .topogram-item {
   background: var(--card-bg);
   border-radius: 12px;
   padding: 14px 16px;
   box-shadow: 0 6px 18px rgba(16, 88, 56, 0.04);
   border-left: 6px solid var(--green-300);
-  min-height: 56px;
+  min-height: 0;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
+  align-items: stretch;
 }
 .topogram-link {
   color: var(--green-900);
   font-weight: 600;
   text-decoration: none;
+}
+.topogram-link {
+  /* Ensure long filenames / timestamps wrap instead of forcing overflow */
+  display: block;
+  width: 100%;
+  overflow-wrap: anywhere;
+  word-break: break-word;
 }
 .topogram-link:hover { text-decoration: underline; }
 .topogram-desc { color: var(--muted); font-size: 13px; margin-top: 6px; }
@@ -202,7 +214,23 @@
   border-left: 6px solid var(--green-300);
   box-shadow: 0 6px 18px rgba(16, 88, 56, 0.04);
 }
-.folder-icon { font-size:22px; display:inline-block; width:28px; text-align:center }
+.folder-header { position: relative; flex-wrap: wrap; display: flex; align-items: center; }
+/* Icon fixed size, meta grows and can wrap, controls remain fixed */
+.folder-header > .folder-icon { flex: 0 0 auto; }
+.folder-header > .folder-meta { flex: 1 1 auto; min-width: 0; word-break: break-word; }
+.folder-header > div:last-child { flex: 0 0 auto; margin-left: 8px; }
+.folder-icon {
+  display:inline-flex;
+  align-items:center;
+  justify-content:center;
+  width:28px;
+  height:28px;
+  margin-right: 10px;
+  flex: 0 0 auto;
+  color: var(--green-700); /* SVG uses currentColor */
+  background: transparent;
+}
+.folder-icon svg { display: block; width: 20px; height: 20px; }
 .folder-meta { display:flex; flex-direction:column }
 .folder-name { font-size:16px }
 .folder-count { color:var(--muted); font-size:13px }
@@ -213,6 +241,9 @@
   gap: 14px 18px;
   justify-content: flex-start;
 }
+.folder-contents { box-sizing: border-box; width: 100%; }
+
+.topogram-item, .folder-item, .folder-card { box-sizing: border-box; max-width: 100%; }
 .folder-card {
   background: white;
   border-left: 6px solid var(--green-300);
@@ -221,6 +252,44 @@
   box-shadow: 0 6px 18px rgba(16,88,56,0.04);
 }
 .folder-card .topogram-link { font-size:15px }
+
+/* Option 1: Elevated & clean card styling */
+.topogram-item,
+.folder-card {
+  background: #ffffff;
+  border: 1px solid rgba(16,88,56,0.06);
+  box-shadow: 0 8px 20px rgba(16,88,56,0.06);
+  border-radius: 12px;
+  padding: 14px;
+  transition: transform 160ms ease, box-shadow 160ms ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.topogram-item::before,
+.folder-card::before {
+  content: '';
+  position: absolute;
+  left: 10px;
+  top: 10px;
+  bottom: 10px;
+  width: 6px;
+  background: var(--green-300);
+  border-radius: 6px;
+  opacity: 0.95;
+}
+
+.topogram-item:hover,
+.folder-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 14px 36px rgba(16,88,56,0.08);
+}
+
+/* Ensure content doesn't overlap the left accent */
+.topogram-item > div, .folder-card > div { margin-left: 12px; }
+
+/* Keyboard focus for accessibility */
+.topogram-item:focus-within, .folder-card:focus-within { box-shadow: 0 0 0 3px rgba(42,168,118,0.08); }
 
 /* Debug panel styles */
 .folder-debug-panel { margin-top:18px; padding:12px; background:rgba(255,255,255,0.9); border-radius:10px; box-shadow:0 4px 16px rgba(0,0,0,0.08); font-size:13px; color:var(--green-900); }
@@ -232,7 +301,44 @@
 .debug-details pre { max-height:260px; overflow:auto; background:#f3f8f5; padding:8px; border-radius:8px; }
 
 /* Pagination */
-.pagination-bar { display:flex; align-items:center; justify-content:center; gap:12px; margin: 18px 0; }
-.page-btn { border:1px solid rgba(0,0,0,0.08); background:white; padding:6px 10px; border-radius:8px; cursor:pointer; color: var(--green-900); }
-.page-btn:disabled { opacity:0.5; cursor:not-allowed }
-.page-info { color: var(--muted); font-weight:600 }
+.pagination-bar { display:flex; align-items:center; justify-content:center; gap:6px; margin: 9px 0; }
+.page-btn { border:1px solid rgba(0,0,0,0.08); background:white; padding:4px 8px; border-radius:6px; cursor:pointer; color: var(--green-900); font-size:12px; }
+.page-btn:disabled { opacity:0.6; cursor:not-allowed }
+.page-info { color: var(--muted); font-weight:600; font-size:13px; }
+
+/* Compact card mode: reduce card/card-content sizes and spacing by ~33% for denser layout */
+.compact-cards.home-container {
+  padding: 18px 22px;
+}
+.compact-cards .home-title { font-size: 22px; margin-bottom:6px }
+.compact-cards .home-sub { font-size: 12px; margin-bottom:10px }
+.compact-cards .controls-row { gap: 8px; margin-bottom: 12px }
+.compact-cards .ready-count { font-size: 12px; padding: 4px 8px; border-radius: 6px }
+.compact-cards .import-button { padding: 6px 10px; font-size: 12px; border-radius: 6px }
+.compact-cards .topogram-list { gap: 12px 12px }
+.compact-cards .topogram-item {
+  padding: 9px 10px;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(16, 88, 56, 0.04);
+  border-left-width: 5px;
+  min-height: 0;
+}
+.compact-cards .topogram-link { font-size: 12px }
+.compact-cards .topogram-desc { font-size: 11px; margin-top: 6px }
+.compact-cards .ready-count { font-size: 12px }
+.compact-cards .topogram-list { padding: 6px 2px 24px 2px }
+.compact-cards .folder-header { padding: 8px 10px; border-radius: 10px }
+.compact-cards .folder-name { font-size: 13px }
+.compact-cards .folder-count { font-size: 11px }
+.compact-cards .folder-contents { margin-top: 10px; grid-template-columns: repeat(auto-fit, minmax(160px, 200px)); gap: 10px 12px }
+.compact-cards .folder-card { padding: 8px; border-radius: 8px }
+.compact-cards .folder-card .topogram-link { font-size: 13px }
+
+/* Compact pagination adjustments */
+.compact-cards .pagination-bar { gap: 4px; margin: 6px 0; }
+.compact-cards .page-btn { padding: 3px 6px; font-size: 11px; border-radius:6px }
+.compact-cards .page-info { font-size: 12px }
+
+/* Material UI button compact overrides (best-effort) */
+.compact-cards .MuiButton-root, .compact-cards button { font-size: 12px; padding: 6px 8px }
+

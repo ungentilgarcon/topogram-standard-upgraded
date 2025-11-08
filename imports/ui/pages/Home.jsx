@@ -1,4 +1,4 @@
-import React, { useEffect, useMemo, useState } from 'react';
+import React, { useEffect, useMemo, useState, useRef } from 'react';
 import { useSubscribe, useFind, useTracker } from 'meteor/react-meteor-data';
 import { Meteor } from 'meteor/meteor'
 // Ensure client accounts functions like Meteor.loginWithPassword are registered
@@ -11,6 +11,7 @@ import Dialog from '@mui/material/Dialog'
 import DialogTitle from '@mui/material/DialogTitle'
 import DialogContent from '@mui/material/DialogContent'
 import DialogActions from '@mui/material/DialogActions'
+import AboutDialog from '/imports/ui/components/AboutDialog/AboutDialog.jsx'
 import TextField from '@mui/material/TextField'
 import Button from '@mui/material/Button'
 import FormControl from '@mui/material/FormControl'
@@ -64,6 +65,8 @@ export default function Home() {
   const [exportLoading, setExportLoading] = useState(false)
   const [exportError, setExportError] = useState(null)
   const [exportResult, setExportResult] = useState(null)
+  const [aboutOpen, setAboutOpen] = useState(false)
+  const [aboutRaw, setAboutRaw] = useState('')
 
   const { userId, user } = useTracker(() => {
     // Guard in case Meteor.userId/user are not available as functions in this runtime
@@ -231,6 +234,8 @@ export default function Home() {
     } catch (e) {}
   }, [isReady && isReady(), topsList.length]);
 
+  // Counts are denormalized on Topogram documents (nodeCount / edgeCount)
+
   // Fetch total count for pagination (main list)
   useEffect(() => {
     // Count only documents without a folder for the main list pagination
@@ -281,9 +286,116 @@ export default function Home() {
 
   // Debug panel toggle state - default true while investigating missing folders
   const [showDebug, setShowDebug] = useState(true)
+  const [moveDialogOpen, setMoveDialogOpen] = useState(false)
+  const [moveTarget, setMoveTarget] = useState(null)
+  const [moveSelectedFolder, setMoveSelectedFolder] = useState('')
+  const [createFolderOpen, setCreateFolderOpen] = useState(false)
+  const [createFolderName, setCreateFolderName] = useState('')
+  const [moveToastOpen, setMoveToastOpen] = useState(false)
+  const [moveToastData, setMoveToastData] = useState(null)
+  const moveToastTimerRef = useRef(null)
+  const [folderDeleteDialogOpen, setFolderDeleteDialogOpen] = useState(false)
+  const [folderDeleteTarget, setFolderDeleteTarget] = useState(null)
+  const [folderDeleteCount, setFolderDeleteCount] = useState(0)
+
+  // Folder delete helpers (moved out of JSX to avoid syntax issues)
+  const closeFolderDeleteDialog = () => {
+    setFolderDeleteDialogOpen(false)
+    setFolderDeleteTarget(null)
+    setFolderDeleteCount(0)
+  }
+
+  const confirmFolderDeleteRemoveMeta = () => {
+    const folder = folderDeleteTarget
+    if (!folder) return closeFolderDeleteDialog()
+    Meteor.call('topograms.deleteFolderMeta', { folder }, (err, res) => {
+      if (err) {
+        console.error && console.error('topograms.deleteFolderMeta failed', err)
+        alert('Failed to remove folder metadata: ' + (err.reason || err.message || String(err)))
+      } else {
+        // refresh folder list
+        Meteor.call('topograms.folderCounts', (err2, res2) => { if (!err2) setFolderList(Array.isArray(res2) ? res2 : []) })
+      }
+      closeFolderDeleteDialog()
+    })
+  }
+
+  const confirmFolderDeleteRemoveAll = () => {
+    const folder = folderDeleteTarget
+    if (!folder) return closeFolderDeleteDialog()
+    Meteor.call('topogram.deleteFolder', { folder }, (err, res) => {
+      if (err) {
+        console.error && console.error('topogram.deleteFolder failed', err)
+        alert('Failed to delete folder and its maps: ' + (err.reason || err.message || String(err)))
+      } else {
+        Meteor.call('topograms.folderCounts', (err2, res2) => { if (!err2) setFolderList(Array.isArray(res2) ? res2 : []) })
+      }
+      closeFolderDeleteDialog()
+    })
+  }
+
+  const openMoveDialog = (topogram) => {
+    setMoveTarget(topogram)
+    setMoveSelectedFolder(topogram && topogram.folder ? topogram.folder : '')
+    setMoveDialogOpen(true)
+  }
+
+  const closeMoveDialog = () => {
+    setMoveDialogOpen(false)
+    setMoveTarget(null)
+    setMoveSelectedFolder('')
+  }
+
+  const submitMove = () => {
+    if (!moveTarget) return closeMoveDialog()
+    const docId = normalizeId(moveTarget && moveTarget._id)
+    if (!docId) return closeMoveDialog()
+    const folder = moveSelectedFolder && moveSelectedFolder.trim() ? moveSelectedFolder.trim() : null
+    const prevFolder = moveTarget && moveTarget.folder ? moveTarget.folder : null
+    Meteor.call('topogram.moveToFolder', { topogramId: docId, folder }, (err, res) => {
+      if (err) {
+        console.error && console.error('topogram.moveToFolder failed', err)
+        alert('Move failed: ' + (err.reason || err.message || String(err)))
+        return closeMoveDialog()
+      }
+      // show undo toast with previous folder info
+      setMoveToastData({ topogramId: docId, title: moveTarget && (moveTarget.title || moveTarget.name), from: prevFolder, to: folder })
+      setMoveToastOpen(true)
+      // auto-hide after 6s
+  if (moveToastTimerRef.current) clearTimeout(moveToastTimerRef.current)
+  moveToastTimerRef.current = setTimeout(() => { setMoveToastOpen(false); setMoveToastData(null); moveToastTimerRef.current = null }, 6000)
+      // refresh folder list
+      Meteor.call('topograms.folderCounts', (err2, res2) => { if (!err2) setFolderList(Array.isArray(res2) ? res2 : []) })
+      closeMoveDialog()
+    })
+  }
+
+  const undoMove = () => {
+    if (!moveToastData) return
+    const { topogramId, from } = moveToastData
+    Meteor.call('topogram.moveToFolder', { topogramId, folder: from }, (err) => {
+      if (err) return alert('Undo failed: ' + (err.reason || err.message || String(err)))
+      setMoveToastOpen(false)
+      setMoveToastData(null)
+      Meteor.call('topograms.folderCounts', (err2, res2) => { if (!err2) setFolderList(Array.isArray(res2) ? res2 : []) })
+    })
+  }
+
+  const openCreateFolder = () => { setCreateFolderName(''); setCreateFolderOpen(true) }
+  const closeCreateFolder = () => { setCreateFolderOpen(false); setCreateFolderName('') }
+  const submitCreateFolder = () => {
+    const name = createFolderName && createFolderName.trim()
+    if (!name) return alert('Please enter a folder name')
+    Meteor.call('topograms.createFolder', { name }, (err) => {
+      if (err) { alert('Create folder failed: ' + (err.reason || err.message || String(err))); return }
+      // refresh folder list
+      Meteor.call('topograms.folderCounts', (err2, res2) => { if (!err2) setFolderList(Array.isArray(res2) ? res2 : []) })
+      closeCreateFolder()
+    })
+  }
 
   return (
-    <div className="home-container">
+    <div className="home-container compact-cards">
       <h1 className="home-title">Topogram Standard (Meteor 3)</h1>
       <p className="home-sub">Connected to: local Meteor Mongo</p>
       <div className="controls-row">
@@ -291,6 +403,9 @@ export default function Home() {
             <div className="ready-count"><strong>Subscription ready:</strong> {String(isReady())} <strong>count:</strong> {topsList.length}</div>
           <button onClick={() => setImportModalOpen(true)} className="import-button">Import</button>
           <Button component="a" href="/builder" variant="outlined" size="small" sx={{ ml: 1 }}>Builder</Button>
+          {isAdmin ? (
+            <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => openCreateFolder()}>Create folder</Button>
+          ) : null}
         </div>
         <div className="controls-right">
           { userId ? (
@@ -448,6 +563,7 @@ export default function Home() {
             <pre style={{ maxHeight: 300, overflow: 'auto' }}>{JSON.stringify(tops.slice(0, 5), null, 2)}</pre>
           </details>
         </div>
+        
       ) : (
         <div>
           <ul className="topogram-list">
@@ -456,54 +572,70 @@ export default function Home() {
               const count = info && info.count
               if (!folderName) return null
               return (
-              <li key={`folder-${folderName}`} className="topogram-item folder-item">
-                <div className="folder-header" onClick={() => toggleFolder(folderName)} role="button" tabIndex={0} onKeyPress={() => toggleFolder(folderName)}>
-                  <span className="folder-icon" aria-hidden>📁</span>
-                  <div className="folder-meta">
-                    <strong className="folder-name">{folderName}</strong>
-                    <small className="folder-count">({count} maps)</small>
-                  </div>
-                  {isAdmin ? (
-                    <div className="folder-actions">
-                      <Button
-                        type="button"
-                        size="small"
-                        color="error"
-                        variant="outlined"
-                        onClick={(event) => { event.stopPropagation(); handleDeleteFolder(folderName, count) }}
-                        sx={{ ml: 'auto' }}
-                      >
-                        Delete folder
-                      </Button>
+                <li key={`folder-${folderName}`} className="topogram-item folder-item">
+                  <div className="folder-header" onClick={() => toggleFolder(folderName)}>
+                    <div className="folder-icon" aria-hidden="true">
+                      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true" focusable="false">
+                        <path fill="currentColor" d="M10 4H4C2.895 4 2 4.895 2 6V18C2 19.105 2.895 20 4 20H20C21.105 20 22 19.105 22 18V8C22 6.895 21.105 6 20 6H12L10 4Z" />
+                      </svg>
                     </div>
+                    <div className="folder-meta">
+                      <div className="folder-name">{folderName}</div>
+                      <div className="folder-count">{typeof count === 'number' ? `${count} map${count === 1 ? '' : 's'}` : ''}</div>
+                    </div>
+                    {isAdmin ? (
+                      <div style={{ marginLeft: 'auto' }}>
+                        <Button size="small" variant="outlined" onClick={(e) => { e.stopPropagation(); setFolderDeleteTarget(folderName); setFolderDeleteCount(typeof count === 'number' ? count : 0); setFolderDeleteDialogOpen(true); }}>Delete folder</Button>
+                      </div>
+                    ) : null}
+                  </div>
+                  {expandedFolders[folderName] ? (
+                    <FolderSection
+                      name={folderName}
+                      perPage={50}
+                      isAdmin={isAdmin}
+                      onDeleteTopogram={handleDeleteTopogram}
+                      onExport={openExportDialog}
+                      onAbout={(md) => { setAboutRaw(md); setAboutOpen(true) }}
+                      onMove={(t) => openMoveDialog(t)}
+                    />
                   ) : null}
-                </div>
-                {expandedFolders[folderName] ? (
-                  <FolderSection
-                    name={folderName}
-                    perPage={50}
-                    isAdmin={isAdmin}
-                    onDeleteTopogram={handleDeleteTopogram}
-                    onExport={openExportDialog}
-                  />
-                ) : null}
-              </li>
+                </li>
               )
             })}
             {noFolder.map(t => {
               const docId = normalizeId(t && t._id)
               const keyId = docId || String(t && t._id || '')
               const route = docId ? `/t/${docId}` : `/t/${encodeURIComponent(String(t && t._id || ''))}`
-              return (
+                return (
                 <li key={keyId} className="topogram-item">
-                  <Link to={route} className="topogram-link">{t.title || t.name || docId || String(t && t._id)}</Link>
-                  {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
-                  {isAdmin ? (
-                    <div className="topogram-admin-actions">
-                      <Button size="small" color="error" variant="outlined" onClick={() => handleDeleteTopogram(t)}>Delete</Button>
-                      <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => openExportDialog(t)}>Export</Button>
-                    </div>
-                  ) : null}
+                  <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'space-between', gap: 8, width: '100%' }}>
+                    <div style={{ flex: 1 }}>
+                        <Link to={route} className="topogram-link">{t.title || t.name || docId || String(t && t._id)}</Link>
+                        {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
+                        {/* element counts (denormalized on document) */}
+                        {(t && (typeof t.nodeCount === 'number' || typeof t.edgeCount === 'number')) ? (
+                          <div style={{ fontSize: 12, color: '#666', marginTop: 6 }}>
+                            Nodes: {typeof t.nodeCount === 'number' ? t.nodeCount : 0} • Edges: {typeof t.edgeCount === 'number' ? t.edgeCount : 0}
+                          </div>
+                        ) : null}
+                        {/* Action buttons under the title */}
+                        <div style={{ marginTop: 8, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                          {/* About button shown only when graph_desc exists on the topogram */}
+                          {t && t.graph_desc ? (
+                            <Button size="small" variant="outlined" onClick={() => { console.debug && console.debug('About clicked (no-folder)', t && t._id); setAboutRaw(t.graph_desc); setAboutOpen(true) }}>About</Button>
+                          ) : null}
+                          {isAdmin ? (
+                            <div className="topogram-admin-actions" style={{ display: 'flex', gap: 8 }}>
+                              <Button size="small" variant="outlined" onClick={() => openMoveDialog(t)}>Move to...</Button>
+                              <Button size="small" color="error" variant="outlined" onClick={() => handleDeleteTopogram(t)} sx={{ ml: 1 }}>Delete</Button>
+                              <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => openExportDialog(t)}>Export</Button>
+                            </div>
+                          ) : null}
+                        </div>
+                      </div>
+                      <div style={{ width: 8 }} />
+                  </div>
                 </li>
               )
             })}
@@ -533,13 +665,87 @@ export default function Home() {
               </details>
             </div>
           ) : null}
+  {/* Global About dialog (always mounted) */}
+  <AboutDialog open={aboutOpen} onClose={() => setAboutOpen(false)} markdown={aboutRaw} />
+  {/* Move-to-folder dialog (admin) */}
+  <Dialog open={moveDialogOpen} onClose={closeMoveDialog} fullWidth maxWidth="xs">
+    <DialogTitle>Move topogram to folder</DialogTitle>
+    <DialogContent>
+      <FormControl fullWidth margin="normal">
+        <InputLabel id="move-folder-select">Folder</InputLabel>
+        <Select
+          labelId="move-folder-select"
+          value={moveSelectedFolder}
+          label="Folder"
+          onChange={e => setMoveSelectedFolder(e.target.value)}
+        >
+          <MenuItem value="">(No folder)</MenuItem>
+          {folderList.map(f => (
+            <MenuItem key={`fld-${f.name}`} value={f.name}>{f.name}</MenuItem>
+          ))}
+        </Select>
+      </FormControl>
+      {moveTarget ? (
+        <div style={{ marginTop: 8 }}>
+          <strong>Topogram:</strong> {moveTarget.title || moveTarget.name || normalizeId(moveTarget._id)}
         </div>
+      ) : null}
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={closeMoveDialog}>Cancel</Button>
+      <Button onClick={submitMove} variant="contained">Move</Button>
+    </DialogActions>
+  </Dialog>
+
+  {/* Folder delete confirmation dialog (admin) */}
+  <Dialog open={folderDeleteDialogOpen} onClose={closeFolderDeleteDialog} fullWidth maxWidth="xs">
+    <DialogTitle>Folder actions</DialogTitle>
+    <DialogContent>
+      <div>
+        <div>Folder: <strong>{folderDeleteTarget}</strong></div>
+        <div style={{ marginTop: 8 }}>Contains {folderDeleteCount} topogram{folderDeleteCount === 1 ? '' : 's'}.</div>
+        <div style={{ marginTop: 12 }}>Choose an action:</div>
+        <ul>
+          <li>Remove folder metadata (reassign maps to the root/no-folder)</li>
+          <li>Delete folder and all maps (irreversible)</li>
+        </ul>
+      </div>
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={closeFolderDeleteDialog}>Cancel</Button>
+      <Button onClick={confirmFolderDeleteRemoveMeta} variant="outlined">Remove folder metadata</Button>
+      <Button onClick={confirmFolderDeleteRemoveAll} color="error" variant="contained">Delete folder and maps</Button>
+    </DialogActions>
+  </Dialog>
+  {/* Create folder dialog (admin) */}
+  <Dialog open={createFolderOpen} onClose={closeCreateFolder} fullWidth maxWidth="xs">
+    <DialogTitle>Create folder</DialogTitle>
+    <DialogContent>
+      <TextField label="Folder name" value={createFolderName} onChange={e => setCreateFolderName(e.target.value)} fullWidth sx={{ mt: 1 }} />
+    </DialogContent>
+    <DialogActions>
+      <Button onClick={closeCreateFolder}>Cancel</Button>
+      <Button onClick={submitCreateFolder} variant="contained">Create</Button>
+    </DialogActions>
+  </Dialog>
+
+  {/* Move undo toast */}
+  {moveToastOpen && moveToastData ? (
+    <div style={{ position: 'fixed', left: 16, bottom: 16, background: '#222', color: '#fff', padding: 12, borderRadius: 6, boxShadow: '0 2px 8px rgba(0,0,0,0.2)' }}>
+      <div style={{ marginBottom: 6 }}>{moveToastData.title ? `${moveToastData.title} moved` : 'Topogram moved'}</div>
+      <div style={{ display: 'flex', gap: 8, justifyContent: 'flex-end' }}>
+        <Button size="small" variant="outlined" onClick={() => { undoMove() }}>Undo</Button>
+        <Button size="small" variant="contained" onClick={() => { setMoveToastOpen(false); setMoveToastData(null) }}>Dismiss</Button>
+      </div>
+    </div>
+  ) : null}
+  </div>
       )}
     </div>
   );
 }
 
-function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport }) {
+function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport, onAbout, onMove }) {
   const [page, setPage] = useState(1)
   const ready = useSubscribe('topograms.paginated', useMemo(() => ({ folder: name, page, limit: perPage }), [name, page, perPage]))
   const items = useFind(() => Topograms.find({ folder: name }, { sort: { createdAt: -1 } }))
@@ -562,15 +768,27 @@ function FolderSection({ name, perPage = 50, isAdmin, onDeleteTopogram, onExport
           <div key={keyId} className="topogram-item folder-card">
             <Link to={route} className="topogram-link">{t.title || t.name || docId || String(t && t._id)}</Link>
             {t.description ? (<div className="topogram-desc">{t.description}</div>) : null}
-            {isAdmin ? (
-              <div className="topogram-admin-actions">
-                <Button size="small" color="error" variant="outlined" onClick={() => onDeleteTopogram(t)}>Delete</Button>
-                <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => onExport(t)}>Export</Button>
+            {(t && (typeof t.nodeCount === 'number' || typeof t.edgeCount === 'number')) ? (
+              <div style={{ fontSize: 12, color: '#666', marginTop: 6 }}>
+                Nodes: {typeof t.nodeCount === 'number' ? t.nodeCount : 0} • Edges: {typeof t.edgeCount === 'number' ? t.edgeCount : 0}
               </div>
-            ) : null}
+                  ) : null}
+                  <div style={{ marginTop: 8, display: 'flex', gap: 8, alignItems: 'center', flexWrap: 'wrap' }}>
+                    {t && t.graph_desc ? (
+                      <Button size="small" variant="outlined" onClick={() => { console.debug && console.debug('About clicked (folder)', t && t._id); if (typeof onAbout === 'function') onAbout(t.graph_desc) }}>About</Button>
+                    ) : null}
+                    {isAdmin ? (
+                      <div className="topogram-admin-actions" style={{ display: 'flex', gap: 8 }}>
+                        <Button size="small" variant="outlined" onClick={() => { if (typeof onMove === 'function') onMove(t) }}>Move to...</Button>
+                        <Button size="small" color="error" variant="outlined" onClick={() => onDeleteTopogram(t)} sx={{ ml: 1 }}>Delete</Button>
+                        <Button size="small" variant="outlined" sx={{ ml: 1 }} onClick={() => onExport(t)}>Export</Button>
+                      </div>
+                    ) : null}
+                  </div>
           </div>
         )
       })}
+      {/* FolderSection delegates About dialog handling to parent via onAbout */}
       <div className="pagination-bar">
         <button type="button" className="page-btn" disabled={page <= 1} onClick={() => setPage(p => Math.max(1, p - 1))}>Previous</button>
         <span className="page-info">Page {page} / {totalPages}</span>

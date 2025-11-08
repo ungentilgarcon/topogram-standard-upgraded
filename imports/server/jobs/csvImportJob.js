@@ -144,7 +144,12 @@ const processJob = async (job) => {
 
     // Create topogram
     const topogramTitle = options.topogramTitle || `Imported ${filename} ${new Date().toISOString()}`
-  const topogramId = await Topograms.insertAsync({ title: topogramTitle, userId: job.userId, createdAt: new Date(), importMeta: { filename } })
+    // Prepare topogram document; persist graph_desc from options when provided
+    const topogramDoc = { title: topogramTitle, userId: job.userId, createdAt: new Date(), importMeta: { filename } }
+    if (options && options.graph_desc && typeof options.graph_desc === 'string' && options.graph_desc.trim() !== '') {
+      topogramDoc.graph_desc = options.graph_desc
+    }
+    const topogramId = await Topograms.insertAsync(topogramDoc)
 
     // Insert nodes in batches
     const BATCH = 500
@@ -288,7 +293,14 @@ const processJob = async (job) => {
       await Jobs.updateAsync(job._id, { $inc: { processed: originalCount, inserted: batchInserted } })
     }
 
-  await Jobs.updateAsync(job._id, { $set: { status: 'done', finishedAt: new Date(), inserted: inserted + edgeInserted } })
+    // Persist denormalized counts onto the Topogram document so clients can read them
+    try {
+      await Topograms.updateAsync({ _id: topogramId }, { $set: { nodeCount: inserted, edgeCount: edgeInserted } })
+    } catch (e) {
+      // don't let failure to update counts block job completion
+      console.warn && console.warn('Failed to persist topogram counts', e)
+    }
+    await Jobs.updateAsync(job._id, { $set: { status: 'done', finishedAt: new Date(), inserted: inserted + edgeInserted } })
 
     // cleanup
     try { fs.unlinkSync(tmpPath) } catch (e) {}
