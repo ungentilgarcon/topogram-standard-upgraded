@@ -716,6 +716,23 @@ function emitGraph(data, options) {
 	let nodes = []
 	let edges = []
 
+	// Create deterministic uid mapping for node ids to test whether original ids
+	// cause issues (length/characters). We'll map every original id to a short
+	// uid like `n1`, `n2`, ... and replace sources/targets in edges accordingly.
+	const idMap = new Map()
+	let _nid = 0
+
+	// Gather original node ids in the same order we'll emit nodes so mapping is stable
+	const originals = []
+	for (const moduleInfo of moduleInfos) originals.push(moduleInfo.id)
+	for (const pkg of packageInfos) originals.push(pkg.id)
+	for (const entry of selectedFunctionInfos) originals.push(entry.fnInfo.id)
+
+	for (const orig of originals) {
+		_nid += 1
+		idMap.set(orig, `n${_nid}`)
+	}
+
 	for (const moduleInfo of moduleInfos) {
 		nodes.push({
 			id: moduleInfo.id,
