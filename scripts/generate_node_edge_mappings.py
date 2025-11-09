@@ -55,11 +55,63 @@ def write_csv(path, fieldnames, rows):
             writer.writerow(r)
 
 
-def process(json_path):
+def process(json_path, handle_orphans='keep', orphan_prefix='missing:'):
     with open(json_path, 'r', encoding='utf8') as fh:
         data = json.load(fh)
-    nodes = data.get('nodes', [])
-    edges = data.get('edges', [])
+    nodes = list(data.get('nodes', []))
+    edges = list(data.get('edges', []))
+
+    # Detect orphan edges (source/target not in nodes)
+    node_ids = {n.get('id') for n in nodes}
+    orphans = []
+    for e in edges:
+        s, t = e.get('source'), e.get('target')
+        src_ok = s in node_ids
+        tgt_ok = t in node_ids
+        if not src_ok or not tgt_ok:
+            orphans.append((e, not src_ok, not tgt_ok))
+
+    dropped = 0
+    fixed = 0
+    created = 0
+    if orphans:
+        if handle_orphans == 'drop':
+            edges = [e for e in edges if e.get('source') in node_ids and e.get('target') in node_ids]
+            dropped = len(orphans)
+        elif handle_orphans == 'placeholder':
+            # create placeholder nodes for missing endpoints
+            existing = set(node_ids)
+            for e, miss_src, miss_tgt in orphans:
+                if miss_src:
+                    sid = e.get('source')
+                    if sid and sid not in existing:
+                        ntype = 'placeholder'
+                        label = sid
+                        if isinstance(sid, str) and sid.startswith('module:'):
+                            ntype = 'module'
+                            label = orphan_prefix + sid.replace('module:', '')
+                        elif isinstance(sid, str) and sid.startswith('package:'):
+                            ntype = 'package'
+                            label = orphan_prefix + sid.replace('package:', '')
+                        nodes.append({'id': sid, 'label': label, 'type': ntype})
+                        existing.add(sid)
+                        created += 1
+                if miss_tgt:
+                    tid = e.get('target')
+                    if tid and tid not in existing:
+                        ntype = 'placeholder'
+                        label = tid
+                        if isinstance(tid, str) and tid.startswith('module:'):
+                            ntype = 'module'
+                            label = orphan_prefix + tid.replace('module:', '')
+                        elif isinstance(tid, str) and tid.startswith('package:'):
+                            ntype = 'package'
+                            label = orphan_prefix + tid.replace('package:', '')
+                        nodes.append({'id': tid, 'label': label, 'type': ntype})
+                        existing.add(tid)
+                        created += 1
+            fixed = len(orphans)
+        # keep: do nothing
 
     nodes_out = []
     for n in nodes:
@@ -82,11 +134,14 @@ def process(json_path):
     write_csv(edge_csv, ['original'] + TOPOGRAM_HEADER, [{'original': r['original'], **{k: r[k] for k in TOPOGRAM_HEADER}} for r in edges_out])
     print('Wrote', node_csv, 'rows=', len(nodes_out))
     print('Wrote', edge_csv, 'rows=', len(edges_out))
+    if orphans:
+        print(f"Orphan edges in input: {len(orphans)} | dropped={dropped} fixed={fixed} placeholders={created}")
 
 
 if __name__ == '__main__':
-    import sys
-    if len(sys.argv) < 2:
-        print('Usage: generate_node_edge_mappings.py <path-to-json>')
-        sys.exit(2)
-    process(sys.argv[1])
+    parser = argparse.ArgumentParser(description='Generate Topogram CSV mappings from a graph JSON, with optional orphan-edge handling.')
+    parser.add_argument('json_path', help='Path to graph JSON file')
+    parser.add_argument('--handle-orphans', default='keep', choices=['keep','drop','placeholder'], help='How to handle edges whose endpoints are missing (default: keep)')
+    parser.add_argument('--orphan-prefix', default='missing:', help='Label prefix for placeholder nodes')
+    args = parser.parse_args()
+    process(args.json_path, handle_orphans=args.handle_orphans, orphan_prefix=args.orphan_prefix)

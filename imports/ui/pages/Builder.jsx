@@ -28,6 +28,8 @@ export default function Builder() {
   const [mapping, setMapping] = useState({})
   const [mappingOpen, setMappingOpen] = useState(false)
   const [mergeOpen, setMergeOpen] = useState(false)
+  const [verifyOpen, setVerifyOpen] = useState(false)
+  const [verifyResults, setVerifyResults] = useState([])
   const [pendingNodes, setPendingNodes] = useState([])
   const [pendingEdges, setPendingEdges] = useState([])
   const [pendingRawRows, setPendingRawRows] = useState([])
@@ -392,6 +394,51 @@ export default function Builder() {
     setMappingOpen(false)
   }
 
+  const runValidation = () => {
+    const results = []
+    // Use plain lookup object instead of Set to avoid potential environment issues
+    const nodeLookup = {}
+    const nodeList = Array.isArray(nodes) ? nodes : []
+    nodeList.forEach(n => {
+      if (n && n.id != null) nodeLookup[String(n.id)] = true
+      if (n && n.name != null) nodeLookup[String(n.name)] = true
+    })
+
+  // Validate nodes
+  nodeList.forEach((n, i) => {
+      if (!n || (!n.id && !n.name)) {
+        results.push({ severity: 'error', text: `Node ${i+1}: missing both id and name` })
+      }
+      if (n && n.lat && isNaN(Number(n.lat))) results.push({ severity: 'warning', text: `Node ${i+1}: lat is not numeric (${n.lat})` })
+      if (n && n.lng && isNaN(Number(n.lng))) results.push({ severity: 'warning', text: `Node ${i+1}: lng is not numeric (${n.lng})` })
+      if (n && n.weight && isNaN(Number(n.weight))) results.push({ severity: 'warning', text: `Node ${i+1}: weight is not numeric (${n.weight})` })
+      // unexpected fields
+      Object.keys(n || {}).forEach(k => {
+        if (!canonicalFields.includes(k) && k !== 'extra') results.push({ severity: 'warning', text: `Node ${i+1}: unexpected field '${k}'` })
+      })
+    })
+
+  // Validate edges
+  const edgeList = Array.isArray(edges) ? edges : []
+  edgeList.forEach((e, i) => {
+      if (!e || (!e.source && !e.target)) {
+        results.push({ severity: 'error', text: `Edge ${i+1}: missing source and/or target` })
+      } else {
+        const src = e && e.source != null ? String(e.source) : null
+        const tgt = e && e.target != null ? String(e.target) : null
+  if (src && !nodeLookup[src]) results.push({ severity: 'error', text: `Edge ${i+1}: source '${src}' not found among node ids/names` })
+  if (tgt && !nodeLookup[tgt]) results.push({ severity: 'error', text: `Edge ${i+1}: target '${tgt}' not found among node ids/names` })
+      }
+      if (e && e.edgeWeight && isNaN(Number(e.edgeWeight))) results.push({ severity: 'warning', text: `Edge ${i+1}: edgeWeight is not numeric (${e.edgeWeight})` })
+      Object.keys(e || {}).forEach(k => {
+        if (!canonicalFields.includes(k) && k !== 'extra') results.push({ severity: 'warning', text: `Edge ${i+1}: unexpected field '${k}'` })
+      })
+    })
+
+    setVerifyResults(results)
+    setVerifyOpen(true)
+  }
+
   const enqueueImport = async () => {
     // build CSV text with BOM
     const csv = '\uFEFF' + buildCsvText()
@@ -488,6 +535,7 @@ export default function Builder() {
         <TextField label="Topogram title" value={title} onChange={e=>setTitle(e.target.value)} size="small" />
         <Button variant="outlined" onClick={downloadCsv}>Download CSV</Button>
         <Button variant="contained" color="primary" onClick={enqueueImport}>Import to server</Button>
+        <Button variant="outlined" onClick={runValidation}>Verify</Button>
         <Button variant="outlined" onClick={()=>setMappingOpen(true)}>Map fields</Button>
       </div>
 
@@ -554,6 +602,30 @@ export default function Builder() {
         <DialogActions>
           <Button onClick={() => setMappingOpen(false)}>Cancel</Button>
           <Button onClick={applyMappingToRows} variant="contained">Apply mapping</Button>
+        </DialogActions>
+      </Dialog>
+
+      {/* Verify results modal */}
+      <Dialog open={verifyOpen} onClose={() => setVerifyOpen(false)} maxWidth="md" fullWidth>
+        <DialogTitle>Verify data</DialogTitle>
+        <DialogContent>
+          <div style={{ maxHeight: 400, overflow: 'auto' }}>
+            {verifyResults && verifyResults.length > 0 ? (
+              <div>
+                <div style={{ marginBottom: 8 }}><strong>Issues found:</strong></div>
+                <ul>
+                  {verifyResults.map((r, idx) => (
+                    <li key={idx} style={{ color: r.severity === 'error' ? '#b00020' : '#e65100' }}>{r.severity.toUpperCase()}: {r.text}</li>
+                  ))}
+                </ul>
+              </div>
+            ) : (
+              <div style={{ color: '#2e7d32' }}>No issues found. Nodes and edges appear to conform to the Topogram schema and all edges reference existing nodes.</div>
+            )}
+          </div>
+        </DialogContent>
+        <DialogActions>
+          <Button onClick={() => setVerifyOpen(false)}>Close</Button>
         </DialogActions>
       </Dialog>
 

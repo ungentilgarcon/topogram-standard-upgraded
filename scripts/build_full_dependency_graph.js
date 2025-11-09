@@ -37,7 +37,9 @@ const DEFAULT_OPTIONS = {
 	collapseMinified: false,
 	minifiedNameMax: 4,
 	collapseModules: false,
-	collapseUmd: false
+	collapseUmd: false,
+	handleOrphans: 'placeholder', // 'placeholder' (default) | 'drop' | 'keep'
+	orphanPrefix: 'missing:'
 }
 
 const JS_EXTENSIONS = ['.js', '.jsx', '.ts', '.tsx', '.mjs', '.cjs']
@@ -188,6 +190,15 @@ function parseArgs(argv) {
 				// boolean flag, accept --chunk-only or --chunk-only=false
 				options.chunkOnly = value !== 'false'
 				break
+			case '--handle-orphans':
+				if (value) {
+					const v = String(value).toLowerCase()
+					if (v === 'drop' || v === 'placeholder' || v === 'keep') options.handleOrphans = v
+				}
+				break
+			case '--orphan-prefix':
+				if (value !== undefined) options.orphanPrefix = String(value)
+				break
 			default:
 				console.warn(`Ignoring unknown flag: ${flag}`)
 		}
@@ -211,7 +222,7 @@ function parseArgs(argv) {
 }
 
 function printHelp() {
-	console.log(`Usage: node scripts/build_full_dependency_graph.js [options]\n\nOptions:\n  --output-base <name>        Base filename (default: ${DEFAULT_OUTPUT_BASE})\n  --output-suffix <suffix>    Suffix appended to the base name before extension\n  --exclude-dir <path>       Relative directory to exclude (repeat or comma-separate)\n  --max-functions <n>         Limit the number of function nodes included\n  --target-nodes <n>          Aim for at most N nodes (modules + packages + functions)\n  --no-functions              Exclude function nodes entirely\n  --include-functions=<bool>  Explicitly toggle function inclusion\n  --no-transitive             Skip transitive module edges\n  --include-transitive=<bool> Explicitly toggle transitive edges\n  --transitive-depth <n>      BFS depth for transitive module imports (default: 4)\n  --chunk-size <n>           Split output into parts of at most N nodes (optional)\n  --chunk-by <nodes|module>  Chunking strategy (default: nodes)\n  --chunk-only               Only write chunked part files and skip full combined output\n  --collapse-minified        Collapse short/minified function names (useful for vendor libs)\n  --minified-name-max <n>    Max length for a name to be considered minified (default: 4)\n  --collapse-modules         Collapse whole modules (vendor bundles) into single module node\n  --collapse-umd             Treat UMD bundles as vendor/minified and collapse them when enabled\n  -h, --help                  Show this help message\n`)
+	console.log(`Usage: node scripts/build_full_dependency_graph.js [options]\n\nOptions:\n  --output-base <name>        Base filename (default: ${DEFAULT_OUTPUT_BASE})\n  --output-suffix <suffix>    Suffix appended to the base name before extension\n  --exclude-dir <path>       Relative directory to exclude (repeat or comma-separate)\n  --max-functions <n>         Limit the number of function nodes included\n  --target-nodes <n>          Aim for at most N nodes (modules + packages + functions)\n  --no-functions              Exclude function nodes entirely\n  --include-functions=<bool>  Explicitly toggle function inclusion\n  --no-transitive             Skip transitive module edges\n  --include-transitive=<bool> Explicitly toggle transitive edges\n  --transitive-depth <n>      BFS depth for transitive module imports (default: 4)\n  --chunk-size <n>           Split output into parts of at most N nodes (optional)\n  --chunk-by <nodes|module>  Chunking strategy (default: nodes)\n  --chunk-only               Only write chunked part files and skip full combined output\n  --collapse-minified        Collapse short/minified function names (useful for vendor libs)\n  --minified-name-max <n>    Max length for a name to be considered minified (default: 4)\n  --collapse-modules         Collapse whole modules (vendor bundles) into single module node\n  --collapse-umd             Treat UMD bundles as vendor/minified and collapse them when enabled\n  --handle-orphans <mode>    What to do with edges to missing nodes: placeholder (default), drop, keep\n  --orphan-prefix <text>     Prefix label for placeholder nodes (default: 'missing:')\n  -h, --help                  Show this help message\n`)
 }
 
 function collectSourceFiles(options) {
@@ -702,8 +713,8 @@ function emitGraph(data, options) {
 
 	const selectedFunctionIds = new Set(selectedFunctionInfos.map(entry => entry.fnInfo.id))
 
-	const nodes = []
-	const edges = []
+	let nodes = []
+	let edges = []
 
 	for (const moduleInfo of moduleInfos) {
 		nodes.push({
@@ -879,6 +890,54 @@ function emitGraph(data, options) {
 		}
 	}
 
+	// Orphan handling: ensure edges always point to existing nodes
+	const nodeIds = new Set(nodes.map(n => n.id))
+	const placeholdersCreated = new Map() // id -> node
+	const orphanStats = { dropped: 0, fixed: 0 }
+
+	function ensurePlaceholder(id) {
+		if (nodeIds.has(id)) return
+		if (placeholdersCreated.has(id)) return
+		let type = 'placeholder'
+		let label = id
+		if (id.startsWith('module:')) {
+			type = 'module'
+			label = `${options.orphanPrefix}${id.replace(/^module:/, '')}`
+		} else if (id.startsWith('package:')) {
+			type = 'package'
+			label = `${options.orphanPrefix}${id.replace(/^package:/, '')}`
+		}
+		const node = { id, label, type }
+		placeholdersCreated.set(id, node)
+	}
+
+	if (options.handleOrphans !== 'keep') {
+		const nextEdges = []
+		for (const e of edges) {
+			const srcExists = nodeIds.has(e.source)
+			const tgtExists = nodeIds.has(e.target)
+			if (srcExists && tgtExists) {
+				nextEdges.push(e)
+				continue
+			}
+			if (options.handleOrphans === 'drop') {
+				orphanStats.dropped += 1
+				continue
+			}
+			if (options.handleOrphans === 'placeholder') {
+				if (!srcExists) ensurePlaceholder(e.source)
+				if (!tgtExists) ensurePlaceholder(e.target)
+				nextEdges.push(e)
+				orphanStats.fixed += 1
+			}
+		}
+		if (placeholdersCreated.size) {
+			for (const n of placeholdersCreated.values()) { nodes.push(n) }
+			for (const n of placeholdersCreated.values()) { nodeIds.add(n.id) }
+		}
+		edges = nextEdges
+	}
+
 	return {
 		graph: { nodes, edges },
 		stats: {
@@ -889,7 +948,10 @@ function emitGraph(data, options) {
 			targetNodes: options.targetNodes,
 			maxFunctions: appliedMaxFunctions,
 			includeFunctions: options.includeFunctions,
-			includeTransitive: options.includeTransitive
+			includeTransitive: options.includeTransitive,
+			orphanEdgesDropped: orphanStats.dropped,
+			orphanEdgesFixed: orphanStats.fixed,
+			placeholders: placeholdersCreated.size
 		}
 	}
 }
@@ -1302,6 +1364,9 @@ function main() {
 	console.log(`Modules: ${stats.modules}, Packages: ${stats.packages}, Functions selected: ${stats.functionsSelected}/${stats.functionsTotal}`)
 	if (stats.targetNodes !== null) console.log(`Target nodes: ${stats.targetNodes}`)
 	if (stats.maxFunctions !== null) console.log(`Applied max functions: ${stats.maxFunctions}`)
+	if (Number.isFinite(stats.orphanEdgesDropped) || Number.isFinite(stats.orphanEdgesFixed)) {
+		console.log(`Orphans: dropped=${stats.orphanEdgesDropped||0} fixed=${stats.orphanEdgesFixed||0} placeholders=${stats.placeholders||0}`)
+	}
 	console.log(`JSON written to ${outputJsonPath}`)
 	console.log(`CSV written to ${outputCsvPath}`)
 }
