@@ -32,6 +32,7 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
 
   // Sigma debug: force straight edges (disable curved WebGL program) at runtime
   const [sigmaNoCurves, setSigmaNoCurves] = useState(false)
+  const [sketchStyle, setSketchStyle] = useState(() => lsb('topo.sketchStyle', false))
 
   // Clear legacy persisted flag so the debug toggle defaults to off on reload.
   useEffect(() => {
@@ -49,6 +50,7 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
   useEffect(() => { setLs('topo.geoEdgeRelVisible', geoEdgeRelVisible) }, [geoEdgeRelVisible])
   useEffect(() => { setLs('topo.geoEdgeLabelAggregate', geoEdgeLabelAggregate) }, [geoEdgeLabelAggregate])
   useEffect(() => { setLs('topo.emojiVisible', emojiVisible) }, [emojiVisible])
+  useEffect(() => { setLs('topo.sketchStyle', sketchStyle) }, [sketchStyle])
 
   const section = (title, children, { defaultOpen = false } = {}) => (
     <details open={defaultOpen} style={{ marginTop: 10 }}>
@@ -232,6 +234,12 @@ export default function NetworkOptions({ hasGeoInfo = false }) {
               onChange={(e) => { const v = !!e.target.checked; setSigmaNoCurves(v); fire({ sigmaNoCurves: v }) }}
             />
             <span style={{ marginLeft: 6 }}>{graphAdapter !== 'sigma' ? 'Disable curved edges (Sigma debug) — Sigma only' : 'Disable curved edges (Sigma debug)'}</span>
+          </label>
+          <label style={{ fontSize: 12 }} title="Apply sketch/pencil style to map and network renderers">
+            <input type="checkbox" checked={sketchStyle}
+              onChange={(e) => { const v = !!e.target.checked; setSketchStyle(v); fire({ sketchStyle: v }) }}
+            />
+            <span style={{ marginLeft: 6 }}>Sketch style</span>
           </label>
         </div>
       ))}

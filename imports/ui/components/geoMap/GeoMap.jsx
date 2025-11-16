@@ -114,6 +114,10 @@ export default class GeoMap extends React.Component {
     } = this.props
 
   const containerStyle = Object.assign({}, divMapStyle, { height, width, display: 'block' })
+    // sketch style enabled via persisted UI flag
+  const sketchEnabled = (() => {
+    try { return String(window && window.localStorage && window.localStorage.getItem('topo.sketchStyle')) === 'true' } catch (e) { return false }
+  })()
 
     const selected = (this.props.ui && this.props.ui.selectedElements) ? this.props.ui.selectedElements : []
     const selectedNodeIds = new Set(
@@ -224,7 +228,7 @@ export default class GeoMap extends React.Component {
 
     // Fallback: Leaflet (existing implementation)
     return (
-      <div id={MAP_DIV_ID} style={containerStyle}>
+      <div id={MAP_DIV_ID} style={containerStyle} className={sketchEnabled ? 'sketch-mode' : ''}>
         <MapContainer
           key={`map-${chevOn ? 'with' : 'no'}-chev`}
           center={position}
@@ -288,6 +292,12 @@ export default class GeoMap extends React.Component {
                 }
               }}
             />
+          ) : null}
+          {/* Sketch overlay pane: visual paper/grain and global desaturation when enabled */}
+          {sketchEnabled ? (
+            <Pane name="sketchPane" style={{ zIndex: 3000, pointerEvents: 'none' }}>
+              <div className="sketch-overlay" />
+            </Pane>
           ) : null}
           <ScaleControl position={controlPos} />
           <ZoomControl position={controlPos} />

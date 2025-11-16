@@ -105,3 +105,18 @@
   fill: #EEFF41 !important;
   fill-opacity: 0.85 !important;
 }
+
+/* Sketch style overlay and global adjustments */
+.sketch-mode .leaflet-pane { /* desaturate and boost contrast for pencil look */
+  filter: grayscale(100%) contrast(120%) brightness(96%);
+}
+.sketch-overlay {
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAAEklEQVQImWNgYGD4z8DAwMDAwAIAAA4ABr4k1m0AAAAASUVORK5CYII='); /* tiny neutral tile; replace with real paper texture if desired */
+  background-repeat: repeat;
+  mix-blend-mode: multiply;
+  opacity: 0.08;
+  z-index: 0;
+}

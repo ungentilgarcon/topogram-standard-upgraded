@@ -51,6 +51,7 @@
     "recharts": "^2.6.2",
     "redux": "^5.0.1",
     "redux-thunk": "^3.1.0",
+    "roughjs": "^4.6.6",
     "sigma": "^3.0.2",
     "simpl-schema": "^3.4.6",
     "simple-statistics": "^7.8.8",

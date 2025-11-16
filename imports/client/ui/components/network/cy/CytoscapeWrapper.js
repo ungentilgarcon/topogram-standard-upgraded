@@ -97,6 +97,23 @@ const CytoscapeWrapper = {
           maxY: Math.max(acc.maxY, p.y)
         }), { minX: Infinity, maxX: -Infinity, minY: Infinity, maxY: -Infinity })
 
+        // sketch mode state (persisted flag) and event listener
+        let sketchEnabled = (function(){ try { return String(window && window.localStorage && window.localStorage.getItem('topo.sketchStyle')) === 'true' } catch(e){ return false } })()
+
+        const onOptionsChanged = (ev) => {
+          try {
+            if (!ev || !ev.detail) return
+            if (Object.prototype.hasOwnProperty.call(ev.detail, 'sketchStyle')) {
+              sketchEnabled = !!ev.detail.sketchStyle
+              try { draw(); } catch(e) {}
+            }
+          } catch(e){}
+        }
+
+        if (typeof window !== 'undefined' && window && window.addEventListener) {
+          window.addEventListener('topo:networkOptionsChanged', onOptionsChanged)
+        }
+
         const draw = () => {
           try {
             const w = container.clientWidth || 0
@@ -112,14 +129,30 @@ const CytoscapeWrapper = {
             const spanY = (ext.maxY - ext.minY) || 1
             const sx = (w - pad * 2) / spanX
             const sy = (h - pad * 2) / spanY
-            ctx.fillStyle = 'rgba(30, 136, 229, 0.35)'
             const r = 3
             overlayPoints.forEach(p => {
               const vx = pad + (p.x - ext.minX) * sx
               const vy = pad + (p.y - ext.minY) * sy
-              ctx.beginPath()
-              ctx.arc(vx, h - vy, r, 0, Math.PI * 2)
-              ctx.fill()
+              if (sketchEnabled) {
+                // draw multiple faint strokes with slight jitter to simulate pencil
+                for (let s = 0; s < 5; s++) {
+                  const jx = (Math.random() - 0.5) * 1.6
+                  const jy = (Math.random() - 0.5) * 1.6
+                  ctx.beginPath()
+                  ctx.strokeStyle = 'rgba(30,30,30,0.22)'
+                  ctx.lineWidth = 1 + Math.random() * 0.6
+                  ctx.arc(vx + jx, h - vy + jy, r + (Math.random() - 0.5) * 0.8, 0, Math.PI * 2)
+                  ctx.stroke()
+                }
+                // light cross-hatching for shading
+                ctx.beginPath(); ctx.strokeStyle = 'rgba(30,30,30,0.06)'; ctx.lineWidth = 1; ctx.moveTo(vx - r, h - vy - r); ctx.lineTo(vx + r, h - vy + r); ctx.stroke();
+                ctx.beginPath(); ctx.moveTo(vx - r, h - vy + r); ctx.lineTo(vx + r, h - vy - r); ctx.stroke();
+              } else {
+                ctx.fillStyle = 'rgba(30, 136, 229, 0.35)'
+                ctx.beginPath()
+                ctx.arc(vx, h - vy, r, 0, Math.PI * 2)
+                ctx.fill()
+              }
             })
           } catch (e) {}
         }
@@ -135,7 +168,7 @@ const CytoscapeWrapper = {
         } catch (e) {}
         try { draw(); requestAnimationFrame(draw) } catch (e) {}
         // cleanup
-        try { adapter.destroy = ((orig) => () => { try { if (ro && ro.disconnect) ro.disconnect() } catch (e) {} try { if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas) } catch (e) {} try { if (typeof orig === 'function') orig() } catch (e) {} })(adapter.destroy) } catch (e) {}
+        try { adapter.destroy = ((orig) => () => { try { if (ro && ro.disconnect) ro.disconnect() } catch (e) {} try { if (canvas && canvas.parentNode) canvas.parentNode.removeChild(canvas) } catch (e) {} try { if (typeof window !== 'undefined' && window && window.removeEventListener) window.removeEventListener('topo:networkOptionsChanged', onOptionsChanged) } catch (e) {} try { if (typeof orig === 'function') orig() } catch (e) {} })(adapter.destroy) } catch (e) {}
       }
     } catch (e) {}
 
